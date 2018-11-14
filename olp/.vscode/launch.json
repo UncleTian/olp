@@ -54,6 +54,16 @@
             "mainClass": "com.bea.olp.eureka.DemoApplication",
             "args": "",
             "projectName": "eureka"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-DemoApplication<test>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.bea.olp.test.DemoApplication",
+            "projectName": "test",
+            "args": ""
         }
     ]
 }

@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-JDApplication<jd>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.bea.olp.jd.JDApplication",
+            "projectName": "jd",
+            "args": ""
+        }
+    ]
+}

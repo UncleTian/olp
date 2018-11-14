@@ -1,0 +1,59 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - AntApplication",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "stopOnEntry": false,
+            "mainClass": "com.bea.olp.ant.AntApplication",
+            "args": "",
+            "projectName": "ant"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - EncryptApplication",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "stopOnEntry": false,
+            "mainClass": "com.bea.olp.encrypt.EncryptApplication",
+            "args": "",
+            "projectName": "encrypt"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - EurekaApplication",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "stopOnEntry": false,
+            "mainClass": "com.bea.olp.eureka.EurekaApplication",
+            "args": "",
+            "projectName": "eureka"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - DemoApplication",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "stopOnEntry": false,
+            "mainClass": "com.bea.olp.encrypt.DemoApplication",
+            "args": "",
+            "projectName": "encrypt"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - DemoApplication",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "stopOnEntry": false,
+            "mainClass": "com.bea.olp.eureka.DemoApplication",
+            "args": "",
+            "projectName": "eureka"
+        }
+    ]
+}

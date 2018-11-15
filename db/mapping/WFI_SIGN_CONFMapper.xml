@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.WFI_SIGN_CONFMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.WFI_SIGN_CONF">
+    <id column="SIGN_ID" jdbcType="VARCHAR" property="signId" />
+    <result column="SIGN_NAME" jdbcType="VARCHAR" property="signName" />
+    <result column="SIGN_DESC" jdbcType="VARCHAR" property="signDesc" />
+    <result column="SIGN_CLASS" jdbcType="VARCHAR" property="signClass" />
+    <result column="SIGN_STATE" jdbcType="CHAR" property="signState" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    SIGN_ID, SIGN_NAME, SIGN_DESC, SIGN_CLASS, SIGN_STATE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from WFI_SIGN_CONF
+    where SIGN_ID = #{signId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from WFI_SIGN_CONF
+    where SIGN_ID = #{signId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.WFI_SIGN_CONF">
+    insert into WFI_SIGN_CONF (SIGN_ID, SIGN_NAME, SIGN_DESC, 
+      SIGN_CLASS, SIGN_STATE)
+    values (#{signId,jdbcType=VARCHAR}, #{signName,jdbcType=VARCHAR}, #{signDesc,jdbcType=VARCHAR}, 
+      #{signClass,jdbcType=VARCHAR}, #{signState,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.WFI_SIGN_CONF">
+    insert into WFI_SIGN_CONF
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="signId != null">
+        SIGN_ID,
+      </if>
+      <if test="signName != null">
+        SIGN_NAME,
+      </if>
+      <if test="signDesc != null">
+        SIGN_DESC,
+      </if>
+      <if test="signClass != null">
+        SIGN_CLASS,
+      </if>
+      <if test="signState != null">
+        SIGN_STATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="signId != null">
+        #{signId,jdbcType=VARCHAR},
+      </if>
+      <if test="signName != null">
+        #{signName,jdbcType=VARCHAR},
+      </if>
+      <if test="signDesc != null">
+        #{signDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="signClass != null">
+        #{signClass,jdbcType=VARCHAR},
+      </if>
+      <if test="signState != null">
+        #{signState,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.WFI_SIGN_CONF">
+    update WFI_SIGN_CONF
+    <set>
+      <if test="signName != null">
+        SIGN_NAME = #{signName,jdbcType=VARCHAR},
+      </if>
+      <if test="signDesc != null">
+        SIGN_DESC = #{signDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="signClass != null">
+        SIGN_CLASS = #{signClass,jdbcType=VARCHAR},
+      </if>
+      <if test="signState != null">
+        SIGN_STATE = #{signState,jdbcType=CHAR},
+      </if>
+    </set>
+    where SIGN_ID = #{signId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.WFI_SIGN_CONF">
+    update WFI_SIGN_CONF
+    set SIGN_NAME = #{signName,jdbcType=VARCHAR},
+      SIGN_DESC = #{signDesc,jdbcType=VARCHAR},
+      SIGN_CLASS = #{signClass,jdbcType=VARCHAR},
+      SIGN_STATE = #{signState,jdbcType=CHAR}
+    where SIGN_ID = #{signId,jdbcType=VARCHAR}
+  </update>
+</mapper>

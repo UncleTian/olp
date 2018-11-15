@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.BIZ_ECIF_CUST_INFOMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.BIZ_ECIF_CUST_INFO">
+    <result column="APP_NO" jdbcType="VARCHAR" property="appNo" />
+    <result column="EXT_CLIENT_NO" jdbcType="VARCHAR" property="extClientNo" />
+    <result column="PARTY_ID" jdbcType="VARCHAR" property="partyId" />
+    <result column="SRC_CREATE_TS" jdbcType="VARCHAR" property="srcCreateTs" />
+    <result column="PARTY_CLAS_CODE" jdbcType="VARCHAR" property="partyClasCode" />
+    <result column="GOVE_IDEN_NUM" jdbcType="VARCHAR" property="goveIdenNum" />
+    <result column="GOVE_IDEN_NUM_TYPE_CODE" jdbcType="VARCHAR" property="goveIdenNumTypeCode" />
+    <result column="ISS_COUNTRY" jdbcType="VARCHAR" property="issCountry" />
+    <result column="PARTY_STATUS_CODE" jdbcType="VARCHAR" property="partyStatusCode" />
+    <result column="PARTY_TYPE_CODE" jdbcType="VARCHAR" property="partyTypeCode" />
+    <result column="CH_NAME" jdbcType="VARCHAR" property="chName" />
+    <result column="EN_NAME" jdbcType="VARCHAR" property="enName" />
+    <result column="CUST_INST_NO" jdbcType="VARCHAR" property="custInstNo" />
+    <result column="CUST_MGR" jdbcType="VARCHAR" property="custMgr" />
+    <result column="AML_TYPE" jdbcType="VARCHAR" property="amlType" />
+    <result column="AML_NEXT_RE_DATE" jdbcType="VARCHAR" property="amlNextReDate" />
+    <result column="AML_UPDATE_SYSTEM" jdbcType="VARCHAR" property="amlUpdateSystem" />
+    <result column="AML_EVAL_DATE" jdbcType="VARCHAR" property="amlEvalDate" />
+    <result column="AML_EVAL_RSN" jdbcType="VARCHAR" property="amlEvalRsn" />
+    <result column="AML_FIRST_EVAL_ORG" jdbcType="VARCHAR" property="amlFirstEvalOrg" />
+    <result column="AML_LAST_EVAL_ORG" jdbcType="VARCHAR" property="amlLastEvalOrg" />
+    <result column="AML_EVAL_SYS" jdbcType="VARCHAR" property="amlEvalSys" />
+    <result column="AML_EVAL_FACTOR" jdbcType="VARCHAR" property="amlEvalFactor" />
+    <result column="FIRST_RISK_LEVEL" jdbcType="VARCHAR" property="firstRiskLevel" />
+    <result column="IS_BEA_RELATE" jdbcType="VARCHAR" property="isBeaRelate" />
+    <result column="INPUT_DATE" jdbcType="VARCHAR" property="inputDate" />
+    <result column="INPUT_TIME" jdbcType="VARCHAR" property="inputTime" />
+    <result column="LAST_UPDATE_DATE" jdbcType="VARCHAR" property="lastUpdateDate" />
+    <result column="LAST_UPDATE_TIME" jdbcType="VARCHAR" property="lastUpdateTime" />
+  </resultMap>
+  <insert id="insert" parameterType="com.bea.olp.BIZ_ECIF_CUST_INFO">
+    insert into BIZ_ECIF_CUST_INFO (APP_NO, EXT_CLIENT_NO, PARTY_ID, 
+      SRC_CREATE_TS, PARTY_CLAS_CODE, GOVE_IDEN_NUM, 
+      GOVE_IDEN_NUM_TYPE_CODE, ISS_COUNTRY, PARTY_STATUS_CODE, 
+      PARTY_TYPE_CODE, CH_NAME, EN_NAME, 
+      CUST_INST_NO, CUST_MGR, AML_TYPE, 
+      AML_NEXT_RE_DATE, AML_UPDATE_SYSTEM, AML_EVAL_DATE, 
+      AML_EVAL_RSN, AML_FIRST_EVAL_ORG, AML_LAST_EVAL_ORG, 
+      AML_EVAL_SYS, AML_EVAL_FACTOR, FIRST_RISK_LEVEL, 
+      IS_BEA_RELATE, INPUT_DATE, INPUT_TIME, 
+      LAST_UPDATE_DATE, LAST_UPDATE_TIME)
+    values (#{appNo,jdbcType=VARCHAR}, #{extClientNo,jdbcType=VARCHAR}, #{partyId,jdbcType=VARCHAR}, 
+      #{srcCreateTs,jdbcType=VARCHAR}, #{partyClasCode,jdbcType=VARCHAR}, #{goveIdenNum,jdbcType=VARCHAR}, 
+      #{goveIdenNumTypeCode,jdbcType=VARCHAR}, #{issCountry,jdbcType=VARCHAR}, #{partyStatusCode,jdbcType=VARCHAR}, 
+      #{partyTypeCode,jdbcType=VARCHAR}, #{chName,jdbcType=VARCHAR}, #{enName,jdbcType=VARCHAR}, 
+      #{custInstNo,jdbcType=VARCHAR}, #{custMgr,jdbcType=VARCHAR}, #{amlType,jdbcType=VARCHAR}, 
+      #{amlNextReDate,jdbcType=VARCHAR}, #{amlUpdateSystem,jdbcType=VARCHAR}, #{amlEvalDate,jdbcType=VARCHAR}, 
+      #{amlEvalRsn,jdbcType=VARCHAR}, #{amlFirstEvalOrg,jdbcType=VARCHAR}, #{amlLastEvalOrg,jdbcType=VARCHAR}, 
+      #{amlEvalSys,jdbcType=VARCHAR}, #{amlEvalFactor,jdbcType=VARCHAR}, #{firstRiskLevel,jdbcType=VARCHAR}, 
+      #{isBeaRelate,jdbcType=VARCHAR}, #{inputDate,jdbcType=VARCHAR}, #{inputTime,jdbcType=VARCHAR}, 
+      #{lastUpdateDate,jdbcType=VARCHAR}, #{lastUpdateTime,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.BIZ_ECIF_CUST_INFO">
+    insert into BIZ_ECIF_CUST_INFO
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="appNo != null">
+        APP_NO,
+      </if>
+      <if test="extClientNo != null">
+        EXT_CLIENT_NO,
+      </if>
+      <if test="partyId != null">
+        PARTY_ID,
+      </if>
+      <if test="srcCreateTs != null">
+        SRC_CREATE_TS,
+      </if>
+      <if test="partyClasCode != null">
+        PARTY_CLAS_CODE,
+      </if>
+      <if test="goveIdenNum != null">
+        GOVE_IDEN_NUM,
+      </if>
+      <if test="goveIdenNumTypeCode != null">
+        GOVE_IDEN_NUM_TYPE_CODE,
+      </if>
+      <if test="issCountry != null">
+        ISS_COUNTRY,
+      </if>
+      <if test="partyStatusCode != null">
+        PARTY_STATUS_CODE,
+      </if>
+      <if test="partyTypeCode != null">
+        PARTY_TYPE_CODE,
+      </if>
+      <if test="chName != null">
+        CH_NAME,
+      </if>
+      <if test="enName != null">
+        EN_NAME,
+      </if>
+      <if test="custInstNo != null">
+        CUST_INST_NO,
+      </if>
+      <if test="custMgr != null">
+        CUST_MGR,
+      </if>
+      <if test="amlType != null">
+        AML_TYPE,
+      </if>
+      <if test="amlNextReDate != null">
+        AML_NEXT_RE_DATE,
+      </if>
+      <if test="amlUpdateSystem != null">
+        AML_UPDATE_SYSTEM,
+      </if>
+      <if test="amlEvalDate != null">
+        AML_EVAL_DATE,
+      </if>
+      <if test="amlEvalRsn != null">
+        AML_EVAL_RSN,
+      </if>
+      <if test="amlFirstEvalOrg != null">
+        AML_FIRST_EVAL_ORG,
+      </if>
+      <if test="amlLastEvalOrg != null">
+        AML_LAST_EVAL_ORG,
+      </if>
+      <if test="amlEvalSys != null">
+        AML_EVAL_SYS,
+      </if>
+      <if test="amlEvalFactor != null">
+        AML_EVAL_FACTOR,
+      </if>
+      <if test="firstRiskLevel != null">
+        FIRST_RISK_LEVEL,
+      </if>
+      <if test="isBeaRelate != null">
+        IS_BEA_RELATE,
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE,
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME,
+      </if>
+      <if test="lastUpdateDate != null">
+        LAST_UPDATE_DATE,
+      </if>
+      <if test="lastUpdateTime != null">
+        LAST_UPDATE_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="appNo != null">
+        #{appNo,jdbcType=VARCHAR},
+      </if>
+      <if test="extClientNo != null">
+        #{extClientNo,jdbcType=VARCHAR},
+      </if>
+      <if test="partyId != null">
+        #{partyId,jdbcType=VARCHAR},
+      </if>
+      <if test="srcCreateTs != null">
+        #{srcCreateTs,jdbcType=VARCHAR},
+      </if>
+      <if test="partyClasCode != null">
+        #{partyClasCode,jdbcType=VARCHAR},
+      </if>
+      <if test="goveIdenNum != null">
+        #{goveIdenNum,jdbcType=VARCHAR},
+      </if>
+      <if test="goveIdenNumTypeCode != null">
+        #{goveIdenNumTypeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="issCountry != null">
+        #{issCountry,jdbcType=VARCHAR},
+      </if>
+      <if test="partyStatusCode != null">
+        #{partyStatusCode,jdbcType=VARCHAR},
+      </if>
+      <if test="partyTypeCode != null">
+        #{partyTypeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="chName != null">
+        #{chName,jdbcType=VARCHAR},
+      </if>
+      <if test="enName != null">
+        #{enName,jdbcType=VARCHAR},
+      </if>
+      <if test="custInstNo != null">
+        #{custInstNo,jdbcType=VARCHAR},
+      </if>
+      <if test="custMgr != null">
+        #{custMgr,jdbcType=VARCHAR},
+      </if>
+      <if test="amlType != null">
+        #{amlType,jdbcType=VARCHAR},
+      </if>
+      <if test="amlNextReDate != null">
+        #{amlNextReDate,jdbcType=VARCHAR},
+      </if>
+      <if test="amlUpdateSystem != null">
+        #{amlUpdateSystem,jdbcType=VARCHAR},
+      </if>
+      <if test="amlEvalDate != null">
+        #{amlEvalDate,jdbcType=VARCHAR},
+      </if>
+      <if test="amlEvalRsn != null">
+        #{amlEvalRsn,jdbcType=VARCHAR},
+      </if>
+      <if test="amlFirstEvalOrg != null">
+        #{amlFirstEvalOrg,jdbcType=VARCHAR},
+      </if>
+      <if test="amlLastEvalOrg != null">
+        #{amlLastEvalOrg,jdbcType=VARCHAR},
+      </if>
+      <if test="amlEvalSys != null">
+        #{amlEvalSys,jdbcType=VARCHAR},
+      </if>
+      <if test="amlEvalFactor != null">
+        #{amlEvalFactor,jdbcType=VARCHAR},
+      </if>
+      <if test="firstRiskLevel != null">
+        #{firstRiskLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="isBeaRelate != null">
+        #{isBeaRelate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateDate != null">
+        #{lastUpdateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        #{lastUpdateTime,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

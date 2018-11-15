@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.WFI_SIGN_TASKMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.WFI_SIGN_TASK">
+    <id column="ST_TASK_ID" jdbcType="VARCHAR" property="stTaskId" />
+    <result column="ST_TASK_NAME" jdbcType="VARCHAR" property="stTaskName" />
+    <result column="ST_EXE_USER" jdbcType="VARCHAR" property="stExeUser" />
+    <result column="ST_EXE_ORG" jdbcType="VARCHAR" property="stExeOrg" />
+    <result column="ST_CONFIG" jdbcType="VARCHAR" property="stConfig" />
+    <result column="ST_ADVICE" jdbcType="VARCHAR" property="stAdvice" />
+    <result column="ST_MEMBERS" jdbcType="VARCHAR" property="stMembers" />
+    <result column="ST_DUTY" jdbcType="VARCHAR" property="stDuty" />
+    <result column="ST_LEADER" jdbcType="VARCHAR" property="stLeader" />
+    <result column="ST_TOTAL_COUNT" jdbcType="DECIMAL" property="stTotalCount" />
+    <result column="ST_VOTE_COUNT" jdbcType="DECIMAL" property="stVoteCount" />
+    <result column="ST_AGREE_COUNT" jdbcType="DECIMAL" property="stAgreeCount" />
+    <result column="ST_REJECT_COUNT" jdbcType="DECIMAL" property="stRejectCount" />
+    <result column="ST_NOIDEA_COUNT" jdbcType="DECIMAL" property="stNoideaCount" />
+    <result column="ST_RESULT" jdbcType="CHAR" property="stResult" />
+    <result column="ST_REQUEST_DAY" jdbcType="DECIMAL" property="stRequestDay" />
+    <result column="ST_TASK_STATUS" jdbcType="CHAR" property="stTaskStatus" />
+    <result column="SERNO" jdbcType="VARCHAR" property="serno" />
+    <result column="BIZ_TYPE" jdbcType="VARCHAR" property="bizType" />
+    <result column="ST_START_TIME" jdbcType="VARCHAR" property="stStartTime" />
+    <result column="ST_END_TIME" jdbcType="VARCHAR" property="stEndTime" />
+    <result column="ST_TASK_TIMES" jdbcType="DECIMAL" property="stTaskTimes" />
+    <result column="WFI_NODE_ID" jdbcType="VARCHAR" property="wfiNodeId" />
+    <result column="WFI_SCENE_ID" jdbcType="VARCHAR" property="wfiSceneId" />
+    <result column="WFI_SIGN" jdbcType="VARCHAR" property="wfiSign" />
+    <result column="WFI_BIZ_PAGE" jdbcType="VARCHAR" property="wfiBizPage" />
+    <result column="WFI_INSTANCE_ID" jdbcType="VARCHAR" property="wfiInstanceId" />
+    <result column="WFI_ADVICE_ID" jdbcType="VARCHAR" property="wfiAdviceId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ST_TASK_ID, ST_TASK_NAME, ST_EXE_USER, ST_EXE_ORG, ST_CONFIG, ST_ADVICE, ST_MEMBERS, 
+    ST_DUTY, ST_LEADER, ST_TOTAL_COUNT, ST_VOTE_COUNT, ST_AGREE_COUNT, ST_REJECT_COUNT, 
+    ST_NOIDEA_COUNT, ST_RESULT, ST_REQUEST_DAY, ST_TASK_STATUS, SERNO, BIZ_TYPE, ST_START_TIME, 
+    ST_END_TIME, ST_TASK_TIMES, WFI_NODE_ID, WFI_SCENE_ID, WFI_SIGN, WFI_BIZ_PAGE, WFI_INSTANCE_ID, 
+    WFI_ADVICE_ID
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from WFI_SIGN_TASK
+    where ST_TASK_ID = #{stTaskId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from WFI_SIGN_TASK
+    where ST_TASK_ID = #{stTaskId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.WFI_SIGN_TASK">
+    insert into WFI_SIGN_TASK (ST_TASK_ID, ST_TASK_NAME, ST_EXE_USER, 
+      ST_EXE_ORG, ST_CONFIG, ST_ADVICE, 
+      ST_MEMBERS, ST_DUTY, ST_LEADER, 
+      ST_TOTAL_COUNT, ST_VOTE_COUNT, ST_AGREE_COUNT, 
+      ST_REJECT_COUNT, ST_NOIDEA_COUNT, ST_RESULT, 
+      ST_REQUEST_DAY, ST_TASK_STATUS, SERNO, 
+      BIZ_TYPE, ST_START_TIME, ST_END_TIME, 
+      ST_TASK_TIMES, WFI_NODE_ID, WFI_SCENE_ID, 
+      WFI_SIGN, WFI_BIZ_PAGE, WFI_INSTANCE_ID, 
+      WFI_ADVICE_ID)
+    values (#{stTaskId,jdbcType=VARCHAR}, #{stTaskName,jdbcType=VARCHAR}, #{stExeUser,jdbcType=VARCHAR}, 
+      #{stExeOrg,jdbcType=VARCHAR}, #{stConfig,jdbcType=VARCHAR}, #{stAdvice,jdbcType=VARCHAR}, 
+      #{stMembers,jdbcType=VARCHAR}, #{stDuty,jdbcType=VARCHAR}, #{stLeader,jdbcType=VARCHAR}, 
+      #{stTotalCount,jdbcType=DECIMAL}, #{stVoteCount,jdbcType=DECIMAL}, #{stAgreeCount,jdbcType=DECIMAL}, 
+      #{stRejectCount,jdbcType=DECIMAL}, #{stNoideaCount,jdbcType=DECIMAL}, #{stResult,jdbcType=CHAR}, 
+      #{stRequestDay,jdbcType=DECIMAL}, #{stTaskStatus,jdbcType=CHAR}, #{serno,jdbcType=VARCHAR}, 
+      #{bizType,jdbcType=VARCHAR}, #{stStartTime,jdbcType=VARCHAR}, #{stEndTime,jdbcType=VARCHAR}, 
+      #{stTaskTimes,jdbcType=DECIMAL}, #{wfiNodeId,jdbcType=VARCHAR}, #{wfiSceneId,jdbcType=VARCHAR}, 
+      #{wfiSign,jdbcType=VARCHAR}, #{wfiBizPage,jdbcType=VARCHAR}, #{wfiInstanceId,jdbcType=VARCHAR}, 
+      #{wfiAdviceId,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.WFI_SIGN_TASK">
+    insert into WFI_SIGN_TASK
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="stTaskId != null">
+        ST_TASK_ID,
+      </if>
+      <if test="stTaskName != null">
+        ST_TASK_NAME,
+      </if>
+      <if test="stExeUser != null">
+        ST_EXE_USER,
+      </if>
+      <if test="stExeOrg != null">
+        ST_EXE_ORG,
+      </if>
+      <if test="stConfig != null">
+        ST_CONFIG,
+      </if>
+      <if test="stAdvice != null">
+        ST_ADVICE,
+      </if>
+      <if test="stMembers != null">
+        ST_MEMBERS,
+      </if>
+      <if test="stDuty != null">
+        ST_DUTY,
+      </if>
+      <if test="stLeader != null">
+        ST_LEADER,
+      </if>
+      <if test="stTotalCount != null">
+        ST_TOTAL_COUNT,
+      </if>
+      <if test="stVoteCount != null">
+        ST_VOTE_COUNT,
+      </if>
+      <if test="stAgreeCount != null">
+        ST_AGREE_COUNT,
+      </if>
+      <if test="stRejectCount != null">
+        ST_REJECT_COUNT,
+      </if>
+      <if test="stNoideaCount != null">
+        ST_NOIDEA_COUNT,
+      </if>
+      <if test="stResult != null">
+        ST_RESULT,
+      </if>
+      <if test="stRequestDay != null">
+        ST_REQUEST_DAY,
+      </if>
+      <if test="stTaskStatus != null">
+        ST_TASK_STATUS,
+      </if>
+      <if test="serno != null">
+        SERNO,
+      </if>
+      <if test="bizType != null">
+        BIZ_TYPE,
+      </if>
+      <if test="stStartTime != null">
+        ST_START_TIME,
+      </if>
+      <if test="stEndTime != null">
+        ST_END_TIME,
+      </if>
+      <if test="stTaskTimes != null">
+        ST_TASK_TIMES,
+      </if>
+      <if test="wfiNodeId != null">
+        WFI_NODE_ID,
+      </if>
+      <if test="wfiSceneId != null">
+        WFI_SCENE_ID,
+      </if>
+      <if test="wfiSign != null">
+        WFI_SIGN,
+      </if>
+      <if test="wfiBizPage != null">
+        WFI_BIZ_PAGE,
+      </if>
+      <if test="wfiInstanceId != null">
+        WFI_INSTANCE_ID,
+      </if>
+      <if test="wfiAdviceId != null">
+        WFI_ADVICE_ID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="stTaskId != null">
+        #{stTaskId,jdbcType=VARCHAR},
+      </if>
+      <if test="stTaskName != null">
+        #{stTaskName,jdbcType=VARCHAR},
+      </if>
+      <if test="stExeUser != null">
+        #{stExeUser,jdbcType=VARCHAR},
+      </if>
+      <if test="stExeOrg != null">
+        #{stExeOrg,jdbcType=VARCHAR},
+      </if>
+      <if test="stConfig != null">
+        #{stConfig,jdbcType=VARCHAR},
+      </if>
+      <if test="stAdvice != null">
+        #{stAdvice,jdbcType=VARCHAR},
+      </if>
+      <if test="stMembers != null">
+        #{stMembers,jdbcType=VARCHAR},
+      </if>
+      <if test="stDuty != null">
+        #{stDuty,jdbcType=VARCHAR},
+      </if>
+      <if test="stLeader != null">
+        #{stLeader,jdbcType=VARCHAR},
+      </if>
+      <if test="stTotalCount != null">
+        #{stTotalCount,jdbcType=DECIMAL},
+      </if>
+      <if test="stVoteCount != null">
+        #{stVoteCount,jdbcType=DECIMAL},
+      </if>
+      <if test="stAgreeCount != null">
+        #{stAgreeCount,jdbcType=DECIMAL},
+      </if>
+      <if test="stRejectCount != null">
+        #{stRejectCount,jdbcType=DECIMAL},
+      </if>
+      <if test="stNoideaCount != null">
+        #{stNoideaCount,jdbcType=DECIMAL},
+      </if>
+      <if test="stResult != null">
+        #{stResult,jdbcType=CHAR},
+      </if>
+      <if test="stRequestDay != null">
+        #{stRequestDay,jdbcType=DECIMAL},
+      </if>
+      <if test="stTaskStatus != null">
+        #{stTaskStatus,jdbcType=CHAR},
+      </if>
+      <if test="serno != null">
+        #{serno,jdbcType=VARCHAR},
+      </if>
+      <if test="bizType != null">
+        #{bizType,jdbcType=VARCHAR},
+      </if>
+      <if test="stStartTime != null">
+        #{stStartTime,jdbcType=VARCHAR},
+      </if>
+      <if test="stEndTime != null">
+        #{stEndTime,jdbcType=VARCHAR},
+      </if>
+      <if test="stTaskTimes != null">
+        #{stTaskTimes,jdbcType=DECIMAL},
+      </if>
+      <if test="wfiNodeId != null">
+        #{wfiNodeId,jdbcType=VARCHAR},
+      </if>
+      <if test="wfiSceneId != null">
+        #{wfiSceneId,jdbcType=VARCHAR},
+      </if>
+      <if test="wfiSign != null">
+        #{wfiSign,jdbcType=VARCHAR},
+      </if>
+      <if test="wfiBizPage != null">
+        #{wfiBizPage,jdbcType=VARCHAR},
+      </if>
+      <if test="wfiInstanceId != null">
+        #{wfiInstanceId,jdbcType=VARCHAR},
+      </if>
+      <if test="wfiAdviceId != null">
+        #{wfiAdviceId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.WFI_SIGN_TASK">
+    update WFI_SIGN_TASK
+    <set>
+      <if test="stTaskName != null">
+        ST_TASK_NAME = #{stTaskName,jdbcType=VARCHAR},
+      </if>
+      <if test="stExeUser != null">
+        ST_EXE_USER = #{stExeUser,jdbcType=VARCHAR},
+      </if>
+      <if test="stExeOrg != null">
+        ST_EXE_ORG = #{stExeOrg,jdbcType=VARCHAR},
+      </if>
+      <if test="stConfig != null">
+        ST_CONFIG = #{stConfig,jdbcType=VARCHAR},
+      </if>
+      <if test="stAdvice != null">
+        ST_ADVICE = #{stAdvice,jdbcType=VARCHAR},
+      </if>
+      <if test="stMembers != null">
+        ST_MEMBERS = #{stMembers,jdbcType=VARCHAR},
+      </if>
+      <if test="stDuty != null">
+        ST_DUTY = #{stDuty,jdbcType=VARCHAR},
+      </if>
+      <if test="stLeader != null">
+        ST_LEADER = #{stLeader,jdbcType=VARCHAR},
+      </if>
+      <if test="stTotalCount != null">
+        ST_TOTAL_COUNT = #{stTotalCount,jdbcType=DECIMAL},
+      </if>
+      <if test="stVoteCount != null">
+        ST_VOTE_COUNT = #{stVoteCount,jdbcType=DECIMAL},
+      </if>
+      <if test="stAgreeCount != null">
+        ST_AGREE_COUNT = #{stAgreeCount,jdbcType=DECIMAL},
+      </if>
+      <if test="stRejectCount != null">
+        ST_REJECT_COUNT = #{stRejectCount,jdbcType=DECIMAL},
+      </if>
+      <if test="stNoideaCount != null">
+        ST_NOIDEA_COUNT = #{stNoideaCount,jdbcType=DECIMAL},
+      </if>
+      <if test="stResult != null">
+        ST_RESULT = #{stResult,jdbcType=CHAR},
+      </if>
+      <if test="stRequestDay != null">
+        ST_REQUEST_DAY = #{stRequestDay,jdbcType=DECIMAL},
+      </if>
+      <if test="stTaskStatus != null">
+        ST_TASK_STATUS = #{stTaskStatus,jdbcType=CHAR},
+      </if>
+      <if test="serno != null">
+        SERNO = #{serno,jdbcType=VARCHAR},
+      </if>
+      <if test="bizType != null">
+        BIZ_TYPE = #{bizType,jdbcType=VARCHAR},
+      </if>
+      <if test="stStartTime != null">
+        ST_START_TIME = #{stStartTime,jdbcType=VARCHAR},
+      </if>
+      <if test="stEndTime != null">
+        ST_END_TIME = #{stEndTime,jdbcType=VARCHAR},
+      </if>
+      <if test="stTaskTimes != null">
+        ST_TASK_TIMES = #{stTaskTimes,jdbcType=DECIMAL},
+      </if>
+      <if test="wfiNodeId != null">
+        WFI_NODE_ID = #{wfiNodeId,jdbcType=VARCHAR},
+      </if>
+      <if test="wfiSceneId != null">
+        WFI_SCENE_ID = #{wfiSceneId,jdbcType=VARCHAR},
+      </if>
+      <if test="wfiSign != null">
+        WFI_SIGN = #{wfiSign,jdbcType=VARCHAR},
+      </if>
+      <if test="wfiBizPage != null">
+        WFI_BIZ_PAGE = #{wfiBizPage,jdbcType=VARCHAR},
+      </if>
+      <if test="wfiInstanceId != null">
+        WFI_INSTANCE_ID = #{wfiInstanceId,jdbcType=VARCHAR},
+      </if>
+      <if test="wfiAdviceId != null">
+        WFI_ADVICE_ID = #{wfiAdviceId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ST_TASK_ID = #{stTaskId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.WFI_SIGN_TASK">
+    update WFI_SIGN_TASK
+    set ST_TASK_NAME = #{stTaskName,jdbcType=VARCHAR},
+      ST_EXE_USER = #{stExeUser,jdbcType=VARCHAR},
+      ST_EXE_ORG = #{stExeOrg,jdbcType=VARCHAR},
+      ST_CONFIG = #{stConfig,jdbcType=VARCHAR},
+      ST_ADVICE = #{stAdvice,jdbcType=VARCHAR},
+      ST_MEMBERS = #{stMembers,jdbcType=VARCHAR},
+      ST_DUTY = #{stDuty,jdbcType=VARCHAR},
+      ST_LEADER = #{stLeader,jdbcType=VARCHAR},
+      ST_TOTAL_COUNT = #{stTotalCount,jdbcType=DECIMAL},
+      ST_VOTE_COUNT = #{stVoteCount,jdbcType=DECIMAL},
+      ST_AGREE_COUNT = #{stAgreeCount,jdbcType=DECIMAL},
+      ST_REJECT_COUNT = #{stRejectCount,jdbcType=DECIMAL},
+      ST_NOIDEA_COUNT = #{stNoideaCount,jdbcType=DECIMAL},
+      ST_RESULT = #{stResult,jdbcType=CHAR},
+      ST_REQUEST_DAY = #{stRequestDay,jdbcType=DECIMAL},
+      ST_TASK_STATUS = #{stTaskStatus,jdbcType=CHAR},
+      SERNO = #{serno,jdbcType=VARCHAR},
+      BIZ_TYPE = #{bizType,jdbcType=VARCHAR},
+      ST_START_TIME = #{stStartTime,jdbcType=VARCHAR},
+      ST_END_TIME = #{stEndTime,jdbcType=VARCHAR},
+      ST_TASK_TIMES = #{stTaskTimes,jdbcType=DECIMAL},
+      WFI_NODE_ID = #{wfiNodeId,jdbcType=VARCHAR},
+      WFI_SCENE_ID = #{wfiSceneId,jdbcType=VARCHAR},
+      WFI_SIGN = #{wfiSign,jdbcType=VARCHAR},
+      WFI_BIZ_PAGE = #{wfiBizPage,jdbcType=VARCHAR},
+      WFI_INSTANCE_ID = #{wfiInstanceId,jdbcType=VARCHAR},
+      WFI_ADVICE_ID = #{wfiAdviceId,jdbcType=VARCHAR}
+    where ST_TASK_ID = #{stTaskId,jdbcType=VARCHAR}
+  </update>
+</mapper>

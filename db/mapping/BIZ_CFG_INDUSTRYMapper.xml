@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.BIZ_CFG_INDUSTRYMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.BIZ_CFG_INDUSTRY">
+    <id column="INDUSTRY_ID" jdbcType="VARCHAR" property="industryId" />
+    <result column="INDUSTRY_CODE" jdbcType="VARCHAR" property="industryCode" />
+    <result column="INDUSTRY_NAME" jdbcType="VARCHAR" property="industryName" />
+    <result column="INDUSTRY_RISK_LEVE" jdbcType="VARCHAR" property="industryRiskLeve" />
+    <result column="INPUT_DATE" jdbcType="VARCHAR" property="inputDate" />
+    <result column="INPUT_TIME" jdbcType="VARCHAR" property="inputTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    INDUSTRY_ID, INDUSTRY_CODE, INDUSTRY_NAME, INDUSTRY_RISK_LEVE, INPUT_DATE, INPUT_TIME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from BIZ_CFG_INDUSTRY
+    where INDUSTRY_ID = #{industryId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from BIZ_CFG_INDUSTRY
+    where INDUSTRY_ID = #{industryId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.BIZ_CFG_INDUSTRY">
+    insert into BIZ_CFG_INDUSTRY (INDUSTRY_ID, INDUSTRY_CODE, INDUSTRY_NAME, 
+      INDUSTRY_RISK_LEVE, INPUT_DATE, INPUT_TIME
+      )
+    values (#{industryId,jdbcType=VARCHAR}, #{industryCode,jdbcType=VARCHAR}, #{industryName,jdbcType=VARCHAR}, 
+      #{industryRiskLeve,jdbcType=VARCHAR}, #{inputDate,jdbcType=VARCHAR}, #{inputTime,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.BIZ_CFG_INDUSTRY">
+    insert into BIZ_CFG_INDUSTRY
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="industryId != null">
+        INDUSTRY_ID,
+      </if>
+      <if test="industryCode != null">
+        INDUSTRY_CODE,
+      </if>
+      <if test="industryName != null">
+        INDUSTRY_NAME,
+      </if>
+      <if test="industryRiskLeve != null">
+        INDUSTRY_RISK_LEVE,
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE,
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="industryId != null">
+        #{industryId,jdbcType=VARCHAR},
+      </if>
+      <if test="industryCode != null">
+        #{industryCode,jdbcType=VARCHAR},
+      </if>
+      <if test="industryName != null">
+        #{industryName,jdbcType=VARCHAR},
+      </if>
+      <if test="industryRiskLeve != null">
+        #{industryRiskLeve,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        #{inputTime,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.BIZ_CFG_INDUSTRY">
+    update BIZ_CFG_INDUSTRY
+    <set>
+      <if test="industryCode != null">
+        INDUSTRY_CODE = #{industryCode,jdbcType=VARCHAR},
+      </if>
+      <if test="industryName != null">
+        INDUSTRY_NAME = #{industryName,jdbcType=VARCHAR},
+      </if>
+      <if test="industryRiskLeve != null">
+        INDUSTRY_RISK_LEVE = #{industryRiskLeve,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE = #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME = #{inputTime,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where INDUSTRY_ID = #{industryId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.BIZ_CFG_INDUSTRY">
+    update BIZ_CFG_INDUSTRY
+    set INDUSTRY_CODE = #{industryCode,jdbcType=VARCHAR},
+      INDUSTRY_NAME = #{industryName,jdbcType=VARCHAR},
+      INDUSTRY_RISK_LEVE = #{industryRiskLeve,jdbcType=VARCHAR},
+      INPUT_DATE = #{inputDate,jdbcType=VARCHAR},
+      INPUT_TIME = #{inputTime,jdbcType=VARCHAR}
+    where INDUSTRY_ID = #{industryId,jdbcType=VARCHAR}
+  </update>
+</mapper>

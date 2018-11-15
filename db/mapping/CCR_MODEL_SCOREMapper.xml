@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.CCR_MODEL_SCOREMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.CCR_MODEL_SCORE">
+    <id column="MODEL_NO" jdbcType="VARCHAR" property="modelNo" />
+    <id column="CUS_ID" jdbcType="VARCHAR" property="cusId" />
+    <id column="CCR_DATE" jdbcType="VARCHAR" property="ccrDate" />
+    <result column="MODEL_NAME" jdbcType="VARCHAR" property="modelName" />
+    <result column="SERNO" jdbcType="VARCHAR" property="serno" />
+    <result column="ALL_SCORE" jdbcType="VARCHAR" property="allScore" />
+    <result column="SCORING_MANAGER" jdbcType="VARCHAR" property="scoringManager" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    MODEL_NO, CUS_ID, CCR_DATE, MODEL_NAME, SERNO, ALL_SCORE, SCORING_MANAGER
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="com.bea.olp.CCR_MODEL_SCOREKey" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from CCR_MODEL_SCORE
+    where MODEL_NO = #{modelNo,jdbcType=VARCHAR}
+      and CUS_ID = #{cusId,jdbcType=VARCHAR}
+      and CCR_DATE = #{ccrDate,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.bea.olp.CCR_MODEL_SCOREKey">
+    delete from CCR_MODEL_SCORE
+    where MODEL_NO = #{modelNo,jdbcType=VARCHAR}
+      and CUS_ID = #{cusId,jdbcType=VARCHAR}
+      and CCR_DATE = #{ccrDate,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.CCR_MODEL_SCORE">
+    insert into CCR_MODEL_SCORE (MODEL_NO, CUS_ID, CCR_DATE, 
+      MODEL_NAME, SERNO, ALL_SCORE, 
+      SCORING_MANAGER)
+    values (#{modelNo,jdbcType=VARCHAR}, #{cusId,jdbcType=VARCHAR}, #{ccrDate,jdbcType=VARCHAR}, 
+      #{modelName,jdbcType=VARCHAR}, #{serno,jdbcType=VARCHAR}, #{allScore,jdbcType=VARCHAR}, 
+      #{scoringManager,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.CCR_MODEL_SCORE">
+    insert into CCR_MODEL_SCORE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="modelNo != null">
+        MODEL_NO,
+      </if>
+      <if test="cusId != null">
+        CUS_ID,
+      </if>
+      <if test="ccrDate != null">
+        CCR_DATE,
+      </if>
+      <if test="modelName != null">
+        MODEL_NAME,
+      </if>
+      <if test="serno != null">
+        SERNO,
+      </if>
+      <if test="allScore != null">
+        ALL_SCORE,
+      </if>
+      <if test="scoringManager != null">
+        SCORING_MANAGER,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="modelNo != null">
+        #{modelNo,jdbcType=VARCHAR},
+      </if>
+      <if test="cusId != null">
+        #{cusId,jdbcType=VARCHAR},
+      </if>
+      <if test="ccrDate != null">
+        #{ccrDate,jdbcType=VARCHAR},
+      </if>
+      <if test="modelName != null">
+        #{modelName,jdbcType=VARCHAR},
+      </if>
+      <if test="serno != null">
+        #{serno,jdbcType=VARCHAR},
+      </if>
+      <if test="allScore != null">
+        #{allScore,jdbcType=VARCHAR},
+      </if>
+      <if test="scoringManager != null">
+        #{scoringManager,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.CCR_MODEL_SCORE">
+    update CCR_MODEL_SCORE
+    <set>
+      <if test="modelName != null">
+        MODEL_NAME = #{modelName,jdbcType=VARCHAR},
+      </if>
+      <if test="serno != null">
+        SERNO = #{serno,jdbcType=VARCHAR},
+      </if>
+      <if test="allScore != null">
+        ALL_SCORE = #{allScore,jdbcType=VARCHAR},
+      </if>
+      <if test="scoringManager != null">
+        SCORING_MANAGER = #{scoringManager,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where MODEL_NO = #{modelNo,jdbcType=VARCHAR}
+      and CUS_ID = #{cusId,jdbcType=VARCHAR}
+      and CCR_DATE = #{ccrDate,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.CCR_MODEL_SCORE">
+    update CCR_MODEL_SCORE
+    set MODEL_NAME = #{modelName,jdbcType=VARCHAR},
+      SERNO = #{serno,jdbcType=VARCHAR},
+      ALL_SCORE = #{allScore,jdbcType=VARCHAR},
+      SCORING_MANAGER = #{scoringManager,jdbcType=VARCHAR}
+    where MODEL_NO = #{modelNo,jdbcType=VARCHAR}
+      and CUS_ID = #{cusId,jdbcType=VARCHAR}
+      and CCR_DATE = #{ccrDate,jdbcType=VARCHAR}
+  </update>
+</mapper>

@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.QUEUE_TASKMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.QUEUE_TASK">
+    <id column="APP_NO" jdbcType="VARCHAR" property="appNo" />
+    <result column="CO_PLATFORM" jdbcType="VARCHAR" property="coPlatform" />
+    <result column="PRD_CODE" jdbcType="VARCHAR" property="prdCode" />
+    <result column="CHANNEL_TYPE" jdbcType="VARCHAR" property="channelType" />
+    <result column="PRD_TYPE" jdbcType="VARCHAR" property="prdType" />
+    <result column="APP_TYPE" jdbcType="VARCHAR" property="appType" />
+    <result column="FLOW_TYPE" jdbcType="VARCHAR" property="flowType" />
+    <result column="IN_TYPE" jdbcType="VARCHAR" property="inType" />
+    <result column="QUEUE_STATUS" jdbcType="VARCHAR" property="queueStatus" />
+    <result column="CUR_NODE_ID" jdbcType="VARCHAR" property="curNodeId" />
+    <result column="ERROR_CODE" jdbcType="VARCHAR" property="errorCode" />
+    <result column="ERROR_MSG" jdbcType="VARCHAR" property="errorMsg" />
+    <result column="EVAL_TIME" jdbcType="VARCHAR" property="evalTime" />
+    <result column="EXECUTE_TIME" jdbcType="VARCHAR" property="executeTime" />
+    <result column="HANG_TIMES" jdbcType="DECIMAL" property="hangTimes" />
+    <result column="IN_TIME" jdbcType="VARCHAR" property="inTime" />
+    <result column="OUT_TIME" jdbcType="VARCHAR" property="outTime" />
+    <result column="LAST_UPDATE_TIME" jdbcType="VARCHAR" property="lastUpdateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    APP_NO, CO_PLATFORM, PRD_CODE, CHANNEL_TYPE, PRD_TYPE, APP_TYPE, FLOW_TYPE, IN_TYPE, 
+    QUEUE_STATUS, CUR_NODE_ID, ERROR_CODE, ERROR_MSG, EVAL_TIME, EXECUTE_TIME, HANG_TIMES, 
+    IN_TIME, OUT_TIME, LAST_UPDATE_TIME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from QUEUE_TASK
+    where APP_NO = #{appNo,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from QUEUE_TASK
+    where APP_NO = #{appNo,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.QUEUE_TASK">
+    insert into QUEUE_TASK (APP_NO, CO_PLATFORM, PRD_CODE, 
+      CHANNEL_TYPE, PRD_TYPE, APP_TYPE, 
+      FLOW_TYPE, IN_TYPE, QUEUE_STATUS, 
+      CUR_NODE_ID, ERROR_CODE, ERROR_MSG, 
+      EVAL_TIME, EXECUTE_TIME, HANG_TIMES, 
+      IN_TIME, OUT_TIME, LAST_UPDATE_TIME
+      )
+    values (#{appNo,jdbcType=VARCHAR}, #{coPlatform,jdbcType=VARCHAR}, #{prdCode,jdbcType=VARCHAR}, 
+      #{channelType,jdbcType=VARCHAR}, #{prdType,jdbcType=VARCHAR}, #{appType,jdbcType=VARCHAR}, 
+      #{flowType,jdbcType=VARCHAR}, #{inType,jdbcType=VARCHAR}, #{queueStatus,jdbcType=VARCHAR}, 
+      #{curNodeId,jdbcType=VARCHAR}, #{errorCode,jdbcType=VARCHAR}, #{errorMsg,jdbcType=VARCHAR}, 
+      #{evalTime,jdbcType=VARCHAR}, #{executeTime,jdbcType=VARCHAR}, #{hangTimes,jdbcType=DECIMAL}, 
+      #{inTime,jdbcType=VARCHAR}, #{outTime,jdbcType=VARCHAR}, #{lastUpdateTime,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.QUEUE_TASK">
+    insert into QUEUE_TASK
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="appNo != null">
+        APP_NO,
+      </if>
+      <if test="coPlatform != null">
+        CO_PLATFORM,
+      </if>
+      <if test="prdCode != null">
+        PRD_CODE,
+      </if>
+      <if test="channelType != null">
+        CHANNEL_TYPE,
+      </if>
+      <if test="prdType != null">
+        PRD_TYPE,
+      </if>
+      <if test="appType != null">
+        APP_TYPE,
+      </if>
+      <if test="flowType != null">
+        FLOW_TYPE,
+      </if>
+      <if test="inType != null">
+        IN_TYPE,
+      </if>
+      <if test="queueStatus != null">
+        QUEUE_STATUS,
+      </if>
+      <if test="curNodeId != null">
+        CUR_NODE_ID,
+      </if>
+      <if test="errorCode != null">
+        ERROR_CODE,
+      </if>
+      <if test="errorMsg != null">
+        ERROR_MSG,
+      </if>
+      <if test="evalTime != null">
+        EVAL_TIME,
+      </if>
+      <if test="executeTime != null">
+        EXECUTE_TIME,
+      </if>
+      <if test="hangTimes != null">
+        HANG_TIMES,
+      </if>
+      <if test="inTime != null">
+        IN_TIME,
+      </if>
+      <if test="outTime != null">
+        OUT_TIME,
+      </if>
+      <if test="lastUpdateTime != null">
+        LAST_UPDATE_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="appNo != null">
+        #{appNo,jdbcType=VARCHAR},
+      </if>
+      <if test="coPlatform != null">
+        #{coPlatform,jdbcType=VARCHAR},
+      </if>
+      <if test="prdCode != null">
+        #{prdCode,jdbcType=VARCHAR},
+      </if>
+      <if test="channelType != null">
+        #{channelType,jdbcType=VARCHAR},
+      </if>
+      <if test="prdType != null">
+        #{prdType,jdbcType=VARCHAR},
+      </if>
+      <if test="appType != null">
+        #{appType,jdbcType=VARCHAR},
+      </if>
+      <if test="flowType != null">
+        #{flowType,jdbcType=VARCHAR},
+      </if>
+      <if test="inType != null">
+        #{inType,jdbcType=VARCHAR},
+      </if>
+      <if test="queueStatus != null">
+        #{queueStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="curNodeId != null">
+        #{curNodeId,jdbcType=VARCHAR},
+      </if>
+      <if test="errorCode != null">
+        #{errorCode,jdbcType=VARCHAR},
+      </if>
+      <if test="errorMsg != null">
+        #{errorMsg,jdbcType=VARCHAR},
+      </if>
+      <if test="evalTime != null">
+        #{evalTime,jdbcType=VARCHAR},
+      </if>
+      <if test="executeTime != null">
+        #{executeTime,jdbcType=VARCHAR},
+      </if>
+      <if test="hangTimes != null">
+        #{hangTimes,jdbcType=DECIMAL},
+      </if>
+      <if test="inTime != null">
+        #{inTime,jdbcType=VARCHAR},
+      </if>
+      <if test="outTime != null">
+        #{outTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        #{lastUpdateTime,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.QUEUE_TASK">
+    update QUEUE_TASK
+    <set>
+      <if test="coPlatform != null">
+        CO_PLATFORM = #{coPlatform,jdbcType=VARCHAR},
+      </if>
+      <if test="prdCode != null">
+        PRD_CODE = #{prdCode,jdbcType=VARCHAR},
+      </if>
+      <if test="channelType != null">
+        CHANNEL_TYPE = #{channelType,jdbcType=VARCHAR},
+      </if>
+      <if test="prdType != null">
+        PRD_TYPE = #{prdType,jdbcType=VARCHAR},
+      </if>
+      <if test="appType != null">
+        APP_TYPE = #{appType,jdbcType=VARCHAR},
+      </if>
+      <if test="flowType != null">
+        FLOW_TYPE = #{flowType,jdbcType=VARCHAR},
+      </if>
+      <if test="inType != null">
+        IN_TYPE = #{inType,jdbcType=VARCHAR},
+      </if>
+      <if test="queueStatus != null">
+        QUEUE_STATUS = #{queueStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="curNodeId != null">
+        CUR_NODE_ID = #{curNodeId,jdbcType=VARCHAR},
+      </if>
+      <if test="errorCode != null">
+        ERROR_CODE = #{errorCode,jdbcType=VARCHAR},
+      </if>
+      <if test="errorMsg != null">
+        ERROR_MSG = #{errorMsg,jdbcType=VARCHAR},
+      </if>
+      <if test="evalTime != null">
+        EVAL_TIME = #{evalTime,jdbcType=VARCHAR},
+      </if>
+      <if test="executeTime != null">
+        EXECUTE_TIME = #{executeTime,jdbcType=VARCHAR},
+      </if>
+      <if test="hangTimes != null">
+        HANG_TIMES = #{hangTimes,jdbcType=DECIMAL},
+      </if>
+      <if test="inTime != null">
+        IN_TIME = #{inTime,jdbcType=VARCHAR},
+      </if>
+      <if test="outTime != null">
+        OUT_TIME = #{outTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where APP_NO = #{appNo,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.QUEUE_TASK">
+    update QUEUE_TASK
+    set CO_PLATFORM = #{coPlatform,jdbcType=VARCHAR},
+      PRD_CODE = #{prdCode,jdbcType=VARCHAR},
+      CHANNEL_TYPE = #{channelType,jdbcType=VARCHAR},
+      PRD_TYPE = #{prdType,jdbcType=VARCHAR},
+      APP_TYPE = #{appType,jdbcType=VARCHAR},
+      FLOW_TYPE = #{flowType,jdbcType=VARCHAR},
+      IN_TYPE = #{inType,jdbcType=VARCHAR},
+      QUEUE_STATUS = #{queueStatus,jdbcType=VARCHAR},
+      CUR_NODE_ID = #{curNodeId,jdbcType=VARCHAR},
+      ERROR_CODE = #{errorCode,jdbcType=VARCHAR},
+      ERROR_MSG = #{errorMsg,jdbcType=VARCHAR},
+      EVAL_TIME = #{evalTime,jdbcType=VARCHAR},
+      EXECUTE_TIME = #{executeTime,jdbcType=VARCHAR},
+      HANG_TIMES = #{hangTimes,jdbcType=DECIMAL},
+      IN_TIME = #{inTime,jdbcType=VARCHAR},
+      OUT_TIME = #{outTime,jdbcType=VARCHAR},
+      LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=VARCHAR}
+    where APP_NO = #{appNo,jdbcType=VARCHAR}
+  </update>
+</mapper>

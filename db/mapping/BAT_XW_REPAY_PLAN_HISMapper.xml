@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.BAT_XW_REPAY_PLAN_HISMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.BAT_XW_REPAY_PLAN_HIS">
+    <result column="LOAN_NO" jdbcType="VARCHAR" property="loanNo" />
+    <result column="TOTAL_TERMS" jdbcType="DECIMAL" property="totalTerms" />
+    <result column="END_DATE" jdbcType="VARCHAR" property="endDate" />
+    <result column="TD_START_DATE" jdbcType="VARCHAR" property="tdStartDate" />
+    <result column="SHOULD_REPAY_AMT" jdbcType="DECIMAL" property="shouldRepayAmt" />
+    <result column="PLAN_PRIN" jdbcType="DECIMAL" property="planPrin" />
+    <result column="PLAN_INT" jdbcType="DECIMAL" property="planInt" />
+    <result column="REPAY_STATUS" jdbcType="VARCHAR" property="repayStatus" />
+    <result column="TERM_NO" jdbcType="DECIMAL" property="termNo" />
+    <result column="CURR_DELAY_DAYS" jdbcType="DECIMAL" property="currDelayDays" />
+    <result column="CURR_TOTL_AMT" jdbcType="DECIMAL" property="currTotlAmt" />
+    <result column="CURR_PRIN" jdbcType="DECIMAL" property="currPrin" />
+    <result column="CURR_INT" jdbcType="DECIMAL" property="currInt" />
+    <result column="CURR_OVD_AMT" jdbcType="DECIMAL" property="currOvdAmt" />
+    <result column="CURR_PNLT" jdbcType="DECIMAL" property="currPnlt" />
+    <result column="CURR_PAID_PRIN" jdbcType="DECIMAL" property="currPaidPrin" />
+    <result column="CURR_PAID_INT" jdbcType="DECIMAL" property="currPaidInt" />
+    <result column="CURR_REPAY_DATE" jdbcType="VARCHAR" property="currRepayDate" />
+    <result column="CURR_PAID_PNLT" jdbcType="DECIMAL" property="currPaidPnlt" />
+    <result column="CURR_SETTLE_SIGN" jdbcType="VARCHAR" property="currSettleSign" />
+    <result column="PLAN_REPAY_DATE" jdbcType="VARCHAR" property="planRepayDate" />
+    <result column="CURR_START_DATE" jdbcType="VARCHAR" property="currStartDate" />
+    <result column="CURR_RATE" jdbcType="DECIMAL" property="currRate" />
+    <result column="PRIN_BAL" jdbcType="DECIMAL" property="prinBal" />
+    <result column="INT_DEDUCT_TYPE" jdbcType="VARCHAR" property="intDeductType" />
+    <result column="CURR_DEDUCT_INT" jdbcType="DECIMAL" property="currDeductInt" />
+    <result column="CURR_AFTER_INT" jdbcType="DECIMAL" property="currAfterInt" />
+    <result column="INPUT_DATE" jdbcType="VARCHAR" property="inputDate" />
+    <result column="INPUT_TIME" jdbcType="VARCHAR" property="inputTime" />
+    <result column="DATA_DATE" jdbcType="VARCHAR" property="dataDate" />
+  </resultMap>
+  <insert id="insert" parameterType="com.bea.olp.BAT_XW_REPAY_PLAN_HIS">
+    insert into BAT_XW_REPAY_PLAN_HIS (LOAN_NO, TOTAL_TERMS, END_DATE, 
+      TD_START_DATE, SHOULD_REPAY_AMT, PLAN_PRIN, 
+      PLAN_INT, REPAY_STATUS, TERM_NO, 
+      CURR_DELAY_DAYS, CURR_TOTL_AMT, CURR_PRIN, 
+      CURR_INT, CURR_OVD_AMT, CURR_PNLT, 
+      CURR_PAID_PRIN, CURR_PAID_INT, CURR_REPAY_DATE, 
+      CURR_PAID_PNLT, CURR_SETTLE_SIGN, PLAN_REPAY_DATE, 
+      CURR_START_DATE, CURR_RATE, PRIN_BAL, 
+      INT_DEDUCT_TYPE, CURR_DEDUCT_INT, CURR_AFTER_INT, 
+      INPUT_DATE, INPUT_TIME, DATA_DATE
+      )
+    values (#{loanNo,jdbcType=VARCHAR}, #{totalTerms,jdbcType=DECIMAL}, #{endDate,jdbcType=VARCHAR}, 
+      #{tdStartDate,jdbcType=VARCHAR}, #{shouldRepayAmt,jdbcType=DECIMAL}, #{planPrin,jdbcType=DECIMAL}, 
+      #{planInt,jdbcType=DECIMAL}, #{repayStatus,jdbcType=VARCHAR}, #{termNo,jdbcType=DECIMAL}, 
+      #{currDelayDays,jdbcType=DECIMAL}, #{currTotlAmt,jdbcType=DECIMAL}, #{currPrin,jdbcType=DECIMAL}, 
+      #{currInt,jdbcType=DECIMAL}, #{currOvdAmt,jdbcType=DECIMAL}, #{currPnlt,jdbcType=DECIMAL}, 
+      #{currPaidPrin,jdbcType=DECIMAL}, #{currPaidInt,jdbcType=DECIMAL}, #{currRepayDate,jdbcType=VARCHAR}, 
+      #{currPaidPnlt,jdbcType=DECIMAL}, #{currSettleSign,jdbcType=VARCHAR}, #{planRepayDate,jdbcType=VARCHAR}, 
+      #{currStartDate,jdbcType=VARCHAR}, #{currRate,jdbcType=DECIMAL}, #{prinBal,jdbcType=DECIMAL}, 
+      #{intDeductType,jdbcType=VARCHAR}, #{currDeductInt,jdbcType=DECIMAL}, #{currAfterInt,jdbcType=DECIMAL}, 
+      #{inputDate,jdbcType=VARCHAR}, #{inputTime,jdbcType=VARCHAR}, #{dataDate,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.BAT_XW_REPAY_PLAN_HIS">
+    insert into BAT_XW_REPAY_PLAN_HIS
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="loanNo != null">
+        LOAN_NO,
+      </if>
+      <if test="totalTerms != null">
+        TOTAL_TERMS,
+      </if>
+      <if test="endDate != null">
+        END_DATE,
+      </if>
+      <if test="tdStartDate != null">
+        TD_START_DATE,
+      </if>
+      <if test="shouldRepayAmt != null">
+        SHOULD_REPAY_AMT,
+      </if>
+      <if test="planPrin != null">
+        PLAN_PRIN,
+      </if>
+      <if test="planInt != null">
+        PLAN_INT,
+      </if>
+      <if test="repayStatus != null">
+        REPAY_STATUS,
+      </if>
+      <if test="termNo != null">
+        TERM_NO,
+      </if>
+      <if test="currDelayDays != null">
+        CURR_DELAY_DAYS,
+      </if>
+      <if test="currTotlAmt != null">
+        CURR_TOTL_AMT,
+      </if>
+      <if test="currPrin != null">
+        CURR_PRIN,
+      </if>
+      <if test="currInt != null">
+        CURR_INT,
+      </if>
+      <if test="currOvdAmt != null">
+        CURR_OVD_AMT,
+      </if>
+      <if test="currPnlt != null">
+        CURR_PNLT,
+      </if>
+      <if test="currPaidPrin != null">
+        CURR_PAID_PRIN,
+      </if>
+      <if test="currPaidInt != null">
+        CURR_PAID_INT,
+      </if>
+      <if test="currRepayDate != null">
+        CURR_REPAY_DATE,
+      </if>
+      <if test="currPaidPnlt != null">
+        CURR_PAID_PNLT,
+      </if>
+      <if test="currSettleSign != null">
+        CURR_SETTLE_SIGN,
+      </if>
+      <if test="planRepayDate != null">
+        PLAN_REPAY_DATE,
+      </if>
+      <if test="currStartDate != null">
+        CURR_START_DATE,
+      </if>
+      <if test="currRate != null">
+        CURR_RATE,
+      </if>
+      <if test="prinBal != null">
+        PRIN_BAL,
+      </if>
+      <if test="intDeductType != null">
+        INT_DEDUCT_TYPE,
+      </if>
+      <if test="currDeductInt != null">
+        CURR_DEDUCT_INT,
+      </if>
+      <if test="currAfterInt != null">
+        CURR_AFTER_INT,
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE,
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME,
+      </if>
+      <if test="dataDate != null">
+        DATA_DATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="loanNo != null">
+        #{loanNo,jdbcType=VARCHAR},
+      </if>
+      <if test="totalTerms != null">
+        #{totalTerms,jdbcType=DECIMAL},
+      </if>
+      <if test="endDate != null">
+        #{endDate,jdbcType=VARCHAR},
+      </if>
+      <if test="tdStartDate != null">
+        #{tdStartDate,jdbcType=VARCHAR},
+      </if>
+      <if test="shouldRepayAmt != null">
+        #{shouldRepayAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="planPrin != null">
+        #{planPrin,jdbcType=DECIMAL},
+      </if>
+      <if test="planInt != null">
+        #{planInt,jdbcType=DECIMAL},
+      </if>
+      <if test="repayStatus != null">
+        #{repayStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="termNo != null">
+        #{termNo,jdbcType=DECIMAL},
+      </if>
+      <if test="currDelayDays != null">
+        #{currDelayDays,jdbcType=DECIMAL},
+      </if>
+      <if test="currTotlAmt != null">
+        #{currTotlAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="currPrin != null">
+        #{currPrin,jdbcType=DECIMAL},
+      </if>
+      <if test="currInt != null">
+        #{currInt,jdbcType=DECIMAL},
+      </if>
+      <if test="currOvdAmt != null">
+        #{currOvdAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="currPnlt != null">
+        #{currPnlt,jdbcType=DECIMAL},
+      </if>
+      <if test="currPaidPrin != null">
+        #{currPaidPrin,jdbcType=DECIMAL},
+      </if>
+      <if test="currPaidInt != null">
+        #{currPaidInt,jdbcType=DECIMAL},
+      </if>
+      <if test="currRepayDate != null">
+        #{currRepayDate,jdbcType=VARCHAR},
+      </if>
+      <if test="currPaidPnlt != null">
+        #{currPaidPnlt,jdbcType=DECIMAL},
+      </if>
+      <if test="currSettleSign != null">
+        #{currSettleSign,jdbcType=VARCHAR},
+      </if>
+      <if test="planRepayDate != null">
+        #{planRepayDate,jdbcType=VARCHAR},
+      </if>
+      <if test="currStartDate != null">
+        #{currStartDate,jdbcType=VARCHAR},
+      </if>
+      <if test="currRate != null">
+        #{currRate,jdbcType=DECIMAL},
+      </if>
+      <if test="prinBal != null">
+        #{prinBal,jdbcType=DECIMAL},
+      </if>
+      <if test="intDeductType != null">
+        #{intDeductType,jdbcType=VARCHAR},
+      </if>
+      <if test="currDeductInt != null">
+        #{currDeductInt,jdbcType=DECIMAL},
+      </if>
+      <if test="currAfterInt != null">
+        #{currAfterInt,jdbcType=DECIMAL},
+      </if>
+      <if test="inputDate != null">
+        #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="dataDate != null">
+        #{dataDate,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

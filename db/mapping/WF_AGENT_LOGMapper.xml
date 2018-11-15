@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.WF_AGENT_LOGMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.WF_AGENT_LOG">
+    <id column="INSTANCEID" jdbcType="VARCHAR" property="instanceid" />
+    <id column="NODEID" jdbcType="VARCHAR" property="nodeid" />
+    <id column="NODESTARTTIME" jdbcType="CHAR" property="nodestarttime" />
+    <id column="ORIGINALUSER" jdbcType="VARCHAR" property="originaluser" />
+    <result column="WFID" jdbcType="VARCHAR" property="wfid" />
+    <result column="WFSIGN" jdbcType="VARCHAR" property="wfsign" />
+    <result column="REPLACER" jdbcType="VARCHAR" property="replacer" />
+    <result column="SYSID" jdbcType="VARCHAR" property="sysid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    INSTANCEID, NODEID, NODESTARTTIME, ORIGINALUSER, WFID, WFSIGN, REPLACER, SYSID
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="com.bea.olp.WF_AGENT_LOGKey" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from WF_AGENT_LOG
+    where INSTANCEID = #{instanceid,jdbcType=VARCHAR}
+      and NODEID = #{nodeid,jdbcType=VARCHAR}
+      and NODESTARTTIME = #{nodestarttime,jdbcType=CHAR}
+      and ORIGINALUSER = #{originaluser,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.bea.olp.WF_AGENT_LOGKey">
+    delete from WF_AGENT_LOG
+    where INSTANCEID = #{instanceid,jdbcType=VARCHAR}
+      and NODEID = #{nodeid,jdbcType=VARCHAR}
+      and NODESTARTTIME = #{nodestarttime,jdbcType=CHAR}
+      and ORIGINALUSER = #{originaluser,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.WF_AGENT_LOG">
+    insert into WF_AGENT_LOG (INSTANCEID, NODEID, NODESTARTTIME, 
+      ORIGINALUSER, WFID, WFSIGN, 
+      REPLACER, SYSID)
+    values (#{instanceid,jdbcType=VARCHAR}, #{nodeid,jdbcType=VARCHAR}, #{nodestarttime,jdbcType=CHAR}, 
+      #{originaluser,jdbcType=VARCHAR}, #{wfid,jdbcType=VARCHAR}, #{wfsign,jdbcType=VARCHAR}, 
+      #{replacer,jdbcType=VARCHAR}, #{sysid,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.WF_AGENT_LOG">
+    insert into WF_AGENT_LOG
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="instanceid != null">
+        INSTANCEID,
+      </if>
+      <if test="nodeid != null">
+        NODEID,
+      </if>
+      <if test="nodestarttime != null">
+        NODESTARTTIME,
+      </if>
+      <if test="originaluser != null">
+        ORIGINALUSER,
+      </if>
+      <if test="wfid != null">
+        WFID,
+      </if>
+      <if test="wfsign != null">
+        WFSIGN,
+      </if>
+      <if test="replacer != null">
+        REPLACER,
+      </if>
+      <if test="sysid != null">
+        SYSID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="instanceid != null">
+        #{instanceid,jdbcType=VARCHAR},
+      </if>
+      <if test="nodeid != null">
+        #{nodeid,jdbcType=VARCHAR},
+      </if>
+      <if test="nodestarttime != null">
+        #{nodestarttime,jdbcType=CHAR},
+      </if>
+      <if test="originaluser != null">
+        #{originaluser,jdbcType=VARCHAR},
+      </if>
+      <if test="wfid != null">
+        #{wfid,jdbcType=VARCHAR},
+      </if>
+      <if test="wfsign != null">
+        #{wfsign,jdbcType=VARCHAR},
+      </if>
+      <if test="replacer != null">
+        #{replacer,jdbcType=VARCHAR},
+      </if>
+      <if test="sysid != null">
+        #{sysid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.WF_AGENT_LOG">
+    update WF_AGENT_LOG
+    <set>
+      <if test="wfid != null">
+        WFID = #{wfid,jdbcType=VARCHAR},
+      </if>
+      <if test="wfsign != null">
+        WFSIGN = #{wfsign,jdbcType=VARCHAR},
+      </if>
+      <if test="replacer != null">
+        REPLACER = #{replacer,jdbcType=VARCHAR},
+      </if>
+      <if test="sysid != null">
+        SYSID = #{sysid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where INSTANCEID = #{instanceid,jdbcType=VARCHAR}
+      and NODEID = #{nodeid,jdbcType=VARCHAR}
+      and NODESTARTTIME = #{nodestarttime,jdbcType=CHAR}
+      and ORIGINALUSER = #{originaluser,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.WF_AGENT_LOG">
+    update WF_AGENT_LOG
+    set WFID = #{wfid,jdbcType=VARCHAR},
+      WFSIGN = #{wfsign,jdbcType=VARCHAR},
+      REPLACER = #{replacer,jdbcType=VARCHAR},
+      SYSID = #{sysid,jdbcType=VARCHAR}
+    where INSTANCEID = #{instanceid,jdbcType=VARCHAR}
+      and NODEID = #{nodeid,jdbcType=VARCHAR}
+      and NODESTARTTIME = #{nodestarttime,jdbcType=CHAR}
+      and ORIGINALUSER = #{originaluser,jdbcType=VARCHAR}
+  </update>
+</mapper>

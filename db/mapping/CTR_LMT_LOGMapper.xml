@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.CTR_LMT_LOGMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.CTR_LMT_LOG">
+    <id column="SERNO" jdbcType="VARCHAR" property="serno" />
+    <result column="CREDIT_LIMT_CODE" jdbcType="VARCHAR" property="creditLimtCode" />
+    <result column="SHOP_ID" jdbcType="VARCHAR" property="shopId" />
+    <result column="OP_PLATFORM" jdbcType="CHAR" property="opPlatform" />
+    <result column="OP_OPTION" jdbcType="CHAR" property="opOption" />
+    <result column="OP_REASON" jdbcType="VARCHAR" property="opReason" />
+    <result column="LAST_UPDATE_TIME" jdbcType="VARCHAR" property="lastUpdateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    SERNO, CREDIT_LIMT_CODE, SHOP_ID, OP_PLATFORM, OP_OPTION, OP_REASON, LAST_UPDATE_TIME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from CTR_LMT_LOG
+    where SERNO = #{serno,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from CTR_LMT_LOG
+    where SERNO = #{serno,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.CTR_LMT_LOG">
+    insert into CTR_LMT_LOG (SERNO, CREDIT_LIMT_CODE, SHOP_ID, 
+      OP_PLATFORM, OP_OPTION, OP_REASON, 
+      LAST_UPDATE_TIME)
+    values (#{serno,jdbcType=VARCHAR}, #{creditLimtCode,jdbcType=VARCHAR}, #{shopId,jdbcType=VARCHAR}, 
+      #{opPlatform,jdbcType=CHAR}, #{opOption,jdbcType=CHAR}, #{opReason,jdbcType=VARCHAR}, 
+      #{lastUpdateTime,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.CTR_LMT_LOG">
+    insert into CTR_LMT_LOG
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="serno != null">
+        SERNO,
+      </if>
+      <if test="creditLimtCode != null">
+        CREDIT_LIMT_CODE,
+      </if>
+      <if test="shopId != null">
+        SHOP_ID,
+      </if>
+      <if test="opPlatform != null">
+        OP_PLATFORM,
+      </if>
+      <if test="opOption != null">
+        OP_OPTION,
+      </if>
+      <if test="opReason != null">
+        OP_REASON,
+      </if>
+      <if test="lastUpdateTime != null">
+        LAST_UPDATE_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="serno != null">
+        #{serno,jdbcType=VARCHAR},
+      </if>
+      <if test="creditLimtCode != null">
+        #{creditLimtCode,jdbcType=VARCHAR},
+      </if>
+      <if test="shopId != null">
+        #{shopId,jdbcType=VARCHAR},
+      </if>
+      <if test="opPlatform != null">
+        #{opPlatform,jdbcType=CHAR},
+      </if>
+      <if test="opOption != null">
+        #{opOption,jdbcType=CHAR},
+      </if>
+      <if test="opReason != null">
+        #{opReason,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        #{lastUpdateTime,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.CTR_LMT_LOG">
+    update CTR_LMT_LOG
+    <set>
+      <if test="creditLimtCode != null">
+        CREDIT_LIMT_CODE = #{creditLimtCode,jdbcType=VARCHAR},
+      </if>
+      <if test="shopId != null">
+        SHOP_ID = #{shopId,jdbcType=VARCHAR},
+      </if>
+      <if test="opPlatform != null">
+        OP_PLATFORM = #{opPlatform,jdbcType=CHAR},
+      </if>
+      <if test="opOption != null">
+        OP_OPTION = #{opOption,jdbcType=CHAR},
+      </if>
+      <if test="opReason != null">
+        OP_REASON = #{opReason,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where SERNO = #{serno,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.CTR_LMT_LOG">
+    update CTR_LMT_LOG
+    set CREDIT_LIMT_CODE = #{creditLimtCode,jdbcType=VARCHAR},
+      SHOP_ID = #{shopId,jdbcType=VARCHAR},
+      OP_PLATFORM = #{opPlatform,jdbcType=CHAR},
+      OP_OPTION = #{opOption,jdbcType=CHAR},
+      OP_REASON = #{opReason,jdbcType=VARCHAR},
+      LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=VARCHAR}
+    where SERNO = #{serno,jdbcType=VARCHAR}
+  </update>
+</mapper>

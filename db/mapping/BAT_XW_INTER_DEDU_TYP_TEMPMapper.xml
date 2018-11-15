@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.BAT_XW_INTER_DEDU_TYP_TEMPMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.BAT_XW_INTER_DEDU_TYP_TEMP">
+    <result column="LOAN_NO" jdbcType="VARCHAR" property="loanNo" />
+    <result column="PROD_NO" jdbcType="VARCHAR" property="prodNo" />
+    <result column="PROD_NAME" jdbcType="VARCHAR" property="prodName" />
+    <result column="LOAN_AMT" jdbcType="DECIMAL" property="loanAmt" />
+    <result column="ORI_RATE" jdbcType="DECIMAL" property="oriRate" />
+    <result column="INT_DEDU_TYPE" jdbcType="VARCHAR" property="intDeduType" />
+    <result column="INT_DEDU_RATE" jdbcType="DECIMAL" property="intDeduRate" />
+    <result column="DEDU_START_DATE" jdbcType="VARCHAR" property="deduStartDate" />
+    <result column="DEDU_END_DATE" jdbcType="VARCHAR" property="deduEndDate" />
+    <result column="DEDU_INT" jdbcType="DECIMAL" property="deduInt" />
+    <result column="INPUT_DATE" jdbcType="VARCHAR" property="inputDate" />
+    <result column="INPUT_TIME" jdbcType="VARCHAR" property="inputTime" />
+    <result column="DATA_DATE" jdbcType="VARCHAR" property="dataDate" />
+  </resultMap>
+  <insert id="insert" parameterType="com.bea.olp.BAT_XW_INTER_DEDU_TYP_TEMP">
+    insert into BAT_XW_INTER_DEDU_TYP_TEMP (LOAN_NO, PROD_NO, PROD_NAME, 
+      LOAN_AMT, ORI_RATE, INT_DEDU_TYPE, 
+      INT_DEDU_RATE, DEDU_START_DATE, DEDU_END_DATE, 
+      DEDU_INT, INPUT_DATE, INPUT_TIME, 
+      DATA_DATE)
+    values (#{loanNo,jdbcType=VARCHAR}, #{prodNo,jdbcType=VARCHAR}, #{prodName,jdbcType=VARCHAR}, 
+      #{loanAmt,jdbcType=DECIMAL}, #{oriRate,jdbcType=DECIMAL}, #{intDeduType,jdbcType=VARCHAR}, 
+      #{intDeduRate,jdbcType=DECIMAL}, #{deduStartDate,jdbcType=VARCHAR}, #{deduEndDate,jdbcType=VARCHAR}, 
+      #{deduInt,jdbcType=DECIMAL}, #{inputDate,jdbcType=VARCHAR}, #{inputTime,jdbcType=VARCHAR}, 
+      #{dataDate,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.BAT_XW_INTER_DEDU_TYP_TEMP">
+    insert into BAT_XW_INTER_DEDU_TYP_TEMP
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="loanNo != null">
+        LOAN_NO,
+      </if>
+      <if test="prodNo != null">
+        PROD_NO,
+      </if>
+      <if test="prodName != null">
+        PROD_NAME,
+      </if>
+      <if test="loanAmt != null">
+        LOAN_AMT,
+      </if>
+      <if test="oriRate != null">
+        ORI_RATE,
+      </if>
+      <if test="intDeduType != null">
+        INT_DEDU_TYPE,
+      </if>
+      <if test="intDeduRate != null">
+        INT_DEDU_RATE,
+      </if>
+      <if test="deduStartDate != null">
+        DEDU_START_DATE,
+      </if>
+      <if test="deduEndDate != null">
+        DEDU_END_DATE,
+      </if>
+      <if test="deduInt != null">
+        DEDU_INT,
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE,
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME,
+      </if>
+      <if test="dataDate != null">
+        DATA_DATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="loanNo != null">
+        #{loanNo,jdbcType=VARCHAR},
+      </if>
+      <if test="prodNo != null">
+        #{prodNo,jdbcType=VARCHAR},
+      </if>
+      <if test="prodName != null">
+        #{prodName,jdbcType=VARCHAR},
+      </if>
+      <if test="loanAmt != null">
+        #{loanAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="oriRate != null">
+        #{oriRate,jdbcType=DECIMAL},
+      </if>
+      <if test="intDeduType != null">
+        #{intDeduType,jdbcType=VARCHAR},
+      </if>
+      <if test="intDeduRate != null">
+        #{intDeduRate,jdbcType=DECIMAL},
+      </if>
+      <if test="deduStartDate != null">
+        #{deduStartDate,jdbcType=VARCHAR},
+      </if>
+      <if test="deduEndDate != null">
+        #{deduEndDate,jdbcType=VARCHAR},
+      </if>
+      <if test="deduInt != null">
+        #{deduInt,jdbcType=DECIMAL},
+      </if>
+      <if test="inputDate != null">
+        #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="dataDate != null">
+        #{dataDate,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.WF_CLIENTMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.WF_CLIENT">
+    <id column="PKEY" jdbcType="VARCHAR" property="pkey" />
+    <result column="CLIENTSIGN" jdbcType="VARCHAR" property="clientsign" />
+    <result column="CLIENTNAME" jdbcType="VARCHAR" property="clientname" />
+    <result column="IP" jdbcType="VARCHAR" property="ip" />
+    <result column="TYPE" jdbcType="CHAR" property="type" />
+    <result column="INVOKETYPE" jdbcType="VARCHAR" property="invoketype" />
+    <result column="STATUS" jdbcType="CHAR" property="status" />
+    <result column="REMARK" jdbcType="VARCHAR" property="remark" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    PKEY, CLIENTSIGN, CLIENTNAME, IP, TYPE, INVOKETYPE, STATUS, REMARK
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from WF_CLIENT
+    where PKEY = #{pkey,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from WF_CLIENT
+    where PKEY = #{pkey,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.WF_CLIENT">
+    insert into WF_CLIENT (PKEY, CLIENTSIGN, CLIENTNAME, 
+      IP, TYPE, INVOKETYPE, 
+      STATUS, REMARK)
+    values (#{pkey,jdbcType=VARCHAR}, #{clientsign,jdbcType=VARCHAR}, #{clientname,jdbcType=VARCHAR}, 
+      #{ip,jdbcType=VARCHAR}, #{type,jdbcType=CHAR}, #{invoketype,jdbcType=VARCHAR}, 
+      #{status,jdbcType=CHAR}, #{remark,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.WF_CLIENT">
+    insert into WF_CLIENT
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="pkey != null">
+        PKEY,
+      </if>
+      <if test="clientsign != null">
+        CLIENTSIGN,
+      </if>
+      <if test="clientname != null">
+        CLIENTNAME,
+      </if>
+      <if test="ip != null">
+        IP,
+      </if>
+      <if test="type != null">
+        TYPE,
+      </if>
+      <if test="invoketype != null">
+        INVOKETYPE,
+      </if>
+      <if test="status != null">
+        STATUS,
+      </if>
+      <if test="remark != null">
+        REMARK,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="pkey != null">
+        #{pkey,jdbcType=VARCHAR},
+      </if>
+      <if test="clientsign != null">
+        #{clientsign,jdbcType=VARCHAR},
+      </if>
+      <if test="clientname != null">
+        #{clientname,jdbcType=VARCHAR},
+      </if>
+      <if test="ip != null">
+        #{ip,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=CHAR},
+      </if>
+      <if test="invoketype != null">
+        #{invoketype,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=CHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.WF_CLIENT">
+    update WF_CLIENT
+    <set>
+      <if test="clientsign != null">
+        CLIENTSIGN = #{clientsign,jdbcType=VARCHAR},
+      </if>
+      <if test="clientname != null">
+        CLIENTNAME = #{clientname,jdbcType=VARCHAR},
+      </if>
+      <if test="ip != null">
+        IP = #{ip,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        TYPE = #{type,jdbcType=CHAR},
+      </if>
+      <if test="invoketype != null">
+        INVOKETYPE = #{invoketype,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        STATUS = #{status,jdbcType=CHAR},
+      </if>
+      <if test="remark != null">
+        REMARK = #{remark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where PKEY = #{pkey,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.WF_CLIENT">
+    update WF_CLIENT
+    set CLIENTSIGN = #{clientsign,jdbcType=VARCHAR},
+      CLIENTNAME = #{clientname,jdbcType=VARCHAR},
+      IP = #{ip,jdbcType=VARCHAR},
+      TYPE = #{type,jdbcType=CHAR},
+      INVOKETYPE = #{invoketype,jdbcType=VARCHAR},
+      STATUS = #{status,jdbcType=CHAR},
+      REMARK = #{remark,jdbcType=VARCHAR}
+    where PKEY = #{pkey,jdbcType=VARCHAR}
+  </update>
+</mapper>

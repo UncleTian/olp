@@ -1,0 +1,932 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.RAT_APP_INFOMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.RAT_APP_INFO">
+    <id column="TP_NO" jdbcType="VARCHAR" property="tpNo" />
+    <result column="TRAN_DATE" jdbcType="VARCHAR" property="tranDate" />
+    <result column="TRAN_CODE" jdbcType="VARCHAR" property="tranCode" />
+    <result column="CHANNEL_TYPE" jdbcType="VARCHAR" property="channelType" />
+    <result column="CO_PLATFORM" jdbcType="VARCHAR" property="coPlatform" />
+    <result column="LOAN_PROP" jdbcType="VARCHAR" property="loanProp" />
+    <result column="PRD_TYPE" jdbcType="VARCHAR" property="prdType" />
+    <result column="PRD_CODE" jdbcType="VARCHAR" property="prdCode" />
+    <result column="CRD_CONT_NO" jdbcType="VARCHAR" property="crdContNo" />
+    <result column="TP_OBJ_ID" jdbcType="VARCHAR" property="tpObjId" />
+    <result column="CERT_TYPE" jdbcType="VARCHAR" property="certType" />
+    <result column="CERT_CODE" jdbcType="VARCHAR" property="certCode" />
+    <result column="CUST_NAME" jdbcType="VARCHAR" property="custName" />
+    <result column="CUST_NAME_SPELL" jdbcType="VARCHAR" property="custNameSpell" />
+    <result column="CERT_ORG" jdbcType="VARCHAR" property="certOrg" />
+    <result column="CUST_TYPE" jdbcType="VARCHAR" property="custType" />
+    <result column="CONTACT_ADDR" jdbcType="VARCHAR" property="contactAddr" />
+    <result column="CONTACT_ZIP_CODE" jdbcType="VARCHAR" property="contactZipCode" />
+    <result column="EMAIL" jdbcType="VARCHAR" property="email" />
+    <result column="PHONE" jdbcType="VARCHAR" property="phone" />
+    <result column="EDU_LEVEL" jdbcType="VARCHAR" property="eduLevel" />
+    <result column="LIVE_STATUS" jdbcType="VARCHAR" property="liveStatus" />
+    <result column="LIVE_ADDR" jdbcType="VARCHAR" property="liveAddr" />
+    <result column="LIVE_ZIP_CODE" jdbcType="VARCHAR" property="liveZipCode" />
+    <result column="MARR_STATUS" jdbcType="VARCHAR" property="marrStatus" />
+    <result column="SPOUSE_NAME" jdbcType="VARCHAR" property="spouseName" />
+    <result column="SPOUSE_CERT_TYPE" jdbcType="VARCHAR" property="spouseCertType" />
+    <result column="SPOUSE_CERT_CODE" jdbcType="VARCHAR" property="spouseCertCode" />
+    <result column="OPERATOR_TYPE" jdbcType="VARCHAR" property="operatorType" />
+    <result column="LICENSE_CODE" jdbcType="VARCHAR" property="licenseCode" />
+    <result column="RESV_TEL" jdbcType="VARCHAR" property="resvTel" />
+    <result column="APP_AMT" jdbcType="DECIMAL" property="appAmt" />
+    <result column="LOAN_PURPOSE" jdbcType="VARCHAR" property="loanPurpose" />
+    <result column="LOAN_PURPOSE_SUB" jdbcType="VARCHAR" property="loanPurposeSub" />
+    <result column="APP_TERM" jdbcType="VARCHAR" property="appTerm" />
+    <result column="REPAY_TYPE" jdbcType="VARCHAR" property="repayType" />
+    <result column="RATE_ADJ_TYPE" jdbcType="VARCHAR" property="rateAdjType" />
+    <result column="RATE_ADJ_DAY" jdbcType="VARCHAR" property="rateAdjDay" />
+    <result column="INTEREST_CYCLE" jdbcType="VARCHAR" property="interestCycle" />
+    <result column="REPAY_DAY" jdbcType="VARCHAR" property="repayDay" />
+    <result column="FIXED_CYCLE" jdbcType="DECIMAL" property="fixedCycle" />
+    <result column="P_RATE_TYPE" jdbcType="VARCHAR" property="pRateType" />
+    <result column="P_RATE_FLOAT" jdbcType="DECIMAL" property="pRateFloat" />
+    <result column="LOAN_ACC_BANK" jdbcType="VARCHAR" property="loanAccBank" />
+    <result column="LOAN_ACC" jdbcType="VARCHAR" property="loanAcc" />
+    <result column="LOAN_CARD_NO" jdbcType="VARCHAR" property="loanCardNo" />
+    <result column="REPAY_ACC_BANK" jdbcType="VARCHAR" property="repayAccBank" />
+    <result column="REPAY_ACC" jdbcType="VARCHAR" property="repayAcc" />
+    <result column="REPAY_CARD_NO" jdbcType="VARCHAR" property="repayCardNo" />
+    <result column="REL_FLAG" jdbcType="VARCHAR" property="relFlag" />
+    <result column="GRANT_NO" jdbcType="VARCHAR" property="grantNo" />
+    <result column="GRANT_TIME" jdbcType="VARCHAR" property="grantTime" />
+    <result column="DECL_NO" jdbcType="VARCHAR" property="declNo" />
+    <result column="DECL_TIME" jdbcType="VARCHAR" property="declTime" />
+    <result column="CRD_ANSWER" jdbcType="VARCHAR" property="crdAnswer" />
+    <result column="SUBMIT_TYPE" jdbcType="VARCHAR" property="submitType" />
+    <result column="FIELD1" jdbcType="VARCHAR" property="field1" />
+    <result column="FIELD2" jdbcType="VARCHAR" property="field2" />
+    <result column="FIELD3" jdbcType="VARCHAR" property="field3" />
+    <result column="FIELD4" jdbcType="VARCHAR" property="field4" />
+    <result column="FIELD5" jdbcType="VARCHAR" property="field5" />
+    <result column="FIELD6" jdbcType="VARCHAR" property="field6" />
+    <result column="FIELD7" jdbcType="DECIMAL" property="field7" />
+    <result column="FIELD8" jdbcType="DECIMAL" property="field8" />
+    <result column="FIELD9" jdbcType="DECIMAL" property="field9" />
+    <result column="FIELD10" jdbcType="DECIMAL" property="field10" />
+    <result column="INPUT_DATE" jdbcType="VARCHAR" property="inputDate" />
+    <result column="INPUT_TIME" jdbcType="VARCHAR" property="inputTime" />
+    <result column="ORDER_TIME" jdbcType="VARCHAR" property="orderTime" />
+    <result column="ORDER_VALID_TERM" jdbcType="VARCHAR" property="orderValidTerm" />
+    <result column="CORP_CUST_NO" jdbcType="VARCHAR" property="corpCustNo" />
+    <result column="CHANNEL_SHOP_NO" jdbcType="VARCHAR" property="channelShopNo" />
+    <result column="SUB_CHANNAL_NO" jdbcType="VARCHAR" property="subChannalNo" />
+    <result column="ORDER_NO" jdbcType="VARCHAR" property="orderNo" />
+    <result column="ORDER_AMT" jdbcType="DECIMAL" property="orderAmt" />
+    <result column="LOAN_ACC_NAME" jdbcType="VARCHAR" property="loanAccName" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    TP_NO, TRAN_DATE, TRAN_CODE, CHANNEL_TYPE, CO_PLATFORM, LOAN_PROP, PRD_TYPE, PRD_CODE, 
+    CRD_CONT_NO, TP_OBJ_ID, CERT_TYPE, CERT_CODE, CUST_NAME, CUST_NAME_SPELL, CERT_ORG, 
+    CUST_TYPE, CONTACT_ADDR, CONTACT_ZIP_CODE, EMAIL, PHONE, EDU_LEVEL, LIVE_STATUS, 
+    LIVE_ADDR, LIVE_ZIP_CODE, MARR_STATUS, SPOUSE_NAME, SPOUSE_CERT_TYPE, SPOUSE_CERT_CODE, 
+    OPERATOR_TYPE, LICENSE_CODE, RESV_TEL, APP_AMT, LOAN_PURPOSE, LOAN_PURPOSE_SUB, APP_TERM, 
+    REPAY_TYPE, RATE_ADJ_TYPE, RATE_ADJ_DAY, INTEREST_CYCLE, REPAY_DAY, FIXED_CYCLE, 
+    P_RATE_TYPE, P_RATE_FLOAT, LOAN_ACC_BANK, LOAN_ACC, LOAN_CARD_NO, REPAY_ACC_BANK, 
+    REPAY_ACC, REPAY_CARD_NO, REL_FLAG, GRANT_NO, GRANT_TIME, DECL_NO, DECL_TIME, CRD_ANSWER, 
+    SUBMIT_TYPE, FIELD1, FIELD2, FIELD3, FIELD4, FIELD5, FIELD6, FIELD7, FIELD8, FIELD9, 
+    FIELD10, INPUT_DATE, INPUT_TIME, ORDER_TIME, ORDER_VALID_TERM, CORP_CUST_NO, CHANNEL_SHOP_NO, 
+    SUB_CHANNAL_NO, ORDER_NO, ORDER_AMT, LOAN_ACC_NAME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from RAT_APP_INFO
+    where TP_NO = #{tpNo,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from RAT_APP_INFO
+    where TP_NO = #{tpNo,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.RAT_APP_INFO">
+    insert into RAT_APP_INFO (TP_NO, TRAN_DATE, TRAN_CODE, 
+      CHANNEL_TYPE, CO_PLATFORM, LOAN_PROP, 
+      PRD_TYPE, PRD_CODE, CRD_CONT_NO, 
+      TP_OBJ_ID, CERT_TYPE, CERT_CODE, 
+      CUST_NAME, CUST_NAME_SPELL, CERT_ORG, 
+      CUST_TYPE, CONTACT_ADDR, CONTACT_ZIP_CODE, 
+      EMAIL, PHONE, EDU_LEVEL, 
+      LIVE_STATUS, LIVE_ADDR, LIVE_ZIP_CODE, 
+      MARR_STATUS, SPOUSE_NAME, SPOUSE_CERT_TYPE, 
+      SPOUSE_CERT_CODE, OPERATOR_TYPE, LICENSE_CODE, 
+      RESV_TEL, APP_AMT, LOAN_PURPOSE, 
+      LOAN_PURPOSE_SUB, APP_TERM, REPAY_TYPE, 
+      RATE_ADJ_TYPE, RATE_ADJ_DAY, INTEREST_CYCLE, 
+      REPAY_DAY, FIXED_CYCLE, P_RATE_TYPE, 
+      P_RATE_FLOAT, LOAN_ACC_BANK, LOAN_ACC, 
+      LOAN_CARD_NO, REPAY_ACC_BANK, REPAY_ACC, 
+      REPAY_CARD_NO, REL_FLAG, GRANT_NO, 
+      GRANT_TIME, DECL_NO, DECL_TIME, 
+      CRD_ANSWER, SUBMIT_TYPE, FIELD1, 
+      FIELD2, FIELD3, FIELD4, 
+      FIELD5, FIELD6, FIELD7, 
+      FIELD8, FIELD9, FIELD10, 
+      INPUT_DATE, INPUT_TIME, ORDER_TIME, 
+      ORDER_VALID_TERM, CORP_CUST_NO, CHANNEL_SHOP_NO, 
+      SUB_CHANNAL_NO, ORDER_NO, ORDER_AMT, 
+      LOAN_ACC_NAME)
+    values (#{tpNo,jdbcType=VARCHAR}, #{tranDate,jdbcType=VARCHAR}, #{tranCode,jdbcType=VARCHAR}, 
+      #{channelType,jdbcType=VARCHAR}, #{coPlatform,jdbcType=VARCHAR}, #{loanProp,jdbcType=VARCHAR}, 
+      #{prdType,jdbcType=VARCHAR}, #{prdCode,jdbcType=VARCHAR}, #{crdContNo,jdbcType=VARCHAR}, 
+      #{tpObjId,jdbcType=VARCHAR}, #{certType,jdbcType=VARCHAR}, #{certCode,jdbcType=VARCHAR}, 
+      #{custName,jdbcType=VARCHAR}, #{custNameSpell,jdbcType=VARCHAR}, #{certOrg,jdbcType=VARCHAR}, 
+      #{custType,jdbcType=VARCHAR}, #{contactAddr,jdbcType=VARCHAR}, #{contactZipCode,jdbcType=VARCHAR}, 
+      #{email,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{eduLevel,jdbcType=VARCHAR}, 
+      #{liveStatus,jdbcType=VARCHAR}, #{liveAddr,jdbcType=VARCHAR}, #{liveZipCode,jdbcType=VARCHAR}, 
+      #{marrStatus,jdbcType=VARCHAR}, #{spouseName,jdbcType=VARCHAR}, #{spouseCertType,jdbcType=VARCHAR}, 
+      #{spouseCertCode,jdbcType=VARCHAR}, #{operatorType,jdbcType=VARCHAR}, #{licenseCode,jdbcType=VARCHAR}, 
+      #{resvTel,jdbcType=VARCHAR}, #{appAmt,jdbcType=DECIMAL}, #{loanPurpose,jdbcType=VARCHAR}, 
+      #{loanPurposeSub,jdbcType=VARCHAR}, #{appTerm,jdbcType=VARCHAR}, #{repayType,jdbcType=VARCHAR}, 
+      #{rateAdjType,jdbcType=VARCHAR}, #{rateAdjDay,jdbcType=VARCHAR}, #{interestCycle,jdbcType=VARCHAR}, 
+      #{repayDay,jdbcType=VARCHAR}, #{fixedCycle,jdbcType=DECIMAL}, #{pRateType,jdbcType=VARCHAR}, 
+      #{pRateFloat,jdbcType=DECIMAL}, #{loanAccBank,jdbcType=VARCHAR}, #{loanAcc,jdbcType=VARCHAR}, 
+      #{loanCardNo,jdbcType=VARCHAR}, #{repayAccBank,jdbcType=VARCHAR}, #{repayAcc,jdbcType=VARCHAR}, 
+      #{repayCardNo,jdbcType=VARCHAR}, #{relFlag,jdbcType=VARCHAR}, #{grantNo,jdbcType=VARCHAR}, 
+      #{grantTime,jdbcType=VARCHAR}, #{declNo,jdbcType=VARCHAR}, #{declTime,jdbcType=VARCHAR}, 
+      #{crdAnswer,jdbcType=VARCHAR}, #{submitType,jdbcType=VARCHAR}, #{field1,jdbcType=VARCHAR}, 
+      #{field2,jdbcType=VARCHAR}, #{field3,jdbcType=VARCHAR}, #{field4,jdbcType=VARCHAR}, 
+      #{field5,jdbcType=VARCHAR}, #{field6,jdbcType=VARCHAR}, #{field7,jdbcType=DECIMAL}, 
+      #{field8,jdbcType=DECIMAL}, #{field9,jdbcType=DECIMAL}, #{field10,jdbcType=DECIMAL}, 
+      #{inputDate,jdbcType=VARCHAR}, #{inputTime,jdbcType=VARCHAR}, #{orderTime,jdbcType=VARCHAR}, 
+      #{orderValidTerm,jdbcType=VARCHAR}, #{corpCustNo,jdbcType=VARCHAR}, #{channelShopNo,jdbcType=VARCHAR}, 
+      #{subChannalNo,jdbcType=VARCHAR}, #{orderNo,jdbcType=VARCHAR}, #{orderAmt,jdbcType=DECIMAL}, 
+      #{loanAccName,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.RAT_APP_INFO">
+    insert into RAT_APP_INFO
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="tpNo != null">
+        TP_NO,
+      </if>
+      <if test="tranDate != null">
+        TRAN_DATE,
+      </if>
+      <if test="tranCode != null">
+        TRAN_CODE,
+      </if>
+      <if test="channelType != null">
+        CHANNEL_TYPE,
+      </if>
+      <if test="coPlatform != null">
+        CO_PLATFORM,
+      </if>
+      <if test="loanProp != null">
+        LOAN_PROP,
+      </if>
+      <if test="prdType != null">
+        PRD_TYPE,
+      </if>
+      <if test="prdCode != null">
+        PRD_CODE,
+      </if>
+      <if test="crdContNo != null">
+        CRD_CONT_NO,
+      </if>
+      <if test="tpObjId != null">
+        TP_OBJ_ID,
+      </if>
+      <if test="certType != null">
+        CERT_TYPE,
+      </if>
+      <if test="certCode != null">
+        CERT_CODE,
+      </if>
+      <if test="custName != null">
+        CUST_NAME,
+      </if>
+      <if test="custNameSpell != null">
+        CUST_NAME_SPELL,
+      </if>
+      <if test="certOrg != null">
+        CERT_ORG,
+      </if>
+      <if test="custType != null">
+        CUST_TYPE,
+      </if>
+      <if test="contactAddr != null">
+        CONTACT_ADDR,
+      </if>
+      <if test="contactZipCode != null">
+        CONTACT_ZIP_CODE,
+      </if>
+      <if test="email != null">
+        EMAIL,
+      </if>
+      <if test="phone != null">
+        PHONE,
+      </if>
+      <if test="eduLevel != null">
+        EDU_LEVEL,
+      </if>
+      <if test="liveStatus != null">
+        LIVE_STATUS,
+      </if>
+      <if test="liveAddr != null">
+        LIVE_ADDR,
+      </if>
+      <if test="liveZipCode != null">
+        LIVE_ZIP_CODE,
+      </if>
+      <if test="marrStatus != null">
+        MARR_STATUS,
+      </if>
+      <if test="spouseName != null">
+        SPOUSE_NAME,
+      </if>
+      <if test="spouseCertType != null">
+        SPOUSE_CERT_TYPE,
+      </if>
+      <if test="spouseCertCode != null">
+        SPOUSE_CERT_CODE,
+      </if>
+      <if test="operatorType != null">
+        OPERATOR_TYPE,
+      </if>
+      <if test="licenseCode != null">
+        LICENSE_CODE,
+      </if>
+      <if test="resvTel != null">
+        RESV_TEL,
+      </if>
+      <if test="appAmt != null">
+        APP_AMT,
+      </if>
+      <if test="loanPurpose != null">
+        LOAN_PURPOSE,
+      </if>
+      <if test="loanPurposeSub != null">
+        LOAN_PURPOSE_SUB,
+      </if>
+      <if test="appTerm != null">
+        APP_TERM,
+      </if>
+      <if test="repayType != null">
+        REPAY_TYPE,
+      </if>
+      <if test="rateAdjType != null">
+        RATE_ADJ_TYPE,
+      </if>
+      <if test="rateAdjDay != null">
+        RATE_ADJ_DAY,
+      </if>
+      <if test="interestCycle != null">
+        INTEREST_CYCLE,
+      </if>
+      <if test="repayDay != null">
+        REPAY_DAY,
+      </if>
+      <if test="fixedCycle != null">
+        FIXED_CYCLE,
+      </if>
+      <if test="pRateType != null">
+        P_RATE_TYPE,
+      </if>
+      <if test="pRateFloat != null">
+        P_RATE_FLOAT,
+      </if>
+      <if test="loanAccBank != null">
+        LOAN_ACC_BANK,
+      </if>
+      <if test="loanAcc != null">
+        LOAN_ACC,
+      </if>
+      <if test="loanCardNo != null">
+        LOAN_CARD_NO,
+      </if>
+      <if test="repayAccBank != null">
+        REPAY_ACC_BANK,
+      </if>
+      <if test="repayAcc != null">
+        REPAY_ACC,
+      </if>
+      <if test="repayCardNo != null">
+        REPAY_CARD_NO,
+      </if>
+      <if test="relFlag != null">
+        REL_FLAG,
+      </if>
+      <if test="grantNo != null">
+        GRANT_NO,
+      </if>
+      <if test="grantTime != null">
+        GRANT_TIME,
+      </if>
+      <if test="declNo != null">
+        DECL_NO,
+      </if>
+      <if test="declTime != null">
+        DECL_TIME,
+      </if>
+      <if test="crdAnswer != null">
+        CRD_ANSWER,
+      </if>
+      <if test="submitType != null">
+        SUBMIT_TYPE,
+      </if>
+      <if test="field1 != null">
+        FIELD1,
+      </if>
+      <if test="field2 != null">
+        FIELD2,
+      </if>
+      <if test="field3 != null">
+        FIELD3,
+      </if>
+      <if test="field4 != null">
+        FIELD4,
+      </if>
+      <if test="field5 != null">
+        FIELD5,
+      </if>
+      <if test="field6 != null">
+        FIELD6,
+      </if>
+      <if test="field7 != null">
+        FIELD7,
+      </if>
+      <if test="field8 != null">
+        FIELD8,
+      </if>
+      <if test="field9 != null">
+        FIELD9,
+      </if>
+      <if test="field10 != null">
+        FIELD10,
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE,
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME,
+      </if>
+      <if test="orderTime != null">
+        ORDER_TIME,
+      </if>
+      <if test="orderValidTerm != null">
+        ORDER_VALID_TERM,
+      </if>
+      <if test="corpCustNo != null">
+        CORP_CUST_NO,
+      </if>
+      <if test="channelShopNo != null">
+        CHANNEL_SHOP_NO,
+      </if>
+      <if test="subChannalNo != null">
+        SUB_CHANNAL_NO,
+      </if>
+      <if test="orderNo != null">
+        ORDER_NO,
+      </if>
+      <if test="orderAmt != null">
+        ORDER_AMT,
+      </if>
+      <if test="loanAccName != null">
+        LOAN_ACC_NAME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="tpNo != null">
+        #{tpNo,jdbcType=VARCHAR},
+      </if>
+      <if test="tranDate != null">
+        #{tranDate,jdbcType=VARCHAR},
+      </if>
+      <if test="tranCode != null">
+        #{tranCode,jdbcType=VARCHAR},
+      </if>
+      <if test="channelType != null">
+        #{channelType,jdbcType=VARCHAR},
+      </if>
+      <if test="coPlatform != null">
+        #{coPlatform,jdbcType=VARCHAR},
+      </if>
+      <if test="loanProp != null">
+        #{loanProp,jdbcType=VARCHAR},
+      </if>
+      <if test="prdType != null">
+        #{prdType,jdbcType=VARCHAR},
+      </if>
+      <if test="prdCode != null">
+        #{prdCode,jdbcType=VARCHAR},
+      </if>
+      <if test="crdContNo != null">
+        #{crdContNo,jdbcType=VARCHAR},
+      </if>
+      <if test="tpObjId != null">
+        #{tpObjId,jdbcType=VARCHAR},
+      </if>
+      <if test="certType != null">
+        #{certType,jdbcType=VARCHAR},
+      </if>
+      <if test="certCode != null">
+        #{certCode,jdbcType=VARCHAR},
+      </if>
+      <if test="custName != null">
+        #{custName,jdbcType=VARCHAR},
+      </if>
+      <if test="custNameSpell != null">
+        #{custNameSpell,jdbcType=VARCHAR},
+      </if>
+      <if test="certOrg != null">
+        #{certOrg,jdbcType=VARCHAR},
+      </if>
+      <if test="custType != null">
+        #{custType,jdbcType=VARCHAR},
+      </if>
+      <if test="contactAddr != null">
+        #{contactAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="contactZipCode != null">
+        #{contactZipCode,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="eduLevel != null">
+        #{eduLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="liveStatus != null">
+        #{liveStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="liveAddr != null">
+        #{liveAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="liveZipCode != null">
+        #{liveZipCode,jdbcType=VARCHAR},
+      </if>
+      <if test="marrStatus != null">
+        #{marrStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="spouseName != null">
+        #{spouseName,jdbcType=VARCHAR},
+      </if>
+      <if test="spouseCertType != null">
+        #{spouseCertType,jdbcType=VARCHAR},
+      </if>
+      <if test="spouseCertCode != null">
+        #{spouseCertCode,jdbcType=VARCHAR},
+      </if>
+      <if test="operatorType != null">
+        #{operatorType,jdbcType=VARCHAR},
+      </if>
+      <if test="licenseCode != null">
+        #{licenseCode,jdbcType=VARCHAR},
+      </if>
+      <if test="resvTel != null">
+        #{resvTel,jdbcType=VARCHAR},
+      </if>
+      <if test="appAmt != null">
+        #{appAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="loanPurpose != null">
+        #{loanPurpose,jdbcType=VARCHAR},
+      </if>
+      <if test="loanPurposeSub != null">
+        #{loanPurposeSub,jdbcType=VARCHAR},
+      </if>
+      <if test="appTerm != null">
+        #{appTerm,jdbcType=VARCHAR},
+      </if>
+      <if test="repayType != null">
+        #{repayType,jdbcType=VARCHAR},
+      </if>
+      <if test="rateAdjType != null">
+        #{rateAdjType,jdbcType=VARCHAR},
+      </if>
+      <if test="rateAdjDay != null">
+        #{rateAdjDay,jdbcType=VARCHAR},
+      </if>
+      <if test="interestCycle != null">
+        #{interestCycle,jdbcType=VARCHAR},
+      </if>
+      <if test="repayDay != null">
+        #{repayDay,jdbcType=VARCHAR},
+      </if>
+      <if test="fixedCycle != null">
+        #{fixedCycle,jdbcType=DECIMAL},
+      </if>
+      <if test="pRateType != null">
+        #{pRateType,jdbcType=VARCHAR},
+      </if>
+      <if test="pRateFloat != null">
+        #{pRateFloat,jdbcType=DECIMAL},
+      </if>
+      <if test="loanAccBank != null">
+        #{loanAccBank,jdbcType=VARCHAR},
+      </if>
+      <if test="loanAcc != null">
+        #{loanAcc,jdbcType=VARCHAR},
+      </if>
+      <if test="loanCardNo != null">
+        #{loanCardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="repayAccBank != null">
+        #{repayAccBank,jdbcType=VARCHAR},
+      </if>
+      <if test="repayAcc != null">
+        #{repayAcc,jdbcType=VARCHAR},
+      </if>
+      <if test="repayCardNo != null">
+        #{repayCardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="relFlag != null">
+        #{relFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="grantNo != null">
+        #{grantNo,jdbcType=VARCHAR},
+      </if>
+      <if test="grantTime != null">
+        #{grantTime,jdbcType=VARCHAR},
+      </if>
+      <if test="declNo != null">
+        #{declNo,jdbcType=VARCHAR},
+      </if>
+      <if test="declTime != null">
+        #{declTime,jdbcType=VARCHAR},
+      </if>
+      <if test="crdAnswer != null">
+        #{crdAnswer,jdbcType=VARCHAR},
+      </if>
+      <if test="submitType != null">
+        #{submitType,jdbcType=VARCHAR},
+      </if>
+      <if test="field1 != null">
+        #{field1,jdbcType=VARCHAR},
+      </if>
+      <if test="field2 != null">
+        #{field2,jdbcType=VARCHAR},
+      </if>
+      <if test="field3 != null">
+        #{field3,jdbcType=VARCHAR},
+      </if>
+      <if test="field4 != null">
+        #{field4,jdbcType=VARCHAR},
+      </if>
+      <if test="field5 != null">
+        #{field5,jdbcType=VARCHAR},
+      </if>
+      <if test="field6 != null">
+        #{field6,jdbcType=VARCHAR},
+      </if>
+      <if test="field7 != null">
+        #{field7,jdbcType=DECIMAL},
+      </if>
+      <if test="field8 != null">
+        #{field8,jdbcType=DECIMAL},
+      </if>
+      <if test="field9 != null">
+        #{field9,jdbcType=DECIMAL},
+      </if>
+      <if test="field10 != null">
+        #{field10,jdbcType=DECIMAL},
+      </if>
+      <if test="inputDate != null">
+        #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="orderTime != null">
+        #{orderTime,jdbcType=VARCHAR},
+      </if>
+      <if test="orderValidTerm != null">
+        #{orderValidTerm,jdbcType=VARCHAR},
+      </if>
+      <if test="corpCustNo != null">
+        #{corpCustNo,jdbcType=VARCHAR},
+      </if>
+      <if test="channelShopNo != null">
+        #{channelShopNo,jdbcType=VARCHAR},
+      </if>
+      <if test="subChannalNo != null">
+        #{subChannalNo,jdbcType=VARCHAR},
+      </if>
+      <if test="orderNo != null">
+        #{orderNo,jdbcType=VARCHAR},
+      </if>
+      <if test="orderAmt != null">
+        #{orderAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="loanAccName != null">
+        #{loanAccName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.RAT_APP_INFO">
+    update RAT_APP_INFO
+    <set>
+      <if test="tranDate != null">
+        TRAN_DATE = #{tranDate,jdbcType=VARCHAR},
+      </if>
+      <if test="tranCode != null">
+        TRAN_CODE = #{tranCode,jdbcType=VARCHAR},
+      </if>
+      <if test="channelType != null">
+        CHANNEL_TYPE = #{channelType,jdbcType=VARCHAR},
+      </if>
+      <if test="coPlatform != null">
+        CO_PLATFORM = #{coPlatform,jdbcType=VARCHAR},
+      </if>
+      <if test="loanProp != null">
+        LOAN_PROP = #{loanProp,jdbcType=VARCHAR},
+      </if>
+      <if test="prdType != null">
+        PRD_TYPE = #{prdType,jdbcType=VARCHAR},
+      </if>
+      <if test="prdCode != null">
+        PRD_CODE = #{prdCode,jdbcType=VARCHAR},
+      </if>
+      <if test="crdContNo != null">
+        CRD_CONT_NO = #{crdContNo,jdbcType=VARCHAR},
+      </if>
+      <if test="tpObjId != null">
+        TP_OBJ_ID = #{tpObjId,jdbcType=VARCHAR},
+      </if>
+      <if test="certType != null">
+        CERT_TYPE = #{certType,jdbcType=VARCHAR},
+      </if>
+      <if test="certCode != null">
+        CERT_CODE = #{certCode,jdbcType=VARCHAR},
+      </if>
+      <if test="custName != null">
+        CUST_NAME = #{custName,jdbcType=VARCHAR},
+      </if>
+      <if test="custNameSpell != null">
+        CUST_NAME_SPELL = #{custNameSpell,jdbcType=VARCHAR},
+      </if>
+      <if test="certOrg != null">
+        CERT_ORG = #{certOrg,jdbcType=VARCHAR},
+      </if>
+      <if test="custType != null">
+        CUST_TYPE = #{custType,jdbcType=VARCHAR},
+      </if>
+      <if test="contactAddr != null">
+        CONTACT_ADDR = #{contactAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="contactZipCode != null">
+        CONTACT_ZIP_CODE = #{contactZipCode,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        EMAIL = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        PHONE = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="eduLevel != null">
+        EDU_LEVEL = #{eduLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="liveStatus != null">
+        LIVE_STATUS = #{liveStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="liveAddr != null">
+        LIVE_ADDR = #{liveAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="liveZipCode != null">
+        LIVE_ZIP_CODE = #{liveZipCode,jdbcType=VARCHAR},
+      </if>
+      <if test="marrStatus != null">
+        MARR_STATUS = #{marrStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="spouseName != null">
+        SPOUSE_NAME = #{spouseName,jdbcType=VARCHAR},
+      </if>
+      <if test="spouseCertType != null">
+        SPOUSE_CERT_TYPE = #{spouseCertType,jdbcType=VARCHAR},
+      </if>
+      <if test="spouseCertCode != null">
+        SPOUSE_CERT_CODE = #{spouseCertCode,jdbcType=VARCHAR},
+      </if>
+      <if test="operatorType != null">
+        OPERATOR_TYPE = #{operatorType,jdbcType=VARCHAR},
+      </if>
+      <if test="licenseCode != null">
+        LICENSE_CODE = #{licenseCode,jdbcType=VARCHAR},
+      </if>
+      <if test="resvTel != null">
+        RESV_TEL = #{resvTel,jdbcType=VARCHAR},
+      </if>
+      <if test="appAmt != null">
+        APP_AMT = #{appAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="loanPurpose != null">
+        LOAN_PURPOSE = #{loanPurpose,jdbcType=VARCHAR},
+      </if>
+      <if test="loanPurposeSub != null">
+        LOAN_PURPOSE_SUB = #{loanPurposeSub,jdbcType=VARCHAR},
+      </if>
+      <if test="appTerm != null">
+        APP_TERM = #{appTerm,jdbcType=VARCHAR},
+      </if>
+      <if test="repayType != null">
+        REPAY_TYPE = #{repayType,jdbcType=VARCHAR},
+      </if>
+      <if test="rateAdjType != null">
+        RATE_ADJ_TYPE = #{rateAdjType,jdbcType=VARCHAR},
+      </if>
+      <if test="rateAdjDay != null">
+        RATE_ADJ_DAY = #{rateAdjDay,jdbcType=VARCHAR},
+      </if>
+      <if test="interestCycle != null">
+        INTEREST_CYCLE = #{interestCycle,jdbcType=VARCHAR},
+      </if>
+      <if test="repayDay != null">
+        REPAY_DAY = #{repayDay,jdbcType=VARCHAR},
+      </if>
+      <if test="fixedCycle != null">
+        FIXED_CYCLE = #{fixedCycle,jdbcType=DECIMAL},
+      </if>
+      <if test="pRateType != null">
+        P_RATE_TYPE = #{pRateType,jdbcType=VARCHAR},
+      </if>
+      <if test="pRateFloat != null">
+        P_RATE_FLOAT = #{pRateFloat,jdbcType=DECIMAL},
+      </if>
+      <if test="loanAccBank != null">
+        LOAN_ACC_BANK = #{loanAccBank,jdbcType=VARCHAR},
+      </if>
+      <if test="loanAcc != null">
+        LOAN_ACC = #{loanAcc,jdbcType=VARCHAR},
+      </if>
+      <if test="loanCardNo != null">
+        LOAN_CARD_NO = #{loanCardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="repayAccBank != null">
+        REPAY_ACC_BANK = #{repayAccBank,jdbcType=VARCHAR},
+      </if>
+      <if test="repayAcc != null">
+        REPAY_ACC = #{repayAcc,jdbcType=VARCHAR},
+      </if>
+      <if test="repayCardNo != null">
+        REPAY_CARD_NO = #{repayCardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="relFlag != null">
+        REL_FLAG = #{relFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="grantNo != null">
+        GRANT_NO = #{grantNo,jdbcType=VARCHAR},
+      </if>
+      <if test="grantTime != null">
+        GRANT_TIME = #{grantTime,jdbcType=VARCHAR},
+      </if>
+      <if test="declNo != null">
+        DECL_NO = #{declNo,jdbcType=VARCHAR},
+      </if>
+      <if test="declTime != null">
+        DECL_TIME = #{declTime,jdbcType=VARCHAR},
+      </if>
+      <if test="crdAnswer != null">
+        CRD_ANSWER = #{crdAnswer,jdbcType=VARCHAR},
+      </if>
+      <if test="submitType != null">
+        SUBMIT_TYPE = #{submitType,jdbcType=VARCHAR},
+      </if>
+      <if test="field1 != null">
+        FIELD1 = #{field1,jdbcType=VARCHAR},
+      </if>
+      <if test="field2 != null">
+        FIELD2 = #{field2,jdbcType=VARCHAR},
+      </if>
+      <if test="field3 != null">
+        FIELD3 = #{field3,jdbcType=VARCHAR},
+      </if>
+      <if test="field4 != null">
+        FIELD4 = #{field4,jdbcType=VARCHAR},
+      </if>
+      <if test="field5 != null">
+        FIELD5 = #{field5,jdbcType=VARCHAR},
+      </if>
+      <if test="field6 != null">
+        FIELD6 = #{field6,jdbcType=VARCHAR},
+      </if>
+      <if test="field7 != null">
+        FIELD7 = #{field7,jdbcType=DECIMAL},
+      </if>
+      <if test="field8 != null">
+        FIELD8 = #{field8,jdbcType=DECIMAL},
+      </if>
+      <if test="field9 != null">
+        FIELD9 = #{field9,jdbcType=DECIMAL},
+      </if>
+      <if test="field10 != null">
+        FIELD10 = #{field10,jdbcType=DECIMAL},
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE = #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME = #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="orderTime != null">
+        ORDER_TIME = #{orderTime,jdbcType=VARCHAR},
+      </if>
+      <if test="orderValidTerm != null">
+        ORDER_VALID_TERM = #{orderValidTerm,jdbcType=VARCHAR},
+      </if>
+      <if test="corpCustNo != null">
+        CORP_CUST_NO = #{corpCustNo,jdbcType=VARCHAR},
+      </if>
+      <if test="channelShopNo != null">
+        CHANNEL_SHOP_NO = #{channelShopNo,jdbcType=VARCHAR},
+      </if>
+      <if test="subChannalNo != null">
+        SUB_CHANNAL_NO = #{subChannalNo,jdbcType=VARCHAR},
+      </if>
+      <if test="orderNo != null">
+        ORDER_NO = #{orderNo,jdbcType=VARCHAR},
+      </if>
+      <if test="orderAmt != null">
+        ORDER_AMT = #{orderAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="loanAccName != null">
+        LOAN_ACC_NAME = #{loanAccName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where TP_NO = #{tpNo,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.RAT_APP_INFO">
+    update RAT_APP_INFO
+    set TRAN_DATE = #{tranDate,jdbcType=VARCHAR},
+      TRAN_CODE = #{tranCode,jdbcType=VARCHAR},
+      CHANNEL_TYPE = #{channelType,jdbcType=VARCHAR},
+      CO_PLATFORM = #{coPlatform,jdbcType=VARCHAR},
+      LOAN_PROP = #{loanProp,jdbcType=VARCHAR},
+      PRD_TYPE = #{prdType,jdbcType=VARCHAR},
+      PRD_CODE = #{prdCode,jdbcType=VARCHAR},
+      CRD_CONT_NO = #{crdContNo,jdbcType=VARCHAR},
+      TP_OBJ_ID = #{tpObjId,jdbcType=VARCHAR},
+      CERT_TYPE = #{certType,jdbcType=VARCHAR},
+      CERT_CODE = #{certCode,jdbcType=VARCHAR},
+      CUST_NAME = #{custName,jdbcType=VARCHAR},
+      CUST_NAME_SPELL = #{custNameSpell,jdbcType=VARCHAR},
+      CERT_ORG = #{certOrg,jdbcType=VARCHAR},
+      CUST_TYPE = #{custType,jdbcType=VARCHAR},
+      CONTACT_ADDR = #{contactAddr,jdbcType=VARCHAR},
+      CONTACT_ZIP_CODE = #{contactZipCode,jdbcType=VARCHAR},
+      EMAIL = #{email,jdbcType=VARCHAR},
+      PHONE = #{phone,jdbcType=VARCHAR},
+      EDU_LEVEL = #{eduLevel,jdbcType=VARCHAR},
+      LIVE_STATUS = #{liveStatus,jdbcType=VARCHAR},
+      LIVE_ADDR = #{liveAddr,jdbcType=VARCHAR},
+      LIVE_ZIP_CODE = #{liveZipCode,jdbcType=VARCHAR},
+      MARR_STATUS = #{marrStatus,jdbcType=VARCHAR},
+      SPOUSE_NAME = #{spouseName,jdbcType=VARCHAR},
+      SPOUSE_CERT_TYPE = #{spouseCertType,jdbcType=VARCHAR},
+      SPOUSE_CERT_CODE = #{spouseCertCode,jdbcType=VARCHAR},
+      OPERATOR_TYPE = #{operatorType,jdbcType=VARCHAR},
+      LICENSE_CODE = #{licenseCode,jdbcType=VARCHAR},
+      RESV_TEL = #{resvTel,jdbcType=VARCHAR},
+      APP_AMT = #{appAmt,jdbcType=DECIMAL},
+      LOAN_PURPOSE = #{loanPurpose,jdbcType=VARCHAR},
+      LOAN_PURPOSE_SUB = #{loanPurposeSub,jdbcType=VARCHAR},
+      APP_TERM = #{appTerm,jdbcType=VARCHAR},
+      REPAY_TYPE = #{repayType,jdbcType=VARCHAR},
+      RATE_ADJ_TYPE = #{rateAdjType,jdbcType=VARCHAR},
+      RATE_ADJ_DAY = #{rateAdjDay,jdbcType=VARCHAR},
+      INTEREST_CYCLE = #{interestCycle,jdbcType=VARCHAR},
+      REPAY_DAY = #{repayDay,jdbcType=VARCHAR},
+      FIXED_CYCLE = #{fixedCycle,jdbcType=DECIMAL},
+      P_RATE_TYPE = #{pRateType,jdbcType=VARCHAR},
+      P_RATE_FLOAT = #{pRateFloat,jdbcType=DECIMAL},
+      LOAN_ACC_BANK = #{loanAccBank,jdbcType=VARCHAR},
+      LOAN_ACC = #{loanAcc,jdbcType=VARCHAR},
+      LOAN_CARD_NO = #{loanCardNo,jdbcType=VARCHAR},
+      REPAY_ACC_BANK = #{repayAccBank,jdbcType=VARCHAR},
+      REPAY_ACC = #{repayAcc,jdbcType=VARCHAR},
+      REPAY_CARD_NO = #{repayCardNo,jdbcType=VARCHAR},
+      REL_FLAG = #{relFlag,jdbcType=VARCHAR},
+      GRANT_NO = #{grantNo,jdbcType=VARCHAR},
+      GRANT_TIME = #{grantTime,jdbcType=VARCHAR},
+      DECL_NO = #{declNo,jdbcType=VARCHAR},
+      DECL_TIME = #{declTime,jdbcType=VARCHAR},
+      CRD_ANSWER = #{crdAnswer,jdbcType=VARCHAR},
+      SUBMIT_TYPE = #{submitType,jdbcType=VARCHAR},
+      FIELD1 = #{field1,jdbcType=VARCHAR},
+      FIELD2 = #{field2,jdbcType=VARCHAR},
+      FIELD3 = #{field3,jdbcType=VARCHAR},
+      FIELD4 = #{field4,jdbcType=VARCHAR},
+      FIELD5 = #{field5,jdbcType=VARCHAR},
+      FIELD6 = #{field6,jdbcType=VARCHAR},
+      FIELD7 = #{field7,jdbcType=DECIMAL},
+      FIELD8 = #{field8,jdbcType=DECIMAL},
+      FIELD9 = #{field9,jdbcType=DECIMAL},
+      FIELD10 = #{field10,jdbcType=DECIMAL},
+      INPUT_DATE = #{inputDate,jdbcType=VARCHAR},
+      INPUT_TIME = #{inputTime,jdbcType=VARCHAR},
+      ORDER_TIME = #{orderTime,jdbcType=VARCHAR},
+      ORDER_VALID_TERM = #{orderValidTerm,jdbcType=VARCHAR},
+      CORP_CUST_NO = #{corpCustNo,jdbcType=VARCHAR},
+      CHANNEL_SHOP_NO = #{channelShopNo,jdbcType=VARCHAR},
+      SUB_CHANNAL_NO = #{subChannalNo,jdbcType=VARCHAR},
+      ORDER_NO = #{orderNo,jdbcType=VARCHAR},
+      ORDER_AMT = #{orderAmt,jdbcType=DECIMAL},
+      LOAN_ACC_NAME = #{loanAccName,jdbcType=VARCHAR}
+    where TP_NO = #{tpNo,jdbcType=VARCHAR}
+  </update>
+</mapper>

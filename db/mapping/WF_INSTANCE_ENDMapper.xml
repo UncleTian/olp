@@ -1,0 +1,471 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.WF_INSTANCE_ENDMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.WF_INSTANCE_END">
+    <id column="INSTANCEID" jdbcType="VARCHAR" property="instanceid" />
+    <result column="BIZSEQNO" jdbcType="VARCHAR" property="bizseqno" />
+    <result column="CUSTID" jdbcType="VARCHAR" property="custid" />
+    <result column="CUSTNAME" jdbcType="VARCHAR" property="custname" />
+    <result column="MAININSTANCEID" jdbcType="VARCHAR" property="maininstanceid" />
+    <result column="MAINNODEID" jdbcType="VARCHAR" property="mainnodeid" />
+    <result column="ISWFSET" jdbcType="CHAR" property="iswfset" />
+    <result column="CLIENTSIGN" jdbcType="VARCHAR" property="clientsign" />
+    <result column="WFID" jdbcType="VARCHAR" property="wfid" />
+    <result column="WFNAME" jdbcType="VARCHAR" property="wfname" />
+    <result column="WFSIGN" jdbcType="VARCHAR" property="wfsign" />
+    <result column="WFJOBNAME" jdbcType="VARCHAR" property="wfjobname" />
+    <result column="WFSTARTTIME" jdbcType="CHAR" property="wfstarttime" />
+    <result column="WFENDTIME" jdbcType="CHAR" property="wfendtime" />
+    <result column="WFPLANENDTIME" jdbcType="CHAR" property="wfplanendtime" />
+    <result column="WFAPPID" jdbcType="VARCHAR" property="wfappid" />
+    <result column="WFAPPNAME" jdbcType="VARCHAR" property="wfappname" />
+    <result column="FORMID" jdbcType="VARCHAR" property="formid" />
+    <result column="FORMFLOW" jdbcType="VARCHAR" property="formflow" />
+    <result column="WFADMIN" jdbcType="VARCHAR" property="wfadmin" />
+    <result column="WFREADERS" jdbcType="VARCHAR" property="wfreaders" />
+    <result column="AUTHOR" jdbcType="VARCHAR" property="author" />
+    <result column="LASTUSER" jdbcType="VARCHAR" property="lastuser" />
+    <result column="APPSIGN" jdbcType="VARCHAR" property="appsign" />
+    <result column="SPSTATUS" jdbcType="CHAR" property="spstatus" />
+    <result column="FLOWTRACE" jdbcType="VARCHAR" property="flowtrace" />
+    <result column="DEPID" jdbcType="VARCHAR" property="depid" />
+    <result column="ORGID" jdbcType="VARCHAR" property="orgid" />
+    <result column="ALLREADERSLIST" jdbcType="VARCHAR" property="allreaderslist" />
+    <result column="FORMDATA" jdbcType="VARCHAR" property="formdata" />
+    <result column="COSTTIMES" jdbcType="DECIMAL" property="costtimes" />
+    <result column="EXV10" jdbcType="VARCHAR" property="exv10" />
+    <result column="EXV19" jdbcType="VARCHAR" property="exv19" />
+    <result column="EXV32" jdbcType="VARCHAR" property="exv32" />
+    <result column="EXV50" jdbcType="VARCHAR" property="exv50" />
+    <result column="EXV100" jdbcType="VARCHAR" property="exv100" />
+    <result column="SYSID" jdbcType="VARCHAR" property="sysid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    INSTANCEID, BIZSEQNO, CUSTID, CUSTNAME, MAININSTANCEID, MAINNODEID, ISWFSET, CLIENTSIGN, 
+    WFID, WFNAME, WFSIGN, WFJOBNAME, WFSTARTTIME, WFENDTIME, WFPLANENDTIME, WFAPPID, 
+    WFAPPNAME, FORMID, FORMFLOW, WFADMIN, WFREADERS, AUTHOR, LASTUSER, APPSIGN, SPSTATUS, 
+    FLOWTRACE, DEPID, ORGID, ALLREADERSLIST, FORMDATA, COSTTIMES, EXV10, EXV19, EXV32, 
+    EXV50, EXV100, SYSID
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from WF_INSTANCE_END
+    where INSTANCEID = #{instanceid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from WF_INSTANCE_END
+    where INSTANCEID = #{instanceid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.WF_INSTANCE_END">
+    insert into WF_INSTANCE_END (INSTANCEID, BIZSEQNO, CUSTID, 
+      CUSTNAME, MAININSTANCEID, MAINNODEID, 
+      ISWFSET, CLIENTSIGN, WFID, 
+      WFNAME, WFSIGN, WFJOBNAME, 
+      WFSTARTTIME, WFENDTIME, WFPLANENDTIME, 
+      WFAPPID, WFAPPNAME, FORMID, 
+      FORMFLOW, WFADMIN, WFREADERS, 
+      AUTHOR, LASTUSER, APPSIGN, 
+      SPSTATUS, FLOWTRACE, DEPID, 
+      ORGID, ALLREADERSLIST, FORMDATA, 
+      COSTTIMES, EXV10, EXV19, 
+      EXV32, EXV50, EXV100, 
+      SYSID)
+    values (#{instanceid,jdbcType=VARCHAR}, #{bizseqno,jdbcType=VARCHAR}, #{custid,jdbcType=VARCHAR}, 
+      #{custname,jdbcType=VARCHAR}, #{maininstanceid,jdbcType=VARCHAR}, #{mainnodeid,jdbcType=VARCHAR}, 
+      #{iswfset,jdbcType=CHAR}, #{clientsign,jdbcType=VARCHAR}, #{wfid,jdbcType=VARCHAR}, 
+      #{wfname,jdbcType=VARCHAR}, #{wfsign,jdbcType=VARCHAR}, #{wfjobname,jdbcType=VARCHAR}, 
+      #{wfstarttime,jdbcType=CHAR}, #{wfendtime,jdbcType=CHAR}, #{wfplanendtime,jdbcType=CHAR}, 
+      #{wfappid,jdbcType=VARCHAR}, #{wfappname,jdbcType=VARCHAR}, #{formid,jdbcType=VARCHAR}, 
+      #{formflow,jdbcType=VARCHAR}, #{wfadmin,jdbcType=VARCHAR}, #{wfreaders,jdbcType=VARCHAR}, 
+      #{author,jdbcType=VARCHAR}, #{lastuser,jdbcType=VARCHAR}, #{appsign,jdbcType=VARCHAR}, 
+      #{spstatus,jdbcType=CHAR}, #{flowtrace,jdbcType=VARCHAR}, #{depid,jdbcType=VARCHAR}, 
+      #{orgid,jdbcType=VARCHAR}, #{allreaderslist,jdbcType=VARCHAR}, #{formdata,jdbcType=VARCHAR}, 
+      #{costtimes,jdbcType=DECIMAL}, #{exv10,jdbcType=VARCHAR}, #{exv19,jdbcType=VARCHAR}, 
+      #{exv32,jdbcType=VARCHAR}, #{exv50,jdbcType=VARCHAR}, #{exv100,jdbcType=VARCHAR}, 
+      #{sysid,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.WF_INSTANCE_END">
+    insert into WF_INSTANCE_END
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="instanceid != null">
+        INSTANCEID,
+      </if>
+      <if test="bizseqno != null">
+        BIZSEQNO,
+      </if>
+      <if test="custid != null">
+        CUSTID,
+      </if>
+      <if test="custname != null">
+        CUSTNAME,
+      </if>
+      <if test="maininstanceid != null">
+        MAININSTANCEID,
+      </if>
+      <if test="mainnodeid != null">
+        MAINNODEID,
+      </if>
+      <if test="iswfset != null">
+        ISWFSET,
+      </if>
+      <if test="clientsign != null">
+        CLIENTSIGN,
+      </if>
+      <if test="wfid != null">
+        WFID,
+      </if>
+      <if test="wfname != null">
+        WFNAME,
+      </if>
+      <if test="wfsign != null">
+        WFSIGN,
+      </if>
+      <if test="wfjobname != null">
+        WFJOBNAME,
+      </if>
+      <if test="wfstarttime != null">
+        WFSTARTTIME,
+      </if>
+      <if test="wfendtime != null">
+        WFENDTIME,
+      </if>
+      <if test="wfplanendtime != null">
+        WFPLANENDTIME,
+      </if>
+      <if test="wfappid != null">
+        WFAPPID,
+      </if>
+      <if test="wfappname != null">
+        WFAPPNAME,
+      </if>
+      <if test="formid != null">
+        FORMID,
+      </if>
+      <if test="formflow != null">
+        FORMFLOW,
+      </if>
+      <if test="wfadmin != null">
+        WFADMIN,
+      </if>
+      <if test="wfreaders != null">
+        WFREADERS,
+      </if>
+      <if test="author != null">
+        AUTHOR,
+      </if>
+      <if test="lastuser != null">
+        LASTUSER,
+      </if>
+      <if test="appsign != null">
+        APPSIGN,
+      </if>
+      <if test="spstatus != null">
+        SPSTATUS,
+      </if>
+      <if test="flowtrace != null">
+        FLOWTRACE,
+      </if>
+      <if test="depid != null">
+        DEPID,
+      </if>
+      <if test="orgid != null">
+        ORGID,
+      </if>
+      <if test="allreaderslist != null">
+        ALLREADERSLIST,
+      </if>
+      <if test="formdata != null">
+        FORMDATA,
+      </if>
+      <if test="costtimes != null">
+        COSTTIMES,
+      </if>
+      <if test="exv10 != null">
+        EXV10,
+      </if>
+      <if test="exv19 != null">
+        EXV19,
+      </if>
+      <if test="exv32 != null">
+        EXV32,
+      </if>
+      <if test="exv50 != null">
+        EXV50,
+      </if>
+      <if test="exv100 != null">
+        EXV100,
+      </if>
+      <if test="sysid != null">
+        SYSID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="instanceid != null">
+        #{instanceid,jdbcType=VARCHAR},
+      </if>
+      <if test="bizseqno != null">
+        #{bizseqno,jdbcType=VARCHAR},
+      </if>
+      <if test="custid != null">
+        #{custid,jdbcType=VARCHAR},
+      </if>
+      <if test="custname != null">
+        #{custname,jdbcType=VARCHAR},
+      </if>
+      <if test="maininstanceid != null">
+        #{maininstanceid,jdbcType=VARCHAR},
+      </if>
+      <if test="mainnodeid != null">
+        #{mainnodeid,jdbcType=VARCHAR},
+      </if>
+      <if test="iswfset != null">
+        #{iswfset,jdbcType=CHAR},
+      </if>
+      <if test="clientsign != null">
+        #{clientsign,jdbcType=VARCHAR},
+      </if>
+      <if test="wfid != null">
+        #{wfid,jdbcType=VARCHAR},
+      </if>
+      <if test="wfname != null">
+        #{wfname,jdbcType=VARCHAR},
+      </if>
+      <if test="wfsign != null">
+        #{wfsign,jdbcType=VARCHAR},
+      </if>
+      <if test="wfjobname != null">
+        #{wfjobname,jdbcType=VARCHAR},
+      </if>
+      <if test="wfstarttime != null">
+        #{wfstarttime,jdbcType=CHAR},
+      </if>
+      <if test="wfendtime != null">
+        #{wfendtime,jdbcType=CHAR},
+      </if>
+      <if test="wfplanendtime != null">
+        #{wfplanendtime,jdbcType=CHAR},
+      </if>
+      <if test="wfappid != null">
+        #{wfappid,jdbcType=VARCHAR},
+      </if>
+      <if test="wfappname != null">
+        #{wfappname,jdbcType=VARCHAR},
+      </if>
+      <if test="formid != null">
+        #{formid,jdbcType=VARCHAR},
+      </if>
+      <if test="formflow != null">
+        #{formflow,jdbcType=VARCHAR},
+      </if>
+      <if test="wfadmin != null">
+        #{wfadmin,jdbcType=VARCHAR},
+      </if>
+      <if test="wfreaders != null">
+        #{wfreaders,jdbcType=VARCHAR},
+      </if>
+      <if test="author != null">
+        #{author,jdbcType=VARCHAR},
+      </if>
+      <if test="lastuser != null">
+        #{lastuser,jdbcType=VARCHAR},
+      </if>
+      <if test="appsign != null">
+        #{appsign,jdbcType=VARCHAR},
+      </if>
+      <if test="spstatus != null">
+        #{spstatus,jdbcType=CHAR},
+      </if>
+      <if test="flowtrace != null">
+        #{flowtrace,jdbcType=VARCHAR},
+      </if>
+      <if test="depid != null">
+        #{depid,jdbcType=VARCHAR},
+      </if>
+      <if test="orgid != null">
+        #{orgid,jdbcType=VARCHAR},
+      </if>
+      <if test="allreaderslist != null">
+        #{allreaderslist,jdbcType=VARCHAR},
+      </if>
+      <if test="formdata != null">
+        #{formdata,jdbcType=VARCHAR},
+      </if>
+      <if test="costtimes != null">
+        #{costtimes,jdbcType=DECIMAL},
+      </if>
+      <if test="exv10 != null">
+        #{exv10,jdbcType=VARCHAR},
+      </if>
+      <if test="exv19 != null">
+        #{exv19,jdbcType=VARCHAR},
+      </if>
+      <if test="exv32 != null">
+        #{exv32,jdbcType=VARCHAR},
+      </if>
+      <if test="exv50 != null">
+        #{exv50,jdbcType=VARCHAR},
+      </if>
+      <if test="exv100 != null">
+        #{exv100,jdbcType=VARCHAR},
+      </if>
+      <if test="sysid != null">
+        #{sysid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.WF_INSTANCE_END">
+    update WF_INSTANCE_END
+    <set>
+      <if test="bizseqno != null">
+        BIZSEQNO = #{bizseqno,jdbcType=VARCHAR},
+      </if>
+      <if test="custid != null">
+        CUSTID = #{custid,jdbcType=VARCHAR},
+      </if>
+      <if test="custname != null">
+        CUSTNAME = #{custname,jdbcType=VARCHAR},
+      </if>
+      <if test="maininstanceid != null">
+        MAININSTANCEID = #{maininstanceid,jdbcType=VARCHAR},
+      </if>
+      <if test="mainnodeid != null">
+        MAINNODEID = #{mainnodeid,jdbcType=VARCHAR},
+      </if>
+      <if test="iswfset != null">
+        ISWFSET = #{iswfset,jdbcType=CHAR},
+      </if>
+      <if test="clientsign != null">
+        CLIENTSIGN = #{clientsign,jdbcType=VARCHAR},
+      </if>
+      <if test="wfid != null">
+        WFID = #{wfid,jdbcType=VARCHAR},
+      </if>
+      <if test="wfname != null">
+        WFNAME = #{wfname,jdbcType=VARCHAR},
+      </if>
+      <if test="wfsign != null">
+        WFSIGN = #{wfsign,jdbcType=VARCHAR},
+      </if>
+      <if test="wfjobname != null">
+        WFJOBNAME = #{wfjobname,jdbcType=VARCHAR},
+      </if>
+      <if test="wfstarttime != null">
+        WFSTARTTIME = #{wfstarttime,jdbcType=CHAR},
+      </if>
+      <if test="wfendtime != null">
+        WFENDTIME = #{wfendtime,jdbcType=CHAR},
+      </if>
+      <if test="wfplanendtime != null">
+        WFPLANENDTIME = #{wfplanendtime,jdbcType=CHAR},
+      </if>
+      <if test="wfappid != null">
+        WFAPPID = #{wfappid,jdbcType=VARCHAR},
+      </if>
+      <if test="wfappname != null">
+        WFAPPNAME = #{wfappname,jdbcType=VARCHAR},
+      </if>
+      <if test="formid != null">
+        FORMID = #{formid,jdbcType=VARCHAR},
+      </if>
+      <if test="formflow != null">
+        FORMFLOW = #{formflow,jdbcType=VARCHAR},
+      </if>
+      <if test="wfadmin != null">
+        WFADMIN = #{wfadmin,jdbcType=VARCHAR},
+      </if>
+      <if test="wfreaders != null">
+        WFREADERS = #{wfreaders,jdbcType=VARCHAR},
+      </if>
+      <if test="author != null">
+        AUTHOR = #{author,jdbcType=VARCHAR},
+      </if>
+      <if test="lastuser != null">
+        LASTUSER = #{lastuser,jdbcType=VARCHAR},
+      </if>
+      <if test="appsign != null">
+        APPSIGN = #{appsign,jdbcType=VARCHAR},
+      </if>
+      <if test="spstatus != null">
+        SPSTATUS = #{spstatus,jdbcType=CHAR},
+      </if>
+      <if test="flowtrace != null">
+        FLOWTRACE = #{flowtrace,jdbcType=VARCHAR},
+      </if>
+      <if test="depid != null">
+        DEPID = #{depid,jdbcType=VARCHAR},
+      </if>
+      <if test="orgid != null">
+        ORGID = #{orgid,jdbcType=VARCHAR},
+      </if>
+      <if test="allreaderslist != null">
+        ALLREADERSLIST = #{allreaderslist,jdbcType=VARCHAR},
+      </if>
+      <if test="formdata != null">
+        FORMDATA = #{formdata,jdbcType=VARCHAR},
+      </if>
+      <if test="costtimes != null">
+        COSTTIMES = #{costtimes,jdbcType=DECIMAL},
+      </if>
+      <if test="exv10 != null">
+        EXV10 = #{exv10,jdbcType=VARCHAR},
+      </if>
+      <if test="exv19 != null">
+        EXV19 = #{exv19,jdbcType=VARCHAR},
+      </if>
+      <if test="exv32 != null">
+        EXV32 = #{exv32,jdbcType=VARCHAR},
+      </if>
+      <if test="exv50 != null">
+        EXV50 = #{exv50,jdbcType=VARCHAR},
+      </if>
+      <if test="exv100 != null">
+        EXV100 = #{exv100,jdbcType=VARCHAR},
+      </if>
+      <if test="sysid != null">
+        SYSID = #{sysid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where INSTANCEID = #{instanceid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.WF_INSTANCE_END">
+    update WF_INSTANCE_END
+    set BIZSEQNO = #{bizseqno,jdbcType=VARCHAR},
+      CUSTID = #{custid,jdbcType=VARCHAR},
+      CUSTNAME = #{custname,jdbcType=VARCHAR},
+      MAININSTANCEID = #{maininstanceid,jdbcType=VARCHAR},
+      MAINNODEID = #{mainnodeid,jdbcType=VARCHAR},
+      ISWFSET = #{iswfset,jdbcType=CHAR},
+      CLIENTSIGN = #{clientsign,jdbcType=VARCHAR},
+      WFID = #{wfid,jdbcType=VARCHAR},
+      WFNAME = #{wfname,jdbcType=VARCHAR},
+      WFSIGN = #{wfsign,jdbcType=VARCHAR},
+      WFJOBNAME = #{wfjobname,jdbcType=VARCHAR},
+      WFSTARTTIME = #{wfstarttime,jdbcType=CHAR},
+      WFENDTIME = #{wfendtime,jdbcType=CHAR},
+      WFPLANENDTIME = #{wfplanendtime,jdbcType=CHAR},
+      WFAPPID = #{wfappid,jdbcType=VARCHAR},
+      WFAPPNAME = #{wfappname,jdbcType=VARCHAR},
+      FORMID = #{formid,jdbcType=VARCHAR},
+      FORMFLOW = #{formflow,jdbcType=VARCHAR},
+      WFADMIN = #{wfadmin,jdbcType=VARCHAR},
+      WFREADERS = #{wfreaders,jdbcType=VARCHAR},
+      AUTHOR = #{author,jdbcType=VARCHAR},
+      LASTUSER = #{lastuser,jdbcType=VARCHAR},
+      APPSIGN = #{appsign,jdbcType=VARCHAR},
+      SPSTATUS = #{spstatus,jdbcType=CHAR},
+      FLOWTRACE = #{flowtrace,jdbcType=VARCHAR},
+      DEPID = #{depid,jdbcType=VARCHAR},
+      ORGID = #{orgid,jdbcType=VARCHAR},
+      ALLREADERSLIST = #{allreaderslist,jdbcType=VARCHAR},
+      FORMDATA = #{formdata,jdbcType=VARCHAR},
+      COSTTIMES = #{costtimes,jdbcType=DECIMAL},
+      EXV10 = #{exv10,jdbcType=VARCHAR},
+      EXV19 = #{exv19,jdbcType=VARCHAR},
+      EXV32 = #{exv32,jdbcType=VARCHAR},
+      EXV50 = #{exv50,jdbcType=VARCHAR},
+      EXV100 = #{exv100,jdbcType=VARCHAR},
+      SYSID = #{sysid,jdbcType=VARCHAR}
+    where INSTANCEID = #{instanceid,jdbcType=VARCHAR}
+  </update>
+</mapper>

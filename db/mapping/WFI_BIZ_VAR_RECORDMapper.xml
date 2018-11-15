@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.WFI_BIZ_VAR_RECORDMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.WFI_BIZ_VAR_RECORD">
+    <id column="PK1" jdbcType="VARCHAR" property="pk1" />
+    <result column="INSTANCEID" jdbcType="VARCHAR" property="instanceid" />
+    <result column="NODEID" jdbcType="VARCHAR" property="nodeid" />
+    <result column="NODENAME" jdbcType="VARCHAR" property="nodename" />
+    <result column="VAR_KEY" jdbcType="VARCHAR" property="varKey" />
+    <result column="VAR_NAME" jdbcType="VARCHAR" property="varName" />
+    <result column="VAR_VALUE" jdbcType="VARCHAR" property="varValue" />
+    <result column="VAR_DISPVALUE" jdbcType="VARCHAR" property="varDispvalue" />
+    <result column="VAR_OLD_VALUE" jdbcType="VARCHAR" property="varOldValue" />
+    <result column="VAR_OLD_DISPVALUE" jdbcType="VARCHAR" property="varOldDispvalue" />
+    <result column="VAR_TYPE" jdbcType="VARCHAR" property="varType" />
+    <result column="OP_TIME" jdbcType="CHAR" property="opTime" />
+    <result column="INPUT_ID" jdbcType="VARCHAR" property="inputId" />
+    <result column="INPUT_BR_ID" jdbcType="VARCHAR" property="inputBrId" />
+    <result column="COMMENTID" jdbcType="VARCHAR" property="commentid" />
+    <result column="REMARK" jdbcType="VARCHAR" property="remark" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    PK1, INSTANCEID, NODEID, NODENAME, VAR_KEY, VAR_NAME, VAR_VALUE, VAR_DISPVALUE, VAR_OLD_VALUE, 
+    VAR_OLD_DISPVALUE, VAR_TYPE, OP_TIME, INPUT_ID, INPUT_BR_ID, COMMENTID, REMARK
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from WFI_BIZ_VAR_RECORD
+    where PK1 = #{pk1,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from WFI_BIZ_VAR_RECORD
+    where PK1 = #{pk1,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.WFI_BIZ_VAR_RECORD">
+    insert into WFI_BIZ_VAR_RECORD (PK1, INSTANCEID, NODEID, 
+      NODENAME, VAR_KEY, VAR_NAME, 
+      VAR_VALUE, VAR_DISPVALUE, VAR_OLD_VALUE, 
+      VAR_OLD_DISPVALUE, VAR_TYPE, OP_TIME, 
+      INPUT_ID, INPUT_BR_ID, COMMENTID, 
+      REMARK)
+    values (#{pk1,jdbcType=VARCHAR}, #{instanceid,jdbcType=VARCHAR}, #{nodeid,jdbcType=VARCHAR}, 
+      #{nodename,jdbcType=VARCHAR}, #{varKey,jdbcType=VARCHAR}, #{varName,jdbcType=VARCHAR}, 
+      #{varValue,jdbcType=VARCHAR}, #{varDispvalue,jdbcType=VARCHAR}, #{varOldValue,jdbcType=VARCHAR}, 
+      #{varOldDispvalue,jdbcType=VARCHAR}, #{varType,jdbcType=VARCHAR}, #{opTime,jdbcType=CHAR}, 
+      #{inputId,jdbcType=VARCHAR}, #{inputBrId,jdbcType=VARCHAR}, #{commentid,jdbcType=VARCHAR}, 
+      #{remark,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.WFI_BIZ_VAR_RECORD">
+    insert into WFI_BIZ_VAR_RECORD
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="pk1 != null">
+        PK1,
+      </if>
+      <if test="instanceid != null">
+        INSTANCEID,
+      </if>
+      <if test="nodeid != null">
+        NODEID,
+      </if>
+      <if test="nodename != null">
+        NODENAME,
+      </if>
+      <if test="varKey != null">
+        VAR_KEY,
+      </if>
+      <if test="varName != null">
+        VAR_NAME,
+      </if>
+      <if test="varValue != null">
+        VAR_VALUE,
+      </if>
+      <if test="varDispvalue != null">
+        VAR_DISPVALUE,
+      </if>
+      <if test="varOldValue != null">
+        VAR_OLD_VALUE,
+      </if>
+      <if test="varOldDispvalue != null">
+        VAR_OLD_DISPVALUE,
+      </if>
+      <if test="varType != null">
+        VAR_TYPE,
+      </if>
+      <if test="opTime != null">
+        OP_TIME,
+      </if>
+      <if test="inputId != null">
+        INPUT_ID,
+      </if>
+      <if test="inputBrId != null">
+        INPUT_BR_ID,
+      </if>
+      <if test="commentid != null">
+        COMMENTID,
+      </if>
+      <if test="remark != null">
+        REMARK,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="pk1 != null">
+        #{pk1,jdbcType=VARCHAR},
+      </if>
+      <if test="instanceid != null">
+        #{instanceid,jdbcType=VARCHAR},
+      </if>
+      <if test="nodeid != null">
+        #{nodeid,jdbcType=VARCHAR},
+      </if>
+      <if test="nodename != null">
+        #{nodename,jdbcType=VARCHAR},
+      </if>
+      <if test="varKey != null">
+        #{varKey,jdbcType=VARCHAR},
+      </if>
+      <if test="varName != null">
+        #{varName,jdbcType=VARCHAR},
+      </if>
+      <if test="varValue != null">
+        #{varValue,jdbcType=VARCHAR},
+      </if>
+      <if test="varDispvalue != null">
+        #{varDispvalue,jdbcType=VARCHAR},
+      </if>
+      <if test="varOldValue != null">
+        #{varOldValue,jdbcType=VARCHAR},
+      </if>
+      <if test="varOldDispvalue != null">
+        #{varOldDispvalue,jdbcType=VARCHAR},
+      </if>
+      <if test="varType != null">
+        #{varType,jdbcType=VARCHAR},
+      </if>
+      <if test="opTime != null">
+        #{opTime,jdbcType=CHAR},
+      </if>
+      <if test="inputId != null">
+        #{inputId,jdbcType=VARCHAR},
+      </if>
+      <if test="inputBrId != null">
+        #{inputBrId,jdbcType=VARCHAR},
+      </if>
+      <if test="commentid != null">
+        #{commentid,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.WFI_BIZ_VAR_RECORD">
+    update WFI_BIZ_VAR_RECORD
+    <set>
+      <if test="instanceid != null">
+        INSTANCEID = #{instanceid,jdbcType=VARCHAR},
+      </if>
+      <if test="nodeid != null">
+        NODEID = #{nodeid,jdbcType=VARCHAR},
+      </if>
+      <if test="nodename != null">
+        NODENAME = #{nodename,jdbcType=VARCHAR},
+      </if>
+      <if test="varKey != null">
+        VAR_KEY = #{varKey,jdbcType=VARCHAR},
+      </if>
+      <if test="varName != null">
+        VAR_NAME = #{varName,jdbcType=VARCHAR},
+      </if>
+      <if test="varValue != null">
+        VAR_VALUE = #{varValue,jdbcType=VARCHAR},
+      </if>
+      <if test="varDispvalue != null">
+        VAR_DISPVALUE = #{varDispvalue,jdbcType=VARCHAR},
+      </if>
+      <if test="varOldValue != null">
+        VAR_OLD_VALUE = #{varOldValue,jdbcType=VARCHAR},
+      </if>
+      <if test="varOldDispvalue != null">
+        VAR_OLD_DISPVALUE = #{varOldDispvalue,jdbcType=VARCHAR},
+      </if>
+      <if test="varType != null">
+        VAR_TYPE = #{varType,jdbcType=VARCHAR},
+      </if>
+      <if test="opTime != null">
+        OP_TIME = #{opTime,jdbcType=CHAR},
+      </if>
+      <if test="inputId != null">
+        INPUT_ID = #{inputId,jdbcType=VARCHAR},
+      </if>
+      <if test="inputBrId != null">
+        INPUT_BR_ID = #{inputBrId,jdbcType=VARCHAR},
+      </if>
+      <if test="commentid != null">
+        COMMENTID = #{commentid,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        REMARK = #{remark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where PK1 = #{pk1,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.WFI_BIZ_VAR_RECORD">
+    update WFI_BIZ_VAR_RECORD
+    set INSTANCEID = #{instanceid,jdbcType=VARCHAR},
+      NODEID = #{nodeid,jdbcType=VARCHAR},
+      NODENAME = #{nodename,jdbcType=VARCHAR},
+      VAR_KEY = #{varKey,jdbcType=VARCHAR},
+      VAR_NAME = #{varName,jdbcType=VARCHAR},
+      VAR_VALUE = #{varValue,jdbcType=VARCHAR},
+      VAR_DISPVALUE = #{varDispvalue,jdbcType=VARCHAR},
+      VAR_OLD_VALUE = #{varOldValue,jdbcType=VARCHAR},
+      VAR_OLD_DISPVALUE = #{varOldDispvalue,jdbcType=VARCHAR},
+      VAR_TYPE = #{varType,jdbcType=VARCHAR},
+      OP_TIME = #{opTime,jdbcType=CHAR},
+      INPUT_ID = #{inputId,jdbcType=VARCHAR},
+      INPUT_BR_ID = #{inputBrId,jdbcType=VARCHAR},
+      COMMENTID = #{commentid,jdbcType=VARCHAR},
+      REMARK = #{remark,jdbcType=VARCHAR}
+    where PK1 = #{pk1,jdbcType=VARCHAR}
+  </update>
+</mapper>

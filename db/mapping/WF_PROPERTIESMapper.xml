@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.WF_PROPERTIESMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.WF_PROPERTIES">
+    <id column="PROPKEY" jdbcType="VARCHAR" property="propkey" />
+    <result column="PROPVALUE" jdbcType="VARCHAR" property="propvalue" />
+    <result column="MEMO" jdbcType="VARCHAR" property="memo" />
+    <result column="CREATETIME" jdbcType="VARCHAR" property="createtime" />
+    <result column="LASTUPDOPRID" jdbcType="VARCHAR" property="lastupdoprid" />
+    <result column="LASTUPDTIME" jdbcType="VARCHAR" property="lastupdtime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    PROPKEY, PROPVALUE, MEMO, CREATETIME, LASTUPDOPRID, LASTUPDTIME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from WF_PROPERTIES
+    where PROPKEY = #{propkey,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from WF_PROPERTIES
+    where PROPKEY = #{propkey,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.WF_PROPERTIES">
+    insert into WF_PROPERTIES (PROPKEY, PROPVALUE, MEMO, 
+      CREATETIME, LASTUPDOPRID, LASTUPDTIME
+      )
+    values (#{propkey,jdbcType=VARCHAR}, #{propvalue,jdbcType=VARCHAR}, #{memo,jdbcType=VARCHAR}, 
+      #{createtime,jdbcType=VARCHAR}, #{lastupdoprid,jdbcType=VARCHAR}, #{lastupdtime,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.WF_PROPERTIES">
+    insert into WF_PROPERTIES
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="propkey != null">
+        PROPKEY,
+      </if>
+      <if test="propvalue != null">
+        PROPVALUE,
+      </if>
+      <if test="memo != null">
+        MEMO,
+      </if>
+      <if test="createtime != null">
+        CREATETIME,
+      </if>
+      <if test="lastupdoprid != null">
+        LASTUPDOPRID,
+      </if>
+      <if test="lastupdtime != null">
+        LASTUPDTIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="propkey != null">
+        #{propkey,jdbcType=VARCHAR},
+      </if>
+      <if test="propvalue != null">
+        #{propvalue,jdbcType=VARCHAR},
+      </if>
+      <if test="memo != null">
+        #{memo,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastupdoprid != null">
+        #{lastupdoprid,jdbcType=VARCHAR},
+      </if>
+      <if test="lastupdtime != null">
+        #{lastupdtime,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.WF_PROPERTIES">
+    update WF_PROPERTIES
+    <set>
+      <if test="propvalue != null">
+        PROPVALUE = #{propvalue,jdbcType=VARCHAR},
+      </if>
+      <if test="memo != null">
+        MEMO = #{memo,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        CREATETIME = #{createtime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastupdoprid != null">
+        LASTUPDOPRID = #{lastupdoprid,jdbcType=VARCHAR},
+      </if>
+      <if test="lastupdtime != null">
+        LASTUPDTIME = #{lastupdtime,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where PROPKEY = #{propkey,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.WF_PROPERTIES">
+    update WF_PROPERTIES
+    set PROPVALUE = #{propvalue,jdbcType=VARCHAR},
+      MEMO = #{memo,jdbcType=VARCHAR},
+      CREATETIME = #{createtime,jdbcType=VARCHAR},
+      LASTUPDOPRID = #{lastupdoprid,jdbcType=VARCHAR},
+      LASTUPDTIME = #{lastupdtime,jdbcType=VARCHAR}
+    where PROPKEY = #{propkey,jdbcType=VARCHAR}
+  </update>
+</mapper>

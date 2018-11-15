@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.PRO_INTERFACE_CONFIGMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.PRO_INTERFACE_CONFIG">
+    <id column="PRO_CODE" jdbcType="VARCHAR" property="proCode" />
+    <result column="BR_APPLY_LOAN_STR" jdbcType="VARCHAR" property="brApplyLoanStr" />
+    <result column="BR_EXECUTION" jdbcType="VARCHAR" property="brExecution" />
+    <result column="BR_PERSONAL_CRE" jdbcType="VARCHAR" property="brPersonalCre" />
+    <result column="BR_SPECAIL_LIST_C" jdbcType="VARCHAR" property="brSpecailListC" />
+    <result column="PY_DEBT_PAY_ANALYSIS" jdbcType="VARCHAR" property="pyDebtPayAnalysis" />
+    <result column="PY_ENT_INFO_QUERY" jdbcType="VARCHAR" property="pyEntInfoQuery" />
+    <result column="PY_COMPANY" jdbcType="VARCHAR" property="pyCompany" />
+    <result column="PY_ENT_NORMALIZE_NAME" jdbcType="VARCHAR" property="pyEntNormalizeName" />
+    <result column="TD_ECLQ_QUERY" jdbcType="VARCHAR" property="tdEclqQuery" />
+    <result column="TD_HKBEA_LOAN_QUERY" jdbcType="VARCHAR" property="tdHkbeaLoanQuery" />
+    <result column="TD_OAC_QUERY" jdbcType="VARCHAR" property="tdOacQuery" />
+    <result column="BLN_CHECK_NAME" jdbcType="VARCHAR" property="blnCheckName" />
+    <result column="ECIF_CUST_QUERY" jdbcType="VARCHAR" property="ecifCustQuery" />
+    <result column="ECIF_RELATED_CHECK" jdbcType="VARCHAR" property="ecifRelatedCheck" />
+    <result column="CII_IDENTITY_CHECK" jdbcType="VARCHAR" property="ciiIdentityCheck" />
+    <result column="PREPARE_FILED1" jdbcType="VARCHAR" property="prepareFiled1" />
+    <result column="PREPARE_FILED2" jdbcType="VARCHAR" property="prepareFiled2" />
+    <result column="PREPARE_FILED3" jdbcType="VARCHAR" property="prepareFiled3" />
+    <result column="PREPARE_FILED4" jdbcType="VARCHAR" property="prepareFiled4" />
+    <result column="PREPARE_FILED5" jdbcType="VARCHAR" property="prepareFiled5" />
+    <result column="PREPARE_FILED6" jdbcType="VARCHAR" property="prepareFiled6" />
+    <result column="PREPARE_FILED7" jdbcType="VARCHAR" property="prepareFiled7" />
+    <result column="PREPARE_FILED8" jdbcType="VARCHAR" property="prepareFiled8" />
+    <result column="PREPARE_FILED9" jdbcType="VARCHAR" property="prepareFiled9" />
+    <result column="PREPARE_FILED10" jdbcType="VARCHAR" property="prepareFiled10" />
+    <result column="INPUT_DATE" jdbcType="VARCHAR" property="inputDate" />
+    <result column="INPUT_TIME" jdbcType="VARCHAR" property="inputTime" />
+    <result column="LAST_UPDATE_DATE" jdbcType="VARCHAR" property="lastUpdateDate" />
+    <result column="LAST_UPDATE_TIME" jdbcType="VARCHAR" property="lastUpdateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    PRO_CODE, BR_APPLY_LOAN_STR, BR_EXECUTION, BR_PERSONAL_CRE, BR_SPECAIL_LIST_C, PY_DEBT_PAY_ANALYSIS, 
+    PY_ENT_INFO_QUERY, PY_COMPANY, PY_ENT_NORMALIZE_NAME, TD_ECLQ_QUERY, TD_HKBEA_LOAN_QUERY, 
+    TD_OAC_QUERY, BLN_CHECK_NAME, ECIF_CUST_QUERY, ECIF_RELATED_CHECK, CII_IDENTITY_CHECK, 
+    PREPARE_FILED1, PREPARE_FILED2, PREPARE_FILED3, PREPARE_FILED4, PREPARE_FILED5, PREPARE_FILED6, 
+    PREPARE_FILED7, PREPARE_FILED8, PREPARE_FILED9, PREPARE_FILED10, INPUT_DATE, INPUT_TIME, 
+    LAST_UPDATE_DATE, LAST_UPDATE_TIME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from PRO_INTERFACE_CONFIG
+    where PRO_CODE = #{proCode,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from PRO_INTERFACE_CONFIG
+    where PRO_CODE = #{proCode,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.PRO_INTERFACE_CONFIG">
+    insert into PRO_INTERFACE_CONFIG (PRO_CODE, BR_APPLY_LOAN_STR, BR_EXECUTION, 
+      BR_PERSONAL_CRE, BR_SPECAIL_LIST_C, PY_DEBT_PAY_ANALYSIS, 
+      PY_ENT_INFO_QUERY, PY_COMPANY, PY_ENT_NORMALIZE_NAME, 
+      TD_ECLQ_QUERY, TD_HKBEA_LOAN_QUERY, TD_OAC_QUERY, 
+      BLN_CHECK_NAME, ECIF_CUST_QUERY, ECIF_RELATED_CHECK, 
+      CII_IDENTITY_CHECK, PREPARE_FILED1, PREPARE_FILED2, 
+      PREPARE_FILED3, PREPARE_FILED4, PREPARE_FILED5, 
+      PREPARE_FILED6, PREPARE_FILED7, PREPARE_FILED8, 
+      PREPARE_FILED9, PREPARE_FILED10, INPUT_DATE, 
+      INPUT_TIME, LAST_UPDATE_DATE, LAST_UPDATE_TIME
+      )
+    values (#{proCode,jdbcType=VARCHAR}, #{brApplyLoanStr,jdbcType=VARCHAR}, #{brExecution,jdbcType=VARCHAR}, 
+      #{brPersonalCre,jdbcType=VARCHAR}, #{brSpecailListC,jdbcType=VARCHAR}, #{pyDebtPayAnalysis,jdbcType=VARCHAR}, 
+      #{pyEntInfoQuery,jdbcType=VARCHAR}, #{pyCompany,jdbcType=VARCHAR}, #{pyEntNormalizeName,jdbcType=VARCHAR}, 
+      #{tdEclqQuery,jdbcType=VARCHAR}, #{tdHkbeaLoanQuery,jdbcType=VARCHAR}, #{tdOacQuery,jdbcType=VARCHAR}, 
+      #{blnCheckName,jdbcType=VARCHAR}, #{ecifCustQuery,jdbcType=VARCHAR}, #{ecifRelatedCheck,jdbcType=VARCHAR}, 
+      #{ciiIdentityCheck,jdbcType=VARCHAR}, #{prepareFiled1,jdbcType=VARCHAR}, #{prepareFiled2,jdbcType=VARCHAR}, 
+      #{prepareFiled3,jdbcType=VARCHAR}, #{prepareFiled4,jdbcType=VARCHAR}, #{prepareFiled5,jdbcType=VARCHAR}, 
+      #{prepareFiled6,jdbcType=VARCHAR}, #{prepareFiled7,jdbcType=VARCHAR}, #{prepareFiled8,jdbcType=VARCHAR}, 
+      #{prepareFiled9,jdbcType=VARCHAR}, #{prepareFiled10,jdbcType=VARCHAR}, #{inputDate,jdbcType=VARCHAR}, 
+      #{inputTime,jdbcType=VARCHAR}, #{lastUpdateDate,jdbcType=VARCHAR}, #{lastUpdateTime,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.PRO_INTERFACE_CONFIG">
+    insert into PRO_INTERFACE_CONFIG
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="proCode != null">
+        PRO_CODE,
+      </if>
+      <if test="brApplyLoanStr != null">
+        BR_APPLY_LOAN_STR,
+      </if>
+      <if test="brExecution != null">
+        BR_EXECUTION,
+      </if>
+      <if test="brPersonalCre != null">
+        BR_PERSONAL_CRE,
+      </if>
+      <if test="brSpecailListC != null">
+        BR_SPECAIL_LIST_C,
+      </if>
+      <if test="pyDebtPayAnalysis != null">
+        PY_DEBT_PAY_ANALYSIS,
+      </if>
+      <if test="pyEntInfoQuery != null">
+        PY_ENT_INFO_QUERY,
+      </if>
+      <if test="pyCompany != null">
+        PY_COMPANY,
+      </if>
+      <if test="pyEntNormalizeName != null">
+        PY_ENT_NORMALIZE_NAME,
+      </if>
+      <if test="tdEclqQuery != null">
+        TD_ECLQ_QUERY,
+      </if>
+      <if test="tdHkbeaLoanQuery != null">
+        TD_HKBEA_LOAN_QUERY,
+      </if>
+      <if test="tdOacQuery != null">
+        TD_OAC_QUERY,
+      </if>
+      <if test="blnCheckName != null">
+        BLN_CHECK_NAME,
+      </if>
+      <if test="ecifCustQuery != null">
+        ECIF_CUST_QUERY,
+      </if>
+      <if test="ecifRelatedCheck != null">
+        ECIF_RELATED_CHECK,
+      </if>
+      <if test="ciiIdentityCheck != null">
+        CII_IDENTITY_CHECK,
+      </if>
+      <if test="prepareFiled1 != null">
+        PREPARE_FILED1,
+      </if>
+      <if test="prepareFiled2 != null">
+        PREPARE_FILED2,
+      </if>
+      <if test="prepareFiled3 != null">
+        PREPARE_FILED3,
+      </if>
+      <if test="prepareFiled4 != null">
+        PREPARE_FILED4,
+      </if>
+      <if test="prepareFiled5 != null">
+        PREPARE_FILED5,
+      </if>
+      <if test="prepareFiled6 != null">
+        PREPARE_FILED6,
+      </if>
+      <if test="prepareFiled7 != null">
+        PREPARE_FILED7,
+      </if>
+      <if test="prepareFiled8 != null">
+        PREPARE_FILED8,
+      </if>
+      <if test="prepareFiled9 != null">
+        PREPARE_FILED9,
+      </if>
+      <if test="prepareFiled10 != null">
+        PREPARE_FILED10,
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE,
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME,
+      </if>
+      <if test="lastUpdateDate != null">
+        LAST_UPDATE_DATE,
+      </if>
+      <if test="lastUpdateTime != null">
+        LAST_UPDATE_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="proCode != null">
+        #{proCode,jdbcType=VARCHAR},
+      </if>
+      <if test="brApplyLoanStr != null">
+        #{brApplyLoanStr,jdbcType=VARCHAR},
+      </if>
+      <if test="brExecution != null">
+        #{brExecution,jdbcType=VARCHAR},
+      </if>
+      <if test="brPersonalCre != null">
+        #{brPersonalCre,jdbcType=VARCHAR},
+      </if>
+      <if test="brSpecailListC != null">
+        #{brSpecailListC,jdbcType=VARCHAR},
+      </if>
+      <if test="pyDebtPayAnalysis != null">
+        #{pyDebtPayAnalysis,jdbcType=VARCHAR},
+      </if>
+      <if test="pyEntInfoQuery != null">
+        #{pyEntInfoQuery,jdbcType=VARCHAR},
+      </if>
+      <if test="pyCompany != null">
+        #{pyCompany,jdbcType=VARCHAR},
+      </if>
+      <if test="pyEntNormalizeName != null">
+        #{pyEntNormalizeName,jdbcType=VARCHAR},
+      </if>
+      <if test="tdEclqQuery != null">
+        #{tdEclqQuery,jdbcType=VARCHAR},
+      </if>
+      <if test="tdHkbeaLoanQuery != null">
+        #{tdHkbeaLoanQuery,jdbcType=VARCHAR},
+      </if>
+      <if test="tdOacQuery != null">
+        #{tdOacQuery,jdbcType=VARCHAR},
+      </if>
+      <if test="blnCheckName != null">
+        #{blnCheckName,jdbcType=VARCHAR},
+      </if>
+      <if test="ecifCustQuery != null">
+        #{ecifCustQuery,jdbcType=VARCHAR},
+      </if>
+      <if test="ecifRelatedCheck != null">
+        #{ecifRelatedCheck,jdbcType=VARCHAR},
+      </if>
+      <if test="ciiIdentityCheck != null">
+        #{ciiIdentityCheck,jdbcType=VARCHAR},
+      </if>
+      <if test="prepareFiled1 != null">
+        #{prepareFiled1,jdbcType=VARCHAR},
+      </if>
+      <if test="prepareFiled2 != null">
+        #{prepareFiled2,jdbcType=VARCHAR},
+      </if>
+      <if test="prepareFiled3 != null">
+        #{prepareFiled3,jdbcType=VARCHAR},
+      </if>
+      <if test="prepareFiled4 != null">
+        #{prepareFiled4,jdbcType=VARCHAR},
+      </if>
+      <if test="prepareFiled5 != null">
+        #{prepareFiled5,jdbcType=VARCHAR},
+      </if>
+      <if test="prepareFiled6 != null">
+        #{prepareFiled6,jdbcType=VARCHAR},
+      </if>
+      <if test="prepareFiled7 != null">
+        #{prepareFiled7,jdbcType=VARCHAR},
+      </if>
+      <if test="prepareFiled8 != null">
+        #{prepareFiled8,jdbcType=VARCHAR},
+      </if>
+      <if test="prepareFiled9 != null">
+        #{prepareFiled9,jdbcType=VARCHAR},
+      </if>
+      <if test="prepareFiled10 != null">
+        #{prepareFiled10,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateDate != null">
+        #{lastUpdateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        #{lastUpdateTime,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.PRO_INTERFACE_CONFIG">
+    update PRO_INTERFACE_CONFIG
+    <set>
+      <if test="brApplyLoanStr != null">
+        BR_APPLY_LOAN_STR = #{brApplyLoanStr,jdbcType=VARCHAR},
+      </if>
+      <if test="brExecution != null">
+        BR_EXECUTION = #{brExecution,jdbcType=VARCHAR},
+      </if>
+      <if test="brPersonalCre != null">
+        BR_PERSONAL_CRE = #{brPersonalCre,jdbcType=VARCHAR},
+      </if>
+      <if test="brSpecailListC != null">
+        BR_SPECAIL_LIST_C = #{brSpecailListC,jdbcType=VARCHAR},
+      </if>
+      <if test="pyDebtPayAnalysis != null">
+        PY_DEBT_PAY_ANALYSIS = #{pyDebtPayAnalysis,jdbcType=VARCHAR},
+      </if>
+      <if test="pyEntInfoQuery != null">
+        PY_ENT_INFO_QUERY = #{pyEntInfoQuery,jdbcType=VARCHAR},
+      </if>
+      <if test="pyCompany != null">
+        PY_COMPANY = #{pyCompany,jdbcType=VARCHAR},
+      </if>
+      <if test="pyEntNormalizeName != null">
+        PY_ENT_NORMALIZE_NAME = #{pyEntNormalizeName,jdbcType=VARCHAR},
+      </if>
+      <if test="tdEclqQuery != null">
+        TD_ECLQ_QUERY = #{tdEclqQuery,jdbcType=VARCHAR},
+      </if>
+      <if test="tdHkbeaLoanQuery != null">
+        TD_HKBEA_LOAN_QUERY = #{tdHkbeaLoanQuery,jdbcType=VARCHAR},
+      </if>
+      <if test="tdOacQuery != null">
+        TD_OAC_QUERY = #{tdOacQuery,jdbcType=VARCHAR},
+      </if>
+      <if test="blnCheckName != null">
+        BLN_CHECK_NAME = #{blnCheckName,jdbcType=VARCHAR},
+      </if>
+      <if test="ecifCustQuery != null">
+        ECIF_CUST_QUERY = #{ecifCustQuery,jdbcType=VARCHAR},
+      </if>
+      <if test="ecifRelatedCheck != null">
+        ECIF_RELATED_CHECK = #{ecifRelatedCheck,jdbcType=VARCHAR},
+      </if>
+      <if test="ciiIdentityCheck != null">
+        CII_IDENTITY_CHECK = #{ciiIdentityCheck,jdbcType=VARCHAR},
+      </if>
+      <if test="prepareFiled1 != null">
+        PREPARE_FILED1 = #{prepareFiled1,jdbcType=VARCHAR},
+      </if>
+      <if test="prepareFiled2 != null">
+        PREPARE_FILED2 = #{prepareFiled2,jdbcType=VARCHAR},
+      </if>
+      <if test="prepareFiled3 != null">
+        PREPARE_FILED3 = #{prepareFiled3,jdbcType=VARCHAR},
+      </if>
+      <if test="prepareFiled4 != null">
+        PREPARE_FILED4 = #{prepareFiled4,jdbcType=VARCHAR},
+      </if>
+      <if test="prepareFiled5 != null">
+        PREPARE_FILED5 = #{prepareFiled5,jdbcType=VARCHAR},
+      </if>
+      <if test="prepareFiled6 != null">
+        PREPARE_FILED6 = #{prepareFiled6,jdbcType=VARCHAR},
+      </if>
+      <if test="prepareFiled7 != null">
+        PREPARE_FILED7 = #{prepareFiled7,jdbcType=VARCHAR},
+      </if>
+      <if test="prepareFiled8 != null">
+        PREPARE_FILED8 = #{prepareFiled8,jdbcType=VARCHAR},
+      </if>
+      <if test="prepareFiled9 != null">
+        PREPARE_FILED9 = #{prepareFiled9,jdbcType=VARCHAR},
+      </if>
+      <if test="prepareFiled10 != null">
+        PREPARE_FILED10 = #{prepareFiled10,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE = #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME = #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateDate != null">
+        LAST_UPDATE_DATE = #{lastUpdateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where PRO_CODE = #{proCode,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.PRO_INTERFACE_CONFIG">
+    update PRO_INTERFACE_CONFIG
+    set BR_APPLY_LOAN_STR = #{brApplyLoanStr,jdbcType=VARCHAR},
+      BR_EXECUTION = #{brExecution,jdbcType=VARCHAR},
+      BR_PERSONAL_CRE = #{brPersonalCre,jdbcType=VARCHAR},
+      BR_SPECAIL_LIST_C = #{brSpecailListC,jdbcType=VARCHAR},
+      PY_DEBT_PAY_ANALYSIS = #{pyDebtPayAnalysis,jdbcType=VARCHAR},
+      PY_ENT_INFO_QUERY = #{pyEntInfoQuery,jdbcType=VARCHAR},
+      PY_COMPANY = #{pyCompany,jdbcType=VARCHAR},
+      PY_ENT_NORMALIZE_NAME = #{pyEntNormalizeName,jdbcType=VARCHAR},
+      TD_ECLQ_QUERY = #{tdEclqQuery,jdbcType=VARCHAR},
+      TD_HKBEA_LOAN_QUERY = #{tdHkbeaLoanQuery,jdbcType=VARCHAR},
+      TD_OAC_QUERY = #{tdOacQuery,jdbcType=VARCHAR},
+      BLN_CHECK_NAME = #{blnCheckName,jdbcType=VARCHAR},
+      ECIF_CUST_QUERY = #{ecifCustQuery,jdbcType=VARCHAR},
+      ECIF_RELATED_CHECK = #{ecifRelatedCheck,jdbcType=VARCHAR},
+      CII_IDENTITY_CHECK = #{ciiIdentityCheck,jdbcType=VARCHAR},
+      PREPARE_FILED1 = #{prepareFiled1,jdbcType=VARCHAR},
+      PREPARE_FILED2 = #{prepareFiled2,jdbcType=VARCHAR},
+      PREPARE_FILED3 = #{prepareFiled3,jdbcType=VARCHAR},
+      PREPARE_FILED4 = #{prepareFiled4,jdbcType=VARCHAR},
+      PREPARE_FILED5 = #{prepareFiled5,jdbcType=VARCHAR},
+      PREPARE_FILED6 = #{prepareFiled6,jdbcType=VARCHAR},
+      PREPARE_FILED7 = #{prepareFiled7,jdbcType=VARCHAR},
+      PREPARE_FILED8 = #{prepareFiled8,jdbcType=VARCHAR},
+      PREPARE_FILED9 = #{prepareFiled9,jdbcType=VARCHAR},
+      PREPARE_FILED10 = #{prepareFiled10,jdbcType=VARCHAR},
+      INPUT_DATE = #{inputDate,jdbcType=VARCHAR},
+      INPUT_TIME = #{inputTime,jdbcType=VARCHAR},
+      LAST_UPDATE_DATE = #{lastUpdateDate,jdbcType=VARCHAR},
+      LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=VARCHAR}
+    where PRO_CODE = #{proCode,jdbcType=VARCHAR}
+  </update>
+</mapper>

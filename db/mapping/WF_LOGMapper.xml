@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.WF_LOGMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.WF_LOG">
+    <id column="LOGID" jdbcType="VARCHAR" property="logid" />
+    <result column="LOGTIME" jdbcType="CHAR" property="logtime" />
+    <result column="LOGTITLE" jdbcType="VARCHAR" property="logtitle" />
+    <result column="LOGCONTENT" jdbcType="VARCHAR" property="logcontent" />
+    <result column="INVOKETYPE" jdbcType="CHAR" property="invoketype" />
+    <result column="SYSID" jdbcType="VARCHAR" property="sysid" />
+    <result column="INSTANCEID" jdbcType="VARCHAR" property="instanceid" />
+    <result column="USERID" jdbcType="VARCHAR" property="userid" />
+    <result column="ORGID" jdbcType="VARCHAR" property="orgid" />
+    <result column="BIZSEQNO" jdbcType="VARCHAR" property="bizseqno" />
+    <result column="SYSIP" jdbcType="VARCHAR" property="sysip" />
+    <result column="WFID" jdbcType="VARCHAR" property="wfid" />
+    <result column="WFNAME" jdbcType="VARCHAR" property="wfname" />
+    <result column="CUSTID" jdbcType="VARCHAR" property="custid" />
+    <result column="CUSTNAME" jdbcType="VARCHAR" property="custname" />
+    <result column="USEROPERATION" jdbcType="VARCHAR" property="useroperation" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    LOGID, LOGTIME, LOGTITLE, LOGCONTENT, INVOKETYPE, SYSID, INSTANCEID, USERID, ORGID, 
+    BIZSEQNO, SYSIP, WFID, WFNAME, CUSTID, CUSTNAME, USEROPERATION
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from WF_LOG
+    where LOGID = #{logid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from WF_LOG
+    where LOGID = #{logid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.WF_LOG">
+    insert into WF_LOG (LOGID, LOGTIME, LOGTITLE, 
+      LOGCONTENT, INVOKETYPE, SYSID, 
+      INSTANCEID, USERID, ORGID, 
+      BIZSEQNO, SYSIP, WFID, 
+      WFNAME, CUSTID, CUSTNAME, 
+      USEROPERATION)
+    values (#{logid,jdbcType=VARCHAR}, #{logtime,jdbcType=CHAR}, #{logtitle,jdbcType=VARCHAR}, 
+      #{logcontent,jdbcType=VARCHAR}, #{invoketype,jdbcType=CHAR}, #{sysid,jdbcType=VARCHAR}, 
+      #{instanceid,jdbcType=VARCHAR}, #{userid,jdbcType=VARCHAR}, #{orgid,jdbcType=VARCHAR}, 
+      #{bizseqno,jdbcType=VARCHAR}, #{sysip,jdbcType=VARCHAR}, #{wfid,jdbcType=VARCHAR}, 
+      #{wfname,jdbcType=VARCHAR}, #{custid,jdbcType=VARCHAR}, #{custname,jdbcType=VARCHAR}, 
+      #{useroperation,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.WF_LOG">
+    insert into WF_LOG
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="logid != null">
+        LOGID,
+      </if>
+      <if test="logtime != null">
+        LOGTIME,
+      </if>
+      <if test="logtitle != null">
+        LOGTITLE,
+      </if>
+      <if test="logcontent != null">
+        LOGCONTENT,
+      </if>
+      <if test="invoketype != null">
+        INVOKETYPE,
+      </if>
+      <if test="sysid != null">
+        SYSID,
+      </if>
+      <if test="instanceid != null">
+        INSTANCEID,
+      </if>
+      <if test="userid != null">
+        USERID,
+      </if>
+      <if test="orgid != null">
+        ORGID,
+      </if>
+      <if test="bizseqno != null">
+        BIZSEQNO,
+      </if>
+      <if test="sysip != null">
+        SYSIP,
+      </if>
+      <if test="wfid != null">
+        WFID,
+      </if>
+      <if test="wfname != null">
+        WFNAME,
+      </if>
+      <if test="custid != null">
+        CUSTID,
+      </if>
+      <if test="custname != null">
+        CUSTNAME,
+      </if>
+      <if test="useroperation != null">
+        USEROPERATION,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="logid != null">
+        #{logid,jdbcType=VARCHAR},
+      </if>
+      <if test="logtime != null">
+        #{logtime,jdbcType=CHAR},
+      </if>
+      <if test="logtitle != null">
+        #{logtitle,jdbcType=VARCHAR},
+      </if>
+      <if test="logcontent != null">
+        #{logcontent,jdbcType=VARCHAR},
+      </if>
+      <if test="invoketype != null">
+        #{invoketype,jdbcType=CHAR},
+      </if>
+      <if test="sysid != null">
+        #{sysid,jdbcType=VARCHAR},
+      </if>
+      <if test="instanceid != null">
+        #{instanceid,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null">
+        #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="orgid != null">
+        #{orgid,jdbcType=VARCHAR},
+      </if>
+      <if test="bizseqno != null">
+        #{bizseqno,jdbcType=VARCHAR},
+      </if>
+      <if test="sysip != null">
+        #{sysip,jdbcType=VARCHAR},
+      </if>
+      <if test="wfid != null">
+        #{wfid,jdbcType=VARCHAR},
+      </if>
+      <if test="wfname != null">
+        #{wfname,jdbcType=VARCHAR},
+      </if>
+      <if test="custid != null">
+        #{custid,jdbcType=VARCHAR},
+      </if>
+      <if test="custname != null">
+        #{custname,jdbcType=VARCHAR},
+      </if>
+      <if test="useroperation != null">
+        #{useroperation,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.WF_LOG">
+    update WF_LOG
+    <set>
+      <if test="logtime != null">
+        LOGTIME = #{logtime,jdbcType=CHAR},
+      </if>
+      <if test="logtitle != null">
+        LOGTITLE = #{logtitle,jdbcType=VARCHAR},
+      </if>
+      <if test="logcontent != null">
+        LOGCONTENT = #{logcontent,jdbcType=VARCHAR},
+      </if>
+      <if test="invoketype != null">
+        INVOKETYPE = #{invoketype,jdbcType=CHAR},
+      </if>
+      <if test="sysid != null">
+        SYSID = #{sysid,jdbcType=VARCHAR},
+      </if>
+      <if test="instanceid != null">
+        INSTANCEID = #{instanceid,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null">
+        USERID = #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="orgid != null">
+        ORGID = #{orgid,jdbcType=VARCHAR},
+      </if>
+      <if test="bizseqno != null">
+        BIZSEQNO = #{bizseqno,jdbcType=VARCHAR},
+      </if>
+      <if test="sysip != null">
+        SYSIP = #{sysip,jdbcType=VARCHAR},
+      </if>
+      <if test="wfid != null">
+        WFID = #{wfid,jdbcType=VARCHAR},
+      </if>
+      <if test="wfname != null">
+        WFNAME = #{wfname,jdbcType=VARCHAR},
+      </if>
+      <if test="custid != null">
+        CUSTID = #{custid,jdbcType=VARCHAR},
+      </if>
+      <if test="custname != null">
+        CUSTNAME = #{custname,jdbcType=VARCHAR},
+      </if>
+      <if test="useroperation != null">
+        USEROPERATION = #{useroperation,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where LOGID = #{logid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.WF_LOG">
+    update WF_LOG
+    set LOGTIME = #{logtime,jdbcType=CHAR},
+      LOGTITLE = #{logtitle,jdbcType=VARCHAR},
+      LOGCONTENT = #{logcontent,jdbcType=VARCHAR},
+      INVOKETYPE = #{invoketype,jdbcType=CHAR},
+      SYSID = #{sysid,jdbcType=VARCHAR},
+      INSTANCEID = #{instanceid,jdbcType=VARCHAR},
+      USERID = #{userid,jdbcType=VARCHAR},
+      ORGID = #{orgid,jdbcType=VARCHAR},
+      BIZSEQNO = #{bizseqno,jdbcType=VARCHAR},
+      SYSIP = #{sysip,jdbcType=VARCHAR},
+      WFID = #{wfid,jdbcType=VARCHAR},
+      WFNAME = #{wfname,jdbcType=VARCHAR},
+      CUSTID = #{custid,jdbcType=VARCHAR},
+      CUSTNAME = #{custname,jdbcType=VARCHAR},
+      USEROPERATION = #{useroperation,jdbcType=VARCHAR}
+    where LOGID = #{logid,jdbcType=VARCHAR}
+  </update>
+</mapper>

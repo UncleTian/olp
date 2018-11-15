@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.CCR_G_IND_SCOREMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.CCR_G_IND_SCORE">
+    <id column="SERNO" jdbcType="VARCHAR" property="serno" />
+    <id column="CUS_ID" jdbcType="VARCHAR" property="cusId" />
+    <id column="GROUP_NO" jdbcType="VARCHAR" property="groupNo" />
+    <id column="INDEX_NO" jdbcType="VARCHAR" property="indexNo" />
+    <id column="CCR_DATE" jdbcType="VARCHAR" property="ccrDate" />
+    <result column="INDEX_SEQ" jdbcType="VARCHAR" property="indexSeq" />
+    <result column="GROUP_NAME" jdbcType="VARCHAR" property="groupName" />
+    <result column="INDEX_NAME" jdbcType="VARCHAR" property="indexName" />
+    <result column="INDEX_VALUE" jdbcType="VARCHAR" property="indexValue" />
+    <result column="INDEX_SCORE" jdbcType="VARCHAR" property="indexScore" />
+    <result column="SCORING_MANAGER" jdbcType="VARCHAR" property="scoringManager" />
+    <result column="IND_ORG_VAL" jdbcType="VARCHAR" property="indOrgVal" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    SERNO, CUS_ID, GROUP_NO, INDEX_NO, CCR_DATE, INDEX_SEQ, GROUP_NAME, INDEX_NAME, INDEX_VALUE, 
+    INDEX_SCORE, SCORING_MANAGER, IND_ORG_VAL
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="com.bea.olp.CCR_G_IND_SCOREKey" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from CCR_G_IND_SCORE
+    where SERNO = #{serno,jdbcType=VARCHAR}
+      and CUS_ID = #{cusId,jdbcType=VARCHAR}
+      and GROUP_NO = #{groupNo,jdbcType=VARCHAR}
+      and INDEX_NO = #{indexNo,jdbcType=VARCHAR}
+      and CCR_DATE = #{ccrDate,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.bea.olp.CCR_G_IND_SCOREKey">
+    delete from CCR_G_IND_SCORE
+    where SERNO = #{serno,jdbcType=VARCHAR}
+      and CUS_ID = #{cusId,jdbcType=VARCHAR}
+      and GROUP_NO = #{groupNo,jdbcType=VARCHAR}
+      and INDEX_NO = #{indexNo,jdbcType=VARCHAR}
+      and CCR_DATE = #{ccrDate,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.CCR_G_IND_SCORE">
+    insert into CCR_G_IND_SCORE (SERNO, CUS_ID, GROUP_NO, 
+      INDEX_NO, CCR_DATE, INDEX_SEQ, 
+      GROUP_NAME, INDEX_NAME, INDEX_VALUE, 
+      INDEX_SCORE, SCORING_MANAGER, IND_ORG_VAL
+      )
+    values (#{serno,jdbcType=VARCHAR}, #{cusId,jdbcType=VARCHAR}, #{groupNo,jdbcType=VARCHAR}, 
+      #{indexNo,jdbcType=VARCHAR}, #{ccrDate,jdbcType=VARCHAR}, #{indexSeq,jdbcType=VARCHAR}, 
+      #{groupName,jdbcType=VARCHAR}, #{indexName,jdbcType=VARCHAR}, #{indexValue,jdbcType=VARCHAR}, 
+      #{indexScore,jdbcType=VARCHAR}, #{scoringManager,jdbcType=VARCHAR}, #{indOrgVal,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.CCR_G_IND_SCORE">
+    insert into CCR_G_IND_SCORE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="serno != null">
+        SERNO,
+      </if>
+      <if test="cusId != null">
+        CUS_ID,
+      </if>
+      <if test="groupNo != null">
+        GROUP_NO,
+      </if>
+      <if test="indexNo != null">
+        INDEX_NO,
+      </if>
+      <if test="ccrDate != null">
+        CCR_DATE,
+      </if>
+      <if test="indexSeq != null">
+        INDEX_SEQ,
+      </if>
+      <if test="groupName != null">
+        GROUP_NAME,
+      </if>
+      <if test="indexName != null">
+        INDEX_NAME,
+      </if>
+      <if test="indexValue != null">
+        INDEX_VALUE,
+      </if>
+      <if test="indexScore != null">
+        INDEX_SCORE,
+      </if>
+      <if test="scoringManager != null">
+        SCORING_MANAGER,
+      </if>
+      <if test="indOrgVal != null">
+        IND_ORG_VAL,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="serno != null">
+        #{serno,jdbcType=VARCHAR},
+      </if>
+      <if test="cusId != null">
+        #{cusId,jdbcType=VARCHAR},
+      </if>
+      <if test="groupNo != null">
+        #{groupNo,jdbcType=VARCHAR},
+      </if>
+      <if test="indexNo != null">
+        #{indexNo,jdbcType=VARCHAR},
+      </if>
+      <if test="ccrDate != null">
+        #{ccrDate,jdbcType=VARCHAR},
+      </if>
+      <if test="indexSeq != null">
+        #{indexSeq,jdbcType=VARCHAR},
+      </if>
+      <if test="groupName != null">
+        #{groupName,jdbcType=VARCHAR},
+      </if>
+      <if test="indexName != null">
+        #{indexName,jdbcType=VARCHAR},
+      </if>
+      <if test="indexValue != null">
+        #{indexValue,jdbcType=VARCHAR},
+      </if>
+      <if test="indexScore != null">
+        #{indexScore,jdbcType=VARCHAR},
+      </if>
+      <if test="scoringManager != null">
+        #{scoringManager,jdbcType=VARCHAR},
+      </if>
+      <if test="indOrgVal != null">
+        #{indOrgVal,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.CCR_G_IND_SCORE">
+    update CCR_G_IND_SCORE
+    <set>
+      <if test="indexSeq != null">
+        INDEX_SEQ = #{indexSeq,jdbcType=VARCHAR},
+      </if>
+      <if test="groupName != null">
+        GROUP_NAME = #{groupName,jdbcType=VARCHAR},
+      </if>
+      <if test="indexName != null">
+        INDEX_NAME = #{indexName,jdbcType=VARCHAR},
+      </if>
+      <if test="indexValue != null">
+        INDEX_VALUE = #{indexValue,jdbcType=VARCHAR},
+      </if>
+      <if test="indexScore != null">
+        INDEX_SCORE = #{indexScore,jdbcType=VARCHAR},
+      </if>
+      <if test="scoringManager != null">
+        SCORING_MANAGER = #{scoringManager,jdbcType=VARCHAR},
+      </if>
+      <if test="indOrgVal != null">
+        IND_ORG_VAL = #{indOrgVal,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where SERNO = #{serno,jdbcType=VARCHAR}
+      and CUS_ID = #{cusId,jdbcType=VARCHAR}
+      and GROUP_NO = #{groupNo,jdbcType=VARCHAR}
+      and INDEX_NO = #{indexNo,jdbcType=VARCHAR}
+      and CCR_DATE = #{ccrDate,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.CCR_G_IND_SCORE">
+    update CCR_G_IND_SCORE
+    set INDEX_SEQ = #{indexSeq,jdbcType=VARCHAR},
+      GROUP_NAME = #{groupName,jdbcType=VARCHAR},
+      INDEX_NAME = #{indexName,jdbcType=VARCHAR},
+      INDEX_VALUE = #{indexValue,jdbcType=VARCHAR},
+      INDEX_SCORE = #{indexScore,jdbcType=VARCHAR},
+      SCORING_MANAGER = #{scoringManager,jdbcType=VARCHAR},
+      IND_ORG_VAL = #{indOrgVal,jdbcType=VARCHAR}
+    where SERNO = #{serno,jdbcType=VARCHAR}
+      and CUS_ID = #{cusId,jdbcType=VARCHAR}
+      and GROUP_NO = #{groupNo,jdbcType=VARCHAR}
+      and INDEX_NO = #{indexNo,jdbcType=VARCHAR}
+      and CCR_DATE = #{ccrDate,jdbcType=VARCHAR}
+  </update>
+</mapper>

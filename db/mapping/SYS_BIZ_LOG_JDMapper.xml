@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.SYS_BIZ_LOG_JDMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.SYS_BIZ_LOG_JD">
+    <id column="LOG_NO" jdbcType="VARCHAR" property="logNo" />
+    <result column="TX_CODE" jdbcType="VARCHAR" property="txCode" />
+    <result column="TRAN_CODE" jdbcType="VARCHAR" property="tranCode" />
+    <result column="TRAN_DATE" jdbcType="VARCHAR" property="tranDate" />
+    <result column="REQUEST_NO" jdbcType="VARCHAR" property="requestNo" />
+    <result column="REQUEST_TIME" jdbcType="VARCHAR" property="requestTime" />
+    <result column="MHT_APPLY_NO" jdbcType="VARCHAR" property="mhtApplyNo" />
+    <result column="APPLY_NO" jdbcType="VARCHAR" property="applyNo" />
+    <result column="CERT_TYPE" jdbcType="VARCHAR" property="certType" />
+    <result column="CERT_NO" jdbcType="VARCHAR" property="certNo" />
+    <result column="EXEC_STATUS" jdbcType="VARCHAR" property="execStatus" />
+    <result column="RETURN_CODE" jdbcType="VARCHAR" property="returnCode" />
+    <result column="ERROR_CODE" jdbcType="VARCHAR" property="errorCode" />
+    <result column="HOST_NAME" jdbcType="VARCHAR" property="hostName" />
+    <result column="INPUT_DATE" jdbcType="VARCHAR" property="inputDate" />
+    <result column="INPUT_TIME" jdbcType="VARCHAR" property="inputTime" />
+    <result column="LAST_INPUT_DATE" jdbcType="VARCHAR" property="lastInputDate" />
+    <result column="LAST_INPUT_TIME" jdbcType="VARCHAR" property="lastInputTime" />
+    <result column="FIELD1" jdbcType="VARCHAR" property="field1" />
+    <result column="FIELD2" jdbcType="VARCHAR" property="field2" />
+    <result column="FIELD3" jdbcType="VARCHAR" property="field3" />
+    <result column="FIELD4" jdbcType="VARCHAR" property="field4" />
+    <result column="FIELD5" jdbcType="VARCHAR" property="field5" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.bea.olp.SYS_BIZ_LOG_JDWithBLOBs">
+    <result column="REQUEST_DATA" jdbcType="CLOB" property="requestData" />
+    <result column="RETURN_MSG" jdbcType="CLOB" property="returnMsg" />
+    <result column="ERROR_MSG" jdbcType="CLOB" property="errorMsg" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    LOG_NO, TX_CODE, TRAN_CODE, TRAN_DATE, REQUEST_NO, REQUEST_TIME, MHT_APPLY_NO, APPLY_NO, 
+    CERT_TYPE, CERT_NO, EXEC_STATUS, RETURN_CODE, ERROR_CODE, HOST_NAME, INPUT_DATE, 
+    INPUT_TIME, LAST_INPUT_DATE, LAST_INPUT_TIME, FIELD1, FIELD2, FIELD3, FIELD4, FIELD5
+  </sql>
+  <sql id="Blob_Column_List">
+    REQUEST_DATA, RETURN_MSG, ERROR_MSG
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from SYS_BIZ_LOG_JD
+    where LOG_NO = #{logNo,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from SYS_BIZ_LOG_JD
+    where LOG_NO = #{logNo,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.SYS_BIZ_LOG_JDWithBLOBs">
+    insert into SYS_BIZ_LOG_JD (LOG_NO, TX_CODE, TRAN_CODE, 
+      TRAN_DATE, REQUEST_NO, REQUEST_TIME, 
+      MHT_APPLY_NO, APPLY_NO, CERT_TYPE, 
+      CERT_NO, EXEC_STATUS, RETURN_CODE, 
+      ERROR_CODE, HOST_NAME, INPUT_DATE, 
+      INPUT_TIME, LAST_INPUT_DATE, LAST_INPUT_TIME, 
+      FIELD1, FIELD2, FIELD3, 
+      FIELD4, FIELD5, REQUEST_DATA, 
+      RETURN_MSG, ERROR_MSG)
+    values (#{logNo,jdbcType=VARCHAR}, #{txCode,jdbcType=VARCHAR}, #{tranCode,jdbcType=VARCHAR}, 
+      #{tranDate,jdbcType=VARCHAR}, #{requestNo,jdbcType=VARCHAR}, #{requestTime,jdbcType=VARCHAR}, 
+      #{mhtApplyNo,jdbcType=VARCHAR}, #{applyNo,jdbcType=VARCHAR}, #{certType,jdbcType=VARCHAR}, 
+      #{certNo,jdbcType=VARCHAR}, #{execStatus,jdbcType=VARCHAR}, #{returnCode,jdbcType=VARCHAR}, 
+      #{errorCode,jdbcType=VARCHAR}, #{hostName,jdbcType=VARCHAR}, #{inputDate,jdbcType=VARCHAR}, 
+      #{inputTime,jdbcType=VARCHAR}, #{lastInputDate,jdbcType=VARCHAR}, #{lastInputTime,jdbcType=VARCHAR}, 
+      #{field1,jdbcType=VARCHAR}, #{field2,jdbcType=VARCHAR}, #{field3,jdbcType=VARCHAR}, 
+      #{field4,jdbcType=VARCHAR}, #{field5,jdbcType=VARCHAR}, #{requestData,jdbcType=CLOB}, 
+      #{returnMsg,jdbcType=CLOB}, #{errorMsg,jdbcType=CLOB})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.SYS_BIZ_LOG_JDWithBLOBs">
+    insert into SYS_BIZ_LOG_JD
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="logNo != null">
+        LOG_NO,
+      </if>
+      <if test="txCode != null">
+        TX_CODE,
+      </if>
+      <if test="tranCode != null">
+        TRAN_CODE,
+      </if>
+      <if test="tranDate != null">
+        TRAN_DATE,
+      </if>
+      <if test="requestNo != null">
+        REQUEST_NO,
+      </if>
+      <if test="requestTime != null">
+        REQUEST_TIME,
+      </if>
+      <if test="mhtApplyNo != null">
+        MHT_APPLY_NO,
+      </if>
+      <if test="applyNo != null">
+        APPLY_NO,
+      </if>
+      <if test="certType != null">
+        CERT_TYPE,
+      </if>
+      <if test="certNo != null">
+        CERT_NO,
+      </if>
+      <if test="execStatus != null">
+        EXEC_STATUS,
+      </if>
+      <if test="returnCode != null">
+        RETURN_CODE,
+      </if>
+      <if test="errorCode != null">
+        ERROR_CODE,
+      </if>
+      <if test="hostName != null">
+        HOST_NAME,
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE,
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME,
+      </if>
+      <if test="lastInputDate != null">
+        LAST_INPUT_DATE,
+      </if>
+      <if test="lastInputTime != null">
+        LAST_INPUT_TIME,
+      </if>
+      <if test="field1 != null">
+        FIELD1,
+      </if>
+      <if test="field2 != null">
+        FIELD2,
+      </if>
+      <if test="field3 != null">
+        FIELD3,
+      </if>
+      <if test="field4 != null">
+        FIELD4,
+      </if>
+      <if test="field5 != null">
+        FIELD5,
+      </if>
+      <if test="requestData != null">
+        REQUEST_DATA,
+      </if>
+      <if test="returnMsg != null">
+        RETURN_MSG,
+      </if>
+      <if test="errorMsg != null">
+        ERROR_MSG,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="logNo != null">
+        #{logNo,jdbcType=VARCHAR},
+      </if>
+      <if test="txCode != null">
+        #{txCode,jdbcType=VARCHAR},
+      </if>
+      <if test="tranCode != null">
+        #{tranCode,jdbcType=VARCHAR},
+      </if>
+      <if test="tranDate != null">
+        #{tranDate,jdbcType=VARCHAR},
+      </if>
+      <if test="requestNo != null">
+        #{requestNo,jdbcType=VARCHAR},
+      </if>
+      <if test="requestTime != null">
+        #{requestTime,jdbcType=VARCHAR},
+      </if>
+      <if test="mhtApplyNo != null">
+        #{mhtApplyNo,jdbcType=VARCHAR},
+      </if>
+      <if test="applyNo != null">
+        #{applyNo,jdbcType=VARCHAR},
+      </if>
+      <if test="certType != null">
+        #{certType,jdbcType=VARCHAR},
+      </if>
+      <if test="certNo != null">
+        #{certNo,jdbcType=VARCHAR},
+      </if>
+      <if test="execStatus != null">
+        #{execStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="returnCode != null">
+        #{returnCode,jdbcType=VARCHAR},
+      </if>
+      <if test="errorCode != null">
+        #{errorCode,jdbcType=VARCHAR},
+      </if>
+      <if test="hostName != null">
+        #{hostName,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastInputDate != null">
+        #{lastInputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lastInputTime != null">
+        #{lastInputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="field1 != null">
+        #{field1,jdbcType=VARCHAR},
+      </if>
+      <if test="field2 != null">
+        #{field2,jdbcType=VARCHAR},
+      </if>
+      <if test="field3 != null">
+        #{field3,jdbcType=VARCHAR},
+      </if>
+      <if test="field4 != null">
+        #{field4,jdbcType=VARCHAR},
+      </if>
+      <if test="field5 != null">
+        #{field5,jdbcType=VARCHAR},
+      </if>
+      <if test="requestData != null">
+        #{requestData,jdbcType=CLOB},
+      </if>
+      <if test="returnMsg != null">
+        #{returnMsg,jdbcType=CLOB},
+      </if>
+      <if test="errorMsg != null">
+        #{errorMsg,jdbcType=CLOB},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.SYS_BIZ_LOG_JDWithBLOBs">
+    update SYS_BIZ_LOG_JD
+    <set>
+      <if test="txCode != null">
+        TX_CODE = #{txCode,jdbcType=VARCHAR},
+      </if>
+      <if test="tranCode != null">
+        TRAN_CODE = #{tranCode,jdbcType=VARCHAR},
+      </if>
+      <if test="tranDate != null">
+        TRAN_DATE = #{tranDate,jdbcType=VARCHAR},
+      </if>
+      <if test="requestNo != null">
+        REQUEST_NO = #{requestNo,jdbcType=VARCHAR},
+      </if>
+      <if test="requestTime != null">
+        REQUEST_TIME = #{requestTime,jdbcType=VARCHAR},
+      </if>
+      <if test="mhtApplyNo != null">
+        MHT_APPLY_NO = #{mhtApplyNo,jdbcType=VARCHAR},
+      </if>
+      <if test="applyNo != null">
+        APPLY_NO = #{applyNo,jdbcType=VARCHAR},
+      </if>
+      <if test="certType != null">
+        CERT_TYPE = #{certType,jdbcType=VARCHAR},
+      </if>
+      <if test="certNo != null">
+        CERT_NO = #{certNo,jdbcType=VARCHAR},
+      </if>
+      <if test="execStatus != null">
+        EXEC_STATUS = #{execStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="returnCode != null">
+        RETURN_CODE = #{returnCode,jdbcType=VARCHAR},
+      </if>
+      <if test="errorCode != null">
+        ERROR_CODE = #{errorCode,jdbcType=VARCHAR},
+      </if>
+      <if test="hostName != null">
+        HOST_NAME = #{hostName,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE = #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME = #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastInputDate != null">
+        LAST_INPUT_DATE = #{lastInputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lastInputTime != null">
+        LAST_INPUT_TIME = #{lastInputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="field1 != null">
+        FIELD1 = #{field1,jdbcType=VARCHAR},
+      </if>
+      <if test="field2 != null">
+        FIELD2 = #{field2,jdbcType=VARCHAR},
+      </if>
+      <if test="field3 != null">
+        FIELD3 = #{field3,jdbcType=VARCHAR},
+      </if>
+      <if test="field4 != null">
+        FIELD4 = #{field4,jdbcType=VARCHAR},
+      </if>
+      <if test="field5 != null">
+        FIELD5 = #{field5,jdbcType=VARCHAR},
+      </if>
+      <if test="requestData != null">
+        REQUEST_DATA = #{requestData,jdbcType=CLOB},
+      </if>
+      <if test="returnMsg != null">
+        RETURN_MSG = #{returnMsg,jdbcType=CLOB},
+      </if>
+      <if test="errorMsg != null">
+        ERROR_MSG = #{errorMsg,jdbcType=CLOB},
+      </if>
+    </set>
+    where LOG_NO = #{logNo,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.bea.olp.SYS_BIZ_LOG_JDWithBLOBs">
+    update SYS_BIZ_LOG_JD
+    set TX_CODE = #{txCode,jdbcType=VARCHAR},
+      TRAN_CODE = #{tranCode,jdbcType=VARCHAR},
+      TRAN_DATE = #{tranDate,jdbcType=VARCHAR},
+      REQUEST_NO = #{requestNo,jdbcType=VARCHAR},
+      REQUEST_TIME = #{requestTime,jdbcType=VARCHAR},
+      MHT_APPLY_NO = #{mhtApplyNo,jdbcType=VARCHAR},
+      APPLY_NO = #{applyNo,jdbcType=VARCHAR},
+      CERT_TYPE = #{certType,jdbcType=VARCHAR},
+      CERT_NO = #{certNo,jdbcType=VARCHAR},
+      EXEC_STATUS = #{execStatus,jdbcType=VARCHAR},
+      RETURN_CODE = #{returnCode,jdbcType=VARCHAR},
+      ERROR_CODE = #{errorCode,jdbcType=VARCHAR},
+      HOST_NAME = #{hostName,jdbcType=VARCHAR},
+      INPUT_DATE = #{inputDate,jdbcType=VARCHAR},
+      INPUT_TIME = #{inputTime,jdbcType=VARCHAR},
+      LAST_INPUT_DATE = #{lastInputDate,jdbcType=VARCHAR},
+      LAST_INPUT_TIME = #{lastInputTime,jdbcType=VARCHAR},
+      FIELD1 = #{field1,jdbcType=VARCHAR},
+      FIELD2 = #{field2,jdbcType=VARCHAR},
+      FIELD3 = #{field3,jdbcType=VARCHAR},
+      FIELD4 = #{field4,jdbcType=VARCHAR},
+      FIELD5 = #{field5,jdbcType=VARCHAR},
+      REQUEST_DATA = #{requestData,jdbcType=CLOB},
+      RETURN_MSG = #{returnMsg,jdbcType=CLOB},
+      ERROR_MSG = #{errorMsg,jdbcType=CLOB}
+    where LOG_NO = #{logNo,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.SYS_BIZ_LOG_JD">
+    update SYS_BIZ_LOG_JD
+    set TX_CODE = #{txCode,jdbcType=VARCHAR},
+      TRAN_CODE = #{tranCode,jdbcType=VARCHAR},
+      TRAN_DATE = #{tranDate,jdbcType=VARCHAR},
+      REQUEST_NO = #{requestNo,jdbcType=VARCHAR},
+      REQUEST_TIME = #{requestTime,jdbcType=VARCHAR},
+      MHT_APPLY_NO = #{mhtApplyNo,jdbcType=VARCHAR},
+      APPLY_NO = #{applyNo,jdbcType=VARCHAR},
+      CERT_TYPE = #{certType,jdbcType=VARCHAR},
+      CERT_NO = #{certNo,jdbcType=VARCHAR},
+      EXEC_STATUS = #{execStatus,jdbcType=VARCHAR},
+      RETURN_CODE = #{returnCode,jdbcType=VARCHAR},
+      ERROR_CODE = #{errorCode,jdbcType=VARCHAR},
+      HOST_NAME = #{hostName,jdbcType=VARCHAR},
+      INPUT_DATE = #{inputDate,jdbcType=VARCHAR},
+      INPUT_TIME = #{inputTime,jdbcType=VARCHAR},
+      LAST_INPUT_DATE = #{lastInputDate,jdbcType=VARCHAR},
+      LAST_INPUT_TIME = #{lastInputTime,jdbcType=VARCHAR},
+      FIELD1 = #{field1,jdbcType=VARCHAR},
+      FIELD2 = #{field2,jdbcType=VARCHAR},
+      FIELD3 = #{field3,jdbcType=VARCHAR},
+      FIELD4 = #{field4,jdbcType=VARCHAR},
+      FIELD5 = #{field5,jdbcType=VARCHAR}
+    where LOG_NO = #{logNo,jdbcType=VARCHAR}
+  </update>
+</mapper>

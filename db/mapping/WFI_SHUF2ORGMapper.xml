@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.WFI_SHUF2ORGMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.WFI_SHUF2ORG">
+    <id column="SHF_ID" jdbcType="VARCHAR" property="shfId" />
+    <id column="ORG_ID" jdbcType="VARCHAR" property="orgId" />
+    <result column="ORG_NAME" jdbcType="VARCHAR" property="orgName" />
+    <result column="LOAN_NO" jdbcType="VARCHAR" property="loanNo" />
+    <result column="BIZ_TYPE" jdbcType="VARCHAR" property="bizType" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    SHF_ID, ORG_ID, ORG_NAME, LOAN_NO, BIZ_TYPE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="com.bea.olp.WFI_SHUF2ORGKey" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from WFI_SHUF2ORG
+    where SHF_ID = #{shfId,jdbcType=VARCHAR}
+      and ORG_ID = #{orgId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.bea.olp.WFI_SHUF2ORGKey">
+    delete from WFI_SHUF2ORG
+    where SHF_ID = #{shfId,jdbcType=VARCHAR}
+      and ORG_ID = #{orgId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.WFI_SHUF2ORG">
+    insert into WFI_SHUF2ORG (SHF_ID, ORG_ID, ORG_NAME, 
+      LOAN_NO, BIZ_TYPE)
+    values (#{shfId,jdbcType=VARCHAR}, #{orgId,jdbcType=VARCHAR}, #{orgName,jdbcType=VARCHAR}, 
+      #{loanNo,jdbcType=VARCHAR}, #{bizType,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.WFI_SHUF2ORG">
+    insert into WFI_SHUF2ORG
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="shfId != null">
+        SHF_ID,
+      </if>
+      <if test="orgId != null">
+        ORG_ID,
+      </if>
+      <if test="orgName != null">
+        ORG_NAME,
+      </if>
+      <if test="loanNo != null">
+        LOAN_NO,
+      </if>
+      <if test="bizType != null">
+        BIZ_TYPE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="shfId != null">
+        #{shfId,jdbcType=VARCHAR},
+      </if>
+      <if test="orgId != null">
+        #{orgId,jdbcType=VARCHAR},
+      </if>
+      <if test="orgName != null">
+        #{orgName,jdbcType=VARCHAR},
+      </if>
+      <if test="loanNo != null">
+        #{loanNo,jdbcType=VARCHAR},
+      </if>
+      <if test="bizType != null">
+        #{bizType,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.WFI_SHUF2ORG">
+    update WFI_SHUF2ORG
+    <set>
+      <if test="orgName != null">
+        ORG_NAME = #{orgName,jdbcType=VARCHAR},
+      </if>
+      <if test="loanNo != null">
+        LOAN_NO = #{loanNo,jdbcType=VARCHAR},
+      </if>
+      <if test="bizType != null">
+        BIZ_TYPE = #{bizType,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where SHF_ID = #{shfId,jdbcType=VARCHAR}
+      and ORG_ID = #{orgId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.WFI_SHUF2ORG">
+    update WFI_SHUF2ORG
+    set ORG_NAME = #{orgName,jdbcType=VARCHAR},
+      LOAN_NO = #{loanNo,jdbcType=VARCHAR},
+      BIZ_TYPE = #{bizType,jdbcType=VARCHAR}
+    where SHF_ID = #{shfId,jdbcType=VARCHAR}
+      and ORG_ID = #{orgId,jdbcType=VARCHAR}
+  </update>
+</mapper>

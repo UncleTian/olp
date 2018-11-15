@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.BAT_CBM_BFJ_BAL_DETMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.BAT_CBM_BFJ_BAL_DET">
+    <result column="SERIALNO" jdbcType="VARCHAR" property="serialno" />
+    <result column="PROVISIONS_ACCOUNT" jdbcType="VARCHAR" property="provisionsAccount" />
+    <result column="TRANS_DATE" jdbcType="VARCHAR" property="transDate" />
+    <result column="AMT" jdbcType="DECIMAL" property="amt" />
+    <result column="INPUT_DATE" jdbcType="VARCHAR" property="inputDate" />
+    <result column="INPUT_TIME" jdbcType="VARCHAR" property="inputTime" />
+    <result column="DATA_DATE" jdbcType="VARCHAR" property="dataDate" />
+    <result column="CHANNEL_TYPE" jdbcType="VARCHAR" property="channelType" />
+  </resultMap>
+  <insert id="insert" parameterType="com.bea.olp.BAT_CBM_BFJ_BAL_DET">
+    insert into BAT_CBM_BFJ_BAL_DET (SERIALNO, PROVISIONS_ACCOUNT, TRANS_DATE, 
+      AMT, INPUT_DATE, INPUT_TIME, 
+      DATA_DATE, CHANNEL_TYPE)
+    values (#{serialno,jdbcType=VARCHAR}, #{provisionsAccount,jdbcType=VARCHAR}, #{transDate,jdbcType=VARCHAR}, 
+      #{amt,jdbcType=DECIMAL}, #{inputDate,jdbcType=VARCHAR}, #{inputTime,jdbcType=VARCHAR}, 
+      #{dataDate,jdbcType=VARCHAR}, #{channelType,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.BAT_CBM_BFJ_BAL_DET">
+    insert into BAT_CBM_BFJ_BAL_DET
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="serialno != null">
+        SERIALNO,
+      </if>
+      <if test="provisionsAccount != null">
+        PROVISIONS_ACCOUNT,
+      </if>
+      <if test="transDate != null">
+        TRANS_DATE,
+      </if>
+      <if test="amt != null">
+        AMT,
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE,
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME,
+      </if>
+      <if test="dataDate != null">
+        DATA_DATE,
+      </if>
+      <if test="channelType != null">
+        CHANNEL_TYPE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="serialno != null">
+        #{serialno,jdbcType=VARCHAR},
+      </if>
+      <if test="provisionsAccount != null">
+        #{provisionsAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="transDate != null">
+        #{transDate,jdbcType=VARCHAR},
+      </if>
+      <if test="amt != null">
+        #{amt,jdbcType=DECIMAL},
+      </if>
+      <if test="inputDate != null">
+        #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="dataDate != null">
+        #{dataDate,jdbcType=VARCHAR},
+      </if>
+      <if test="channelType != null">
+        #{channelType,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

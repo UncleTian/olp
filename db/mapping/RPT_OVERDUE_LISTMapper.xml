@@ -1,0 +1,401 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.RPT_OVERDUE_LISTMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.RPT_OVERDUE_LIST">
+    <id column="SERAL_NO" jdbcType="VARCHAR" property="seralNo" />
+    <result column="WF_APPR_STS" jdbcType="VARCHAR" property="wfApprSts" />
+    <result column="OVERDUE_TIME" jdbcType="VARCHAR" property="overdueTime" />
+    <result column="DATA_DATE" jdbcType="VARCHAR" property="dataDate" />
+    <result column="BILL_NO" jdbcType="VARCHAR" property="billNo" />
+    <result column="TP_OBJ_ID" jdbcType="VARCHAR" property="tpObjId" />
+    <result column="CO_PLATFORM" jdbcType="VARCHAR" property="coPlatform" />
+    <result column="PRD_CODE" jdbcType="VARCHAR" property="prdCode" />
+    <result column="CUST_NAME" jdbcType="VARCHAR" property="custName" />
+    <result column="CERT_TYPE" jdbcType="VARCHAR" property="certType" />
+    <result column="CERT_CODE" jdbcType="VARCHAR" property="certCode" />
+    <result column="REPAY_ACC_BANK" jdbcType="VARCHAR" property="repayAccBank" />
+    <result column="REPAY_CARD_NO" jdbcType="VARCHAR" property="repayCardNo" />
+    <result column="LOAN_AMT" jdbcType="DECIMAL" property="loanAmt" />
+    <result column="LOAN_BAL" jdbcType="DECIMAL" property="loanBal" />
+    <result column="OVERDUE_AMT" jdbcType="DECIMAL" property="overdueAmt" />
+    <result column="OVERDUE_INTEREST" jdbcType="DECIMAL" property="overdueInterest" />
+    <result column="EXEC_RATE" jdbcType="DECIMAL" property="execRate" />
+    <result column="LOAN_START_DATE" jdbcType="VARCHAR" property="loanStartDate" />
+    <result column="LOAN_END_DATE" jdbcType="VARCHAR" property="loanEndDate" />
+    <result column="CRD_AMT" jdbcType="DECIMAL" property="crdAmt" />
+    <result column="CRD_TERM" jdbcType="VARCHAR" property="crdTerm" />
+    <result column="CHANNEL_TYPE" jdbcType="VARCHAR" property="channelType" />
+    <result column="CUST_ID" jdbcType="VARCHAR" property="custId" />
+    <result column="PHONE" jdbcType="VARCHAR" property="phone" />
+    <result column="ADDR" jdbcType="VARCHAR" property="addr" />
+    <result column="OVERDUE_DAY" jdbcType="DECIMAL" property="overdueDay" />
+    <result column="OVERDUE_RATE" jdbcType="DECIMAL" property="overdueRate" />
+    <result column="OUTSTD_INTST" jdbcType="DECIMAL" property="outstdIntst" />
+    <result column="INNER_INTST" jdbcType="DECIMAL" property="innerIntst" />
+    <result column="OUTER_INTST" jdbcType="DECIMAL" property="outerIntst" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    SERAL_NO, WF_APPR_STS, OVERDUE_TIME, DATA_DATE, BILL_NO, TP_OBJ_ID, CO_PLATFORM, 
+    PRD_CODE, CUST_NAME, CERT_TYPE, CERT_CODE, REPAY_ACC_BANK, REPAY_CARD_NO, LOAN_AMT, 
+    LOAN_BAL, OVERDUE_AMT, OVERDUE_INTEREST, EXEC_RATE, LOAN_START_DATE, LOAN_END_DATE, 
+    CRD_AMT, CRD_TERM, CHANNEL_TYPE, CUST_ID, PHONE, ADDR, OVERDUE_DAY, OVERDUE_RATE, 
+    OUTSTD_INTST, INNER_INTST, OUTER_INTST
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from RPT_OVERDUE_LIST
+    where SERAL_NO = #{seralNo,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from RPT_OVERDUE_LIST
+    where SERAL_NO = #{seralNo,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.RPT_OVERDUE_LIST">
+    insert into RPT_OVERDUE_LIST (SERAL_NO, WF_APPR_STS, OVERDUE_TIME, 
+      DATA_DATE, BILL_NO, TP_OBJ_ID, 
+      CO_PLATFORM, PRD_CODE, CUST_NAME, 
+      CERT_TYPE, CERT_CODE, REPAY_ACC_BANK, 
+      REPAY_CARD_NO, LOAN_AMT, LOAN_BAL, 
+      OVERDUE_AMT, OVERDUE_INTEREST, EXEC_RATE, 
+      LOAN_START_DATE, LOAN_END_DATE, CRD_AMT, 
+      CRD_TERM, CHANNEL_TYPE, CUST_ID, 
+      PHONE, ADDR, OVERDUE_DAY, 
+      OVERDUE_RATE, OUTSTD_INTST, INNER_INTST, 
+      OUTER_INTST)
+    values (#{seralNo,jdbcType=VARCHAR}, #{wfApprSts,jdbcType=VARCHAR}, #{overdueTime,jdbcType=VARCHAR}, 
+      #{dataDate,jdbcType=VARCHAR}, #{billNo,jdbcType=VARCHAR}, #{tpObjId,jdbcType=VARCHAR}, 
+      #{coPlatform,jdbcType=VARCHAR}, #{prdCode,jdbcType=VARCHAR}, #{custName,jdbcType=VARCHAR}, 
+      #{certType,jdbcType=VARCHAR}, #{certCode,jdbcType=VARCHAR}, #{repayAccBank,jdbcType=VARCHAR}, 
+      #{repayCardNo,jdbcType=VARCHAR}, #{loanAmt,jdbcType=DECIMAL}, #{loanBal,jdbcType=DECIMAL}, 
+      #{overdueAmt,jdbcType=DECIMAL}, #{overdueInterest,jdbcType=DECIMAL}, #{execRate,jdbcType=DECIMAL}, 
+      #{loanStartDate,jdbcType=VARCHAR}, #{loanEndDate,jdbcType=VARCHAR}, #{crdAmt,jdbcType=DECIMAL}, 
+      #{crdTerm,jdbcType=VARCHAR}, #{channelType,jdbcType=VARCHAR}, #{custId,jdbcType=VARCHAR}, 
+      #{phone,jdbcType=VARCHAR}, #{addr,jdbcType=VARCHAR}, #{overdueDay,jdbcType=DECIMAL}, 
+      #{overdueRate,jdbcType=DECIMAL}, #{outstdIntst,jdbcType=DECIMAL}, #{innerIntst,jdbcType=DECIMAL}, 
+      #{outerIntst,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.RPT_OVERDUE_LIST">
+    insert into RPT_OVERDUE_LIST
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="seralNo != null">
+        SERAL_NO,
+      </if>
+      <if test="wfApprSts != null">
+        WF_APPR_STS,
+      </if>
+      <if test="overdueTime != null">
+        OVERDUE_TIME,
+      </if>
+      <if test="dataDate != null">
+        DATA_DATE,
+      </if>
+      <if test="billNo != null">
+        BILL_NO,
+      </if>
+      <if test="tpObjId != null">
+        TP_OBJ_ID,
+      </if>
+      <if test="coPlatform != null">
+        CO_PLATFORM,
+      </if>
+      <if test="prdCode != null">
+        PRD_CODE,
+      </if>
+      <if test="custName != null">
+        CUST_NAME,
+      </if>
+      <if test="certType != null">
+        CERT_TYPE,
+      </if>
+      <if test="certCode != null">
+        CERT_CODE,
+      </if>
+      <if test="repayAccBank != null">
+        REPAY_ACC_BANK,
+      </if>
+      <if test="repayCardNo != null">
+        REPAY_CARD_NO,
+      </if>
+      <if test="loanAmt != null">
+        LOAN_AMT,
+      </if>
+      <if test="loanBal != null">
+        LOAN_BAL,
+      </if>
+      <if test="overdueAmt != null">
+        OVERDUE_AMT,
+      </if>
+      <if test="overdueInterest != null">
+        OVERDUE_INTEREST,
+      </if>
+      <if test="execRate != null">
+        EXEC_RATE,
+      </if>
+      <if test="loanStartDate != null">
+        LOAN_START_DATE,
+      </if>
+      <if test="loanEndDate != null">
+        LOAN_END_DATE,
+      </if>
+      <if test="crdAmt != null">
+        CRD_AMT,
+      </if>
+      <if test="crdTerm != null">
+        CRD_TERM,
+      </if>
+      <if test="channelType != null">
+        CHANNEL_TYPE,
+      </if>
+      <if test="custId != null">
+        CUST_ID,
+      </if>
+      <if test="phone != null">
+        PHONE,
+      </if>
+      <if test="addr != null">
+        ADDR,
+      </if>
+      <if test="overdueDay != null">
+        OVERDUE_DAY,
+      </if>
+      <if test="overdueRate != null">
+        OVERDUE_RATE,
+      </if>
+      <if test="outstdIntst != null">
+        OUTSTD_INTST,
+      </if>
+      <if test="innerIntst != null">
+        INNER_INTST,
+      </if>
+      <if test="outerIntst != null">
+        OUTER_INTST,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="seralNo != null">
+        #{seralNo,jdbcType=VARCHAR},
+      </if>
+      <if test="wfApprSts != null">
+        #{wfApprSts,jdbcType=VARCHAR},
+      </if>
+      <if test="overdueTime != null">
+        #{overdueTime,jdbcType=VARCHAR},
+      </if>
+      <if test="dataDate != null">
+        #{dataDate,jdbcType=VARCHAR},
+      </if>
+      <if test="billNo != null">
+        #{billNo,jdbcType=VARCHAR},
+      </if>
+      <if test="tpObjId != null">
+        #{tpObjId,jdbcType=VARCHAR},
+      </if>
+      <if test="coPlatform != null">
+        #{coPlatform,jdbcType=VARCHAR},
+      </if>
+      <if test="prdCode != null">
+        #{prdCode,jdbcType=VARCHAR},
+      </if>
+      <if test="custName != null">
+        #{custName,jdbcType=VARCHAR},
+      </if>
+      <if test="certType != null">
+        #{certType,jdbcType=VARCHAR},
+      </if>
+      <if test="certCode != null">
+        #{certCode,jdbcType=VARCHAR},
+      </if>
+      <if test="repayAccBank != null">
+        #{repayAccBank,jdbcType=VARCHAR},
+      </if>
+      <if test="repayCardNo != null">
+        #{repayCardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="loanAmt != null">
+        #{loanAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="loanBal != null">
+        #{loanBal,jdbcType=DECIMAL},
+      </if>
+      <if test="overdueAmt != null">
+        #{overdueAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="overdueInterest != null">
+        #{overdueInterest,jdbcType=DECIMAL},
+      </if>
+      <if test="execRate != null">
+        #{execRate,jdbcType=DECIMAL},
+      </if>
+      <if test="loanStartDate != null">
+        #{loanStartDate,jdbcType=VARCHAR},
+      </if>
+      <if test="loanEndDate != null">
+        #{loanEndDate,jdbcType=VARCHAR},
+      </if>
+      <if test="crdAmt != null">
+        #{crdAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="crdTerm != null">
+        #{crdTerm,jdbcType=VARCHAR},
+      </if>
+      <if test="channelType != null">
+        #{channelType,jdbcType=VARCHAR},
+      </if>
+      <if test="custId != null">
+        #{custId,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="addr != null">
+        #{addr,jdbcType=VARCHAR},
+      </if>
+      <if test="overdueDay != null">
+        #{overdueDay,jdbcType=DECIMAL},
+      </if>
+      <if test="overdueRate != null">
+        #{overdueRate,jdbcType=DECIMAL},
+      </if>
+      <if test="outstdIntst != null">
+        #{outstdIntst,jdbcType=DECIMAL},
+      </if>
+      <if test="innerIntst != null">
+        #{innerIntst,jdbcType=DECIMAL},
+      </if>
+      <if test="outerIntst != null">
+        #{outerIntst,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.RPT_OVERDUE_LIST">
+    update RPT_OVERDUE_LIST
+    <set>
+      <if test="wfApprSts != null">
+        WF_APPR_STS = #{wfApprSts,jdbcType=VARCHAR},
+      </if>
+      <if test="overdueTime != null">
+        OVERDUE_TIME = #{overdueTime,jdbcType=VARCHAR},
+      </if>
+      <if test="dataDate != null">
+        DATA_DATE = #{dataDate,jdbcType=VARCHAR},
+      </if>
+      <if test="billNo != null">
+        BILL_NO = #{billNo,jdbcType=VARCHAR},
+      </if>
+      <if test="tpObjId != null">
+        TP_OBJ_ID = #{tpObjId,jdbcType=VARCHAR},
+      </if>
+      <if test="coPlatform != null">
+        CO_PLATFORM = #{coPlatform,jdbcType=VARCHAR},
+      </if>
+      <if test="prdCode != null">
+        PRD_CODE = #{prdCode,jdbcType=VARCHAR},
+      </if>
+      <if test="custName != null">
+        CUST_NAME = #{custName,jdbcType=VARCHAR},
+      </if>
+      <if test="certType != null">
+        CERT_TYPE = #{certType,jdbcType=VARCHAR},
+      </if>
+      <if test="certCode != null">
+        CERT_CODE = #{certCode,jdbcType=VARCHAR},
+      </if>
+      <if test="repayAccBank != null">
+        REPAY_ACC_BANK = #{repayAccBank,jdbcType=VARCHAR},
+      </if>
+      <if test="repayCardNo != null">
+        REPAY_CARD_NO = #{repayCardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="loanAmt != null">
+        LOAN_AMT = #{loanAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="loanBal != null">
+        LOAN_BAL = #{loanBal,jdbcType=DECIMAL},
+      </if>
+      <if test="overdueAmt != null">
+        OVERDUE_AMT = #{overdueAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="overdueInterest != null">
+        OVERDUE_INTEREST = #{overdueInterest,jdbcType=DECIMAL},
+      </if>
+      <if test="execRate != null">
+        EXEC_RATE = #{execRate,jdbcType=DECIMAL},
+      </if>
+      <if test="loanStartDate != null">
+        LOAN_START_DATE = #{loanStartDate,jdbcType=VARCHAR},
+      </if>
+      <if test="loanEndDate != null">
+        LOAN_END_DATE = #{loanEndDate,jdbcType=VARCHAR},
+      </if>
+      <if test="crdAmt != null">
+        CRD_AMT = #{crdAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="crdTerm != null">
+        CRD_TERM = #{crdTerm,jdbcType=VARCHAR},
+      </if>
+      <if test="channelType != null">
+        CHANNEL_TYPE = #{channelType,jdbcType=VARCHAR},
+      </if>
+      <if test="custId != null">
+        CUST_ID = #{custId,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        PHONE = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="addr != null">
+        ADDR = #{addr,jdbcType=VARCHAR},
+      </if>
+      <if test="overdueDay != null">
+        OVERDUE_DAY = #{overdueDay,jdbcType=DECIMAL},
+      </if>
+      <if test="overdueRate != null">
+        OVERDUE_RATE = #{overdueRate,jdbcType=DECIMAL},
+      </if>
+      <if test="outstdIntst != null">
+        OUTSTD_INTST = #{outstdIntst,jdbcType=DECIMAL},
+      </if>
+      <if test="innerIntst != null">
+        INNER_INTST = #{innerIntst,jdbcType=DECIMAL},
+      </if>
+      <if test="outerIntst != null">
+        OUTER_INTST = #{outerIntst,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where SERAL_NO = #{seralNo,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.RPT_OVERDUE_LIST">
+    update RPT_OVERDUE_LIST
+    set WF_APPR_STS = #{wfApprSts,jdbcType=VARCHAR},
+      OVERDUE_TIME = #{overdueTime,jdbcType=VARCHAR},
+      DATA_DATE = #{dataDate,jdbcType=VARCHAR},
+      BILL_NO = #{billNo,jdbcType=VARCHAR},
+      TP_OBJ_ID = #{tpObjId,jdbcType=VARCHAR},
+      CO_PLATFORM = #{coPlatform,jdbcType=VARCHAR},
+      PRD_CODE = #{prdCode,jdbcType=VARCHAR},
+      CUST_NAME = #{custName,jdbcType=VARCHAR},
+      CERT_TYPE = #{certType,jdbcType=VARCHAR},
+      CERT_CODE = #{certCode,jdbcType=VARCHAR},
+      REPAY_ACC_BANK = #{repayAccBank,jdbcType=VARCHAR},
+      REPAY_CARD_NO = #{repayCardNo,jdbcType=VARCHAR},
+      LOAN_AMT = #{loanAmt,jdbcType=DECIMAL},
+      LOAN_BAL = #{loanBal,jdbcType=DECIMAL},
+      OVERDUE_AMT = #{overdueAmt,jdbcType=DECIMAL},
+      OVERDUE_INTEREST = #{overdueInterest,jdbcType=DECIMAL},
+      EXEC_RATE = #{execRate,jdbcType=DECIMAL},
+      LOAN_START_DATE = #{loanStartDate,jdbcType=VARCHAR},
+      LOAN_END_DATE = #{loanEndDate,jdbcType=VARCHAR},
+      CRD_AMT = #{crdAmt,jdbcType=DECIMAL},
+      CRD_TERM = #{crdTerm,jdbcType=VARCHAR},
+      CHANNEL_TYPE = #{channelType,jdbcType=VARCHAR},
+      CUST_ID = #{custId,jdbcType=VARCHAR},
+      PHONE = #{phone,jdbcType=VARCHAR},
+      ADDR = #{addr,jdbcType=VARCHAR},
+      OVERDUE_DAY = #{overdueDay,jdbcType=DECIMAL},
+      OVERDUE_RATE = #{overdueRate,jdbcType=DECIMAL},
+      OUTSTD_INTST = #{outstdIntst,jdbcType=DECIMAL},
+      INNER_INTST = #{innerIntst,jdbcType=DECIMAL},
+      OUTER_INTST = #{outerIntst,jdbcType=DECIMAL}
+    where SERAL_NO = #{seralNo,jdbcType=VARCHAR}
+  </update>
+</mapper>

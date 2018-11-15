@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.BAT_XW_DS_ACCOUNTING_FLOW_HISMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.BAT_XW_DS_ACCOUNTING_FLOW_HIS">
+    <result column="LOAN_NO" jdbcType="VARCHAR" property="loanNo" />
+    <result column="TD_DATE" jdbcType="VARCHAR" property="tdDate" />
+    <result column="CURRENCY" jdbcType="VARCHAR" property="currency" />
+    <result column="TD_CODE" jdbcType="VARCHAR" property="tdCode" />
+    <result column="TD_DESCRIBE" jdbcType="VARCHAR" property="tdDescribe" />
+    <result column="LOAN_SIGN" jdbcType="VARCHAR" property="loanSign" />
+    <result column="ACCT_AMT" jdbcType="DECIMAL" property="acctAmt" />
+    <result column="BRANCH_NO" jdbcType="VARCHAR" property="branchNo" />
+    <result column="PROD_NO" jdbcType="VARCHAR" property="prodNo" />
+    <result column="SUBJECT" jdbcType="VARCHAR" property="subject" />
+    <result column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="INPUT_DATE" jdbcType="VARCHAR" property="inputDate" />
+    <result column="INPUT_TIME" jdbcType="VARCHAR" property="inputTime" />
+    <result column="DATA_DATE" jdbcType="VARCHAR" property="dataDate" />
+  </resultMap>
+  <insert id="insert" parameterType="com.bea.olp.BAT_XW_DS_ACCOUNTING_FLOW_HIS">
+    insert into BAT_XW_DS_ACCOUNTING_FLOW_HIS (LOAN_NO, TD_DATE, CURRENCY, 
+      TD_CODE, TD_DESCRIBE, LOAN_SIGN, 
+      ACCT_AMT, BRANCH_NO, PROD_NO, 
+      SUBJECT, ID, INPUT_DATE, 
+      INPUT_TIME, DATA_DATE)
+    values (#{loanNo,jdbcType=VARCHAR}, #{tdDate,jdbcType=VARCHAR}, #{currency,jdbcType=VARCHAR}, 
+      #{tdCode,jdbcType=VARCHAR}, #{tdDescribe,jdbcType=VARCHAR}, #{loanSign,jdbcType=VARCHAR}, 
+      #{acctAmt,jdbcType=DECIMAL}, #{branchNo,jdbcType=VARCHAR}, #{prodNo,jdbcType=VARCHAR}, 
+      #{subject,jdbcType=VARCHAR}, #{id,jdbcType=VARCHAR}, #{inputDate,jdbcType=VARCHAR}, 
+      #{inputTime,jdbcType=VARCHAR}, #{dataDate,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.BAT_XW_DS_ACCOUNTING_FLOW_HIS">
+    insert into BAT_XW_DS_ACCOUNTING_FLOW_HIS
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="loanNo != null">
+        LOAN_NO,
+      </if>
+      <if test="tdDate != null">
+        TD_DATE,
+      </if>
+      <if test="currency != null">
+        CURRENCY,
+      </if>
+      <if test="tdCode != null">
+        TD_CODE,
+      </if>
+      <if test="tdDescribe != null">
+        TD_DESCRIBE,
+      </if>
+      <if test="loanSign != null">
+        LOAN_SIGN,
+      </if>
+      <if test="acctAmt != null">
+        ACCT_AMT,
+      </if>
+      <if test="branchNo != null">
+        BRANCH_NO,
+      </if>
+      <if test="prodNo != null">
+        PROD_NO,
+      </if>
+      <if test="subject != null">
+        SUBJECT,
+      </if>
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE,
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME,
+      </if>
+      <if test="dataDate != null">
+        DATA_DATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="loanNo != null">
+        #{loanNo,jdbcType=VARCHAR},
+      </if>
+      <if test="tdDate != null">
+        #{tdDate,jdbcType=VARCHAR},
+      </if>
+      <if test="currency != null">
+        #{currency,jdbcType=VARCHAR},
+      </if>
+      <if test="tdCode != null">
+        #{tdCode,jdbcType=VARCHAR},
+      </if>
+      <if test="tdDescribe != null">
+        #{tdDescribe,jdbcType=VARCHAR},
+      </if>
+      <if test="loanSign != null">
+        #{loanSign,jdbcType=VARCHAR},
+      </if>
+      <if test="acctAmt != null">
+        #{acctAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="branchNo != null">
+        #{branchNo,jdbcType=VARCHAR},
+      </if>
+      <if test="prodNo != null">
+        #{prodNo,jdbcType=VARCHAR},
+      </if>
+      <if test="subject != null">
+        #{subject,jdbcType=VARCHAR},
+      </if>
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="dataDate != null">
+        #{dataDate,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

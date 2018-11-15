@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.LOAN_PRD_GROUP_INFOMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.LOAN_PRD_GROUP_INFO">
+    <result column="LMT_NO" jdbcType="VARCHAR" property="lmtNo" />
+    <result column="PARENT_NO" jdbcType="VARCHAR" property="parentNo" />
+    <result column="LMT_NAME" jdbcType="VARCHAR" property="lmtName" />
+    <result column="LMT_STATUS" jdbcType="CHAR" property="lmtStatus" />
+    <result column="REMARK" jdbcType="VARCHAR" property="remark" />
+    <result column="INPUT_TIME" jdbcType="VARCHAR" property="inputTime" />
+    <result column="INPUT_ID" jdbcType="VARCHAR" property="inputId" />
+    <result column="INPUT_BR_ID" jdbcType="VARCHAR" property="inputBrId" />
+    <result column="LAST_UPDATE_TIME" jdbcType="VARCHAR" property="lastUpdateTime" />
+    <result column="LAST_UPDATE_ID" jdbcType="VARCHAR" property="lastUpdateId" />
+  </resultMap>
+  <insert id="insert" parameterType="com.bea.olp.LOAN_PRD_GROUP_INFO">
+    insert into LOAN_PRD_GROUP_INFO (LMT_NO, PARENT_NO, LMT_NAME, 
+      LMT_STATUS, REMARK, INPUT_TIME, 
+      INPUT_ID, INPUT_BR_ID, LAST_UPDATE_TIME, 
+      LAST_UPDATE_ID)
+    values (#{lmtNo,jdbcType=VARCHAR}, #{parentNo,jdbcType=VARCHAR}, #{lmtName,jdbcType=VARCHAR}, 
+      #{lmtStatus,jdbcType=CHAR}, #{remark,jdbcType=VARCHAR}, #{inputTime,jdbcType=VARCHAR}, 
+      #{inputId,jdbcType=VARCHAR}, #{inputBrId,jdbcType=VARCHAR}, #{lastUpdateTime,jdbcType=VARCHAR}, 
+      #{lastUpdateId,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.LOAN_PRD_GROUP_INFO">
+    insert into LOAN_PRD_GROUP_INFO
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="lmtNo != null">
+        LMT_NO,
+      </if>
+      <if test="parentNo != null">
+        PARENT_NO,
+      </if>
+      <if test="lmtName != null">
+        LMT_NAME,
+      </if>
+      <if test="lmtStatus != null">
+        LMT_STATUS,
+      </if>
+      <if test="remark != null">
+        REMARK,
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME,
+      </if>
+      <if test="inputId != null">
+        INPUT_ID,
+      </if>
+      <if test="inputBrId != null">
+        INPUT_BR_ID,
+      </if>
+      <if test="lastUpdateTime != null">
+        LAST_UPDATE_TIME,
+      </if>
+      <if test="lastUpdateId != null">
+        LAST_UPDATE_ID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="lmtNo != null">
+        #{lmtNo,jdbcType=VARCHAR},
+      </if>
+      <if test="parentNo != null">
+        #{parentNo,jdbcType=VARCHAR},
+      </if>
+      <if test="lmtName != null">
+        #{lmtName,jdbcType=VARCHAR},
+      </if>
+      <if test="lmtStatus != null">
+        #{lmtStatus,jdbcType=CHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="inputId != null">
+        #{inputId,jdbcType=VARCHAR},
+      </if>
+      <if test="inputBrId != null">
+        #{inputBrId,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        #{lastUpdateTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateId != null">
+        #{lastUpdateId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

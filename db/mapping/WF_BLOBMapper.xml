@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.WF_BLOBMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.WF_BLOB">
+    <id column="PKEY" jdbcType="VARCHAR" property="pkey" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.bea.olp.WF_BLOB">
+    <result column="CONTENT" jdbcType="BLOB" property="content" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    PKEY
+  </sql>
+  <sql id="Blob_Column_List">
+    CONTENT
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from WF_BLOB
+    where PKEY = #{pkey,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from WF_BLOB
+    where PKEY = #{pkey,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.WF_BLOB">
+    insert into WF_BLOB (PKEY, CONTENT)
+    values (#{pkey,jdbcType=VARCHAR}, #{content,jdbcType=BLOB})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.WF_BLOB">
+    insert into WF_BLOB
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="pkey != null">
+        PKEY,
+      </if>
+      <if test="content != null">
+        CONTENT,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="pkey != null">
+        #{pkey,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null">
+        #{content,jdbcType=BLOB},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.WF_BLOB">
+    update WF_BLOB
+    <set>
+      <if test="content != null">
+        CONTENT = #{content,jdbcType=BLOB},
+      </if>
+    </set>
+    where PKEY = #{pkey,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.bea.olp.WF_BLOB">
+    update WF_BLOB
+    set CONTENT = #{content,jdbcType=BLOB}
+    where PKEY = #{pkey,jdbcType=VARCHAR}
+  </update>
+</mapper>

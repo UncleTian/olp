@@ -1,0 +1,408 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.BAT_CBM_LOAN_APPLYMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.BAT_CBM_LOAN_APPLY">
+    <result column="PUTOUTNO" jdbcType="VARCHAR" property="putoutno" />
+    <result column="CONTRACTNO" jdbcType="VARCHAR" property="contractno" />
+    <result column="CUSTOMERID" jdbcType="VARCHAR" property="customerid" />
+    <result column="PRODUCTID" jdbcType="VARCHAR" property="productid" />
+    <result column="CCY" jdbcType="VARCHAR" property="ccy" />
+    <result column="AMT" jdbcType="DECIMAL" property="amt" />
+    <result column="PREPUTOUTDATE" jdbcType="VARCHAR" property="preputoutdate" />
+    <result column="PAYTYPE" jdbcType="VARCHAR" property="paytype" />
+    <result column="BAILRATE" jdbcType="DECIMAL" property="bailrate" />
+    <result column="RATEDESC" jdbcType="VARCHAR" property="ratedesc" />
+    <result column="FEEDESC" jdbcType="VARCHAR" property="feedesc" />
+    <result column="HKAS" jdbcType="VARCHAR" property="hkas" />
+    <result column="CBRC" jdbcType="VARCHAR" property="cbrc" />
+    <result column="PURPOSE" jdbcType="VARCHAR" property="purpose" />
+    <result column="EXTFLAG" jdbcType="VARCHAR" property="extflag" />
+    <result column="BUSSATTIBUTE" jdbcType="VARCHAR" property="bussattibute" />
+    <result column="COOPERIOD" jdbcType="VARCHAR" property="cooperiod" />
+    <result column="PUTOUTMATURITY" jdbcType="VARCHAR" property="putoutmaturity" />
+    <result column="CBRCLOANTYPE" jdbcType="VARCHAR" property="cbrcloantype" />
+    <result column="BANKID" jdbcType="VARCHAR" property="bankid" />
+    <result column="ENTSCALE" jdbcType="VARCHAR" property="entscale" />
+    <result column="LOANUSECOUNTRY" jdbcType="VARCHAR" property="loanusecountry" />
+    <result column="LOANUSEPROVINCE" jdbcType="VARCHAR" property="loanuseprovince" />
+    <result column="LOANUSECITY" jdbcType="VARCHAR" property="loanusecity" />
+    <result column="LOANUSEAREA" jdbcType="VARCHAR" property="loanusearea" />
+    <result column="INPUTBIG" jdbcType="VARCHAR" property="inputbig" />
+    <result column="INPUTMEDIUM" jdbcType="VARCHAR" property="inputmedium" />
+    <result column="INPUTSMALL" jdbcType="VARCHAR" property="inputsmall" />
+    <result column="CBRCLOANPURPOSE" jdbcType="VARCHAR" property="cbrcloanpurpose" />
+    <result column="PRACTICALPURPOSE" jdbcType="VARCHAR" property="practicalpurpose" />
+    <result column="LOANPURPOSEDETAIL" jdbcType="VARCHAR" property="loanpurposedetail" />
+    <result column="OPERATELOANFLAG" jdbcType="VARCHAR" property="operateloanflag" />
+    <result column="BASELPRODUCE" jdbcType="VARCHAR" property="baselproduce" />
+    <result column="SORTLONGFLAG" jdbcType="VARCHAR" property="sortlongflag" />
+    <result column="GRACEPERIOD" jdbcType="DECIMAL" property="graceperiod" />
+    <result column="REPRICETYPE" jdbcType="VARCHAR" property="repricetype" />
+    <result column="HEAVYPRICEFREQUENCY" jdbcType="VARCHAR" property="heavypricefrequency" />
+    <result column="DANEXTRPIRDT" jdbcType="VARCHAR" property="danextrpirdt" />
+    <result column="INTRATEFLOATTYPE" jdbcType="VARCHAR" property="intratefloattype" />
+    <result column="INTRATEFLOATRANGE" jdbcType="DECIMAL" property="intratefloatrange" />
+    <result column="INTERRATE" jdbcType="DECIMAL" property="interrate" />
+    <result column="LOANACCOUNTNAME" jdbcType="VARCHAR" property="loanaccountname" />
+    <result column="LOANACCOUNT" jdbcType="VARCHAR" property="loanaccount" />
+    <result column="REPAYACCOUNTNAME" jdbcType="VARCHAR" property="repayaccountname" />
+    <result column="REPAYACCOUNT" jdbcType="VARCHAR" property="repayaccount" />
+    <result column="PRNPROLONGFLAG" jdbcType="VARCHAR" property="prnprolongflag" />
+    <result column="INTERPROLONGFLAG" jdbcType="VARCHAR" property="interprolongflag" />
+    <result column="INPUT_DATE" jdbcType="VARCHAR" property="inputDate" />
+    <result column="INPUT_TIME" jdbcType="VARCHAR" property="inputTime" />
+    <result column="DATA_DATE" jdbcType="VARCHAR" property="dataDate" />
+    <result column="CHANNEL_TYPE" jdbcType="VARCHAR" property="channelType" />
+  </resultMap>
+  <insert id="insert" parameterType="com.bea.olp.BAT_CBM_LOAN_APPLY">
+    insert into BAT_CBM_LOAN_APPLY (PUTOUTNO, CONTRACTNO, CUSTOMERID, 
+      PRODUCTID, CCY, AMT, 
+      PREPUTOUTDATE, PAYTYPE, BAILRATE, 
+      RATEDESC, FEEDESC, HKAS, 
+      CBRC, PURPOSE, EXTFLAG, 
+      BUSSATTIBUTE, COOPERIOD, PUTOUTMATURITY, 
+      CBRCLOANTYPE, BANKID, ENTSCALE, 
+      LOANUSECOUNTRY, LOANUSEPROVINCE, LOANUSECITY, 
+      LOANUSEAREA, INPUTBIG, INPUTMEDIUM, 
+      INPUTSMALL, CBRCLOANPURPOSE, PRACTICALPURPOSE, 
+      LOANPURPOSEDETAIL, OPERATELOANFLAG, BASELPRODUCE, 
+      SORTLONGFLAG, GRACEPERIOD, REPRICETYPE, 
+      HEAVYPRICEFREQUENCY, DANEXTRPIRDT, INTRATEFLOATTYPE, 
+      INTRATEFLOATRANGE, INTERRATE, LOANACCOUNTNAME, 
+      LOANACCOUNT, REPAYACCOUNTNAME, REPAYACCOUNT, 
+      PRNPROLONGFLAG, INTERPROLONGFLAG, INPUT_DATE, 
+      INPUT_TIME, DATA_DATE, CHANNEL_TYPE
+      )
+    values (#{putoutno,jdbcType=VARCHAR}, #{contractno,jdbcType=VARCHAR}, #{customerid,jdbcType=VARCHAR}, 
+      #{productid,jdbcType=VARCHAR}, #{ccy,jdbcType=VARCHAR}, #{amt,jdbcType=DECIMAL}, 
+      #{preputoutdate,jdbcType=VARCHAR}, #{paytype,jdbcType=VARCHAR}, #{bailrate,jdbcType=DECIMAL}, 
+      #{ratedesc,jdbcType=VARCHAR}, #{feedesc,jdbcType=VARCHAR}, #{hkas,jdbcType=VARCHAR}, 
+      #{cbrc,jdbcType=VARCHAR}, #{purpose,jdbcType=VARCHAR}, #{extflag,jdbcType=VARCHAR}, 
+      #{bussattibute,jdbcType=VARCHAR}, #{cooperiod,jdbcType=VARCHAR}, #{putoutmaturity,jdbcType=VARCHAR}, 
+      #{cbrcloantype,jdbcType=VARCHAR}, #{bankid,jdbcType=VARCHAR}, #{entscale,jdbcType=VARCHAR}, 
+      #{loanusecountry,jdbcType=VARCHAR}, #{loanuseprovince,jdbcType=VARCHAR}, #{loanusecity,jdbcType=VARCHAR}, 
+      #{loanusearea,jdbcType=VARCHAR}, #{inputbig,jdbcType=VARCHAR}, #{inputmedium,jdbcType=VARCHAR}, 
+      #{inputsmall,jdbcType=VARCHAR}, #{cbrcloanpurpose,jdbcType=VARCHAR}, #{practicalpurpose,jdbcType=VARCHAR}, 
+      #{loanpurposedetail,jdbcType=VARCHAR}, #{operateloanflag,jdbcType=VARCHAR}, #{baselproduce,jdbcType=VARCHAR}, 
+      #{sortlongflag,jdbcType=VARCHAR}, #{graceperiod,jdbcType=DECIMAL}, #{repricetype,jdbcType=VARCHAR}, 
+      #{heavypricefrequency,jdbcType=VARCHAR}, #{danextrpirdt,jdbcType=VARCHAR}, #{intratefloattype,jdbcType=VARCHAR}, 
+      #{intratefloatrange,jdbcType=DECIMAL}, #{interrate,jdbcType=DECIMAL}, #{loanaccountname,jdbcType=VARCHAR}, 
+      #{loanaccount,jdbcType=VARCHAR}, #{repayaccountname,jdbcType=VARCHAR}, #{repayaccount,jdbcType=VARCHAR}, 
+      #{prnprolongflag,jdbcType=VARCHAR}, #{interprolongflag,jdbcType=VARCHAR}, #{inputDate,jdbcType=VARCHAR}, 
+      #{inputTime,jdbcType=VARCHAR}, #{dataDate,jdbcType=VARCHAR}, #{channelType,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.BAT_CBM_LOAN_APPLY">
+    insert into BAT_CBM_LOAN_APPLY
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="putoutno != null">
+        PUTOUTNO,
+      </if>
+      <if test="contractno != null">
+        CONTRACTNO,
+      </if>
+      <if test="customerid != null">
+        CUSTOMERID,
+      </if>
+      <if test="productid != null">
+        PRODUCTID,
+      </if>
+      <if test="ccy != null">
+        CCY,
+      </if>
+      <if test="amt != null">
+        AMT,
+      </if>
+      <if test="preputoutdate != null">
+        PREPUTOUTDATE,
+      </if>
+      <if test="paytype != null">
+        PAYTYPE,
+      </if>
+      <if test="bailrate != null">
+        BAILRATE,
+      </if>
+      <if test="ratedesc != null">
+        RATEDESC,
+      </if>
+      <if test="feedesc != null">
+        FEEDESC,
+      </if>
+      <if test="hkas != null">
+        HKAS,
+      </if>
+      <if test="cbrc != null">
+        CBRC,
+      </if>
+      <if test="purpose != null">
+        PURPOSE,
+      </if>
+      <if test="extflag != null">
+        EXTFLAG,
+      </if>
+      <if test="bussattibute != null">
+        BUSSATTIBUTE,
+      </if>
+      <if test="cooperiod != null">
+        COOPERIOD,
+      </if>
+      <if test="putoutmaturity != null">
+        PUTOUTMATURITY,
+      </if>
+      <if test="cbrcloantype != null">
+        CBRCLOANTYPE,
+      </if>
+      <if test="bankid != null">
+        BANKID,
+      </if>
+      <if test="entscale != null">
+        ENTSCALE,
+      </if>
+      <if test="loanusecountry != null">
+        LOANUSECOUNTRY,
+      </if>
+      <if test="loanuseprovince != null">
+        LOANUSEPROVINCE,
+      </if>
+      <if test="loanusecity != null">
+        LOANUSECITY,
+      </if>
+      <if test="loanusearea != null">
+        LOANUSEAREA,
+      </if>
+      <if test="inputbig != null">
+        INPUTBIG,
+      </if>
+      <if test="inputmedium != null">
+        INPUTMEDIUM,
+      </if>
+      <if test="inputsmall != null">
+        INPUTSMALL,
+      </if>
+      <if test="cbrcloanpurpose != null">
+        CBRCLOANPURPOSE,
+      </if>
+      <if test="practicalpurpose != null">
+        PRACTICALPURPOSE,
+      </if>
+      <if test="loanpurposedetail != null">
+        LOANPURPOSEDETAIL,
+      </if>
+      <if test="operateloanflag != null">
+        OPERATELOANFLAG,
+      </if>
+      <if test="baselproduce != null">
+        BASELPRODUCE,
+      </if>
+      <if test="sortlongflag != null">
+        SORTLONGFLAG,
+      </if>
+      <if test="graceperiod != null">
+        GRACEPERIOD,
+      </if>
+      <if test="repricetype != null">
+        REPRICETYPE,
+      </if>
+      <if test="heavypricefrequency != null">
+        HEAVYPRICEFREQUENCY,
+      </if>
+      <if test="danextrpirdt != null">
+        DANEXTRPIRDT,
+      </if>
+      <if test="intratefloattype != null">
+        INTRATEFLOATTYPE,
+      </if>
+      <if test="intratefloatrange != null">
+        INTRATEFLOATRANGE,
+      </if>
+      <if test="interrate != null">
+        INTERRATE,
+      </if>
+      <if test="loanaccountname != null">
+        LOANACCOUNTNAME,
+      </if>
+      <if test="loanaccount != null">
+        LOANACCOUNT,
+      </if>
+      <if test="repayaccountname != null">
+        REPAYACCOUNTNAME,
+      </if>
+      <if test="repayaccount != null">
+        REPAYACCOUNT,
+      </if>
+      <if test="prnprolongflag != null">
+        PRNPROLONGFLAG,
+      </if>
+      <if test="interprolongflag != null">
+        INTERPROLONGFLAG,
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE,
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME,
+      </if>
+      <if test="dataDate != null">
+        DATA_DATE,
+      </if>
+      <if test="channelType != null">
+        CHANNEL_TYPE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="putoutno != null">
+        #{putoutno,jdbcType=VARCHAR},
+      </if>
+      <if test="contractno != null">
+        #{contractno,jdbcType=VARCHAR},
+      </if>
+      <if test="customerid != null">
+        #{customerid,jdbcType=VARCHAR},
+      </if>
+      <if test="productid != null">
+        #{productid,jdbcType=VARCHAR},
+      </if>
+      <if test="ccy != null">
+        #{ccy,jdbcType=VARCHAR},
+      </if>
+      <if test="amt != null">
+        #{amt,jdbcType=DECIMAL},
+      </if>
+      <if test="preputoutdate != null">
+        #{preputoutdate,jdbcType=VARCHAR},
+      </if>
+      <if test="paytype != null">
+        #{paytype,jdbcType=VARCHAR},
+      </if>
+      <if test="bailrate != null">
+        #{bailrate,jdbcType=DECIMAL},
+      </if>
+      <if test="ratedesc != null">
+        #{ratedesc,jdbcType=VARCHAR},
+      </if>
+      <if test="feedesc != null">
+        #{feedesc,jdbcType=VARCHAR},
+      </if>
+      <if test="hkas != null">
+        #{hkas,jdbcType=VARCHAR},
+      </if>
+      <if test="cbrc != null">
+        #{cbrc,jdbcType=VARCHAR},
+      </if>
+      <if test="purpose != null">
+        #{purpose,jdbcType=VARCHAR},
+      </if>
+      <if test="extflag != null">
+        #{extflag,jdbcType=VARCHAR},
+      </if>
+      <if test="bussattibute != null">
+        #{bussattibute,jdbcType=VARCHAR},
+      </if>
+      <if test="cooperiod != null">
+        #{cooperiod,jdbcType=VARCHAR},
+      </if>
+      <if test="putoutmaturity != null">
+        #{putoutmaturity,jdbcType=VARCHAR},
+      </if>
+      <if test="cbrcloantype != null">
+        #{cbrcloantype,jdbcType=VARCHAR},
+      </if>
+      <if test="bankid != null">
+        #{bankid,jdbcType=VARCHAR},
+      </if>
+      <if test="entscale != null">
+        #{entscale,jdbcType=VARCHAR},
+      </if>
+      <if test="loanusecountry != null">
+        #{loanusecountry,jdbcType=VARCHAR},
+      </if>
+      <if test="loanuseprovince != null">
+        #{loanuseprovince,jdbcType=VARCHAR},
+      </if>
+      <if test="loanusecity != null">
+        #{loanusecity,jdbcType=VARCHAR},
+      </if>
+      <if test="loanusearea != null">
+        #{loanusearea,jdbcType=VARCHAR},
+      </if>
+      <if test="inputbig != null">
+        #{inputbig,jdbcType=VARCHAR},
+      </if>
+      <if test="inputmedium != null">
+        #{inputmedium,jdbcType=VARCHAR},
+      </if>
+      <if test="inputsmall != null">
+        #{inputsmall,jdbcType=VARCHAR},
+      </if>
+      <if test="cbrcloanpurpose != null">
+        #{cbrcloanpurpose,jdbcType=VARCHAR},
+      </if>
+      <if test="practicalpurpose != null">
+        #{practicalpurpose,jdbcType=VARCHAR},
+      </if>
+      <if test="loanpurposedetail != null">
+        #{loanpurposedetail,jdbcType=VARCHAR},
+      </if>
+      <if test="operateloanflag != null">
+        #{operateloanflag,jdbcType=VARCHAR},
+      </if>
+      <if test="baselproduce != null">
+        #{baselproduce,jdbcType=VARCHAR},
+      </if>
+      <if test="sortlongflag != null">
+        #{sortlongflag,jdbcType=VARCHAR},
+      </if>
+      <if test="graceperiod != null">
+        #{graceperiod,jdbcType=DECIMAL},
+      </if>
+      <if test="repricetype != null">
+        #{repricetype,jdbcType=VARCHAR},
+      </if>
+      <if test="heavypricefrequency != null">
+        #{heavypricefrequency,jdbcType=VARCHAR},
+      </if>
+      <if test="danextrpirdt != null">
+        #{danextrpirdt,jdbcType=VARCHAR},
+      </if>
+      <if test="intratefloattype != null">
+        #{intratefloattype,jdbcType=VARCHAR},
+      </if>
+      <if test="intratefloatrange != null">
+        #{intratefloatrange,jdbcType=DECIMAL},
+      </if>
+      <if test="interrate != null">
+        #{interrate,jdbcType=DECIMAL},
+      </if>
+      <if test="loanaccountname != null">
+        #{loanaccountname,jdbcType=VARCHAR},
+      </if>
+      <if test="loanaccount != null">
+        #{loanaccount,jdbcType=VARCHAR},
+      </if>
+      <if test="repayaccountname != null">
+        #{repayaccountname,jdbcType=VARCHAR},
+      </if>
+      <if test="repayaccount != null">
+        #{repayaccount,jdbcType=VARCHAR},
+      </if>
+      <if test="prnprolongflag != null">
+        #{prnprolongflag,jdbcType=VARCHAR},
+      </if>
+      <if test="interprolongflag != null">
+        #{interprolongflag,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="dataDate != null">
+        #{dataDate,jdbcType=VARCHAR},
+      </if>
+      <if test="channelType != null">
+        #{channelType,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

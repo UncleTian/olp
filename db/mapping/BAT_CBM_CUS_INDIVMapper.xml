@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.BAT_CBM_CUS_INDIVMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.BAT_CBM_CUS_INDIV">
+    <result column="CUS_ID" jdbcType="VARCHAR" property="cusId" />
+    <result column="INDIV_SEX" jdbcType="VARCHAR" property="indivSex" />
+    <result column="NATIONALITY" jdbcType="VARCHAR" property="nationality" />
+    <result column="INDIV_DOB" jdbcType="VARCHAR" property="indivDob" />
+    <result column="OCCUPATION" jdbcType="VARCHAR" property="occupation" />
+    <result column="LOAN_CARD_NO" jdbcType="VARCHAR" property="loanCardNo" />
+    <result column="ASSET_LIABILITY" jdbcType="VARCHAR" property="assetLiability" />
+    <result column="LIMIT_RELATED" jdbcType="VARCHAR" property="limitRelated" />
+    <result column="IS_CERT" jdbcType="VARCHAR" property="isCert" />
+    <result column="OCCUP_CODE" jdbcType="VARCHAR" property="occupCode" />
+    <result column="ENTER_DATE" jdbcType="VARCHAR" property="enterDate" />
+    <result column="MARRIAGE_STATUS" jdbcType="VARCHAR" property="marriageStatus" />
+    <result column="EMPLOYEE_FLAG" jdbcType="VARCHAR" property="employeeFlag" />
+    <result column="IS_BEA_RELATIVE" jdbcType="VARCHAR" property="isBeaRelative" />
+    <result column="AREA_CODE" jdbcType="VARCHAR" property="areaCode" />
+    <result column="BIRTH_COUNTRY" jdbcType="VARCHAR" property="birthCountry" />
+    <result column="DOMESTIC_FOREIGN" jdbcType="VARCHAR" property="domesticForeign" />
+    <result column="LIVE_COUNTRY" jdbcType="VARCHAR" property="liveCountry" />
+    <result column="PBOC_CUS_CLASSIFY" jdbcType="VARCHAR" property="pbocCusClassify" />
+    <result column="INDUSTRY_CATEGORY" jdbcType="VARCHAR" property="industryCategory" />
+    <result column="INDUSTRY_CATEGORY_HK" jdbcType="VARCHAR" property="industryCategoryHk" />
+    <result column="FREE_TRADE_PROPERTY" jdbcType="VARCHAR" property="freeTradeProperty" />
+    <result column="CERT_ISSUE_DATE" jdbcType="VARCHAR" property="certIssueDate" />
+    <result column="EN_SUR_NAME" jdbcType="VARCHAR" property="enSurName" />
+    <result column="EN_GIVEN_NAME" jdbcType="VARCHAR" property="enGivenName" />
+    <result column="CN_SUR_NAME" jdbcType="VARCHAR" property="cnSurName" />
+    <result column="CN_GIVEN_NAME" jdbcType="VARCHAR" property="cnGivenName" />
+    <result column="BEA_RELATIVE_PERCENT" jdbcType="VARCHAR" property="beaRelativePercent" />
+    <result column="INPUT_DATE" jdbcType="VARCHAR" property="inputDate" />
+    <result column="INPUT_TIME" jdbcType="VARCHAR" property="inputTime" />
+    <result column="DATA_DATE" jdbcType="VARCHAR" property="dataDate" />
+    <result column="CHANNEL_TYPE" jdbcType="VARCHAR" property="channelType" />
+  </resultMap>
+  <insert id="insert" parameterType="com.bea.olp.BAT_CBM_CUS_INDIV">
+    insert into BAT_CBM_CUS_INDIV (CUS_ID, INDIV_SEX, NATIONALITY, 
+      INDIV_DOB, OCCUPATION, LOAN_CARD_NO, 
+      ASSET_LIABILITY, LIMIT_RELATED, IS_CERT, 
+      OCCUP_CODE, ENTER_DATE, MARRIAGE_STATUS, 
+      EMPLOYEE_FLAG, IS_BEA_RELATIVE, AREA_CODE, 
+      BIRTH_COUNTRY, DOMESTIC_FOREIGN, LIVE_COUNTRY, 
+      PBOC_CUS_CLASSIFY, INDUSTRY_CATEGORY, INDUSTRY_CATEGORY_HK, 
+      FREE_TRADE_PROPERTY, CERT_ISSUE_DATE, EN_SUR_NAME, 
+      EN_GIVEN_NAME, CN_SUR_NAME, CN_GIVEN_NAME, 
+      BEA_RELATIVE_PERCENT, INPUT_DATE, INPUT_TIME, 
+      DATA_DATE, CHANNEL_TYPE)
+    values (#{cusId,jdbcType=VARCHAR}, #{indivSex,jdbcType=VARCHAR}, #{nationality,jdbcType=VARCHAR}, 
+      #{indivDob,jdbcType=VARCHAR}, #{occupation,jdbcType=VARCHAR}, #{loanCardNo,jdbcType=VARCHAR}, 
+      #{assetLiability,jdbcType=VARCHAR}, #{limitRelated,jdbcType=VARCHAR}, #{isCert,jdbcType=VARCHAR}, 
+      #{occupCode,jdbcType=VARCHAR}, #{enterDate,jdbcType=VARCHAR}, #{marriageStatus,jdbcType=VARCHAR}, 
+      #{employeeFlag,jdbcType=VARCHAR}, #{isBeaRelative,jdbcType=VARCHAR}, #{areaCode,jdbcType=VARCHAR}, 
+      #{birthCountry,jdbcType=VARCHAR}, #{domesticForeign,jdbcType=VARCHAR}, #{liveCountry,jdbcType=VARCHAR}, 
+      #{pbocCusClassify,jdbcType=VARCHAR}, #{industryCategory,jdbcType=VARCHAR}, #{industryCategoryHk,jdbcType=VARCHAR}, 
+      #{freeTradeProperty,jdbcType=VARCHAR}, #{certIssueDate,jdbcType=VARCHAR}, #{enSurName,jdbcType=VARCHAR}, 
+      #{enGivenName,jdbcType=VARCHAR}, #{cnSurName,jdbcType=VARCHAR}, #{cnGivenName,jdbcType=VARCHAR}, 
+      #{beaRelativePercent,jdbcType=VARCHAR}, #{inputDate,jdbcType=VARCHAR}, #{inputTime,jdbcType=VARCHAR}, 
+      #{dataDate,jdbcType=VARCHAR}, #{channelType,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.BAT_CBM_CUS_INDIV">
+    insert into BAT_CBM_CUS_INDIV
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="cusId != null">
+        CUS_ID,
+      </if>
+      <if test="indivSex != null">
+        INDIV_SEX,
+      </if>
+      <if test="nationality != null">
+        NATIONALITY,
+      </if>
+      <if test="indivDob != null">
+        INDIV_DOB,
+      </if>
+      <if test="occupation != null">
+        OCCUPATION,
+      </if>
+      <if test="loanCardNo != null">
+        LOAN_CARD_NO,
+      </if>
+      <if test="assetLiability != null">
+        ASSET_LIABILITY,
+      </if>
+      <if test="limitRelated != null">
+        LIMIT_RELATED,
+      </if>
+      <if test="isCert != null">
+        IS_CERT,
+      </if>
+      <if test="occupCode != null">
+        OCCUP_CODE,
+      </if>
+      <if test="enterDate != null">
+        ENTER_DATE,
+      </if>
+      <if test="marriageStatus != null">
+        MARRIAGE_STATUS,
+      </if>
+      <if test="employeeFlag != null">
+        EMPLOYEE_FLAG,
+      </if>
+      <if test="isBeaRelative != null">
+        IS_BEA_RELATIVE,
+      </if>
+      <if test="areaCode != null">
+        AREA_CODE,
+      </if>
+      <if test="birthCountry != null">
+        BIRTH_COUNTRY,
+      </if>
+      <if test="domesticForeign != null">
+        DOMESTIC_FOREIGN,
+      </if>
+      <if test="liveCountry != null">
+        LIVE_COUNTRY,
+      </if>
+      <if test="pbocCusClassify != null">
+        PBOC_CUS_CLASSIFY,
+      </if>
+      <if test="industryCategory != null">
+        INDUSTRY_CATEGORY,
+      </if>
+      <if test="industryCategoryHk != null">
+        INDUSTRY_CATEGORY_HK,
+      </if>
+      <if test="freeTradeProperty != null">
+        FREE_TRADE_PROPERTY,
+      </if>
+      <if test="certIssueDate != null">
+        CERT_ISSUE_DATE,
+      </if>
+      <if test="enSurName != null">
+        EN_SUR_NAME,
+      </if>
+      <if test="enGivenName != null">
+        EN_GIVEN_NAME,
+      </if>
+      <if test="cnSurName != null">
+        CN_SUR_NAME,
+      </if>
+      <if test="cnGivenName != null">
+        CN_GIVEN_NAME,
+      </if>
+      <if test="beaRelativePercent != null">
+        BEA_RELATIVE_PERCENT,
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE,
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME,
+      </if>
+      <if test="dataDate != null">
+        DATA_DATE,
+      </if>
+      <if test="channelType != null">
+        CHANNEL_TYPE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="cusId != null">
+        #{cusId,jdbcType=VARCHAR},
+      </if>
+      <if test="indivSex != null">
+        #{indivSex,jdbcType=VARCHAR},
+      </if>
+      <if test="nationality != null">
+        #{nationality,jdbcType=VARCHAR},
+      </if>
+      <if test="indivDob != null">
+        #{indivDob,jdbcType=VARCHAR},
+      </if>
+      <if test="occupation != null">
+        #{occupation,jdbcType=VARCHAR},
+      </if>
+      <if test="loanCardNo != null">
+        #{loanCardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="assetLiability != null">
+        #{assetLiability,jdbcType=VARCHAR},
+      </if>
+      <if test="limitRelated != null">
+        #{limitRelated,jdbcType=VARCHAR},
+      </if>
+      <if test="isCert != null">
+        #{isCert,jdbcType=VARCHAR},
+      </if>
+      <if test="occupCode != null">
+        #{occupCode,jdbcType=VARCHAR},
+      </if>
+      <if test="enterDate != null">
+        #{enterDate,jdbcType=VARCHAR},
+      </if>
+      <if test="marriageStatus != null">
+        #{marriageStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="employeeFlag != null">
+        #{employeeFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="isBeaRelative != null">
+        #{isBeaRelative,jdbcType=VARCHAR},
+      </if>
+      <if test="areaCode != null">
+        #{areaCode,jdbcType=VARCHAR},
+      </if>
+      <if test="birthCountry != null">
+        #{birthCountry,jdbcType=VARCHAR},
+      </if>
+      <if test="domesticForeign != null">
+        #{domesticForeign,jdbcType=VARCHAR},
+      </if>
+      <if test="liveCountry != null">
+        #{liveCountry,jdbcType=VARCHAR},
+      </if>
+      <if test="pbocCusClassify != null">
+        #{pbocCusClassify,jdbcType=VARCHAR},
+      </if>
+      <if test="industryCategory != null">
+        #{industryCategory,jdbcType=VARCHAR},
+      </if>
+      <if test="industryCategoryHk != null">
+        #{industryCategoryHk,jdbcType=VARCHAR},
+      </if>
+      <if test="freeTradeProperty != null">
+        #{freeTradeProperty,jdbcType=VARCHAR},
+      </if>
+      <if test="certIssueDate != null">
+        #{certIssueDate,jdbcType=VARCHAR},
+      </if>
+      <if test="enSurName != null">
+        #{enSurName,jdbcType=VARCHAR},
+      </if>
+      <if test="enGivenName != null">
+        #{enGivenName,jdbcType=VARCHAR},
+      </if>
+      <if test="cnSurName != null">
+        #{cnSurName,jdbcType=VARCHAR},
+      </if>
+      <if test="cnGivenName != null">
+        #{cnGivenName,jdbcType=VARCHAR},
+      </if>
+      <if test="beaRelativePercent != null">
+        #{beaRelativePercent,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="dataDate != null">
+        #{dataDate,jdbcType=VARCHAR},
+      </if>
+      <if test="channelType != null">
+        #{channelType,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

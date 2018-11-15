@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.CFG_CONT_ORGMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.CFG_CONT_ORG">
+    <id column="CONT_TEXT_ORG" jdbcType="VARCHAR" property="contTextOrg" />
+    <result column="ORG_CN_NAME" jdbcType="VARCHAR" property="orgCnName" />
+    <result column="ORG_ADDR" jdbcType="VARCHAR" property="orgAddr" />
+    <result column="ORG_TEL" jdbcType="VARCHAR" property="orgTel" />
+    <result column="INPUT_TIME" jdbcType="VARCHAR" property="inputTime" />
+    <result column="INPUT_ID" jdbcType="VARCHAR" property="inputId" />
+    <result column="INPUT_BR_ID" jdbcType="VARCHAR" property="inputBrId" />
+    <result column="LAST_UPDATE_TIME" jdbcType="VARCHAR" property="lastUpdateTime" />
+    <result column="LAST_UPDATE_ID" jdbcType="VARCHAR" property="lastUpdateId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    CONT_TEXT_ORG, ORG_CN_NAME, ORG_ADDR, ORG_TEL, INPUT_TIME, INPUT_ID, INPUT_BR_ID, 
+    LAST_UPDATE_TIME, LAST_UPDATE_ID
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from CFG_CONT_ORG
+    where CONT_TEXT_ORG = #{contTextOrg,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from CFG_CONT_ORG
+    where CONT_TEXT_ORG = #{contTextOrg,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.CFG_CONT_ORG">
+    insert into CFG_CONT_ORG (CONT_TEXT_ORG, ORG_CN_NAME, ORG_ADDR, 
+      ORG_TEL, INPUT_TIME, INPUT_ID, 
+      INPUT_BR_ID, LAST_UPDATE_TIME, LAST_UPDATE_ID
+      )
+    values (#{contTextOrg,jdbcType=VARCHAR}, #{orgCnName,jdbcType=VARCHAR}, #{orgAddr,jdbcType=VARCHAR}, 
+      #{orgTel,jdbcType=VARCHAR}, #{inputTime,jdbcType=VARCHAR}, #{inputId,jdbcType=VARCHAR}, 
+      #{inputBrId,jdbcType=VARCHAR}, #{lastUpdateTime,jdbcType=VARCHAR}, #{lastUpdateId,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.CFG_CONT_ORG">
+    insert into CFG_CONT_ORG
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="contTextOrg != null">
+        CONT_TEXT_ORG,
+      </if>
+      <if test="orgCnName != null">
+        ORG_CN_NAME,
+      </if>
+      <if test="orgAddr != null">
+        ORG_ADDR,
+      </if>
+      <if test="orgTel != null">
+        ORG_TEL,
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME,
+      </if>
+      <if test="inputId != null">
+        INPUT_ID,
+      </if>
+      <if test="inputBrId != null">
+        INPUT_BR_ID,
+      </if>
+      <if test="lastUpdateTime != null">
+        LAST_UPDATE_TIME,
+      </if>
+      <if test="lastUpdateId != null">
+        LAST_UPDATE_ID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="contTextOrg != null">
+        #{contTextOrg,jdbcType=VARCHAR},
+      </if>
+      <if test="orgCnName != null">
+        #{orgCnName,jdbcType=VARCHAR},
+      </if>
+      <if test="orgAddr != null">
+        #{orgAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="orgTel != null">
+        #{orgTel,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="inputId != null">
+        #{inputId,jdbcType=VARCHAR},
+      </if>
+      <if test="inputBrId != null">
+        #{inputBrId,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        #{lastUpdateTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateId != null">
+        #{lastUpdateId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.CFG_CONT_ORG">
+    update CFG_CONT_ORG
+    <set>
+      <if test="orgCnName != null">
+        ORG_CN_NAME = #{orgCnName,jdbcType=VARCHAR},
+      </if>
+      <if test="orgAddr != null">
+        ORG_ADDR = #{orgAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="orgTel != null">
+        ORG_TEL = #{orgTel,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME = #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="inputId != null">
+        INPUT_ID = #{inputId,jdbcType=VARCHAR},
+      </if>
+      <if test="inputBrId != null">
+        INPUT_BR_ID = #{inputBrId,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateId != null">
+        LAST_UPDATE_ID = #{lastUpdateId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where CONT_TEXT_ORG = #{contTextOrg,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.CFG_CONT_ORG">
+    update CFG_CONT_ORG
+    set ORG_CN_NAME = #{orgCnName,jdbcType=VARCHAR},
+      ORG_ADDR = #{orgAddr,jdbcType=VARCHAR},
+      ORG_TEL = #{orgTel,jdbcType=VARCHAR},
+      INPUT_TIME = #{inputTime,jdbcType=VARCHAR},
+      INPUT_ID = #{inputId,jdbcType=VARCHAR},
+      INPUT_BR_ID = #{inputBrId,jdbcType=VARCHAR},
+      LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=VARCHAR},
+      LAST_UPDATE_ID = #{lastUpdateId,jdbcType=VARCHAR}
+    where CONT_TEXT_ORG = #{contTextOrg,jdbcType=VARCHAR}
+  </update>
+</mapper>

@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.WF_NODE_COMMON_PROPERTYMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.WF_NODE_COMMON_PROPERTY">
+    <id column="NODEID" jdbcType="VARCHAR" property="nodeid" />
+    <result column="WFID" jdbcType="VARCHAR" property="wfid" />
+    <result column="NODETYPE" jdbcType="CHAR" property="nodetype" />
+    <result column="NODENAME" jdbcType="VARCHAR" property="nodename" />
+    <result column="NODESIGN" jdbcType="VARCHAR" property="nodesign" />
+    <result column="NODEDESCRIPTION" jdbcType="VARCHAR" property="nodedescription" />
+    <result column="NODEFORMID" jdbcType="VARCHAR" property="nodeformid" />
+    <result column="NODEFORMNAME" jdbcType="VARCHAR" property="nodeformname" />
+    <result column="NODEROUTERTYPE" jdbcType="CHAR" property="noderoutertype" />
+    <result column="NODEPOWERCONTROL" jdbcType="CHAR" property="nodepowercontrol" />
+    <result column="NODEWEIGH" jdbcType="VARCHAR" property="nodeweigh" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    NODEID, WFID, NODETYPE, NODENAME, NODESIGN, NODEDESCRIPTION, NODEFORMID, NODEFORMNAME, 
+    NODEROUTERTYPE, NODEPOWERCONTROL, NODEWEIGH
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from WF_NODE_COMMON_PROPERTY
+    where NODEID = #{nodeid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from WF_NODE_COMMON_PROPERTY
+    where NODEID = #{nodeid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.WF_NODE_COMMON_PROPERTY">
+    insert into WF_NODE_COMMON_PROPERTY (NODEID, WFID, NODETYPE, 
+      NODENAME, NODESIGN, NODEDESCRIPTION, 
+      NODEFORMID, NODEFORMNAME, NODEROUTERTYPE, 
+      NODEPOWERCONTROL, NODEWEIGH)
+    values (#{nodeid,jdbcType=VARCHAR}, #{wfid,jdbcType=VARCHAR}, #{nodetype,jdbcType=CHAR}, 
+      #{nodename,jdbcType=VARCHAR}, #{nodesign,jdbcType=VARCHAR}, #{nodedescription,jdbcType=VARCHAR}, 
+      #{nodeformid,jdbcType=VARCHAR}, #{nodeformname,jdbcType=VARCHAR}, #{noderoutertype,jdbcType=CHAR}, 
+      #{nodepowercontrol,jdbcType=CHAR}, #{nodeweigh,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.WF_NODE_COMMON_PROPERTY">
+    insert into WF_NODE_COMMON_PROPERTY
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="nodeid != null">
+        NODEID,
+      </if>
+      <if test="wfid != null">
+        WFID,
+      </if>
+      <if test="nodetype != null">
+        NODETYPE,
+      </if>
+      <if test="nodename != null">
+        NODENAME,
+      </if>
+      <if test="nodesign != null">
+        NODESIGN,
+      </if>
+      <if test="nodedescription != null">
+        NODEDESCRIPTION,
+      </if>
+      <if test="nodeformid != null">
+        NODEFORMID,
+      </if>
+      <if test="nodeformname != null">
+        NODEFORMNAME,
+      </if>
+      <if test="noderoutertype != null">
+        NODEROUTERTYPE,
+      </if>
+      <if test="nodepowercontrol != null">
+        NODEPOWERCONTROL,
+      </if>
+      <if test="nodeweigh != null">
+        NODEWEIGH,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="nodeid != null">
+        #{nodeid,jdbcType=VARCHAR},
+      </if>
+      <if test="wfid != null">
+        #{wfid,jdbcType=VARCHAR},
+      </if>
+      <if test="nodetype != null">
+        #{nodetype,jdbcType=CHAR},
+      </if>
+      <if test="nodename != null">
+        #{nodename,jdbcType=VARCHAR},
+      </if>
+      <if test="nodesign != null">
+        #{nodesign,jdbcType=VARCHAR},
+      </if>
+      <if test="nodedescription != null">
+        #{nodedescription,jdbcType=VARCHAR},
+      </if>
+      <if test="nodeformid != null">
+        #{nodeformid,jdbcType=VARCHAR},
+      </if>
+      <if test="nodeformname != null">
+        #{nodeformname,jdbcType=VARCHAR},
+      </if>
+      <if test="noderoutertype != null">
+        #{noderoutertype,jdbcType=CHAR},
+      </if>
+      <if test="nodepowercontrol != null">
+        #{nodepowercontrol,jdbcType=CHAR},
+      </if>
+      <if test="nodeweigh != null">
+        #{nodeweigh,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.WF_NODE_COMMON_PROPERTY">
+    update WF_NODE_COMMON_PROPERTY
+    <set>
+      <if test="wfid != null">
+        WFID = #{wfid,jdbcType=VARCHAR},
+      </if>
+      <if test="nodetype != null">
+        NODETYPE = #{nodetype,jdbcType=CHAR},
+      </if>
+      <if test="nodename != null">
+        NODENAME = #{nodename,jdbcType=VARCHAR},
+      </if>
+      <if test="nodesign != null">
+        NODESIGN = #{nodesign,jdbcType=VARCHAR},
+      </if>
+      <if test="nodedescription != null">
+        NODEDESCRIPTION = #{nodedescription,jdbcType=VARCHAR},
+      </if>
+      <if test="nodeformid != null">
+        NODEFORMID = #{nodeformid,jdbcType=VARCHAR},
+      </if>
+      <if test="nodeformname != null">
+        NODEFORMNAME = #{nodeformname,jdbcType=VARCHAR},
+      </if>
+      <if test="noderoutertype != null">
+        NODEROUTERTYPE = #{noderoutertype,jdbcType=CHAR},
+      </if>
+      <if test="nodepowercontrol != null">
+        NODEPOWERCONTROL = #{nodepowercontrol,jdbcType=CHAR},
+      </if>
+      <if test="nodeweigh != null">
+        NODEWEIGH = #{nodeweigh,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where NODEID = #{nodeid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.WF_NODE_COMMON_PROPERTY">
+    update WF_NODE_COMMON_PROPERTY
+    set WFID = #{wfid,jdbcType=VARCHAR},
+      NODETYPE = #{nodetype,jdbcType=CHAR},
+      NODENAME = #{nodename,jdbcType=VARCHAR},
+      NODESIGN = #{nodesign,jdbcType=VARCHAR},
+      NODEDESCRIPTION = #{nodedescription,jdbcType=VARCHAR},
+      NODEFORMID = #{nodeformid,jdbcType=VARCHAR},
+      NODEFORMNAME = #{nodeformname,jdbcType=VARCHAR},
+      NODEROUTERTYPE = #{noderoutertype,jdbcType=CHAR},
+      NODEPOWERCONTROL = #{nodepowercontrol,jdbcType=CHAR},
+      NODEWEIGH = #{nodeweigh,jdbcType=VARCHAR}
+    where NODEID = #{nodeid,jdbcType=VARCHAR}
+  </update>
+</mapper>

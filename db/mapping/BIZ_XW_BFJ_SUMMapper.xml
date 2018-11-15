@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.BIZ_XW_BFJ_SUMMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.BIZ_XW_BFJ_SUM">
+    <id column="PROVISIONS_ACCT" jdbcType="VARCHAR" property="provisionsAcct" />
+    <id column="TD_DATE" jdbcType="VARCHAR" property="tdDate" />
+    <result column="ACCT_AMT" jdbcType="DECIMAL" property="acctAmt" />
+    <result column="INPUT_DATE" jdbcType="VARCHAR" property="inputDate" />
+    <result column="INPUT_TIME" jdbcType="VARCHAR" property="inputTime" />
+    <result column="DATA_DATE" jdbcType="VARCHAR" property="dataDate" />
+    <result column="LAST_UPDATE_DATE" jdbcType="VARCHAR" property="lastUpdateDate" />
+    <result column="LAST_UPDATE_TIME" jdbcType="VARCHAR" property="lastUpdateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    PROVISIONS_ACCT, TD_DATE, ACCT_AMT, INPUT_DATE, INPUT_TIME, DATA_DATE, LAST_UPDATE_DATE, 
+    LAST_UPDATE_TIME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="com.bea.olp.BIZ_XW_BFJ_SUMKey" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from BIZ_XW_BFJ_SUM
+    where PROVISIONS_ACCT = #{provisionsAcct,jdbcType=VARCHAR}
+      and TD_DATE = #{tdDate,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.bea.olp.BIZ_XW_BFJ_SUMKey">
+    delete from BIZ_XW_BFJ_SUM
+    where PROVISIONS_ACCT = #{provisionsAcct,jdbcType=VARCHAR}
+      and TD_DATE = #{tdDate,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.BIZ_XW_BFJ_SUM">
+    insert into BIZ_XW_BFJ_SUM (PROVISIONS_ACCT, TD_DATE, ACCT_AMT, 
+      INPUT_DATE, INPUT_TIME, DATA_DATE, 
+      LAST_UPDATE_DATE, LAST_UPDATE_TIME)
+    values (#{provisionsAcct,jdbcType=VARCHAR}, #{tdDate,jdbcType=VARCHAR}, #{acctAmt,jdbcType=DECIMAL}, 
+      #{inputDate,jdbcType=VARCHAR}, #{inputTime,jdbcType=VARCHAR}, #{dataDate,jdbcType=VARCHAR}, 
+      #{lastUpdateDate,jdbcType=VARCHAR}, #{lastUpdateTime,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.BIZ_XW_BFJ_SUM">
+    insert into BIZ_XW_BFJ_SUM
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="provisionsAcct != null">
+        PROVISIONS_ACCT,
+      </if>
+      <if test="tdDate != null">
+        TD_DATE,
+      </if>
+      <if test="acctAmt != null">
+        ACCT_AMT,
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE,
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME,
+      </if>
+      <if test="dataDate != null">
+        DATA_DATE,
+      </if>
+      <if test="lastUpdateDate != null">
+        LAST_UPDATE_DATE,
+      </if>
+      <if test="lastUpdateTime != null">
+        LAST_UPDATE_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="provisionsAcct != null">
+        #{provisionsAcct,jdbcType=VARCHAR},
+      </if>
+      <if test="tdDate != null">
+        #{tdDate,jdbcType=VARCHAR},
+      </if>
+      <if test="acctAmt != null">
+        #{acctAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="inputDate != null">
+        #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="dataDate != null">
+        #{dataDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateDate != null">
+        #{lastUpdateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        #{lastUpdateTime,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.BIZ_XW_BFJ_SUM">
+    update BIZ_XW_BFJ_SUM
+    <set>
+      <if test="acctAmt != null">
+        ACCT_AMT = #{acctAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE = #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME = #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="dataDate != null">
+        DATA_DATE = #{dataDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateDate != null">
+        LAST_UPDATE_DATE = #{lastUpdateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where PROVISIONS_ACCT = #{provisionsAcct,jdbcType=VARCHAR}
+      and TD_DATE = #{tdDate,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.BIZ_XW_BFJ_SUM">
+    update BIZ_XW_BFJ_SUM
+    set ACCT_AMT = #{acctAmt,jdbcType=DECIMAL},
+      INPUT_DATE = #{inputDate,jdbcType=VARCHAR},
+      INPUT_TIME = #{inputTime,jdbcType=VARCHAR},
+      DATA_DATE = #{dataDate,jdbcType=VARCHAR},
+      LAST_UPDATE_DATE = #{lastUpdateDate,jdbcType=VARCHAR},
+      LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=VARCHAR}
+    where PROVISIONS_ACCT = #{provisionsAcct,jdbcType=VARCHAR}
+      and TD_DATE = #{tdDate,jdbcType=VARCHAR}
+  </update>
+</mapper>

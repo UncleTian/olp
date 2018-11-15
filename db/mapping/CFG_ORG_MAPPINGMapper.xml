@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.CFG_ORG_MAPPINGMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.CFG_ORG_MAPPING">
+    <id column="MANAGE_ORG_ID" jdbcType="VARCHAR" property="manageOrgId" />
+    <result column="CONT_TEXT_ORG" jdbcType="VARCHAR" property="contTextOrg" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    MANAGE_ORG_ID, CONT_TEXT_ORG
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from CFG_ORG_MAPPING
+    where MANAGE_ORG_ID = #{manageOrgId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from CFG_ORG_MAPPING
+    where MANAGE_ORG_ID = #{manageOrgId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.CFG_ORG_MAPPING">
+    insert into CFG_ORG_MAPPING (MANAGE_ORG_ID, CONT_TEXT_ORG)
+    values (#{manageOrgId,jdbcType=VARCHAR}, #{contTextOrg,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.CFG_ORG_MAPPING">
+    insert into CFG_ORG_MAPPING
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="manageOrgId != null">
+        MANAGE_ORG_ID,
+      </if>
+      <if test="contTextOrg != null">
+        CONT_TEXT_ORG,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="manageOrgId != null">
+        #{manageOrgId,jdbcType=VARCHAR},
+      </if>
+      <if test="contTextOrg != null">
+        #{contTextOrg,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.CFG_ORG_MAPPING">
+    update CFG_ORG_MAPPING
+    <set>
+      <if test="contTextOrg != null">
+        CONT_TEXT_ORG = #{contTextOrg,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where MANAGE_ORG_ID = #{manageOrgId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.CFG_ORG_MAPPING">
+    update CFG_ORG_MAPPING
+    set CONT_TEXT_ORG = #{contTextOrg,jdbcType=VARCHAR}
+    where MANAGE_ORG_ID = #{manageOrgId,jdbcType=VARCHAR}
+  </update>
+</mapper>

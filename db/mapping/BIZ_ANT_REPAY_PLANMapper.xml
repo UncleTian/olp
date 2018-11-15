@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.BIZ_ANT_REPAY_PLANMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.BIZ_ANT_REPAY_PLAN">
+    <id column="CONTRACT_NO" jdbcType="VARCHAR" property="contractNo" />
+    <id column="TERM_NO" jdbcType="DECIMAL" property="termNo" />
+    <result column="START_DATE" jdbcType="VARCHAR" property="startDate" />
+    <result column="END_DATE" jdbcType="VARCHAR" property="endDate" />
+    <result column="PRIN_AMT" jdbcType="DECIMAL" property="prinAmt" />
+    <result column="INT_AMT" jdbcType="DECIMAL" property="intAmt" />
+    <result column="INPUT_DATE" jdbcType="VARCHAR" property="inputDate" />
+    <result column="INPUT_TIME" jdbcType="VARCHAR" property="inputTime" />
+    <result column="LAST_UPDATE_DATE" jdbcType="VARCHAR" property="lastUpdateDate" />
+    <result column="LAST_UPDATE_TIME" jdbcType="VARCHAR" property="lastUpdateTime" />
+    <result column="DATA_DATE" jdbcType="VARCHAR" property="dataDate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    CONTRACT_NO, TERM_NO, START_DATE, END_DATE, PRIN_AMT, INT_AMT, INPUT_DATE, INPUT_TIME, 
+    LAST_UPDATE_DATE, LAST_UPDATE_TIME, DATA_DATE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="com.bea.olp.BIZ_ANT_REPAY_PLANKey" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from BIZ_ANT_REPAY_PLAN
+    where CONTRACT_NO = #{contractNo,jdbcType=VARCHAR}
+      and TERM_NO = #{termNo,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.bea.olp.BIZ_ANT_REPAY_PLANKey">
+    delete from BIZ_ANT_REPAY_PLAN
+    where CONTRACT_NO = #{contractNo,jdbcType=VARCHAR}
+      and TERM_NO = #{termNo,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.BIZ_ANT_REPAY_PLAN">
+    insert into BIZ_ANT_REPAY_PLAN (CONTRACT_NO, TERM_NO, START_DATE, 
+      END_DATE, PRIN_AMT, INT_AMT, 
+      INPUT_DATE, INPUT_TIME, LAST_UPDATE_DATE, 
+      LAST_UPDATE_TIME, DATA_DATE)
+    values (#{contractNo,jdbcType=VARCHAR}, #{termNo,jdbcType=DECIMAL}, #{startDate,jdbcType=VARCHAR}, 
+      #{endDate,jdbcType=VARCHAR}, #{prinAmt,jdbcType=DECIMAL}, #{intAmt,jdbcType=DECIMAL}, 
+      #{inputDate,jdbcType=VARCHAR}, #{inputTime,jdbcType=VARCHAR}, #{lastUpdateDate,jdbcType=VARCHAR}, 
+      #{lastUpdateTime,jdbcType=VARCHAR}, #{dataDate,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.BIZ_ANT_REPAY_PLAN">
+    insert into BIZ_ANT_REPAY_PLAN
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="contractNo != null">
+        CONTRACT_NO,
+      </if>
+      <if test="termNo != null">
+        TERM_NO,
+      </if>
+      <if test="startDate != null">
+        START_DATE,
+      </if>
+      <if test="endDate != null">
+        END_DATE,
+      </if>
+      <if test="prinAmt != null">
+        PRIN_AMT,
+      </if>
+      <if test="intAmt != null">
+        INT_AMT,
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE,
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME,
+      </if>
+      <if test="lastUpdateDate != null">
+        LAST_UPDATE_DATE,
+      </if>
+      <if test="lastUpdateTime != null">
+        LAST_UPDATE_TIME,
+      </if>
+      <if test="dataDate != null">
+        DATA_DATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="contractNo != null">
+        #{contractNo,jdbcType=VARCHAR},
+      </if>
+      <if test="termNo != null">
+        #{termNo,jdbcType=DECIMAL},
+      </if>
+      <if test="startDate != null">
+        #{startDate,jdbcType=VARCHAR},
+      </if>
+      <if test="endDate != null">
+        #{endDate,jdbcType=VARCHAR},
+      </if>
+      <if test="prinAmt != null">
+        #{prinAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="intAmt != null">
+        #{intAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="inputDate != null">
+        #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateDate != null">
+        #{lastUpdateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        #{lastUpdateTime,jdbcType=VARCHAR},
+      </if>
+      <if test="dataDate != null">
+        #{dataDate,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.BIZ_ANT_REPAY_PLAN">
+    update BIZ_ANT_REPAY_PLAN
+    <set>
+      <if test="startDate != null">
+        START_DATE = #{startDate,jdbcType=VARCHAR},
+      </if>
+      <if test="endDate != null">
+        END_DATE = #{endDate,jdbcType=VARCHAR},
+      </if>
+      <if test="prinAmt != null">
+        PRIN_AMT = #{prinAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="intAmt != null">
+        INT_AMT = #{intAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE = #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME = #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateDate != null">
+        LAST_UPDATE_DATE = #{lastUpdateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=VARCHAR},
+      </if>
+      <if test="dataDate != null">
+        DATA_DATE = #{dataDate,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where CONTRACT_NO = #{contractNo,jdbcType=VARCHAR}
+      and TERM_NO = #{termNo,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.BIZ_ANT_REPAY_PLAN">
+    update BIZ_ANT_REPAY_PLAN
+    set START_DATE = #{startDate,jdbcType=VARCHAR},
+      END_DATE = #{endDate,jdbcType=VARCHAR},
+      PRIN_AMT = #{prinAmt,jdbcType=DECIMAL},
+      INT_AMT = #{intAmt,jdbcType=DECIMAL},
+      INPUT_DATE = #{inputDate,jdbcType=VARCHAR},
+      INPUT_TIME = #{inputTime,jdbcType=VARCHAR},
+      LAST_UPDATE_DATE = #{lastUpdateDate,jdbcType=VARCHAR},
+      LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=VARCHAR},
+      DATA_DATE = #{dataDate,jdbcType=VARCHAR}
+    where CONTRACT_NO = #{contractNo,jdbcType=VARCHAR}
+      and TERM_NO = #{termNo,jdbcType=DECIMAL}
+  </update>
+</mapper>

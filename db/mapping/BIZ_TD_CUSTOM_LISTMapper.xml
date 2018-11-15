@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.BIZ_TD_CUSTOM_LISTMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.BIZ_TD_CUSTOM_LIST">
+    <id column="APP_NO" jdbcType="VARCHAR" property="appNo" />
+    <id column="RULE_ID" jdbcType="VARCHAR" property="ruleId" />
+    <id column="TYPE" jdbcType="VARCHAR" property="type" />
+    <result column="DESCRIPTION" jdbcType="VARCHAR" property="description" />
+    <result column="HIGH_RISK_AREAS" jdbcType="VARCHAR" property="highRiskAreas" />
+    <result column="HIT_LIST_DATAS" jdbcType="VARCHAR" property="hitListDatas" />
+    <result column="INPUT_DATE" jdbcType="VARCHAR" property="inputDate" />
+    <result column="INPUT_TIME" jdbcType="VARCHAR" property="inputTime" />
+    <result column="LAST_UPDATE_DATE" jdbcType="VARCHAR" property="lastUpdateDate" />
+    <result column="LAST_UPDATE_TIME" jdbcType="VARCHAR" property="lastUpdateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    APP_NO, RULE_ID, TYPE, DESCRIPTION, HIGH_RISK_AREAS, HIT_LIST_DATAS, INPUT_DATE, 
+    INPUT_TIME, LAST_UPDATE_DATE, LAST_UPDATE_TIME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="com.bea.olp.BIZ_TD_CUSTOM_LISTKey" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from BIZ_TD_CUSTOM_LIST
+    where APP_NO = #{appNo,jdbcType=VARCHAR}
+      and RULE_ID = #{ruleId,jdbcType=VARCHAR}
+      and TYPE = #{type,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.bea.olp.BIZ_TD_CUSTOM_LISTKey">
+    delete from BIZ_TD_CUSTOM_LIST
+    where APP_NO = #{appNo,jdbcType=VARCHAR}
+      and RULE_ID = #{ruleId,jdbcType=VARCHAR}
+      and TYPE = #{type,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.BIZ_TD_CUSTOM_LIST">
+    insert into BIZ_TD_CUSTOM_LIST (APP_NO, RULE_ID, TYPE, 
+      DESCRIPTION, HIGH_RISK_AREAS, HIT_LIST_DATAS, 
+      INPUT_DATE, INPUT_TIME, LAST_UPDATE_DATE, 
+      LAST_UPDATE_TIME)
+    values (#{appNo,jdbcType=VARCHAR}, #{ruleId,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, 
+      #{description,jdbcType=VARCHAR}, #{highRiskAreas,jdbcType=VARCHAR}, #{hitListDatas,jdbcType=VARCHAR}, 
+      #{inputDate,jdbcType=VARCHAR}, #{inputTime,jdbcType=VARCHAR}, #{lastUpdateDate,jdbcType=VARCHAR}, 
+      #{lastUpdateTime,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.BIZ_TD_CUSTOM_LIST">
+    insert into BIZ_TD_CUSTOM_LIST
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="appNo != null">
+        APP_NO,
+      </if>
+      <if test="ruleId != null">
+        RULE_ID,
+      </if>
+      <if test="type != null">
+        TYPE,
+      </if>
+      <if test="description != null">
+        DESCRIPTION,
+      </if>
+      <if test="highRiskAreas != null">
+        HIGH_RISK_AREAS,
+      </if>
+      <if test="hitListDatas != null">
+        HIT_LIST_DATAS,
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE,
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME,
+      </if>
+      <if test="lastUpdateDate != null">
+        LAST_UPDATE_DATE,
+      </if>
+      <if test="lastUpdateTime != null">
+        LAST_UPDATE_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="appNo != null">
+        #{appNo,jdbcType=VARCHAR},
+      </if>
+      <if test="ruleId != null">
+        #{ruleId,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null">
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="highRiskAreas != null">
+        #{highRiskAreas,jdbcType=VARCHAR},
+      </if>
+      <if test="hitListDatas != null">
+        #{hitListDatas,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateDate != null">
+        #{lastUpdateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        #{lastUpdateTime,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.BIZ_TD_CUSTOM_LIST">
+    update BIZ_TD_CUSTOM_LIST
+    <set>
+      <if test="description != null">
+        DESCRIPTION = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="highRiskAreas != null">
+        HIGH_RISK_AREAS = #{highRiskAreas,jdbcType=VARCHAR},
+      </if>
+      <if test="hitListDatas != null">
+        HIT_LIST_DATAS = #{hitListDatas,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE = #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME = #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateDate != null">
+        LAST_UPDATE_DATE = #{lastUpdateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where APP_NO = #{appNo,jdbcType=VARCHAR}
+      and RULE_ID = #{ruleId,jdbcType=VARCHAR}
+      and TYPE = #{type,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.BIZ_TD_CUSTOM_LIST">
+    update BIZ_TD_CUSTOM_LIST
+    set DESCRIPTION = #{description,jdbcType=VARCHAR},
+      HIGH_RISK_AREAS = #{highRiskAreas,jdbcType=VARCHAR},
+      HIT_LIST_DATAS = #{hitListDatas,jdbcType=VARCHAR},
+      INPUT_DATE = #{inputDate,jdbcType=VARCHAR},
+      INPUT_TIME = #{inputTime,jdbcType=VARCHAR},
+      LAST_UPDATE_DATE = #{lastUpdateDate,jdbcType=VARCHAR},
+      LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=VARCHAR}
+    where APP_NO = #{appNo,jdbcType=VARCHAR}
+      and RULE_ID = #{ruleId,jdbcType=VARCHAR}
+      and TYPE = #{type,jdbcType=VARCHAR}
+  </update>
+</mapper>

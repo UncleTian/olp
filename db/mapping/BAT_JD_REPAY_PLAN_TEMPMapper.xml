@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.BAT_JD_REPAY_PLAN_TEMPMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.BAT_JD_REPAY_PLAN_TEMP">
+    <result column="BUSI_DATE" jdbcType="VARCHAR" property="busiDate" />
+    <result column="CONTRACT_NO" jdbcType="VARCHAR" property="contractNo" />
+    <result column="PRO_NO" jdbcType="VARCHAR" property="proNo" />
+    <result column="LIMIT_NO" jdbcType="VARCHAR" property="limitNo" />
+    <result column="LOAN_NO" jdbcType="VARCHAR" property="loanNo" />
+    <result column="STAG_SIG_NO" jdbcType="VARCHAR" property="stagSigNo" />
+    <result column="TERM_NO" jdbcType="DECIMAL" property="termNo" />
+    <result column="PRINC_DUE_DATE" jdbcType="VARCHAR" property="princDueDate" />
+    <result column="PRINC_AMT" jdbcType="DECIMAL" property="princAmt" />
+    <result column="INT_DUE_DATE" jdbcType="VARCHAR" property="intDueDate" />
+    <result column="INT_AMT" jdbcType="DECIMAL" property="intAmt" />
+    <result column="TERM_TOTAL" jdbcType="DECIMAL" property="termTotal" />
+    <result column="OD_INT_AMT" jdbcType="DECIMAL" property="odIntAmt" />
+    <result column="INSTALL_RATE" jdbcType="DECIMAL" property="installRate" />
+    <result column="INPUT_DATE" jdbcType="VARCHAR" property="inputDate" />
+    <result column="INPUT_TIME" jdbcType="VARCHAR" property="inputTime" />
+    <result column="DATA_DATE" jdbcType="VARCHAR" property="dataDate" />
+  </resultMap>
+  <insert id="insert" parameterType="com.bea.olp.BAT_JD_REPAY_PLAN_TEMP">
+    insert into BAT_JD_REPAY_PLAN_TEMP (BUSI_DATE, CONTRACT_NO, PRO_NO, 
+      LIMIT_NO, LOAN_NO, STAG_SIG_NO, 
+      TERM_NO, PRINC_DUE_DATE, PRINC_AMT, 
+      INT_DUE_DATE, INT_AMT, TERM_TOTAL, 
+      OD_INT_AMT, INSTALL_RATE, INPUT_DATE, 
+      INPUT_TIME, DATA_DATE)
+    values (#{busiDate,jdbcType=VARCHAR}, #{contractNo,jdbcType=VARCHAR}, #{proNo,jdbcType=VARCHAR}, 
+      #{limitNo,jdbcType=VARCHAR}, #{loanNo,jdbcType=VARCHAR}, #{stagSigNo,jdbcType=VARCHAR}, 
+      #{termNo,jdbcType=DECIMAL}, #{princDueDate,jdbcType=VARCHAR}, #{princAmt,jdbcType=DECIMAL}, 
+      #{intDueDate,jdbcType=VARCHAR}, #{intAmt,jdbcType=DECIMAL}, #{termTotal,jdbcType=DECIMAL}, 
+      #{odIntAmt,jdbcType=DECIMAL}, #{installRate,jdbcType=DECIMAL}, #{inputDate,jdbcType=VARCHAR}, 
+      #{inputTime,jdbcType=VARCHAR}, #{dataDate,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.BAT_JD_REPAY_PLAN_TEMP">
+    insert into BAT_JD_REPAY_PLAN_TEMP
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="busiDate != null">
+        BUSI_DATE,
+      </if>
+      <if test="contractNo != null">
+        CONTRACT_NO,
+      </if>
+      <if test="proNo != null">
+        PRO_NO,
+      </if>
+      <if test="limitNo != null">
+        LIMIT_NO,
+      </if>
+      <if test="loanNo != null">
+        LOAN_NO,
+      </if>
+      <if test="stagSigNo != null">
+        STAG_SIG_NO,
+      </if>
+      <if test="termNo != null">
+        TERM_NO,
+      </if>
+      <if test="princDueDate != null">
+        PRINC_DUE_DATE,
+      </if>
+      <if test="princAmt != null">
+        PRINC_AMT,
+      </if>
+      <if test="intDueDate != null">
+        INT_DUE_DATE,
+      </if>
+      <if test="intAmt != null">
+        INT_AMT,
+      </if>
+      <if test="termTotal != null">
+        TERM_TOTAL,
+      </if>
+      <if test="odIntAmt != null">
+        OD_INT_AMT,
+      </if>
+      <if test="installRate != null">
+        INSTALL_RATE,
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE,
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME,
+      </if>
+      <if test="dataDate != null">
+        DATA_DATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="busiDate != null">
+        #{busiDate,jdbcType=VARCHAR},
+      </if>
+      <if test="contractNo != null">
+        #{contractNo,jdbcType=VARCHAR},
+      </if>
+      <if test="proNo != null">
+        #{proNo,jdbcType=VARCHAR},
+      </if>
+      <if test="limitNo != null">
+        #{limitNo,jdbcType=VARCHAR},
+      </if>
+      <if test="loanNo != null">
+        #{loanNo,jdbcType=VARCHAR},
+      </if>
+      <if test="stagSigNo != null">
+        #{stagSigNo,jdbcType=VARCHAR},
+      </if>
+      <if test="termNo != null">
+        #{termNo,jdbcType=DECIMAL},
+      </if>
+      <if test="princDueDate != null">
+        #{princDueDate,jdbcType=VARCHAR},
+      </if>
+      <if test="princAmt != null">
+        #{princAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="intDueDate != null">
+        #{intDueDate,jdbcType=VARCHAR},
+      </if>
+      <if test="intAmt != null">
+        #{intAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="termTotal != null">
+        #{termTotal,jdbcType=DECIMAL},
+      </if>
+      <if test="odIntAmt != null">
+        #{odIntAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="installRate != null">
+        #{installRate,jdbcType=DECIMAL},
+      </if>
+      <if test="inputDate != null">
+        #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="dataDate != null">
+        #{dataDate,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

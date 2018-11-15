@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.QUEUE_DATA_PREPAREMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.QUEUE_DATA_PREPARE">
+    <result column="MHT_APPLY_NO" jdbcType="VARCHAR" property="mhtApplyNo" />
+    <result column="CERT_TYPE" jdbcType="VARCHAR" property="certType" />
+    <result column="CERT_NO" jdbcType="VARCHAR" property="certNo" />
+    <result column="USER_NAME" jdbcType="VARCHAR" property="userName" />
+    <result column="USER_TEL" jdbcType="VARCHAR" property="userTel" />
+    <result column="COMPANY_NAME" jdbcType="VARCHAR" property="companyName" />
+    <result column="PREPARE_FILED1" jdbcType="VARCHAR" property="prepareFiled1" />
+    <result column="PREPARE_FILED2" jdbcType="VARCHAR" property="prepareFiled2" />
+    <result column="PREPARE_FILED3" jdbcType="VARCHAR" property="prepareFiled3" />
+    <result column="PREPARE_FILED4" jdbcType="VARCHAR" property="prepareFiled4" />
+    <result column="PREPARE_FILED5" jdbcType="VARCHAR" property="prepareFiled5" />
+    <result column="PREPARE_FILED6" jdbcType="VARCHAR" property="prepareFiled6" />
+    <result column="PREPARE_FILED7" jdbcType="VARCHAR" property="prepareFiled7" />
+    <result column="PREPARE_FILED8" jdbcType="VARCHAR" property="prepareFiled8" />
+    <result column="PREPARE_FILED9" jdbcType="VARCHAR" property="prepareFiled9" />
+    <result column="PREPARE_FILED10" jdbcType="VARCHAR" property="prepareFiled10" />
+    <result column="INPUT_DATE" jdbcType="VARCHAR" property="inputDate" />
+    <result column="INPUT_TIME" jdbcType="VARCHAR" property="inputTime" />
+    <result column="LAST_UPDATE_DATE" jdbcType="VARCHAR" property="lastUpdateDate" />
+    <result column="LAST_UPDATE_TIME" jdbcType="VARCHAR" property="lastUpdateTime" />
+    <result column="PRO_CODE" jdbcType="VARCHAR" property="proCode" />
+    <result column="APPLY_NO" jdbcType="VARCHAR" property="applyNo" />
+  </resultMap>
+  <insert id="insert" parameterType="com.bea.olp.QUEUE_DATA_PREPARE">
+    insert into QUEUE_DATA_PREPARE (MHT_APPLY_NO, CERT_TYPE, CERT_NO, 
+      USER_NAME, USER_TEL, COMPANY_NAME, 
+      PREPARE_FILED1, PREPARE_FILED2, PREPARE_FILED3, 
+      PREPARE_FILED4, PREPARE_FILED5, PREPARE_FILED6, 
+      PREPARE_FILED7, PREPARE_FILED8, PREPARE_FILED9, 
+      PREPARE_FILED10, INPUT_DATE, INPUT_TIME, 
+      LAST_UPDATE_DATE, LAST_UPDATE_TIME, PRO_CODE, 
+      APPLY_NO)
+    values (#{mhtApplyNo,jdbcType=VARCHAR}, #{certType,jdbcType=VARCHAR}, #{certNo,jdbcType=VARCHAR}, 
+      #{userName,jdbcType=VARCHAR}, #{userTel,jdbcType=VARCHAR}, #{companyName,jdbcType=VARCHAR}, 
+      #{prepareFiled1,jdbcType=VARCHAR}, #{prepareFiled2,jdbcType=VARCHAR}, #{prepareFiled3,jdbcType=VARCHAR}, 
+      #{prepareFiled4,jdbcType=VARCHAR}, #{prepareFiled5,jdbcType=VARCHAR}, #{prepareFiled6,jdbcType=VARCHAR}, 
+      #{prepareFiled7,jdbcType=VARCHAR}, #{prepareFiled8,jdbcType=VARCHAR}, #{prepareFiled9,jdbcType=VARCHAR}, 
+      #{prepareFiled10,jdbcType=VARCHAR}, #{inputDate,jdbcType=VARCHAR}, #{inputTime,jdbcType=VARCHAR}, 
+      #{lastUpdateDate,jdbcType=VARCHAR}, #{lastUpdateTime,jdbcType=VARCHAR}, #{proCode,jdbcType=VARCHAR}, 
+      #{applyNo,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.QUEUE_DATA_PREPARE">
+    insert into QUEUE_DATA_PREPARE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="mhtApplyNo != null">
+        MHT_APPLY_NO,
+      </if>
+      <if test="certType != null">
+        CERT_TYPE,
+      </if>
+      <if test="certNo != null">
+        CERT_NO,
+      </if>
+      <if test="userName != null">
+        USER_NAME,
+      </if>
+      <if test="userTel != null">
+        USER_TEL,
+      </if>
+      <if test="companyName != null">
+        COMPANY_NAME,
+      </if>
+      <if test="prepareFiled1 != null">
+        PREPARE_FILED1,
+      </if>
+      <if test="prepareFiled2 != null">
+        PREPARE_FILED2,
+      </if>
+      <if test="prepareFiled3 != null">
+        PREPARE_FILED3,
+      </if>
+      <if test="prepareFiled4 != null">
+        PREPARE_FILED4,
+      </if>
+      <if test="prepareFiled5 != null">
+        PREPARE_FILED5,
+      </if>
+      <if test="prepareFiled6 != null">
+        PREPARE_FILED6,
+      </if>
+      <if test="prepareFiled7 != null">
+        PREPARE_FILED7,
+      </if>
+      <if test="prepareFiled8 != null">
+        PREPARE_FILED8,
+      </if>
+      <if test="prepareFiled9 != null">
+        PREPARE_FILED9,
+      </if>
+      <if test="prepareFiled10 != null">
+        PREPARE_FILED10,
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE,
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME,
+      </if>
+      <if test="lastUpdateDate != null">
+        LAST_UPDATE_DATE,
+      </if>
+      <if test="lastUpdateTime != null">
+        LAST_UPDATE_TIME,
+      </if>
+      <if test="proCode != null">
+        PRO_CODE,
+      </if>
+      <if test="applyNo != null">
+        APPLY_NO,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="mhtApplyNo != null">
+        #{mhtApplyNo,jdbcType=VARCHAR},
+      </if>
+      <if test="certType != null">
+        #{certType,jdbcType=VARCHAR},
+      </if>
+      <if test="certNo != null">
+        #{certNo,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null">
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="userTel != null">
+        #{userTel,jdbcType=VARCHAR},
+      </if>
+      <if test="companyName != null">
+        #{companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="prepareFiled1 != null">
+        #{prepareFiled1,jdbcType=VARCHAR},
+      </if>
+      <if test="prepareFiled2 != null">
+        #{prepareFiled2,jdbcType=VARCHAR},
+      </if>
+      <if test="prepareFiled3 != null">
+        #{prepareFiled3,jdbcType=VARCHAR},
+      </if>
+      <if test="prepareFiled4 != null">
+        #{prepareFiled4,jdbcType=VARCHAR},
+      </if>
+      <if test="prepareFiled5 != null">
+        #{prepareFiled5,jdbcType=VARCHAR},
+      </if>
+      <if test="prepareFiled6 != null">
+        #{prepareFiled6,jdbcType=VARCHAR},
+      </if>
+      <if test="prepareFiled7 != null">
+        #{prepareFiled7,jdbcType=VARCHAR},
+      </if>
+      <if test="prepareFiled8 != null">
+        #{prepareFiled8,jdbcType=VARCHAR},
+      </if>
+      <if test="prepareFiled9 != null">
+        #{prepareFiled9,jdbcType=VARCHAR},
+      </if>
+      <if test="prepareFiled10 != null">
+        #{prepareFiled10,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateDate != null">
+        #{lastUpdateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        #{lastUpdateTime,jdbcType=VARCHAR},
+      </if>
+      <if test="proCode != null">
+        #{proCode,jdbcType=VARCHAR},
+      </if>
+      <if test="applyNo != null">
+        #{applyNo,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

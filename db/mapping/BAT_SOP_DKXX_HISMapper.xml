@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.BAT_SOP_DKXX_HISMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.BAT_SOP_DKXX_HIS">
+    <result column="DT_DATE" jdbcType="VARCHAR" property="dtDate" />
+    <result column="BILL_NO" jdbcType="VARCHAR" property="billNo" />
+    <result column="LOAN_STATUS" jdbcType="CHAR" property="loanStatus" />
+    <result column="OVERDUE_AMT" jdbcType="DECIMAL" property="overdueAmt" />
+    <result column="OUTSTD_INTST" jdbcType="DECIMAL" property="outstdIntst" />
+    <result column="INNER_INTST" jdbcType="DECIMAL" property="innerIntst" />
+    <result column="OUTER_INTST" jdbcType="DECIMAL" property="outerIntst" />
+    <result column="OVERDUE_DAY" jdbcType="DECIMAL" property="overdueDay" />
+    <result column="INPUT_DATE" jdbcType="VARCHAR" property="inputDate" />
+    <result column="INPUT_TIME" jdbcType="VARCHAR" property="inputTime" />
+    <result column="LAST_UPDATE_DATE" jdbcType="VARCHAR" property="lastUpdateDate" />
+    <result column="LAST_UPDATE_TIME" jdbcType="VARCHAR" property="lastUpdateTime" />
+  </resultMap>
+  <insert id="insert" parameterType="com.bea.olp.BAT_SOP_DKXX_HIS">
+    insert into BAT_SOP_DKXX_HIS (DT_DATE, BILL_NO, LOAN_STATUS, 
+      OVERDUE_AMT, OUTSTD_INTST, INNER_INTST, 
+      OUTER_INTST, OVERDUE_DAY, INPUT_DATE, 
+      INPUT_TIME, LAST_UPDATE_DATE, LAST_UPDATE_TIME
+      )
+    values (#{dtDate,jdbcType=VARCHAR}, #{billNo,jdbcType=VARCHAR}, #{loanStatus,jdbcType=CHAR}, 
+      #{overdueAmt,jdbcType=DECIMAL}, #{outstdIntst,jdbcType=DECIMAL}, #{innerIntst,jdbcType=DECIMAL}, 
+      #{outerIntst,jdbcType=DECIMAL}, #{overdueDay,jdbcType=DECIMAL}, #{inputDate,jdbcType=VARCHAR}, 
+      #{inputTime,jdbcType=VARCHAR}, #{lastUpdateDate,jdbcType=VARCHAR}, #{lastUpdateTime,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.BAT_SOP_DKXX_HIS">
+    insert into BAT_SOP_DKXX_HIS
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="dtDate != null">
+        DT_DATE,
+      </if>
+      <if test="billNo != null">
+        BILL_NO,
+      </if>
+      <if test="loanStatus != null">
+        LOAN_STATUS,
+      </if>
+      <if test="overdueAmt != null">
+        OVERDUE_AMT,
+      </if>
+      <if test="outstdIntst != null">
+        OUTSTD_INTST,
+      </if>
+      <if test="innerIntst != null">
+        INNER_INTST,
+      </if>
+      <if test="outerIntst != null">
+        OUTER_INTST,
+      </if>
+      <if test="overdueDay != null">
+        OVERDUE_DAY,
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE,
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME,
+      </if>
+      <if test="lastUpdateDate != null">
+        LAST_UPDATE_DATE,
+      </if>
+      <if test="lastUpdateTime != null">
+        LAST_UPDATE_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="dtDate != null">
+        #{dtDate,jdbcType=VARCHAR},
+      </if>
+      <if test="billNo != null">
+        #{billNo,jdbcType=VARCHAR},
+      </if>
+      <if test="loanStatus != null">
+        #{loanStatus,jdbcType=CHAR},
+      </if>
+      <if test="overdueAmt != null">
+        #{overdueAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="outstdIntst != null">
+        #{outstdIntst,jdbcType=DECIMAL},
+      </if>
+      <if test="innerIntst != null">
+        #{innerIntst,jdbcType=DECIMAL},
+      </if>
+      <if test="outerIntst != null">
+        #{outerIntst,jdbcType=DECIMAL},
+      </if>
+      <if test="overdueDay != null">
+        #{overdueDay,jdbcType=DECIMAL},
+      </if>
+      <if test="inputDate != null">
+        #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateDate != null">
+        #{lastUpdateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        #{lastUpdateTime,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

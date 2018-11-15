@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.WFI_NODE2BIZMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.WFI_NODE2BIZ">
+    <id column="PK1" jdbcType="VARCHAR" property="pk1" />
+    <id column="NODEID" jdbcType="VARCHAR" property="nodeid" />
+    <result column="NODENAME" jdbcType="VARCHAR" property="nodename" />
+    <result column="NODE_APP_URL" jdbcType="VARCHAR" property="nodeAppUrl" />
+    <result column="NODE_BIZ_URL" jdbcType="VARCHAR" property="nodeBizUrl" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    PK1, NODEID, NODENAME, NODE_APP_URL, NODE_BIZ_URL
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="com.bea.olp.WFI_NODE2BIZKey" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from WFI_NODE2BIZ
+    where PK1 = #{pk1,jdbcType=VARCHAR}
+      and NODEID = #{nodeid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.bea.olp.WFI_NODE2BIZKey">
+    delete from WFI_NODE2BIZ
+    where PK1 = #{pk1,jdbcType=VARCHAR}
+      and NODEID = #{nodeid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.WFI_NODE2BIZ">
+    insert into WFI_NODE2BIZ (PK1, NODEID, NODENAME, 
+      NODE_APP_URL, NODE_BIZ_URL)
+    values (#{pk1,jdbcType=VARCHAR}, #{nodeid,jdbcType=VARCHAR}, #{nodename,jdbcType=VARCHAR}, 
+      #{nodeAppUrl,jdbcType=VARCHAR}, #{nodeBizUrl,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.WFI_NODE2BIZ">
+    insert into WFI_NODE2BIZ
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="pk1 != null">
+        PK1,
+      </if>
+      <if test="nodeid != null">
+        NODEID,
+      </if>
+      <if test="nodename != null">
+        NODENAME,
+      </if>
+      <if test="nodeAppUrl != null">
+        NODE_APP_URL,
+      </if>
+      <if test="nodeBizUrl != null">
+        NODE_BIZ_URL,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="pk1 != null">
+        #{pk1,jdbcType=VARCHAR},
+      </if>
+      <if test="nodeid != null">
+        #{nodeid,jdbcType=VARCHAR},
+      </if>
+      <if test="nodename != null">
+        #{nodename,jdbcType=VARCHAR},
+      </if>
+      <if test="nodeAppUrl != null">
+        #{nodeAppUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="nodeBizUrl != null">
+        #{nodeBizUrl,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.WFI_NODE2BIZ">
+    update WFI_NODE2BIZ
+    <set>
+      <if test="nodename != null">
+        NODENAME = #{nodename,jdbcType=VARCHAR},
+      </if>
+      <if test="nodeAppUrl != null">
+        NODE_APP_URL = #{nodeAppUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="nodeBizUrl != null">
+        NODE_BIZ_URL = #{nodeBizUrl,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where PK1 = #{pk1,jdbcType=VARCHAR}
+      and NODEID = #{nodeid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.WFI_NODE2BIZ">
+    update WFI_NODE2BIZ
+    set NODENAME = #{nodename,jdbcType=VARCHAR},
+      NODE_APP_URL = #{nodeAppUrl,jdbcType=VARCHAR},
+      NODE_BIZ_URL = #{nodeBizUrl,jdbcType=VARCHAR}
+    where PK1 = #{pk1,jdbcType=VARCHAR}
+      and NODEID = #{nodeid,jdbcType=VARCHAR}
+  </update>
+</mapper>

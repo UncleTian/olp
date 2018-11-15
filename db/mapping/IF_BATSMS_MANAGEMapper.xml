@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.IF_BATSMS_MANAGEMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.IF_BATSMS_MANAGE">
+    <id column="SERNO" jdbcType="VARCHAR" property="serno" />
+    <result column="SMS_PROP" jdbcType="CHAR" property="smsProp" />
+    <result column="CON_CODE" jdbcType="VARCHAR" property="conCode" />
+    <result column="PLAN_SEND_DATE" jdbcType="VARCHAR" property="planSendDate" />
+    <result column="PLAN_SEND_STR_TIME" jdbcType="VARCHAR" property="planSendStrTime" />
+    <result column="PLAN_SEND_END_TIME" jdbcType="VARCHAR" property="planSendEndTime" />
+    <result column="SMS_INFO" jdbcType="VARCHAR" property="smsInfo" />
+    <result column="FILE_NAME" jdbcType="VARCHAR" property="fileName" />
+    <result column="PHONE_TOTAL_NUM" jdbcType="DECIMAL" property="phoneTotalNum" />
+    <result column="DEPT_NO" jdbcType="VARCHAR" property="deptNo" />
+    <result column="DT_SN" jdbcType="DECIMAL" property="dtSn" />
+    <result column="STATE" jdbcType="CHAR" property="state" />
+    <result column="LAST_UPDATE_TIME" jdbcType="VARCHAR" property="lastUpdateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    SERNO, SMS_PROP, CON_CODE, PLAN_SEND_DATE, PLAN_SEND_STR_TIME, PLAN_SEND_END_TIME, 
+    SMS_INFO, FILE_NAME, PHONE_TOTAL_NUM, DEPT_NO, DT_SN, STATE, LAST_UPDATE_TIME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from IF_BATSMS_MANAGE
+    where SERNO = #{serno,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from IF_BATSMS_MANAGE
+    where SERNO = #{serno,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.IF_BATSMS_MANAGE">
+    insert into IF_BATSMS_MANAGE (SERNO, SMS_PROP, CON_CODE, 
+      PLAN_SEND_DATE, PLAN_SEND_STR_TIME, PLAN_SEND_END_TIME, 
+      SMS_INFO, FILE_NAME, PHONE_TOTAL_NUM, 
+      DEPT_NO, DT_SN, STATE, LAST_UPDATE_TIME
+      )
+    values (#{serno,jdbcType=VARCHAR}, #{smsProp,jdbcType=CHAR}, #{conCode,jdbcType=VARCHAR}, 
+      #{planSendDate,jdbcType=VARCHAR}, #{planSendStrTime,jdbcType=VARCHAR}, #{planSendEndTime,jdbcType=VARCHAR}, 
+      #{smsInfo,jdbcType=VARCHAR}, #{fileName,jdbcType=VARCHAR}, #{phoneTotalNum,jdbcType=DECIMAL}, 
+      #{deptNo,jdbcType=VARCHAR}, #{dtSn,jdbcType=DECIMAL}, #{state,jdbcType=CHAR}, #{lastUpdateTime,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.IF_BATSMS_MANAGE">
+    insert into IF_BATSMS_MANAGE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="serno != null">
+        SERNO,
+      </if>
+      <if test="smsProp != null">
+        SMS_PROP,
+      </if>
+      <if test="conCode != null">
+        CON_CODE,
+      </if>
+      <if test="planSendDate != null">
+        PLAN_SEND_DATE,
+      </if>
+      <if test="planSendStrTime != null">
+        PLAN_SEND_STR_TIME,
+      </if>
+      <if test="planSendEndTime != null">
+        PLAN_SEND_END_TIME,
+      </if>
+      <if test="smsInfo != null">
+        SMS_INFO,
+      </if>
+      <if test="fileName != null">
+        FILE_NAME,
+      </if>
+      <if test="phoneTotalNum != null">
+        PHONE_TOTAL_NUM,
+      </if>
+      <if test="deptNo != null">
+        DEPT_NO,
+      </if>
+      <if test="dtSn != null">
+        DT_SN,
+      </if>
+      <if test="state != null">
+        STATE,
+      </if>
+      <if test="lastUpdateTime != null">
+        LAST_UPDATE_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="serno != null">
+        #{serno,jdbcType=VARCHAR},
+      </if>
+      <if test="smsProp != null">
+        #{smsProp,jdbcType=CHAR},
+      </if>
+      <if test="conCode != null">
+        #{conCode,jdbcType=VARCHAR},
+      </if>
+      <if test="planSendDate != null">
+        #{planSendDate,jdbcType=VARCHAR},
+      </if>
+      <if test="planSendStrTime != null">
+        #{planSendStrTime,jdbcType=VARCHAR},
+      </if>
+      <if test="planSendEndTime != null">
+        #{planSendEndTime,jdbcType=VARCHAR},
+      </if>
+      <if test="smsInfo != null">
+        #{smsInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="fileName != null">
+        #{fileName,jdbcType=VARCHAR},
+      </if>
+      <if test="phoneTotalNum != null">
+        #{phoneTotalNum,jdbcType=DECIMAL},
+      </if>
+      <if test="deptNo != null">
+        #{deptNo,jdbcType=VARCHAR},
+      </if>
+      <if test="dtSn != null">
+        #{dtSn,jdbcType=DECIMAL},
+      </if>
+      <if test="state != null">
+        #{state,jdbcType=CHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        #{lastUpdateTime,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.IF_BATSMS_MANAGE">
+    update IF_BATSMS_MANAGE
+    <set>
+      <if test="smsProp != null">
+        SMS_PROP = #{smsProp,jdbcType=CHAR},
+      </if>
+      <if test="conCode != null">
+        CON_CODE = #{conCode,jdbcType=VARCHAR},
+      </if>
+      <if test="planSendDate != null">
+        PLAN_SEND_DATE = #{planSendDate,jdbcType=VARCHAR},
+      </if>
+      <if test="planSendStrTime != null">
+        PLAN_SEND_STR_TIME = #{planSendStrTime,jdbcType=VARCHAR},
+      </if>
+      <if test="planSendEndTime != null">
+        PLAN_SEND_END_TIME = #{planSendEndTime,jdbcType=VARCHAR},
+      </if>
+      <if test="smsInfo != null">
+        SMS_INFO = #{smsInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="fileName != null">
+        FILE_NAME = #{fileName,jdbcType=VARCHAR},
+      </if>
+      <if test="phoneTotalNum != null">
+        PHONE_TOTAL_NUM = #{phoneTotalNum,jdbcType=DECIMAL},
+      </if>
+      <if test="deptNo != null">
+        DEPT_NO = #{deptNo,jdbcType=VARCHAR},
+      </if>
+      <if test="dtSn != null">
+        DT_SN = #{dtSn,jdbcType=DECIMAL},
+      </if>
+      <if test="state != null">
+        STATE = #{state,jdbcType=CHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where SERNO = #{serno,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.IF_BATSMS_MANAGE">
+    update IF_BATSMS_MANAGE
+    set SMS_PROP = #{smsProp,jdbcType=CHAR},
+      CON_CODE = #{conCode,jdbcType=VARCHAR},
+      PLAN_SEND_DATE = #{planSendDate,jdbcType=VARCHAR},
+      PLAN_SEND_STR_TIME = #{planSendStrTime,jdbcType=VARCHAR},
+      PLAN_SEND_END_TIME = #{planSendEndTime,jdbcType=VARCHAR},
+      SMS_INFO = #{smsInfo,jdbcType=VARCHAR},
+      FILE_NAME = #{fileName,jdbcType=VARCHAR},
+      PHONE_TOTAL_NUM = #{phoneTotalNum,jdbcType=DECIMAL},
+      DEPT_NO = #{deptNo,jdbcType=VARCHAR},
+      DT_SN = #{dtSn,jdbcType=DECIMAL},
+      STATE = #{state,jdbcType=CHAR},
+      LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=VARCHAR}
+    where SERNO = #{serno,jdbcType=VARCHAR}
+  </update>
+</mapper>

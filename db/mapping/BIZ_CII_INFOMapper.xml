@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.BIZ_CII_INFOMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.BIZ_CII_INFO">
+    <id column="APP_NO" jdbcType="VARCHAR" property="appNo" />
+    <result column="SERVERPROVIDER" jdbcType="VARCHAR" property="serverprovider" />
+    <result column="PBCCHECKRESULT" jdbcType="VARCHAR" property="pbccheckresult" />
+    <result column="PBCISSUEOFFICE" jdbcType="VARCHAR" property="pbcissueoffice" />
+    <result column="PBCNAME" jdbcType="VARCHAR" property="pbcname" />
+    <result column="PBCID" jdbcType="VARCHAR" property="pbcid" />
+    <result column="RESULTFLOW" jdbcType="VARCHAR" property="resultflow" />
+    <result column="RESULT" jdbcType="VARCHAR" property="result" />
+    <result column="MSG" jdbcType="VARCHAR" property="msg" />
+    <result column="INPUT_DATE" jdbcType="VARCHAR" property="inputDate" />
+    <result column="INPUT_TIME" jdbcType="VARCHAR" property="inputTime" />
+    <result column="LAST_UPDATE_DATE" jdbcType="VARCHAR" property="lastUpdateDate" />
+    <result column="LAST_UPDATE_TIME" jdbcType="VARCHAR" property="lastUpdateTime" />
+    <result column="STATUS" jdbcType="VARCHAR" property="status" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.bea.olp.BIZ_CII_INFOWithBLOBs">
+    <result column="PBCPHOTO" jdbcType="CLOB" property="pbcphoto" />
+    <result column="PHOTO" jdbcType="CLOB" property="photo" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    APP_NO, SERVERPROVIDER, PBCCHECKRESULT, PBCISSUEOFFICE, PBCNAME, PBCID, RESULTFLOW, 
+    RESULT, MSG, INPUT_DATE, INPUT_TIME, LAST_UPDATE_DATE, LAST_UPDATE_TIME, STATUS
+  </sql>
+  <sql id="Blob_Column_List">
+    PBCPHOTO, PHOTO
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from BIZ_CII_INFO
+    where APP_NO = #{appNo,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from BIZ_CII_INFO
+    where APP_NO = #{appNo,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.BIZ_CII_INFOWithBLOBs">
+    insert into BIZ_CII_INFO (APP_NO, SERVERPROVIDER, PBCCHECKRESULT, 
+      PBCISSUEOFFICE, PBCNAME, PBCID, 
+      RESULTFLOW, RESULT, MSG, 
+      INPUT_DATE, INPUT_TIME, LAST_UPDATE_DATE, 
+      LAST_UPDATE_TIME, STATUS, PBCPHOTO, 
+      PHOTO)
+    values (#{appNo,jdbcType=VARCHAR}, #{serverprovider,jdbcType=VARCHAR}, #{pbccheckresult,jdbcType=VARCHAR}, 
+      #{pbcissueoffice,jdbcType=VARCHAR}, #{pbcname,jdbcType=VARCHAR}, #{pbcid,jdbcType=VARCHAR}, 
+      #{resultflow,jdbcType=VARCHAR}, #{result,jdbcType=VARCHAR}, #{msg,jdbcType=VARCHAR}, 
+      #{inputDate,jdbcType=VARCHAR}, #{inputTime,jdbcType=VARCHAR}, #{lastUpdateDate,jdbcType=VARCHAR}, 
+      #{lastUpdateTime,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, #{pbcphoto,jdbcType=CLOB}, 
+      #{photo,jdbcType=CLOB})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.BIZ_CII_INFOWithBLOBs">
+    insert into BIZ_CII_INFO
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="appNo != null">
+        APP_NO,
+      </if>
+      <if test="serverprovider != null">
+        SERVERPROVIDER,
+      </if>
+      <if test="pbccheckresult != null">
+        PBCCHECKRESULT,
+      </if>
+      <if test="pbcissueoffice != null">
+        PBCISSUEOFFICE,
+      </if>
+      <if test="pbcname != null">
+        PBCNAME,
+      </if>
+      <if test="pbcid != null">
+        PBCID,
+      </if>
+      <if test="resultflow != null">
+        RESULTFLOW,
+      </if>
+      <if test="result != null">
+        RESULT,
+      </if>
+      <if test="msg != null">
+        MSG,
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE,
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME,
+      </if>
+      <if test="lastUpdateDate != null">
+        LAST_UPDATE_DATE,
+      </if>
+      <if test="lastUpdateTime != null">
+        LAST_UPDATE_TIME,
+      </if>
+      <if test="status != null">
+        STATUS,
+      </if>
+      <if test="pbcphoto != null">
+        PBCPHOTO,
+      </if>
+      <if test="photo != null">
+        PHOTO,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="appNo != null">
+        #{appNo,jdbcType=VARCHAR},
+      </if>
+      <if test="serverprovider != null">
+        #{serverprovider,jdbcType=VARCHAR},
+      </if>
+      <if test="pbccheckresult != null">
+        #{pbccheckresult,jdbcType=VARCHAR},
+      </if>
+      <if test="pbcissueoffice != null">
+        #{pbcissueoffice,jdbcType=VARCHAR},
+      </if>
+      <if test="pbcname != null">
+        #{pbcname,jdbcType=VARCHAR},
+      </if>
+      <if test="pbcid != null">
+        #{pbcid,jdbcType=VARCHAR},
+      </if>
+      <if test="resultflow != null">
+        #{resultflow,jdbcType=VARCHAR},
+      </if>
+      <if test="result != null">
+        #{result,jdbcType=VARCHAR},
+      </if>
+      <if test="msg != null">
+        #{msg,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateDate != null">
+        #{lastUpdateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        #{lastUpdateTime,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="pbcphoto != null">
+        #{pbcphoto,jdbcType=CLOB},
+      </if>
+      <if test="photo != null">
+        #{photo,jdbcType=CLOB},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.BIZ_CII_INFOWithBLOBs">
+    update BIZ_CII_INFO
+    <set>
+      <if test="serverprovider != null">
+        SERVERPROVIDER = #{serverprovider,jdbcType=VARCHAR},
+      </if>
+      <if test="pbccheckresult != null">
+        PBCCHECKRESULT = #{pbccheckresult,jdbcType=VARCHAR},
+      </if>
+      <if test="pbcissueoffice != null">
+        PBCISSUEOFFICE = #{pbcissueoffice,jdbcType=VARCHAR},
+      </if>
+      <if test="pbcname != null">
+        PBCNAME = #{pbcname,jdbcType=VARCHAR},
+      </if>
+      <if test="pbcid != null">
+        PBCID = #{pbcid,jdbcType=VARCHAR},
+      </if>
+      <if test="resultflow != null">
+        RESULTFLOW = #{resultflow,jdbcType=VARCHAR},
+      </if>
+      <if test="result != null">
+        RESULT = #{result,jdbcType=VARCHAR},
+      </if>
+      <if test="msg != null">
+        MSG = #{msg,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE = #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME = #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateDate != null">
+        LAST_UPDATE_DATE = #{lastUpdateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        STATUS = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="pbcphoto != null">
+        PBCPHOTO = #{pbcphoto,jdbcType=CLOB},
+      </if>
+      <if test="photo != null">
+        PHOTO = #{photo,jdbcType=CLOB},
+      </if>
+    </set>
+    where APP_NO = #{appNo,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.bea.olp.BIZ_CII_INFOWithBLOBs">
+    update BIZ_CII_INFO
+    set SERVERPROVIDER = #{serverprovider,jdbcType=VARCHAR},
+      PBCCHECKRESULT = #{pbccheckresult,jdbcType=VARCHAR},
+      PBCISSUEOFFICE = #{pbcissueoffice,jdbcType=VARCHAR},
+      PBCNAME = #{pbcname,jdbcType=VARCHAR},
+      PBCID = #{pbcid,jdbcType=VARCHAR},
+      RESULTFLOW = #{resultflow,jdbcType=VARCHAR},
+      RESULT = #{result,jdbcType=VARCHAR},
+      MSG = #{msg,jdbcType=VARCHAR},
+      INPUT_DATE = #{inputDate,jdbcType=VARCHAR},
+      INPUT_TIME = #{inputTime,jdbcType=VARCHAR},
+      LAST_UPDATE_DATE = #{lastUpdateDate,jdbcType=VARCHAR},
+      LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=VARCHAR},
+      STATUS = #{status,jdbcType=VARCHAR},
+      PBCPHOTO = #{pbcphoto,jdbcType=CLOB},
+      PHOTO = #{photo,jdbcType=CLOB}
+    where APP_NO = #{appNo,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.BIZ_CII_INFO">
+    update BIZ_CII_INFO
+    set SERVERPROVIDER = #{serverprovider,jdbcType=VARCHAR},
+      PBCCHECKRESULT = #{pbccheckresult,jdbcType=VARCHAR},
+      PBCISSUEOFFICE = #{pbcissueoffice,jdbcType=VARCHAR},
+      PBCNAME = #{pbcname,jdbcType=VARCHAR},
+      PBCID = #{pbcid,jdbcType=VARCHAR},
+      RESULTFLOW = #{resultflow,jdbcType=VARCHAR},
+      RESULT = #{result,jdbcType=VARCHAR},
+      MSG = #{msg,jdbcType=VARCHAR},
+      INPUT_DATE = #{inputDate,jdbcType=VARCHAR},
+      INPUT_TIME = #{inputTime,jdbcType=VARCHAR},
+      LAST_UPDATE_DATE = #{lastUpdateDate,jdbcType=VARCHAR},
+      LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=VARCHAR},
+      STATUS = #{status,jdbcType=VARCHAR}
+    where APP_NO = #{appNo,jdbcType=VARCHAR}
+  </update>
+</mapper>

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.BAT_BEST_EMP_LIST_HISMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.BAT_BEST_EMP_LIST_HIS">
+    <result column="SER_NO" jdbcType="VARCHAR" property="serNo" />
+    <result column="AAB001" jdbcType="VARCHAR" property="aab001" />
+    <result column="AAB004" jdbcType="VARCHAR" property="aab004" />
+    <result column="AAB019" jdbcType="VARCHAR" property="aab019" />
+    <result column="STATUS" jdbcType="VARCHAR" property="status" />
+    <result column="BIZ_OP_ID" jdbcType="VARCHAR" property="bizOpId" />
+    <result column="BIZ_ORG_ID" jdbcType="VARCHAR" property="bizOrgId" />
+    <result column="INPUT_DATE" jdbcType="VARCHAR" property="inputDate" />
+    <result column="INPUT_TIME" jdbcType="VARCHAR" property="inputTime" />
+    <result column="LAST_UPDATE_DATE" jdbcType="VARCHAR" property="lastUpdateDate" />
+    <result column="LAST_UPDATE_TIME" jdbcType="VARCHAR" property="lastUpdateTime" />
+    <result column="FILE_NO" jdbcType="VARCHAR" property="fileNo" />
+  </resultMap>
+  <insert id="insert" parameterType="com.bea.olp.BAT_BEST_EMP_LIST_HIS">
+    insert into BAT_BEST_EMP_LIST_HIS (SER_NO, AAB001, AAB004, 
+      AAB019, STATUS, BIZ_OP_ID, 
+      BIZ_ORG_ID, INPUT_DATE, INPUT_TIME, 
+      LAST_UPDATE_DATE, LAST_UPDATE_TIME, FILE_NO
+      )
+    values (#{serNo,jdbcType=VARCHAR}, #{aab001,jdbcType=VARCHAR}, #{aab004,jdbcType=VARCHAR}, 
+      #{aab019,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, #{bizOpId,jdbcType=VARCHAR}, 
+      #{bizOrgId,jdbcType=VARCHAR}, #{inputDate,jdbcType=VARCHAR}, #{inputTime,jdbcType=VARCHAR}, 
+      #{lastUpdateDate,jdbcType=VARCHAR}, #{lastUpdateTime,jdbcType=VARCHAR}, #{fileNo,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.BAT_BEST_EMP_LIST_HIS">
+    insert into BAT_BEST_EMP_LIST_HIS
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="serNo != null">
+        SER_NO,
+      </if>
+      <if test="aab001 != null">
+        AAB001,
+      </if>
+      <if test="aab004 != null">
+        AAB004,
+      </if>
+      <if test="aab019 != null">
+        AAB019,
+      </if>
+      <if test="status != null">
+        STATUS,
+      </if>
+      <if test="bizOpId != null">
+        BIZ_OP_ID,
+      </if>
+      <if test="bizOrgId != null">
+        BIZ_ORG_ID,
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE,
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME,
+      </if>
+      <if test="lastUpdateDate != null">
+        LAST_UPDATE_DATE,
+      </if>
+      <if test="lastUpdateTime != null">
+        LAST_UPDATE_TIME,
+      </if>
+      <if test="fileNo != null">
+        FILE_NO,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="serNo != null">
+        #{serNo,jdbcType=VARCHAR},
+      </if>
+      <if test="aab001 != null">
+        #{aab001,jdbcType=VARCHAR},
+      </if>
+      <if test="aab004 != null">
+        #{aab004,jdbcType=VARCHAR},
+      </if>
+      <if test="aab019 != null">
+        #{aab019,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="bizOpId != null">
+        #{bizOpId,jdbcType=VARCHAR},
+      </if>
+      <if test="bizOrgId != null">
+        #{bizOrgId,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateDate != null">
+        #{lastUpdateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        #{lastUpdateTime,jdbcType=VARCHAR},
+      </if>
+      <if test="fileNo != null">
+        #{fileNo,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

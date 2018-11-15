@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.BAT_CBM_RATE_ZONEMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.BAT_CBM_RATE_ZONE">
+    <result column="SERIALNO" jdbcType="VARCHAR" property="serialno" />
+    <result column="OBJECTNO" jdbcType="VARCHAR" property="objectno" />
+    <result column="OBJECTTYPE" jdbcType="VARCHAR" property="objecttype" />
+    <result column="SEGFROMDATE" jdbcType="VARCHAR" property="segfromdate" />
+    <result column="SEGTODATE" jdbcType="VARCHAR" property="segtodate" />
+    <result column="TERMID" jdbcType="VARCHAR" property="termid" />
+    <result column="RATETYPE" jdbcType="VARCHAR" property="ratetype" />
+    <result column="RATEUNIT" jdbcType="VARCHAR" property="rateunit" />
+    <result column="BASERATEGRADE" jdbcType="VARCHAR" property="baserategrade" />
+    <result column="BASERATETYPE" jdbcType="VARCHAR" property="baseratetype" />
+    <result column="BASERATE" jdbcType="DECIMAL" property="baserate" />
+    <result column="RATEFLOATTYPE" jdbcType="VARCHAR" property="ratefloattype" />
+    <result column="RATEFLOAT" jdbcType="DECIMAL" property="ratefloat" />
+    <result column="BUSINESSRATE" jdbcType="DECIMAL" property="businessrate" />
+    <result column="REPRICETYPE" jdbcType="VARCHAR" property="repricetype" />
+    <result column="REPRICETERMUNIT" jdbcType="VARCHAR" property="repricetermunit" />
+    <result column="REPRICETERM" jdbcType="DECIMAL" property="repriceterm" />
+    <result column="DEFAULTREPRICEDATE" jdbcType="VARCHAR" property="defaultrepricedate" />
+    <result column="LASTREPRICEDATE" jdbcType="VARCHAR" property="lastrepricedate" />
+    <result column="NEXTREPRICEDATE" jdbcType="VARCHAR" property="nextrepricedate" />
+    <result column="INPUT_DATE" jdbcType="VARCHAR" property="inputDate" />
+    <result column="INPUT_TIME" jdbcType="VARCHAR" property="inputTime" />
+    <result column="DATA_DATE" jdbcType="VARCHAR" property="dataDate" />
+    <result column="CHANNEL_TYPE" jdbcType="VARCHAR" property="channelType" />
+  </resultMap>
+  <insert id="insert" parameterType="com.bea.olp.BAT_CBM_RATE_ZONE">
+    insert into BAT_CBM_RATE_ZONE (SERIALNO, OBJECTNO, OBJECTTYPE, 
+      SEGFROMDATE, SEGTODATE, TERMID, 
+      RATETYPE, RATEUNIT, BASERATEGRADE, 
+      BASERATETYPE, BASERATE, RATEFLOATTYPE, 
+      RATEFLOAT, BUSINESSRATE, REPRICETYPE, 
+      REPRICETERMUNIT, REPRICETERM, DEFAULTREPRICEDATE, 
+      LASTREPRICEDATE, NEXTREPRICEDATE, INPUT_DATE, 
+      INPUT_TIME, DATA_DATE, CHANNEL_TYPE
+      )
+    values (#{serialno,jdbcType=VARCHAR}, #{objectno,jdbcType=VARCHAR}, #{objecttype,jdbcType=VARCHAR}, 
+      #{segfromdate,jdbcType=VARCHAR}, #{segtodate,jdbcType=VARCHAR}, #{termid,jdbcType=VARCHAR}, 
+      #{ratetype,jdbcType=VARCHAR}, #{rateunit,jdbcType=VARCHAR}, #{baserategrade,jdbcType=VARCHAR}, 
+      #{baseratetype,jdbcType=VARCHAR}, #{baserate,jdbcType=DECIMAL}, #{ratefloattype,jdbcType=VARCHAR}, 
+      #{ratefloat,jdbcType=DECIMAL}, #{businessrate,jdbcType=DECIMAL}, #{repricetype,jdbcType=VARCHAR}, 
+      #{repricetermunit,jdbcType=VARCHAR}, #{repriceterm,jdbcType=DECIMAL}, #{defaultrepricedate,jdbcType=VARCHAR}, 
+      #{lastrepricedate,jdbcType=VARCHAR}, #{nextrepricedate,jdbcType=VARCHAR}, #{inputDate,jdbcType=VARCHAR}, 
+      #{inputTime,jdbcType=VARCHAR}, #{dataDate,jdbcType=VARCHAR}, #{channelType,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.BAT_CBM_RATE_ZONE">
+    insert into BAT_CBM_RATE_ZONE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="serialno != null">
+        SERIALNO,
+      </if>
+      <if test="objectno != null">
+        OBJECTNO,
+      </if>
+      <if test="objecttype != null">
+        OBJECTTYPE,
+      </if>
+      <if test="segfromdate != null">
+        SEGFROMDATE,
+      </if>
+      <if test="segtodate != null">
+        SEGTODATE,
+      </if>
+      <if test="termid != null">
+        TERMID,
+      </if>
+      <if test="ratetype != null">
+        RATETYPE,
+      </if>
+      <if test="rateunit != null">
+        RATEUNIT,
+      </if>
+      <if test="baserategrade != null">
+        BASERATEGRADE,
+      </if>
+      <if test="baseratetype != null">
+        BASERATETYPE,
+      </if>
+      <if test="baserate != null">
+        BASERATE,
+      </if>
+      <if test="ratefloattype != null">
+        RATEFLOATTYPE,
+      </if>
+      <if test="ratefloat != null">
+        RATEFLOAT,
+      </if>
+      <if test="businessrate != null">
+        BUSINESSRATE,
+      </if>
+      <if test="repricetype != null">
+        REPRICETYPE,
+      </if>
+      <if test="repricetermunit != null">
+        REPRICETERMUNIT,
+      </if>
+      <if test="repriceterm != null">
+        REPRICETERM,
+      </if>
+      <if test="defaultrepricedate != null">
+        DEFAULTREPRICEDATE,
+      </if>
+      <if test="lastrepricedate != null">
+        LASTREPRICEDATE,
+      </if>
+      <if test="nextrepricedate != null">
+        NEXTREPRICEDATE,
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE,
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME,
+      </if>
+      <if test="dataDate != null">
+        DATA_DATE,
+      </if>
+      <if test="channelType != null">
+        CHANNEL_TYPE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="serialno != null">
+        #{serialno,jdbcType=VARCHAR},
+      </if>
+      <if test="objectno != null">
+        #{objectno,jdbcType=VARCHAR},
+      </if>
+      <if test="objecttype != null">
+        #{objecttype,jdbcType=VARCHAR},
+      </if>
+      <if test="segfromdate != null">
+        #{segfromdate,jdbcType=VARCHAR},
+      </if>
+      <if test="segtodate != null">
+        #{segtodate,jdbcType=VARCHAR},
+      </if>
+      <if test="termid != null">
+        #{termid,jdbcType=VARCHAR},
+      </if>
+      <if test="ratetype != null">
+        #{ratetype,jdbcType=VARCHAR},
+      </if>
+      <if test="rateunit != null">
+        #{rateunit,jdbcType=VARCHAR},
+      </if>
+      <if test="baserategrade != null">
+        #{baserategrade,jdbcType=VARCHAR},
+      </if>
+      <if test="baseratetype != null">
+        #{baseratetype,jdbcType=VARCHAR},
+      </if>
+      <if test="baserate != null">
+        #{baserate,jdbcType=DECIMAL},
+      </if>
+      <if test="ratefloattype != null">
+        #{ratefloattype,jdbcType=VARCHAR},
+      </if>
+      <if test="ratefloat != null">
+        #{ratefloat,jdbcType=DECIMAL},
+      </if>
+      <if test="businessrate != null">
+        #{businessrate,jdbcType=DECIMAL},
+      </if>
+      <if test="repricetype != null">
+        #{repricetype,jdbcType=VARCHAR},
+      </if>
+      <if test="repricetermunit != null">
+        #{repricetermunit,jdbcType=VARCHAR},
+      </if>
+      <if test="repriceterm != null">
+        #{repriceterm,jdbcType=DECIMAL},
+      </if>
+      <if test="defaultrepricedate != null">
+        #{defaultrepricedate,jdbcType=VARCHAR},
+      </if>
+      <if test="lastrepricedate != null">
+        #{lastrepricedate,jdbcType=VARCHAR},
+      </if>
+      <if test="nextrepricedate != null">
+        #{nextrepricedate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="dataDate != null">
+        #{dataDate,jdbcType=VARCHAR},
+      </if>
+      <if test="channelType != null">
+        #{channelType,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

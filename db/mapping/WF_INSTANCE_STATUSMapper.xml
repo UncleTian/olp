@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.WF_INSTANCE_STATUSMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.WF_INSTANCE_STATUS">
+    <result column="INSTANCEID" jdbcType="VARCHAR" property="instanceid" />
+    <result column="SUBLEVEL" jdbcType="VARCHAR" property="sublevel" />
+    <result column="PRENODENAME" jdbcType="VARCHAR" property="prenodename" />
+    <result column="PRENODEID" jdbcType="VARCHAR" property="prenodeid" />
+    <result column="NODENAME" jdbcType="VARCHAR" property="nodename" />
+    <result column="NODEID" jdbcType="VARCHAR" property="nodeid" />
+    <result column="NODESIGN" jdbcType="VARCHAR" property="nodesign" />
+    <result column="NODEACTIONLIST" jdbcType="VARCHAR" property="nodeactionlist" />
+    <result column="NODEREQUEST" jdbcType="CHAR" property="noderequest" />
+    <result column="NODEUSERMODIFYTYPE" jdbcType="CHAR" property="nodeusermodifytype" />
+    <result column="NODENUMBER" jdbcType="VARCHAR" property="nodenumber" />
+    <result column="WFNODEFORMID" jdbcType="VARCHAR" property="wfnodeformid" />
+    <result column="WFNODEFORMFLOW" jdbcType="VARCHAR" property="wfnodeformflow" />
+    <result column="NODERECALLSET" jdbcType="CHAR" property="noderecallset" />
+    <result column="NODECHANGESET" jdbcType="CHAR" property="nodechangeset" />
+    <result column="NODERETURNBACKSET" jdbcType="CHAR" property="nodereturnbackset" />
+    <result column="NODEURGESET" jdbcType="CHAR" property="nodeurgeset" />
+    <result column="NODEANNOUNCESET" jdbcType="CHAR" property="nodeannounceset" />
+    <result column="NODESTARTTIME" jdbcType="CHAR" property="nodestarttime" />
+    <result column="NODEACCEPTTIME" jdbcType="CHAR" property="nodeaccepttime" />
+    <result column="NODEPLANENDTIME" jdbcType="CHAR" property="nodeplanendtime" />
+    <result column="CURRENTNODEUSERS" jdbcType="VARCHAR" property="currentnodeusers" />
+    <result column="CURRENTNODEUSER" jdbcType="VARCHAR" property="currentnodeuser" />
+    <result column="CURRENTNODEPROCESSORS" jdbcType="VARCHAR" property="currentnodeprocessors" />
+    <result column="PREPROCESSORLIST" jdbcType="VARCHAR" property="preprocessorlist" />
+    <result column="ISLASTUSER" jdbcType="CHAR" property="islastuser" />
+  </resultMap>
+  <insert id="insert" parameterType="com.bea.olp.WF_INSTANCE_STATUS">
+    insert into WF_INSTANCE_STATUS (INSTANCEID, SUBLEVEL, PRENODENAME, 
+      PRENODEID, NODENAME, NODEID, 
+      NODESIGN, NODEACTIONLIST, NODEREQUEST, 
+      NODEUSERMODIFYTYPE, NODENUMBER, WFNODEFORMID, 
+      WFNODEFORMFLOW, NODERECALLSET, NODECHANGESET, 
+      NODERETURNBACKSET, NODEURGESET, NODEANNOUNCESET, 
+      NODESTARTTIME, NODEACCEPTTIME, NODEPLANENDTIME, 
+      CURRENTNODEUSERS, CURRENTNODEUSER, CURRENTNODEPROCESSORS, 
+      PREPROCESSORLIST, ISLASTUSER)
+    values (#{instanceid,jdbcType=VARCHAR}, #{sublevel,jdbcType=VARCHAR}, #{prenodename,jdbcType=VARCHAR}, 
+      #{prenodeid,jdbcType=VARCHAR}, #{nodename,jdbcType=VARCHAR}, #{nodeid,jdbcType=VARCHAR}, 
+      #{nodesign,jdbcType=VARCHAR}, #{nodeactionlist,jdbcType=VARCHAR}, #{noderequest,jdbcType=CHAR}, 
+      #{nodeusermodifytype,jdbcType=CHAR}, #{nodenumber,jdbcType=VARCHAR}, #{wfnodeformid,jdbcType=VARCHAR}, 
+      #{wfnodeformflow,jdbcType=VARCHAR}, #{noderecallset,jdbcType=CHAR}, #{nodechangeset,jdbcType=CHAR}, 
+      #{nodereturnbackset,jdbcType=CHAR}, #{nodeurgeset,jdbcType=CHAR}, #{nodeannounceset,jdbcType=CHAR}, 
+      #{nodestarttime,jdbcType=CHAR}, #{nodeaccepttime,jdbcType=CHAR}, #{nodeplanendtime,jdbcType=CHAR}, 
+      #{currentnodeusers,jdbcType=VARCHAR}, #{currentnodeuser,jdbcType=VARCHAR}, #{currentnodeprocessors,jdbcType=VARCHAR}, 
+      #{preprocessorlist,jdbcType=VARCHAR}, #{islastuser,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.WF_INSTANCE_STATUS">
+    insert into WF_INSTANCE_STATUS
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="instanceid != null">
+        INSTANCEID,
+      </if>
+      <if test="sublevel != null">
+        SUBLEVEL,
+      </if>
+      <if test="prenodename != null">
+        PRENODENAME,
+      </if>
+      <if test="prenodeid != null">
+        PRENODEID,
+      </if>
+      <if test="nodename != null">
+        NODENAME,
+      </if>
+      <if test="nodeid != null">
+        NODEID,
+      </if>
+      <if test="nodesign != null">
+        NODESIGN,
+      </if>
+      <if test="nodeactionlist != null">
+        NODEACTIONLIST,
+      </if>
+      <if test="noderequest != null">
+        NODEREQUEST,
+      </if>
+      <if test="nodeusermodifytype != null">
+        NODEUSERMODIFYTYPE,
+      </if>
+      <if test="nodenumber != null">
+        NODENUMBER,
+      </if>
+      <if test="wfnodeformid != null">
+        WFNODEFORMID,
+      </if>
+      <if test="wfnodeformflow != null">
+        WFNODEFORMFLOW,
+      </if>
+      <if test="noderecallset != null">
+        NODERECALLSET,
+      </if>
+      <if test="nodechangeset != null">
+        NODECHANGESET,
+      </if>
+      <if test="nodereturnbackset != null">
+        NODERETURNBACKSET,
+      </if>
+      <if test="nodeurgeset != null">
+        NODEURGESET,
+      </if>
+      <if test="nodeannounceset != null">
+        NODEANNOUNCESET,
+      </if>
+      <if test="nodestarttime != null">
+        NODESTARTTIME,
+      </if>
+      <if test="nodeaccepttime != null">
+        NODEACCEPTTIME,
+      </if>
+      <if test="nodeplanendtime != null">
+        NODEPLANENDTIME,
+      </if>
+      <if test="currentnodeusers != null">
+        CURRENTNODEUSERS,
+      </if>
+      <if test="currentnodeuser != null">
+        CURRENTNODEUSER,
+      </if>
+      <if test="currentnodeprocessors != null">
+        CURRENTNODEPROCESSORS,
+      </if>
+      <if test="preprocessorlist != null">
+        PREPROCESSORLIST,
+      </if>
+      <if test="islastuser != null">
+        ISLASTUSER,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="instanceid != null">
+        #{instanceid,jdbcType=VARCHAR},
+      </if>
+      <if test="sublevel != null">
+        #{sublevel,jdbcType=VARCHAR},
+      </if>
+      <if test="prenodename != null">
+        #{prenodename,jdbcType=VARCHAR},
+      </if>
+      <if test="prenodeid != null">
+        #{prenodeid,jdbcType=VARCHAR},
+      </if>
+      <if test="nodename != null">
+        #{nodename,jdbcType=VARCHAR},
+      </if>
+      <if test="nodeid != null">
+        #{nodeid,jdbcType=VARCHAR},
+      </if>
+      <if test="nodesign != null">
+        #{nodesign,jdbcType=VARCHAR},
+      </if>
+      <if test="nodeactionlist != null">
+        #{nodeactionlist,jdbcType=VARCHAR},
+      </if>
+      <if test="noderequest != null">
+        #{noderequest,jdbcType=CHAR},
+      </if>
+      <if test="nodeusermodifytype != null">
+        #{nodeusermodifytype,jdbcType=CHAR},
+      </if>
+      <if test="nodenumber != null">
+        #{nodenumber,jdbcType=VARCHAR},
+      </if>
+      <if test="wfnodeformid != null">
+        #{wfnodeformid,jdbcType=VARCHAR},
+      </if>
+      <if test="wfnodeformflow != null">
+        #{wfnodeformflow,jdbcType=VARCHAR},
+      </if>
+      <if test="noderecallset != null">
+        #{noderecallset,jdbcType=CHAR},
+      </if>
+      <if test="nodechangeset != null">
+        #{nodechangeset,jdbcType=CHAR},
+      </if>
+      <if test="nodereturnbackset != null">
+        #{nodereturnbackset,jdbcType=CHAR},
+      </if>
+      <if test="nodeurgeset != null">
+        #{nodeurgeset,jdbcType=CHAR},
+      </if>
+      <if test="nodeannounceset != null">
+        #{nodeannounceset,jdbcType=CHAR},
+      </if>
+      <if test="nodestarttime != null">
+        #{nodestarttime,jdbcType=CHAR},
+      </if>
+      <if test="nodeaccepttime != null">
+        #{nodeaccepttime,jdbcType=CHAR},
+      </if>
+      <if test="nodeplanendtime != null">
+        #{nodeplanendtime,jdbcType=CHAR},
+      </if>
+      <if test="currentnodeusers != null">
+        #{currentnodeusers,jdbcType=VARCHAR},
+      </if>
+      <if test="currentnodeuser != null">
+        #{currentnodeuser,jdbcType=VARCHAR},
+      </if>
+      <if test="currentnodeprocessors != null">
+        #{currentnodeprocessors,jdbcType=VARCHAR},
+      </if>
+      <if test="preprocessorlist != null">
+        #{preprocessorlist,jdbcType=VARCHAR},
+      </if>
+      <if test="islastuser != null">
+        #{islastuser,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

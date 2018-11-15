@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.WFI_BIZ_PARAMSMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.WFI_BIZ_PARAMS">
+    <id column="VAL_KEY" jdbcType="VARCHAR" property="valKey" />
+    <result column="VAL_NAME" jdbcType="VARCHAR" property="valName" />
+    <result column="VAL_ALIAS" jdbcType="VARCHAR" property="valAlias" />
+    <result column="VAL_DESC" jdbcType="VARCHAR" property="valDesc" />
+    <result column="VAL_TYPE" jdbcType="VARCHAR" property="valType" />
+    <result column="VAL_CLASS" jdbcType="VARCHAR" property="valClass" />
+    <result column="BIZ_TYPE" jdbcType="VARCHAR" property="bizType" />
+    <result column="SOURCE_TYPE" jdbcType="VARCHAR" property="sourceType" />
+    <result column="SOURCE_CODE" jdbcType="VARCHAR" property="sourceCode" />
+    <result column="VAL_POP" jdbcType="VARCHAR" property="valPop" />
+    <result column="VAL_DIC" jdbcType="VARCHAR" property="valDic" />
+    <result column="VAL_ORDER" jdbcType="DECIMAL" property="valOrder" />
+    <result column="VAL_AUTHOR" jdbcType="VARCHAR" property="valAuthor" />
+    <result column="VAL_ORG" jdbcType="VARCHAR" property="valOrg" />
+    <result column="VAL_STATE" jdbcType="VARCHAR" property="valState" />
+    <result column="APP_STATE" jdbcType="VARCHAR" property="appState" />
+    <result column="OPINION" jdbcType="VARCHAR" property="opinion" />
+    <result column="STATE" jdbcType="VARCHAR" property="state" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    VAL_KEY, VAL_NAME, VAL_ALIAS, VAL_DESC, VAL_TYPE, VAL_CLASS, BIZ_TYPE, SOURCE_TYPE, 
+    SOURCE_CODE, VAL_POP, VAL_DIC, VAL_ORDER, VAL_AUTHOR, VAL_ORG, VAL_STATE, APP_STATE, 
+    OPINION, STATE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from WFI_BIZ_PARAMS
+    where VAL_KEY = #{valKey,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from WFI_BIZ_PARAMS
+    where VAL_KEY = #{valKey,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.WFI_BIZ_PARAMS">
+    insert into WFI_BIZ_PARAMS (VAL_KEY, VAL_NAME, VAL_ALIAS, 
+      VAL_DESC, VAL_TYPE, VAL_CLASS, 
+      BIZ_TYPE, SOURCE_TYPE, SOURCE_CODE, 
+      VAL_POP, VAL_DIC, VAL_ORDER, 
+      VAL_AUTHOR, VAL_ORG, VAL_STATE, 
+      APP_STATE, OPINION, STATE
+      )
+    values (#{valKey,jdbcType=VARCHAR}, #{valName,jdbcType=VARCHAR}, #{valAlias,jdbcType=VARCHAR}, 
+      #{valDesc,jdbcType=VARCHAR}, #{valType,jdbcType=VARCHAR}, #{valClass,jdbcType=VARCHAR}, 
+      #{bizType,jdbcType=VARCHAR}, #{sourceType,jdbcType=VARCHAR}, #{sourceCode,jdbcType=VARCHAR}, 
+      #{valPop,jdbcType=VARCHAR}, #{valDic,jdbcType=VARCHAR}, #{valOrder,jdbcType=DECIMAL}, 
+      #{valAuthor,jdbcType=VARCHAR}, #{valOrg,jdbcType=VARCHAR}, #{valState,jdbcType=VARCHAR}, 
+      #{appState,jdbcType=VARCHAR}, #{opinion,jdbcType=VARCHAR}, #{state,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.WFI_BIZ_PARAMS">
+    insert into WFI_BIZ_PARAMS
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="valKey != null">
+        VAL_KEY,
+      </if>
+      <if test="valName != null">
+        VAL_NAME,
+      </if>
+      <if test="valAlias != null">
+        VAL_ALIAS,
+      </if>
+      <if test="valDesc != null">
+        VAL_DESC,
+      </if>
+      <if test="valType != null">
+        VAL_TYPE,
+      </if>
+      <if test="valClass != null">
+        VAL_CLASS,
+      </if>
+      <if test="bizType != null">
+        BIZ_TYPE,
+      </if>
+      <if test="sourceType != null">
+        SOURCE_TYPE,
+      </if>
+      <if test="sourceCode != null">
+        SOURCE_CODE,
+      </if>
+      <if test="valPop != null">
+        VAL_POP,
+      </if>
+      <if test="valDic != null">
+        VAL_DIC,
+      </if>
+      <if test="valOrder != null">
+        VAL_ORDER,
+      </if>
+      <if test="valAuthor != null">
+        VAL_AUTHOR,
+      </if>
+      <if test="valOrg != null">
+        VAL_ORG,
+      </if>
+      <if test="valState != null">
+        VAL_STATE,
+      </if>
+      <if test="appState != null">
+        APP_STATE,
+      </if>
+      <if test="opinion != null">
+        OPINION,
+      </if>
+      <if test="state != null">
+        STATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="valKey != null">
+        #{valKey,jdbcType=VARCHAR},
+      </if>
+      <if test="valName != null">
+        #{valName,jdbcType=VARCHAR},
+      </if>
+      <if test="valAlias != null">
+        #{valAlias,jdbcType=VARCHAR},
+      </if>
+      <if test="valDesc != null">
+        #{valDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="valType != null">
+        #{valType,jdbcType=VARCHAR},
+      </if>
+      <if test="valClass != null">
+        #{valClass,jdbcType=VARCHAR},
+      </if>
+      <if test="bizType != null">
+        #{bizType,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceType != null">
+        #{sourceType,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceCode != null">
+        #{sourceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="valPop != null">
+        #{valPop,jdbcType=VARCHAR},
+      </if>
+      <if test="valDic != null">
+        #{valDic,jdbcType=VARCHAR},
+      </if>
+      <if test="valOrder != null">
+        #{valOrder,jdbcType=DECIMAL},
+      </if>
+      <if test="valAuthor != null">
+        #{valAuthor,jdbcType=VARCHAR},
+      </if>
+      <if test="valOrg != null">
+        #{valOrg,jdbcType=VARCHAR},
+      </if>
+      <if test="valState != null">
+        #{valState,jdbcType=VARCHAR},
+      </if>
+      <if test="appState != null">
+        #{appState,jdbcType=VARCHAR},
+      </if>
+      <if test="opinion != null">
+        #{opinion,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null">
+        #{state,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.WFI_BIZ_PARAMS">
+    update WFI_BIZ_PARAMS
+    <set>
+      <if test="valName != null">
+        VAL_NAME = #{valName,jdbcType=VARCHAR},
+      </if>
+      <if test="valAlias != null">
+        VAL_ALIAS = #{valAlias,jdbcType=VARCHAR},
+      </if>
+      <if test="valDesc != null">
+        VAL_DESC = #{valDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="valType != null">
+        VAL_TYPE = #{valType,jdbcType=VARCHAR},
+      </if>
+      <if test="valClass != null">
+        VAL_CLASS = #{valClass,jdbcType=VARCHAR},
+      </if>
+      <if test="bizType != null">
+        BIZ_TYPE = #{bizType,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceType != null">
+        SOURCE_TYPE = #{sourceType,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceCode != null">
+        SOURCE_CODE = #{sourceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="valPop != null">
+        VAL_POP = #{valPop,jdbcType=VARCHAR},
+      </if>
+      <if test="valDic != null">
+        VAL_DIC = #{valDic,jdbcType=VARCHAR},
+      </if>
+      <if test="valOrder != null">
+        VAL_ORDER = #{valOrder,jdbcType=DECIMAL},
+      </if>
+      <if test="valAuthor != null">
+        VAL_AUTHOR = #{valAuthor,jdbcType=VARCHAR},
+      </if>
+      <if test="valOrg != null">
+        VAL_ORG = #{valOrg,jdbcType=VARCHAR},
+      </if>
+      <if test="valState != null">
+        VAL_STATE = #{valState,jdbcType=VARCHAR},
+      </if>
+      <if test="appState != null">
+        APP_STATE = #{appState,jdbcType=VARCHAR},
+      </if>
+      <if test="opinion != null">
+        OPINION = #{opinion,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null">
+        STATE = #{state,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where VAL_KEY = #{valKey,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.WFI_BIZ_PARAMS">
+    update WFI_BIZ_PARAMS
+    set VAL_NAME = #{valName,jdbcType=VARCHAR},
+      VAL_ALIAS = #{valAlias,jdbcType=VARCHAR},
+      VAL_DESC = #{valDesc,jdbcType=VARCHAR},
+      VAL_TYPE = #{valType,jdbcType=VARCHAR},
+      VAL_CLASS = #{valClass,jdbcType=VARCHAR},
+      BIZ_TYPE = #{bizType,jdbcType=VARCHAR},
+      SOURCE_TYPE = #{sourceType,jdbcType=VARCHAR},
+      SOURCE_CODE = #{sourceCode,jdbcType=VARCHAR},
+      VAL_POP = #{valPop,jdbcType=VARCHAR},
+      VAL_DIC = #{valDic,jdbcType=VARCHAR},
+      VAL_ORDER = #{valOrder,jdbcType=DECIMAL},
+      VAL_AUTHOR = #{valAuthor,jdbcType=VARCHAR},
+      VAL_ORG = #{valOrg,jdbcType=VARCHAR},
+      VAL_STATE = #{valState,jdbcType=VARCHAR},
+      APP_STATE = #{appState,jdbcType=VARCHAR},
+      OPINION = #{opinion,jdbcType=VARCHAR},
+      STATE = #{state,jdbcType=VARCHAR}
+    where VAL_KEY = #{valKey,jdbcType=VARCHAR}
+  </update>
+</mapper>

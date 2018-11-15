@@ -1,0 +1,385 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.BAT_CBM_ACCT_LOANMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.BAT_CBM_ACCT_LOAN">
+    <result column="SERIALNO" jdbcType="VARCHAR" property="serialno" />
+    <result column="NETSERIALNO" jdbcType="VARCHAR" property="netserialno" />
+    <result column="CONTRACTSERIALNO" jdbcType="VARCHAR" property="contractserialno" />
+    <result column="BUSINESSTYPE" jdbcType="VARCHAR" property="businesstype" />
+    <result column="CURRENCY" jdbcType="VARCHAR" property="currency" />
+    <result column="BUSINESSSUM" jdbcType="DECIMAL" property="businesssum" />
+    <result column="PUTOUTDATE" jdbcType="VARCHAR" property="putoutdate" />
+    <result column="MATURITYDATE" jdbcType="VARCHAR" property="maturitydate" />
+    <result column="OPERATEORGID" jdbcType="VARCHAR" property="operateorgid" />
+    <result column="ACCOUNTINGORGID" jdbcType="VARCHAR" property="accountingorgid" />
+    <result column="LOANSTATUS" jdbcType="VARCHAR" property="loanstatus" />
+    <result column="FINISHDATE" jdbcType="VARCHAR" property="finishdate" />
+    <result column="BUSINESSDATE" jdbcType="VARCHAR" property="businessdate" />
+    <result column="OVERDUEDAYS" jdbcType="DECIMAL" property="overduedays" />
+    <result column="PUTOUTSERIALNO" jdbcType="VARCHAR" property="putoutserialno" />
+    <result column="AUTOPAYFLAG" jdbcType="VARCHAR" property="autopayflag" />
+    <result column="REGROUPFLAG" jdbcType="VARCHAR" property="regroupflag" />
+    <result column="REPAYFREEZETYPE" jdbcType="VARCHAR" property="repayfreezetype" />
+    <result column="REPAYFREEZENUM" jdbcType="VARCHAR" property="repayfreezenum" />
+    <result column="REPAYACCOUNTNAME" jdbcType="VARCHAR" property="repayaccountname" />
+    <result column="REPAYACCOUNT" jdbcType="VARCHAR" property="repayaccount" />
+    <result column="FIRSTREPAYDATE" jdbcType="VARCHAR" property="firstrepaydate" />
+    <result column="NORMALBALANCE" jdbcType="DECIMAL" property="normalbalance" />
+    <result column="OVERDUEBALANCE" jdbcType="DECIMAL" property="overduebalance" />
+    <result column="INTERESTOVERDUEDAYS" jdbcType="DECIMAL" property="interestoverduedays" />
+    <result column="SORTLONGFLAG" jdbcType="VARCHAR" property="sortlongflag" />
+    <result column="AREA_FLAG" jdbcType="VARCHAR" property="areaFlag" />
+    <result column="COUNTERPARTY" jdbcType="VARCHAR" property="counterparty" />
+    <result column="INTERESTAMT" jdbcType="DECIMAL" property="interestamt" />
+    <result column="PRINCIPALPENALTYAMT" jdbcType="DECIMAL" property="principalpenaltyamt" />
+    <result column="GRACEPERIOD" jdbcType="DECIMAL" property="graceperiod" />
+    <result column="CNY_BUSINESS_UNIT" jdbcType="VARCHAR" property="cnyBusinessUnit" />
+    <result column="REPAYTYPE" jdbcType="VARCHAR" property="repaytype" />
+    <result column="REPAYFREQUENCY" jdbcType="VARCHAR" property="repayfrequency" />
+    <result column="RATECHOICETYPE" jdbcType="VARCHAR" property="ratechoicetype" />
+    <result column="EXECUTERATE" jdbcType="DECIMAL" property="executerate" />
+    <result column="MAXPRINCIPALOVERDUEDAYS" jdbcType="DECIMAL" property="maxprincipaloverduedays" />
+    <result column="MAXINTERESTOVERDUEDAYS" jdbcType="DECIMAL" property="maxinterestoverduedays" />
+    <result column="PRINCIPALOVERDUEDATE" jdbcType="VARCHAR" property="principaloverduedate" />
+    <result column="INTERESTOVERDUEDATE" jdbcType="VARCHAR" property="interestoverduedate" />
+    <result column="INTERESTDATE" jdbcType="VARCHAR" property="interestdate" />
+    <result column="DEPARTMENTID" jdbcType="VARCHAR" property="departmentid" />
+    <result column="CUSTOMERID" jdbcType="VARCHAR" property="customerid" />
+    <result column="CUSTOMERNAME" jdbcType="VARCHAR" property="customername" />
+    <result column="INPUT_DATE" jdbcType="VARCHAR" property="inputDate" />
+    <result column="INPUT_TIME" jdbcType="VARCHAR" property="inputTime" />
+    <result column="DATA_DATE" jdbcType="VARCHAR" property="dataDate" />
+    <result column="CHANNEL_TYPE" jdbcType="VARCHAR" property="channelType" />
+  </resultMap>
+  <insert id="insert" parameterType="com.bea.olp.BAT_CBM_ACCT_LOAN">
+    insert into BAT_CBM_ACCT_LOAN (SERIALNO, NETSERIALNO, CONTRACTSERIALNO, 
+      BUSINESSTYPE, CURRENCY, BUSINESSSUM, 
+      PUTOUTDATE, MATURITYDATE, OPERATEORGID, 
+      ACCOUNTINGORGID, LOANSTATUS, FINISHDATE, 
+      BUSINESSDATE, OVERDUEDAYS, PUTOUTSERIALNO, 
+      AUTOPAYFLAG, REGROUPFLAG, REPAYFREEZETYPE, 
+      REPAYFREEZENUM, REPAYACCOUNTNAME, REPAYACCOUNT, 
+      FIRSTREPAYDATE, NORMALBALANCE, OVERDUEBALANCE, 
+      INTERESTOVERDUEDAYS, SORTLONGFLAG, AREA_FLAG, 
+      COUNTERPARTY, INTERESTAMT, PRINCIPALPENALTYAMT, 
+      GRACEPERIOD, CNY_BUSINESS_UNIT, REPAYTYPE, 
+      REPAYFREQUENCY, RATECHOICETYPE, EXECUTERATE, 
+      MAXPRINCIPALOVERDUEDAYS, MAXINTERESTOVERDUEDAYS, 
+      PRINCIPALOVERDUEDATE, INTERESTOVERDUEDATE, 
+      INTERESTDATE, DEPARTMENTID, CUSTOMERID, 
+      CUSTOMERNAME, INPUT_DATE, INPUT_TIME, 
+      DATA_DATE, CHANNEL_TYPE)
+    values (#{serialno,jdbcType=VARCHAR}, #{netserialno,jdbcType=VARCHAR}, #{contractserialno,jdbcType=VARCHAR}, 
+      #{businesstype,jdbcType=VARCHAR}, #{currency,jdbcType=VARCHAR}, #{businesssum,jdbcType=DECIMAL}, 
+      #{putoutdate,jdbcType=VARCHAR}, #{maturitydate,jdbcType=VARCHAR}, #{operateorgid,jdbcType=VARCHAR}, 
+      #{accountingorgid,jdbcType=VARCHAR}, #{loanstatus,jdbcType=VARCHAR}, #{finishdate,jdbcType=VARCHAR}, 
+      #{businessdate,jdbcType=VARCHAR}, #{overduedays,jdbcType=DECIMAL}, #{putoutserialno,jdbcType=VARCHAR}, 
+      #{autopayflag,jdbcType=VARCHAR}, #{regroupflag,jdbcType=VARCHAR}, #{repayfreezetype,jdbcType=VARCHAR}, 
+      #{repayfreezenum,jdbcType=VARCHAR}, #{repayaccountname,jdbcType=VARCHAR}, #{repayaccount,jdbcType=VARCHAR}, 
+      #{firstrepaydate,jdbcType=VARCHAR}, #{normalbalance,jdbcType=DECIMAL}, #{overduebalance,jdbcType=DECIMAL}, 
+      #{interestoverduedays,jdbcType=DECIMAL}, #{sortlongflag,jdbcType=VARCHAR}, #{areaFlag,jdbcType=VARCHAR}, 
+      #{counterparty,jdbcType=VARCHAR}, #{interestamt,jdbcType=DECIMAL}, #{principalpenaltyamt,jdbcType=DECIMAL}, 
+      #{graceperiod,jdbcType=DECIMAL}, #{cnyBusinessUnit,jdbcType=VARCHAR}, #{repaytype,jdbcType=VARCHAR}, 
+      #{repayfrequency,jdbcType=VARCHAR}, #{ratechoicetype,jdbcType=VARCHAR}, #{executerate,jdbcType=DECIMAL}, 
+      #{maxprincipaloverduedays,jdbcType=DECIMAL}, #{maxinterestoverduedays,jdbcType=DECIMAL}, 
+      #{principaloverduedate,jdbcType=VARCHAR}, #{interestoverduedate,jdbcType=VARCHAR}, 
+      #{interestdate,jdbcType=VARCHAR}, #{departmentid,jdbcType=VARCHAR}, #{customerid,jdbcType=VARCHAR}, 
+      #{customername,jdbcType=VARCHAR}, #{inputDate,jdbcType=VARCHAR}, #{inputTime,jdbcType=VARCHAR}, 
+      #{dataDate,jdbcType=VARCHAR}, #{channelType,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.BAT_CBM_ACCT_LOAN">
+    insert into BAT_CBM_ACCT_LOAN
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="serialno != null">
+        SERIALNO,
+      </if>
+      <if test="netserialno != null">
+        NETSERIALNO,
+      </if>
+      <if test="contractserialno != null">
+        CONTRACTSERIALNO,
+      </if>
+      <if test="businesstype != null">
+        BUSINESSTYPE,
+      </if>
+      <if test="currency != null">
+        CURRENCY,
+      </if>
+      <if test="businesssum != null">
+        BUSINESSSUM,
+      </if>
+      <if test="putoutdate != null">
+        PUTOUTDATE,
+      </if>
+      <if test="maturitydate != null">
+        MATURITYDATE,
+      </if>
+      <if test="operateorgid != null">
+        OPERATEORGID,
+      </if>
+      <if test="accountingorgid != null">
+        ACCOUNTINGORGID,
+      </if>
+      <if test="loanstatus != null">
+        LOANSTATUS,
+      </if>
+      <if test="finishdate != null">
+        FINISHDATE,
+      </if>
+      <if test="businessdate != null">
+        BUSINESSDATE,
+      </if>
+      <if test="overduedays != null">
+        OVERDUEDAYS,
+      </if>
+      <if test="putoutserialno != null">
+        PUTOUTSERIALNO,
+      </if>
+      <if test="autopayflag != null">
+        AUTOPAYFLAG,
+      </if>
+      <if test="regroupflag != null">
+        REGROUPFLAG,
+      </if>
+      <if test="repayfreezetype != null">
+        REPAYFREEZETYPE,
+      </if>
+      <if test="repayfreezenum != null">
+        REPAYFREEZENUM,
+      </if>
+      <if test="repayaccountname != null">
+        REPAYACCOUNTNAME,
+      </if>
+      <if test="repayaccount != null">
+        REPAYACCOUNT,
+      </if>
+      <if test="firstrepaydate != null">
+        FIRSTREPAYDATE,
+      </if>
+      <if test="normalbalance != null">
+        NORMALBALANCE,
+      </if>
+      <if test="overduebalance != null">
+        OVERDUEBALANCE,
+      </if>
+      <if test="interestoverduedays != null">
+        INTERESTOVERDUEDAYS,
+      </if>
+      <if test="sortlongflag != null">
+        SORTLONGFLAG,
+      </if>
+      <if test="areaFlag != null">
+        AREA_FLAG,
+      </if>
+      <if test="counterparty != null">
+        COUNTERPARTY,
+      </if>
+      <if test="interestamt != null">
+        INTERESTAMT,
+      </if>
+      <if test="principalpenaltyamt != null">
+        PRINCIPALPENALTYAMT,
+      </if>
+      <if test="graceperiod != null">
+        GRACEPERIOD,
+      </if>
+      <if test="cnyBusinessUnit != null">
+        CNY_BUSINESS_UNIT,
+      </if>
+      <if test="repaytype != null">
+        REPAYTYPE,
+      </if>
+      <if test="repayfrequency != null">
+        REPAYFREQUENCY,
+      </if>
+      <if test="ratechoicetype != null">
+        RATECHOICETYPE,
+      </if>
+      <if test="executerate != null">
+        EXECUTERATE,
+      </if>
+      <if test="maxprincipaloverduedays != null">
+        MAXPRINCIPALOVERDUEDAYS,
+      </if>
+      <if test="maxinterestoverduedays != null">
+        MAXINTERESTOVERDUEDAYS,
+      </if>
+      <if test="principaloverduedate != null">
+        PRINCIPALOVERDUEDATE,
+      </if>
+      <if test="interestoverduedate != null">
+        INTERESTOVERDUEDATE,
+      </if>
+      <if test="interestdate != null">
+        INTERESTDATE,
+      </if>
+      <if test="departmentid != null">
+        DEPARTMENTID,
+      </if>
+      <if test="customerid != null">
+        CUSTOMERID,
+      </if>
+      <if test="customername != null">
+        CUSTOMERNAME,
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE,
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME,
+      </if>
+      <if test="dataDate != null">
+        DATA_DATE,
+      </if>
+      <if test="channelType != null">
+        CHANNEL_TYPE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="serialno != null">
+        #{serialno,jdbcType=VARCHAR},
+      </if>
+      <if test="netserialno != null">
+        #{netserialno,jdbcType=VARCHAR},
+      </if>
+      <if test="contractserialno != null">
+        #{contractserialno,jdbcType=VARCHAR},
+      </if>
+      <if test="businesstype != null">
+        #{businesstype,jdbcType=VARCHAR},
+      </if>
+      <if test="currency != null">
+        #{currency,jdbcType=VARCHAR},
+      </if>
+      <if test="businesssum != null">
+        #{businesssum,jdbcType=DECIMAL},
+      </if>
+      <if test="putoutdate != null">
+        #{putoutdate,jdbcType=VARCHAR},
+      </if>
+      <if test="maturitydate != null">
+        #{maturitydate,jdbcType=VARCHAR},
+      </if>
+      <if test="operateorgid != null">
+        #{operateorgid,jdbcType=VARCHAR},
+      </if>
+      <if test="accountingorgid != null">
+        #{accountingorgid,jdbcType=VARCHAR},
+      </if>
+      <if test="loanstatus != null">
+        #{loanstatus,jdbcType=VARCHAR},
+      </if>
+      <if test="finishdate != null">
+        #{finishdate,jdbcType=VARCHAR},
+      </if>
+      <if test="businessdate != null">
+        #{businessdate,jdbcType=VARCHAR},
+      </if>
+      <if test="overduedays != null">
+        #{overduedays,jdbcType=DECIMAL},
+      </if>
+      <if test="putoutserialno != null">
+        #{putoutserialno,jdbcType=VARCHAR},
+      </if>
+      <if test="autopayflag != null">
+        #{autopayflag,jdbcType=VARCHAR},
+      </if>
+      <if test="regroupflag != null">
+        #{regroupflag,jdbcType=VARCHAR},
+      </if>
+      <if test="repayfreezetype != null">
+        #{repayfreezetype,jdbcType=VARCHAR},
+      </if>
+      <if test="repayfreezenum != null">
+        #{repayfreezenum,jdbcType=VARCHAR},
+      </if>
+      <if test="repayaccountname != null">
+        #{repayaccountname,jdbcType=VARCHAR},
+      </if>
+      <if test="repayaccount != null">
+        #{repayaccount,jdbcType=VARCHAR},
+      </if>
+      <if test="firstrepaydate != null">
+        #{firstrepaydate,jdbcType=VARCHAR},
+      </if>
+      <if test="normalbalance != null">
+        #{normalbalance,jdbcType=DECIMAL},
+      </if>
+      <if test="overduebalance != null">
+        #{overduebalance,jdbcType=DECIMAL},
+      </if>
+      <if test="interestoverduedays != null">
+        #{interestoverduedays,jdbcType=DECIMAL},
+      </if>
+      <if test="sortlongflag != null">
+        #{sortlongflag,jdbcType=VARCHAR},
+      </if>
+      <if test="areaFlag != null">
+        #{areaFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="counterparty != null">
+        #{counterparty,jdbcType=VARCHAR},
+      </if>
+      <if test="interestamt != null">
+        #{interestamt,jdbcType=DECIMAL},
+      </if>
+      <if test="principalpenaltyamt != null">
+        #{principalpenaltyamt,jdbcType=DECIMAL},
+      </if>
+      <if test="graceperiod != null">
+        #{graceperiod,jdbcType=DECIMAL},
+      </if>
+      <if test="cnyBusinessUnit != null">
+        #{cnyBusinessUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="repaytype != null">
+        #{repaytype,jdbcType=VARCHAR},
+      </if>
+      <if test="repayfrequency != null">
+        #{repayfrequency,jdbcType=VARCHAR},
+      </if>
+      <if test="ratechoicetype != null">
+        #{ratechoicetype,jdbcType=VARCHAR},
+      </if>
+      <if test="executerate != null">
+        #{executerate,jdbcType=DECIMAL},
+      </if>
+      <if test="maxprincipaloverduedays != null">
+        #{maxprincipaloverduedays,jdbcType=DECIMAL},
+      </if>
+      <if test="maxinterestoverduedays != null">
+        #{maxinterestoverduedays,jdbcType=DECIMAL},
+      </if>
+      <if test="principaloverduedate != null">
+        #{principaloverduedate,jdbcType=VARCHAR},
+      </if>
+      <if test="interestoverduedate != null">
+        #{interestoverduedate,jdbcType=VARCHAR},
+      </if>
+      <if test="interestdate != null">
+        #{interestdate,jdbcType=VARCHAR},
+      </if>
+      <if test="departmentid != null">
+        #{departmentid,jdbcType=VARCHAR},
+      </if>
+      <if test="customerid != null">
+        #{customerid,jdbcType=VARCHAR},
+      </if>
+      <if test="customername != null">
+        #{customername,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="dataDate != null">
+        #{dataDate,jdbcType=VARCHAR},
+      </if>
+      <if test="channelType != null">
+        #{channelType,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

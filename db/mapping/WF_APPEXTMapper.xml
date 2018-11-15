@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.WF_APPEXTMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.WF_APPEXT">
+    <id column="INSTANCEID" jdbcType="VARCHAR" property="instanceid" />
+    <result column="VA" jdbcType="VARCHAR" property="va" />
+    <result column="VB" jdbcType="VARCHAR" property="vb" />
+    <result column="VC" jdbcType="VARCHAR" property="vc" />
+    <result column="VD" jdbcType="VARCHAR" property="vd" />
+    <result column="VE" jdbcType="VARCHAR" property="ve" />
+    <result column="VF" jdbcType="VARCHAR" property="vf" />
+    <result column="VG" jdbcType="VARCHAR" property="vg" />
+    <result column="VH" jdbcType="VARCHAR" property="vh" />
+    <result column="VI" jdbcType="VARCHAR" property="vi" />
+    <result column="VJ" jdbcType="VARCHAR" property="vj" />
+    <result column="VK" jdbcType="VARCHAR" property="vk" />
+    <result column="VL" jdbcType="VARCHAR" property="vl" />
+    <result column="VM" jdbcType="VARCHAR" property="vm" />
+    <result column="VN" jdbcType="VARCHAR" property="vn" />
+    <result column="VO" jdbcType="VARCHAR" property="vo" />
+    <result column="VP" jdbcType="VARCHAR" property="vp" />
+    <result column="VQ" jdbcType="VARCHAR" property="vq" />
+    <result column="VR" jdbcType="VARCHAR" property="vr" />
+    <result column="VS" jdbcType="VARCHAR" property="vs" />
+    <result column="VT" jdbcType="VARCHAR" property="vt" />
+    <result column="VU" jdbcType="VARCHAR" property="vu" />
+    <result column="VV" jdbcType="VARCHAR" property="vv" />
+    <result column="VW" jdbcType="VARCHAR" property="vw" />
+    <result column="VX" jdbcType="VARCHAR" property="vx" />
+    <result column="VY" jdbcType="VARCHAR" property="vy" />
+    <result column="VZ" jdbcType="VARCHAR" property="vz" />
+    <result column="SYSID" jdbcType="VARCHAR" property="sysid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    INSTANCEID, VA, VB, VC, VD, VE, VF, VG, VH, VI, VJ, VK, VL, VM, VN, VO, VP, VQ, VR, 
+    VS, VT, VU, VV, VW, VX, VY, VZ, SYSID
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from WF_APPEXT
+    where INSTANCEID = #{instanceid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from WF_APPEXT
+    where INSTANCEID = #{instanceid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.WF_APPEXT">
+    insert into WF_APPEXT (INSTANCEID, VA, VB, 
+      VC, VD, VE, VF, 
+      VG, VH, VI, VJ, 
+      VK, VL, VM, VN, 
+      VO, VP, VQ, VR, 
+      VS, VT, VU, VV, 
+      VW, VX, VY, VZ, 
+      SYSID)
+    values (#{instanceid,jdbcType=VARCHAR}, #{va,jdbcType=VARCHAR}, #{vb,jdbcType=VARCHAR}, 
+      #{vc,jdbcType=VARCHAR}, #{vd,jdbcType=VARCHAR}, #{ve,jdbcType=VARCHAR}, #{vf,jdbcType=VARCHAR}, 
+      #{vg,jdbcType=VARCHAR}, #{vh,jdbcType=VARCHAR}, #{vi,jdbcType=VARCHAR}, #{vj,jdbcType=VARCHAR}, 
+      #{vk,jdbcType=VARCHAR}, #{vl,jdbcType=VARCHAR}, #{vm,jdbcType=VARCHAR}, #{vn,jdbcType=VARCHAR}, 
+      #{vo,jdbcType=VARCHAR}, #{vp,jdbcType=VARCHAR}, #{vq,jdbcType=VARCHAR}, #{vr,jdbcType=VARCHAR}, 
+      #{vs,jdbcType=VARCHAR}, #{vt,jdbcType=VARCHAR}, #{vu,jdbcType=VARCHAR}, #{vv,jdbcType=VARCHAR}, 
+      #{vw,jdbcType=VARCHAR}, #{vx,jdbcType=VARCHAR}, #{vy,jdbcType=VARCHAR}, #{vz,jdbcType=VARCHAR}, 
+      #{sysid,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.WF_APPEXT">
+    insert into WF_APPEXT
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="instanceid != null">
+        INSTANCEID,
+      </if>
+      <if test="va != null">
+        VA,
+      </if>
+      <if test="vb != null">
+        VB,
+      </if>
+      <if test="vc != null">
+        VC,
+      </if>
+      <if test="vd != null">
+        VD,
+      </if>
+      <if test="ve != null">
+        VE,
+      </if>
+      <if test="vf != null">
+        VF,
+      </if>
+      <if test="vg != null">
+        VG,
+      </if>
+      <if test="vh != null">
+        VH,
+      </if>
+      <if test="vi != null">
+        VI,
+      </if>
+      <if test="vj != null">
+        VJ,
+      </if>
+      <if test="vk != null">
+        VK,
+      </if>
+      <if test="vl != null">
+        VL,
+      </if>
+      <if test="vm != null">
+        VM,
+      </if>
+      <if test="vn != null">
+        VN,
+      </if>
+      <if test="vo != null">
+        VO,
+      </if>
+      <if test="vp != null">
+        VP,
+      </if>
+      <if test="vq != null">
+        VQ,
+      </if>
+      <if test="vr != null">
+        VR,
+      </if>
+      <if test="vs != null">
+        VS,
+      </if>
+      <if test="vt != null">
+        VT,
+      </if>
+      <if test="vu != null">
+        VU,
+      </if>
+      <if test="vv != null">
+        VV,
+      </if>
+      <if test="vw != null">
+        VW,
+      </if>
+      <if test="vx != null">
+        VX,
+      </if>
+      <if test="vy != null">
+        VY,
+      </if>
+      <if test="vz != null">
+        VZ,
+      </if>
+      <if test="sysid != null">
+        SYSID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="instanceid != null">
+        #{instanceid,jdbcType=VARCHAR},
+      </if>
+      <if test="va != null">
+        #{va,jdbcType=VARCHAR},
+      </if>
+      <if test="vb != null">
+        #{vb,jdbcType=VARCHAR},
+      </if>
+      <if test="vc != null">
+        #{vc,jdbcType=VARCHAR},
+      </if>
+      <if test="vd != null">
+        #{vd,jdbcType=VARCHAR},
+      </if>
+      <if test="ve != null">
+        #{ve,jdbcType=VARCHAR},
+      </if>
+      <if test="vf != null">
+        #{vf,jdbcType=VARCHAR},
+      </if>
+      <if test="vg != null">
+        #{vg,jdbcType=VARCHAR},
+      </if>
+      <if test="vh != null">
+        #{vh,jdbcType=VARCHAR},
+      </if>
+      <if test="vi != null">
+        #{vi,jdbcType=VARCHAR},
+      </if>
+      <if test="vj != null">
+        #{vj,jdbcType=VARCHAR},
+      </if>
+      <if test="vk != null">
+        #{vk,jdbcType=VARCHAR},
+      </if>
+      <if test="vl != null">
+        #{vl,jdbcType=VARCHAR},
+      </if>
+      <if test="vm != null">
+        #{vm,jdbcType=VARCHAR},
+      </if>
+      <if test="vn != null">
+        #{vn,jdbcType=VARCHAR},
+      </if>
+      <if test="vo != null">
+        #{vo,jdbcType=VARCHAR},
+      </if>
+      <if test="vp != null">
+        #{vp,jdbcType=VARCHAR},
+      </if>
+      <if test="vq != null">
+        #{vq,jdbcType=VARCHAR},
+      </if>
+      <if test="vr != null">
+        #{vr,jdbcType=VARCHAR},
+      </if>
+      <if test="vs != null">
+        #{vs,jdbcType=VARCHAR},
+      </if>
+      <if test="vt != null">
+        #{vt,jdbcType=VARCHAR},
+      </if>
+      <if test="vu != null">
+        #{vu,jdbcType=VARCHAR},
+      </if>
+      <if test="vv != null">
+        #{vv,jdbcType=VARCHAR},
+      </if>
+      <if test="vw != null">
+        #{vw,jdbcType=VARCHAR},
+      </if>
+      <if test="vx != null">
+        #{vx,jdbcType=VARCHAR},
+      </if>
+      <if test="vy != null">
+        #{vy,jdbcType=VARCHAR},
+      </if>
+      <if test="vz != null">
+        #{vz,jdbcType=VARCHAR},
+      </if>
+      <if test="sysid != null">
+        #{sysid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.WF_APPEXT">
+    update WF_APPEXT
+    <set>
+      <if test="va != null">
+        VA = #{va,jdbcType=VARCHAR},
+      </if>
+      <if test="vb != null">
+        VB = #{vb,jdbcType=VARCHAR},
+      </if>
+      <if test="vc != null">
+        VC = #{vc,jdbcType=VARCHAR},
+      </if>
+      <if test="vd != null">
+        VD = #{vd,jdbcType=VARCHAR},
+      </if>
+      <if test="ve != null">
+        VE = #{ve,jdbcType=VARCHAR},
+      </if>
+      <if test="vf != null">
+        VF = #{vf,jdbcType=VARCHAR},
+      </if>
+      <if test="vg != null">
+        VG = #{vg,jdbcType=VARCHAR},
+      </if>
+      <if test="vh != null">
+        VH = #{vh,jdbcType=VARCHAR},
+      </if>
+      <if test="vi != null">
+        VI = #{vi,jdbcType=VARCHAR},
+      </if>
+      <if test="vj != null">
+        VJ = #{vj,jdbcType=VARCHAR},
+      </if>
+      <if test="vk != null">
+        VK = #{vk,jdbcType=VARCHAR},
+      </if>
+      <if test="vl != null">
+        VL = #{vl,jdbcType=VARCHAR},
+      </if>
+      <if test="vm != null">
+        VM = #{vm,jdbcType=VARCHAR},
+      </if>
+      <if test="vn != null">
+        VN = #{vn,jdbcType=VARCHAR},
+      </if>
+      <if test="vo != null">
+        VO = #{vo,jdbcType=VARCHAR},
+      </if>
+      <if test="vp != null">
+        VP = #{vp,jdbcType=VARCHAR},
+      </if>
+      <if test="vq != null">
+        VQ = #{vq,jdbcType=VARCHAR},
+      </if>
+      <if test="vr != null">
+        VR = #{vr,jdbcType=VARCHAR},
+      </if>
+      <if test="vs != null">
+        VS = #{vs,jdbcType=VARCHAR},
+      </if>
+      <if test="vt != null">
+        VT = #{vt,jdbcType=VARCHAR},
+      </if>
+      <if test="vu != null">
+        VU = #{vu,jdbcType=VARCHAR},
+      </if>
+      <if test="vv != null">
+        VV = #{vv,jdbcType=VARCHAR},
+      </if>
+      <if test="vw != null">
+        VW = #{vw,jdbcType=VARCHAR},
+      </if>
+      <if test="vx != null">
+        VX = #{vx,jdbcType=VARCHAR},
+      </if>
+      <if test="vy != null">
+        VY = #{vy,jdbcType=VARCHAR},
+      </if>
+      <if test="vz != null">
+        VZ = #{vz,jdbcType=VARCHAR},
+      </if>
+      <if test="sysid != null">
+        SYSID = #{sysid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where INSTANCEID = #{instanceid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.WF_APPEXT">
+    update WF_APPEXT
+    set VA = #{va,jdbcType=VARCHAR},
+      VB = #{vb,jdbcType=VARCHAR},
+      VC = #{vc,jdbcType=VARCHAR},
+      VD = #{vd,jdbcType=VARCHAR},
+      VE = #{ve,jdbcType=VARCHAR},
+      VF = #{vf,jdbcType=VARCHAR},
+      VG = #{vg,jdbcType=VARCHAR},
+      VH = #{vh,jdbcType=VARCHAR},
+      VI = #{vi,jdbcType=VARCHAR},
+      VJ = #{vj,jdbcType=VARCHAR},
+      VK = #{vk,jdbcType=VARCHAR},
+      VL = #{vl,jdbcType=VARCHAR},
+      VM = #{vm,jdbcType=VARCHAR},
+      VN = #{vn,jdbcType=VARCHAR},
+      VO = #{vo,jdbcType=VARCHAR},
+      VP = #{vp,jdbcType=VARCHAR},
+      VQ = #{vq,jdbcType=VARCHAR},
+      VR = #{vr,jdbcType=VARCHAR},
+      VS = #{vs,jdbcType=VARCHAR},
+      VT = #{vt,jdbcType=VARCHAR},
+      VU = #{vu,jdbcType=VARCHAR},
+      VV = #{vv,jdbcType=VARCHAR},
+      VW = #{vw,jdbcType=VARCHAR},
+      VX = #{vx,jdbcType=VARCHAR},
+      VY = #{vy,jdbcType=VARCHAR},
+      VZ = #{vz,jdbcType=VARCHAR},
+      SYSID = #{sysid,jdbcType=VARCHAR}
+    where INSTANCEID = #{instanceid,jdbcType=VARCHAR}
+  </update>
+</mapper>

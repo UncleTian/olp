@@ -1,0 +1,702 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.COO_ENT_INFOMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.COO_ENT_INFO">
+    <id column="CO_ENT_NO" jdbcType="VARCHAR" property="coEntNo" />
+    <result column="CO_ENT_NAME" jdbcType="VARCHAR" property="coEntName" />
+    <result column="CO_ENT_RNAME" jdbcType="VARCHAR" property="coEntRname" />
+    <result column="USER_FLAG" jdbcType="VARCHAR" property="userFlag" />
+    <result column="CO_PLATFORM" jdbcType="VARCHAR" property="coPlatform" />
+    <result column="TAXD" jdbcType="VARCHAR" property="taxd" />
+    <result column="DKNO" jdbcType="VARCHAR" property="dkno" />
+    <result column="RGAD" jdbcType="VARCHAR" property="rgad" />
+    <result column="AMOT" jdbcType="DECIMAL" property="amot" />
+    <result column="CUTN" jdbcType="CHAR" property="cutn" />
+    <result column="FAPR" jdbcType="DECIMAL" property="fapr" />
+    <result column="CRTY" jdbcType="CHAR" property="crty" />
+    <result column="RIGH" jdbcType="DECIMAL" property="righ" />
+    <result column="LAGA" jdbcType="DECIMAL" property="laga" />
+    <result column="CUGA" jdbcType="DECIMAL" property="cuga" />
+    <result column="AVTU" jdbcType="DECIMAL" property="avtu" />
+    <result column="ENTM" jdbcType="VARCHAR" property="entm" />
+    <result column="CATM" jdbcType="VARCHAR" property="catm" />
+    <result column="ARE" jdbcType="VARCHAR" property="are" />
+    <result column="HUCO" jdbcType="VARCHAR" property="huco" />
+    <result column="DECL" jdbcType="VARCHAR" property="decl" />
+    <result column="APTU" jdbcType="VARCHAR" property="aptu" />
+    <result column="AFPN" jdbcType="VARCHAR" property="afpn" />
+    <result column="AFPN_CERT_TYPE" jdbcType="CHAR" property="afpnCertType" />
+    <result column="AFPN_CERT_CODE" jdbcType="VARCHAR" property="afpnCertCode" />
+    <result column="FNC_CHAR" jdbcType="VARCHAR" property="fncChar" />
+    <result column="CHAR_CERT_TYPE" jdbcType="CHAR" property="charCertType" />
+    <result column="CHAR_CERT_CODE" jdbcType="VARCHAR" property="charCertCode" />
+    <result column="AGNM" jdbcType="VARCHAR" property="agnm" />
+    <result column="AGNM_CERT_TYPE" jdbcType="CHAR" property="agnmCertType" />
+    <result column="AGNM_CERT_CODE" jdbcType="VARCHAR" property="agnmCertCode" />
+    <result column="OSN" jdbcType="VARCHAR" property="osn" />
+    <result column="ACN" jdbcType="VARCHAR" property="acn" />
+    <result column="RLNM" jdbcType="VARCHAR" property="rlnm" />
+    <result column="TELP" jdbcType="VARCHAR" property="telp" />
+    <result column="FXNO" jdbcType="VARCHAR" property="fxno" />
+    <result column="POSTCODE" jdbcType="CHAR" property="postcode" />
+    <result column="ARE2" jdbcType="VARCHAR" property="are2" />
+    <result column="ARE3" jdbcType="VARCHAR" property="are3" />
+    <result column="ARE4" jdbcType="VARCHAR" property="are4" />
+    <result column="BIZ_OP_ID" jdbcType="VARCHAR" property="bizOpId" />
+    <result column="BIZ_ORG_ID" jdbcType="VARCHAR" property="bizOrgId" />
+    <result column="FIELD1" jdbcType="VARCHAR" property="field1" />
+    <result column="FIELD2" jdbcType="VARCHAR" property="field2" />
+    <result column="FIELD3" jdbcType="VARCHAR" property="field3" />
+    <result column="FIELD4" jdbcType="VARCHAR" property="field4" />
+    <result column="FIELD5" jdbcType="VARCHAR" property="field5" />
+    <result column="FIELD6" jdbcType="DECIMAL" property="field6" />
+    <result column="FIELD7" jdbcType="DECIMAL" property="field7" />
+    <result column="FIELD8" jdbcType="DECIMAL" property="field8" />
+    <result column="FIELD10" jdbcType="DECIMAL" property="field10" />
+    <result column="FIELD9" jdbcType="DECIMAL" property="field9" />
+    <result column="ARE5" jdbcType="VARCHAR" property="are5" />
+    <result column="INPUT_DATE" jdbcType="VARCHAR" property="inputDate" />
+    <result column="INPUT_TIME" jdbcType="VARCHAR" property="inputTime" />
+    <result column="LAST_UPDATE_TIME" jdbcType="VARCHAR" property="lastUpdateTime" />
+    <result column="LAST_UPDATE_DATE" jdbcType="VARCHAR" property="lastUpdateDate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    CO_ENT_NO, CO_ENT_NAME, CO_ENT_RNAME, USER_FLAG, CO_PLATFORM, TAXD, DKNO, RGAD, AMOT, 
+    CUTN, FAPR, CRTY, RIGH, LAGA, CUGA, AVTU, ENTM, CATM, ARE, HUCO, DECL, APTU, AFPN, 
+    AFPN_CERT_TYPE, AFPN_CERT_CODE, FNC_CHAR, CHAR_CERT_TYPE, CHAR_CERT_CODE, AGNM, AGNM_CERT_TYPE, 
+    AGNM_CERT_CODE, OSN, ACN, RLNM, TELP, FXNO, POSTCODE, ARE2, ARE3, ARE4, BIZ_OP_ID, 
+    BIZ_ORG_ID, FIELD1, FIELD2, FIELD3, FIELD4, FIELD5, FIELD6, FIELD7, FIELD8, FIELD10, 
+    FIELD9, ARE5, INPUT_DATE, INPUT_TIME, LAST_UPDATE_TIME, LAST_UPDATE_DATE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from COO_ENT_INFO
+    where CO_ENT_NO = #{coEntNo,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from COO_ENT_INFO
+    where CO_ENT_NO = #{coEntNo,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.COO_ENT_INFO">
+    insert into COO_ENT_INFO (CO_ENT_NO, CO_ENT_NAME, CO_ENT_RNAME, 
+      USER_FLAG, CO_PLATFORM, TAXD, 
+      DKNO, RGAD, AMOT, CUTN, 
+      FAPR, CRTY, RIGH, LAGA, 
+      CUGA, AVTU, ENTM, CATM, 
+      ARE, HUCO, DECL, APTU, 
+      AFPN, AFPN_CERT_TYPE, AFPN_CERT_CODE, 
+      FNC_CHAR, CHAR_CERT_TYPE, CHAR_CERT_CODE, 
+      AGNM, AGNM_CERT_TYPE, AGNM_CERT_CODE, 
+      OSN, ACN, RLNM, TELP, 
+      FXNO, POSTCODE, ARE2, 
+      ARE3, ARE4, BIZ_OP_ID, 
+      BIZ_ORG_ID, FIELD1, FIELD2, 
+      FIELD3, FIELD4, FIELD5, 
+      FIELD6, FIELD7, FIELD8, 
+      FIELD10, FIELD9, ARE5, 
+      INPUT_DATE, INPUT_TIME, LAST_UPDATE_TIME, 
+      LAST_UPDATE_DATE)
+    values (#{coEntNo,jdbcType=VARCHAR}, #{coEntName,jdbcType=VARCHAR}, #{coEntRname,jdbcType=VARCHAR}, 
+      #{userFlag,jdbcType=VARCHAR}, #{coPlatform,jdbcType=VARCHAR}, #{taxd,jdbcType=VARCHAR}, 
+      #{dkno,jdbcType=VARCHAR}, #{rgad,jdbcType=VARCHAR}, #{amot,jdbcType=DECIMAL}, #{cutn,jdbcType=CHAR}, 
+      #{fapr,jdbcType=DECIMAL}, #{crty,jdbcType=CHAR}, #{righ,jdbcType=DECIMAL}, #{laga,jdbcType=DECIMAL}, 
+      #{cuga,jdbcType=DECIMAL}, #{avtu,jdbcType=DECIMAL}, #{entm,jdbcType=VARCHAR}, #{catm,jdbcType=VARCHAR}, 
+      #{are,jdbcType=VARCHAR}, #{huco,jdbcType=VARCHAR}, #{decl,jdbcType=VARCHAR}, #{aptu,jdbcType=VARCHAR}, 
+      #{afpn,jdbcType=VARCHAR}, #{afpnCertType,jdbcType=CHAR}, #{afpnCertCode,jdbcType=VARCHAR}, 
+      #{fncChar,jdbcType=VARCHAR}, #{charCertType,jdbcType=CHAR}, #{charCertCode,jdbcType=VARCHAR}, 
+      #{agnm,jdbcType=VARCHAR}, #{agnmCertType,jdbcType=CHAR}, #{agnmCertCode,jdbcType=VARCHAR}, 
+      #{osn,jdbcType=VARCHAR}, #{acn,jdbcType=VARCHAR}, #{rlnm,jdbcType=VARCHAR}, #{telp,jdbcType=VARCHAR}, 
+      #{fxno,jdbcType=VARCHAR}, #{postcode,jdbcType=CHAR}, #{are2,jdbcType=VARCHAR}, 
+      #{are3,jdbcType=VARCHAR}, #{are4,jdbcType=VARCHAR}, #{bizOpId,jdbcType=VARCHAR}, 
+      #{bizOrgId,jdbcType=VARCHAR}, #{field1,jdbcType=VARCHAR}, #{field2,jdbcType=VARCHAR}, 
+      #{field3,jdbcType=VARCHAR}, #{field4,jdbcType=VARCHAR}, #{field5,jdbcType=VARCHAR}, 
+      #{field6,jdbcType=DECIMAL}, #{field7,jdbcType=DECIMAL}, #{field8,jdbcType=DECIMAL}, 
+      #{field10,jdbcType=DECIMAL}, #{field9,jdbcType=DECIMAL}, #{are5,jdbcType=VARCHAR}, 
+      #{inputDate,jdbcType=VARCHAR}, #{inputTime,jdbcType=VARCHAR}, #{lastUpdateTime,jdbcType=VARCHAR}, 
+      #{lastUpdateDate,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.COO_ENT_INFO">
+    insert into COO_ENT_INFO
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="coEntNo != null">
+        CO_ENT_NO,
+      </if>
+      <if test="coEntName != null">
+        CO_ENT_NAME,
+      </if>
+      <if test="coEntRname != null">
+        CO_ENT_RNAME,
+      </if>
+      <if test="userFlag != null">
+        USER_FLAG,
+      </if>
+      <if test="coPlatform != null">
+        CO_PLATFORM,
+      </if>
+      <if test="taxd != null">
+        TAXD,
+      </if>
+      <if test="dkno != null">
+        DKNO,
+      </if>
+      <if test="rgad != null">
+        RGAD,
+      </if>
+      <if test="amot != null">
+        AMOT,
+      </if>
+      <if test="cutn != null">
+        CUTN,
+      </if>
+      <if test="fapr != null">
+        FAPR,
+      </if>
+      <if test="crty != null">
+        CRTY,
+      </if>
+      <if test="righ != null">
+        RIGH,
+      </if>
+      <if test="laga != null">
+        LAGA,
+      </if>
+      <if test="cuga != null">
+        CUGA,
+      </if>
+      <if test="avtu != null">
+        AVTU,
+      </if>
+      <if test="entm != null">
+        ENTM,
+      </if>
+      <if test="catm != null">
+        CATM,
+      </if>
+      <if test="are != null">
+        ARE,
+      </if>
+      <if test="huco != null">
+        HUCO,
+      </if>
+      <if test="decl != null">
+        DECL,
+      </if>
+      <if test="aptu != null">
+        APTU,
+      </if>
+      <if test="afpn != null">
+        AFPN,
+      </if>
+      <if test="afpnCertType != null">
+        AFPN_CERT_TYPE,
+      </if>
+      <if test="afpnCertCode != null">
+        AFPN_CERT_CODE,
+      </if>
+      <if test="fncChar != null">
+        FNC_CHAR,
+      </if>
+      <if test="charCertType != null">
+        CHAR_CERT_TYPE,
+      </if>
+      <if test="charCertCode != null">
+        CHAR_CERT_CODE,
+      </if>
+      <if test="agnm != null">
+        AGNM,
+      </if>
+      <if test="agnmCertType != null">
+        AGNM_CERT_TYPE,
+      </if>
+      <if test="agnmCertCode != null">
+        AGNM_CERT_CODE,
+      </if>
+      <if test="osn != null">
+        OSN,
+      </if>
+      <if test="acn != null">
+        ACN,
+      </if>
+      <if test="rlnm != null">
+        RLNM,
+      </if>
+      <if test="telp != null">
+        TELP,
+      </if>
+      <if test="fxno != null">
+        FXNO,
+      </if>
+      <if test="postcode != null">
+        POSTCODE,
+      </if>
+      <if test="are2 != null">
+        ARE2,
+      </if>
+      <if test="are3 != null">
+        ARE3,
+      </if>
+      <if test="are4 != null">
+        ARE4,
+      </if>
+      <if test="bizOpId != null">
+        BIZ_OP_ID,
+      </if>
+      <if test="bizOrgId != null">
+        BIZ_ORG_ID,
+      </if>
+      <if test="field1 != null">
+        FIELD1,
+      </if>
+      <if test="field2 != null">
+        FIELD2,
+      </if>
+      <if test="field3 != null">
+        FIELD3,
+      </if>
+      <if test="field4 != null">
+        FIELD4,
+      </if>
+      <if test="field5 != null">
+        FIELD5,
+      </if>
+      <if test="field6 != null">
+        FIELD6,
+      </if>
+      <if test="field7 != null">
+        FIELD7,
+      </if>
+      <if test="field8 != null">
+        FIELD8,
+      </if>
+      <if test="field10 != null">
+        FIELD10,
+      </if>
+      <if test="field9 != null">
+        FIELD9,
+      </if>
+      <if test="are5 != null">
+        ARE5,
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE,
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME,
+      </if>
+      <if test="lastUpdateTime != null">
+        LAST_UPDATE_TIME,
+      </if>
+      <if test="lastUpdateDate != null">
+        LAST_UPDATE_DATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="coEntNo != null">
+        #{coEntNo,jdbcType=VARCHAR},
+      </if>
+      <if test="coEntName != null">
+        #{coEntName,jdbcType=VARCHAR},
+      </if>
+      <if test="coEntRname != null">
+        #{coEntRname,jdbcType=VARCHAR},
+      </if>
+      <if test="userFlag != null">
+        #{userFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="coPlatform != null">
+        #{coPlatform,jdbcType=VARCHAR},
+      </if>
+      <if test="taxd != null">
+        #{taxd,jdbcType=VARCHAR},
+      </if>
+      <if test="dkno != null">
+        #{dkno,jdbcType=VARCHAR},
+      </if>
+      <if test="rgad != null">
+        #{rgad,jdbcType=VARCHAR},
+      </if>
+      <if test="amot != null">
+        #{amot,jdbcType=DECIMAL},
+      </if>
+      <if test="cutn != null">
+        #{cutn,jdbcType=CHAR},
+      </if>
+      <if test="fapr != null">
+        #{fapr,jdbcType=DECIMAL},
+      </if>
+      <if test="crty != null">
+        #{crty,jdbcType=CHAR},
+      </if>
+      <if test="righ != null">
+        #{righ,jdbcType=DECIMAL},
+      </if>
+      <if test="laga != null">
+        #{laga,jdbcType=DECIMAL},
+      </if>
+      <if test="cuga != null">
+        #{cuga,jdbcType=DECIMAL},
+      </if>
+      <if test="avtu != null">
+        #{avtu,jdbcType=DECIMAL},
+      </if>
+      <if test="entm != null">
+        #{entm,jdbcType=VARCHAR},
+      </if>
+      <if test="catm != null">
+        #{catm,jdbcType=VARCHAR},
+      </if>
+      <if test="are != null">
+        #{are,jdbcType=VARCHAR},
+      </if>
+      <if test="huco != null">
+        #{huco,jdbcType=VARCHAR},
+      </if>
+      <if test="decl != null">
+        #{decl,jdbcType=VARCHAR},
+      </if>
+      <if test="aptu != null">
+        #{aptu,jdbcType=VARCHAR},
+      </if>
+      <if test="afpn != null">
+        #{afpn,jdbcType=VARCHAR},
+      </if>
+      <if test="afpnCertType != null">
+        #{afpnCertType,jdbcType=CHAR},
+      </if>
+      <if test="afpnCertCode != null">
+        #{afpnCertCode,jdbcType=VARCHAR},
+      </if>
+      <if test="fncChar != null">
+        #{fncChar,jdbcType=VARCHAR},
+      </if>
+      <if test="charCertType != null">
+        #{charCertType,jdbcType=CHAR},
+      </if>
+      <if test="charCertCode != null">
+        #{charCertCode,jdbcType=VARCHAR},
+      </if>
+      <if test="agnm != null">
+        #{agnm,jdbcType=VARCHAR},
+      </if>
+      <if test="agnmCertType != null">
+        #{agnmCertType,jdbcType=CHAR},
+      </if>
+      <if test="agnmCertCode != null">
+        #{agnmCertCode,jdbcType=VARCHAR},
+      </if>
+      <if test="osn != null">
+        #{osn,jdbcType=VARCHAR},
+      </if>
+      <if test="acn != null">
+        #{acn,jdbcType=VARCHAR},
+      </if>
+      <if test="rlnm != null">
+        #{rlnm,jdbcType=VARCHAR},
+      </if>
+      <if test="telp != null">
+        #{telp,jdbcType=VARCHAR},
+      </if>
+      <if test="fxno != null">
+        #{fxno,jdbcType=VARCHAR},
+      </if>
+      <if test="postcode != null">
+        #{postcode,jdbcType=CHAR},
+      </if>
+      <if test="are2 != null">
+        #{are2,jdbcType=VARCHAR},
+      </if>
+      <if test="are3 != null">
+        #{are3,jdbcType=VARCHAR},
+      </if>
+      <if test="are4 != null">
+        #{are4,jdbcType=VARCHAR},
+      </if>
+      <if test="bizOpId != null">
+        #{bizOpId,jdbcType=VARCHAR},
+      </if>
+      <if test="bizOrgId != null">
+        #{bizOrgId,jdbcType=VARCHAR},
+      </if>
+      <if test="field1 != null">
+        #{field1,jdbcType=VARCHAR},
+      </if>
+      <if test="field2 != null">
+        #{field2,jdbcType=VARCHAR},
+      </if>
+      <if test="field3 != null">
+        #{field3,jdbcType=VARCHAR},
+      </if>
+      <if test="field4 != null">
+        #{field4,jdbcType=VARCHAR},
+      </if>
+      <if test="field5 != null">
+        #{field5,jdbcType=VARCHAR},
+      </if>
+      <if test="field6 != null">
+        #{field6,jdbcType=DECIMAL},
+      </if>
+      <if test="field7 != null">
+        #{field7,jdbcType=DECIMAL},
+      </if>
+      <if test="field8 != null">
+        #{field8,jdbcType=DECIMAL},
+      </if>
+      <if test="field10 != null">
+        #{field10,jdbcType=DECIMAL},
+      </if>
+      <if test="field9 != null">
+        #{field9,jdbcType=DECIMAL},
+      </if>
+      <if test="are5 != null">
+        #{are5,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        #{lastUpdateTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateDate != null">
+        #{lastUpdateDate,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.COO_ENT_INFO">
+    update COO_ENT_INFO
+    <set>
+      <if test="coEntName != null">
+        CO_ENT_NAME = #{coEntName,jdbcType=VARCHAR},
+      </if>
+      <if test="coEntRname != null">
+        CO_ENT_RNAME = #{coEntRname,jdbcType=VARCHAR},
+      </if>
+      <if test="userFlag != null">
+        USER_FLAG = #{userFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="coPlatform != null">
+        CO_PLATFORM = #{coPlatform,jdbcType=VARCHAR},
+      </if>
+      <if test="taxd != null">
+        TAXD = #{taxd,jdbcType=VARCHAR},
+      </if>
+      <if test="dkno != null">
+        DKNO = #{dkno,jdbcType=VARCHAR},
+      </if>
+      <if test="rgad != null">
+        RGAD = #{rgad,jdbcType=VARCHAR},
+      </if>
+      <if test="amot != null">
+        AMOT = #{amot,jdbcType=DECIMAL},
+      </if>
+      <if test="cutn != null">
+        CUTN = #{cutn,jdbcType=CHAR},
+      </if>
+      <if test="fapr != null">
+        FAPR = #{fapr,jdbcType=DECIMAL},
+      </if>
+      <if test="crty != null">
+        CRTY = #{crty,jdbcType=CHAR},
+      </if>
+      <if test="righ != null">
+        RIGH = #{righ,jdbcType=DECIMAL},
+      </if>
+      <if test="laga != null">
+        LAGA = #{laga,jdbcType=DECIMAL},
+      </if>
+      <if test="cuga != null">
+        CUGA = #{cuga,jdbcType=DECIMAL},
+      </if>
+      <if test="avtu != null">
+        AVTU = #{avtu,jdbcType=DECIMAL},
+      </if>
+      <if test="entm != null">
+        ENTM = #{entm,jdbcType=VARCHAR},
+      </if>
+      <if test="catm != null">
+        CATM = #{catm,jdbcType=VARCHAR},
+      </if>
+      <if test="are != null">
+        ARE = #{are,jdbcType=VARCHAR},
+      </if>
+      <if test="huco != null">
+        HUCO = #{huco,jdbcType=VARCHAR},
+      </if>
+      <if test="decl != null">
+        DECL = #{decl,jdbcType=VARCHAR},
+      </if>
+      <if test="aptu != null">
+        APTU = #{aptu,jdbcType=VARCHAR},
+      </if>
+      <if test="afpn != null">
+        AFPN = #{afpn,jdbcType=VARCHAR},
+      </if>
+      <if test="afpnCertType != null">
+        AFPN_CERT_TYPE = #{afpnCertType,jdbcType=CHAR},
+      </if>
+      <if test="afpnCertCode != null">
+        AFPN_CERT_CODE = #{afpnCertCode,jdbcType=VARCHAR},
+      </if>
+      <if test="fncChar != null">
+        FNC_CHAR = #{fncChar,jdbcType=VARCHAR},
+      </if>
+      <if test="charCertType != null">
+        CHAR_CERT_TYPE = #{charCertType,jdbcType=CHAR},
+      </if>
+      <if test="charCertCode != null">
+        CHAR_CERT_CODE = #{charCertCode,jdbcType=VARCHAR},
+      </if>
+      <if test="agnm != null">
+        AGNM = #{agnm,jdbcType=VARCHAR},
+      </if>
+      <if test="agnmCertType != null">
+        AGNM_CERT_TYPE = #{agnmCertType,jdbcType=CHAR},
+      </if>
+      <if test="agnmCertCode != null">
+        AGNM_CERT_CODE = #{agnmCertCode,jdbcType=VARCHAR},
+      </if>
+      <if test="osn != null">
+        OSN = #{osn,jdbcType=VARCHAR},
+      </if>
+      <if test="acn != null">
+        ACN = #{acn,jdbcType=VARCHAR},
+      </if>
+      <if test="rlnm != null">
+        RLNM = #{rlnm,jdbcType=VARCHAR},
+      </if>
+      <if test="telp != null">
+        TELP = #{telp,jdbcType=VARCHAR},
+      </if>
+      <if test="fxno != null">
+        FXNO = #{fxno,jdbcType=VARCHAR},
+      </if>
+      <if test="postcode != null">
+        POSTCODE = #{postcode,jdbcType=CHAR},
+      </if>
+      <if test="are2 != null">
+        ARE2 = #{are2,jdbcType=VARCHAR},
+      </if>
+      <if test="are3 != null">
+        ARE3 = #{are3,jdbcType=VARCHAR},
+      </if>
+      <if test="are4 != null">
+        ARE4 = #{are4,jdbcType=VARCHAR},
+      </if>
+      <if test="bizOpId != null">
+        BIZ_OP_ID = #{bizOpId,jdbcType=VARCHAR},
+      </if>
+      <if test="bizOrgId != null">
+        BIZ_ORG_ID = #{bizOrgId,jdbcType=VARCHAR},
+      </if>
+      <if test="field1 != null">
+        FIELD1 = #{field1,jdbcType=VARCHAR},
+      </if>
+      <if test="field2 != null">
+        FIELD2 = #{field2,jdbcType=VARCHAR},
+      </if>
+      <if test="field3 != null">
+        FIELD3 = #{field3,jdbcType=VARCHAR},
+      </if>
+      <if test="field4 != null">
+        FIELD4 = #{field4,jdbcType=VARCHAR},
+      </if>
+      <if test="field5 != null">
+        FIELD5 = #{field5,jdbcType=VARCHAR},
+      </if>
+      <if test="field6 != null">
+        FIELD6 = #{field6,jdbcType=DECIMAL},
+      </if>
+      <if test="field7 != null">
+        FIELD7 = #{field7,jdbcType=DECIMAL},
+      </if>
+      <if test="field8 != null">
+        FIELD8 = #{field8,jdbcType=DECIMAL},
+      </if>
+      <if test="field10 != null">
+        FIELD10 = #{field10,jdbcType=DECIMAL},
+      </if>
+      <if test="field9 != null">
+        FIELD9 = #{field9,jdbcType=DECIMAL},
+      </if>
+      <if test="are5 != null">
+        ARE5 = #{are5,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE = #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME = #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateDate != null">
+        LAST_UPDATE_DATE = #{lastUpdateDate,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where CO_ENT_NO = #{coEntNo,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.COO_ENT_INFO">
+    update COO_ENT_INFO
+    set CO_ENT_NAME = #{coEntName,jdbcType=VARCHAR},
+      CO_ENT_RNAME = #{coEntRname,jdbcType=VARCHAR},
+      USER_FLAG = #{userFlag,jdbcType=VARCHAR},
+      CO_PLATFORM = #{coPlatform,jdbcType=VARCHAR},
+      TAXD = #{taxd,jdbcType=VARCHAR},
+      DKNO = #{dkno,jdbcType=VARCHAR},
+      RGAD = #{rgad,jdbcType=VARCHAR},
+      AMOT = #{amot,jdbcType=DECIMAL},
+      CUTN = #{cutn,jdbcType=CHAR},
+      FAPR = #{fapr,jdbcType=DECIMAL},
+      CRTY = #{crty,jdbcType=CHAR},
+      RIGH = #{righ,jdbcType=DECIMAL},
+      LAGA = #{laga,jdbcType=DECIMAL},
+      CUGA = #{cuga,jdbcType=DECIMAL},
+      AVTU = #{avtu,jdbcType=DECIMAL},
+      ENTM = #{entm,jdbcType=VARCHAR},
+      CATM = #{catm,jdbcType=VARCHAR},
+      ARE = #{are,jdbcType=VARCHAR},
+      HUCO = #{huco,jdbcType=VARCHAR},
+      DECL = #{decl,jdbcType=VARCHAR},
+      APTU = #{aptu,jdbcType=VARCHAR},
+      AFPN = #{afpn,jdbcType=VARCHAR},
+      AFPN_CERT_TYPE = #{afpnCertType,jdbcType=CHAR},
+      AFPN_CERT_CODE = #{afpnCertCode,jdbcType=VARCHAR},
+      FNC_CHAR = #{fncChar,jdbcType=VARCHAR},
+      CHAR_CERT_TYPE = #{charCertType,jdbcType=CHAR},
+      CHAR_CERT_CODE = #{charCertCode,jdbcType=VARCHAR},
+      AGNM = #{agnm,jdbcType=VARCHAR},
+      AGNM_CERT_TYPE = #{agnmCertType,jdbcType=CHAR},
+      AGNM_CERT_CODE = #{agnmCertCode,jdbcType=VARCHAR},
+      OSN = #{osn,jdbcType=VARCHAR},
+      ACN = #{acn,jdbcType=VARCHAR},
+      RLNM = #{rlnm,jdbcType=VARCHAR},
+      TELP = #{telp,jdbcType=VARCHAR},
+      FXNO = #{fxno,jdbcType=VARCHAR},
+      POSTCODE = #{postcode,jdbcType=CHAR},
+      ARE2 = #{are2,jdbcType=VARCHAR},
+      ARE3 = #{are3,jdbcType=VARCHAR},
+      ARE4 = #{are4,jdbcType=VARCHAR},
+      BIZ_OP_ID = #{bizOpId,jdbcType=VARCHAR},
+      BIZ_ORG_ID = #{bizOrgId,jdbcType=VARCHAR},
+      FIELD1 = #{field1,jdbcType=VARCHAR},
+      FIELD2 = #{field2,jdbcType=VARCHAR},
+      FIELD3 = #{field3,jdbcType=VARCHAR},
+      FIELD4 = #{field4,jdbcType=VARCHAR},
+      FIELD5 = #{field5,jdbcType=VARCHAR},
+      FIELD6 = #{field6,jdbcType=DECIMAL},
+      FIELD7 = #{field7,jdbcType=DECIMAL},
+      FIELD8 = #{field8,jdbcType=DECIMAL},
+      FIELD10 = #{field10,jdbcType=DECIMAL},
+      FIELD9 = #{field9,jdbcType=DECIMAL},
+      ARE5 = #{are5,jdbcType=VARCHAR},
+      INPUT_DATE = #{inputDate,jdbcType=VARCHAR},
+      INPUT_TIME = #{inputTime,jdbcType=VARCHAR},
+      LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=VARCHAR},
+      LAST_UPDATE_DATE = #{lastUpdateDate,jdbcType=VARCHAR}
+    where CO_ENT_NO = #{coEntNo,jdbcType=VARCHAR}
+  </update>
+</mapper>

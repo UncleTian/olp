@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.BAT_ANT_LOAN_CALC_TEMPMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.BAT_ANT_LOAN_CALC_TEMP">
+    <result column="CONTRACT_NO" jdbcType="VARCHAR" property="contractNo" />
+    <result column="CALC_DATE" jdbcType="VARCHAR" property="calcDate" />
+    <result column="ACCRUED_STATUS" jdbcType="VARCHAR" property="accruedStatus" />
+    <result column="PRIN_BAL" jdbcType="DECIMAL" property="prinBal" />
+    <result column="OVD_PRIN_BAL" jdbcType="DECIMAL" property="ovdPrinBal" />
+    <result column="OVD_INT_BAL" jdbcType="DECIMAL" property="ovdIntBal" />
+    <result column="REAL_RATE" jdbcType="DECIMAL" property="realRate" />
+    <result column="PNLT_RATE" jdbcType="DECIMAL" property="pnltRate" />
+    <result column="INT_AMT" jdbcType="DECIMAL" property="intAmt" />
+    <result column="OVD_PRIN_PNLT_AMT" jdbcType="DECIMAL" property="ovdPrinPnltAmt" />
+    <result column="OVD_INT_PNLT_AMT" jdbcType="DECIMAL" property="ovdIntPnltAmt" />
+    <result column="INPUT_DATE" jdbcType="VARCHAR" property="inputDate" />
+    <result column="INPUT_TIME" jdbcType="VARCHAR" property="inputTime" />
+    <result column="DATA_DATE" jdbcType="VARCHAR" property="dataDate" />
+  </resultMap>
+  <insert id="insert" parameterType="com.bea.olp.BAT_ANT_LOAN_CALC_TEMP">
+    insert into BAT_ANT_LOAN_CALC_TEMP (CONTRACT_NO, CALC_DATE, ACCRUED_STATUS, 
+      PRIN_BAL, OVD_PRIN_BAL, OVD_INT_BAL, 
+      REAL_RATE, PNLT_RATE, INT_AMT, 
+      OVD_PRIN_PNLT_AMT, OVD_INT_PNLT_AMT, INPUT_DATE, 
+      INPUT_TIME, DATA_DATE)
+    values (#{contractNo,jdbcType=VARCHAR}, #{calcDate,jdbcType=VARCHAR}, #{accruedStatus,jdbcType=VARCHAR}, 
+      #{prinBal,jdbcType=DECIMAL}, #{ovdPrinBal,jdbcType=DECIMAL}, #{ovdIntBal,jdbcType=DECIMAL}, 
+      #{realRate,jdbcType=DECIMAL}, #{pnltRate,jdbcType=DECIMAL}, #{intAmt,jdbcType=DECIMAL}, 
+      #{ovdPrinPnltAmt,jdbcType=DECIMAL}, #{ovdIntPnltAmt,jdbcType=DECIMAL}, #{inputDate,jdbcType=VARCHAR}, 
+      #{inputTime,jdbcType=VARCHAR}, #{dataDate,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.BAT_ANT_LOAN_CALC_TEMP">
+    insert into BAT_ANT_LOAN_CALC_TEMP
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="contractNo != null">
+        CONTRACT_NO,
+      </if>
+      <if test="calcDate != null">
+        CALC_DATE,
+      </if>
+      <if test="accruedStatus != null">
+        ACCRUED_STATUS,
+      </if>
+      <if test="prinBal != null">
+        PRIN_BAL,
+      </if>
+      <if test="ovdPrinBal != null">
+        OVD_PRIN_BAL,
+      </if>
+      <if test="ovdIntBal != null">
+        OVD_INT_BAL,
+      </if>
+      <if test="realRate != null">
+        REAL_RATE,
+      </if>
+      <if test="pnltRate != null">
+        PNLT_RATE,
+      </if>
+      <if test="intAmt != null">
+        INT_AMT,
+      </if>
+      <if test="ovdPrinPnltAmt != null">
+        OVD_PRIN_PNLT_AMT,
+      </if>
+      <if test="ovdIntPnltAmt != null">
+        OVD_INT_PNLT_AMT,
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE,
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME,
+      </if>
+      <if test="dataDate != null">
+        DATA_DATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="contractNo != null">
+        #{contractNo,jdbcType=VARCHAR},
+      </if>
+      <if test="calcDate != null">
+        #{calcDate,jdbcType=VARCHAR},
+      </if>
+      <if test="accruedStatus != null">
+        #{accruedStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="prinBal != null">
+        #{prinBal,jdbcType=DECIMAL},
+      </if>
+      <if test="ovdPrinBal != null">
+        #{ovdPrinBal,jdbcType=DECIMAL},
+      </if>
+      <if test="ovdIntBal != null">
+        #{ovdIntBal,jdbcType=DECIMAL},
+      </if>
+      <if test="realRate != null">
+        #{realRate,jdbcType=DECIMAL},
+      </if>
+      <if test="pnltRate != null">
+        #{pnltRate,jdbcType=DECIMAL},
+      </if>
+      <if test="intAmt != null">
+        #{intAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="ovdPrinPnltAmt != null">
+        #{ovdPrinPnltAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="ovdIntPnltAmt != null">
+        #{ovdIntPnltAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="inputDate != null">
+        #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="dataDate != null">
+        #{dataDate,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

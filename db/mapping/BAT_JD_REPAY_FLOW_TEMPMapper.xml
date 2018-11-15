@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.BAT_JD_REPAY_FLOW_TEMPMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.BAT_JD_REPAY_FLOW_TEMP">
+    <result column="BUSI_DATE" jdbcType="VARCHAR" property="busiDate" />
+    <result column="CONTRACT_NO" jdbcType="VARCHAR" property="contractNo" />
+    <result column="PRO_NO" jdbcType="VARCHAR" property="proNo" />
+    <result column="LIMIT_NO" jdbcType="VARCHAR" property="limitNo" />
+    <result column="LOAN_NO" jdbcType="VARCHAR" property="loanNo" />
+    <result column="STAGE_NO" jdbcType="VARCHAR" property="stageNo" />
+    <result column="REPAY_DATE" jdbcType="VARCHAR" property="repayDate" />
+    <result column="SERIAL_NO" jdbcType="VARCHAR" property="serialNo" />
+    <result column="REPAY_METHOD" jdbcType="VARCHAR" property="repayMethod" />
+    <result column="ACCUM_SHULD_REPAY_PRINC" jdbcType="DECIMAL" property="accumShuldRepayPrinc" />
+    <result column="REAL_PRINC_AMT" jdbcType="DECIMAL" property="realPrincAmt" />
+    <result column="ACCUM_SHULD_REPAY_INT" jdbcType="DECIMAL" property="accumShuldRepayInt" />
+    <result column="REAL_INT_AMT" jdbcType="DECIMAL" property="realIntAmt" />
+    <result column="ACCUM_SHULD_REPAY_PENALTY" jdbcType="DECIMAL" property="accumShuldRepayPenalty" />
+    <result column="REAL_PENALTY_INT_AMT" jdbcType="DECIMAL" property="realPenaltyIntAmt" />
+    <result column="TERMS" jdbcType="DECIMAL" property="terms" />
+    <result column="ODD_TERMS" jdbcType="DECIMAL" property="oddTerms" />
+    <result column="REPAY_TYPE" jdbcType="VARCHAR" property="repayType" />
+    <result column="SERVICE_CHARGE" jdbcType="DECIMAL" property="serviceCharge" />
+    <result column="INPUT_DATE" jdbcType="VARCHAR" property="inputDate" />
+    <result column="INPUT_TIME" jdbcType="VARCHAR" property="inputTime" />
+    <result column="DATA_DATE" jdbcType="VARCHAR" property="dataDate" />
+  </resultMap>
+  <insert id="insert" parameterType="com.bea.olp.BAT_JD_REPAY_FLOW_TEMP">
+    insert into BAT_JD_REPAY_FLOW_TEMP (BUSI_DATE, CONTRACT_NO, PRO_NO, 
+      LIMIT_NO, LOAN_NO, STAGE_NO, 
+      REPAY_DATE, SERIAL_NO, REPAY_METHOD, 
+      ACCUM_SHULD_REPAY_PRINC, REAL_PRINC_AMT, ACCUM_SHULD_REPAY_INT, 
+      REAL_INT_AMT, ACCUM_SHULD_REPAY_PENALTY, REAL_PENALTY_INT_AMT, 
+      TERMS, ODD_TERMS, REPAY_TYPE, 
+      SERVICE_CHARGE, INPUT_DATE, INPUT_TIME, 
+      DATA_DATE)
+    values (#{busiDate,jdbcType=VARCHAR}, #{contractNo,jdbcType=VARCHAR}, #{proNo,jdbcType=VARCHAR}, 
+      #{limitNo,jdbcType=VARCHAR}, #{loanNo,jdbcType=VARCHAR}, #{stageNo,jdbcType=VARCHAR}, 
+      #{repayDate,jdbcType=VARCHAR}, #{serialNo,jdbcType=VARCHAR}, #{repayMethod,jdbcType=VARCHAR}, 
+      #{accumShuldRepayPrinc,jdbcType=DECIMAL}, #{realPrincAmt,jdbcType=DECIMAL}, #{accumShuldRepayInt,jdbcType=DECIMAL}, 
+      #{realIntAmt,jdbcType=DECIMAL}, #{accumShuldRepayPenalty,jdbcType=DECIMAL}, #{realPenaltyIntAmt,jdbcType=DECIMAL}, 
+      #{terms,jdbcType=DECIMAL}, #{oddTerms,jdbcType=DECIMAL}, #{repayType,jdbcType=VARCHAR}, 
+      #{serviceCharge,jdbcType=DECIMAL}, #{inputDate,jdbcType=VARCHAR}, #{inputTime,jdbcType=VARCHAR}, 
+      #{dataDate,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.BAT_JD_REPAY_FLOW_TEMP">
+    insert into BAT_JD_REPAY_FLOW_TEMP
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="busiDate != null">
+        BUSI_DATE,
+      </if>
+      <if test="contractNo != null">
+        CONTRACT_NO,
+      </if>
+      <if test="proNo != null">
+        PRO_NO,
+      </if>
+      <if test="limitNo != null">
+        LIMIT_NO,
+      </if>
+      <if test="loanNo != null">
+        LOAN_NO,
+      </if>
+      <if test="stageNo != null">
+        STAGE_NO,
+      </if>
+      <if test="repayDate != null">
+        REPAY_DATE,
+      </if>
+      <if test="serialNo != null">
+        SERIAL_NO,
+      </if>
+      <if test="repayMethod != null">
+        REPAY_METHOD,
+      </if>
+      <if test="accumShuldRepayPrinc != null">
+        ACCUM_SHULD_REPAY_PRINC,
+      </if>
+      <if test="realPrincAmt != null">
+        REAL_PRINC_AMT,
+      </if>
+      <if test="accumShuldRepayInt != null">
+        ACCUM_SHULD_REPAY_INT,
+      </if>
+      <if test="realIntAmt != null">
+        REAL_INT_AMT,
+      </if>
+      <if test="accumShuldRepayPenalty != null">
+        ACCUM_SHULD_REPAY_PENALTY,
+      </if>
+      <if test="realPenaltyIntAmt != null">
+        REAL_PENALTY_INT_AMT,
+      </if>
+      <if test="terms != null">
+        TERMS,
+      </if>
+      <if test="oddTerms != null">
+        ODD_TERMS,
+      </if>
+      <if test="repayType != null">
+        REPAY_TYPE,
+      </if>
+      <if test="serviceCharge != null">
+        SERVICE_CHARGE,
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE,
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME,
+      </if>
+      <if test="dataDate != null">
+        DATA_DATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="busiDate != null">
+        #{busiDate,jdbcType=VARCHAR},
+      </if>
+      <if test="contractNo != null">
+        #{contractNo,jdbcType=VARCHAR},
+      </if>
+      <if test="proNo != null">
+        #{proNo,jdbcType=VARCHAR},
+      </if>
+      <if test="limitNo != null">
+        #{limitNo,jdbcType=VARCHAR},
+      </if>
+      <if test="loanNo != null">
+        #{loanNo,jdbcType=VARCHAR},
+      </if>
+      <if test="stageNo != null">
+        #{stageNo,jdbcType=VARCHAR},
+      </if>
+      <if test="repayDate != null">
+        #{repayDate,jdbcType=VARCHAR},
+      </if>
+      <if test="serialNo != null">
+        #{serialNo,jdbcType=VARCHAR},
+      </if>
+      <if test="repayMethod != null">
+        #{repayMethod,jdbcType=VARCHAR},
+      </if>
+      <if test="accumShuldRepayPrinc != null">
+        #{accumShuldRepayPrinc,jdbcType=DECIMAL},
+      </if>
+      <if test="realPrincAmt != null">
+        #{realPrincAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="accumShuldRepayInt != null">
+        #{accumShuldRepayInt,jdbcType=DECIMAL},
+      </if>
+      <if test="realIntAmt != null">
+        #{realIntAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="accumShuldRepayPenalty != null">
+        #{accumShuldRepayPenalty,jdbcType=DECIMAL},
+      </if>
+      <if test="realPenaltyIntAmt != null">
+        #{realPenaltyIntAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="terms != null">
+        #{terms,jdbcType=DECIMAL},
+      </if>
+      <if test="oddTerms != null">
+        #{oddTerms,jdbcType=DECIMAL},
+      </if>
+      <if test="repayType != null">
+        #{repayType,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceCharge != null">
+        #{serviceCharge,jdbcType=DECIMAL},
+      </if>
+      <if test="inputDate != null">
+        #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="dataDate != null">
+        #{dataDate,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

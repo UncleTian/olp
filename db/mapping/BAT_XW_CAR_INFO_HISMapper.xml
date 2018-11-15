@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.BAT_XW_CAR_INFO_HISMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.BAT_XW_CAR_INFO_HIS">
+    <result column="LOAN_NO" jdbcType="VARCHAR" property="loanNo" />
+    <result column="CAR_SPRICE" jdbcType="DECIMAL" property="carSprice" />
+    <result column="CAR_FI" jdbcType="DECIMAL" property="carFi" />
+    <result column="OVER_IN_AMOUNT" jdbcType="DECIMAL" property="overInAmount" />
+    <result column="DOWN_PAYMENT" jdbcType="DECIMAL" property="downPayment" />
+    <result column="CAR_FE_PART" jdbcType="DECIMAL" property="carFePart" />
+    <result column="SM_RATIO" jdbcType="DECIMAL" property="smRatio" />
+    <result column="CAR_MODEL" jdbcType="VARCHAR" property="carModel" />
+    <result column="FRAME_NO" jdbcType="VARCHAR" property="frameNo" />
+    <result column="LICENSE_NO" jdbcType="VARCHAR" property="licenseNo" />
+    <result column="CAR_TYPE" jdbcType="VARCHAR" property="carType" />
+    <result column="CAR_CORLOR" jdbcType="VARCHAR" property="carCorlor" />
+    <result column="BODY_CARRY" jdbcType="VARCHAR" property="bodyCarry" />
+    <result column="CAR_AGE" jdbcType="DECIMAL" property="carAge" />
+    <result column="CAR_BRAND" jdbcType="VARCHAR" property="carBrand" />
+    <result column="CAR_DPM" jdbcType="VARCHAR" property="carDpm" />
+    <result column="CAR_MELE" jdbcType="VARCHAR" property="carMele" />
+    <result column="CITY" jdbcType="VARCHAR" property="city" />
+    <result column="OWNER" jdbcType="VARCHAR" property="owner" />
+    <result column="OPEN_DATE" jdbcType="VARCHAR" property="openDate" />
+    <result column="MORTGAEE" jdbcType="VARCHAR" property="mortgaee" />
+    <result column="MORTGAGE_CITY" jdbcType="VARCHAR" property="mortgageCity" />
+    <result column="MORTGAGE_TIME" jdbcType="VARCHAR" property="mortgageTime" />
+    <result column="GPS" jdbcType="VARCHAR" property="gps" />
+    <result column="PRICE" jdbcType="VARCHAR" property="price" />
+    <result column="SALER_PHONENO" jdbcType="VARCHAR" property="salerPhoneno" />
+    <result column="SALLER" jdbcType="VARCHAR" property="saller" />
+    <result column="SALE_ADDR" jdbcType="VARCHAR" property="saleAddr" />
+    <result column="SPOESE_ID" jdbcType="VARCHAR" property="spoeseId" />
+    <result column="INPUT_DATE" jdbcType="VARCHAR" property="inputDate" />
+    <result column="INPUT_TIME" jdbcType="VARCHAR" property="inputTime" />
+    <result column="DATA_DATE" jdbcType="VARCHAR" property="dataDate" />
+  </resultMap>
+  <insert id="insert" parameterType="com.bea.olp.BAT_XW_CAR_INFO_HIS">
+    insert into BAT_XW_CAR_INFO_HIS (LOAN_NO, CAR_SPRICE, CAR_FI, 
+      OVER_IN_AMOUNT, DOWN_PAYMENT, CAR_FE_PART, 
+      SM_RATIO, CAR_MODEL, FRAME_NO, 
+      LICENSE_NO, CAR_TYPE, CAR_CORLOR, 
+      BODY_CARRY, CAR_AGE, CAR_BRAND, 
+      CAR_DPM, CAR_MELE, CITY, 
+      OWNER, OPEN_DATE, MORTGAEE, 
+      MORTGAGE_CITY, MORTGAGE_TIME, GPS, 
+      PRICE, SALER_PHONENO, SALLER, 
+      SALE_ADDR, SPOESE_ID, INPUT_DATE, 
+      INPUT_TIME, DATA_DATE)
+    values (#{loanNo,jdbcType=VARCHAR}, #{carSprice,jdbcType=DECIMAL}, #{carFi,jdbcType=DECIMAL}, 
+      #{overInAmount,jdbcType=DECIMAL}, #{downPayment,jdbcType=DECIMAL}, #{carFePart,jdbcType=DECIMAL}, 
+      #{smRatio,jdbcType=DECIMAL}, #{carModel,jdbcType=VARCHAR}, #{frameNo,jdbcType=VARCHAR}, 
+      #{licenseNo,jdbcType=VARCHAR}, #{carType,jdbcType=VARCHAR}, #{carCorlor,jdbcType=VARCHAR}, 
+      #{bodyCarry,jdbcType=VARCHAR}, #{carAge,jdbcType=DECIMAL}, #{carBrand,jdbcType=VARCHAR}, 
+      #{carDpm,jdbcType=VARCHAR}, #{carMele,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, 
+      #{owner,jdbcType=VARCHAR}, #{openDate,jdbcType=VARCHAR}, #{mortgaee,jdbcType=VARCHAR}, 
+      #{mortgageCity,jdbcType=VARCHAR}, #{mortgageTime,jdbcType=VARCHAR}, #{gps,jdbcType=VARCHAR}, 
+      #{price,jdbcType=VARCHAR}, #{salerPhoneno,jdbcType=VARCHAR}, #{saller,jdbcType=VARCHAR}, 
+      #{saleAddr,jdbcType=VARCHAR}, #{spoeseId,jdbcType=VARCHAR}, #{inputDate,jdbcType=VARCHAR}, 
+      #{inputTime,jdbcType=VARCHAR}, #{dataDate,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.BAT_XW_CAR_INFO_HIS">
+    insert into BAT_XW_CAR_INFO_HIS
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="loanNo != null">
+        LOAN_NO,
+      </if>
+      <if test="carSprice != null">
+        CAR_SPRICE,
+      </if>
+      <if test="carFi != null">
+        CAR_FI,
+      </if>
+      <if test="overInAmount != null">
+        OVER_IN_AMOUNT,
+      </if>
+      <if test="downPayment != null">
+        DOWN_PAYMENT,
+      </if>
+      <if test="carFePart != null">
+        CAR_FE_PART,
+      </if>
+      <if test="smRatio != null">
+        SM_RATIO,
+      </if>
+      <if test="carModel != null">
+        CAR_MODEL,
+      </if>
+      <if test="frameNo != null">
+        FRAME_NO,
+      </if>
+      <if test="licenseNo != null">
+        LICENSE_NO,
+      </if>
+      <if test="carType != null">
+        CAR_TYPE,
+      </if>
+      <if test="carCorlor != null">
+        CAR_CORLOR,
+      </if>
+      <if test="bodyCarry != null">
+        BODY_CARRY,
+      </if>
+      <if test="carAge != null">
+        CAR_AGE,
+      </if>
+      <if test="carBrand != null">
+        CAR_BRAND,
+      </if>
+      <if test="carDpm != null">
+        CAR_DPM,
+      </if>
+      <if test="carMele != null">
+        CAR_MELE,
+      </if>
+      <if test="city != null">
+        CITY,
+      </if>
+      <if test="owner != null">
+        OWNER,
+      </if>
+      <if test="openDate != null">
+        OPEN_DATE,
+      </if>
+      <if test="mortgaee != null">
+        MORTGAEE,
+      </if>
+      <if test="mortgageCity != null">
+        MORTGAGE_CITY,
+      </if>
+      <if test="mortgageTime != null">
+        MORTGAGE_TIME,
+      </if>
+      <if test="gps != null">
+        GPS,
+      </if>
+      <if test="price != null">
+        PRICE,
+      </if>
+      <if test="salerPhoneno != null">
+        SALER_PHONENO,
+      </if>
+      <if test="saller != null">
+        SALLER,
+      </if>
+      <if test="saleAddr != null">
+        SALE_ADDR,
+      </if>
+      <if test="spoeseId != null">
+        SPOESE_ID,
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE,
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME,
+      </if>
+      <if test="dataDate != null">
+        DATA_DATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="loanNo != null">
+        #{loanNo,jdbcType=VARCHAR},
+      </if>
+      <if test="carSprice != null">
+        #{carSprice,jdbcType=DECIMAL},
+      </if>
+      <if test="carFi != null">
+        #{carFi,jdbcType=DECIMAL},
+      </if>
+      <if test="overInAmount != null">
+        #{overInAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="downPayment != null">
+        #{downPayment,jdbcType=DECIMAL},
+      </if>
+      <if test="carFePart != null">
+        #{carFePart,jdbcType=DECIMAL},
+      </if>
+      <if test="smRatio != null">
+        #{smRatio,jdbcType=DECIMAL},
+      </if>
+      <if test="carModel != null">
+        #{carModel,jdbcType=VARCHAR},
+      </if>
+      <if test="frameNo != null">
+        #{frameNo,jdbcType=VARCHAR},
+      </if>
+      <if test="licenseNo != null">
+        #{licenseNo,jdbcType=VARCHAR},
+      </if>
+      <if test="carType != null">
+        #{carType,jdbcType=VARCHAR},
+      </if>
+      <if test="carCorlor != null">
+        #{carCorlor,jdbcType=VARCHAR},
+      </if>
+      <if test="bodyCarry != null">
+        #{bodyCarry,jdbcType=VARCHAR},
+      </if>
+      <if test="carAge != null">
+        #{carAge,jdbcType=DECIMAL},
+      </if>
+      <if test="carBrand != null">
+        #{carBrand,jdbcType=VARCHAR},
+      </if>
+      <if test="carDpm != null">
+        #{carDpm,jdbcType=VARCHAR},
+      </if>
+      <if test="carMele != null">
+        #{carMele,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null">
+        #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="owner != null">
+        #{owner,jdbcType=VARCHAR},
+      </if>
+      <if test="openDate != null">
+        #{openDate,jdbcType=VARCHAR},
+      </if>
+      <if test="mortgaee != null">
+        #{mortgaee,jdbcType=VARCHAR},
+      </if>
+      <if test="mortgageCity != null">
+        #{mortgageCity,jdbcType=VARCHAR},
+      </if>
+      <if test="mortgageTime != null">
+        #{mortgageTime,jdbcType=VARCHAR},
+      </if>
+      <if test="gps != null">
+        #{gps,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
+        #{price,jdbcType=VARCHAR},
+      </if>
+      <if test="salerPhoneno != null">
+        #{salerPhoneno,jdbcType=VARCHAR},
+      </if>
+      <if test="saller != null">
+        #{saller,jdbcType=VARCHAR},
+      </if>
+      <if test="saleAddr != null">
+        #{saleAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="spoeseId != null">
+        #{spoeseId,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="dataDate != null">
+        #{dataDate,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

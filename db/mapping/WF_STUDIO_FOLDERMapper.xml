@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.WF_STUDIO_FOLDERMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.WF_STUDIO_FOLDER">
+    <result column="FOLDERID" jdbcType="VARCHAR" property="folderid" />
+    <result column="FOLDERNAME" jdbcType="VARCHAR" property="foldername" />
+    <result column="SUPERID" jdbcType="VARCHAR" property="superid" />
+    <result column="AUTHOR" jdbcType="VARCHAR" property="author" />
+    <result column="DEPID" jdbcType="VARCHAR" property="depid" />
+    <result column="ORGID" jdbcType="VARCHAR" property="orgid" />
+    <result column="SYSID" jdbcType="VARCHAR" property="sysid" />
+  </resultMap>
+  <insert id="insert" parameterType="com.bea.olp.WF_STUDIO_FOLDER">
+    insert into WF_STUDIO_FOLDER (FOLDERID, FOLDERNAME, SUPERID, 
+      AUTHOR, DEPID, ORGID, 
+      SYSID)
+    values (#{folderid,jdbcType=VARCHAR}, #{foldername,jdbcType=VARCHAR}, #{superid,jdbcType=VARCHAR}, 
+      #{author,jdbcType=VARCHAR}, #{depid,jdbcType=VARCHAR}, #{orgid,jdbcType=VARCHAR}, 
+      #{sysid,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.WF_STUDIO_FOLDER">
+    insert into WF_STUDIO_FOLDER
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="folderid != null">
+        FOLDERID,
+      </if>
+      <if test="foldername != null">
+        FOLDERNAME,
+      </if>
+      <if test="superid != null">
+        SUPERID,
+      </if>
+      <if test="author != null">
+        AUTHOR,
+      </if>
+      <if test="depid != null">
+        DEPID,
+      </if>
+      <if test="orgid != null">
+        ORGID,
+      </if>
+      <if test="sysid != null">
+        SYSID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="folderid != null">
+        #{folderid,jdbcType=VARCHAR},
+      </if>
+      <if test="foldername != null">
+        #{foldername,jdbcType=VARCHAR},
+      </if>
+      <if test="superid != null">
+        #{superid,jdbcType=VARCHAR},
+      </if>
+      <if test="author != null">
+        #{author,jdbcType=VARCHAR},
+      </if>
+      <if test="depid != null">
+        #{depid,jdbcType=VARCHAR},
+      </if>
+      <if test="orgid != null">
+        #{orgid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysid != null">
+        #{sysid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -1,0 +1,387 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.WF_MAIN_RECORDENDMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.WF_MAIN_RECORDEND">
+    <id column="INSTANCEID" jdbcType="VARCHAR" property="instanceid" />
+    <result column="BIZSEQNO" jdbcType="VARCHAR" property="bizseqno" />
+    <result column="CUSTID" jdbcType="VARCHAR" property="custid" />
+    <result column="CUSTNAME" jdbcType="VARCHAR" property="custname" />
+    <result column="MAININSTANCEID" jdbcType="VARCHAR" property="maininstanceid" />
+    <result column="MAINNODEID" jdbcType="VARCHAR" property="mainnodeid" />
+    <result column="WFSTARTTIME" jdbcType="CHAR" property="wfstarttime" />
+    <result column="WFENDTIME" jdbcType="CHAR" property="wfendtime" />
+    <result column="WFPLANENDTIME" jdbcType="CHAR" property="wfplanendtime" />
+    <result column="WFSTATUS" jdbcType="CHAR" property="wfstatus" />
+    <result column="WFTYPE" jdbcType="CHAR" property="wftype" />
+    <result column="WFID" jdbcType="VARCHAR" property="wfid" />
+    <result column="WFNAME" jdbcType="VARCHAR" property="wfname" />
+    <result column="WFSIGN" jdbcType="VARCHAR" property="wfsign" />
+    <result column="APPID" jdbcType="VARCHAR" property="appid" />
+    <result column="APPNAME" jdbcType="VARCHAR" property="appname" />
+    <result column="WFADMIN" jdbcType="VARCHAR" property="wfadmin" />
+    <result column="WFREADERS" jdbcType="VARCHAR" property="wfreaders" />
+    <result column="WFAGENT" jdbcType="CHAR" property="wfagent" />
+    <result column="WFCHANGE" jdbcType="CHAR" property="wfchange" />
+    <result column="WFAGAIN" jdbcType="CHAR" property="wfagain" />
+    <result column="WFRECALL" jdbcType="CHAR" property="wfrecall" />
+    <result column="WFRETURNBACK" jdbcType="CHAR" property="wfreturnback" />
+    <result column="WFHANGUP" jdbcType="CHAR" property="wfhangup" />
+    <result column="WFWAKE" jdbcType="CHAR" property="wfwake" />
+    <result column="WFJUMP" jdbcType="CHAR" property="wfjump" />
+    <result column="ORGID" jdbcType="VARCHAR" property="orgid" />
+    <result column="DEPID" jdbcType="VARCHAR" property="depid" />
+    <result column="COSTTIMES" jdbcType="DECIMAL" property="costtimes" />
+    <result column="SYSID" jdbcType="VARCHAR" property="sysid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    INSTANCEID, BIZSEQNO, CUSTID, CUSTNAME, MAININSTANCEID, MAINNODEID, WFSTARTTIME, 
+    WFENDTIME, WFPLANENDTIME, WFSTATUS, WFTYPE, WFID, WFNAME, WFSIGN, APPID, APPNAME, 
+    WFADMIN, WFREADERS, WFAGENT, WFCHANGE, WFAGAIN, WFRECALL, WFRETURNBACK, WFHANGUP, 
+    WFWAKE, WFJUMP, ORGID, DEPID, COSTTIMES, SYSID
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from WF_MAIN_RECORDEND
+    where INSTANCEID = #{instanceid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from WF_MAIN_RECORDEND
+    where INSTANCEID = #{instanceid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.WF_MAIN_RECORDEND">
+    insert into WF_MAIN_RECORDEND (INSTANCEID, BIZSEQNO, CUSTID, 
+      CUSTNAME, MAININSTANCEID, MAINNODEID, 
+      WFSTARTTIME, WFENDTIME, WFPLANENDTIME, 
+      WFSTATUS, WFTYPE, WFID, WFNAME, 
+      WFSIGN, APPID, APPNAME, 
+      WFADMIN, WFREADERS, WFAGENT, 
+      WFCHANGE, WFAGAIN, WFRECALL, 
+      WFRETURNBACK, WFHANGUP, WFWAKE, 
+      WFJUMP, ORGID, DEPID, 
+      COSTTIMES, SYSID)
+    values (#{instanceid,jdbcType=VARCHAR}, #{bizseqno,jdbcType=VARCHAR}, #{custid,jdbcType=VARCHAR}, 
+      #{custname,jdbcType=VARCHAR}, #{maininstanceid,jdbcType=VARCHAR}, #{mainnodeid,jdbcType=VARCHAR}, 
+      #{wfstarttime,jdbcType=CHAR}, #{wfendtime,jdbcType=CHAR}, #{wfplanendtime,jdbcType=CHAR}, 
+      #{wfstatus,jdbcType=CHAR}, #{wftype,jdbcType=CHAR}, #{wfid,jdbcType=VARCHAR}, #{wfname,jdbcType=VARCHAR}, 
+      #{wfsign,jdbcType=VARCHAR}, #{appid,jdbcType=VARCHAR}, #{appname,jdbcType=VARCHAR}, 
+      #{wfadmin,jdbcType=VARCHAR}, #{wfreaders,jdbcType=VARCHAR}, #{wfagent,jdbcType=CHAR}, 
+      #{wfchange,jdbcType=CHAR}, #{wfagain,jdbcType=CHAR}, #{wfrecall,jdbcType=CHAR}, 
+      #{wfreturnback,jdbcType=CHAR}, #{wfhangup,jdbcType=CHAR}, #{wfwake,jdbcType=CHAR}, 
+      #{wfjump,jdbcType=CHAR}, #{orgid,jdbcType=VARCHAR}, #{depid,jdbcType=VARCHAR}, 
+      #{costtimes,jdbcType=DECIMAL}, #{sysid,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.WF_MAIN_RECORDEND">
+    insert into WF_MAIN_RECORDEND
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="instanceid != null">
+        INSTANCEID,
+      </if>
+      <if test="bizseqno != null">
+        BIZSEQNO,
+      </if>
+      <if test="custid != null">
+        CUSTID,
+      </if>
+      <if test="custname != null">
+        CUSTNAME,
+      </if>
+      <if test="maininstanceid != null">
+        MAININSTANCEID,
+      </if>
+      <if test="mainnodeid != null">
+        MAINNODEID,
+      </if>
+      <if test="wfstarttime != null">
+        WFSTARTTIME,
+      </if>
+      <if test="wfendtime != null">
+        WFENDTIME,
+      </if>
+      <if test="wfplanendtime != null">
+        WFPLANENDTIME,
+      </if>
+      <if test="wfstatus != null">
+        WFSTATUS,
+      </if>
+      <if test="wftype != null">
+        WFTYPE,
+      </if>
+      <if test="wfid != null">
+        WFID,
+      </if>
+      <if test="wfname != null">
+        WFNAME,
+      </if>
+      <if test="wfsign != null">
+        WFSIGN,
+      </if>
+      <if test="appid != null">
+        APPID,
+      </if>
+      <if test="appname != null">
+        APPNAME,
+      </if>
+      <if test="wfadmin != null">
+        WFADMIN,
+      </if>
+      <if test="wfreaders != null">
+        WFREADERS,
+      </if>
+      <if test="wfagent != null">
+        WFAGENT,
+      </if>
+      <if test="wfchange != null">
+        WFCHANGE,
+      </if>
+      <if test="wfagain != null">
+        WFAGAIN,
+      </if>
+      <if test="wfrecall != null">
+        WFRECALL,
+      </if>
+      <if test="wfreturnback != null">
+        WFRETURNBACK,
+      </if>
+      <if test="wfhangup != null">
+        WFHANGUP,
+      </if>
+      <if test="wfwake != null">
+        WFWAKE,
+      </if>
+      <if test="wfjump != null">
+        WFJUMP,
+      </if>
+      <if test="orgid != null">
+        ORGID,
+      </if>
+      <if test="depid != null">
+        DEPID,
+      </if>
+      <if test="costtimes != null">
+        COSTTIMES,
+      </if>
+      <if test="sysid != null">
+        SYSID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="instanceid != null">
+        #{instanceid,jdbcType=VARCHAR},
+      </if>
+      <if test="bizseqno != null">
+        #{bizseqno,jdbcType=VARCHAR},
+      </if>
+      <if test="custid != null">
+        #{custid,jdbcType=VARCHAR},
+      </if>
+      <if test="custname != null">
+        #{custname,jdbcType=VARCHAR},
+      </if>
+      <if test="maininstanceid != null">
+        #{maininstanceid,jdbcType=VARCHAR},
+      </if>
+      <if test="mainnodeid != null">
+        #{mainnodeid,jdbcType=VARCHAR},
+      </if>
+      <if test="wfstarttime != null">
+        #{wfstarttime,jdbcType=CHAR},
+      </if>
+      <if test="wfendtime != null">
+        #{wfendtime,jdbcType=CHAR},
+      </if>
+      <if test="wfplanendtime != null">
+        #{wfplanendtime,jdbcType=CHAR},
+      </if>
+      <if test="wfstatus != null">
+        #{wfstatus,jdbcType=CHAR},
+      </if>
+      <if test="wftype != null">
+        #{wftype,jdbcType=CHAR},
+      </if>
+      <if test="wfid != null">
+        #{wfid,jdbcType=VARCHAR},
+      </if>
+      <if test="wfname != null">
+        #{wfname,jdbcType=VARCHAR},
+      </if>
+      <if test="wfsign != null">
+        #{wfsign,jdbcType=VARCHAR},
+      </if>
+      <if test="appid != null">
+        #{appid,jdbcType=VARCHAR},
+      </if>
+      <if test="appname != null">
+        #{appname,jdbcType=VARCHAR},
+      </if>
+      <if test="wfadmin != null">
+        #{wfadmin,jdbcType=VARCHAR},
+      </if>
+      <if test="wfreaders != null">
+        #{wfreaders,jdbcType=VARCHAR},
+      </if>
+      <if test="wfagent != null">
+        #{wfagent,jdbcType=CHAR},
+      </if>
+      <if test="wfchange != null">
+        #{wfchange,jdbcType=CHAR},
+      </if>
+      <if test="wfagain != null">
+        #{wfagain,jdbcType=CHAR},
+      </if>
+      <if test="wfrecall != null">
+        #{wfrecall,jdbcType=CHAR},
+      </if>
+      <if test="wfreturnback != null">
+        #{wfreturnback,jdbcType=CHAR},
+      </if>
+      <if test="wfhangup != null">
+        #{wfhangup,jdbcType=CHAR},
+      </if>
+      <if test="wfwake != null">
+        #{wfwake,jdbcType=CHAR},
+      </if>
+      <if test="wfjump != null">
+        #{wfjump,jdbcType=CHAR},
+      </if>
+      <if test="orgid != null">
+        #{orgid,jdbcType=VARCHAR},
+      </if>
+      <if test="depid != null">
+        #{depid,jdbcType=VARCHAR},
+      </if>
+      <if test="costtimes != null">
+        #{costtimes,jdbcType=DECIMAL},
+      </if>
+      <if test="sysid != null">
+        #{sysid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.WF_MAIN_RECORDEND">
+    update WF_MAIN_RECORDEND
+    <set>
+      <if test="bizseqno != null">
+        BIZSEQNO = #{bizseqno,jdbcType=VARCHAR},
+      </if>
+      <if test="custid != null">
+        CUSTID = #{custid,jdbcType=VARCHAR},
+      </if>
+      <if test="custname != null">
+        CUSTNAME = #{custname,jdbcType=VARCHAR},
+      </if>
+      <if test="maininstanceid != null">
+        MAININSTANCEID = #{maininstanceid,jdbcType=VARCHAR},
+      </if>
+      <if test="mainnodeid != null">
+        MAINNODEID = #{mainnodeid,jdbcType=VARCHAR},
+      </if>
+      <if test="wfstarttime != null">
+        WFSTARTTIME = #{wfstarttime,jdbcType=CHAR},
+      </if>
+      <if test="wfendtime != null">
+        WFENDTIME = #{wfendtime,jdbcType=CHAR},
+      </if>
+      <if test="wfplanendtime != null">
+        WFPLANENDTIME = #{wfplanendtime,jdbcType=CHAR},
+      </if>
+      <if test="wfstatus != null">
+        WFSTATUS = #{wfstatus,jdbcType=CHAR},
+      </if>
+      <if test="wftype != null">
+        WFTYPE = #{wftype,jdbcType=CHAR},
+      </if>
+      <if test="wfid != null">
+        WFID = #{wfid,jdbcType=VARCHAR},
+      </if>
+      <if test="wfname != null">
+        WFNAME = #{wfname,jdbcType=VARCHAR},
+      </if>
+      <if test="wfsign != null">
+        WFSIGN = #{wfsign,jdbcType=VARCHAR},
+      </if>
+      <if test="appid != null">
+        APPID = #{appid,jdbcType=VARCHAR},
+      </if>
+      <if test="appname != null">
+        APPNAME = #{appname,jdbcType=VARCHAR},
+      </if>
+      <if test="wfadmin != null">
+        WFADMIN = #{wfadmin,jdbcType=VARCHAR},
+      </if>
+      <if test="wfreaders != null">
+        WFREADERS = #{wfreaders,jdbcType=VARCHAR},
+      </if>
+      <if test="wfagent != null">
+        WFAGENT = #{wfagent,jdbcType=CHAR},
+      </if>
+      <if test="wfchange != null">
+        WFCHANGE = #{wfchange,jdbcType=CHAR},
+      </if>
+      <if test="wfagain != null">
+        WFAGAIN = #{wfagain,jdbcType=CHAR},
+      </if>
+      <if test="wfrecall != null">
+        WFRECALL = #{wfrecall,jdbcType=CHAR},
+      </if>
+      <if test="wfreturnback != null">
+        WFRETURNBACK = #{wfreturnback,jdbcType=CHAR},
+      </if>
+      <if test="wfhangup != null">
+        WFHANGUP = #{wfhangup,jdbcType=CHAR},
+      </if>
+      <if test="wfwake != null">
+        WFWAKE = #{wfwake,jdbcType=CHAR},
+      </if>
+      <if test="wfjump != null">
+        WFJUMP = #{wfjump,jdbcType=CHAR},
+      </if>
+      <if test="orgid != null">
+        ORGID = #{orgid,jdbcType=VARCHAR},
+      </if>
+      <if test="depid != null">
+        DEPID = #{depid,jdbcType=VARCHAR},
+      </if>
+      <if test="costtimes != null">
+        COSTTIMES = #{costtimes,jdbcType=DECIMAL},
+      </if>
+      <if test="sysid != null">
+        SYSID = #{sysid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where INSTANCEID = #{instanceid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.WF_MAIN_RECORDEND">
+    update WF_MAIN_RECORDEND
+    set BIZSEQNO = #{bizseqno,jdbcType=VARCHAR},
+      CUSTID = #{custid,jdbcType=VARCHAR},
+      CUSTNAME = #{custname,jdbcType=VARCHAR},
+      MAININSTANCEID = #{maininstanceid,jdbcType=VARCHAR},
+      MAINNODEID = #{mainnodeid,jdbcType=VARCHAR},
+      WFSTARTTIME = #{wfstarttime,jdbcType=CHAR},
+      WFENDTIME = #{wfendtime,jdbcType=CHAR},
+      WFPLANENDTIME = #{wfplanendtime,jdbcType=CHAR},
+      WFSTATUS = #{wfstatus,jdbcType=CHAR},
+      WFTYPE = #{wftype,jdbcType=CHAR},
+      WFID = #{wfid,jdbcType=VARCHAR},
+      WFNAME = #{wfname,jdbcType=VARCHAR},
+      WFSIGN = #{wfsign,jdbcType=VARCHAR},
+      APPID = #{appid,jdbcType=VARCHAR},
+      APPNAME = #{appname,jdbcType=VARCHAR},
+      WFADMIN = #{wfadmin,jdbcType=VARCHAR},
+      WFREADERS = #{wfreaders,jdbcType=VARCHAR},
+      WFAGENT = #{wfagent,jdbcType=CHAR},
+      WFCHANGE = #{wfchange,jdbcType=CHAR},
+      WFAGAIN = #{wfagain,jdbcType=CHAR},
+      WFRECALL = #{wfrecall,jdbcType=CHAR},
+      WFRETURNBACK = #{wfreturnback,jdbcType=CHAR},
+      WFHANGUP = #{wfhangup,jdbcType=CHAR},
+      WFWAKE = #{wfwake,jdbcType=CHAR},
+      WFJUMP = #{wfjump,jdbcType=CHAR},
+      ORGID = #{orgid,jdbcType=VARCHAR},
+      DEPID = #{depid,jdbcType=VARCHAR},
+      COSTTIMES = #{costtimes,jdbcType=DECIMAL},
+      SYSID = #{sysid,jdbcType=VARCHAR}
+    where INSTANCEID = #{instanceid,jdbcType=VARCHAR}
+  </update>
+</mapper>

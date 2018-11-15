@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.S_COM_CDEMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.S_COM_CDE">
+    <id column="COM_TYP" jdbcType="VARCHAR" property="comTyp" />
+    <id column="COM_CDE" jdbcType="VARCHAR" property="comCde" />
+    <id column="INSTU_CDE" jdbcType="VARCHAR" property="instuCde" />
+    <result column="COM_TYP_DESC" jdbcType="VARCHAR" property="comTypDesc" />
+    <result column="COM_DESC" jdbcType="VARCHAR" property="comDesc" />
+    <result column="SUPER_TYP" jdbcType="VARCHAR" property="superTyp" />
+    <result column="SUPER_CDE" jdbcType="VARCHAR" property="superCde" />
+    <result column="COM_STS" jdbcType="VARCHAR" property="comSts" />
+    <result column="LAST_CHG_USR" jdbcType="VARCHAR" property="lastChgUsr" />
+    <result column="LAST_CHG_DT" jdbcType="VARCHAR" property="lastChgDt" />
+    <result column="ODR_CDE" jdbcType="VARCHAR" property="odrCde" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    COM_TYP, COM_CDE, INSTU_CDE, COM_TYP_DESC, COM_DESC, SUPER_TYP, SUPER_CDE, COM_STS, 
+    LAST_CHG_USR, LAST_CHG_DT, ODR_CDE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="com.bea.olp.S_COM_CDEKey" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from S_COM_CDE
+    where COM_TYP = #{comTyp,jdbcType=VARCHAR}
+      and COM_CDE = #{comCde,jdbcType=VARCHAR}
+      and INSTU_CDE = #{instuCde,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.bea.olp.S_COM_CDEKey">
+    delete from S_COM_CDE
+    where COM_TYP = #{comTyp,jdbcType=VARCHAR}
+      and COM_CDE = #{comCde,jdbcType=VARCHAR}
+      and INSTU_CDE = #{instuCde,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.S_COM_CDE">
+    insert into S_COM_CDE (COM_TYP, COM_CDE, INSTU_CDE, 
+      COM_TYP_DESC, COM_DESC, SUPER_TYP, 
+      SUPER_CDE, COM_STS, LAST_CHG_USR, 
+      LAST_CHG_DT, ODR_CDE)
+    values (#{comTyp,jdbcType=VARCHAR}, #{comCde,jdbcType=VARCHAR}, #{instuCde,jdbcType=VARCHAR}, 
+      #{comTypDesc,jdbcType=VARCHAR}, #{comDesc,jdbcType=VARCHAR}, #{superTyp,jdbcType=VARCHAR}, 
+      #{superCde,jdbcType=VARCHAR}, #{comSts,jdbcType=VARCHAR}, #{lastChgUsr,jdbcType=VARCHAR}, 
+      #{lastChgDt,jdbcType=VARCHAR}, #{odrCde,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.S_COM_CDE">
+    insert into S_COM_CDE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="comTyp != null">
+        COM_TYP,
+      </if>
+      <if test="comCde != null">
+        COM_CDE,
+      </if>
+      <if test="instuCde != null">
+        INSTU_CDE,
+      </if>
+      <if test="comTypDesc != null">
+        COM_TYP_DESC,
+      </if>
+      <if test="comDesc != null">
+        COM_DESC,
+      </if>
+      <if test="superTyp != null">
+        SUPER_TYP,
+      </if>
+      <if test="superCde != null">
+        SUPER_CDE,
+      </if>
+      <if test="comSts != null">
+        COM_STS,
+      </if>
+      <if test="lastChgUsr != null">
+        LAST_CHG_USR,
+      </if>
+      <if test="lastChgDt != null">
+        LAST_CHG_DT,
+      </if>
+      <if test="odrCde != null">
+        ODR_CDE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="comTyp != null">
+        #{comTyp,jdbcType=VARCHAR},
+      </if>
+      <if test="comCde != null">
+        #{comCde,jdbcType=VARCHAR},
+      </if>
+      <if test="instuCde != null">
+        #{instuCde,jdbcType=VARCHAR},
+      </if>
+      <if test="comTypDesc != null">
+        #{comTypDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="comDesc != null">
+        #{comDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="superTyp != null">
+        #{superTyp,jdbcType=VARCHAR},
+      </if>
+      <if test="superCde != null">
+        #{superCde,jdbcType=VARCHAR},
+      </if>
+      <if test="comSts != null">
+        #{comSts,jdbcType=VARCHAR},
+      </if>
+      <if test="lastChgUsr != null">
+        #{lastChgUsr,jdbcType=VARCHAR},
+      </if>
+      <if test="lastChgDt != null">
+        #{lastChgDt,jdbcType=VARCHAR},
+      </if>
+      <if test="odrCde != null">
+        #{odrCde,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.S_COM_CDE">
+    update S_COM_CDE
+    <set>
+      <if test="comTypDesc != null">
+        COM_TYP_DESC = #{comTypDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="comDesc != null">
+        COM_DESC = #{comDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="superTyp != null">
+        SUPER_TYP = #{superTyp,jdbcType=VARCHAR},
+      </if>
+      <if test="superCde != null">
+        SUPER_CDE = #{superCde,jdbcType=VARCHAR},
+      </if>
+      <if test="comSts != null">
+        COM_STS = #{comSts,jdbcType=VARCHAR},
+      </if>
+      <if test="lastChgUsr != null">
+        LAST_CHG_USR = #{lastChgUsr,jdbcType=VARCHAR},
+      </if>
+      <if test="lastChgDt != null">
+        LAST_CHG_DT = #{lastChgDt,jdbcType=VARCHAR},
+      </if>
+      <if test="odrCde != null">
+        ODR_CDE = #{odrCde,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where COM_TYP = #{comTyp,jdbcType=VARCHAR}
+      and COM_CDE = #{comCde,jdbcType=VARCHAR}
+      and INSTU_CDE = #{instuCde,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.S_COM_CDE">
+    update S_COM_CDE
+    set COM_TYP_DESC = #{comTypDesc,jdbcType=VARCHAR},
+      COM_DESC = #{comDesc,jdbcType=VARCHAR},
+      SUPER_TYP = #{superTyp,jdbcType=VARCHAR},
+      SUPER_CDE = #{superCde,jdbcType=VARCHAR},
+      COM_STS = #{comSts,jdbcType=VARCHAR},
+      LAST_CHG_USR = #{lastChgUsr,jdbcType=VARCHAR},
+      LAST_CHG_DT = #{lastChgDt,jdbcType=VARCHAR},
+      ODR_CDE = #{odrCde,jdbcType=VARCHAR}
+    where COM_TYP = #{comTyp,jdbcType=VARCHAR}
+      and COM_CDE = #{comCde,jdbcType=VARCHAR}
+      and INSTU_CDE = #{instuCde,jdbcType=VARCHAR}
+  </update>
+</mapper>

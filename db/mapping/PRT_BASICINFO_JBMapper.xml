@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.PRT_BASICINFO_JBMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.PRT_BASICINFO_JB">
+    <id column="CERT_CODE" jdbcType="VARCHAR" property="certCode" />
+    <result column="CERT_TYPE" jdbcType="VARCHAR" property="certType" />
+    <result column="CUST_NAME" jdbcType="VARCHAR" property="custName" />
+    <result column="CERT_VALID_DATE" jdbcType="VARCHAR" property="certValidDate" />
+    <result column="RESV_PHONE" jdbcType="VARCHAR" property="resvPhone" />
+    <result column="INPUT_DATE" jdbcType="VARCHAR" property="inputDate" />
+    <result column="INPUT_TIME" jdbcType="VARCHAR" property="inputTime" />
+    <result column="LAST_UPDATE_DATE" jdbcType="VARCHAR" property="lastUpdateDate" />
+    <result column="LAST_UPDATE_TIME" jdbcType="VARCHAR" property="lastUpdateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    CERT_CODE, CERT_TYPE, CUST_NAME, CERT_VALID_DATE, RESV_PHONE, INPUT_DATE, INPUT_TIME, 
+    LAST_UPDATE_DATE, LAST_UPDATE_TIME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from PRT_BASICINFO_JB
+    where CERT_CODE = #{certCode,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from PRT_BASICINFO_JB
+    where CERT_CODE = #{certCode,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.PRT_BASICINFO_JB">
+    insert into PRT_BASICINFO_JB (CERT_CODE, CERT_TYPE, CUST_NAME, 
+      CERT_VALID_DATE, RESV_PHONE, INPUT_DATE, 
+      INPUT_TIME, LAST_UPDATE_DATE, LAST_UPDATE_TIME
+      )
+    values (#{certCode,jdbcType=VARCHAR}, #{certType,jdbcType=VARCHAR}, #{custName,jdbcType=VARCHAR}, 
+      #{certValidDate,jdbcType=VARCHAR}, #{resvPhone,jdbcType=VARCHAR}, #{inputDate,jdbcType=VARCHAR}, 
+      #{inputTime,jdbcType=VARCHAR}, #{lastUpdateDate,jdbcType=VARCHAR}, #{lastUpdateTime,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.PRT_BASICINFO_JB">
+    insert into PRT_BASICINFO_JB
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="certCode != null">
+        CERT_CODE,
+      </if>
+      <if test="certType != null">
+        CERT_TYPE,
+      </if>
+      <if test="custName != null">
+        CUST_NAME,
+      </if>
+      <if test="certValidDate != null">
+        CERT_VALID_DATE,
+      </if>
+      <if test="resvPhone != null">
+        RESV_PHONE,
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE,
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME,
+      </if>
+      <if test="lastUpdateDate != null">
+        LAST_UPDATE_DATE,
+      </if>
+      <if test="lastUpdateTime != null">
+        LAST_UPDATE_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="certCode != null">
+        #{certCode,jdbcType=VARCHAR},
+      </if>
+      <if test="certType != null">
+        #{certType,jdbcType=VARCHAR},
+      </if>
+      <if test="custName != null">
+        #{custName,jdbcType=VARCHAR},
+      </if>
+      <if test="certValidDate != null">
+        #{certValidDate,jdbcType=VARCHAR},
+      </if>
+      <if test="resvPhone != null">
+        #{resvPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateDate != null">
+        #{lastUpdateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        #{lastUpdateTime,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.PRT_BASICINFO_JB">
+    update PRT_BASICINFO_JB
+    <set>
+      <if test="certType != null">
+        CERT_TYPE = #{certType,jdbcType=VARCHAR},
+      </if>
+      <if test="custName != null">
+        CUST_NAME = #{custName,jdbcType=VARCHAR},
+      </if>
+      <if test="certValidDate != null">
+        CERT_VALID_DATE = #{certValidDate,jdbcType=VARCHAR},
+      </if>
+      <if test="resvPhone != null">
+        RESV_PHONE = #{resvPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE = #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME = #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateDate != null">
+        LAST_UPDATE_DATE = #{lastUpdateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where CERT_CODE = #{certCode,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.PRT_BASICINFO_JB">
+    update PRT_BASICINFO_JB
+    set CERT_TYPE = #{certType,jdbcType=VARCHAR},
+      CUST_NAME = #{custName,jdbcType=VARCHAR},
+      CERT_VALID_DATE = #{certValidDate,jdbcType=VARCHAR},
+      RESV_PHONE = #{resvPhone,jdbcType=VARCHAR},
+      INPUT_DATE = #{inputDate,jdbcType=VARCHAR},
+      INPUT_TIME = #{inputTime,jdbcType=VARCHAR},
+      LAST_UPDATE_DATE = #{lastUpdateDate,jdbcType=VARCHAR},
+      LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=VARCHAR}
+    where CERT_CODE = #{certCode,jdbcType=VARCHAR}
+  </update>
+</mapper>

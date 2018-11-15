@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.BAT_CBM_TRAN_INFOMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.BAT_CBM_TRAN_INFO">
+    <result column="SERIALNO" jdbcType="VARCHAR" property="serialno" />
+    <result column="PARENTTRANSSERIALNO" jdbcType="VARCHAR" property="parenttransserialno" />
+    <result column="TRANSCODE" jdbcType="VARCHAR" property="transcode" />
+    <result column="RELATIVEOBJECTTYPE" jdbcType="VARCHAR" property="relativeobjecttype" />
+    <result column="RELATIVEOBJECTNO" jdbcType="VARCHAR" property="relativeobjectno" />
+    <result column="DOCUMENTTYPE" jdbcType="VARCHAR" property="documenttype" />
+    <result column="DOCUMENTNO" jdbcType="VARCHAR" property="documentno" />
+    <result column="TRANSDATE" jdbcType="VARCHAR" property="transdate" />
+    <result column="TRANSSTATUS" jdbcType="VARCHAR" property="transstatus" />
+    <result column="AUTOPAYFLAG" jdbcType="VARCHAR" property="autopayflag" />
+    <result column="INPUT_DATE" jdbcType="VARCHAR" property="inputDate" />
+    <result column="INPUT_TIME" jdbcType="VARCHAR" property="inputTime" />
+    <result column="DATA_DATE" jdbcType="VARCHAR" property="dataDate" />
+    <result column="CHANNEL_TYPE" jdbcType="VARCHAR" property="channelType" />
+    <result column="NETTRANSACTION" jdbcType="VARCHAR" property="nettransaction" />
+  </resultMap>
+  <insert id="insert" parameterType="com.bea.olp.BAT_CBM_TRAN_INFO">
+    insert into BAT_CBM_TRAN_INFO (SERIALNO, PARENTTRANSSERIALNO, TRANSCODE, 
+      RELATIVEOBJECTTYPE, RELATIVEOBJECTNO, DOCUMENTTYPE, 
+      DOCUMENTNO, TRANSDATE, TRANSSTATUS, 
+      AUTOPAYFLAG, INPUT_DATE, INPUT_TIME, 
+      DATA_DATE, CHANNEL_TYPE, NETTRANSACTION
+      )
+    values (#{serialno,jdbcType=VARCHAR}, #{parenttransserialno,jdbcType=VARCHAR}, #{transcode,jdbcType=VARCHAR}, 
+      #{relativeobjecttype,jdbcType=VARCHAR}, #{relativeobjectno,jdbcType=VARCHAR}, #{documenttype,jdbcType=VARCHAR}, 
+      #{documentno,jdbcType=VARCHAR}, #{transdate,jdbcType=VARCHAR}, #{transstatus,jdbcType=VARCHAR}, 
+      #{autopayflag,jdbcType=VARCHAR}, #{inputDate,jdbcType=VARCHAR}, #{inputTime,jdbcType=VARCHAR}, 
+      #{dataDate,jdbcType=VARCHAR}, #{channelType,jdbcType=VARCHAR}, #{nettransaction,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.BAT_CBM_TRAN_INFO">
+    insert into BAT_CBM_TRAN_INFO
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="serialno != null">
+        SERIALNO,
+      </if>
+      <if test="parenttransserialno != null">
+        PARENTTRANSSERIALNO,
+      </if>
+      <if test="transcode != null">
+        TRANSCODE,
+      </if>
+      <if test="relativeobjecttype != null">
+        RELATIVEOBJECTTYPE,
+      </if>
+      <if test="relativeobjectno != null">
+        RELATIVEOBJECTNO,
+      </if>
+      <if test="documenttype != null">
+        DOCUMENTTYPE,
+      </if>
+      <if test="documentno != null">
+        DOCUMENTNO,
+      </if>
+      <if test="transdate != null">
+        TRANSDATE,
+      </if>
+      <if test="transstatus != null">
+        TRANSSTATUS,
+      </if>
+      <if test="autopayflag != null">
+        AUTOPAYFLAG,
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE,
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME,
+      </if>
+      <if test="dataDate != null">
+        DATA_DATE,
+      </if>
+      <if test="channelType != null">
+        CHANNEL_TYPE,
+      </if>
+      <if test="nettransaction != null">
+        NETTRANSACTION,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="serialno != null">
+        #{serialno,jdbcType=VARCHAR},
+      </if>
+      <if test="parenttransserialno != null">
+        #{parenttransserialno,jdbcType=VARCHAR},
+      </if>
+      <if test="transcode != null">
+        #{transcode,jdbcType=VARCHAR},
+      </if>
+      <if test="relativeobjecttype != null">
+        #{relativeobjecttype,jdbcType=VARCHAR},
+      </if>
+      <if test="relativeobjectno != null">
+        #{relativeobjectno,jdbcType=VARCHAR},
+      </if>
+      <if test="documenttype != null">
+        #{documenttype,jdbcType=VARCHAR},
+      </if>
+      <if test="documentno != null">
+        #{documentno,jdbcType=VARCHAR},
+      </if>
+      <if test="transdate != null">
+        #{transdate,jdbcType=VARCHAR},
+      </if>
+      <if test="transstatus != null">
+        #{transstatus,jdbcType=VARCHAR},
+      </if>
+      <if test="autopayflag != null">
+        #{autopayflag,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="dataDate != null">
+        #{dataDate,jdbcType=VARCHAR},
+      </if>
+      <if test="channelType != null">
+        #{channelType,jdbcType=VARCHAR},
+      </if>
+      <if test="nettransaction != null">
+        #{nettransaction,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

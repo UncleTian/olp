@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.BIZ_ANT_ARG_STATUS_CHANGEMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.BIZ_ANT_ARG_STATUS_CHANGE">
+    <result column="CONTRACT_NO" jdbcType="VARCHAR" property="contractNo" />
+    <result column="SETTLE_DATE" jdbcType="VARCHAR" property="settleDate" />
+    <result column="SEQ_NO" jdbcType="VARCHAR" property="seqNo" />
+    <result column="EVENT_CODE" jdbcType="VARCHAR" property="eventCode" />
+    <result column="BEFORE_STATUS" jdbcType="VARCHAR" property="beforeStatus" />
+    <result column="AFTER_STATUS" jdbcType="VARCHAR" property="afterStatus" />
+    <result column="PRIN_AMT" jdbcType="DECIMAL" property="prinAmt" />
+    <result column="INT_AMT" jdbcType="DECIMAL" property="intAmt" />
+    <result column="OVD_PRIN_PNLT_AMT" jdbcType="DECIMAL" property="ovdPrinPnltAmt" />
+    <result column="OVD_INT_PNLT_AMT" jdbcType="DECIMAL" property="ovdIntPnltAmt" />
+    <result column="INPUT_DATE" jdbcType="VARCHAR" property="inputDate" />
+    <result column="INPUT_TIME" jdbcType="VARCHAR" property="inputTime" />
+    <result column="LAST_UPDATE_DATE" jdbcType="VARCHAR" property="lastUpdateDate" />
+    <result column="LAST_UPDATE_TIME" jdbcType="VARCHAR" property="lastUpdateTime" />
+    <result column="DATA_DATE" jdbcType="VARCHAR" property="dataDate" />
+  </resultMap>
+  <insert id="insert" parameterType="com.bea.olp.BIZ_ANT_ARG_STATUS_CHANGE">
+    insert into BIZ_ANT_ARG_STATUS_CHANGE (CONTRACT_NO, SETTLE_DATE, SEQ_NO, 
+      EVENT_CODE, BEFORE_STATUS, AFTER_STATUS, 
+      PRIN_AMT, INT_AMT, OVD_PRIN_PNLT_AMT, 
+      OVD_INT_PNLT_AMT, INPUT_DATE, INPUT_TIME, 
+      LAST_UPDATE_DATE, LAST_UPDATE_TIME, DATA_DATE
+      )
+    values (#{contractNo,jdbcType=VARCHAR}, #{settleDate,jdbcType=VARCHAR}, #{seqNo,jdbcType=VARCHAR}, 
+      #{eventCode,jdbcType=VARCHAR}, #{beforeStatus,jdbcType=VARCHAR}, #{afterStatus,jdbcType=VARCHAR}, 
+      #{prinAmt,jdbcType=DECIMAL}, #{intAmt,jdbcType=DECIMAL}, #{ovdPrinPnltAmt,jdbcType=DECIMAL}, 
+      #{ovdIntPnltAmt,jdbcType=DECIMAL}, #{inputDate,jdbcType=VARCHAR}, #{inputTime,jdbcType=VARCHAR}, 
+      #{lastUpdateDate,jdbcType=VARCHAR}, #{lastUpdateTime,jdbcType=VARCHAR}, #{dataDate,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.BIZ_ANT_ARG_STATUS_CHANGE">
+    insert into BIZ_ANT_ARG_STATUS_CHANGE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="contractNo != null">
+        CONTRACT_NO,
+      </if>
+      <if test="settleDate != null">
+        SETTLE_DATE,
+      </if>
+      <if test="seqNo != null">
+        SEQ_NO,
+      </if>
+      <if test="eventCode != null">
+        EVENT_CODE,
+      </if>
+      <if test="beforeStatus != null">
+        BEFORE_STATUS,
+      </if>
+      <if test="afterStatus != null">
+        AFTER_STATUS,
+      </if>
+      <if test="prinAmt != null">
+        PRIN_AMT,
+      </if>
+      <if test="intAmt != null">
+        INT_AMT,
+      </if>
+      <if test="ovdPrinPnltAmt != null">
+        OVD_PRIN_PNLT_AMT,
+      </if>
+      <if test="ovdIntPnltAmt != null">
+        OVD_INT_PNLT_AMT,
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE,
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME,
+      </if>
+      <if test="lastUpdateDate != null">
+        LAST_UPDATE_DATE,
+      </if>
+      <if test="lastUpdateTime != null">
+        LAST_UPDATE_TIME,
+      </if>
+      <if test="dataDate != null">
+        DATA_DATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="contractNo != null">
+        #{contractNo,jdbcType=VARCHAR},
+      </if>
+      <if test="settleDate != null">
+        #{settleDate,jdbcType=VARCHAR},
+      </if>
+      <if test="seqNo != null">
+        #{seqNo,jdbcType=VARCHAR},
+      </if>
+      <if test="eventCode != null">
+        #{eventCode,jdbcType=VARCHAR},
+      </if>
+      <if test="beforeStatus != null">
+        #{beforeStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="afterStatus != null">
+        #{afterStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="prinAmt != null">
+        #{prinAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="intAmt != null">
+        #{intAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="ovdPrinPnltAmt != null">
+        #{ovdPrinPnltAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="ovdIntPnltAmt != null">
+        #{ovdIntPnltAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="inputDate != null">
+        #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateDate != null">
+        #{lastUpdateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        #{lastUpdateTime,jdbcType=VARCHAR},
+      </if>
+      <if test="dataDate != null">
+        #{dataDate,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

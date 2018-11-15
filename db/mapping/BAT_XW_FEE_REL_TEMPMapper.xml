@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.BAT_XW_FEE_REL_TEMPMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.BAT_XW_FEE_REL_TEMP">
+    <result column="LOAN_NO" jdbcType="VARCHAR" property="loanNo" />
+    <result column="FEE_RULE_ID" jdbcType="VARCHAR" property="feeRuleId" />
+    <result column="FEE_RULE_NAME" jdbcType="VARCHAR" property="feeRuleName" />
+    <result column="FEE_RULE_CODE" jdbcType="VARCHAR" property="feeRuleCode" />
+    <result column="FEE_RATE" jdbcType="DECIMAL" property="feeRate" />
+    <result column="INPUT_DATE" jdbcType="VARCHAR" property="inputDate" />
+    <result column="INPUT_TIME" jdbcType="VARCHAR" property="inputTime" />
+    <result column="DATA_DATE" jdbcType="VARCHAR" property="dataDate" />
+  </resultMap>
+  <insert id="insert" parameterType="com.bea.olp.BAT_XW_FEE_REL_TEMP">
+    insert into BAT_XW_FEE_REL_TEMP (LOAN_NO, FEE_RULE_ID, FEE_RULE_NAME, 
+      FEE_RULE_CODE, FEE_RATE, INPUT_DATE, 
+      INPUT_TIME, DATA_DATE)
+    values (#{loanNo,jdbcType=VARCHAR}, #{feeRuleId,jdbcType=VARCHAR}, #{feeRuleName,jdbcType=VARCHAR}, 
+      #{feeRuleCode,jdbcType=VARCHAR}, #{feeRate,jdbcType=DECIMAL}, #{inputDate,jdbcType=VARCHAR}, 
+      #{inputTime,jdbcType=VARCHAR}, #{dataDate,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.BAT_XW_FEE_REL_TEMP">
+    insert into BAT_XW_FEE_REL_TEMP
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="loanNo != null">
+        LOAN_NO,
+      </if>
+      <if test="feeRuleId != null">
+        FEE_RULE_ID,
+      </if>
+      <if test="feeRuleName != null">
+        FEE_RULE_NAME,
+      </if>
+      <if test="feeRuleCode != null">
+        FEE_RULE_CODE,
+      </if>
+      <if test="feeRate != null">
+        FEE_RATE,
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE,
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME,
+      </if>
+      <if test="dataDate != null">
+        DATA_DATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="loanNo != null">
+        #{loanNo,jdbcType=VARCHAR},
+      </if>
+      <if test="feeRuleId != null">
+        #{feeRuleId,jdbcType=VARCHAR},
+      </if>
+      <if test="feeRuleName != null">
+        #{feeRuleName,jdbcType=VARCHAR},
+      </if>
+      <if test="feeRuleCode != null">
+        #{feeRuleCode,jdbcType=VARCHAR},
+      </if>
+      <if test="feeRate != null">
+        #{feeRate,jdbcType=DECIMAL},
+      </if>
+      <if test="inputDate != null">
+        #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="dataDate != null">
+        #{dataDate,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

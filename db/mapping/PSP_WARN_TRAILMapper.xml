@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.PSP_WARN_TRAILMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.PSP_WARN_TRAIL">
+    <result column="DATA_DATE" jdbcType="VARCHAR" property="dataDate" />
+    <result column="TP_OBJ_ID" jdbcType="VARCHAR" property="tpObjId" />
+    <result column="PRD_CODE" jdbcType="VARCHAR" property="prdCode" />
+    <result column="INTYPE" jdbcType="VARCHAR" property="intype" />
+    <result column="STATIS_YM" jdbcType="VARCHAR" property="statisYm" />
+    <result column="CUST_ID_CORE" jdbcType="VARCHAR" property="custIdCore" />
+    <result column="SCORE" jdbcType="DECIMAL" property="score" />
+    <result column="DEC_INTRATE" jdbcType="VARCHAR" property="decIntrate" />
+    <result column="CREDIT" jdbcType="VARCHAR" property="credit" />
+    <result column="DEC_REASON" jdbcType="VARCHAR" property="decReason" />
+    <result column="GEN_REASON" jdbcType="VARCHAR" property="genReason" />
+    <result column="INPUT_TIME" jdbcType="VARCHAR" property="inputTime" />
+    <result column="INPUT_DATE" jdbcType="VARCHAR" property="inputDate" />
+  </resultMap>
+  <insert id="insert" parameterType="com.bea.olp.PSP_WARN_TRAIL">
+    insert into PSP_WARN_TRAIL (DATA_DATE, TP_OBJ_ID, PRD_CODE, 
+      INTYPE, STATIS_YM, CUST_ID_CORE, 
+      SCORE, DEC_INTRATE, CREDIT, 
+      DEC_REASON, GEN_REASON, INPUT_TIME, 
+      INPUT_DATE)
+    values (#{dataDate,jdbcType=VARCHAR}, #{tpObjId,jdbcType=VARCHAR}, #{prdCode,jdbcType=VARCHAR}, 
+      #{intype,jdbcType=VARCHAR}, #{statisYm,jdbcType=VARCHAR}, #{custIdCore,jdbcType=VARCHAR}, 
+      #{score,jdbcType=DECIMAL}, #{decIntrate,jdbcType=VARCHAR}, #{credit,jdbcType=VARCHAR}, 
+      #{decReason,jdbcType=VARCHAR}, #{genReason,jdbcType=VARCHAR}, #{inputTime,jdbcType=VARCHAR}, 
+      #{inputDate,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.PSP_WARN_TRAIL">
+    insert into PSP_WARN_TRAIL
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="dataDate != null">
+        DATA_DATE,
+      </if>
+      <if test="tpObjId != null">
+        TP_OBJ_ID,
+      </if>
+      <if test="prdCode != null">
+        PRD_CODE,
+      </if>
+      <if test="intype != null">
+        INTYPE,
+      </if>
+      <if test="statisYm != null">
+        STATIS_YM,
+      </if>
+      <if test="custIdCore != null">
+        CUST_ID_CORE,
+      </if>
+      <if test="score != null">
+        SCORE,
+      </if>
+      <if test="decIntrate != null">
+        DEC_INTRATE,
+      </if>
+      <if test="credit != null">
+        CREDIT,
+      </if>
+      <if test="decReason != null">
+        DEC_REASON,
+      </if>
+      <if test="genReason != null">
+        GEN_REASON,
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME,
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="dataDate != null">
+        #{dataDate,jdbcType=VARCHAR},
+      </if>
+      <if test="tpObjId != null">
+        #{tpObjId,jdbcType=VARCHAR},
+      </if>
+      <if test="prdCode != null">
+        #{prdCode,jdbcType=VARCHAR},
+      </if>
+      <if test="intype != null">
+        #{intype,jdbcType=VARCHAR},
+      </if>
+      <if test="statisYm != null">
+        #{statisYm,jdbcType=VARCHAR},
+      </if>
+      <if test="custIdCore != null">
+        #{custIdCore,jdbcType=VARCHAR},
+      </if>
+      <if test="score != null">
+        #{score,jdbcType=DECIMAL},
+      </if>
+      <if test="decIntrate != null">
+        #{decIntrate,jdbcType=VARCHAR},
+      </if>
+      <if test="credit != null">
+        #{credit,jdbcType=VARCHAR},
+      </if>
+      <if test="decReason != null">
+        #{decReason,jdbcType=VARCHAR},
+      </if>
+      <if test="genReason != null">
+        #{genReason,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        #{inputDate,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

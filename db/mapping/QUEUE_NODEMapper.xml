@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.QUEUE_NODEMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.QUEUE_NODE">
+    <id column="APP_NO" jdbcType="VARCHAR" property="appNo" />
+    <id column="NODE_ID" jdbcType="VARCHAR" property="nodeId" />
+    <result column="NODE_NAME" jdbcType="VARCHAR" property="nodeName" />
+    <result column="NODE_TYPE" jdbcType="VARCHAR" property="nodeType" />
+    <result column="NODE_STATUS" jdbcType="VARCHAR" property="nodeStatus" />
+    <result column="ERROR_MSG" jdbcType="VARCHAR" property="errorMsg" />
+    <result column="INPUT_TIME" jdbcType="VARCHAR" property="inputTime" />
+    <result column="LAST_UPDATE_TIME" jdbcType="VARCHAR" property="lastUpdateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    APP_NO, NODE_ID, NODE_NAME, NODE_TYPE, NODE_STATUS, ERROR_MSG, INPUT_TIME, LAST_UPDATE_TIME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="com.bea.olp.QUEUE_NODEKey" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from QUEUE_NODE
+    where APP_NO = #{appNo,jdbcType=VARCHAR}
+      and NODE_ID = #{nodeId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.bea.olp.QUEUE_NODEKey">
+    delete from QUEUE_NODE
+    where APP_NO = #{appNo,jdbcType=VARCHAR}
+      and NODE_ID = #{nodeId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.QUEUE_NODE">
+    insert into QUEUE_NODE (APP_NO, NODE_ID, NODE_NAME, 
+      NODE_TYPE, NODE_STATUS, ERROR_MSG, 
+      INPUT_TIME, LAST_UPDATE_TIME)
+    values (#{appNo,jdbcType=VARCHAR}, #{nodeId,jdbcType=VARCHAR}, #{nodeName,jdbcType=VARCHAR}, 
+      #{nodeType,jdbcType=VARCHAR}, #{nodeStatus,jdbcType=VARCHAR}, #{errorMsg,jdbcType=VARCHAR}, 
+      #{inputTime,jdbcType=VARCHAR}, #{lastUpdateTime,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.QUEUE_NODE">
+    insert into QUEUE_NODE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="appNo != null">
+        APP_NO,
+      </if>
+      <if test="nodeId != null">
+        NODE_ID,
+      </if>
+      <if test="nodeName != null">
+        NODE_NAME,
+      </if>
+      <if test="nodeType != null">
+        NODE_TYPE,
+      </if>
+      <if test="nodeStatus != null">
+        NODE_STATUS,
+      </if>
+      <if test="errorMsg != null">
+        ERROR_MSG,
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME,
+      </if>
+      <if test="lastUpdateTime != null">
+        LAST_UPDATE_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="appNo != null">
+        #{appNo,jdbcType=VARCHAR},
+      </if>
+      <if test="nodeId != null">
+        #{nodeId,jdbcType=VARCHAR},
+      </if>
+      <if test="nodeName != null">
+        #{nodeName,jdbcType=VARCHAR},
+      </if>
+      <if test="nodeType != null">
+        #{nodeType,jdbcType=VARCHAR},
+      </if>
+      <if test="nodeStatus != null">
+        #{nodeStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="errorMsg != null">
+        #{errorMsg,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        #{lastUpdateTime,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.QUEUE_NODE">
+    update QUEUE_NODE
+    <set>
+      <if test="nodeName != null">
+        NODE_NAME = #{nodeName,jdbcType=VARCHAR},
+      </if>
+      <if test="nodeType != null">
+        NODE_TYPE = #{nodeType,jdbcType=VARCHAR},
+      </if>
+      <if test="nodeStatus != null">
+        NODE_STATUS = #{nodeStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="errorMsg != null">
+        ERROR_MSG = #{errorMsg,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME = #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where APP_NO = #{appNo,jdbcType=VARCHAR}
+      and NODE_ID = #{nodeId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.QUEUE_NODE">
+    update QUEUE_NODE
+    set NODE_NAME = #{nodeName,jdbcType=VARCHAR},
+      NODE_TYPE = #{nodeType,jdbcType=VARCHAR},
+      NODE_STATUS = #{nodeStatus,jdbcType=VARCHAR},
+      ERROR_MSG = #{errorMsg,jdbcType=VARCHAR},
+      INPUT_TIME = #{inputTime,jdbcType=VARCHAR},
+      LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=VARCHAR}
+    where APP_NO = #{appNo,jdbcType=VARCHAR}
+      and NODE_ID = #{nodeId,jdbcType=VARCHAR}
+  </update>
+</mapper>

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.BAT_XW_FEE_HISMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.BAT_XW_FEE_HIS">
+    <result column="SHOULD_DEDUCT_DATE" jdbcType="VARCHAR" property="shouldDeductDate" />
+    <result column="SHOULD_DEDUCT_AMT" jdbcType="DECIMAL" property="shouldDeductAmt" />
+    <result column="REAL_DEDUCT_DATE" jdbcType="VARCHAR" property="realDeductDate" />
+    <result column="REAL_DEDUCT_AMT" jdbcType="DECIMAL" property="realDeductAmt" />
+    <result column="DEDUCT_STATUS" jdbcType="VARCHAR" property="deductStatus" />
+    <result column="APPLY_NO" jdbcType="VARCHAR" property="applyNo" />
+    <result column="DEDUCT_RULE_ID" jdbcType="VARCHAR" property="deductRuleId" />
+    <result column="DEDUCT_RULE_NAME" jdbcType="VARCHAR" property="deductRuleName" />
+    <result column="DEDUCT_RULE_CODE" jdbcType="VARCHAR" property="deductRuleCode" />
+    <result column="DEDUCT_BASICS" jdbcType="DECIMAL" property="deductBasics" />
+    <result column="RATE" jdbcType="DECIMAL" property="rate" />
+    <result column="INPUT_DATE" jdbcType="VARCHAR" property="inputDate" />
+    <result column="INPUT_TIME" jdbcType="VARCHAR" property="inputTime" />
+    <result column="DATA_DATE" jdbcType="VARCHAR" property="dataDate" />
+  </resultMap>
+  <insert id="insert" parameterType="com.bea.olp.BAT_XW_FEE_HIS">
+    insert into BAT_XW_FEE_HIS (SHOULD_DEDUCT_DATE, SHOULD_DEDUCT_AMT, 
+      REAL_DEDUCT_DATE, REAL_DEDUCT_AMT, DEDUCT_STATUS, 
+      APPLY_NO, DEDUCT_RULE_ID, DEDUCT_RULE_NAME, 
+      DEDUCT_RULE_CODE, DEDUCT_BASICS, RATE, 
+      INPUT_DATE, INPUT_TIME, DATA_DATE
+      )
+    values (#{shouldDeductDate,jdbcType=VARCHAR}, #{shouldDeductAmt,jdbcType=DECIMAL}, 
+      #{realDeductDate,jdbcType=VARCHAR}, #{realDeductAmt,jdbcType=DECIMAL}, #{deductStatus,jdbcType=VARCHAR}, 
+      #{applyNo,jdbcType=VARCHAR}, #{deductRuleId,jdbcType=VARCHAR}, #{deductRuleName,jdbcType=VARCHAR}, 
+      #{deductRuleCode,jdbcType=VARCHAR}, #{deductBasics,jdbcType=DECIMAL}, #{rate,jdbcType=DECIMAL}, 
+      #{inputDate,jdbcType=VARCHAR}, #{inputTime,jdbcType=VARCHAR}, #{dataDate,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.BAT_XW_FEE_HIS">
+    insert into BAT_XW_FEE_HIS
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="shouldDeductDate != null">
+        SHOULD_DEDUCT_DATE,
+      </if>
+      <if test="shouldDeductAmt != null">
+        SHOULD_DEDUCT_AMT,
+      </if>
+      <if test="realDeductDate != null">
+        REAL_DEDUCT_DATE,
+      </if>
+      <if test="realDeductAmt != null">
+        REAL_DEDUCT_AMT,
+      </if>
+      <if test="deductStatus != null">
+        DEDUCT_STATUS,
+      </if>
+      <if test="applyNo != null">
+        APPLY_NO,
+      </if>
+      <if test="deductRuleId != null">
+        DEDUCT_RULE_ID,
+      </if>
+      <if test="deductRuleName != null">
+        DEDUCT_RULE_NAME,
+      </if>
+      <if test="deductRuleCode != null">
+        DEDUCT_RULE_CODE,
+      </if>
+      <if test="deductBasics != null">
+        DEDUCT_BASICS,
+      </if>
+      <if test="rate != null">
+        RATE,
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE,
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME,
+      </if>
+      <if test="dataDate != null">
+        DATA_DATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="shouldDeductDate != null">
+        #{shouldDeductDate,jdbcType=VARCHAR},
+      </if>
+      <if test="shouldDeductAmt != null">
+        #{shouldDeductAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="realDeductDate != null">
+        #{realDeductDate,jdbcType=VARCHAR},
+      </if>
+      <if test="realDeductAmt != null">
+        #{realDeductAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="deductStatus != null">
+        #{deductStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="applyNo != null">
+        #{applyNo,jdbcType=VARCHAR},
+      </if>
+      <if test="deductRuleId != null">
+        #{deductRuleId,jdbcType=VARCHAR},
+      </if>
+      <if test="deductRuleName != null">
+        #{deductRuleName,jdbcType=VARCHAR},
+      </if>
+      <if test="deductRuleCode != null">
+        #{deductRuleCode,jdbcType=VARCHAR},
+      </if>
+      <if test="deductBasics != null">
+        #{deductBasics,jdbcType=DECIMAL},
+      </if>
+      <if test="rate != null">
+        #{rate,jdbcType=DECIMAL},
+      </if>
+      <if test="inputDate != null">
+        #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="dataDate != null">
+        #{dataDate,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -1,0 +1,411 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.BIZ_XW_BAL_TOLMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.BIZ_XW_BAL_TOL">
+    <id column="ACCT_CHECK_DATE" jdbcType="VARCHAR" property="acctCheckDate" />
+    <result column="LAST_DAY_PRIN_BAL" jdbcType="DECIMAL" property="lastDayPrinBal" />
+    <result column="CURR_DAY_GRANT_TOTLAMT" jdbcType="DECIMAL" property="currDayGrantTotlamt" />
+    <result column="CURR_DAY_RECYCLE_TOTLAMT" jdbcType="DECIMAL" property="currDayRecycleTotlamt" />
+    <result column="CURR_DAY_LOAN_PRIN_BAL" jdbcType="DECIMAL" property="currDayLoanPrinBal" />
+    <result column="LAST_DAY_RECEIVABLE_INT_BAL" jdbcType="DECIMAL" property="lastDayReceivableIntBal" />
+    <result column="CURR_DAY_WITHDRAW_RCB_INT" jdbcType="DECIMAL" property="currDayWithdrawRcbInt" />
+    <result column="CURR_DAY_RECYCLE_INT" jdbcType="DECIMAL" property="currDayRecycleInt" />
+    <result column="CURR_DAY_RECEIVABLE_INT_BAL" jdbcType="DECIMAL" property="currDayReceivableIntBal" />
+    <result column="LAST_DAY_RECEIVABLE_PNLT_BAL" jdbcType="DECIMAL" property="lastDayReceivablePnltBal" />
+    <result column="CURR_DAY_WITHDRAW_RCB_PNLT" jdbcType="DECIMAL" property="currDayWithdrawRcbPnlt" />
+    <result column="CURR_DAY_RECYCLE_PNLT" jdbcType="DECIMAL" property="currDayRecyclePnlt" />
+    <result column="CURR_DAY_RECEIVABLE_PNLT_BAL" jdbcType="DECIMAL" property="currDayReceivablePnltBal" />
+    <result column="CURR_DAY_WRITEOFF_TOTLAMT" jdbcType="DECIMAL" property="currDayWriteoffTotlamt" />
+    <result column="CURR_DAY_WRITEOFF_INT" jdbcType="DECIMAL" property="currDayWriteoffInt" />
+    <result column="CURR_DAY_WRITEOFF_PNLT" jdbcType="DECIMAL" property="currDayWriteoffPnlt" />
+    <result column="LAST_DAY_PAYABLE_AMT_BAL" jdbcType="DECIMAL" property="lastDayPayableAmtBal" />
+    <result column="CURR_DAY_PAYABLE_AMT" jdbcType="DECIMAL" property="currDayPayableAmt" />
+    <result column="CURR_DAY_DEDUCT_AMT" jdbcType="DECIMAL" property="currDayDeductAmt" />
+    <result column="CURR_DAY_PAYABLE_AMT_BAL" jdbcType="DECIMAL" property="currDayPayableAmtBal" />
+    <result column="CURR_DAY_WRITEOFF_AMT" jdbcType="DECIMAL" property="currDayWriteoffAmt" />
+    <result column="LAST_DAY_PAYABLE_DELAY_AMT_BAL" jdbcType="DECIMAL" property="lastDayPayableDelayAmtBal" />
+    <result column="CURR_DAY_PAYABLE_DELAY_AMT" jdbcType="DECIMAL" property="currDayPayableDelayAmt" />
+    <result column="CURR_DAY_DEDUCT_DELAY_AMT" jdbcType="DECIMAL" property="currDayDeductDelayAmt" />
+    <result column="CURR_DAY_PAYABLE_DELAY_AMT_BAL" jdbcType="DECIMAL" property="currDayPayableDelayAmtBal" />
+    <result column="CURR_DAY_WRITEOFF_DELAY_AMT" jdbcType="DECIMAL" property="currDayWriteoffDelayAmt" />
+    <result column="INPUT_DATE" jdbcType="VARCHAR" property="inputDate" />
+    <result column="INPUT_TIME" jdbcType="VARCHAR" property="inputTime" />
+    <result column="DATA_DATE" jdbcType="VARCHAR" property="dataDate" />
+    <result column="LAST_UPDATE_DATE" jdbcType="VARCHAR" property="lastUpdateDate" />
+    <result column="LAST_UPDATE_TIME" jdbcType="VARCHAR" property="lastUpdateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ACCT_CHECK_DATE, LAST_DAY_PRIN_BAL, CURR_DAY_GRANT_TOTLAMT, CURR_DAY_RECYCLE_TOTLAMT, 
+    CURR_DAY_LOAN_PRIN_BAL, LAST_DAY_RECEIVABLE_INT_BAL, CURR_DAY_WITHDRAW_RCB_INT, CURR_DAY_RECYCLE_INT, 
+    CURR_DAY_RECEIVABLE_INT_BAL, LAST_DAY_RECEIVABLE_PNLT_BAL, CURR_DAY_WITHDRAW_RCB_PNLT, 
+    CURR_DAY_RECYCLE_PNLT, CURR_DAY_RECEIVABLE_PNLT_BAL, CURR_DAY_WRITEOFF_TOTLAMT, CURR_DAY_WRITEOFF_INT, 
+    CURR_DAY_WRITEOFF_PNLT, LAST_DAY_PAYABLE_AMT_BAL, CURR_DAY_PAYABLE_AMT, CURR_DAY_DEDUCT_AMT, 
+    CURR_DAY_PAYABLE_AMT_BAL, CURR_DAY_WRITEOFF_AMT, LAST_DAY_PAYABLE_DELAY_AMT_BAL, 
+    CURR_DAY_PAYABLE_DELAY_AMT, CURR_DAY_DEDUCT_DELAY_AMT, CURR_DAY_PAYABLE_DELAY_AMT_BAL, 
+    CURR_DAY_WRITEOFF_DELAY_AMT, INPUT_DATE, INPUT_TIME, DATA_DATE, LAST_UPDATE_DATE, 
+    LAST_UPDATE_TIME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from BIZ_XW_BAL_TOL
+    where ACCT_CHECK_DATE = #{acctCheckDate,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from BIZ_XW_BAL_TOL
+    where ACCT_CHECK_DATE = #{acctCheckDate,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.BIZ_XW_BAL_TOL">
+    insert into BIZ_XW_BAL_TOL (ACCT_CHECK_DATE, LAST_DAY_PRIN_BAL, CURR_DAY_GRANT_TOTLAMT, 
+      CURR_DAY_RECYCLE_TOTLAMT, CURR_DAY_LOAN_PRIN_BAL, 
+      LAST_DAY_RECEIVABLE_INT_BAL, CURR_DAY_WITHDRAW_RCB_INT, 
+      CURR_DAY_RECYCLE_INT, CURR_DAY_RECEIVABLE_INT_BAL, 
+      LAST_DAY_RECEIVABLE_PNLT_BAL, CURR_DAY_WITHDRAW_RCB_PNLT, 
+      CURR_DAY_RECYCLE_PNLT, CURR_DAY_RECEIVABLE_PNLT_BAL, 
+      CURR_DAY_WRITEOFF_TOTLAMT, CURR_DAY_WRITEOFF_INT, 
+      CURR_DAY_WRITEOFF_PNLT, LAST_DAY_PAYABLE_AMT_BAL, 
+      CURR_DAY_PAYABLE_AMT, CURR_DAY_DEDUCT_AMT, CURR_DAY_PAYABLE_AMT_BAL, 
+      CURR_DAY_WRITEOFF_AMT, LAST_DAY_PAYABLE_DELAY_AMT_BAL, 
+      CURR_DAY_PAYABLE_DELAY_AMT, CURR_DAY_DEDUCT_DELAY_AMT, 
+      CURR_DAY_PAYABLE_DELAY_AMT_BAL, CURR_DAY_WRITEOFF_DELAY_AMT, 
+      INPUT_DATE, INPUT_TIME, DATA_DATE, 
+      LAST_UPDATE_DATE, LAST_UPDATE_TIME)
+    values (#{acctCheckDate,jdbcType=VARCHAR}, #{lastDayPrinBal,jdbcType=DECIMAL}, #{currDayGrantTotlamt,jdbcType=DECIMAL}, 
+      #{currDayRecycleTotlamt,jdbcType=DECIMAL}, #{currDayLoanPrinBal,jdbcType=DECIMAL}, 
+      #{lastDayReceivableIntBal,jdbcType=DECIMAL}, #{currDayWithdrawRcbInt,jdbcType=DECIMAL}, 
+      #{currDayRecycleInt,jdbcType=DECIMAL}, #{currDayReceivableIntBal,jdbcType=DECIMAL}, 
+      #{lastDayReceivablePnltBal,jdbcType=DECIMAL}, #{currDayWithdrawRcbPnlt,jdbcType=DECIMAL}, 
+      #{currDayRecyclePnlt,jdbcType=DECIMAL}, #{currDayReceivablePnltBal,jdbcType=DECIMAL}, 
+      #{currDayWriteoffTotlamt,jdbcType=DECIMAL}, #{currDayWriteoffInt,jdbcType=DECIMAL}, 
+      #{currDayWriteoffPnlt,jdbcType=DECIMAL}, #{lastDayPayableAmtBal,jdbcType=DECIMAL}, 
+      #{currDayPayableAmt,jdbcType=DECIMAL}, #{currDayDeductAmt,jdbcType=DECIMAL}, #{currDayPayableAmtBal,jdbcType=DECIMAL}, 
+      #{currDayWriteoffAmt,jdbcType=DECIMAL}, #{lastDayPayableDelayAmtBal,jdbcType=DECIMAL}, 
+      #{currDayPayableDelayAmt,jdbcType=DECIMAL}, #{currDayDeductDelayAmt,jdbcType=DECIMAL}, 
+      #{currDayPayableDelayAmtBal,jdbcType=DECIMAL}, #{currDayWriteoffDelayAmt,jdbcType=DECIMAL}, 
+      #{inputDate,jdbcType=VARCHAR}, #{inputTime,jdbcType=VARCHAR}, #{dataDate,jdbcType=VARCHAR}, 
+      #{lastUpdateDate,jdbcType=VARCHAR}, #{lastUpdateTime,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.BIZ_XW_BAL_TOL">
+    insert into BIZ_XW_BAL_TOL
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="acctCheckDate != null">
+        ACCT_CHECK_DATE,
+      </if>
+      <if test="lastDayPrinBal != null">
+        LAST_DAY_PRIN_BAL,
+      </if>
+      <if test="currDayGrantTotlamt != null">
+        CURR_DAY_GRANT_TOTLAMT,
+      </if>
+      <if test="currDayRecycleTotlamt != null">
+        CURR_DAY_RECYCLE_TOTLAMT,
+      </if>
+      <if test="currDayLoanPrinBal != null">
+        CURR_DAY_LOAN_PRIN_BAL,
+      </if>
+      <if test="lastDayReceivableIntBal != null">
+        LAST_DAY_RECEIVABLE_INT_BAL,
+      </if>
+      <if test="currDayWithdrawRcbInt != null">
+        CURR_DAY_WITHDRAW_RCB_INT,
+      </if>
+      <if test="currDayRecycleInt != null">
+        CURR_DAY_RECYCLE_INT,
+      </if>
+      <if test="currDayReceivableIntBal != null">
+        CURR_DAY_RECEIVABLE_INT_BAL,
+      </if>
+      <if test="lastDayReceivablePnltBal != null">
+        LAST_DAY_RECEIVABLE_PNLT_BAL,
+      </if>
+      <if test="currDayWithdrawRcbPnlt != null">
+        CURR_DAY_WITHDRAW_RCB_PNLT,
+      </if>
+      <if test="currDayRecyclePnlt != null">
+        CURR_DAY_RECYCLE_PNLT,
+      </if>
+      <if test="currDayReceivablePnltBal != null">
+        CURR_DAY_RECEIVABLE_PNLT_BAL,
+      </if>
+      <if test="currDayWriteoffTotlamt != null">
+        CURR_DAY_WRITEOFF_TOTLAMT,
+      </if>
+      <if test="currDayWriteoffInt != null">
+        CURR_DAY_WRITEOFF_INT,
+      </if>
+      <if test="currDayWriteoffPnlt != null">
+        CURR_DAY_WRITEOFF_PNLT,
+      </if>
+      <if test="lastDayPayableAmtBal != null">
+        LAST_DAY_PAYABLE_AMT_BAL,
+      </if>
+      <if test="currDayPayableAmt != null">
+        CURR_DAY_PAYABLE_AMT,
+      </if>
+      <if test="currDayDeductAmt != null">
+        CURR_DAY_DEDUCT_AMT,
+      </if>
+      <if test="currDayPayableAmtBal != null">
+        CURR_DAY_PAYABLE_AMT_BAL,
+      </if>
+      <if test="currDayWriteoffAmt != null">
+        CURR_DAY_WRITEOFF_AMT,
+      </if>
+      <if test="lastDayPayableDelayAmtBal != null">
+        LAST_DAY_PAYABLE_DELAY_AMT_BAL,
+      </if>
+      <if test="currDayPayableDelayAmt != null">
+        CURR_DAY_PAYABLE_DELAY_AMT,
+      </if>
+      <if test="currDayDeductDelayAmt != null">
+        CURR_DAY_DEDUCT_DELAY_AMT,
+      </if>
+      <if test="currDayPayableDelayAmtBal != null">
+        CURR_DAY_PAYABLE_DELAY_AMT_BAL,
+      </if>
+      <if test="currDayWriteoffDelayAmt != null">
+        CURR_DAY_WRITEOFF_DELAY_AMT,
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE,
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME,
+      </if>
+      <if test="dataDate != null">
+        DATA_DATE,
+      </if>
+      <if test="lastUpdateDate != null">
+        LAST_UPDATE_DATE,
+      </if>
+      <if test="lastUpdateTime != null">
+        LAST_UPDATE_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="acctCheckDate != null">
+        #{acctCheckDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lastDayPrinBal != null">
+        #{lastDayPrinBal,jdbcType=DECIMAL},
+      </if>
+      <if test="currDayGrantTotlamt != null">
+        #{currDayGrantTotlamt,jdbcType=DECIMAL},
+      </if>
+      <if test="currDayRecycleTotlamt != null">
+        #{currDayRecycleTotlamt,jdbcType=DECIMAL},
+      </if>
+      <if test="currDayLoanPrinBal != null">
+        #{currDayLoanPrinBal,jdbcType=DECIMAL},
+      </if>
+      <if test="lastDayReceivableIntBal != null">
+        #{lastDayReceivableIntBal,jdbcType=DECIMAL},
+      </if>
+      <if test="currDayWithdrawRcbInt != null">
+        #{currDayWithdrawRcbInt,jdbcType=DECIMAL},
+      </if>
+      <if test="currDayRecycleInt != null">
+        #{currDayRecycleInt,jdbcType=DECIMAL},
+      </if>
+      <if test="currDayReceivableIntBal != null">
+        #{currDayReceivableIntBal,jdbcType=DECIMAL},
+      </if>
+      <if test="lastDayReceivablePnltBal != null">
+        #{lastDayReceivablePnltBal,jdbcType=DECIMAL},
+      </if>
+      <if test="currDayWithdrawRcbPnlt != null">
+        #{currDayWithdrawRcbPnlt,jdbcType=DECIMAL},
+      </if>
+      <if test="currDayRecyclePnlt != null">
+        #{currDayRecyclePnlt,jdbcType=DECIMAL},
+      </if>
+      <if test="currDayReceivablePnltBal != null">
+        #{currDayReceivablePnltBal,jdbcType=DECIMAL},
+      </if>
+      <if test="currDayWriteoffTotlamt != null">
+        #{currDayWriteoffTotlamt,jdbcType=DECIMAL},
+      </if>
+      <if test="currDayWriteoffInt != null">
+        #{currDayWriteoffInt,jdbcType=DECIMAL},
+      </if>
+      <if test="currDayWriteoffPnlt != null">
+        #{currDayWriteoffPnlt,jdbcType=DECIMAL},
+      </if>
+      <if test="lastDayPayableAmtBal != null">
+        #{lastDayPayableAmtBal,jdbcType=DECIMAL},
+      </if>
+      <if test="currDayPayableAmt != null">
+        #{currDayPayableAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="currDayDeductAmt != null">
+        #{currDayDeductAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="currDayPayableAmtBal != null">
+        #{currDayPayableAmtBal,jdbcType=DECIMAL},
+      </if>
+      <if test="currDayWriteoffAmt != null">
+        #{currDayWriteoffAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="lastDayPayableDelayAmtBal != null">
+        #{lastDayPayableDelayAmtBal,jdbcType=DECIMAL},
+      </if>
+      <if test="currDayPayableDelayAmt != null">
+        #{currDayPayableDelayAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="currDayDeductDelayAmt != null">
+        #{currDayDeductDelayAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="currDayPayableDelayAmtBal != null">
+        #{currDayPayableDelayAmtBal,jdbcType=DECIMAL},
+      </if>
+      <if test="currDayWriteoffDelayAmt != null">
+        #{currDayWriteoffDelayAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="inputDate != null">
+        #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="dataDate != null">
+        #{dataDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateDate != null">
+        #{lastUpdateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        #{lastUpdateTime,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.BIZ_XW_BAL_TOL">
+    update BIZ_XW_BAL_TOL
+    <set>
+      <if test="lastDayPrinBal != null">
+        LAST_DAY_PRIN_BAL = #{lastDayPrinBal,jdbcType=DECIMAL},
+      </if>
+      <if test="currDayGrantTotlamt != null">
+        CURR_DAY_GRANT_TOTLAMT = #{currDayGrantTotlamt,jdbcType=DECIMAL},
+      </if>
+      <if test="currDayRecycleTotlamt != null">
+        CURR_DAY_RECYCLE_TOTLAMT = #{currDayRecycleTotlamt,jdbcType=DECIMAL},
+      </if>
+      <if test="currDayLoanPrinBal != null">
+        CURR_DAY_LOAN_PRIN_BAL = #{currDayLoanPrinBal,jdbcType=DECIMAL},
+      </if>
+      <if test="lastDayReceivableIntBal != null">
+        LAST_DAY_RECEIVABLE_INT_BAL = #{lastDayReceivableIntBal,jdbcType=DECIMAL},
+      </if>
+      <if test="currDayWithdrawRcbInt != null">
+        CURR_DAY_WITHDRAW_RCB_INT = #{currDayWithdrawRcbInt,jdbcType=DECIMAL},
+      </if>
+      <if test="currDayRecycleInt != null">
+        CURR_DAY_RECYCLE_INT = #{currDayRecycleInt,jdbcType=DECIMAL},
+      </if>
+      <if test="currDayReceivableIntBal != null">
+        CURR_DAY_RECEIVABLE_INT_BAL = #{currDayReceivableIntBal,jdbcType=DECIMAL},
+      </if>
+      <if test="lastDayReceivablePnltBal != null">
+        LAST_DAY_RECEIVABLE_PNLT_BAL = #{lastDayReceivablePnltBal,jdbcType=DECIMAL},
+      </if>
+      <if test="currDayWithdrawRcbPnlt != null">
+        CURR_DAY_WITHDRAW_RCB_PNLT = #{currDayWithdrawRcbPnlt,jdbcType=DECIMAL},
+      </if>
+      <if test="currDayRecyclePnlt != null">
+        CURR_DAY_RECYCLE_PNLT = #{currDayRecyclePnlt,jdbcType=DECIMAL},
+      </if>
+      <if test="currDayReceivablePnltBal != null">
+        CURR_DAY_RECEIVABLE_PNLT_BAL = #{currDayReceivablePnltBal,jdbcType=DECIMAL},
+      </if>
+      <if test="currDayWriteoffTotlamt != null">
+        CURR_DAY_WRITEOFF_TOTLAMT = #{currDayWriteoffTotlamt,jdbcType=DECIMAL},
+      </if>
+      <if test="currDayWriteoffInt != null">
+        CURR_DAY_WRITEOFF_INT = #{currDayWriteoffInt,jdbcType=DECIMAL},
+      </if>
+      <if test="currDayWriteoffPnlt != null">
+        CURR_DAY_WRITEOFF_PNLT = #{currDayWriteoffPnlt,jdbcType=DECIMAL},
+      </if>
+      <if test="lastDayPayableAmtBal != null">
+        LAST_DAY_PAYABLE_AMT_BAL = #{lastDayPayableAmtBal,jdbcType=DECIMAL},
+      </if>
+      <if test="currDayPayableAmt != null">
+        CURR_DAY_PAYABLE_AMT = #{currDayPayableAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="currDayDeductAmt != null">
+        CURR_DAY_DEDUCT_AMT = #{currDayDeductAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="currDayPayableAmtBal != null">
+        CURR_DAY_PAYABLE_AMT_BAL = #{currDayPayableAmtBal,jdbcType=DECIMAL},
+      </if>
+      <if test="currDayWriteoffAmt != null">
+        CURR_DAY_WRITEOFF_AMT = #{currDayWriteoffAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="lastDayPayableDelayAmtBal != null">
+        LAST_DAY_PAYABLE_DELAY_AMT_BAL = #{lastDayPayableDelayAmtBal,jdbcType=DECIMAL},
+      </if>
+      <if test="currDayPayableDelayAmt != null">
+        CURR_DAY_PAYABLE_DELAY_AMT = #{currDayPayableDelayAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="currDayDeductDelayAmt != null">
+        CURR_DAY_DEDUCT_DELAY_AMT = #{currDayDeductDelayAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="currDayPayableDelayAmtBal != null">
+        CURR_DAY_PAYABLE_DELAY_AMT_BAL = #{currDayPayableDelayAmtBal,jdbcType=DECIMAL},
+      </if>
+      <if test="currDayWriteoffDelayAmt != null">
+        CURR_DAY_WRITEOFF_DELAY_AMT = #{currDayWriteoffDelayAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE = #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME = #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="dataDate != null">
+        DATA_DATE = #{dataDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateDate != null">
+        LAST_UPDATE_DATE = #{lastUpdateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ACCT_CHECK_DATE = #{acctCheckDate,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.BIZ_XW_BAL_TOL">
+    update BIZ_XW_BAL_TOL
+    set LAST_DAY_PRIN_BAL = #{lastDayPrinBal,jdbcType=DECIMAL},
+      CURR_DAY_GRANT_TOTLAMT = #{currDayGrantTotlamt,jdbcType=DECIMAL},
+      CURR_DAY_RECYCLE_TOTLAMT = #{currDayRecycleTotlamt,jdbcType=DECIMAL},
+      CURR_DAY_LOAN_PRIN_BAL = #{currDayLoanPrinBal,jdbcType=DECIMAL},
+      LAST_DAY_RECEIVABLE_INT_BAL = #{lastDayReceivableIntBal,jdbcType=DECIMAL},
+      CURR_DAY_WITHDRAW_RCB_INT = #{currDayWithdrawRcbInt,jdbcType=DECIMAL},
+      CURR_DAY_RECYCLE_INT = #{currDayRecycleInt,jdbcType=DECIMAL},
+      CURR_DAY_RECEIVABLE_INT_BAL = #{currDayReceivableIntBal,jdbcType=DECIMAL},
+      LAST_DAY_RECEIVABLE_PNLT_BAL = #{lastDayReceivablePnltBal,jdbcType=DECIMAL},
+      CURR_DAY_WITHDRAW_RCB_PNLT = #{currDayWithdrawRcbPnlt,jdbcType=DECIMAL},
+      CURR_DAY_RECYCLE_PNLT = #{currDayRecyclePnlt,jdbcType=DECIMAL},
+      CURR_DAY_RECEIVABLE_PNLT_BAL = #{currDayReceivablePnltBal,jdbcType=DECIMAL},
+      CURR_DAY_WRITEOFF_TOTLAMT = #{currDayWriteoffTotlamt,jdbcType=DECIMAL},
+      CURR_DAY_WRITEOFF_INT = #{currDayWriteoffInt,jdbcType=DECIMAL},
+      CURR_DAY_WRITEOFF_PNLT = #{currDayWriteoffPnlt,jdbcType=DECIMAL},
+      LAST_DAY_PAYABLE_AMT_BAL = #{lastDayPayableAmtBal,jdbcType=DECIMAL},
+      CURR_DAY_PAYABLE_AMT = #{currDayPayableAmt,jdbcType=DECIMAL},
+      CURR_DAY_DEDUCT_AMT = #{currDayDeductAmt,jdbcType=DECIMAL},
+      CURR_DAY_PAYABLE_AMT_BAL = #{currDayPayableAmtBal,jdbcType=DECIMAL},
+      CURR_DAY_WRITEOFF_AMT = #{currDayWriteoffAmt,jdbcType=DECIMAL},
+      LAST_DAY_PAYABLE_DELAY_AMT_BAL = #{lastDayPayableDelayAmtBal,jdbcType=DECIMAL},
+      CURR_DAY_PAYABLE_DELAY_AMT = #{currDayPayableDelayAmt,jdbcType=DECIMAL},
+      CURR_DAY_DEDUCT_DELAY_AMT = #{currDayDeductDelayAmt,jdbcType=DECIMAL},
+      CURR_DAY_PAYABLE_DELAY_AMT_BAL = #{currDayPayableDelayAmtBal,jdbcType=DECIMAL},
+      CURR_DAY_WRITEOFF_DELAY_AMT = #{currDayWriteoffDelayAmt,jdbcType=DECIMAL},
+      INPUT_DATE = #{inputDate,jdbcType=VARCHAR},
+      INPUT_TIME = #{inputTime,jdbcType=VARCHAR},
+      DATA_DATE = #{dataDate,jdbcType=VARCHAR},
+      LAST_UPDATE_DATE = #{lastUpdateDate,jdbcType=VARCHAR},
+      LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=VARCHAR}
+    where ACCT_CHECK_DATE = #{acctCheckDate,jdbcType=VARCHAR}
+  </update>
+</mapper>

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.S_RESC_ACTMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.S_RESC_ACT">
+    <id column="RESC_CDE" jdbcType="VARCHAR" property="rescCde" />
+    <id column="RESC_ACT_CDE" jdbcType="VARCHAR" property="rescActCde" />
+    <result column="RESC_ACT_DESC" jdbcType="VARCHAR" property="rescActDesc" />
+    <result column="RESC_ACT_FLAG" jdbcType="VARCHAR" property="rescActFlag" />
+    <result column="RESC_ACT_CONFIRM" jdbcType="VARCHAR" property="rescActConfirm" />
+    <result column="LAST_CHG_DT" jdbcType="VARCHAR" property="lastChgDt" />
+    <result column="LAST_CHG_USR" jdbcType="VARCHAR" property="lastChgUsr" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    RESC_CDE, RESC_ACT_CDE, RESC_ACT_DESC, RESC_ACT_FLAG, RESC_ACT_CONFIRM, LAST_CHG_DT, 
+    LAST_CHG_USR
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="com.bea.olp.S_RESC_ACTKey" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from S_RESC_ACT
+    where RESC_CDE = #{rescCde,jdbcType=VARCHAR}
+      and RESC_ACT_CDE = #{rescActCde,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.bea.olp.S_RESC_ACTKey">
+    delete from S_RESC_ACT
+    where RESC_CDE = #{rescCde,jdbcType=VARCHAR}
+      and RESC_ACT_CDE = #{rescActCde,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.S_RESC_ACT">
+    insert into S_RESC_ACT (RESC_CDE, RESC_ACT_CDE, RESC_ACT_DESC, 
+      RESC_ACT_FLAG, RESC_ACT_CONFIRM, LAST_CHG_DT, 
+      LAST_CHG_USR)
+    values (#{rescCde,jdbcType=VARCHAR}, #{rescActCde,jdbcType=VARCHAR}, #{rescActDesc,jdbcType=VARCHAR}, 
+      #{rescActFlag,jdbcType=VARCHAR}, #{rescActConfirm,jdbcType=VARCHAR}, #{lastChgDt,jdbcType=VARCHAR}, 
+      #{lastChgUsr,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.S_RESC_ACT">
+    insert into S_RESC_ACT
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="rescCde != null">
+        RESC_CDE,
+      </if>
+      <if test="rescActCde != null">
+        RESC_ACT_CDE,
+      </if>
+      <if test="rescActDesc != null">
+        RESC_ACT_DESC,
+      </if>
+      <if test="rescActFlag != null">
+        RESC_ACT_FLAG,
+      </if>
+      <if test="rescActConfirm != null">
+        RESC_ACT_CONFIRM,
+      </if>
+      <if test="lastChgDt != null">
+        LAST_CHG_DT,
+      </if>
+      <if test="lastChgUsr != null">
+        LAST_CHG_USR,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="rescCde != null">
+        #{rescCde,jdbcType=VARCHAR},
+      </if>
+      <if test="rescActCde != null">
+        #{rescActCde,jdbcType=VARCHAR},
+      </if>
+      <if test="rescActDesc != null">
+        #{rescActDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="rescActFlag != null">
+        #{rescActFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="rescActConfirm != null">
+        #{rescActConfirm,jdbcType=VARCHAR},
+      </if>
+      <if test="lastChgDt != null">
+        #{lastChgDt,jdbcType=VARCHAR},
+      </if>
+      <if test="lastChgUsr != null">
+        #{lastChgUsr,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.S_RESC_ACT">
+    update S_RESC_ACT
+    <set>
+      <if test="rescActDesc != null">
+        RESC_ACT_DESC = #{rescActDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="rescActFlag != null">
+        RESC_ACT_FLAG = #{rescActFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="rescActConfirm != null">
+        RESC_ACT_CONFIRM = #{rescActConfirm,jdbcType=VARCHAR},
+      </if>
+      <if test="lastChgDt != null">
+        LAST_CHG_DT = #{lastChgDt,jdbcType=VARCHAR},
+      </if>
+      <if test="lastChgUsr != null">
+        LAST_CHG_USR = #{lastChgUsr,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where RESC_CDE = #{rescCde,jdbcType=VARCHAR}
+      and RESC_ACT_CDE = #{rescActCde,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.S_RESC_ACT">
+    update S_RESC_ACT
+    set RESC_ACT_DESC = #{rescActDesc,jdbcType=VARCHAR},
+      RESC_ACT_FLAG = #{rescActFlag,jdbcType=VARCHAR},
+      RESC_ACT_CONFIRM = #{rescActConfirm,jdbcType=VARCHAR},
+      LAST_CHG_DT = #{lastChgDt,jdbcType=VARCHAR},
+      LAST_CHG_USR = #{lastChgUsr,jdbcType=VARCHAR}
+    where RESC_CDE = #{rescCde,jdbcType=VARCHAR}
+      and RESC_ACT_CDE = #{rescActCde,jdbcType=VARCHAR}
+  </update>
+</mapper>

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.S_TREE_DICMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.S_TREE_DIC">
+    <result column="EN_NAME" jdbcType="VARCHAR" property="enName" />
+    <result column="CN_NAME" jdbcType="VARCHAR" property="cnName" />
+    <result column="ABVEN_NAME" jdbcType="VARCHAR" property="abvenName" />
+    <result column="LOCATE" jdbcType="VARCHAR" property="locate" />
+    <result column="OPT_TYPE" jdbcType="VARCHAR" property="optType" />
+    <result column="MEMO" jdbcType="VARCHAR" property="memo" />
+    <result column="FLAG" jdbcType="VARCHAR" property="flag" />
+    <result column="LEVELS" jdbcType="VARCHAR" property="levels" />
+    <result column="ORDER_ID" jdbcType="DECIMAL" property="orderId" />
+    <result column="LAST_CHG_DT" jdbcType="VARCHAR" property="lastChgDt" />
+    <result column="LAST_CHG_USR" jdbcType="VARCHAR" property="lastChgUsr" />
+  </resultMap>
+  <insert id="insert" parameterType="com.bea.olp.S_TREE_DIC">
+    insert into S_TREE_DIC (EN_NAME, CN_NAME, ABVEN_NAME, 
+      LOCATE, OPT_TYPE, MEMO, 
+      FLAG, LEVELS, ORDER_ID, 
+      LAST_CHG_DT, LAST_CHG_USR)
+    values (#{enName,jdbcType=VARCHAR}, #{cnName,jdbcType=VARCHAR}, #{abvenName,jdbcType=VARCHAR}, 
+      #{locate,jdbcType=VARCHAR}, #{optType,jdbcType=VARCHAR}, #{memo,jdbcType=VARCHAR}, 
+      #{flag,jdbcType=VARCHAR}, #{levels,jdbcType=VARCHAR}, #{orderId,jdbcType=DECIMAL}, 
+      #{lastChgDt,jdbcType=VARCHAR}, #{lastChgUsr,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.S_TREE_DIC">
+    insert into S_TREE_DIC
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="enName != null">
+        EN_NAME,
+      </if>
+      <if test="cnName != null">
+        CN_NAME,
+      </if>
+      <if test="abvenName != null">
+        ABVEN_NAME,
+      </if>
+      <if test="locate != null">
+        LOCATE,
+      </if>
+      <if test="optType != null">
+        OPT_TYPE,
+      </if>
+      <if test="memo != null">
+        MEMO,
+      </if>
+      <if test="flag != null">
+        FLAG,
+      </if>
+      <if test="levels != null">
+        LEVELS,
+      </if>
+      <if test="orderId != null">
+        ORDER_ID,
+      </if>
+      <if test="lastChgDt != null">
+        LAST_CHG_DT,
+      </if>
+      <if test="lastChgUsr != null">
+        LAST_CHG_USR,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="enName != null">
+        #{enName,jdbcType=VARCHAR},
+      </if>
+      <if test="cnName != null">
+        #{cnName,jdbcType=VARCHAR},
+      </if>
+      <if test="abvenName != null">
+        #{abvenName,jdbcType=VARCHAR},
+      </if>
+      <if test="locate != null">
+        #{locate,jdbcType=VARCHAR},
+      </if>
+      <if test="optType != null">
+        #{optType,jdbcType=VARCHAR},
+      </if>
+      <if test="memo != null">
+        #{memo,jdbcType=VARCHAR},
+      </if>
+      <if test="flag != null">
+        #{flag,jdbcType=VARCHAR},
+      </if>
+      <if test="levels != null">
+        #{levels,jdbcType=VARCHAR},
+      </if>
+      <if test="orderId != null">
+        #{orderId,jdbcType=DECIMAL},
+      </if>
+      <if test="lastChgDt != null">
+        #{lastChgDt,jdbcType=VARCHAR},
+      </if>
+      <if test="lastChgUsr != null">
+        #{lastChgUsr,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

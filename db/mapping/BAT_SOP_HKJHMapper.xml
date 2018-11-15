@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.BAT_SOP_HKJHMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.BAT_SOP_HKJH">
+    <result column="LOAN_NO" jdbcType="VARCHAR" property="loanNo" />
+    <result column="PS_PERD_NO" jdbcType="DECIMAL" property="psPerdNo" />
+    <result column="PS_DUE_DT" jdbcType="VARCHAR" property="psDueDt" />
+    <result column="PS_BILL_DT" jdbcType="VARCHAR" property="psBillDt" />
+    <result column="SBSY_RATE" jdbcType="DECIMAL" property="sbsyRate" />
+    <result column="PS_INSTM_AMT" jdbcType="DECIMAL" property="psInstmAmt" />
+    <result column="PS_PRCP_AMT" jdbcType="DECIMAL" property="psPrcpAmt" />
+    <result column="PS_NORM_INT_AMT" jdbcType="DECIMAL" property="psNormIntAmt" />
+    <result column="PS_OD_INT_AMT" jdbcType="DECIMAL" property="psOdIntAmt" />
+    <result column="PS_COMM_OD_INT" jdbcType="DECIMAL" property="psCommOdInt" />
+    <result column="SBSY_INT_AMT" jdbcType="DECIMAL" property="sbsyIntAmt" />
+    <result column="PS_FEE_AMT" jdbcType="DECIMAL" property="psFeeAmt" />
+    <result column="PROD_PRCP_AMT" jdbcType="DECIMAL" property="prodPrcpAmt" />
+    <result column="PROD_INT_AMT" jdbcType="DECIMAL" property="prodIntAmt" />
+    <result column="PROD_COMM_INT_AMT" jdbcType="DECIMAL" property="prodCommIntAmt" />
+    <result column="PROD_FEE_AMT" jdbcType="DECIMAL" property="prodFeeAmt" />
+    <result column="PS_REM_PRCP" jdbcType="DECIMAL" property="psRemPrcp" />
+    <result column="PS_INC_TAKEN" jdbcType="DECIMAL" property="psIncTaken" />
+    <result column="SETL_PRCP" jdbcType="DECIMAL" property="setlPrcp" />
+    <result column="SETL_NORM_INT" jdbcType="DECIMAL" property="setlNormInt" />
+    <result column="SETL_OD_INT_AMT" jdbcType="DECIMAL" property="setlOdIntAmt" />
+    <result column="SETL_COMM_OD_INT" jdbcType="DECIMAL" property="setlCommOdInt" />
+    <result column="SETL_FEE_AMT" jdbcType="DECIMAL" property="setlFeeAmt" />
+    <result column="SETL_OD_INC_TAKEN" jdbcType="DECIMAL" property="setlOdIncTaken" />
+    <result column="SETL_INC_TAKEN" jdbcType="DECIMAL" property="setlIncTaken" />
+    <result column="PS_INT_RATE" jdbcType="DECIMAL" property="psIntRate" />
+    <result column="PS_OD_INT_RATE" jdbcType="DECIMAL" property="psOdIntRate" />
+    <result column="PS_OD_IND" jdbcType="VARCHAR" property="psOdInd" />
+    <result column="LAST_SETL_DT" jdbcType="VARCHAR" property="lastSetlDt" />
+    <result column="PS_OD_INC_TAKEN" jdbcType="DECIMAL" property="psOdIncTaken" />
+    <result column="PS_WV_PRCP_AMT" jdbcType="DECIMAL" property="psWvPrcpAmt" />
+    <result column="PS_WV_NM_INT" jdbcType="DECIMAL" property="psWvNmInt" />
+    <result column="PS_WV_OD_INT" jdbcType="DECIMAL" property="psWvOdInt" />
+    <result column="PS_WV_COMM_INT" jdbcType="DECIMAL" property="psWvCommInt" />
+    <result column="PRCP_STATE" jdbcType="DECIMAL" property="prcpState" />
+    <result column="INT_STATE" jdbcType="VARCHAR" property="intState" />
+    <result column="SETL_IND" jdbcType="VARCHAR" property="setlInd" />
+    <result column="COMM_OD_GEN_DT" jdbcType="VARCHAR" property="commOdGenDt" />
+    <result column="PP_ER_IND" jdbcType="VARCHAR" property="ppErInd" />
+    <result column="PS_GEN_PROD_DT" jdbcType="VARCHAR" property="psGenProdDt" />
+    <result column="PS_CUR_OD_INC_TAKEN" jdbcType="DECIMAL" property="psCurOdIncTaken" />
+    <result column="GRC_PROD_PRCP" jdbcType="DECIMAL" property="grcProdPrcp" />
+    <result column="GRC_PROD_INT" jdbcType="DECIMAL" property="grcProdInt" />
+    <result column="GRC_PROD_COMM" jdbcType="DECIMAL" property="grcProdComm" />
+  </resultMap>
+  <insert id="insert" parameterType="com.bea.olp.BAT_SOP_HKJH">
+    insert into BAT_SOP_HKJH (LOAN_NO, PS_PERD_NO, PS_DUE_DT, 
+      PS_BILL_DT, SBSY_RATE, PS_INSTM_AMT, 
+      PS_PRCP_AMT, PS_NORM_INT_AMT, PS_OD_INT_AMT, 
+      PS_COMM_OD_INT, SBSY_INT_AMT, PS_FEE_AMT, 
+      PROD_PRCP_AMT, PROD_INT_AMT, PROD_COMM_INT_AMT, 
+      PROD_FEE_AMT, PS_REM_PRCP, PS_INC_TAKEN, 
+      SETL_PRCP, SETL_NORM_INT, SETL_OD_INT_AMT, 
+      SETL_COMM_OD_INT, SETL_FEE_AMT, SETL_OD_INC_TAKEN, 
+      SETL_INC_TAKEN, PS_INT_RATE, PS_OD_INT_RATE, 
+      PS_OD_IND, LAST_SETL_DT, PS_OD_INC_TAKEN, 
+      PS_WV_PRCP_AMT, PS_WV_NM_INT, PS_WV_OD_INT, 
+      PS_WV_COMM_INT, PRCP_STATE, INT_STATE, 
+      SETL_IND, COMM_OD_GEN_DT, PP_ER_IND, 
+      PS_GEN_PROD_DT, PS_CUR_OD_INC_TAKEN, GRC_PROD_PRCP, 
+      GRC_PROD_INT, GRC_PROD_COMM)
+    values (#{loanNo,jdbcType=VARCHAR}, #{psPerdNo,jdbcType=DECIMAL}, #{psDueDt,jdbcType=VARCHAR}, 
+      #{psBillDt,jdbcType=VARCHAR}, #{sbsyRate,jdbcType=DECIMAL}, #{psInstmAmt,jdbcType=DECIMAL}, 
+      #{psPrcpAmt,jdbcType=DECIMAL}, #{psNormIntAmt,jdbcType=DECIMAL}, #{psOdIntAmt,jdbcType=DECIMAL}, 
+      #{psCommOdInt,jdbcType=DECIMAL}, #{sbsyIntAmt,jdbcType=DECIMAL}, #{psFeeAmt,jdbcType=DECIMAL}, 
+      #{prodPrcpAmt,jdbcType=DECIMAL}, #{prodIntAmt,jdbcType=DECIMAL}, #{prodCommIntAmt,jdbcType=DECIMAL}, 
+      #{prodFeeAmt,jdbcType=DECIMAL}, #{psRemPrcp,jdbcType=DECIMAL}, #{psIncTaken,jdbcType=DECIMAL}, 
+      #{setlPrcp,jdbcType=DECIMAL}, #{setlNormInt,jdbcType=DECIMAL}, #{setlOdIntAmt,jdbcType=DECIMAL}, 
+      #{setlCommOdInt,jdbcType=DECIMAL}, #{setlFeeAmt,jdbcType=DECIMAL}, #{setlOdIncTaken,jdbcType=DECIMAL}, 
+      #{setlIncTaken,jdbcType=DECIMAL}, #{psIntRate,jdbcType=DECIMAL}, #{psOdIntRate,jdbcType=DECIMAL}, 
+      #{psOdInd,jdbcType=VARCHAR}, #{lastSetlDt,jdbcType=VARCHAR}, #{psOdIncTaken,jdbcType=DECIMAL}, 
+      #{psWvPrcpAmt,jdbcType=DECIMAL}, #{psWvNmInt,jdbcType=DECIMAL}, #{psWvOdInt,jdbcType=DECIMAL}, 
+      #{psWvCommInt,jdbcType=DECIMAL}, #{prcpState,jdbcType=DECIMAL}, #{intState,jdbcType=VARCHAR}, 
+      #{setlInd,jdbcType=VARCHAR}, #{commOdGenDt,jdbcType=VARCHAR}, #{ppErInd,jdbcType=VARCHAR}, 
+      #{psGenProdDt,jdbcType=VARCHAR}, #{psCurOdIncTaken,jdbcType=DECIMAL}, #{grcProdPrcp,jdbcType=DECIMAL}, 
+      #{grcProdInt,jdbcType=DECIMAL}, #{grcProdComm,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.BAT_SOP_HKJH">
+    insert into BAT_SOP_HKJH
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="loanNo != null">
+        LOAN_NO,
+      </if>
+      <if test="psPerdNo != null">
+        PS_PERD_NO,
+      </if>
+      <if test="psDueDt != null">
+        PS_DUE_DT,
+      </if>
+      <if test="psBillDt != null">
+        PS_BILL_DT,
+      </if>
+      <if test="sbsyRate != null">
+        SBSY_RATE,
+      </if>
+      <if test="psInstmAmt != null">
+        PS_INSTM_AMT,
+      </if>
+      <if test="psPrcpAmt != null">
+        PS_PRCP_AMT,
+      </if>
+      <if test="psNormIntAmt != null">
+        PS_NORM_INT_AMT,
+      </if>
+      <if test="psOdIntAmt != null">
+        PS_OD_INT_AMT,
+      </if>
+      <if test="psCommOdInt != null">
+        PS_COMM_OD_INT,
+      </if>
+      <if test="sbsyIntAmt != null">
+        SBSY_INT_AMT,
+      </if>
+      <if test="psFeeAmt != null">
+        PS_FEE_AMT,
+      </if>
+      <if test="prodPrcpAmt != null">
+        PROD_PRCP_AMT,
+      </if>
+      <if test="prodIntAmt != null">
+        PROD_INT_AMT,
+      </if>
+      <if test="prodCommIntAmt != null">
+        PROD_COMM_INT_AMT,
+      </if>
+      <if test="prodFeeAmt != null">
+        PROD_FEE_AMT,
+      </if>
+      <if test="psRemPrcp != null">
+        PS_REM_PRCP,
+      </if>
+      <if test="psIncTaken != null">
+        PS_INC_TAKEN,
+      </if>
+      <if test="setlPrcp != null">
+        SETL_PRCP,
+      </if>
+      <if test="setlNormInt != null">
+        SETL_NORM_INT,
+      </if>
+      <if test="setlOdIntAmt != null">
+        SETL_OD_INT_AMT,
+      </if>
+      <if test="setlCommOdInt != null">
+        SETL_COMM_OD_INT,
+      </if>
+      <if test="setlFeeAmt != null">
+        SETL_FEE_AMT,
+      </if>
+      <if test="setlOdIncTaken != null">
+        SETL_OD_INC_TAKEN,
+      </if>
+      <if test="setlIncTaken != null">
+        SETL_INC_TAKEN,
+      </if>
+      <if test="psIntRate != null">
+        PS_INT_RATE,
+      </if>
+      <if test="psOdIntRate != null">
+        PS_OD_INT_RATE,
+      </if>
+      <if test="psOdInd != null">
+        PS_OD_IND,
+      </if>
+      <if test="lastSetlDt != null">
+        LAST_SETL_DT,
+      </if>
+      <if test="psOdIncTaken != null">
+        PS_OD_INC_TAKEN,
+      </if>
+      <if test="psWvPrcpAmt != null">
+        PS_WV_PRCP_AMT,
+      </if>
+      <if test="psWvNmInt != null">
+        PS_WV_NM_INT,
+      </if>
+      <if test="psWvOdInt != null">
+        PS_WV_OD_INT,
+      </if>
+      <if test="psWvCommInt != null">
+        PS_WV_COMM_INT,
+      </if>
+      <if test="prcpState != null">
+        PRCP_STATE,
+      </if>
+      <if test="intState != null">
+        INT_STATE,
+      </if>
+      <if test="setlInd != null">
+        SETL_IND,
+      </if>
+      <if test="commOdGenDt != null">
+        COMM_OD_GEN_DT,
+      </if>
+      <if test="ppErInd != null">
+        PP_ER_IND,
+      </if>
+      <if test="psGenProdDt != null">
+        PS_GEN_PROD_DT,
+      </if>
+      <if test="psCurOdIncTaken != null">
+        PS_CUR_OD_INC_TAKEN,
+      </if>
+      <if test="grcProdPrcp != null">
+        GRC_PROD_PRCP,
+      </if>
+      <if test="grcProdInt != null">
+        GRC_PROD_INT,
+      </if>
+      <if test="grcProdComm != null">
+        GRC_PROD_COMM,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="loanNo != null">
+        #{loanNo,jdbcType=VARCHAR},
+      </if>
+      <if test="psPerdNo != null">
+        #{psPerdNo,jdbcType=DECIMAL},
+      </if>
+      <if test="psDueDt != null">
+        #{psDueDt,jdbcType=VARCHAR},
+      </if>
+      <if test="psBillDt != null">
+        #{psBillDt,jdbcType=VARCHAR},
+      </if>
+      <if test="sbsyRate != null">
+        #{sbsyRate,jdbcType=DECIMAL},
+      </if>
+      <if test="psInstmAmt != null">
+        #{psInstmAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="psPrcpAmt != null">
+        #{psPrcpAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="psNormIntAmt != null">
+        #{psNormIntAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="psOdIntAmt != null">
+        #{psOdIntAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="psCommOdInt != null">
+        #{psCommOdInt,jdbcType=DECIMAL},
+      </if>
+      <if test="sbsyIntAmt != null">
+        #{sbsyIntAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="psFeeAmt != null">
+        #{psFeeAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="prodPrcpAmt != null">
+        #{prodPrcpAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="prodIntAmt != null">
+        #{prodIntAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="prodCommIntAmt != null">
+        #{prodCommIntAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="prodFeeAmt != null">
+        #{prodFeeAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="psRemPrcp != null">
+        #{psRemPrcp,jdbcType=DECIMAL},
+      </if>
+      <if test="psIncTaken != null">
+        #{psIncTaken,jdbcType=DECIMAL},
+      </if>
+      <if test="setlPrcp != null">
+        #{setlPrcp,jdbcType=DECIMAL},
+      </if>
+      <if test="setlNormInt != null">
+        #{setlNormInt,jdbcType=DECIMAL},
+      </if>
+      <if test="setlOdIntAmt != null">
+        #{setlOdIntAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="setlCommOdInt != null">
+        #{setlCommOdInt,jdbcType=DECIMAL},
+      </if>
+      <if test="setlFeeAmt != null">
+        #{setlFeeAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="setlOdIncTaken != null">
+        #{setlOdIncTaken,jdbcType=DECIMAL},
+      </if>
+      <if test="setlIncTaken != null">
+        #{setlIncTaken,jdbcType=DECIMAL},
+      </if>
+      <if test="psIntRate != null">
+        #{psIntRate,jdbcType=DECIMAL},
+      </if>
+      <if test="psOdIntRate != null">
+        #{psOdIntRate,jdbcType=DECIMAL},
+      </if>
+      <if test="psOdInd != null">
+        #{psOdInd,jdbcType=VARCHAR},
+      </if>
+      <if test="lastSetlDt != null">
+        #{lastSetlDt,jdbcType=VARCHAR},
+      </if>
+      <if test="psOdIncTaken != null">
+        #{psOdIncTaken,jdbcType=DECIMAL},
+      </if>
+      <if test="psWvPrcpAmt != null">
+        #{psWvPrcpAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="psWvNmInt != null">
+        #{psWvNmInt,jdbcType=DECIMAL},
+      </if>
+      <if test="psWvOdInt != null">
+        #{psWvOdInt,jdbcType=DECIMAL},
+      </if>
+      <if test="psWvCommInt != null">
+        #{psWvCommInt,jdbcType=DECIMAL},
+      </if>
+      <if test="prcpState != null">
+        #{prcpState,jdbcType=DECIMAL},
+      </if>
+      <if test="intState != null">
+        #{intState,jdbcType=VARCHAR},
+      </if>
+      <if test="setlInd != null">
+        #{setlInd,jdbcType=VARCHAR},
+      </if>
+      <if test="commOdGenDt != null">
+        #{commOdGenDt,jdbcType=VARCHAR},
+      </if>
+      <if test="ppErInd != null">
+        #{ppErInd,jdbcType=VARCHAR},
+      </if>
+      <if test="psGenProdDt != null">
+        #{psGenProdDt,jdbcType=VARCHAR},
+      </if>
+      <if test="psCurOdIncTaken != null">
+        #{psCurOdIncTaken,jdbcType=DECIMAL},
+      </if>
+      <if test="grcProdPrcp != null">
+        #{grcProdPrcp,jdbcType=DECIMAL},
+      </if>
+      <if test="grcProdInt != null">
+        #{grcProdInt,jdbcType=DECIMAL},
+      </if>
+      <if test="grcProdComm != null">
+        #{grcProdComm,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+</mapper>

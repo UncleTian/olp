@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.PRT_USER_INFO_JDMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.PRT_USER_INFO_JD">
+    <id column="MHT_APPLY_NO" jdbcType="VARCHAR" property="mhtApplyNo" />
+    <result column="USER_NAME" jdbcType="VARCHAR" property="userName" />
+    <result column="CERT_TYPE" jdbcType="VARCHAR" property="certType" />
+    <result column="PIN" jdbcType="VARCHAR" property="pin" />
+    <result column="CERT_NO" jdbcType="VARCHAR" property="certNo" />
+    <result column="USER_TEL" jdbcType="VARCHAR" property="userTel" />
+    <result column="ADDRESS" jdbcType="VARCHAR" property="address" />
+    <result column="INTEREST_RATE" jdbcType="DECIMAL" property="interestRate" />
+    <result column="ACTIVATE_TAG" jdbcType="VARCHAR" property="activateTag" />
+    <result column="INPUT_DATE" jdbcType="VARCHAR" property="inputDate" />
+    <result column="INPUT_TIME" jdbcType="VARCHAR" property="inputTime" />
+    <result column="LAST_INPUT_DATE" jdbcType="VARCHAR" property="lastInputDate" />
+    <result column="LAST_INPUT_TIME" jdbcType="VARCHAR" property="lastInputTime" />
+    <result column="FIELD1" jdbcType="VARCHAR" property="field1" />
+    <result column="FIELD2" jdbcType="VARCHAR" property="field2" />
+    <result column="FIELD3" jdbcType="VARCHAR" property="field3" />
+    <result column="FIELD4" jdbcType="VARCHAR" property="field4" />
+    <result column="FIELD5" jdbcType="VARCHAR" property="field5" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    MHT_APPLY_NO, USER_NAME, CERT_TYPE, PIN, CERT_NO, USER_TEL, ADDRESS, INTEREST_RATE, 
+    ACTIVATE_TAG, INPUT_DATE, INPUT_TIME, LAST_INPUT_DATE, LAST_INPUT_TIME, FIELD1, FIELD2, 
+    FIELD3, FIELD4, FIELD5
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from PRT_USER_INFO_JD
+    where MHT_APPLY_NO = #{mhtApplyNo,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from PRT_USER_INFO_JD
+    where MHT_APPLY_NO = #{mhtApplyNo,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.PRT_USER_INFO_JD">
+    insert into PRT_USER_INFO_JD (MHT_APPLY_NO, USER_NAME, CERT_TYPE, 
+      PIN, CERT_NO, USER_TEL, 
+      ADDRESS, INTEREST_RATE, ACTIVATE_TAG, 
+      INPUT_DATE, INPUT_TIME, LAST_INPUT_DATE, 
+      LAST_INPUT_TIME, FIELD1, FIELD2, 
+      FIELD3, FIELD4, FIELD5
+      )
+    values (#{mhtApplyNo,jdbcType=VARCHAR}, #{userName,jdbcType=VARCHAR}, #{certType,jdbcType=VARCHAR}, 
+      #{pin,jdbcType=VARCHAR}, #{certNo,jdbcType=VARCHAR}, #{userTel,jdbcType=VARCHAR}, 
+      #{address,jdbcType=VARCHAR}, #{interestRate,jdbcType=DECIMAL}, #{activateTag,jdbcType=VARCHAR}, 
+      #{inputDate,jdbcType=VARCHAR}, #{inputTime,jdbcType=VARCHAR}, #{lastInputDate,jdbcType=VARCHAR}, 
+      #{lastInputTime,jdbcType=VARCHAR}, #{field1,jdbcType=VARCHAR}, #{field2,jdbcType=VARCHAR}, 
+      #{field3,jdbcType=VARCHAR}, #{field4,jdbcType=VARCHAR}, #{field5,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.PRT_USER_INFO_JD">
+    insert into PRT_USER_INFO_JD
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="mhtApplyNo != null">
+        MHT_APPLY_NO,
+      </if>
+      <if test="userName != null">
+        USER_NAME,
+      </if>
+      <if test="certType != null">
+        CERT_TYPE,
+      </if>
+      <if test="pin != null">
+        PIN,
+      </if>
+      <if test="certNo != null">
+        CERT_NO,
+      </if>
+      <if test="userTel != null">
+        USER_TEL,
+      </if>
+      <if test="address != null">
+        ADDRESS,
+      </if>
+      <if test="interestRate != null">
+        INTEREST_RATE,
+      </if>
+      <if test="activateTag != null">
+        ACTIVATE_TAG,
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE,
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME,
+      </if>
+      <if test="lastInputDate != null">
+        LAST_INPUT_DATE,
+      </if>
+      <if test="lastInputTime != null">
+        LAST_INPUT_TIME,
+      </if>
+      <if test="field1 != null">
+        FIELD1,
+      </if>
+      <if test="field2 != null">
+        FIELD2,
+      </if>
+      <if test="field3 != null">
+        FIELD3,
+      </if>
+      <if test="field4 != null">
+        FIELD4,
+      </if>
+      <if test="field5 != null">
+        FIELD5,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="mhtApplyNo != null">
+        #{mhtApplyNo,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null">
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="certType != null">
+        #{certType,jdbcType=VARCHAR},
+      </if>
+      <if test="pin != null">
+        #{pin,jdbcType=VARCHAR},
+      </if>
+      <if test="certNo != null">
+        #{certNo,jdbcType=VARCHAR},
+      </if>
+      <if test="userTel != null">
+        #{userTel,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="interestRate != null">
+        #{interestRate,jdbcType=DECIMAL},
+      </if>
+      <if test="activateTag != null">
+        #{activateTag,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastInputDate != null">
+        #{lastInputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lastInputTime != null">
+        #{lastInputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="field1 != null">
+        #{field1,jdbcType=VARCHAR},
+      </if>
+      <if test="field2 != null">
+        #{field2,jdbcType=VARCHAR},
+      </if>
+      <if test="field3 != null">
+        #{field3,jdbcType=VARCHAR},
+      </if>
+      <if test="field4 != null">
+        #{field4,jdbcType=VARCHAR},
+      </if>
+      <if test="field5 != null">
+        #{field5,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.PRT_USER_INFO_JD">
+    update PRT_USER_INFO_JD
+    <set>
+      <if test="userName != null">
+        USER_NAME = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="certType != null">
+        CERT_TYPE = #{certType,jdbcType=VARCHAR},
+      </if>
+      <if test="pin != null">
+        PIN = #{pin,jdbcType=VARCHAR},
+      </if>
+      <if test="certNo != null">
+        CERT_NO = #{certNo,jdbcType=VARCHAR},
+      </if>
+      <if test="userTel != null">
+        USER_TEL = #{userTel,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        ADDRESS = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="interestRate != null">
+        INTEREST_RATE = #{interestRate,jdbcType=DECIMAL},
+      </if>
+      <if test="activateTag != null">
+        ACTIVATE_TAG = #{activateTag,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE = #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME = #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastInputDate != null">
+        LAST_INPUT_DATE = #{lastInputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lastInputTime != null">
+        LAST_INPUT_TIME = #{lastInputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="field1 != null">
+        FIELD1 = #{field1,jdbcType=VARCHAR},
+      </if>
+      <if test="field2 != null">
+        FIELD2 = #{field2,jdbcType=VARCHAR},
+      </if>
+      <if test="field3 != null">
+        FIELD3 = #{field3,jdbcType=VARCHAR},
+      </if>
+      <if test="field4 != null">
+        FIELD4 = #{field4,jdbcType=VARCHAR},
+      </if>
+      <if test="field5 != null">
+        FIELD5 = #{field5,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where MHT_APPLY_NO = #{mhtApplyNo,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.PRT_USER_INFO_JD">
+    update PRT_USER_INFO_JD
+    set USER_NAME = #{userName,jdbcType=VARCHAR},
+      CERT_TYPE = #{certType,jdbcType=VARCHAR},
+      PIN = #{pin,jdbcType=VARCHAR},
+      CERT_NO = #{certNo,jdbcType=VARCHAR},
+      USER_TEL = #{userTel,jdbcType=VARCHAR},
+      ADDRESS = #{address,jdbcType=VARCHAR},
+      INTEREST_RATE = #{interestRate,jdbcType=DECIMAL},
+      ACTIVATE_TAG = #{activateTag,jdbcType=VARCHAR},
+      INPUT_DATE = #{inputDate,jdbcType=VARCHAR},
+      INPUT_TIME = #{inputTime,jdbcType=VARCHAR},
+      LAST_INPUT_DATE = #{lastInputDate,jdbcType=VARCHAR},
+      LAST_INPUT_TIME = #{lastInputTime,jdbcType=VARCHAR},
+      FIELD1 = #{field1,jdbcType=VARCHAR},
+      FIELD2 = #{field2,jdbcType=VARCHAR},
+      FIELD3 = #{field3,jdbcType=VARCHAR},
+      FIELD4 = #{field4,jdbcType=VARCHAR},
+      FIELD5 = #{field5,jdbcType=VARCHAR}
+    where MHT_APPLY_NO = #{mhtApplyNo,jdbcType=VARCHAR}
+  </update>
+</mapper>

@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.WF_COMMENT_SUMMARY_REPORTMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.WF_COMMENT_SUMMARY_REPORT">
+    <id column="APPRO_COMMENT_ID" jdbcType="VARCHAR" property="approCommentId" />
+    <result column="IN_BATCH_NO" jdbcType="VARCHAR" property="inBatchNo" />
+    <result column="IN_BATCH_TIME" jdbcType="CHAR" property="inBatchTime" />
+    <result column="OUT_BATCH_NO" jdbcType="VARCHAR" property="outBatchNo" />
+    <result column="OUT_BATCH_TIME" jdbcType="CHAR" property="outBatchTime" />
+    <result column="APP_COMMENT_ID" jdbcType="VARCHAR" property="appCommentId" />
+    <result column="SUPER_COMMENT_ID" jdbcType="VARCHAR" property="superCommentId" />
+    <result column="BIZ_SEQ_NO" jdbcType="VARCHAR" property="bizSeqNo" />
+    <result column="NODE_ACTION_ID" jdbcType="VARCHAR" property="nodeActionId" />
+    <result column="INSTANCE_ID" jdbcType="VARCHAR" property="instanceId" />
+    <result column="APP_AMOUNT" jdbcType="DECIMAL" property="appAmount" />
+    <result column="APP_CURR_TYPE" jdbcType="VARCHAR" property="appCurrType" />
+    <result column="APP_TERM_MONTH" jdbcType="DECIMAL" property="appTermMonth" />
+    <result column="APP_TERM_DAY" jdbcType="DECIMAL" property="appTermDay" />
+    <result column="APP_RATE" jdbcType="DECIMAL" property="appRate" />
+    <result column="APP_ASSURE_TYPE" jdbcType="VARCHAR" property="appAssureType" />
+    <result column="APRO_AMOUNT" jdbcType="DECIMAL" property="aproAmount" />
+    <result column="APRO_CURR_TYPE" jdbcType="VARCHAR" property="aproCurrType" />
+    <result column="APRO_TERM_MONTH" jdbcType="DECIMAL" property="aproTermMonth" />
+    <result column="APRO_TERM_DAY" jdbcType="DECIMAL" property="aproTermDay" />
+    <result column="APRO_RATE" jdbcType="DECIMAL" property="aproRate" />
+    <result column="APRO_ASSURE_TYPE" jdbcType="VARCHAR" property="aproAssureType" />
+    <result column="COMMENT_SIGN" jdbcType="VARCHAR" property="commentSign" />
+    <result column="COMMENT_CONTEN" jdbcType="VARCHAR" property="commentConten" />
+    <result column="APP_ALL_BIZ_ELE" jdbcType="VARCHAR" property="appAllBizEle" />
+    <result column="APRO_ALL_BIZ_ELE" jdbcType="VARCHAR" property="aproAllBizEle" />
+    <result column="BATCH_STATUS" jdbcType="CHAR" property="batchStatus" />
+    <result column="LAST_UPD_OPR_ID" jdbcType="VARCHAR" property="lastUpdOprId" />
+    <result column="LAST_UPD_PGM_ID" jdbcType="VARCHAR" property="lastUpdPgmId" />
+    <result column="LAST_UPD_TIME" jdbcType="CHAR" property="lastUpdTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    APPRO_COMMENT_ID, IN_BATCH_NO, IN_BATCH_TIME, OUT_BATCH_NO, OUT_BATCH_TIME, APP_COMMENT_ID, 
+    SUPER_COMMENT_ID, BIZ_SEQ_NO, NODE_ACTION_ID, INSTANCE_ID, APP_AMOUNT, APP_CURR_TYPE, 
+    APP_TERM_MONTH, APP_TERM_DAY, APP_RATE, APP_ASSURE_TYPE, APRO_AMOUNT, APRO_CURR_TYPE, 
+    APRO_TERM_MONTH, APRO_TERM_DAY, APRO_RATE, APRO_ASSURE_TYPE, COMMENT_SIGN, COMMENT_CONTEN, 
+    APP_ALL_BIZ_ELE, APRO_ALL_BIZ_ELE, BATCH_STATUS, LAST_UPD_OPR_ID, LAST_UPD_PGM_ID, 
+    LAST_UPD_TIME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from WF_COMMENT_SUMMARY_REPORT
+    where APPRO_COMMENT_ID = #{approCommentId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from WF_COMMENT_SUMMARY_REPORT
+    where APPRO_COMMENT_ID = #{approCommentId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.WF_COMMENT_SUMMARY_REPORT">
+    insert into WF_COMMENT_SUMMARY_REPORT (APPRO_COMMENT_ID, IN_BATCH_NO, IN_BATCH_TIME, 
+      OUT_BATCH_NO, OUT_BATCH_TIME, APP_COMMENT_ID, 
+      SUPER_COMMENT_ID, BIZ_SEQ_NO, NODE_ACTION_ID, 
+      INSTANCE_ID, APP_AMOUNT, APP_CURR_TYPE, 
+      APP_TERM_MONTH, APP_TERM_DAY, APP_RATE, 
+      APP_ASSURE_TYPE, APRO_AMOUNT, APRO_CURR_TYPE, 
+      APRO_TERM_MONTH, APRO_TERM_DAY, APRO_RATE, 
+      APRO_ASSURE_TYPE, COMMENT_SIGN, COMMENT_CONTEN, 
+      APP_ALL_BIZ_ELE, APRO_ALL_BIZ_ELE, BATCH_STATUS, 
+      LAST_UPD_OPR_ID, LAST_UPD_PGM_ID, LAST_UPD_TIME
+      )
+    values (#{approCommentId,jdbcType=VARCHAR}, #{inBatchNo,jdbcType=VARCHAR}, #{inBatchTime,jdbcType=CHAR}, 
+      #{outBatchNo,jdbcType=VARCHAR}, #{outBatchTime,jdbcType=CHAR}, #{appCommentId,jdbcType=VARCHAR}, 
+      #{superCommentId,jdbcType=VARCHAR}, #{bizSeqNo,jdbcType=VARCHAR}, #{nodeActionId,jdbcType=VARCHAR}, 
+      #{instanceId,jdbcType=VARCHAR}, #{appAmount,jdbcType=DECIMAL}, #{appCurrType,jdbcType=VARCHAR}, 
+      #{appTermMonth,jdbcType=DECIMAL}, #{appTermDay,jdbcType=DECIMAL}, #{appRate,jdbcType=DECIMAL}, 
+      #{appAssureType,jdbcType=VARCHAR}, #{aproAmount,jdbcType=DECIMAL}, #{aproCurrType,jdbcType=VARCHAR}, 
+      #{aproTermMonth,jdbcType=DECIMAL}, #{aproTermDay,jdbcType=DECIMAL}, #{aproRate,jdbcType=DECIMAL}, 
+      #{aproAssureType,jdbcType=VARCHAR}, #{commentSign,jdbcType=VARCHAR}, #{commentConten,jdbcType=VARCHAR}, 
+      #{appAllBizEle,jdbcType=VARCHAR}, #{aproAllBizEle,jdbcType=VARCHAR}, #{batchStatus,jdbcType=CHAR}, 
+      #{lastUpdOprId,jdbcType=VARCHAR}, #{lastUpdPgmId,jdbcType=VARCHAR}, #{lastUpdTime,jdbcType=CHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.WF_COMMENT_SUMMARY_REPORT">
+    insert into WF_COMMENT_SUMMARY_REPORT
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="approCommentId != null">
+        APPRO_COMMENT_ID,
+      </if>
+      <if test="inBatchNo != null">
+        IN_BATCH_NO,
+      </if>
+      <if test="inBatchTime != null">
+        IN_BATCH_TIME,
+      </if>
+      <if test="outBatchNo != null">
+        OUT_BATCH_NO,
+      </if>
+      <if test="outBatchTime != null">
+        OUT_BATCH_TIME,
+      </if>
+      <if test="appCommentId != null">
+        APP_COMMENT_ID,
+      </if>
+      <if test="superCommentId != null">
+        SUPER_COMMENT_ID,
+      </if>
+      <if test="bizSeqNo != null">
+        BIZ_SEQ_NO,
+      </if>
+      <if test="nodeActionId != null">
+        NODE_ACTION_ID,
+      </if>
+      <if test="instanceId != null">
+        INSTANCE_ID,
+      </if>
+      <if test="appAmount != null">
+        APP_AMOUNT,
+      </if>
+      <if test="appCurrType != null">
+        APP_CURR_TYPE,
+      </if>
+      <if test="appTermMonth != null">
+        APP_TERM_MONTH,
+      </if>
+      <if test="appTermDay != null">
+        APP_TERM_DAY,
+      </if>
+      <if test="appRate != null">
+        APP_RATE,
+      </if>
+      <if test="appAssureType != null">
+        APP_ASSURE_TYPE,
+      </if>
+      <if test="aproAmount != null">
+        APRO_AMOUNT,
+      </if>
+      <if test="aproCurrType != null">
+        APRO_CURR_TYPE,
+      </if>
+      <if test="aproTermMonth != null">
+        APRO_TERM_MONTH,
+      </if>
+      <if test="aproTermDay != null">
+        APRO_TERM_DAY,
+      </if>
+      <if test="aproRate != null">
+        APRO_RATE,
+      </if>
+      <if test="aproAssureType != null">
+        APRO_ASSURE_TYPE,
+      </if>
+      <if test="commentSign != null">
+        COMMENT_SIGN,
+      </if>
+      <if test="commentConten != null">
+        COMMENT_CONTEN,
+      </if>
+      <if test="appAllBizEle != null">
+        APP_ALL_BIZ_ELE,
+      </if>
+      <if test="aproAllBizEle != null">
+        APRO_ALL_BIZ_ELE,
+      </if>
+      <if test="batchStatus != null">
+        BATCH_STATUS,
+      </if>
+      <if test="lastUpdOprId != null">
+        LAST_UPD_OPR_ID,
+      </if>
+      <if test="lastUpdPgmId != null">
+        LAST_UPD_PGM_ID,
+      </if>
+      <if test="lastUpdTime != null">
+        LAST_UPD_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="approCommentId != null">
+        #{approCommentId,jdbcType=VARCHAR},
+      </if>
+      <if test="inBatchNo != null">
+        #{inBatchNo,jdbcType=VARCHAR},
+      </if>
+      <if test="inBatchTime != null">
+        #{inBatchTime,jdbcType=CHAR},
+      </if>
+      <if test="outBatchNo != null">
+        #{outBatchNo,jdbcType=VARCHAR},
+      </if>
+      <if test="outBatchTime != null">
+        #{outBatchTime,jdbcType=CHAR},
+      </if>
+      <if test="appCommentId != null">
+        #{appCommentId,jdbcType=VARCHAR},
+      </if>
+      <if test="superCommentId != null">
+        #{superCommentId,jdbcType=VARCHAR},
+      </if>
+      <if test="bizSeqNo != null">
+        #{bizSeqNo,jdbcType=VARCHAR},
+      </if>
+      <if test="nodeActionId != null">
+        #{nodeActionId,jdbcType=VARCHAR},
+      </if>
+      <if test="instanceId != null">
+        #{instanceId,jdbcType=VARCHAR},
+      </if>
+      <if test="appAmount != null">
+        #{appAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="appCurrType != null">
+        #{appCurrType,jdbcType=VARCHAR},
+      </if>
+      <if test="appTermMonth != null">
+        #{appTermMonth,jdbcType=DECIMAL},
+      </if>
+      <if test="appTermDay != null">
+        #{appTermDay,jdbcType=DECIMAL},
+      </if>
+      <if test="appRate != null">
+        #{appRate,jdbcType=DECIMAL},
+      </if>
+      <if test="appAssureType != null">
+        #{appAssureType,jdbcType=VARCHAR},
+      </if>
+      <if test="aproAmount != null">
+        #{aproAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="aproCurrType != null">
+        #{aproCurrType,jdbcType=VARCHAR},
+      </if>
+      <if test="aproTermMonth != null">
+        #{aproTermMonth,jdbcType=DECIMAL},
+      </if>
+      <if test="aproTermDay != null">
+        #{aproTermDay,jdbcType=DECIMAL},
+      </if>
+      <if test="aproRate != null">
+        #{aproRate,jdbcType=DECIMAL},
+      </if>
+      <if test="aproAssureType != null">
+        #{aproAssureType,jdbcType=VARCHAR},
+      </if>
+      <if test="commentSign != null">
+        #{commentSign,jdbcType=VARCHAR},
+      </if>
+      <if test="commentConten != null">
+        #{commentConten,jdbcType=VARCHAR},
+      </if>
+      <if test="appAllBizEle != null">
+        #{appAllBizEle,jdbcType=VARCHAR},
+      </if>
+      <if test="aproAllBizEle != null">
+        #{aproAllBizEle,jdbcType=VARCHAR},
+      </if>
+      <if test="batchStatus != null">
+        #{batchStatus,jdbcType=CHAR},
+      </if>
+      <if test="lastUpdOprId != null">
+        #{lastUpdOprId,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdPgmId != null">
+        #{lastUpdPgmId,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdTime != null">
+        #{lastUpdTime,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.WF_COMMENT_SUMMARY_REPORT">
+    update WF_COMMENT_SUMMARY_REPORT
+    <set>
+      <if test="inBatchNo != null">
+        IN_BATCH_NO = #{inBatchNo,jdbcType=VARCHAR},
+      </if>
+      <if test="inBatchTime != null">
+        IN_BATCH_TIME = #{inBatchTime,jdbcType=CHAR},
+      </if>
+      <if test="outBatchNo != null">
+        OUT_BATCH_NO = #{outBatchNo,jdbcType=VARCHAR},
+      </if>
+      <if test="outBatchTime != null">
+        OUT_BATCH_TIME = #{outBatchTime,jdbcType=CHAR},
+      </if>
+      <if test="appCommentId != null">
+        APP_COMMENT_ID = #{appCommentId,jdbcType=VARCHAR},
+      </if>
+      <if test="superCommentId != null">
+        SUPER_COMMENT_ID = #{superCommentId,jdbcType=VARCHAR},
+      </if>
+      <if test="bizSeqNo != null">
+        BIZ_SEQ_NO = #{bizSeqNo,jdbcType=VARCHAR},
+      </if>
+      <if test="nodeActionId != null">
+        NODE_ACTION_ID = #{nodeActionId,jdbcType=VARCHAR},
+      </if>
+      <if test="instanceId != null">
+        INSTANCE_ID = #{instanceId,jdbcType=VARCHAR},
+      </if>
+      <if test="appAmount != null">
+        APP_AMOUNT = #{appAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="appCurrType != null">
+        APP_CURR_TYPE = #{appCurrType,jdbcType=VARCHAR},
+      </if>
+      <if test="appTermMonth != null">
+        APP_TERM_MONTH = #{appTermMonth,jdbcType=DECIMAL},
+      </if>
+      <if test="appTermDay != null">
+        APP_TERM_DAY = #{appTermDay,jdbcType=DECIMAL},
+      </if>
+      <if test="appRate != null">
+        APP_RATE = #{appRate,jdbcType=DECIMAL},
+      </if>
+      <if test="appAssureType != null">
+        APP_ASSURE_TYPE = #{appAssureType,jdbcType=VARCHAR},
+      </if>
+      <if test="aproAmount != null">
+        APRO_AMOUNT = #{aproAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="aproCurrType != null">
+        APRO_CURR_TYPE = #{aproCurrType,jdbcType=VARCHAR},
+      </if>
+      <if test="aproTermMonth != null">
+        APRO_TERM_MONTH = #{aproTermMonth,jdbcType=DECIMAL},
+      </if>
+      <if test="aproTermDay != null">
+        APRO_TERM_DAY = #{aproTermDay,jdbcType=DECIMAL},
+      </if>
+      <if test="aproRate != null">
+        APRO_RATE = #{aproRate,jdbcType=DECIMAL},
+      </if>
+      <if test="aproAssureType != null">
+        APRO_ASSURE_TYPE = #{aproAssureType,jdbcType=VARCHAR},
+      </if>
+      <if test="commentSign != null">
+        COMMENT_SIGN = #{commentSign,jdbcType=VARCHAR},
+      </if>
+      <if test="commentConten != null">
+        COMMENT_CONTEN = #{commentConten,jdbcType=VARCHAR},
+      </if>
+      <if test="appAllBizEle != null">
+        APP_ALL_BIZ_ELE = #{appAllBizEle,jdbcType=VARCHAR},
+      </if>
+      <if test="aproAllBizEle != null">
+        APRO_ALL_BIZ_ELE = #{aproAllBizEle,jdbcType=VARCHAR},
+      </if>
+      <if test="batchStatus != null">
+        BATCH_STATUS = #{batchStatus,jdbcType=CHAR},
+      </if>
+      <if test="lastUpdOprId != null">
+        LAST_UPD_OPR_ID = #{lastUpdOprId,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdPgmId != null">
+        LAST_UPD_PGM_ID = #{lastUpdPgmId,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdTime != null">
+        LAST_UPD_TIME = #{lastUpdTime,jdbcType=CHAR},
+      </if>
+    </set>
+    where APPRO_COMMENT_ID = #{approCommentId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.WF_COMMENT_SUMMARY_REPORT">
+    update WF_COMMENT_SUMMARY_REPORT
+    set IN_BATCH_NO = #{inBatchNo,jdbcType=VARCHAR},
+      IN_BATCH_TIME = #{inBatchTime,jdbcType=CHAR},
+      OUT_BATCH_NO = #{outBatchNo,jdbcType=VARCHAR},
+      OUT_BATCH_TIME = #{outBatchTime,jdbcType=CHAR},
+      APP_COMMENT_ID = #{appCommentId,jdbcType=VARCHAR},
+      SUPER_COMMENT_ID = #{superCommentId,jdbcType=VARCHAR},
+      BIZ_SEQ_NO = #{bizSeqNo,jdbcType=VARCHAR},
+      NODE_ACTION_ID = #{nodeActionId,jdbcType=VARCHAR},
+      INSTANCE_ID = #{instanceId,jdbcType=VARCHAR},
+      APP_AMOUNT = #{appAmount,jdbcType=DECIMAL},
+      APP_CURR_TYPE = #{appCurrType,jdbcType=VARCHAR},
+      APP_TERM_MONTH = #{appTermMonth,jdbcType=DECIMAL},
+      APP_TERM_DAY = #{appTermDay,jdbcType=DECIMAL},
+      APP_RATE = #{appRate,jdbcType=DECIMAL},
+      APP_ASSURE_TYPE = #{appAssureType,jdbcType=VARCHAR},
+      APRO_AMOUNT = #{aproAmount,jdbcType=DECIMAL},
+      APRO_CURR_TYPE = #{aproCurrType,jdbcType=VARCHAR},
+      APRO_TERM_MONTH = #{aproTermMonth,jdbcType=DECIMAL},
+      APRO_TERM_DAY = #{aproTermDay,jdbcType=DECIMAL},
+      APRO_RATE = #{aproRate,jdbcType=DECIMAL},
+      APRO_ASSURE_TYPE = #{aproAssureType,jdbcType=VARCHAR},
+      COMMENT_SIGN = #{commentSign,jdbcType=VARCHAR},
+      COMMENT_CONTEN = #{commentConten,jdbcType=VARCHAR},
+      APP_ALL_BIZ_ELE = #{appAllBizEle,jdbcType=VARCHAR},
+      APRO_ALL_BIZ_ELE = #{aproAllBizEle,jdbcType=VARCHAR},
+      BATCH_STATUS = #{batchStatus,jdbcType=CHAR},
+      LAST_UPD_OPR_ID = #{lastUpdOprId,jdbcType=VARCHAR},
+      LAST_UPD_PGM_ID = #{lastUpdPgmId,jdbcType=VARCHAR},
+      LAST_UPD_TIME = #{lastUpdTime,jdbcType=CHAR}
+    where APPRO_COMMENT_ID = #{approCommentId,jdbcType=VARCHAR}
+  </update>
+</mapper>

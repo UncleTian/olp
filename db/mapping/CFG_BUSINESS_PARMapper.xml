@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.CFG_BUSINESS_PARMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.CFG_BUSINESS_PAR">
+    <id column="SERNO" jdbcType="VARCHAR" property="serno" />
+    <result column="FIELD_NAME" jdbcType="VARCHAR" property="fieldName" />
+    <result column="FIELD_DESC" jdbcType="VARCHAR" property="fieldDesc" />
+    <result column="FIELD_VALUE" jdbcType="VARCHAR" property="fieldValue" />
+    <result column="INPUT_TIME" jdbcType="VARCHAR" property="inputTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    SERNO, FIELD_NAME, FIELD_DESC, FIELD_VALUE, INPUT_TIME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from CFG_BUSINESS_PAR
+    where SERNO = #{serno,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from CFG_BUSINESS_PAR
+    where SERNO = #{serno,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.CFG_BUSINESS_PAR">
+    insert into CFG_BUSINESS_PAR (SERNO, FIELD_NAME, FIELD_DESC, 
+      FIELD_VALUE, INPUT_TIME)
+    values (#{serno,jdbcType=VARCHAR}, #{fieldName,jdbcType=VARCHAR}, #{fieldDesc,jdbcType=VARCHAR}, 
+      #{fieldValue,jdbcType=VARCHAR}, #{inputTime,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.CFG_BUSINESS_PAR">
+    insert into CFG_BUSINESS_PAR
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="serno != null">
+        SERNO,
+      </if>
+      <if test="fieldName != null">
+        FIELD_NAME,
+      </if>
+      <if test="fieldDesc != null">
+        FIELD_DESC,
+      </if>
+      <if test="fieldValue != null">
+        FIELD_VALUE,
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="serno != null">
+        #{serno,jdbcType=VARCHAR},
+      </if>
+      <if test="fieldName != null">
+        #{fieldName,jdbcType=VARCHAR},
+      </if>
+      <if test="fieldDesc != null">
+        #{fieldDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="fieldValue != null">
+        #{fieldValue,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        #{inputTime,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.CFG_BUSINESS_PAR">
+    update CFG_BUSINESS_PAR
+    <set>
+      <if test="fieldName != null">
+        FIELD_NAME = #{fieldName,jdbcType=VARCHAR},
+      </if>
+      <if test="fieldDesc != null">
+        FIELD_DESC = #{fieldDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="fieldValue != null">
+        FIELD_VALUE = #{fieldValue,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME = #{inputTime,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where SERNO = #{serno,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.CFG_BUSINESS_PAR">
+    update CFG_BUSINESS_PAR
+    set FIELD_NAME = #{fieldName,jdbcType=VARCHAR},
+      FIELD_DESC = #{fieldDesc,jdbcType=VARCHAR},
+      FIELD_VALUE = #{fieldValue,jdbcType=VARCHAR},
+      INPUT_TIME = #{inputTime,jdbcType=VARCHAR}
+    where SERNO = #{serno,jdbcType=VARCHAR}
+  </update>
+</mapper>

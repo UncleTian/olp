@@ -1,0 +1,412 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.BAT_ANT_LOAN_DETAIL_TEMPMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.BAT_ANT_LOAN_DETAIL_TEMP">
+    <id column="CONTRACT_NO" jdbcType="VARCHAR" property="contractNo" />
+    <result column="FUND_SEQ_NO" jdbcType="VARCHAR" property="fundSeqNo" />
+    <result column="PROD_CODE" jdbcType="VARCHAR" property="prodCode" />
+    <result column="NAME" jdbcType="VARCHAR" property="name" />
+    <result column="CERT_TYPE" jdbcType="VARCHAR" property="certType" />
+    <result column="CERT_NO" jdbcType="VARCHAR" property="certNo" />
+    <result column="LOAN_STATUS" jdbcType="VARCHAR" property="loanStatus" />
+    <result column="LOAN_USE" jdbcType="VARCHAR" property="loanUse" />
+    <result column="USE_AREA" jdbcType="VARCHAR" property="useArea" />
+    <result column="APPLY_DATE" jdbcType="VARCHAR" property="applyDate" />
+    <result column="ENCASH_DATE" jdbcType="VARCHAR" property="encashDate" />
+    <result column="CURRENCY" jdbcType="VARCHAR" property="currency" />
+    <result column="ENCASH_AMT" jdbcType="DECIMAL" property="encashAmt" />
+    <result column="START_DATE" jdbcType="VARCHAR" property="startDate" />
+    <result column="END_DATE" jdbcType="VARCHAR" property="endDate" />
+    <result column="TOTAL_TERMS" jdbcType="DECIMAL" property="totalTerms" />
+    <result column="REPAY_MODE" jdbcType="VARCHAR" property="repayMode" />
+    <result column="GRACE_DAY" jdbcType="DECIMAL" property="graceDay" />
+    <result column="RATE_TYPE" jdbcType="VARCHAR" property="rateType" />
+    <result column="DAY_RATE" jdbcType="DECIMAL" property="dayRate" />
+    <result column="PRIN_REPAY_FREQUENCY" jdbcType="VARCHAR" property="prinRepayFrequency" />
+    <result column="INT_REPAY_FREQUENCY" jdbcType="VARCHAR" property="intRepayFrequency" />
+    <result column="GUARANTEE_TYPE" jdbcType="VARCHAR" property="guaranteeType" />
+    <result column="CREDIT_NO" jdbcType="VARCHAR" property="creditNo" />
+    <result column="ENCASH_ACCT_TYPE" jdbcType="VARCHAR" property="encashAcctType" />
+    <result column="ENCASH_ACCT_NO" jdbcType="VARCHAR" property="encashAcctNo" />
+    <result column="REPAY_ACCT_TYPE" jdbcType="VARCHAR" property="repayAcctType" />
+    <result column="REPAY_ACCT_NO" jdbcType="VARCHAR" property="repayAcctNo" />
+    <result column="APPLY_NO" jdbcType="VARCHAR" property="applyNo" />
+    <result column="INPUT_DATE" jdbcType="VARCHAR" property="inputDate" />
+    <result column="INPUT_TIME" jdbcType="VARCHAR" property="inputTime" />
+    <result column="DATA_DATE" jdbcType="VARCHAR" property="dataDate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    CONTRACT_NO, FUND_SEQ_NO, PROD_CODE, NAME, CERT_TYPE, CERT_NO, LOAN_STATUS, LOAN_USE, 
+    USE_AREA, APPLY_DATE, ENCASH_DATE, CURRENCY, ENCASH_AMT, START_DATE, END_DATE, TOTAL_TERMS, 
+    REPAY_MODE, GRACE_DAY, RATE_TYPE, DAY_RATE, PRIN_REPAY_FREQUENCY, INT_REPAY_FREQUENCY, 
+    GUARANTEE_TYPE, CREDIT_NO, ENCASH_ACCT_TYPE, ENCASH_ACCT_NO, REPAY_ACCT_TYPE, REPAY_ACCT_NO, 
+    APPLY_NO, INPUT_DATE, INPUT_TIME, DATA_DATE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from BAT_ANT_LOAN_DETAIL_TEMP
+    where CONTRACT_NO = #{contractNo,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from BAT_ANT_LOAN_DETAIL_TEMP
+    where CONTRACT_NO = #{contractNo,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.BAT_ANT_LOAN_DETAIL_TEMP">
+    insert into BAT_ANT_LOAN_DETAIL_TEMP (CONTRACT_NO, FUND_SEQ_NO, PROD_CODE, 
+      NAME, CERT_TYPE, CERT_NO, 
+      LOAN_STATUS, LOAN_USE, USE_AREA, 
+      APPLY_DATE, ENCASH_DATE, CURRENCY, 
+      ENCASH_AMT, START_DATE, END_DATE, 
+      TOTAL_TERMS, REPAY_MODE, GRACE_DAY, 
+      RATE_TYPE, DAY_RATE, PRIN_REPAY_FREQUENCY, 
+      INT_REPAY_FREQUENCY, GUARANTEE_TYPE, CREDIT_NO, 
+      ENCASH_ACCT_TYPE, ENCASH_ACCT_NO, REPAY_ACCT_TYPE, 
+      REPAY_ACCT_NO, APPLY_NO, INPUT_DATE, 
+      INPUT_TIME, DATA_DATE)
+    values (#{contractNo,jdbcType=VARCHAR}, #{fundSeqNo,jdbcType=VARCHAR}, #{prodCode,jdbcType=VARCHAR}, 
+      #{name,jdbcType=VARCHAR}, #{certType,jdbcType=VARCHAR}, #{certNo,jdbcType=VARCHAR}, 
+      #{loanStatus,jdbcType=VARCHAR}, #{loanUse,jdbcType=VARCHAR}, #{useArea,jdbcType=VARCHAR}, 
+      #{applyDate,jdbcType=VARCHAR}, #{encashDate,jdbcType=VARCHAR}, #{currency,jdbcType=VARCHAR}, 
+      #{encashAmt,jdbcType=DECIMAL}, #{startDate,jdbcType=VARCHAR}, #{endDate,jdbcType=VARCHAR}, 
+      #{totalTerms,jdbcType=DECIMAL}, #{repayMode,jdbcType=VARCHAR}, #{graceDay,jdbcType=DECIMAL}, 
+      #{rateType,jdbcType=VARCHAR}, #{dayRate,jdbcType=DECIMAL}, #{prinRepayFrequency,jdbcType=VARCHAR}, 
+      #{intRepayFrequency,jdbcType=VARCHAR}, #{guaranteeType,jdbcType=VARCHAR}, #{creditNo,jdbcType=VARCHAR}, 
+      #{encashAcctType,jdbcType=VARCHAR}, #{encashAcctNo,jdbcType=VARCHAR}, #{repayAcctType,jdbcType=VARCHAR}, 
+      #{repayAcctNo,jdbcType=VARCHAR}, #{applyNo,jdbcType=VARCHAR}, #{inputDate,jdbcType=VARCHAR}, 
+      #{inputTime,jdbcType=VARCHAR}, #{dataDate,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.BAT_ANT_LOAN_DETAIL_TEMP">
+    insert into BAT_ANT_LOAN_DETAIL_TEMP
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="contractNo != null">
+        CONTRACT_NO,
+      </if>
+      <if test="fundSeqNo != null">
+        FUND_SEQ_NO,
+      </if>
+      <if test="prodCode != null">
+        PROD_CODE,
+      </if>
+      <if test="name != null">
+        NAME,
+      </if>
+      <if test="certType != null">
+        CERT_TYPE,
+      </if>
+      <if test="certNo != null">
+        CERT_NO,
+      </if>
+      <if test="loanStatus != null">
+        LOAN_STATUS,
+      </if>
+      <if test="loanUse != null">
+        LOAN_USE,
+      </if>
+      <if test="useArea != null">
+        USE_AREA,
+      </if>
+      <if test="applyDate != null">
+        APPLY_DATE,
+      </if>
+      <if test="encashDate != null">
+        ENCASH_DATE,
+      </if>
+      <if test="currency != null">
+        CURRENCY,
+      </if>
+      <if test="encashAmt != null">
+        ENCASH_AMT,
+      </if>
+      <if test="startDate != null">
+        START_DATE,
+      </if>
+      <if test="endDate != null">
+        END_DATE,
+      </if>
+      <if test="totalTerms != null">
+        TOTAL_TERMS,
+      </if>
+      <if test="repayMode != null">
+        REPAY_MODE,
+      </if>
+      <if test="graceDay != null">
+        GRACE_DAY,
+      </if>
+      <if test="rateType != null">
+        RATE_TYPE,
+      </if>
+      <if test="dayRate != null">
+        DAY_RATE,
+      </if>
+      <if test="prinRepayFrequency != null">
+        PRIN_REPAY_FREQUENCY,
+      </if>
+      <if test="intRepayFrequency != null">
+        INT_REPAY_FREQUENCY,
+      </if>
+      <if test="guaranteeType != null">
+        GUARANTEE_TYPE,
+      </if>
+      <if test="creditNo != null">
+        CREDIT_NO,
+      </if>
+      <if test="encashAcctType != null">
+        ENCASH_ACCT_TYPE,
+      </if>
+      <if test="encashAcctNo != null">
+        ENCASH_ACCT_NO,
+      </if>
+      <if test="repayAcctType != null">
+        REPAY_ACCT_TYPE,
+      </if>
+      <if test="repayAcctNo != null">
+        REPAY_ACCT_NO,
+      </if>
+      <if test="applyNo != null">
+        APPLY_NO,
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE,
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME,
+      </if>
+      <if test="dataDate != null">
+        DATA_DATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="contractNo != null">
+        #{contractNo,jdbcType=VARCHAR},
+      </if>
+      <if test="fundSeqNo != null">
+        #{fundSeqNo,jdbcType=VARCHAR},
+      </if>
+      <if test="prodCode != null">
+        #{prodCode,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="certType != null">
+        #{certType,jdbcType=VARCHAR},
+      </if>
+      <if test="certNo != null">
+        #{certNo,jdbcType=VARCHAR},
+      </if>
+      <if test="loanStatus != null">
+        #{loanStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="loanUse != null">
+        #{loanUse,jdbcType=VARCHAR},
+      </if>
+      <if test="useArea != null">
+        #{useArea,jdbcType=VARCHAR},
+      </if>
+      <if test="applyDate != null">
+        #{applyDate,jdbcType=VARCHAR},
+      </if>
+      <if test="encashDate != null">
+        #{encashDate,jdbcType=VARCHAR},
+      </if>
+      <if test="currency != null">
+        #{currency,jdbcType=VARCHAR},
+      </if>
+      <if test="encashAmt != null">
+        #{encashAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="startDate != null">
+        #{startDate,jdbcType=VARCHAR},
+      </if>
+      <if test="endDate != null">
+        #{endDate,jdbcType=VARCHAR},
+      </if>
+      <if test="totalTerms != null">
+        #{totalTerms,jdbcType=DECIMAL},
+      </if>
+      <if test="repayMode != null">
+        #{repayMode,jdbcType=VARCHAR},
+      </if>
+      <if test="graceDay != null">
+        #{graceDay,jdbcType=DECIMAL},
+      </if>
+      <if test="rateType != null">
+        #{rateType,jdbcType=VARCHAR},
+      </if>
+      <if test="dayRate != null">
+        #{dayRate,jdbcType=DECIMAL},
+      </if>
+      <if test="prinRepayFrequency != null">
+        #{prinRepayFrequency,jdbcType=VARCHAR},
+      </if>
+      <if test="intRepayFrequency != null">
+        #{intRepayFrequency,jdbcType=VARCHAR},
+      </if>
+      <if test="guaranteeType != null">
+        #{guaranteeType,jdbcType=VARCHAR},
+      </if>
+      <if test="creditNo != null">
+        #{creditNo,jdbcType=VARCHAR},
+      </if>
+      <if test="encashAcctType != null">
+        #{encashAcctType,jdbcType=VARCHAR},
+      </if>
+      <if test="encashAcctNo != null">
+        #{encashAcctNo,jdbcType=VARCHAR},
+      </if>
+      <if test="repayAcctType != null">
+        #{repayAcctType,jdbcType=VARCHAR},
+      </if>
+      <if test="repayAcctNo != null">
+        #{repayAcctNo,jdbcType=VARCHAR},
+      </if>
+      <if test="applyNo != null">
+        #{applyNo,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="dataDate != null">
+        #{dataDate,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.BAT_ANT_LOAN_DETAIL_TEMP">
+    update BAT_ANT_LOAN_DETAIL_TEMP
+    <set>
+      <if test="fundSeqNo != null">
+        FUND_SEQ_NO = #{fundSeqNo,jdbcType=VARCHAR},
+      </if>
+      <if test="prodCode != null">
+        PROD_CODE = #{prodCode,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        NAME = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="certType != null">
+        CERT_TYPE = #{certType,jdbcType=VARCHAR},
+      </if>
+      <if test="certNo != null">
+        CERT_NO = #{certNo,jdbcType=VARCHAR},
+      </if>
+      <if test="loanStatus != null">
+        LOAN_STATUS = #{loanStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="loanUse != null">
+        LOAN_USE = #{loanUse,jdbcType=VARCHAR},
+      </if>
+      <if test="useArea != null">
+        USE_AREA = #{useArea,jdbcType=VARCHAR},
+      </if>
+      <if test="applyDate != null">
+        APPLY_DATE = #{applyDate,jdbcType=VARCHAR},
+      </if>
+      <if test="encashDate != null">
+        ENCASH_DATE = #{encashDate,jdbcType=VARCHAR},
+      </if>
+      <if test="currency != null">
+        CURRENCY = #{currency,jdbcType=VARCHAR},
+      </if>
+      <if test="encashAmt != null">
+        ENCASH_AMT = #{encashAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="startDate != null">
+        START_DATE = #{startDate,jdbcType=VARCHAR},
+      </if>
+      <if test="endDate != null">
+        END_DATE = #{endDate,jdbcType=VARCHAR},
+      </if>
+      <if test="totalTerms != null">
+        TOTAL_TERMS = #{totalTerms,jdbcType=DECIMAL},
+      </if>
+      <if test="repayMode != null">
+        REPAY_MODE = #{repayMode,jdbcType=VARCHAR},
+      </if>
+      <if test="graceDay != null">
+        GRACE_DAY = #{graceDay,jdbcType=DECIMAL},
+      </if>
+      <if test="rateType != null">
+        RATE_TYPE = #{rateType,jdbcType=VARCHAR},
+      </if>
+      <if test="dayRate != null">
+        DAY_RATE = #{dayRate,jdbcType=DECIMAL},
+      </if>
+      <if test="prinRepayFrequency != null">
+        PRIN_REPAY_FREQUENCY = #{prinRepayFrequency,jdbcType=VARCHAR},
+      </if>
+      <if test="intRepayFrequency != null">
+        INT_REPAY_FREQUENCY = #{intRepayFrequency,jdbcType=VARCHAR},
+      </if>
+      <if test="guaranteeType != null">
+        GUARANTEE_TYPE = #{guaranteeType,jdbcType=VARCHAR},
+      </if>
+      <if test="creditNo != null">
+        CREDIT_NO = #{creditNo,jdbcType=VARCHAR},
+      </if>
+      <if test="encashAcctType != null">
+        ENCASH_ACCT_TYPE = #{encashAcctType,jdbcType=VARCHAR},
+      </if>
+      <if test="encashAcctNo != null">
+        ENCASH_ACCT_NO = #{encashAcctNo,jdbcType=VARCHAR},
+      </if>
+      <if test="repayAcctType != null">
+        REPAY_ACCT_TYPE = #{repayAcctType,jdbcType=VARCHAR},
+      </if>
+      <if test="repayAcctNo != null">
+        REPAY_ACCT_NO = #{repayAcctNo,jdbcType=VARCHAR},
+      </if>
+      <if test="applyNo != null">
+        APPLY_NO = #{applyNo,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE = #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME = #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="dataDate != null">
+        DATA_DATE = #{dataDate,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where CONTRACT_NO = #{contractNo,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.BAT_ANT_LOAN_DETAIL_TEMP">
+    update BAT_ANT_LOAN_DETAIL_TEMP
+    set FUND_SEQ_NO = #{fundSeqNo,jdbcType=VARCHAR},
+      PROD_CODE = #{prodCode,jdbcType=VARCHAR},
+      NAME = #{name,jdbcType=VARCHAR},
+      CERT_TYPE = #{certType,jdbcType=VARCHAR},
+      CERT_NO = #{certNo,jdbcType=VARCHAR},
+      LOAN_STATUS = #{loanStatus,jdbcType=VARCHAR},
+      LOAN_USE = #{loanUse,jdbcType=VARCHAR},
+      USE_AREA = #{useArea,jdbcType=VARCHAR},
+      APPLY_DATE = #{applyDate,jdbcType=VARCHAR},
+      ENCASH_DATE = #{encashDate,jdbcType=VARCHAR},
+      CURRENCY = #{currency,jdbcType=VARCHAR},
+      ENCASH_AMT = #{encashAmt,jdbcType=DECIMAL},
+      START_DATE = #{startDate,jdbcType=VARCHAR},
+      END_DATE = #{endDate,jdbcType=VARCHAR},
+      TOTAL_TERMS = #{totalTerms,jdbcType=DECIMAL},
+      REPAY_MODE = #{repayMode,jdbcType=VARCHAR},
+      GRACE_DAY = #{graceDay,jdbcType=DECIMAL},
+      RATE_TYPE = #{rateType,jdbcType=VARCHAR},
+      DAY_RATE = #{dayRate,jdbcType=DECIMAL},
+      PRIN_REPAY_FREQUENCY = #{prinRepayFrequency,jdbcType=VARCHAR},
+      INT_REPAY_FREQUENCY = #{intRepayFrequency,jdbcType=VARCHAR},
+      GUARANTEE_TYPE = #{guaranteeType,jdbcType=VARCHAR},
+      CREDIT_NO = #{creditNo,jdbcType=VARCHAR},
+      ENCASH_ACCT_TYPE = #{encashAcctType,jdbcType=VARCHAR},
+      ENCASH_ACCT_NO = #{encashAcctNo,jdbcType=VARCHAR},
+      REPAY_ACCT_TYPE = #{repayAcctType,jdbcType=VARCHAR},
+      REPAY_ACCT_NO = #{repayAcctNo,jdbcType=VARCHAR},
+      APPLY_NO = #{applyNo,jdbcType=VARCHAR},
+      INPUT_DATE = #{inputDate,jdbcType=VARCHAR},
+      INPUT_TIME = #{inputTime,jdbcType=VARCHAR},
+      DATA_DATE = #{dataDate,jdbcType=VARCHAR}
+    where CONTRACT_NO = #{contractNo,jdbcType=VARCHAR}
+  </update>
+</mapper>

@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.BIZ_ANT_REPAY_LOAN_DETAILMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.BIZ_ANT_REPAY_LOAN_DETAIL">
+    <result column="CONTRACT_NO" jdbcType="VARCHAR" property="contractNo" />
+    <result column="SEQ_NO" jdbcType="VARCHAR" property="seqNo" />
+    <result column="FEE_NO" jdbcType="VARCHAR" property="feeNo" />
+    <result column="WITHDRAW_NO" jdbcType="VARCHAR" property="withdrawNo" />
+    <result column="REPAY_TYPE" jdbcType="VARCHAR" property="repayType" />
+    <result column="REPAY_DATE" jdbcType="VARCHAR" property="repayDate" />
+    <result column="CURR_PRIN_BAL" jdbcType="DECIMAL" property="currPrinBal" />
+    <result column="CURR_OVD_PRIN_BAL" jdbcType="DECIMAL" property="currOvdPrinBal" />
+    <result column="CURR_INT_BAL" jdbcType="DECIMAL" property="currIntBal" />
+    <result column="CURR_OVD_INT_BAL" jdbcType="DECIMAL" property="currOvdIntBal" />
+    <result column="CURR_OVD_PRIN_PNLT_BAL" jdbcType="DECIMAL" property="currOvdPrinPnltBal" />
+    <result column="CURR_OVD_INT_PNLT_BAL" jdbcType="DECIMAL" property="currOvdIntPnltBal" />
+    <result column="REPAY_AMT" jdbcType="DECIMAL" property="repayAmt" />
+    <result column="PAID_PRIN_AMT" jdbcType="DECIMAL" property="paidPrinAmt" />
+    <result column="PAID_OVD_PRIN_AMT" jdbcType="DECIMAL" property="paidOvdPrinAmt" />
+    <result column="PAID_INT_AMT" jdbcType="DECIMAL" property="paidIntAmt" />
+    <result column="PAID_OVD_INT_AMT" jdbcType="DECIMAL" property="paidOvdIntAmt" />
+    <result column="PAID_OVD_PRIN_PNLT_AMT" jdbcType="DECIMAL" property="paidOvdPrinPnltAmt" />
+    <result column="PAID_OVD_INT_PNLT_AMT" jdbcType="DECIMAL" property="paidOvdIntPnltAmt" />
+    <result column="FEE_AMT" jdbcType="DECIMAL" property="feeAmt" />
+    <result column="INPUT_DATE" jdbcType="VARCHAR" property="inputDate" />
+    <result column="INPUT_TIME" jdbcType="VARCHAR" property="inputTime" />
+    <result column="LAST_UPDATE_DATE" jdbcType="VARCHAR" property="lastUpdateDate" />
+    <result column="LAST_UPDATE_TIME" jdbcType="VARCHAR" property="lastUpdateTime" />
+    <result column="DATA_DATE" jdbcType="VARCHAR" property="dataDate" />
+  </resultMap>
+  <insert id="insert" parameterType="com.bea.olp.BIZ_ANT_REPAY_LOAN_DETAIL">
+    insert into BIZ_ANT_REPAY_LOAN_DETAIL (CONTRACT_NO, SEQ_NO, FEE_NO, 
+      WITHDRAW_NO, REPAY_TYPE, REPAY_DATE, 
+      CURR_PRIN_BAL, CURR_OVD_PRIN_BAL, CURR_INT_BAL, 
+      CURR_OVD_INT_BAL, CURR_OVD_PRIN_PNLT_BAL, CURR_OVD_INT_PNLT_BAL, 
+      REPAY_AMT, PAID_PRIN_AMT, PAID_OVD_PRIN_AMT, 
+      PAID_INT_AMT, PAID_OVD_INT_AMT, PAID_OVD_PRIN_PNLT_AMT, 
+      PAID_OVD_INT_PNLT_AMT, FEE_AMT, INPUT_DATE, 
+      INPUT_TIME, LAST_UPDATE_DATE, LAST_UPDATE_TIME, 
+      DATA_DATE)
+    values (#{contractNo,jdbcType=VARCHAR}, #{seqNo,jdbcType=VARCHAR}, #{feeNo,jdbcType=VARCHAR}, 
+      #{withdrawNo,jdbcType=VARCHAR}, #{repayType,jdbcType=VARCHAR}, #{repayDate,jdbcType=VARCHAR}, 
+      #{currPrinBal,jdbcType=DECIMAL}, #{currOvdPrinBal,jdbcType=DECIMAL}, #{currIntBal,jdbcType=DECIMAL}, 
+      #{currOvdIntBal,jdbcType=DECIMAL}, #{currOvdPrinPnltBal,jdbcType=DECIMAL}, #{currOvdIntPnltBal,jdbcType=DECIMAL}, 
+      #{repayAmt,jdbcType=DECIMAL}, #{paidPrinAmt,jdbcType=DECIMAL}, #{paidOvdPrinAmt,jdbcType=DECIMAL}, 
+      #{paidIntAmt,jdbcType=DECIMAL}, #{paidOvdIntAmt,jdbcType=DECIMAL}, #{paidOvdPrinPnltAmt,jdbcType=DECIMAL}, 
+      #{paidOvdIntPnltAmt,jdbcType=DECIMAL}, #{feeAmt,jdbcType=DECIMAL}, #{inputDate,jdbcType=VARCHAR}, 
+      #{inputTime,jdbcType=VARCHAR}, #{lastUpdateDate,jdbcType=VARCHAR}, #{lastUpdateTime,jdbcType=VARCHAR}, 
+      #{dataDate,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.BIZ_ANT_REPAY_LOAN_DETAIL">
+    insert into BIZ_ANT_REPAY_LOAN_DETAIL
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="contractNo != null">
+        CONTRACT_NO,
+      </if>
+      <if test="seqNo != null">
+        SEQ_NO,
+      </if>
+      <if test="feeNo != null">
+        FEE_NO,
+      </if>
+      <if test="withdrawNo != null">
+        WITHDRAW_NO,
+      </if>
+      <if test="repayType != null">
+        REPAY_TYPE,
+      </if>
+      <if test="repayDate != null">
+        REPAY_DATE,
+      </if>
+      <if test="currPrinBal != null">
+        CURR_PRIN_BAL,
+      </if>
+      <if test="currOvdPrinBal != null">
+        CURR_OVD_PRIN_BAL,
+      </if>
+      <if test="currIntBal != null">
+        CURR_INT_BAL,
+      </if>
+      <if test="currOvdIntBal != null">
+        CURR_OVD_INT_BAL,
+      </if>
+      <if test="currOvdPrinPnltBal != null">
+        CURR_OVD_PRIN_PNLT_BAL,
+      </if>
+      <if test="currOvdIntPnltBal != null">
+        CURR_OVD_INT_PNLT_BAL,
+      </if>
+      <if test="repayAmt != null">
+        REPAY_AMT,
+      </if>
+      <if test="paidPrinAmt != null">
+        PAID_PRIN_AMT,
+      </if>
+      <if test="paidOvdPrinAmt != null">
+        PAID_OVD_PRIN_AMT,
+      </if>
+      <if test="paidIntAmt != null">
+        PAID_INT_AMT,
+      </if>
+      <if test="paidOvdIntAmt != null">
+        PAID_OVD_INT_AMT,
+      </if>
+      <if test="paidOvdPrinPnltAmt != null">
+        PAID_OVD_PRIN_PNLT_AMT,
+      </if>
+      <if test="paidOvdIntPnltAmt != null">
+        PAID_OVD_INT_PNLT_AMT,
+      </if>
+      <if test="feeAmt != null">
+        FEE_AMT,
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE,
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME,
+      </if>
+      <if test="lastUpdateDate != null">
+        LAST_UPDATE_DATE,
+      </if>
+      <if test="lastUpdateTime != null">
+        LAST_UPDATE_TIME,
+      </if>
+      <if test="dataDate != null">
+        DATA_DATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="contractNo != null">
+        #{contractNo,jdbcType=VARCHAR},
+      </if>
+      <if test="seqNo != null">
+        #{seqNo,jdbcType=VARCHAR},
+      </if>
+      <if test="feeNo != null">
+        #{feeNo,jdbcType=VARCHAR},
+      </if>
+      <if test="withdrawNo != null">
+        #{withdrawNo,jdbcType=VARCHAR},
+      </if>
+      <if test="repayType != null">
+        #{repayType,jdbcType=VARCHAR},
+      </if>
+      <if test="repayDate != null">
+        #{repayDate,jdbcType=VARCHAR},
+      </if>
+      <if test="currPrinBal != null">
+        #{currPrinBal,jdbcType=DECIMAL},
+      </if>
+      <if test="currOvdPrinBal != null">
+        #{currOvdPrinBal,jdbcType=DECIMAL},
+      </if>
+      <if test="currIntBal != null">
+        #{currIntBal,jdbcType=DECIMAL},
+      </if>
+      <if test="currOvdIntBal != null">
+        #{currOvdIntBal,jdbcType=DECIMAL},
+      </if>
+      <if test="currOvdPrinPnltBal != null">
+        #{currOvdPrinPnltBal,jdbcType=DECIMAL},
+      </if>
+      <if test="currOvdIntPnltBal != null">
+        #{currOvdIntPnltBal,jdbcType=DECIMAL},
+      </if>
+      <if test="repayAmt != null">
+        #{repayAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="paidPrinAmt != null">
+        #{paidPrinAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="paidOvdPrinAmt != null">
+        #{paidOvdPrinAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="paidIntAmt != null">
+        #{paidIntAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="paidOvdIntAmt != null">
+        #{paidOvdIntAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="paidOvdPrinPnltAmt != null">
+        #{paidOvdPrinPnltAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="paidOvdIntPnltAmt != null">
+        #{paidOvdIntPnltAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="feeAmt != null">
+        #{feeAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="inputDate != null">
+        #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateDate != null">
+        #{lastUpdateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        #{lastUpdateTime,jdbcType=VARCHAR},
+      </if>
+      <if test="dataDate != null">
+        #{dataDate,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

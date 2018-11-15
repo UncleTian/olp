@@ -1,0 +1,531 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.BIZ_BORR_INFOMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.BIZ_BORR_INFO">
+    <id column="APP_NO" jdbcType="VARCHAR" property="appNo" />
+    <result column="CUST_ID" jdbcType="VARCHAR" property="custId" />
+    <result column="CUST_ID_CORE" jdbcType="VARCHAR" property="custIdCore" />
+    <result column="SPDB_ACC_FLAG" jdbcType="VARCHAR" property="spdbAccFlag" />
+    <result column="CERT_TYPE" jdbcType="VARCHAR" property="certType" />
+    <result column="CERT_CODE" jdbcType="VARCHAR" property="certCode" />
+    <result column="CUST_NAME" jdbcType="VARCHAR" property="custName" />
+    <result column="CUST_NAME_SPELL" jdbcType="VARCHAR" property="custNameSpell" />
+    <result column="CERT_ORG" jdbcType="VARCHAR" property="certOrg" />
+    <result column="CUST_TYPE" jdbcType="VARCHAR" property="custType" />
+    <result column="CONTACT_ADDR" jdbcType="VARCHAR" property="contactAddr" />
+    <result column="CONTACT_ZIP_CODE" jdbcType="VARCHAR" property="contactZipCode" />
+    <result column="EMAIL" jdbcType="VARCHAR" property="email" />
+    <result column="PHONE" jdbcType="VARCHAR" property="phone" />
+    <result column="EDU_LEVEL" jdbcType="VARCHAR" property="eduLevel" />
+    <result column="LIVE_STATUS" jdbcType="VARCHAR" property="liveStatus" />
+    <result column="LIVE_ADDR" jdbcType="VARCHAR" property="liveAddr" />
+    <result column="LIVE_ZIP_CODE" jdbcType="VARCHAR" property="liveZipCode" />
+    <result column="MARR_STATUS" jdbcType="VARCHAR" property="marrStatus" />
+    <result column="SPOUSE_NAME" jdbcType="VARCHAR" property="spouseName" />
+    <result column="SPOUSE_CERT_TYPE" jdbcType="VARCHAR" property="spouseCertType" />
+    <result column="SPOUSE_CERT_CODE" jdbcType="VARCHAR" property="spouseCertCode" />
+    <result column="OPERATOR_TYPE" jdbcType="VARCHAR" property="operatorType" />
+    <result column="LICENSE_CODE" jdbcType="VARCHAR" property="licenseCode" />
+    <result column="RESV_TEL" jdbcType="VARCHAR" property="resvTel" />
+    <result column="REL_FLAG" jdbcType="VARCHAR" property="relFlag" />
+    <result column="FIELD1" jdbcType="VARCHAR" property="field1" />
+    <result column="FIELD2" jdbcType="VARCHAR" property="field2" />
+    <result column="FIELD3" jdbcType="VARCHAR" property="field3" />
+    <result column="FIELD4" jdbcType="VARCHAR" property="field4" />
+    <result column="FIELD5" jdbcType="VARCHAR" property="field5" />
+    <result column="FIELD6" jdbcType="VARCHAR" property="field6" />
+    <result column="FIELD7" jdbcType="DECIMAL" property="field7" />
+    <result column="FIELD8" jdbcType="DECIMAL" property="field8" />
+    <result column="FIELD9" jdbcType="DECIMAL" property="field9" />
+    <result column="FIELD10" jdbcType="DECIMAL" property="field10" />
+    <result column="INPUT_DATE" jdbcType="VARCHAR" property="inputDate" />
+    <result column="INPUT_TIME" jdbcType="VARCHAR" property="inputTime" />
+    <result column="RELATED_PERSON_NAME" jdbcType="VARCHAR" property="relatedPersonName" />
+    <result column="RELATED_PERSON_REL" jdbcType="VARCHAR" property="relatedPersonRel" />
+    <result column="RELATED_PERSON_TELP" jdbcType="VARCHAR" property="relatedPersonTelp" />
+    <result column="RELATED_PERSON_ID_NO" jdbcType="VARCHAR" property="relatedPersonIdNo" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    APP_NO, CUST_ID, CUST_ID_CORE, SPDB_ACC_FLAG, CERT_TYPE, CERT_CODE, CUST_NAME, CUST_NAME_SPELL, 
+    CERT_ORG, CUST_TYPE, CONTACT_ADDR, CONTACT_ZIP_CODE, EMAIL, PHONE, EDU_LEVEL, LIVE_STATUS, 
+    LIVE_ADDR, LIVE_ZIP_CODE, MARR_STATUS, SPOUSE_NAME, SPOUSE_CERT_TYPE, SPOUSE_CERT_CODE, 
+    OPERATOR_TYPE, LICENSE_CODE, RESV_TEL, REL_FLAG, FIELD1, FIELD2, FIELD3, FIELD4, 
+    FIELD5, FIELD6, FIELD7, FIELD8, FIELD9, FIELD10, INPUT_DATE, INPUT_TIME, RELATED_PERSON_NAME, 
+    RELATED_PERSON_REL, RELATED_PERSON_TELP, RELATED_PERSON_ID_NO
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from BIZ_BORR_INFO
+    where APP_NO = #{appNo,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from BIZ_BORR_INFO
+    where APP_NO = #{appNo,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.BIZ_BORR_INFO">
+    insert into BIZ_BORR_INFO (APP_NO, CUST_ID, CUST_ID_CORE, 
+      SPDB_ACC_FLAG, CERT_TYPE, CERT_CODE, 
+      CUST_NAME, CUST_NAME_SPELL, CERT_ORG, 
+      CUST_TYPE, CONTACT_ADDR, CONTACT_ZIP_CODE, 
+      EMAIL, PHONE, EDU_LEVEL, 
+      LIVE_STATUS, LIVE_ADDR, LIVE_ZIP_CODE, 
+      MARR_STATUS, SPOUSE_NAME, SPOUSE_CERT_TYPE, 
+      SPOUSE_CERT_CODE, OPERATOR_TYPE, LICENSE_CODE, 
+      RESV_TEL, REL_FLAG, FIELD1, 
+      FIELD2, FIELD3, FIELD4, 
+      FIELD5, FIELD6, FIELD7, 
+      FIELD8, FIELD9, FIELD10, 
+      INPUT_DATE, INPUT_TIME, RELATED_PERSON_NAME, 
+      RELATED_PERSON_REL, RELATED_PERSON_TELP, RELATED_PERSON_ID_NO
+      )
+    values (#{appNo,jdbcType=VARCHAR}, #{custId,jdbcType=VARCHAR}, #{custIdCore,jdbcType=VARCHAR}, 
+      #{spdbAccFlag,jdbcType=VARCHAR}, #{certType,jdbcType=VARCHAR}, #{certCode,jdbcType=VARCHAR}, 
+      #{custName,jdbcType=VARCHAR}, #{custNameSpell,jdbcType=VARCHAR}, #{certOrg,jdbcType=VARCHAR}, 
+      #{custType,jdbcType=VARCHAR}, #{contactAddr,jdbcType=VARCHAR}, #{contactZipCode,jdbcType=VARCHAR}, 
+      #{email,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{eduLevel,jdbcType=VARCHAR}, 
+      #{liveStatus,jdbcType=VARCHAR}, #{liveAddr,jdbcType=VARCHAR}, #{liveZipCode,jdbcType=VARCHAR}, 
+      #{marrStatus,jdbcType=VARCHAR}, #{spouseName,jdbcType=VARCHAR}, #{spouseCertType,jdbcType=VARCHAR}, 
+      #{spouseCertCode,jdbcType=VARCHAR}, #{operatorType,jdbcType=VARCHAR}, #{licenseCode,jdbcType=VARCHAR}, 
+      #{resvTel,jdbcType=VARCHAR}, #{relFlag,jdbcType=VARCHAR}, #{field1,jdbcType=VARCHAR}, 
+      #{field2,jdbcType=VARCHAR}, #{field3,jdbcType=VARCHAR}, #{field4,jdbcType=VARCHAR}, 
+      #{field5,jdbcType=VARCHAR}, #{field6,jdbcType=VARCHAR}, #{field7,jdbcType=DECIMAL}, 
+      #{field8,jdbcType=DECIMAL}, #{field9,jdbcType=DECIMAL}, #{field10,jdbcType=DECIMAL}, 
+      #{inputDate,jdbcType=VARCHAR}, #{inputTime,jdbcType=VARCHAR}, #{relatedPersonName,jdbcType=VARCHAR}, 
+      #{relatedPersonRel,jdbcType=VARCHAR}, #{relatedPersonTelp,jdbcType=VARCHAR}, #{relatedPersonIdNo,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.BIZ_BORR_INFO">
+    insert into BIZ_BORR_INFO
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="appNo != null">
+        APP_NO,
+      </if>
+      <if test="custId != null">
+        CUST_ID,
+      </if>
+      <if test="custIdCore != null">
+        CUST_ID_CORE,
+      </if>
+      <if test="spdbAccFlag != null">
+        SPDB_ACC_FLAG,
+      </if>
+      <if test="certType != null">
+        CERT_TYPE,
+      </if>
+      <if test="certCode != null">
+        CERT_CODE,
+      </if>
+      <if test="custName != null">
+        CUST_NAME,
+      </if>
+      <if test="custNameSpell != null">
+        CUST_NAME_SPELL,
+      </if>
+      <if test="certOrg != null">
+        CERT_ORG,
+      </if>
+      <if test="custType != null">
+        CUST_TYPE,
+      </if>
+      <if test="contactAddr != null">
+        CONTACT_ADDR,
+      </if>
+      <if test="contactZipCode != null">
+        CONTACT_ZIP_CODE,
+      </if>
+      <if test="email != null">
+        EMAIL,
+      </if>
+      <if test="phone != null">
+        PHONE,
+      </if>
+      <if test="eduLevel != null">
+        EDU_LEVEL,
+      </if>
+      <if test="liveStatus != null">
+        LIVE_STATUS,
+      </if>
+      <if test="liveAddr != null">
+        LIVE_ADDR,
+      </if>
+      <if test="liveZipCode != null">
+        LIVE_ZIP_CODE,
+      </if>
+      <if test="marrStatus != null">
+        MARR_STATUS,
+      </if>
+      <if test="spouseName != null">
+        SPOUSE_NAME,
+      </if>
+      <if test="spouseCertType != null">
+        SPOUSE_CERT_TYPE,
+      </if>
+      <if test="spouseCertCode != null">
+        SPOUSE_CERT_CODE,
+      </if>
+      <if test="operatorType != null">
+        OPERATOR_TYPE,
+      </if>
+      <if test="licenseCode != null">
+        LICENSE_CODE,
+      </if>
+      <if test="resvTel != null">
+        RESV_TEL,
+      </if>
+      <if test="relFlag != null">
+        REL_FLAG,
+      </if>
+      <if test="field1 != null">
+        FIELD1,
+      </if>
+      <if test="field2 != null">
+        FIELD2,
+      </if>
+      <if test="field3 != null">
+        FIELD3,
+      </if>
+      <if test="field4 != null">
+        FIELD4,
+      </if>
+      <if test="field5 != null">
+        FIELD5,
+      </if>
+      <if test="field6 != null">
+        FIELD6,
+      </if>
+      <if test="field7 != null">
+        FIELD7,
+      </if>
+      <if test="field8 != null">
+        FIELD8,
+      </if>
+      <if test="field9 != null">
+        FIELD9,
+      </if>
+      <if test="field10 != null">
+        FIELD10,
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE,
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME,
+      </if>
+      <if test="relatedPersonName != null">
+        RELATED_PERSON_NAME,
+      </if>
+      <if test="relatedPersonRel != null">
+        RELATED_PERSON_REL,
+      </if>
+      <if test="relatedPersonTelp != null">
+        RELATED_PERSON_TELP,
+      </if>
+      <if test="relatedPersonIdNo != null">
+        RELATED_PERSON_ID_NO,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="appNo != null">
+        #{appNo,jdbcType=VARCHAR},
+      </if>
+      <if test="custId != null">
+        #{custId,jdbcType=VARCHAR},
+      </if>
+      <if test="custIdCore != null">
+        #{custIdCore,jdbcType=VARCHAR},
+      </if>
+      <if test="spdbAccFlag != null">
+        #{spdbAccFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="certType != null">
+        #{certType,jdbcType=VARCHAR},
+      </if>
+      <if test="certCode != null">
+        #{certCode,jdbcType=VARCHAR},
+      </if>
+      <if test="custName != null">
+        #{custName,jdbcType=VARCHAR},
+      </if>
+      <if test="custNameSpell != null">
+        #{custNameSpell,jdbcType=VARCHAR},
+      </if>
+      <if test="certOrg != null">
+        #{certOrg,jdbcType=VARCHAR},
+      </if>
+      <if test="custType != null">
+        #{custType,jdbcType=VARCHAR},
+      </if>
+      <if test="contactAddr != null">
+        #{contactAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="contactZipCode != null">
+        #{contactZipCode,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="eduLevel != null">
+        #{eduLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="liveStatus != null">
+        #{liveStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="liveAddr != null">
+        #{liveAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="liveZipCode != null">
+        #{liveZipCode,jdbcType=VARCHAR},
+      </if>
+      <if test="marrStatus != null">
+        #{marrStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="spouseName != null">
+        #{spouseName,jdbcType=VARCHAR},
+      </if>
+      <if test="spouseCertType != null">
+        #{spouseCertType,jdbcType=VARCHAR},
+      </if>
+      <if test="spouseCertCode != null">
+        #{spouseCertCode,jdbcType=VARCHAR},
+      </if>
+      <if test="operatorType != null">
+        #{operatorType,jdbcType=VARCHAR},
+      </if>
+      <if test="licenseCode != null">
+        #{licenseCode,jdbcType=VARCHAR},
+      </if>
+      <if test="resvTel != null">
+        #{resvTel,jdbcType=VARCHAR},
+      </if>
+      <if test="relFlag != null">
+        #{relFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="field1 != null">
+        #{field1,jdbcType=VARCHAR},
+      </if>
+      <if test="field2 != null">
+        #{field2,jdbcType=VARCHAR},
+      </if>
+      <if test="field3 != null">
+        #{field3,jdbcType=VARCHAR},
+      </if>
+      <if test="field4 != null">
+        #{field4,jdbcType=VARCHAR},
+      </if>
+      <if test="field5 != null">
+        #{field5,jdbcType=VARCHAR},
+      </if>
+      <if test="field6 != null">
+        #{field6,jdbcType=VARCHAR},
+      </if>
+      <if test="field7 != null">
+        #{field7,jdbcType=DECIMAL},
+      </if>
+      <if test="field8 != null">
+        #{field8,jdbcType=DECIMAL},
+      </if>
+      <if test="field9 != null">
+        #{field9,jdbcType=DECIMAL},
+      </if>
+      <if test="field10 != null">
+        #{field10,jdbcType=DECIMAL},
+      </if>
+      <if test="inputDate != null">
+        #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="relatedPersonName != null">
+        #{relatedPersonName,jdbcType=VARCHAR},
+      </if>
+      <if test="relatedPersonRel != null">
+        #{relatedPersonRel,jdbcType=VARCHAR},
+      </if>
+      <if test="relatedPersonTelp != null">
+        #{relatedPersonTelp,jdbcType=VARCHAR},
+      </if>
+      <if test="relatedPersonIdNo != null">
+        #{relatedPersonIdNo,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.BIZ_BORR_INFO">
+    update BIZ_BORR_INFO
+    <set>
+      <if test="custId != null">
+        CUST_ID = #{custId,jdbcType=VARCHAR},
+      </if>
+      <if test="custIdCore != null">
+        CUST_ID_CORE = #{custIdCore,jdbcType=VARCHAR},
+      </if>
+      <if test="spdbAccFlag != null">
+        SPDB_ACC_FLAG = #{spdbAccFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="certType != null">
+        CERT_TYPE = #{certType,jdbcType=VARCHAR},
+      </if>
+      <if test="certCode != null">
+        CERT_CODE = #{certCode,jdbcType=VARCHAR},
+      </if>
+      <if test="custName != null">
+        CUST_NAME = #{custName,jdbcType=VARCHAR},
+      </if>
+      <if test="custNameSpell != null">
+        CUST_NAME_SPELL = #{custNameSpell,jdbcType=VARCHAR},
+      </if>
+      <if test="certOrg != null">
+        CERT_ORG = #{certOrg,jdbcType=VARCHAR},
+      </if>
+      <if test="custType != null">
+        CUST_TYPE = #{custType,jdbcType=VARCHAR},
+      </if>
+      <if test="contactAddr != null">
+        CONTACT_ADDR = #{contactAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="contactZipCode != null">
+        CONTACT_ZIP_CODE = #{contactZipCode,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        EMAIL = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        PHONE = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="eduLevel != null">
+        EDU_LEVEL = #{eduLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="liveStatus != null">
+        LIVE_STATUS = #{liveStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="liveAddr != null">
+        LIVE_ADDR = #{liveAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="liveZipCode != null">
+        LIVE_ZIP_CODE = #{liveZipCode,jdbcType=VARCHAR},
+      </if>
+      <if test="marrStatus != null">
+        MARR_STATUS = #{marrStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="spouseName != null">
+        SPOUSE_NAME = #{spouseName,jdbcType=VARCHAR},
+      </if>
+      <if test="spouseCertType != null">
+        SPOUSE_CERT_TYPE = #{spouseCertType,jdbcType=VARCHAR},
+      </if>
+      <if test="spouseCertCode != null">
+        SPOUSE_CERT_CODE = #{spouseCertCode,jdbcType=VARCHAR},
+      </if>
+      <if test="operatorType != null">
+        OPERATOR_TYPE = #{operatorType,jdbcType=VARCHAR},
+      </if>
+      <if test="licenseCode != null">
+        LICENSE_CODE = #{licenseCode,jdbcType=VARCHAR},
+      </if>
+      <if test="resvTel != null">
+        RESV_TEL = #{resvTel,jdbcType=VARCHAR},
+      </if>
+      <if test="relFlag != null">
+        REL_FLAG = #{relFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="field1 != null">
+        FIELD1 = #{field1,jdbcType=VARCHAR},
+      </if>
+      <if test="field2 != null">
+        FIELD2 = #{field2,jdbcType=VARCHAR},
+      </if>
+      <if test="field3 != null">
+        FIELD3 = #{field3,jdbcType=VARCHAR},
+      </if>
+      <if test="field4 != null">
+        FIELD4 = #{field4,jdbcType=VARCHAR},
+      </if>
+      <if test="field5 != null">
+        FIELD5 = #{field5,jdbcType=VARCHAR},
+      </if>
+      <if test="field6 != null">
+        FIELD6 = #{field6,jdbcType=VARCHAR},
+      </if>
+      <if test="field7 != null">
+        FIELD7 = #{field7,jdbcType=DECIMAL},
+      </if>
+      <if test="field8 != null">
+        FIELD8 = #{field8,jdbcType=DECIMAL},
+      </if>
+      <if test="field9 != null">
+        FIELD9 = #{field9,jdbcType=DECIMAL},
+      </if>
+      <if test="field10 != null">
+        FIELD10 = #{field10,jdbcType=DECIMAL},
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE = #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME = #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="relatedPersonName != null">
+        RELATED_PERSON_NAME = #{relatedPersonName,jdbcType=VARCHAR},
+      </if>
+      <if test="relatedPersonRel != null">
+        RELATED_PERSON_REL = #{relatedPersonRel,jdbcType=VARCHAR},
+      </if>
+      <if test="relatedPersonTelp != null">
+        RELATED_PERSON_TELP = #{relatedPersonTelp,jdbcType=VARCHAR},
+      </if>
+      <if test="relatedPersonIdNo != null">
+        RELATED_PERSON_ID_NO = #{relatedPersonIdNo,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where APP_NO = #{appNo,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.BIZ_BORR_INFO">
+    update BIZ_BORR_INFO
+    set CUST_ID = #{custId,jdbcType=VARCHAR},
+      CUST_ID_CORE = #{custIdCore,jdbcType=VARCHAR},
+      SPDB_ACC_FLAG = #{spdbAccFlag,jdbcType=VARCHAR},
+      CERT_TYPE = #{certType,jdbcType=VARCHAR},
+      CERT_CODE = #{certCode,jdbcType=VARCHAR},
+      CUST_NAME = #{custName,jdbcType=VARCHAR},
+      CUST_NAME_SPELL = #{custNameSpell,jdbcType=VARCHAR},
+      CERT_ORG = #{certOrg,jdbcType=VARCHAR},
+      CUST_TYPE = #{custType,jdbcType=VARCHAR},
+      CONTACT_ADDR = #{contactAddr,jdbcType=VARCHAR},
+      CONTACT_ZIP_CODE = #{contactZipCode,jdbcType=VARCHAR},
+      EMAIL = #{email,jdbcType=VARCHAR},
+      PHONE = #{phone,jdbcType=VARCHAR},
+      EDU_LEVEL = #{eduLevel,jdbcType=VARCHAR},
+      LIVE_STATUS = #{liveStatus,jdbcType=VARCHAR},
+      LIVE_ADDR = #{liveAddr,jdbcType=VARCHAR},
+      LIVE_ZIP_CODE = #{liveZipCode,jdbcType=VARCHAR},
+      MARR_STATUS = #{marrStatus,jdbcType=VARCHAR},
+      SPOUSE_NAME = #{spouseName,jdbcType=VARCHAR},
+      SPOUSE_CERT_TYPE = #{spouseCertType,jdbcType=VARCHAR},
+      SPOUSE_CERT_CODE = #{spouseCertCode,jdbcType=VARCHAR},
+      OPERATOR_TYPE = #{operatorType,jdbcType=VARCHAR},
+      LICENSE_CODE = #{licenseCode,jdbcType=VARCHAR},
+      RESV_TEL = #{resvTel,jdbcType=VARCHAR},
+      REL_FLAG = #{relFlag,jdbcType=VARCHAR},
+      FIELD1 = #{field1,jdbcType=VARCHAR},
+      FIELD2 = #{field2,jdbcType=VARCHAR},
+      FIELD3 = #{field3,jdbcType=VARCHAR},
+      FIELD4 = #{field4,jdbcType=VARCHAR},
+      FIELD5 = #{field5,jdbcType=VARCHAR},
+      FIELD6 = #{field6,jdbcType=VARCHAR},
+      FIELD7 = #{field7,jdbcType=DECIMAL},
+      FIELD8 = #{field8,jdbcType=DECIMAL},
+      FIELD9 = #{field9,jdbcType=DECIMAL},
+      FIELD10 = #{field10,jdbcType=DECIMAL},
+      INPUT_DATE = #{inputDate,jdbcType=VARCHAR},
+      INPUT_TIME = #{inputTime,jdbcType=VARCHAR},
+      RELATED_PERSON_NAME = #{relatedPersonName,jdbcType=VARCHAR},
+      RELATED_PERSON_REL = #{relatedPersonRel,jdbcType=VARCHAR},
+      RELATED_PERSON_TELP = #{relatedPersonTelp,jdbcType=VARCHAR},
+      RELATED_PERSON_ID_NO = #{relatedPersonIdNo,jdbcType=VARCHAR}
+    where APP_NO = #{appNo,jdbcType=VARCHAR}
+  </update>
+</mapper>

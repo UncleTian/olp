@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.BAT_XW_REPAY_DETAIL_HISMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.BAT_XW_REPAY_DETAIL_HIS">
+    <result column="LOAN_NO" jdbcType="VARCHAR" property="loanNo" />
+    <result column="TD_DATE" jdbcType="VARCHAR" property="tdDate" />
+    <result column="TD_PRIN" jdbcType="DECIMAL" property="tdPrin" />
+    <result column="TD_INT" jdbcType="DECIMAL" property="tdInt" />
+    <result column="TD_AMT" jdbcType="DECIMAL" property="tdAmt" />
+    <result column="TD_PNLT" jdbcType="DECIMAL" property="tdPnlt" />
+    <result column="ACCT_DATE" jdbcType="VARCHAR" property="acctDate" />
+    <result column="ACCT_AMT" jdbcType="DECIMAL" property="acctAmt" />
+    <result column="TERM_NO" jdbcType="DECIMAL" property="termNo" />
+    <result column="AUTO_REPAY_SIGN" jdbcType="VARCHAR" property="autoRepaySign" />
+    <result column="APPLY_NO" jdbcType="VARCHAR" property="applyNo" />
+    <result column="INPUT_DATE" jdbcType="VARCHAR" property="inputDate" />
+    <result column="INPUT_TIME" jdbcType="VARCHAR" property="inputTime" />
+    <result column="DATA_DATE" jdbcType="VARCHAR" property="dataDate" />
+  </resultMap>
+  <insert id="insert" parameterType="com.bea.olp.BAT_XW_REPAY_DETAIL_HIS">
+    insert into BAT_XW_REPAY_DETAIL_HIS (LOAN_NO, TD_DATE, TD_PRIN, 
+      TD_INT, TD_AMT, TD_PNLT, 
+      ACCT_DATE, ACCT_AMT, TERM_NO, 
+      AUTO_REPAY_SIGN, APPLY_NO, INPUT_DATE, 
+      INPUT_TIME, DATA_DATE)
+    values (#{loanNo,jdbcType=VARCHAR}, #{tdDate,jdbcType=VARCHAR}, #{tdPrin,jdbcType=DECIMAL}, 
+      #{tdInt,jdbcType=DECIMAL}, #{tdAmt,jdbcType=DECIMAL}, #{tdPnlt,jdbcType=DECIMAL}, 
+      #{acctDate,jdbcType=VARCHAR}, #{acctAmt,jdbcType=DECIMAL}, #{termNo,jdbcType=DECIMAL}, 
+      #{autoRepaySign,jdbcType=VARCHAR}, #{applyNo,jdbcType=VARCHAR}, #{inputDate,jdbcType=VARCHAR}, 
+      #{inputTime,jdbcType=VARCHAR}, #{dataDate,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.BAT_XW_REPAY_DETAIL_HIS">
+    insert into BAT_XW_REPAY_DETAIL_HIS
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="loanNo != null">
+        LOAN_NO,
+      </if>
+      <if test="tdDate != null">
+        TD_DATE,
+      </if>
+      <if test="tdPrin != null">
+        TD_PRIN,
+      </if>
+      <if test="tdInt != null">
+        TD_INT,
+      </if>
+      <if test="tdAmt != null">
+        TD_AMT,
+      </if>
+      <if test="tdPnlt != null">
+        TD_PNLT,
+      </if>
+      <if test="acctDate != null">
+        ACCT_DATE,
+      </if>
+      <if test="acctAmt != null">
+        ACCT_AMT,
+      </if>
+      <if test="termNo != null">
+        TERM_NO,
+      </if>
+      <if test="autoRepaySign != null">
+        AUTO_REPAY_SIGN,
+      </if>
+      <if test="applyNo != null">
+        APPLY_NO,
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE,
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME,
+      </if>
+      <if test="dataDate != null">
+        DATA_DATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="loanNo != null">
+        #{loanNo,jdbcType=VARCHAR},
+      </if>
+      <if test="tdDate != null">
+        #{tdDate,jdbcType=VARCHAR},
+      </if>
+      <if test="tdPrin != null">
+        #{tdPrin,jdbcType=DECIMAL},
+      </if>
+      <if test="tdInt != null">
+        #{tdInt,jdbcType=DECIMAL},
+      </if>
+      <if test="tdAmt != null">
+        #{tdAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="tdPnlt != null">
+        #{tdPnlt,jdbcType=DECIMAL},
+      </if>
+      <if test="acctDate != null">
+        #{acctDate,jdbcType=VARCHAR},
+      </if>
+      <if test="acctAmt != null">
+        #{acctAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="termNo != null">
+        #{termNo,jdbcType=DECIMAL},
+      </if>
+      <if test="autoRepaySign != null">
+        #{autoRepaySign,jdbcType=VARCHAR},
+      </if>
+      <if test="applyNo != null">
+        #{applyNo,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="dataDate != null">
+        #{dataDate,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

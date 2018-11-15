@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.SF_OPERATIONMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.SF_OPERATION">
+    <id column="OPERATION_ID" jdbcType="VARCHAR" property="operationId" />
+    <result column="TRANS_TYPE" jdbcType="CHAR" property="transType" />
+    <result column="USER_ID" jdbcType="VARCHAR" property="userId" />
+    <result column="OPERATION_TIME" jdbcType="VARCHAR" property="operationTime" />
+    <result column="OPERATION_TYPE" jdbcType="CHAR" property="operationType" />
+    <result column="OPERATION_CONTENT" jdbcType="VARCHAR" property="operationContent" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    OPERATION_ID, TRANS_TYPE, USER_ID, OPERATION_TIME, OPERATION_TYPE, OPERATION_CONTENT
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from SF_OPERATION
+    where OPERATION_ID = #{operationId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from SF_OPERATION
+    where OPERATION_ID = #{operationId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.SF_OPERATION">
+    insert into SF_OPERATION (OPERATION_ID, TRANS_TYPE, USER_ID, 
+      OPERATION_TIME, OPERATION_TYPE, OPERATION_CONTENT
+      )
+    values (#{operationId,jdbcType=VARCHAR}, #{transType,jdbcType=CHAR}, #{userId,jdbcType=VARCHAR}, 
+      #{operationTime,jdbcType=VARCHAR}, #{operationType,jdbcType=CHAR}, #{operationContent,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.SF_OPERATION">
+    insert into SF_OPERATION
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="operationId != null">
+        OPERATION_ID,
+      </if>
+      <if test="transType != null">
+        TRANS_TYPE,
+      </if>
+      <if test="userId != null">
+        USER_ID,
+      </if>
+      <if test="operationTime != null">
+        OPERATION_TIME,
+      </if>
+      <if test="operationType != null">
+        OPERATION_TYPE,
+      </if>
+      <if test="operationContent != null">
+        OPERATION_CONTENT,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="operationId != null">
+        #{operationId,jdbcType=VARCHAR},
+      </if>
+      <if test="transType != null">
+        #{transType,jdbcType=CHAR},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="operationTime != null">
+        #{operationTime,jdbcType=VARCHAR},
+      </if>
+      <if test="operationType != null">
+        #{operationType,jdbcType=CHAR},
+      </if>
+      <if test="operationContent != null">
+        #{operationContent,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.SF_OPERATION">
+    update SF_OPERATION
+    <set>
+      <if test="transType != null">
+        TRANS_TYPE = #{transType,jdbcType=CHAR},
+      </if>
+      <if test="userId != null">
+        USER_ID = #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="operationTime != null">
+        OPERATION_TIME = #{operationTime,jdbcType=VARCHAR},
+      </if>
+      <if test="operationType != null">
+        OPERATION_TYPE = #{operationType,jdbcType=CHAR},
+      </if>
+      <if test="operationContent != null">
+        OPERATION_CONTENT = #{operationContent,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where OPERATION_ID = #{operationId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.SF_OPERATION">
+    update SF_OPERATION
+    set TRANS_TYPE = #{transType,jdbcType=CHAR},
+      USER_ID = #{userId,jdbcType=VARCHAR},
+      OPERATION_TIME = #{operationTime,jdbcType=VARCHAR},
+      OPERATION_TYPE = #{operationType,jdbcType=CHAR},
+      OPERATION_CONTENT = #{operationContent,jdbcType=VARCHAR}
+    where OPERATION_ID = #{operationId,jdbcType=VARCHAR}
+  </update>
+</mapper>

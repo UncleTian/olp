@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.WF_GATHER_ACTION_RECORDENDMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.WF_GATHER_ACTION_RECORDEND">
+    <id column="ACTIONID" jdbcType="VARCHAR" property="actionid" />
+    <result column="INSTANCEID" jdbcType="VARCHAR" property="instanceid" />
+    <result column="MAININSTANCEID" jdbcType="VARCHAR" property="maininstanceid" />
+    <result column="MAINNODEID" jdbcType="VARCHAR" property="mainnodeid" />
+    <result column="MAINNODENAME" jdbcType="VARCHAR" property="mainnodename" />
+    <result column="TRANSACTOR" jdbcType="VARCHAR" property="transactor" />
+    <result column="TRANSACTORNAME" jdbcType="VARCHAR" property="transactorname" />
+    <result column="ACTTIME" jdbcType="CHAR" property="acttime" />
+    <result column="ACTIONNAME" jdbcType="VARCHAR" property="actionname" />
+    <result column="VIRTUALDEPTNO" jdbcType="VARCHAR" property="virtualdeptno" />
+    <result column="COMMENTLEVEL" jdbcType="VARCHAR" property="commentlevel" />
+    <result column="COMMENTTYPE" jdbcType="CHAR" property="commenttype" />
+    <result column="SUGGEST" jdbcType="VARCHAR" property="suggest" />
+    <result column="MEMO" jdbcType="VARCHAR" property="memo" />
+    <result column="NEXTACTORID" jdbcType="VARCHAR" property="nextactorid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ACTIONID, INSTANCEID, MAININSTANCEID, MAINNODEID, MAINNODENAME, TRANSACTOR, TRANSACTORNAME, 
+    ACTTIME, ACTIONNAME, VIRTUALDEPTNO, COMMENTLEVEL, COMMENTTYPE, SUGGEST, MEMO, NEXTACTORID
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from WF_GATHER_ACTION_RECORDEND
+    where ACTIONID = #{actionid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from WF_GATHER_ACTION_RECORDEND
+    where ACTIONID = #{actionid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.WF_GATHER_ACTION_RECORDEND">
+    insert into WF_GATHER_ACTION_RECORDEND (ACTIONID, INSTANCEID, MAININSTANCEID, 
+      MAINNODEID, MAINNODENAME, TRANSACTOR, 
+      TRANSACTORNAME, ACTTIME, ACTIONNAME, 
+      VIRTUALDEPTNO, COMMENTLEVEL, COMMENTTYPE, 
+      SUGGEST, MEMO, NEXTACTORID
+      )
+    values (#{actionid,jdbcType=VARCHAR}, #{instanceid,jdbcType=VARCHAR}, #{maininstanceid,jdbcType=VARCHAR}, 
+      #{mainnodeid,jdbcType=VARCHAR}, #{mainnodename,jdbcType=VARCHAR}, #{transactor,jdbcType=VARCHAR}, 
+      #{transactorname,jdbcType=VARCHAR}, #{acttime,jdbcType=CHAR}, #{actionname,jdbcType=VARCHAR}, 
+      #{virtualdeptno,jdbcType=VARCHAR}, #{commentlevel,jdbcType=VARCHAR}, #{commenttype,jdbcType=CHAR}, 
+      #{suggest,jdbcType=VARCHAR}, #{memo,jdbcType=VARCHAR}, #{nextactorid,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.WF_GATHER_ACTION_RECORDEND">
+    insert into WF_GATHER_ACTION_RECORDEND
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="actionid != null">
+        ACTIONID,
+      </if>
+      <if test="instanceid != null">
+        INSTANCEID,
+      </if>
+      <if test="maininstanceid != null">
+        MAININSTANCEID,
+      </if>
+      <if test="mainnodeid != null">
+        MAINNODEID,
+      </if>
+      <if test="mainnodename != null">
+        MAINNODENAME,
+      </if>
+      <if test="transactor != null">
+        TRANSACTOR,
+      </if>
+      <if test="transactorname != null">
+        TRANSACTORNAME,
+      </if>
+      <if test="acttime != null">
+        ACTTIME,
+      </if>
+      <if test="actionname != null">
+        ACTIONNAME,
+      </if>
+      <if test="virtualdeptno != null">
+        VIRTUALDEPTNO,
+      </if>
+      <if test="commentlevel != null">
+        COMMENTLEVEL,
+      </if>
+      <if test="commenttype != null">
+        COMMENTTYPE,
+      </if>
+      <if test="suggest != null">
+        SUGGEST,
+      </if>
+      <if test="memo != null">
+        MEMO,
+      </if>
+      <if test="nextactorid != null">
+        NEXTACTORID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="actionid != null">
+        #{actionid,jdbcType=VARCHAR},
+      </if>
+      <if test="instanceid != null">
+        #{instanceid,jdbcType=VARCHAR},
+      </if>
+      <if test="maininstanceid != null">
+        #{maininstanceid,jdbcType=VARCHAR},
+      </if>
+      <if test="mainnodeid != null">
+        #{mainnodeid,jdbcType=VARCHAR},
+      </if>
+      <if test="mainnodename != null">
+        #{mainnodename,jdbcType=VARCHAR},
+      </if>
+      <if test="transactor != null">
+        #{transactor,jdbcType=VARCHAR},
+      </if>
+      <if test="transactorname != null">
+        #{transactorname,jdbcType=VARCHAR},
+      </if>
+      <if test="acttime != null">
+        #{acttime,jdbcType=CHAR},
+      </if>
+      <if test="actionname != null">
+        #{actionname,jdbcType=VARCHAR},
+      </if>
+      <if test="virtualdeptno != null">
+        #{virtualdeptno,jdbcType=VARCHAR},
+      </if>
+      <if test="commentlevel != null">
+        #{commentlevel,jdbcType=VARCHAR},
+      </if>
+      <if test="commenttype != null">
+        #{commenttype,jdbcType=CHAR},
+      </if>
+      <if test="suggest != null">
+        #{suggest,jdbcType=VARCHAR},
+      </if>
+      <if test="memo != null">
+        #{memo,jdbcType=VARCHAR},
+      </if>
+      <if test="nextactorid != null">
+        #{nextactorid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.WF_GATHER_ACTION_RECORDEND">
+    update WF_GATHER_ACTION_RECORDEND
+    <set>
+      <if test="instanceid != null">
+        INSTANCEID = #{instanceid,jdbcType=VARCHAR},
+      </if>
+      <if test="maininstanceid != null">
+        MAININSTANCEID = #{maininstanceid,jdbcType=VARCHAR},
+      </if>
+      <if test="mainnodeid != null">
+        MAINNODEID = #{mainnodeid,jdbcType=VARCHAR},
+      </if>
+      <if test="mainnodename != null">
+        MAINNODENAME = #{mainnodename,jdbcType=VARCHAR},
+      </if>
+      <if test="transactor != null">
+        TRANSACTOR = #{transactor,jdbcType=VARCHAR},
+      </if>
+      <if test="transactorname != null">
+        TRANSACTORNAME = #{transactorname,jdbcType=VARCHAR},
+      </if>
+      <if test="acttime != null">
+        ACTTIME = #{acttime,jdbcType=CHAR},
+      </if>
+      <if test="actionname != null">
+        ACTIONNAME = #{actionname,jdbcType=VARCHAR},
+      </if>
+      <if test="virtualdeptno != null">
+        VIRTUALDEPTNO = #{virtualdeptno,jdbcType=VARCHAR},
+      </if>
+      <if test="commentlevel != null">
+        COMMENTLEVEL = #{commentlevel,jdbcType=VARCHAR},
+      </if>
+      <if test="commenttype != null">
+        COMMENTTYPE = #{commenttype,jdbcType=CHAR},
+      </if>
+      <if test="suggest != null">
+        SUGGEST = #{suggest,jdbcType=VARCHAR},
+      </if>
+      <if test="memo != null">
+        MEMO = #{memo,jdbcType=VARCHAR},
+      </if>
+      <if test="nextactorid != null">
+        NEXTACTORID = #{nextactorid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ACTIONID = #{actionid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.WF_GATHER_ACTION_RECORDEND">
+    update WF_GATHER_ACTION_RECORDEND
+    set INSTANCEID = #{instanceid,jdbcType=VARCHAR},
+      MAININSTANCEID = #{maininstanceid,jdbcType=VARCHAR},
+      MAINNODEID = #{mainnodeid,jdbcType=VARCHAR},
+      MAINNODENAME = #{mainnodename,jdbcType=VARCHAR},
+      TRANSACTOR = #{transactor,jdbcType=VARCHAR},
+      TRANSACTORNAME = #{transactorname,jdbcType=VARCHAR},
+      ACTTIME = #{acttime,jdbcType=CHAR},
+      ACTIONNAME = #{actionname,jdbcType=VARCHAR},
+      VIRTUALDEPTNO = #{virtualdeptno,jdbcType=VARCHAR},
+      COMMENTLEVEL = #{commentlevel,jdbcType=VARCHAR},
+      COMMENTTYPE = #{commenttype,jdbcType=CHAR},
+      SUGGEST = #{suggest,jdbcType=VARCHAR},
+      MEMO = #{memo,jdbcType=VARCHAR},
+      NEXTACTORID = #{nextactorid,jdbcType=VARCHAR}
+    where ACTIONID = #{actionid,jdbcType=VARCHAR}
+  </update>
+</mapper>

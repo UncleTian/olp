@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.WFI_JOINMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.WFI_JOIN">
+    <id column="INSTANCEID" jdbcType="VARCHAR" property="instanceid" />
+    <result column="MAIN_INSTANCEID" jdbcType="VARCHAR" property="mainInstanceid" />
+    <result column="BIZ_TABLE_NAME" jdbcType="VARCHAR" property="bizTableName" />
+    <result column="PK_COL" jdbcType="VARCHAR" property="pkCol" />
+    <result column="PK_VALUE" jdbcType="VARCHAR" property="pkValue" />
+    <result column="CUS_ID" jdbcType="VARCHAR" property="cusId" />
+    <result column="CUS_NAME" jdbcType="VARCHAR" property="cusName" />
+    <result column="CUS_TYPE" jdbcType="CHAR" property="cusType" />
+    <result column="APPL_TYPE" jdbcType="VARCHAR" property="applType" />
+    <result column="WFSIGN" jdbcType="VARCHAR" property="wfsign" />
+    <result column="PRD_PK" jdbcType="VARCHAR" property="prdPk" />
+    <result column="PRD_NAME" jdbcType="VARCHAR" property="prdName" />
+    <result column="CERT_TYPE" jdbcType="CHAR" property="certType" />
+    <result column="CERT_CODE" jdbcType="VARCHAR" property="certCode" />
+    <result column="AMT" jdbcType="DECIMAL" property="amt" />
+    <result column="TERM" jdbcType="DECIMAL" property="term" />
+    <result column="RULING_IR" jdbcType="DECIMAL" property="rulingIr" />
+    <result column="REALITY_IR_Y" jdbcType="DECIMAL" property="realityIrY" />
+    <result column="INPUT_ID" jdbcType="VARCHAR" property="inputId" />
+    <result column="INPUT_BR_ID" jdbcType="VARCHAR" property="inputBrId" />
+    <result column="APPLY_DATE" jdbcType="CHAR" property="applyDate" />
+    <result column="PREVENT_LIST" jdbcType="VARCHAR" property="preventList" />
+    <result column="STATUS_NAME" jdbcType="VARCHAR" property="statusName" />
+    <result column="WFI_END_ORG" jdbcType="VARCHAR" property="wfiEndOrg" />
+    <result column="WFI_STATUS" jdbcType="CHAR" property="wfiStatus" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    INSTANCEID, MAIN_INSTANCEID, BIZ_TABLE_NAME, PK_COL, PK_VALUE, CUS_ID, CUS_NAME, 
+    CUS_TYPE, APPL_TYPE, WFSIGN, PRD_PK, PRD_NAME, CERT_TYPE, CERT_CODE, AMT, TERM, RULING_IR, 
+    REALITY_IR_Y, INPUT_ID, INPUT_BR_ID, APPLY_DATE, PREVENT_LIST, STATUS_NAME, WFI_END_ORG, 
+    WFI_STATUS
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from WFI_JOIN
+    where INSTANCEID = #{instanceid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from WFI_JOIN
+    where INSTANCEID = #{instanceid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.WFI_JOIN">
+    insert into WFI_JOIN (INSTANCEID, MAIN_INSTANCEID, BIZ_TABLE_NAME, 
+      PK_COL, PK_VALUE, CUS_ID, 
+      CUS_NAME, CUS_TYPE, APPL_TYPE, 
+      WFSIGN, PRD_PK, PRD_NAME, 
+      CERT_TYPE, CERT_CODE, AMT, 
+      TERM, RULING_IR, REALITY_IR_Y, 
+      INPUT_ID, INPUT_BR_ID, APPLY_DATE, 
+      PREVENT_LIST, STATUS_NAME, WFI_END_ORG, 
+      WFI_STATUS)
+    values (#{instanceid,jdbcType=VARCHAR}, #{mainInstanceid,jdbcType=VARCHAR}, #{bizTableName,jdbcType=VARCHAR}, 
+      #{pkCol,jdbcType=VARCHAR}, #{pkValue,jdbcType=VARCHAR}, #{cusId,jdbcType=VARCHAR}, 
+      #{cusName,jdbcType=VARCHAR}, #{cusType,jdbcType=CHAR}, #{applType,jdbcType=VARCHAR}, 
+      #{wfsign,jdbcType=VARCHAR}, #{prdPk,jdbcType=VARCHAR}, #{prdName,jdbcType=VARCHAR}, 
+      #{certType,jdbcType=CHAR}, #{certCode,jdbcType=VARCHAR}, #{amt,jdbcType=DECIMAL}, 
+      #{term,jdbcType=DECIMAL}, #{rulingIr,jdbcType=DECIMAL}, #{realityIrY,jdbcType=DECIMAL}, 
+      #{inputId,jdbcType=VARCHAR}, #{inputBrId,jdbcType=VARCHAR}, #{applyDate,jdbcType=CHAR}, 
+      #{preventList,jdbcType=VARCHAR}, #{statusName,jdbcType=VARCHAR}, #{wfiEndOrg,jdbcType=VARCHAR}, 
+      #{wfiStatus,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.WFI_JOIN">
+    insert into WFI_JOIN
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="instanceid != null">
+        INSTANCEID,
+      </if>
+      <if test="mainInstanceid != null">
+        MAIN_INSTANCEID,
+      </if>
+      <if test="bizTableName != null">
+        BIZ_TABLE_NAME,
+      </if>
+      <if test="pkCol != null">
+        PK_COL,
+      </if>
+      <if test="pkValue != null">
+        PK_VALUE,
+      </if>
+      <if test="cusId != null">
+        CUS_ID,
+      </if>
+      <if test="cusName != null">
+        CUS_NAME,
+      </if>
+      <if test="cusType != null">
+        CUS_TYPE,
+      </if>
+      <if test="applType != null">
+        APPL_TYPE,
+      </if>
+      <if test="wfsign != null">
+        WFSIGN,
+      </if>
+      <if test="prdPk != null">
+        PRD_PK,
+      </if>
+      <if test="prdName != null">
+        PRD_NAME,
+      </if>
+      <if test="certType != null">
+        CERT_TYPE,
+      </if>
+      <if test="certCode != null">
+        CERT_CODE,
+      </if>
+      <if test="amt != null">
+        AMT,
+      </if>
+      <if test="term != null">
+        TERM,
+      </if>
+      <if test="rulingIr != null">
+        RULING_IR,
+      </if>
+      <if test="realityIrY != null">
+        REALITY_IR_Y,
+      </if>
+      <if test="inputId != null">
+        INPUT_ID,
+      </if>
+      <if test="inputBrId != null">
+        INPUT_BR_ID,
+      </if>
+      <if test="applyDate != null">
+        APPLY_DATE,
+      </if>
+      <if test="preventList != null">
+        PREVENT_LIST,
+      </if>
+      <if test="statusName != null">
+        STATUS_NAME,
+      </if>
+      <if test="wfiEndOrg != null">
+        WFI_END_ORG,
+      </if>
+      <if test="wfiStatus != null">
+        WFI_STATUS,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="instanceid != null">
+        #{instanceid,jdbcType=VARCHAR},
+      </if>
+      <if test="mainInstanceid != null">
+        #{mainInstanceid,jdbcType=VARCHAR},
+      </if>
+      <if test="bizTableName != null">
+        #{bizTableName,jdbcType=VARCHAR},
+      </if>
+      <if test="pkCol != null">
+        #{pkCol,jdbcType=VARCHAR},
+      </if>
+      <if test="pkValue != null">
+        #{pkValue,jdbcType=VARCHAR},
+      </if>
+      <if test="cusId != null">
+        #{cusId,jdbcType=VARCHAR},
+      </if>
+      <if test="cusName != null">
+        #{cusName,jdbcType=VARCHAR},
+      </if>
+      <if test="cusType != null">
+        #{cusType,jdbcType=CHAR},
+      </if>
+      <if test="applType != null">
+        #{applType,jdbcType=VARCHAR},
+      </if>
+      <if test="wfsign != null">
+        #{wfsign,jdbcType=VARCHAR},
+      </if>
+      <if test="prdPk != null">
+        #{prdPk,jdbcType=VARCHAR},
+      </if>
+      <if test="prdName != null">
+        #{prdName,jdbcType=VARCHAR},
+      </if>
+      <if test="certType != null">
+        #{certType,jdbcType=CHAR},
+      </if>
+      <if test="certCode != null">
+        #{certCode,jdbcType=VARCHAR},
+      </if>
+      <if test="amt != null">
+        #{amt,jdbcType=DECIMAL},
+      </if>
+      <if test="term != null">
+        #{term,jdbcType=DECIMAL},
+      </if>
+      <if test="rulingIr != null">
+        #{rulingIr,jdbcType=DECIMAL},
+      </if>
+      <if test="realityIrY != null">
+        #{realityIrY,jdbcType=DECIMAL},
+      </if>
+      <if test="inputId != null">
+        #{inputId,jdbcType=VARCHAR},
+      </if>
+      <if test="inputBrId != null">
+        #{inputBrId,jdbcType=VARCHAR},
+      </if>
+      <if test="applyDate != null">
+        #{applyDate,jdbcType=CHAR},
+      </if>
+      <if test="preventList != null">
+        #{preventList,jdbcType=VARCHAR},
+      </if>
+      <if test="statusName != null">
+        #{statusName,jdbcType=VARCHAR},
+      </if>
+      <if test="wfiEndOrg != null">
+        #{wfiEndOrg,jdbcType=VARCHAR},
+      </if>
+      <if test="wfiStatus != null">
+        #{wfiStatus,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.WFI_JOIN">
+    update WFI_JOIN
+    <set>
+      <if test="mainInstanceid != null">
+        MAIN_INSTANCEID = #{mainInstanceid,jdbcType=VARCHAR},
+      </if>
+      <if test="bizTableName != null">
+        BIZ_TABLE_NAME = #{bizTableName,jdbcType=VARCHAR},
+      </if>
+      <if test="pkCol != null">
+        PK_COL = #{pkCol,jdbcType=VARCHAR},
+      </if>
+      <if test="pkValue != null">
+        PK_VALUE = #{pkValue,jdbcType=VARCHAR},
+      </if>
+      <if test="cusId != null">
+        CUS_ID = #{cusId,jdbcType=VARCHAR},
+      </if>
+      <if test="cusName != null">
+        CUS_NAME = #{cusName,jdbcType=VARCHAR},
+      </if>
+      <if test="cusType != null">
+        CUS_TYPE = #{cusType,jdbcType=CHAR},
+      </if>
+      <if test="applType != null">
+        APPL_TYPE = #{applType,jdbcType=VARCHAR},
+      </if>
+      <if test="wfsign != null">
+        WFSIGN = #{wfsign,jdbcType=VARCHAR},
+      </if>
+      <if test="prdPk != null">
+        PRD_PK = #{prdPk,jdbcType=VARCHAR},
+      </if>
+      <if test="prdName != null">
+        PRD_NAME = #{prdName,jdbcType=VARCHAR},
+      </if>
+      <if test="certType != null">
+        CERT_TYPE = #{certType,jdbcType=CHAR},
+      </if>
+      <if test="certCode != null">
+        CERT_CODE = #{certCode,jdbcType=VARCHAR},
+      </if>
+      <if test="amt != null">
+        AMT = #{amt,jdbcType=DECIMAL},
+      </if>
+      <if test="term != null">
+        TERM = #{term,jdbcType=DECIMAL},
+      </if>
+      <if test="rulingIr != null">
+        RULING_IR = #{rulingIr,jdbcType=DECIMAL},
+      </if>
+      <if test="realityIrY != null">
+        REALITY_IR_Y = #{realityIrY,jdbcType=DECIMAL},
+      </if>
+      <if test="inputId != null">
+        INPUT_ID = #{inputId,jdbcType=VARCHAR},
+      </if>
+      <if test="inputBrId != null">
+        INPUT_BR_ID = #{inputBrId,jdbcType=VARCHAR},
+      </if>
+      <if test="applyDate != null">
+        APPLY_DATE = #{applyDate,jdbcType=CHAR},
+      </if>
+      <if test="preventList != null">
+        PREVENT_LIST = #{preventList,jdbcType=VARCHAR},
+      </if>
+      <if test="statusName != null">
+        STATUS_NAME = #{statusName,jdbcType=VARCHAR},
+      </if>
+      <if test="wfiEndOrg != null">
+        WFI_END_ORG = #{wfiEndOrg,jdbcType=VARCHAR},
+      </if>
+      <if test="wfiStatus != null">
+        WFI_STATUS = #{wfiStatus,jdbcType=CHAR},
+      </if>
+    </set>
+    where INSTANCEID = #{instanceid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.WFI_JOIN">
+    update WFI_JOIN
+    set MAIN_INSTANCEID = #{mainInstanceid,jdbcType=VARCHAR},
+      BIZ_TABLE_NAME = #{bizTableName,jdbcType=VARCHAR},
+      PK_COL = #{pkCol,jdbcType=VARCHAR},
+      PK_VALUE = #{pkValue,jdbcType=VARCHAR},
+      CUS_ID = #{cusId,jdbcType=VARCHAR},
+      CUS_NAME = #{cusName,jdbcType=VARCHAR},
+      CUS_TYPE = #{cusType,jdbcType=CHAR},
+      APPL_TYPE = #{applType,jdbcType=VARCHAR},
+      WFSIGN = #{wfsign,jdbcType=VARCHAR},
+      PRD_PK = #{prdPk,jdbcType=VARCHAR},
+      PRD_NAME = #{prdName,jdbcType=VARCHAR},
+      CERT_TYPE = #{certType,jdbcType=CHAR},
+      CERT_CODE = #{certCode,jdbcType=VARCHAR},
+      AMT = #{amt,jdbcType=DECIMAL},
+      TERM = #{term,jdbcType=DECIMAL},
+      RULING_IR = #{rulingIr,jdbcType=DECIMAL},
+      REALITY_IR_Y = #{realityIrY,jdbcType=DECIMAL},
+      INPUT_ID = #{inputId,jdbcType=VARCHAR},
+      INPUT_BR_ID = #{inputBrId,jdbcType=VARCHAR},
+      APPLY_DATE = #{applyDate,jdbcType=CHAR},
+      PREVENT_LIST = #{preventList,jdbcType=VARCHAR},
+      STATUS_NAME = #{statusName,jdbcType=VARCHAR},
+      WFI_END_ORG = #{wfiEndOrg,jdbcType=VARCHAR},
+      WFI_STATUS = #{wfiStatus,jdbcType=CHAR}
+    where INSTANCEID = #{instanceid,jdbcType=VARCHAR}
+  </update>
+</mapper>

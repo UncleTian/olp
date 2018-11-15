@@ -1,0 +1,572 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.WF_COMMENT_REPORTMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.WF_COMMENT_REPORT">
+    <id column="COMMENT_ID" jdbcType="VARCHAR" property="commentId" />
+    <result column="IN_BATCH_NO" jdbcType="VARCHAR" property="inBatchNo" />
+    <result column="IN_BATCH_TIME" jdbcType="CHAR" property="inBatchTime" />
+    <result column="OUT_BATCH_NO" jdbcType="VARCHAR" property="outBatchNo" />
+    <result column="OUT_BATCH_TIME" jdbcType="CHAR" property="outBatchTime" />
+    <result column="SUPER_COMMENT_ID" jdbcType="VARCHAR" property="superCommentId" />
+    <result column="BIZ_SEQ_NO" jdbcType="VARCHAR" property="bizSeqNo" />
+    <result column="INSTANCE_ID" jdbcType="VARCHAR" property="instanceId" />
+    <result column="NODE_ID" jdbcType="VARCHAR" property="nodeId" />
+    <result column="NODE_NAME" jdbcType="VARCHAR" property="nodeName" />
+    <result column="USER_ID" jdbcType="VARCHAR" property="userId" />
+    <result column="USER_NAME" jdbcType="VARCHAR" property="userName" />
+    <result column="COMMENT_TIME" jdbcType="CHAR" property="commentTime" />
+    <result column="COMMENT_TYPE" jdbcType="CHAR" property="commentType" />
+    <result column="COMMENT_SIGN" jdbcType="VARCHAR" property="commentSign" />
+    <result column="COMMENT_CONTENT" jdbcType="VARCHAR" property="commentContent" />
+    <result column="VA" jdbcType="VARCHAR" property="va" />
+    <result column="VB" jdbcType="VARCHAR" property="vb" />
+    <result column="VC" jdbcType="VARCHAR" property="vc" />
+    <result column="VD" jdbcType="VARCHAR" property="vd" />
+    <result column="VE" jdbcType="VARCHAR" property="ve" />
+    <result column="VF" jdbcType="VARCHAR" property="vf" />
+    <result column="VG" jdbcType="VARCHAR" property="vg" />
+    <result column="VH" jdbcType="VARCHAR" property="vh" />
+    <result column="VI" jdbcType="VARCHAR" property="vi" />
+    <result column="VJ" jdbcType="VARCHAR" property="vj" />
+    <result column="VK" jdbcType="VARCHAR" property="vk" />
+    <result column="VL" jdbcType="VARCHAR" property="vl" />
+    <result column="VM" jdbcType="VARCHAR" property="vm" />
+    <result column="VN" jdbcType="VARCHAR" property="vn" />
+    <result column="VO" jdbcType="VARCHAR" property="vo" />
+    <result column="VP" jdbcType="VARCHAR" property="vp" />
+    <result column="VQ" jdbcType="VARCHAR" property="vq" />
+    <result column="VR" jdbcType="VARCHAR" property="vr" />
+    <result column="VS" jdbcType="VARCHAR" property="vs" />
+    <result column="VT" jdbcType="VARCHAR" property="vt" />
+    <result column="VU" jdbcType="VARCHAR" property="vu" />
+    <result column="VV" jdbcType="VARCHAR" property="vv" />
+    <result column="VW" jdbcType="VARCHAR" property="vw" />
+    <result column="VX" jdbcType="VARCHAR" property="vx" />
+    <result column="VY" jdbcType="VARCHAR" property="vy" />
+    <result column="VZ" jdbcType="VARCHAR" property="vz" />
+    <result column="BATCH_STATUS" jdbcType="CHAR" property="batchStatus" />
+    <result column="LAST_UPD_OPR_ID" jdbcType="VARCHAR" property="lastUpdOprId" />
+    <result column="LAST_UPD_PGM_ID" jdbcType="VARCHAR" property="lastUpdPgmId" />
+    <result column="LAST_UPD_TIME" jdbcType="CHAR" property="lastUpdTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    COMMENT_ID, IN_BATCH_NO, IN_BATCH_TIME, OUT_BATCH_NO, OUT_BATCH_TIME, SUPER_COMMENT_ID, 
+    BIZ_SEQ_NO, INSTANCE_ID, NODE_ID, NODE_NAME, USER_ID, USER_NAME, COMMENT_TIME, COMMENT_TYPE, 
+    COMMENT_SIGN, COMMENT_CONTENT, VA, VB, VC, VD, VE, VF, VG, VH, VI, VJ, VK, VL, VM, 
+    VN, VO, VP, VQ, VR, VS, VT, VU, VV, VW, VX, VY, VZ, BATCH_STATUS, LAST_UPD_OPR_ID, 
+    LAST_UPD_PGM_ID, LAST_UPD_TIME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from WF_COMMENT_REPORT
+    where COMMENT_ID = #{commentId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from WF_COMMENT_REPORT
+    where COMMENT_ID = #{commentId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.WF_COMMENT_REPORT">
+    insert into WF_COMMENT_REPORT (COMMENT_ID, IN_BATCH_NO, IN_BATCH_TIME, 
+      OUT_BATCH_NO, OUT_BATCH_TIME, SUPER_COMMENT_ID, 
+      BIZ_SEQ_NO, INSTANCE_ID, NODE_ID, 
+      NODE_NAME, USER_ID, USER_NAME, 
+      COMMENT_TIME, COMMENT_TYPE, COMMENT_SIGN, 
+      COMMENT_CONTENT, VA, VB, 
+      VC, VD, VE, VF, 
+      VG, VH, VI, VJ, 
+      VK, VL, VM, VN, 
+      VO, VP, VQ, VR, 
+      VS, VT, VU, VV, 
+      VW, VX, VY, VZ, 
+      BATCH_STATUS, LAST_UPD_OPR_ID, LAST_UPD_PGM_ID, 
+      LAST_UPD_TIME)
+    values (#{commentId,jdbcType=VARCHAR}, #{inBatchNo,jdbcType=VARCHAR}, #{inBatchTime,jdbcType=CHAR}, 
+      #{outBatchNo,jdbcType=VARCHAR}, #{outBatchTime,jdbcType=CHAR}, #{superCommentId,jdbcType=VARCHAR}, 
+      #{bizSeqNo,jdbcType=VARCHAR}, #{instanceId,jdbcType=VARCHAR}, #{nodeId,jdbcType=VARCHAR}, 
+      #{nodeName,jdbcType=VARCHAR}, #{userId,jdbcType=VARCHAR}, #{userName,jdbcType=VARCHAR}, 
+      #{commentTime,jdbcType=CHAR}, #{commentType,jdbcType=CHAR}, #{commentSign,jdbcType=VARCHAR}, 
+      #{commentContent,jdbcType=VARCHAR}, #{va,jdbcType=VARCHAR}, #{vb,jdbcType=VARCHAR}, 
+      #{vc,jdbcType=VARCHAR}, #{vd,jdbcType=VARCHAR}, #{ve,jdbcType=VARCHAR}, #{vf,jdbcType=VARCHAR}, 
+      #{vg,jdbcType=VARCHAR}, #{vh,jdbcType=VARCHAR}, #{vi,jdbcType=VARCHAR}, #{vj,jdbcType=VARCHAR}, 
+      #{vk,jdbcType=VARCHAR}, #{vl,jdbcType=VARCHAR}, #{vm,jdbcType=VARCHAR}, #{vn,jdbcType=VARCHAR}, 
+      #{vo,jdbcType=VARCHAR}, #{vp,jdbcType=VARCHAR}, #{vq,jdbcType=VARCHAR}, #{vr,jdbcType=VARCHAR}, 
+      #{vs,jdbcType=VARCHAR}, #{vt,jdbcType=VARCHAR}, #{vu,jdbcType=VARCHAR}, #{vv,jdbcType=VARCHAR}, 
+      #{vw,jdbcType=VARCHAR}, #{vx,jdbcType=VARCHAR}, #{vy,jdbcType=VARCHAR}, #{vz,jdbcType=VARCHAR}, 
+      #{batchStatus,jdbcType=CHAR}, #{lastUpdOprId,jdbcType=VARCHAR}, #{lastUpdPgmId,jdbcType=VARCHAR}, 
+      #{lastUpdTime,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.WF_COMMENT_REPORT">
+    insert into WF_COMMENT_REPORT
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="commentId != null">
+        COMMENT_ID,
+      </if>
+      <if test="inBatchNo != null">
+        IN_BATCH_NO,
+      </if>
+      <if test="inBatchTime != null">
+        IN_BATCH_TIME,
+      </if>
+      <if test="outBatchNo != null">
+        OUT_BATCH_NO,
+      </if>
+      <if test="outBatchTime != null">
+        OUT_BATCH_TIME,
+      </if>
+      <if test="superCommentId != null">
+        SUPER_COMMENT_ID,
+      </if>
+      <if test="bizSeqNo != null">
+        BIZ_SEQ_NO,
+      </if>
+      <if test="instanceId != null">
+        INSTANCE_ID,
+      </if>
+      <if test="nodeId != null">
+        NODE_ID,
+      </if>
+      <if test="nodeName != null">
+        NODE_NAME,
+      </if>
+      <if test="userId != null">
+        USER_ID,
+      </if>
+      <if test="userName != null">
+        USER_NAME,
+      </if>
+      <if test="commentTime != null">
+        COMMENT_TIME,
+      </if>
+      <if test="commentType != null">
+        COMMENT_TYPE,
+      </if>
+      <if test="commentSign != null">
+        COMMENT_SIGN,
+      </if>
+      <if test="commentContent != null">
+        COMMENT_CONTENT,
+      </if>
+      <if test="va != null">
+        VA,
+      </if>
+      <if test="vb != null">
+        VB,
+      </if>
+      <if test="vc != null">
+        VC,
+      </if>
+      <if test="vd != null">
+        VD,
+      </if>
+      <if test="ve != null">
+        VE,
+      </if>
+      <if test="vf != null">
+        VF,
+      </if>
+      <if test="vg != null">
+        VG,
+      </if>
+      <if test="vh != null">
+        VH,
+      </if>
+      <if test="vi != null">
+        VI,
+      </if>
+      <if test="vj != null">
+        VJ,
+      </if>
+      <if test="vk != null">
+        VK,
+      </if>
+      <if test="vl != null">
+        VL,
+      </if>
+      <if test="vm != null">
+        VM,
+      </if>
+      <if test="vn != null">
+        VN,
+      </if>
+      <if test="vo != null">
+        VO,
+      </if>
+      <if test="vp != null">
+        VP,
+      </if>
+      <if test="vq != null">
+        VQ,
+      </if>
+      <if test="vr != null">
+        VR,
+      </if>
+      <if test="vs != null">
+        VS,
+      </if>
+      <if test="vt != null">
+        VT,
+      </if>
+      <if test="vu != null">
+        VU,
+      </if>
+      <if test="vv != null">
+        VV,
+      </if>
+      <if test="vw != null">
+        VW,
+      </if>
+      <if test="vx != null">
+        VX,
+      </if>
+      <if test="vy != null">
+        VY,
+      </if>
+      <if test="vz != null">
+        VZ,
+      </if>
+      <if test="batchStatus != null">
+        BATCH_STATUS,
+      </if>
+      <if test="lastUpdOprId != null">
+        LAST_UPD_OPR_ID,
+      </if>
+      <if test="lastUpdPgmId != null">
+        LAST_UPD_PGM_ID,
+      </if>
+      <if test="lastUpdTime != null">
+        LAST_UPD_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="commentId != null">
+        #{commentId,jdbcType=VARCHAR},
+      </if>
+      <if test="inBatchNo != null">
+        #{inBatchNo,jdbcType=VARCHAR},
+      </if>
+      <if test="inBatchTime != null">
+        #{inBatchTime,jdbcType=CHAR},
+      </if>
+      <if test="outBatchNo != null">
+        #{outBatchNo,jdbcType=VARCHAR},
+      </if>
+      <if test="outBatchTime != null">
+        #{outBatchTime,jdbcType=CHAR},
+      </if>
+      <if test="superCommentId != null">
+        #{superCommentId,jdbcType=VARCHAR},
+      </if>
+      <if test="bizSeqNo != null">
+        #{bizSeqNo,jdbcType=VARCHAR},
+      </if>
+      <if test="instanceId != null">
+        #{instanceId,jdbcType=VARCHAR},
+      </if>
+      <if test="nodeId != null">
+        #{nodeId,jdbcType=VARCHAR},
+      </if>
+      <if test="nodeName != null">
+        #{nodeName,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null">
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="commentTime != null">
+        #{commentTime,jdbcType=CHAR},
+      </if>
+      <if test="commentType != null">
+        #{commentType,jdbcType=CHAR},
+      </if>
+      <if test="commentSign != null">
+        #{commentSign,jdbcType=VARCHAR},
+      </if>
+      <if test="commentContent != null">
+        #{commentContent,jdbcType=VARCHAR},
+      </if>
+      <if test="va != null">
+        #{va,jdbcType=VARCHAR},
+      </if>
+      <if test="vb != null">
+        #{vb,jdbcType=VARCHAR},
+      </if>
+      <if test="vc != null">
+        #{vc,jdbcType=VARCHAR},
+      </if>
+      <if test="vd != null">
+        #{vd,jdbcType=VARCHAR},
+      </if>
+      <if test="ve != null">
+        #{ve,jdbcType=VARCHAR},
+      </if>
+      <if test="vf != null">
+        #{vf,jdbcType=VARCHAR},
+      </if>
+      <if test="vg != null">
+        #{vg,jdbcType=VARCHAR},
+      </if>
+      <if test="vh != null">
+        #{vh,jdbcType=VARCHAR},
+      </if>
+      <if test="vi != null">
+        #{vi,jdbcType=VARCHAR},
+      </if>
+      <if test="vj != null">
+        #{vj,jdbcType=VARCHAR},
+      </if>
+      <if test="vk != null">
+        #{vk,jdbcType=VARCHAR},
+      </if>
+      <if test="vl != null">
+        #{vl,jdbcType=VARCHAR},
+      </if>
+      <if test="vm != null">
+        #{vm,jdbcType=VARCHAR},
+      </if>
+      <if test="vn != null">
+        #{vn,jdbcType=VARCHAR},
+      </if>
+      <if test="vo != null">
+        #{vo,jdbcType=VARCHAR},
+      </if>
+      <if test="vp != null">
+        #{vp,jdbcType=VARCHAR},
+      </if>
+      <if test="vq != null">
+        #{vq,jdbcType=VARCHAR},
+      </if>
+      <if test="vr != null">
+        #{vr,jdbcType=VARCHAR},
+      </if>
+      <if test="vs != null">
+        #{vs,jdbcType=VARCHAR},
+      </if>
+      <if test="vt != null">
+        #{vt,jdbcType=VARCHAR},
+      </if>
+      <if test="vu != null">
+        #{vu,jdbcType=VARCHAR},
+      </if>
+      <if test="vv != null">
+        #{vv,jdbcType=VARCHAR},
+      </if>
+      <if test="vw != null">
+        #{vw,jdbcType=VARCHAR},
+      </if>
+      <if test="vx != null">
+        #{vx,jdbcType=VARCHAR},
+      </if>
+      <if test="vy != null">
+        #{vy,jdbcType=VARCHAR},
+      </if>
+      <if test="vz != null">
+        #{vz,jdbcType=VARCHAR},
+      </if>
+      <if test="batchStatus != null">
+        #{batchStatus,jdbcType=CHAR},
+      </if>
+      <if test="lastUpdOprId != null">
+        #{lastUpdOprId,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdPgmId != null">
+        #{lastUpdPgmId,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdTime != null">
+        #{lastUpdTime,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.WF_COMMENT_REPORT">
+    update WF_COMMENT_REPORT
+    <set>
+      <if test="inBatchNo != null">
+        IN_BATCH_NO = #{inBatchNo,jdbcType=VARCHAR},
+      </if>
+      <if test="inBatchTime != null">
+        IN_BATCH_TIME = #{inBatchTime,jdbcType=CHAR},
+      </if>
+      <if test="outBatchNo != null">
+        OUT_BATCH_NO = #{outBatchNo,jdbcType=VARCHAR},
+      </if>
+      <if test="outBatchTime != null">
+        OUT_BATCH_TIME = #{outBatchTime,jdbcType=CHAR},
+      </if>
+      <if test="superCommentId != null">
+        SUPER_COMMENT_ID = #{superCommentId,jdbcType=VARCHAR},
+      </if>
+      <if test="bizSeqNo != null">
+        BIZ_SEQ_NO = #{bizSeqNo,jdbcType=VARCHAR},
+      </if>
+      <if test="instanceId != null">
+        INSTANCE_ID = #{instanceId,jdbcType=VARCHAR},
+      </if>
+      <if test="nodeId != null">
+        NODE_ID = #{nodeId,jdbcType=VARCHAR},
+      </if>
+      <if test="nodeName != null">
+        NODE_NAME = #{nodeName,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null">
+        USER_ID = #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null">
+        USER_NAME = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="commentTime != null">
+        COMMENT_TIME = #{commentTime,jdbcType=CHAR},
+      </if>
+      <if test="commentType != null">
+        COMMENT_TYPE = #{commentType,jdbcType=CHAR},
+      </if>
+      <if test="commentSign != null">
+        COMMENT_SIGN = #{commentSign,jdbcType=VARCHAR},
+      </if>
+      <if test="commentContent != null">
+        COMMENT_CONTENT = #{commentContent,jdbcType=VARCHAR},
+      </if>
+      <if test="va != null">
+        VA = #{va,jdbcType=VARCHAR},
+      </if>
+      <if test="vb != null">
+        VB = #{vb,jdbcType=VARCHAR},
+      </if>
+      <if test="vc != null">
+        VC = #{vc,jdbcType=VARCHAR},
+      </if>
+      <if test="vd != null">
+        VD = #{vd,jdbcType=VARCHAR},
+      </if>
+      <if test="ve != null">
+        VE = #{ve,jdbcType=VARCHAR},
+      </if>
+      <if test="vf != null">
+        VF = #{vf,jdbcType=VARCHAR},
+      </if>
+      <if test="vg != null">
+        VG = #{vg,jdbcType=VARCHAR},
+      </if>
+      <if test="vh != null">
+        VH = #{vh,jdbcType=VARCHAR},
+      </if>
+      <if test="vi != null">
+        VI = #{vi,jdbcType=VARCHAR},
+      </if>
+      <if test="vj != null">
+        VJ = #{vj,jdbcType=VARCHAR},
+      </if>
+      <if test="vk != null">
+        VK = #{vk,jdbcType=VARCHAR},
+      </if>
+      <if test="vl != null">
+        VL = #{vl,jdbcType=VARCHAR},
+      </if>
+      <if test="vm != null">
+        VM = #{vm,jdbcType=VARCHAR},
+      </if>
+      <if test="vn != null">
+        VN = #{vn,jdbcType=VARCHAR},
+      </if>
+      <if test="vo != null">
+        VO = #{vo,jdbcType=VARCHAR},
+      </if>
+      <if test="vp != null">
+        VP = #{vp,jdbcType=VARCHAR},
+      </if>
+      <if test="vq != null">
+        VQ = #{vq,jdbcType=VARCHAR},
+      </if>
+      <if test="vr != null">
+        VR = #{vr,jdbcType=VARCHAR},
+      </if>
+      <if test="vs != null">
+        VS = #{vs,jdbcType=VARCHAR},
+      </if>
+      <if test="vt != null">
+        VT = #{vt,jdbcType=VARCHAR},
+      </if>
+      <if test="vu != null">
+        VU = #{vu,jdbcType=VARCHAR},
+      </if>
+      <if test="vv != null">
+        VV = #{vv,jdbcType=VARCHAR},
+      </if>
+      <if test="vw != null">
+        VW = #{vw,jdbcType=VARCHAR},
+      </if>
+      <if test="vx != null">
+        VX = #{vx,jdbcType=VARCHAR},
+      </if>
+      <if test="vy != null">
+        VY = #{vy,jdbcType=VARCHAR},
+      </if>
+      <if test="vz != null">
+        VZ = #{vz,jdbcType=VARCHAR},
+      </if>
+      <if test="batchStatus != null">
+        BATCH_STATUS = #{batchStatus,jdbcType=CHAR},
+      </if>
+      <if test="lastUpdOprId != null">
+        LAST_UPD_OPR_ID = #{lastUpdOprId,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdPgmId != null">
+        LAST_UPD_PGM_ID = #{lastUpdPgmId,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdTime != null">
+        LAST_UPD_TIME = #{lastUpdTime,jdbcType=CHAR},
+      </if>
+    </set>
+    where COMMENT_ID = #{commentId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.WF_COMMENT_REPORT">
+    update WF_COMMENT_REPORT
+    set IN_BATCH_NO = #{inBatchNo,jdbcType=VARCHAR},
+      IN_BATCH_TIME = #{inBatchTime,jdbcType=CHAR},
+      OUT_BATCH_NO = #{outBatchNo,jdbcType=VARCHAR},
+      OUT_BATCH_TIME = #{outBatchTime,jdbcType=CHAR},
+      SUPER_COMMENT_ID = #{superCommentId,jdbcType=VARCHAR},
+      BIZ_SEQ_NO = #{bizSeqNo,jdbcType=VARCHAR},
+      INSTANCE_ID = #{instanceId,jdbcType=VARCHAR},
+      NODE_ID = #{nodeId,jdbcType=VARCHAR},
+      NODE_NAME = #{nodeName,jdbcType=VARCHAR},
+      USER_ID = #{userId,jdbcType=VARCHAR},
+      USER_NAME = #{userName,jdbcType=VARCHAR},
+      COMMENT_TIME = #{commentTime,jdbcType=CHAR},
+      COMMENT_TYPE = #{commentType,jdbcType=CHAR},
+      COMMENT_SIGN = #{commentSign,jdbcType=VARCHAR},
+      COMMENT_CONTENT = #{commentContent,jdbcType=VARCHAR},
+      VA = #{va,jdbcType=VARCHAR},
+      VB = #{vb,jdbcType=VARCHAR},
+      VC = #{vc,jdbcType=VARCHAR},
+      VD = #{vd,jdbcType=VARCHAR},
+      VE = #{ve,jdbcType=VARCHAR},
+      VF = #{vf,jdbcType=VARCHAR},
+      VG = #{vg,jdbcType=VARCHAR},
+      VH = #{vh,jdbcType=VARCHAR},
+      VI = #{vi,jdbcType=VARCHAR},
+      VJ = #{vj,jdbcType=VARCHAR},
+      VK = #{vk,jdbcType=VARCHAR},
+      VL = #{vl,jdbcType=VARCHAR},
+      VM = #{vm,jdbcType=VARCHAR},
+      VN = #{vn,jdbcType=VARCHAR},
+      VO = #{vo,jdbcType=VARCHAR},
+      VP = #{vp,jdbcType=VARCHAR},
+      VQ = #{vq,jdbcType=VARCHAR},
+      VR = #{vr,jdbcType=VARCHAR},
+      VS = #{vs,jdbcType=VARCHAR},
+      VT = #{vt,jdbcType=VARCHAR},
+      VU = #{vu,jdbcType=VARCHAR},
+      VV = #{vv,jdbcType=VARCHAR},
+      VW = #{vw,jdbcType=VARCHAR},
+      VX = #{vx,jdbcType=VARCHAR},
+      VY = #{vy,jdbcType=VARCHAR},
+      VZ = #{vz,jdbcType=VARCHAR},
+      BATCH_STATUS = #{batchStatus,jdbcType=CHAR},
+      LAST_UPD_OPR_ID = #{lastUpdOprId,jdbcType=VARCHAR},
+      LAST_UPD_PGM_ID = #{lastUpdPgmId,jdbcType=VARCHAR},
+      LAST_UPD_TIME = #{lastUpdTime,jdbcType=CHAR}
+    where COMMENT_ID = #{commentId,jdbcType=VARCHAR}
+  </update>
+</mapper>

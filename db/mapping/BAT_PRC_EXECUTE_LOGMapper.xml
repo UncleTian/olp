@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.BAT_PRC_EXECUTE_LOGMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.BAT_PRC_EXECUTE_LOG">
+    <id column="SERNO" jdbcType="VARCHAR" property="serno" />
+    <result column="PRC_NAME" jdbcType="VARCHAR" property="prcName" />
+    <result column="TARGET_TABLE" jdbcType="VARCHAR" property="targetTable" />
+    <result column="SOURCE_TABLE" jdbcType="VARCHAR" property="sourceTable" />
+    <result column="EXE_ORDER_ID" jdbcType="VARCHAR" property="exeOrderId" />
+    <result column="EXE_DESC" jdbcType="VARCHAR" property="exeDesc" />
+    <result column="EXE_START_DT" jdbcType="TIMESTAMP" property="exeStartDt" />
+    <result column="EXE_END_DT" jdbcType="TIMESTAMP" property="exeEndDt" />
+    <result column="EXE_DT" jdbcType="DECIMAL" property="exeDt" />
+    <result column="EXE_ROWCOUNT" jdbcType="VARCHAR" property="exeRowcount" />
+    <result column="EXE_SQL" jdbcType="VARCHAR" property="exeSql" />
+    <result column="EXE_CODE" jdbcType="VARCHAR" property="exeCode" />
+    <result column="EXE_ERR_MSG" jdbcType="VARCHAR" property="exeErrMsg" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    SERNO, PRC_NAME, TARGET_TABLE, SOURCE_TABLE, EXE_ORDER_ID, EXE_DESC, EXE_START_DT, 
+    EXE_END_DT, EXE_DT, EXE_ROWCOUNT, EXE_SQL, EXE_CODE, EXE_ERR_MSG
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from BAT_PRC_EXECUTE_LOG
+    where SERNO = #{serno,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from BAT_PRC_EXECUTE_LOG
+    where SERNO = #{serno,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.BAT_PRC_EXECUTE_LOG">
+    insert into BAT_PRC_EXECUTE_LOG (SERNO, PRC_NAME, TARGET_TABLE, 
+      SOURCE_TABLE, EXE_ORDER_ID, EXE_DESC, 
+      EXE_START_DT, EXE_END_DT, EXE_DT, 
+      EXE_ROWCOUNT, EXE_SQL, EXE_CODE, 
+      EXE_ERR_MSG)
+    values (#{serno,jdbcType=VARCHAR}, #{prcName,jdbcType=VARCHAR}, #{targetTable,jdbcType=VARCHAR}, 
+      #{sourceTable,jdbcType=VARCHAR}, #{exeOrderId,jdbcType=VARCHAR}, #{exeDesc,jdbcType=VARCHAR}, 
+      #{exeStartDt,jdbcType=TIMESTAMP}, #{exeEndDt,jdbcType=TIMESTAMP}, #{exeDt,jdbcType=DECIMAL}, 
+      #{exeRowcount,jdbcType=VARCHAR}, #{exeSql,jdbcType=VARCHAR}, #{exeCode,jdbcType=VARCHAR}, 
+      #{exeErrMsg,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.BAT_PRC_EXECUTE_LOG">
+    insert into BAT_PRC_EXECUTE_LOG
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="serno != null">
+        SERNO,
+      </if>
+      <if test="prcName != null">
+        PRC_NAME,
+      </if>
+      <if test="targetTable != null">
+        TARGET_TABLE,
+      </if>
+      <if test="sourceTable != null">
+        SOURCE_TABLE,
+      </if>
+      <if test="exeOrderId != null">
+        EXE_ORDER_ID,
+      </if>
+      <if test="exeDesc != null">
+        EXE_DESC,
+      </if>
+      <if test="exeStartDt != null">
+        EXE_START_DT,
+      </if>
+      <if test="exeEndDt != null">
+        EXE_END_DT,
+      </if>
+      <if test="exeDt != null">
+        EXE_DT,
+      </if>
+      <if test="exeRowcount != null">
+        EXE_ROWCOUNT,
+      </if>
+      <if test="exeSql != null">
+        EXE_SQL,
+      </if>
+      <if test="exeCode != null">
+        EXE_CODE,
+      </if>
+      <if test="exeErrMsg != null">
+        EXE_ERR_MSG,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="serno != null">
+        #{serno,jdbcType=VARCHAR},
+      </if>
+      <if test="prcName != null">
+        #{prcName,jdbcType=VARCHAR},
+      </if>
+      <if test="targetTable != null">
+        #{targetTable,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceTable != null">
+        #{sourceTable,jdbcType=VARCHAR},
+      </if>
+      <if test="exeOrderId != null">
+        #{exeOrderId,jdbcType=VARCHAR},
+      </if>
+      <if test="exeDesc != null">
+        #{exeDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="exeStartDt != null">
+        #{exeStartDt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="exeEndDt != null">
+        #{exeEndDt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="exeDt != null">
+        #{exeDt,jdbcType=DECIMAL},
+      </if>
+      <if test="exeRowcount != null">
+        #{exeRowcount,jdbcType=VARCHAR},
+      </if>
+      <if test="exeSql != null">
+        #{exeSql,jdbcType=VARCHAR},
+      </if>
+      <if test="exeCode != null">
+        #{exeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="exeErrMsg != null">
+        #{exeErrMsg,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.BAT_PRC_EXECUTE_LOG">
+    update BAT_PRC_EXECUTE_LOG
+    <set>
+      <if test="prcName != null">
+        PRC_NAME = #{prcName,jdbcType=VARCHAR},
+      </if>
+      <if test="targetTable != null">
+        TARGET_TABLE = #{targetTable,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceTable != null">
+        SOURCE_TABLE = #{sourceTable,jdbcType=VARCHAR},
+      </if>
+      <if test="exeOrderId != null">
+        EXE_ORDER_ID = #{exeOrderId,jdbcType=VARCHAR},
+      </if>
+      <if test="exeDesc != null">
+        EXE_DESC = #{exeDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="exeStartDt != null">
+        EXE_START_DT = #{exeStartDt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="exeEndDt != null">
+        EXE_END_DT = #{exeEndDt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="exeDt != null">
+        EXE_DT = #{exeDt,jdbcType=DECIMAL},
+      </if>
+      <if test="exeRowcount != null">
+        EXE_ROWCOUNT = #{exeRowcount,jdbcType=VARCHAR},
+      </if>
+      <if test="exeSql != null">
+        EXE_SQL = #{exeSql,jdbcType=VARCHAR},
+      </if>
+      <if test="exeCode != null">
+        EXE_CODE = #{exeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="exeErrMsg != null">
+        EXE_ERR_MSG = #{exeErrMsg,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where SERNO = #{serno,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.BAT_PRC_EXECUTE_LOG">
+    update BAT_PRC_EXECUTE_LOG
+    set PRC_NAME = #{prcName,jdbcType=VARCHAR},
+      TARGET_TABLE = #{targetTable,jdbcType=VARCHAR},
+      SOURCE_TABLE = #{sourceTable,jdbcType=VARCHAR},
+      EXE_ORDER_ID = #{exeOrderId,jdbcType=VARCHAR},
+      EXE_DESC = #{exeDesc,jdbcType=VARCHAR},
+      EXE_START_DT = #{exeStartDt,jdbcType=TIMESTAMP},
+      EXE_END_DT = #{exeEndDt,jdbcType=TIMESTAMP},
+      EXE_DT = #{exeDt,jdbcType=DECIMAL},
+      EXE_ROWCOUNT = #{exeRowcount,jdbcType=VARCHAR},
+      EXE_SQL = #{exeSql,jdbcType=VARCHAR},
+      EXE_CODE = #{exeCode,jdbcType=VARCHAR},
+      EXE_ERR_MSG = #{exeErrMsg,jdbcType=VARCHAR}
+    where SERNO = #{serno,jdbcType=VARCHAR}
+  </update>
+</mapper>

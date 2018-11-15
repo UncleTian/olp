@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.WF_NODE_TREAT_PROPERTYMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.WF_NODE_TREAT_PROPERTY">
+    <id column="NODEID" jdbcType="VARCHAR" property="nodeid" />
+    <result column="WFID" jdbcType="VARCHAR" property="wfid" />
+    <result column="NODETRANSACTTYPE" jdbcType="CHAR" property="nodetransacttype" />
+    <result column="NODETRANSFERCONDITION" jdbcType="VARCHAR" property="nodetransfercondition" />
+    <result column="NODEEDITCONTROL" jdbcType="CHAR" property="nodeeditcontrol" />
+    <result column="NODEREADERSCONTROL" jdbcType="CHAR" property="nodereaderscontrol" />
+    <result column="NODEREADERSLIST" jdbcType="VARCHAR" property="nodereaderslist" />
+    <result column="NODEUSERSASSIGN" jdbcType="CHAR" property="nodeusersassign" />
+    <result column="NODEUSERSLIST" jdbcType="VARCHAR" property="nodeuserslist" />
+    <result column="NODEUSERSCOMPUTE" jdbcType="CHAR" property="nodeuserscompute" />
+    <result column="REPEATERSIGN" jdbcType="CHAR" property="repeatersign" />
+    <result column="NODETODONOTICE" jdbcType="CHAR" property="nodetodonotice" />
+    <result column="NODEVICARSET" jdbcType="CHAR" property="nodevicarset" />
+    <result column="NODERECALLSET" jdbcType="CHAR" property="noderecallset" />
+    <result column="NODECHANGESET" jdbcType="CHAR" property="nodechangeset" />
+    <result column="NODERETURNBACKSET" jdbcType="CHAR" property="nodereturnbackset" />
+    <result column="NODEURGESET" jdbcType="CHAR" property="nodeurgeset" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    NODEID, WFID, NODETRANSACTTYPE, NODETRANSFERCONDITION, NODEEDITCONTROL, NODEREADERSCONTROL, 
+    NODEREADERSLIST, NODEUSERSASSIGN, NODEUSERSLIST, NODEUSERSCOMPUTE, REPEATERSIGN, 
+    NODETODONOTICE, NODEVICARSET, NODERECALLSET, NODECHANGESET, NODERETURNBACKSET, NODEURGESET
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from WF_NODE_TREAT_PROPERTY
+    where NODEID = #{nodeid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from WF_NODE_TREAT_PROPERTY
+    where NODEID = #{nodeid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.WF_NODE_TREAT_PROPERTY">
+    insert into WF_NODE_TREAT_PROPERTY (NODEID, WFID, NODETRANSACTTYPE, 
+      NODETRANSFERCONDITION, NODEEDITCONTROL, NODEREADERSCONTROL, 
+      NODEREADERSLIST, NODEUSERSASSIGN, NODEUSERSLIST, 
+      NODEUSERSCOMPUTE, REPEATERSIGN, NODETODONOTICE, 
+      NODEVICARSET, NODERECALLSET, NODECHANGESET, 
+      NODERETURNBACKSET, NODEURGESET)
+    values (#{nodeid,jdbcType=VARCHAR}, #{wfid,jdbcType=VARCHAR}, #{nodetransacttype,jdbcType=CHAR}, 
+      #{nodetransfercondition,jdbcType=VARCHAR}, #{nodeeditcontrol,jdbcType=CHAR}, #{nodereaderscontrol,jdbcType=CHAR}, 
+      #{nodereaderslist,jdbcType=VARCHAR}, #{nodeusersassign,jdbcType=CHAR}, #{nodeuserslist,jdbcType=VARCHAR}, 
+      #{nodeuserscompute,jdbcType=CHAR}, #{repeatersign,jdbcType=CHAR}, #{nodetodonotice,jdbcType=CHAR}, 
+      #{nodevicarset,jdbcType=CHAR}, #{noderecallset,jdbcType=CHAR}, #{nodechangeset,jdbcType=CHAR}, 
+      #{nodereturnbackset,jdbcType=CHAR}, #{nodeurgeset,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.WF_NODE_TREAT_PROPERTY">
+    insert into WF_NODE_TREAT_PROPERTY
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="nodeid != null">
+        NODEID,
+      </if>
+      <if test="wfid != null">
+        WFID,
+      </if>
+      <if test="nodetransacttype != null">
+        NODETRANSACTTYPE,
+      </if>
+      <if test="nodetransfercondition != null">
+        NODETRANSFERCONDITION,
+      </if>
+      <if test="nodeeditcontrol != null">
+        NODEEDITCONTROL,
+      </if>
+      <if test="nodereaderscontrol != null">
+        NODEREADERSCONTROL,
+      </if>
+      <if test="nodereaderslist != null">
+        NODEREADERSLIST,
+      </if>
+      <if test="nodeusersassign != null">
+        NODEUSERSASSIGN,
+      </if>
+      <if test="nodeuserslist != null">
+        NODEUSERSLIST,
+      </if>
+      <if test="nodeuserscompute != null">
+        NODEUSERSCOMPUTE,
+      </if>
+      <if test="repeatersign != null">
+        REPEATERSIGN,
+      </if>
+      <if test="nodetodonotice != null">
+        NODETODONOTICE,
+      </if>
+      <if test="nodevicarset != null">
+        NODEVICARSET,
+      </if>
+      <if test="noderecallset != null">
+        NODERECALLSET,
+      </if>
+      <if test="nodechangeset != null">
+        NODECHANGESET,
+      </if>
+      <if test="nodereturnbackset != null">
+        NODERETURNBACKSET,
+      </if>
+      <if test="nodeurgeset != null">
+        NODEURGESET,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="nodeid != null">
+        #{nodeid,jdbcType=VARCHAR},
+      </if>
+      <if test="wfid != null">
+        #{wfid,jdbcType=VARCHAR},
+      </if>
+      <if test="nodetransacttype != null">
+        #{nodetransacttype,jdbcType=CHAR},
+      </if>
+      <if test="nodetransfercondition != null">
+        #{nodetransfercondition,jdbcType=VARCHAR},
+      </if>
+      <if test="nodeeditcontrol != null">
+        #{nodeeditcontrol,jdbcType=CHAR},
+      </if>
+      <if test="nodereaderscontrol != null">
+        #{nodereaderscontrol,jdbcType=CHAR},
+      </if>
+      <if test="nodereaderslist != null">
+        #{nodereaderslist,jdbcType=VARCHAR},
+      </if>
+      <if test="nodeusersassign != null">
+        #{nodeusersassign,jdbcType=CHAR},
+      </if>
+      <if test="nodeuserslist != null">
+        #{nodeuserslist,jdbcType=VARCHAR},
+      </if>
+      <if test="nodeuserscompute != null">
+        #{nodeuserscompute,jdbcType=CHAR},
+      </if>
+      <if test="repeatersign != null">
+        #{repeatersign,jdbcType=CHAR},
+      </if>
+      <if test="nodetodonotice != null">
+        #{nodetodonotice,jdbcType=CHAR},
+      </if>
+      <if test="nodevicarset != null">
+        #{nodevicarset,jdbcType=CHAR},
+      </if>
+      <if test="noderecallset != null">
+        #{noderecallset,jdbcType=CHAR},
+      </if>
+      <if test="nodechangeset != null">
+        #{nodechangeset,jdbcType=CHAR},
+      </if>
+      <if test="nodereturnbackset != null">
+        #{nodereturnbackset,jdbcType=CHAR},
+      </if>
+      <if test="nodeurgeset != null">
+        #{nodeurgeset,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.WF_NODE_TREAT_PROPERTY">
+    update WF_NODE_TREAT_PROPERTY
+    <set>
+      <if test="wfid != null">
+        WFID = #{wfid,jdbcType=VARCHAR},
+      </if>
+      <if test="nodetransacttype != null">
+        NODETRANSACTTYPE = #{nodetransacttype,jdbcType=CHAR},
+      </if>
+      <if test="nodetransfercondition != null">
+        NODETRANSFERCONDITION = #{nodetransfercondition,jdbcType=VARCHAR},
+      </if>
+      <if test="nodeeditcontrol != null">
+        NODEEDITCONTROL = #{nodeeditcontrol,jdbcType=CHAR},
+      </if>
+      <if test="nodereaderscontrol != null">
+        NODEREADERSCONTROL = #{nodereaderscontrol,jdbcType=CHAR},
+      </if>
+      <if test="nodereaderslist != null">
+        NODEREADERSLIST = #{nodereaderslist,jdbcType=VARCHAR},
+      </if>
+      <if test="nodeusersassign != null">
+        NODEUSERSASSIGN = #{nodeusersassign,jdbcType=CHAR},
+      </if>
+      <if test="nodeuserslist != null">
+        NODEUSERSLIST = #{nodeuserslist,jdbcType=VARCHAR},
+      </if>
+      <if test="nodeuserscompute != null">
+        NODEUSERSCOMPUTE = #{nodeuserscompute,jdbcType=CHAR},
+      </if>
+      <if test="repeatersign != null">
+        REPEATERSIGN = #{repeatersign,jdbcType=CHAR},
+      </if>
+      <if test="nodetodonotice != null">
+        NODETODONOTICE = #{nodetodonotice,jdbcType=CHAR},
+      </if>
+      <if test="nodevicarset != null">
+        NODEVICARSET = #{nodevicarset,jdbcType=CHAR},
+      </if>
+      <if test="noderecallset != null">
+        NODERECALLSET = #{noderecallset,jdbcType=CHAR},
+      </if>
+      <if test="nodechangeset != null">
+        NODECHANGESET = #{nodechangeset,jdbcType=CHAR},
+      </if>
+      <if test="nodereturnbackset != null">
+        NODERETURNBACKSET = #{nodereturnbackset,jdbcType=CHAR},
+      </if>
+      <if test="nodeurgeset != null">
+        NODEURGESET = #{nodeurgeset,jdbcType=CHAR},
+      </if>
+    </set>
+    where NODEID = #{nodeid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.WF_NODE_TREAT_PROPERTY">
+    update WF_NODE_TREAT_PROPERTY
+    set WFID = #{wfid,jdbcType=VARCHAR},
+      NODETRANSACTTYPE = #{nodetransacttype,jdbcType=CHAR},
+      NODETRANSFERCONDITION = #{nodetransfercondition,jdbcType=VARCHAR},
+      NODEEDITCONTROL = #{nodeeditcontrol,jdbcType=CHAR},
+      NODEREADERSCONTROL = #{nodereaderscontrol,jdbcType=CHAR},
+      NODEREADERSLIST = #{nodereaderslist,jdbcType=VARCHAR},
+      NODEUSERSASSIGN = #{nodeusersassign,jdbcType=CHAR},
+      NODEUSERSLIST = #{nodeuserslist,jdbcType=VARCHAR},
+      NODEUSERSCOMPUTE = #{nodeuserscompute,jdbcType=CHAR},
+      REPEATERSIGN = #{repeatersign,jdbcType=CHAR},
+      NODETODONOTICE = #{nodetodonotice,jdbcType=CHAR},
+      NODEVICARSET = #{nodevicarset,jdbcType=CHAR},
+      NODERECALLSET = #{noderecallset,jdbcType=CHAR},
+      NODECHANGESET = #{nodechangeset,jdbcType=CHAR},
+      NODERETURNBACKSET = #{nodereturnbackset,jdbcType=CHAR},
+      NODEURGESET = #{nodeurgeset,jdbcType=CHAR}
+    where NODEID = #{nodeid,jdbcType=VARCHAR}
+  </update>
+</mapper>

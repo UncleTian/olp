@@ -1,0 +1,519 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.BIZ_BR_PERSONAL_CREMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.BIZ_BR_PERSONAL_CRE">
+    <id column="APP_NO" jdbcType="VARCHAR" property="appNo" />
+    <result column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="CELL" jdbcType="VARCHAR" property="cell" />
+    <result column="NAME" jdbcType="VARCHAR" property="name" />
+    <result column="BIZ_WORKFOR" jdbcType="VARCHAR" property="bizWorkfor" />
+    <result column="FLAG_PERSONALCRE" jdbcType="VARCHAR" property="flagPersonalcre" />
+    <result column="PC_AVG_AMT" jdbcType="VARCHAR" property="pcAvgAmt" />
+    <result column="PC_AVG_FRE" jdbcType="VARCHAR" property="pcAvgFre" />
+    <result column="PC_LST_MONS" jdbcType="VARCHAR" property="pcLstMons" />
+    <result column="PC_LIFE_CONS" jdbcType="VARCHAR" property="pcLifeCons" />
+    <result column="PC_DIGI_CONS" jdbcType="VARCHAR" property="pcDigiCons" />
+    <result column="PC_TRAV_CONS" jdbcType="VARCHAR" property="pcTravCons" />
+    <result column="PC_INVEST_CONS" jdbcType="VARCHAR" property="pcInvestCons" />
+    <result column="PC_MOBILE_CONS" jdbcType="VARCHAR" property="pcMobileCons" />
+    <result column="PC_USER_LEVEL" jdbcType="VARCHAR" property="pcUserLevel" />
+    <result column="PC_VIP_LEVEL" jdbcType="VARCHAR" property="pcVipLevel" />
+    <result column="PC_IF_HOUSE" jdbcType="VARCHAR" property="pcIfHouse" />
+    <result column="PC_IF_CAR" jdbcType="VARCHAR" property="pcIfCar" />
+    <result column="PC_RCNT_INCOME" jdbcType="VARCHAR" property="pcRcntIncome" />
+    <result column="PC_LONG_INCOME" jdbcType="VARCHAR" property="pcLongIncome" />
+    <result column="PC_RCNT_ECON" jdbcType="VARCHAR" property="pcRcntEcon" />
+    <result column="PC_LONG_ECON" jdbcType="VARCHAR" property="pcLongEcon" />
+    <result column="PC_INCOME_PROV" jdbcType="VARCHAR" property="pcIncomeProv" />
+    <result column="PC_INCOME_CHG" jdbcType="VARCHAR" property="pcIncomeChg" />
+    <result column="PC_REGINCOME_LEVEL" jdbcType="VARCHAR" property="pcRegincomeLevel" />
+    <result column="PC_REGINCOME_STA" jdbcType="VARCHAR" property="pcRegincomeSta" />
+    <result column="PC_NOREGINCOME_LST_MONS" jdbcType="VARCHAR" property="pcNoregincomeLstMons" />
+    <result column="PC_NOINCOME_LST_MONS" jdbcType="VARCHAR" property="pcNoincomeLstMons" />
+    <result column="PC_BUSINESS_TYPE" jdbcType="VARCHAR" property="pcBusinessType" />
+    <result column="PC_COMPANY_MAT" jdbcType="VARCHAR" property="pcCompanyMat" />
+    <result column="INPUT_DATE" jdbcType="VARCHAR" property="inputDate" />
+    <result column="INPUT_TIME" jdbcType="VARCHAR" property="inputTime" />
+    <result column="LAST_UPDATE_DATE" jdbcType="VARCHAR" property="lastUpdateDate" />
+    <result column="LAST_UPDATE_TIME" jdbcType="VARCHAR" property="lastUpdateTime" />
+    <result column="SWIFT_NUMBER" jdbcType="VARCHAR" property="swiftNumber" />
+    <result column="CODE" jdbcType="VARCHAR" property="code" />
+    <result column="PC_IND_CATE1" jdbcType="VARCHAR" property="pcIndCate1" />
+    <result column="PC_IND_CATE2" jdbcType="VARCHAR" property="pcIndCate2" />
+    <result column="PC_MANAGER_STAGE" jdbcType="VARCHAR" property="pcManagerStage" />
+    <result column="PC_SALARY_STAGE" jdbcType="VARCHAR" property="pcSalaryStage" />
+    <result column="PC_COMPANY_SCALE" jdbcType="VARCHAR" property="pcCompanyScale" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    APP_NO, ID, CELL, NAME, BIZ_WORKFOR, FLAG_PERSONALCRE, PC_AVG_AMT, PC_AVG_FRE, PC_LST_MONS, 
+    PC_LIFE_CONS, PC_DIGI_CONS, PC_TRAV_CONS, PC_INVEST_CONS, PC_MOBILE_CONS, PC_USER_LEVEL, 
+    PC_VIP_LEVEL, PC_IF_HOUSE, PC_IF_CAR, PC_RCNT_INCOME, PC_LONG_INCOME, PC_RCNT_ECON, 
+    PC_LONG_ECON, PC_INCOME_PROV, PC_INCOME_CHG, PC_REGINCOME_LEVEL, PC_REGINCOME_STA, 
+    PC_NOREGINCOME_LST_MONS, PC_NOINCOME_LST_MONS, PC_BUSINESS_TYPE, PC_COMPANY_MAT, 
+    INPUT_DATE, INPUT_TIME, LAST_UPDATE_DATE, LAST_UPDATE_TIME, SWIFT_NUMBER, CODE, PC_IND_CATE1, 
+    PC_IND_CATE2, PC_MANAGER_STAGE, PC_SALARY_STAGE, PC_COMPANY_SCALE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from BIZ_BR_PERSONAL_CRE
+    where APP_NO = #{appNo,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from BIZ_BR_PERSONAL_CRE
+    where APP_NO = #{appNo,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.BIZ_BR_PERSONAL_CRE">
+    insert into BIZ_BR_PERSONAL_CRE (APP_NO, ID, CELL, 
+      NAME, BIZ_WORKFOR, FLAG_PERSONALCRE, 
+      PC_AVG_AMT, PC_AVG_FRE, PC_LST_MONS, 
+      PC_LIFE_CONS, PC_DIGI_CONS, PC_TRAV_CONS, 
+      PC_INVEST_CONS, PC_MOBILE_CONS, PC_USER_LEVEL, 
+      PC_VIP_LEVEL, PC_IF_HOUSE, PC_IF_CAR, 
+      PC_RCNT_INCOME, PC_LONG_INCOME, PC_RCNT_ECON, 
+      PC_LONG_ECON, PC_INCOME_PROV, PC_INCOME_CHG, 
+      PC_REGINCOME_LEVEL, PC_REGINCOME_STA, PC_NOREGINCOME_LST_MONS, 
+      PC_NOINCOME_LST_MONS, PC_BUSINESS_TYPE, PC_COMPANY_MAT, 
+      INPUT_DATE, INPUT_TIME, LAST_UPDATE_DATE, 
+      LAST_UPDATE_TIME, SWIFT_NUMBER, CODE, 
+      PC_IND_CATE1, PC_IND_CATE2, PC_MANAGER_STAGE, 
+      PC_SALARY_STAGE, PC_COMPANY_SCALE)
+    values (#{appNo,jdbcType=VARCHAR}, #{id,jdbcType=VARCHAR}, #{cell,jdbcType=VARCHAR}, 
+      #{name,jdbcType=VARCHAR}, #{bizWorkfor,jdbcType=VARCHAR}, #{flagPersonalcre,jdbcType=VARCHAR}, 
+      #{pcAvgAmt,jdbcType=VARCHAR}, #{pcAvgFre,jdbcType=VARCHAR}, #{pcLstMons,jdbcType=VARCHAR}, 
+      #{pcLifeCons,jdbcType=VARCHAR}, #{pcDigiCons,jdbcType=VARCHAR}, #{pcTravCons,jdbcType=VARCHAR}, 
+      #{pcInvestCons,jdbcType=VARCHAR}, #{pcMobileCons,jdbcType=VARCHAR}, #{pcUserLevel,jdbcType=VARCHAR}, 
+      #{pcVipLevel,jdbcType=VARCHAR}, #{pcIfHouse,jdbcType=VARCHAR}, #{pcIfCar,jdbcType=VARCHAR}, 
+      #{pcRcntIncome,jdbcType=VARCHAR}, #{pcLongIncome,jdbcType=VARCHAR}, #{pcRcntEcon,jdbcType=VARCHAR}, 
+      #{pcLongEcon,jdbcType=VARCHAR}, #{pcIncomeProv,jdbcType=VARCHAR}, #{pcIncomeChg,jdbcType=VARCHAR}, 
+      #{pcRegincomeLevel,jdbcType=VARCHAR}, #{pcRegincomeSta,jdbcType=VARCHAR}, #{pcNoregincomeLstMons,jdbcType=VARCHAR}, 
+      #{pcNoincomeLstMons,jdbcType=VARCHAR}, #{pcBusinessType,jdbcType=VARCHAR}, #{pcCompanyMat,jdbcType=VARCHAR}, 
+      #{inputDate,jdbcType=VARCHAR}, #{inputTime,jdbcType=VARCHAR}, #{lastUpdateDate,jdbcType=VARCHAR}, 
+      #{lastUpdateTime,jdbcType=VARCHAR}, #{swiftNumber,jdbcType=VARCHAR}, #{code,jdbcType=VARCHAR}, 
+      #{pcIndCate1,jdbcType=VARCHAR}, #{pcIndCate2,jdbcType=VARCHAR}, #{pcManagerStage,jdbcType=VARCHAR}, 
+      #{pcSalaryStage,jdbcType=VARCHAR}, #{pcCompanyScale,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.BIZ_BR_PERSONAL_CRE">
+    insert into BIZ_BR_PERSONAL_CRE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="appNo != null">
+        APP_NO,
+      </if>
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="cell != null">
+        CELL,
+      </if>
+      <if test="name != null">
+        NAME,
+      </if>
+      <if test="bizWorkfor != null">
+        BIZ_WORKFOR,
+      </if>
+      <if test="flagPersonalcre != null">
+        FLAG_PERSONALCRE,
+      </if>
+      <if test="pcAvgAmt != null">
+        PC_AVG_AMT,
+      </if>
+      <if test="pcAvgFre != null">
+        PC_AVG_FRE,
+      </if>
+      <if test="pcLstMons != null">
+        PC_LST_MONS,
+      </if>
+      <if test="pcLifeCons != null">
+        PC_LIFE_CONS,
+      </if>
+      <if test="pcDigiCons != null">
+        PC_DIGI_CONS,
+      </if>
+      <if test="pcTravCons != null">
+        PC_TRAV_CONS,
+      </if>
+      <if test="pcInvestCons != null">
+        PC_INVEST_CONS,
+      </if>
+      <if test="pcMobileCons != null">
+        PC_MOBILE_CONS,
+      </if>
+      <if test="pcUserLevel != null">
+        PC_USER_LEVEL,
+      </if>
+      <if test="pcVipLevel != null">
+        PC_VIP_LEVEL,
+      </if>
+      <if test="pcIfHouse != null">
+        PC_IF_HOUSE,
+      </if>
+      <if test="pcIfCar != null">
+        PC_IF_CAR,
+      </if>
+      <if test="pcRcntIncome != null">
+        PC_RCNT_INCOME,
+      </if>
+      <if test="pcLongIncome != null">
+        PC_LONG_INCOME,
+      </if>
+      <if test="pcRcntEcon != null">
+        PC_RCNT_ECON,
+      </if>
+      <if test="pcLongEcon != null">
+        PC_LONG_ECON,
+      </if>
+      <if test="pcIncomeProv != null">
+        PC_INCOME_PROV,
+      </if>
+      <if test="pcIncomeChg != null">
+        PC_INCOME_CHG,
+      </if>
+      <if test="pcRegincomeLevel != null">
+        PC_REGINCOME_LEVEL,
+      </if>
+      <if test="pcRegincomeSta != null">
+        PC_REGINCOME_STA,
+      </if>
+      <if test="pcNoregincomeLstMons != null">
+        PC_NOREGINCOME_LST_MONS,
+      </if>
+      <if test="pcNoincomeLstMons != null">
+        PC_NOINCOME_LST_MONS,
+      </if>
+      <if test="pcBusinessType != null">
+        PC_BUSINESS_TYPE,
+      </if>
+      <if test="pcCompanyMat != null">
+        PC_COMPANY_MAT,
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE,
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME,
+      </if>
+      <if test="lastUpdateDate != null">
+        LAST_UPDATE_DATE,
+      </if>
+      <if test="lastUpdateTime != null">
+        LAST_UPDATE_TIME,
+      </if>
+      <if test="swiftNumber != null">
+        SWIFT_NUMBER,
+      </if>
+      <if test="code != null">
+        CODE,
+      </if>
+      <if test="pcIndCate1 != null">
+        PC_IND_CATE1,
+      </if>
+      <if test="pcIndCate2 != null">
+        PC_IND_CATE2,
+      </if>
+      <if test="pcManagerStage != null">
+        PC_MANAGER_STAGE,
+      </if>
+      <if test="pcSalaryStage != null">
+        PC_SALARY_STAGE,
+      </if>
+      <if test="pcCompanyScale != null">
+        PC_COMPANY_SCALE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="appNo != null">
+        #{appNo,jdbcType=VARCHAR},
+      </if>
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="cell != null">
+        #{cell,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="bizWorkfor != null">
+        #{bizWorkfor,jdbcType=VARCHAR},
+      </if>
+      <if test="flagPersonalcre != null">
+        #{flagPersonalcre,jdbcType=VARCHAR},
+      </if>
+      <if test="pcAvgAmt != null">
+        #{pcAvgAmt,jdbcType=VARCHAR},
+      </if>
+      <if test="pcAvgFre != null">
+        #{pcAvgFre,jdbcType=VARCHAR},
+      </if>
+      <if test="pcLstMons != null">
+        #{pcLstMons,jdbcType=VARCHAR},
+      </if>
+      <if test="pcLifeCons != null">
+        #{pcLifeCons,jdbcType=VARCHAR},
+      </if>
+      <if test="pcDigiCons != null">
+        #{pcDigiCons,jdbcType=VARCHAR},
+      </if>
+      <if test="pcTravCons != null">
+        #{pcTravCons,jdbcType=VARCHAR},
+      </if>
+      <if test="pcInvestCons != null">
+        #{pcInvestCons,jdbcType=VARCHAR},
+      </if>
+      <if test="pcMobileCons != null">
+        #{pcMobileCons,jdbcType=VARCHAR},
+      </if>
+      <if test="pcUserLevel != null">
+        #{pcUserLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="pcVipLevel != null">
+        #{pcVipLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="pcIfHouse != null">
+        #{pcIfHouse,jdbcType=VARCHAR},
+      </if>
+      <if test="pcIfCar != null">
+        #{pcIfCar,jdbcType=VARCHAR},
+      </if>
+      <if test="pcRcntIncome != null">
+        #{pcRcntIncome,jdbcType=VARCHAR},
+      </if>
+      <if test="pcLongIncome != null">
+        #{pcLongIncome,jdbcType=VARCHAR},
+      </if>
+      <if test="pcRcntEcon != null">
+        #{pcRcntEcon,jdbcType=VARCHAR},
+      </if>
+      <if test="pcLongEcon != null">
+        #{pcLongEcon,jdbcType=VARCHAR},
+      </if>
+      <if test="pcIncomeProv != null">
+        #{pcIncomeProv,jdbcType=VARCHAR},
+      </if>
+      <if test="pcIncomeChg != null">
+        #{pcIncomeChg,jdbcType=VARCHAR},
+      </if>
+      <if test="pcRegincomeLevel != null">
+        #{pcRegincomeLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="pcRegincomeSta != null">
+        #{pcRegincomeSta,jdbcType=VARCHAR},
+      </if>
+      <if test="pcNoregincomeLstMons != null">
+        #{pcNoregincomeLstMons,jdbcType=VARCHAR},
+      </if>
+      <if test="pcNoincomeLstMons != null">
+        #{pcNoincomeLstMons,jdbcType=VARCHAR},
+      </if>
+      <if test="pcBusinessType != null">
+        #{pcBusinessType,jdbcType=VARCHAR},
+      </if>
+      <if test="pcCompanyMat != null">
+        #{pcCompanyMat,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateDate != null">
+        #{lastUpdateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        #{lastUpdateTime,jdbcType=VARCHAR},
+      </if>
+      <if test="swiftNumber != null">
+        #{swiftNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="code != null">
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="pcIndCate1 != null">
+        #{pcIndCate1,jdbcType=VARCHAR},
+      </if>
+      <if test="pcIndCate2 != null">
+        #{pcIndCate2,jdbcType=VARCHAR},
+      </if>
+      <if test="pcManagerStage != null">
+        #{pcManagerStage,jdbcType=VARCHAR},
+      </if>
+      <if test="pcSalaryStage != null">
+        #{pcSalaryStage,jdbcType=VARCHAR},
+      </if>
+      <if test="pcCompanyScale != null">
+        #{pcCompanyScale,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.BIZ_BR_PERSONAL_CRE">
+    update BIZ_BR_PERSONAL_CRE
+    <set>
+      <if test="id != null">
+        ID = #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="cell != null">
+        CELL = #{cell,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        NAME = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="bizWorkfor != null">
+        BIZ_WORKFOR = #{bizWorkfor,jdbcType=VARCHAR},
+      </if>
+      <if test="flagPersonalcre != null">
+        FLAG_PERSONALCRE = #{flagPersonalcre,jdbcType=VARCHAR},
+      </if>
+      <if test="pcAvgAmt != null">
+        PC_AVG_AMT = #{pcAvgAmt,jdbcType=VARCHAR},
+      </if>
+      <if test="pcAvgFre != null">
+        PC_AVG_FRE = #{pcAvgFre,jdbcType=VARCHAR},
+      </if>
+      <if test="pcLstMons != null">
+        PC_LST_MONS = #{pcLstMons,jdbcType=VARCHAR},
+      </if>
+      <if test="pcLifeCons != null">
+        PC_LIFE_CONS = #{pcLifeCons,jdbcType=VARCHAR},
+      </if>
+      <if test="pcDigiCons != null">
+        PC_DIGI_CONS = #{pcDigiCons,jdbcType=VARCHAR},
+      </if>
+      <if test="pcTravCons != null">
+        PC_TRAV_CONS = #{pcTravCons,jdbcType=VARCHAR},
+      </if>
+      <if test="pcInvestCons != null">
+        PC_INVEST_CONS = #{pcInvestCons,jdbcType=VARCHAR},
+      </if>
+      <if test="pcMobileCons != null">
+        PC_MOBILE_CONS = #{pcMobileCons,jdbcType=VARCHAR},
+      </if>
+      <if test="pcUserLevel != null">
+        PC_USER_LEVEL = #{pcUserLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="pcVipLevel != null">
+        PC_VIP_LEVEL = #{pcVipLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="pcIfHouse != null">
+        PC_IF_HOUSE = #{pcIfHouse,jdbcType=VARCHAR},
+      </if>
+      <if test="pcIfCar != null">
+        PC_IF_CAR = #{pcIfCar,jdbcType=VARCHAR},
+      </if>
+      <if test="pcRcntIncome != null">
+        PC_RCNT_INCOME = #{pcRcntIncome,jdbcType=VARCHAR},
+      </if>
+      <if test="pcLongIncome != null">
+        PC_LONG_INCOME = #{pcLongIncome,jdbcType=VARCHAR},
+      </if>
+      <if test="pcRcntEcon != null">
+        PC_RCNT_ECON = #{pcRcntEcon,jdbcType=VARCHAR},
+      </if>
+      <if test="pcLongEcon != null">
+        PC_LONG_ECON = #{pcLongEcon,jdbcType=VARCHAR},
+      </if>
+      <if test="pcIncomeProv != null">
+        PC_INCOME_PROV = #{pcIncomeProv,jdbcType=VARCHAR},
+      </if>
+      <if test="pcIncomeChg != null">
+        PC_INCOME_CHG = #{pcIncomeChg,jdbcType=VARCHAR},
+      </if>
+      <if test="pcRegincomeLevel != null">
+        PC_REGINCOME_LEVEL = #{pcRegincomeLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="pcRegincomeSta != null">
+        PC_REGINCOME_STA = #{pcRegincomeSta,jdbcType=VARCHAR},
+      </if>
+      <if test="pcNoregincomeLstMons != null">
+        PC_NOREGINCOME_LST_MONS = #{pcNoregincomeLstMons,jdbcType=VARCHAR},
+      </if>
+      <if test="pcNoincomeLstMons != null">
+        PC_NOINCOME_LST_MONS = #{pcNoincomeLstMons,jdbcType=VARCHAR},
+      </if>
+      <if test="pcBusinessType != null">
+        PC_BUSINESS_TYPE = #{pcBusinessType,jdbcType=VARCHAR},
+      </if>
+      <if test="pcCompanyMat != null">
+        PC_COMPANY_MAT = #{pcCompanyMat,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE = #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME = #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateDate != null">
+        LAST_UPDATE_DATE = #{lastUpdateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=VARCHAR},
+      </if>
+      <if test="swiftNumber != null">
+        SWIFT_NUMBER = #{swiftNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="code != null">
+        CODE = #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="pcIndCate1 != null">
+        PC_IND_CATE1 = #{pcIndCate1,jdbcType=VARCHAR},
+      </if>
+      <if test="pcIndCate2 != null">
+        PC_IND_CATE2 = #{pcIndCate2,jdbcType=VARCHAR},
+      </if>
+      <if test="pcManagerStage != null">
+        PC_MANAGER_STAGE = #{pcManagerStage,jdbcType=VARCHAR},
+      </if>
+      <if test="pcSalaryStage != null">
+        PC_SALARY_STAGE = #{pcSalaryStage,jdbcType=VARCHAR},
+      </if>
+      <if test="pcCompanyScale != null">
+        PC_COMPANY_SCALE = #{pcCompanyScale,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where APP_NO = #{appNo,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.BIZ_BR_PERSONAL_CRE">
+    update BIZ_BR_PERSONAL_CRE
+    set ID = #{id,jdbcType=VARCHAR},
+      CELL = #{cell,jdbcType=VARCHAR},
+      NAME = #{name,jdbcType=VARCHAR},
+      BIZ_WORKFOR = #{bizWorkfor,jdbcType=VARCHAR},
+      FLAG_PERSONALCRE = #{flagPersonalcre,jdbcType=VARCHAR},
+      PC_AVG_AMT = #{pcAvgAmt,jdbcType=VARCHAR},
+      PC_AVG_FRE = #{pcAvgFre,jdbcType=VARCHAR},
+      PC_LST_MONS = #{pcLstMons,jdbcType=VARCHAR},
+      PC_LIFE_CONS = #{pcLifeCons,jdbcType=VARCHAR},
+      PC_DIGI_CONS = #{pcDigiCons,jdbcType=VARCHAR},
+      PC_TRAV_CONS = #{pcTravCons,jdbcType=VARCHAR},
+      PC_INVEST_CONS = #{pcInvestCons,jdbcType=VARCHAR},
+      PC_MOBILE_CONS = #{pcMobileCons,jdbcType=VARCHAR},
+      PC_USER_LEVEL = #{pcUserLevel,jdbcType=VARCHAR},
+      PC_VIP_LEVEL = #{pcVipLevel,jdbcType=VARCHAR},
+      PC_IF_HOUSE = #{pcIfHouse,jdbcType=VARCHAR},
+      PC_IF_CAR = #{pcIfCar,jdbcType=VARCHAR},
+      PC_RCNT_INCOME = #{pcRcntIncome,jdbcType=VARCHAR},
+      PC_LONG_INCOME = #{pcLongIncome,jdbcType=VARCHAR},
+      PC_RCNT_ECON = #{pcRcntEcon,jdbcType=VARCHAR},
+      PC_LONG_ECON = #{pcLongEcon,jdbcType=VARCHAR},
+      PC_INCOME_PROV = #{pcIncomeProv,jdbcType=VARCHAR},
+      PC_INCOME_CHG = #{pcIncomeChg,jdbcType=VARCHAR},
+      PC_REGINCOME_LEVEL = #{pcRegincomeLevel,jdbcType=VARCHAR},
+      PC_REGINCOME_STA = #{pcRegincomeSta,jdbcType=VARCHAR},
+      PC_NOREGINCOME_LST_MONS = #{pcNoregincomeLstMons,jdbcType=VARCHAR},
+      PC_NOINCOME_LST_MONS = #{pcNoincomeLstMons,jdbcType=VARCHAR},
+      PC_BUSINESS_TYPE = #{pcBusinessType,jdbcType=VARCHAR},
+      PC_COMPANY_MAT = #{pcCompanyMat,jdbcType=VARCHAR},
+      INPUT_DATE = #{inputDate,jdbcType=VARCHAR},
+      INPUT_TIME = #{inputTime,jdbcType=VARCHAR},
+      LAST_UPDATE_DATE = #{lastUpdateDate,jdbcType=VARCHAR},
+      LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=VARCHAR},
+      SWIFT_NUMBER = #{swiftNumber,jdbcType=VARCHAR},
+      CODE = #{code,jdbcType=VARCHAR},
+      PC_IND_CATE1 = #{pcIndCate1,jdbcType=VARCHAR},
+      PC_IND_CATE2 = #{pcIndCate2,jdbcType=VARCHAR},
+      PC_MANAGER_STAGE = #{pcManagerStage,jdbcType=VARCHAR},
+      PC_SALARY_STAGE = #{pcSalaryStage,jdbcType=VARCHAR},
+      PC_COMPANY_SCALE = #{pcCompanyScale,jdbcType=VARCHAR}
+    where APP_NO = #{appNo,jdbcType=VARCHAR}
+  </update>
+</mapper>

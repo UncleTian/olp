@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.BAT_CBM_REPAY_SPLIT_DETMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.BAT_CBM_REPAY_SPLIT_DET">
+    <result column="SERIALNO" jdbcType="VARCHAR" property="serialno" />
+    <result column="TRANSSERIALNO" jdbcType="VARCHAR" property="transserialno" />
+    <result column="OBJECTTYPE" jdbcType="VARCHAR" property="objecttype" />
+    <result column="OBJECTNO" jdbcType="VARCHAR" property="objectno" />
+    <result column="RELATIVEOBJECTTYPE" jdbcType="VARCHAR" property="relativeobjecttype" />
+    <result column="RELATIVEOBJECTNO" jdbcType="VARCHAR" property="relativeobjectno" />
+    <result column="PAYDATE" jdbcType="VARCHAR" property="paydate" />
+    <result column="ACTUALPAYDATE" jdbcType="VARCHAR" property="actualpaydate" />
+    <result column="CURRENCY" jdbcType="VARCHAR" property="currency" />
+    <result column="PAYPRINCIPALAMT" jdbcType="DECIMAL" property="payprincipalamt" />
+    <result column="ACTUALPAYPRINCIPALAMT" jdbcType="DECIMAL" property="actualpayprincipalamt" />
+    <result column="WAIVEPRINCIPALAMT" jdbcType="DECIMAL" property="waiveprincipalamt" />
+    <result column="PRINCIPALBALANCE" jdbcType="DECIMAL" property="principalbalance" />
+    <result column="PAYINTERESTAMT" jdbcType="DECIMAL" property="payinterestamt" />
+    <result column="ACTUALPAYINTERESTAMT" jdbcType="DECIMAL" property="actualpayinterestamt" />
+    <result column="WAIVEINTERESTAMT" jdbcType="DECIMAL" property="waiveinterestamt" />
+    <result column="PAYPRINCIPALPENALTYAMT" jdbcType="DECIMAL" property="payprincipalpenaltyamt" />
+    <result column="ACTUALPAYPRINCIPALPENALTYAMT" jdbcType="DECIMAL" property="actualpayprincipalpenaltyamt" />
+    <result column="WAIVEPRINCIPALPENALTYAMT" jdbcType="DECIMAL" property="waiveprincipalpenaltyamt" />
+    <result column="PAYINTERESTPENALTYAMT" jdbcType="DECIMAL" property="payinterestpenaltyamt" />
+    <result column="ACTUALPAYINTERESTPENALTYAMT" jdbcType="DECIMAL" property="actualpayinterestpenaltyamt" />
+    <result column="WAIVEINTERESTPENALTYAMT" jdbcType="DECIMAL" property="waiveinterestpenaltyamt" />
+    <result column="STATUS" jdbcType="VARCHAR" property="status" />
+    <result column="INPUT_DATE" jdbcType="VARCHAR" property="inputDate" />
+    <result column="INPUT_TIME" jdbcType="VARCHAR" property="inputTime" />
+    <result column="DATA_DATE" jdbcType="VARCHAR" property="dataDate" />
+    <result column="CHANNEL_TYPE" jdbcType="VARCHAR" property="channelType" />
+  </resultMap>
+  <insert id="insert" parameterType="com.bea.olp.BAT_CBM_REPAY_SPLIT_DET">
+    insert into BAT_CBM_REPAY_SPLIT_DET (SERIALNO, TRANSSERIALNO, OBJECTTYPE, 
+      OBJECTNO, RELATIVEOBJECTTYPE, RELATIVEOBJECTNO, 
+      PAYDATE, ACTUALPAYDATE, CURRENCY, 
+      PAYPRINCIPALAMT, ACTUALPAYPRINCIPALAMT, 
+      WAIVEPRINCIPALAMT, PRINCIPALBALANCE, PAYINTERESTAMT, 
+      ACTUALPAYINTERESTAMT, WAIVEINTERESTAMT, 
+      PAYPRINCIPALPENALTYAMT, ACTUALPAYPRINCIPALPENALTYAMT, 
+      WAIVEPRINCIPALPENALTYAMT, PAYINTERESTPENALTYAMT, 
+      ACTUALPAYINTERESTPENALTYAMT, WAIVEINTERESTPENALTYAMT, 
+      STATUS, INPUT_DATE, INPUT_TIME, 
+      DATA_DATE, CHANNEL_TYPE)
+    values (#{serialno,jdbcType=VARCHAR}, #{transserialno,jdbcType=VARCHAR}, #{objecttype,jdbcType=VARCHAR}, 
+      #{objectno,jdbcType=VARCHAR}, #{relativeobjecttype,jdbcType=VARCHAR}, #{relativeobjectno,jdbcType=VARCHAR}, 
+      #{paydate,jdbcType=VARCHAR}, #{actualpaydate,jdbcType=VARCHAR}, #{currency,jdbcType=VARCHAR}, 
+      #{payprincipalamt,jdbcType=DECIMAL}, #{actualpayprincipalamt,jdbcType=DECIMAL}, 
+      #{waiveprincipalamt,jdbcType=DECIMAL}, #{principalbalance,jdbcType=DECIMAL}, #{payinterestamt,jdbcType=DECIMAL}, 
+      #{actualpayinterestamt,jdbcType=DECIMAL}, #{waiveinterestamt,jdbcType=DECIMAL}, 
+      #{payprincipalpenaltyamt,jdbcType=DECIMAL}, #{actualpayprincipalpenaltyamt,jdbcType=DECIMAL}, 
+      #{waiveprincipalpenaltyamt,jdbcType=DECIMAL}, #{payinterestpenaltyamt,jdbcType=DECIMAL}, 
+      #{actualpayinterestpenaltyamt,jdbcType=DECIMAL}, #{waiveinterestpenaltyamt,jdbcType=DECIMAL}, 
+      #{status,jdbcType=VARCHAR}, #{inputDate,jdbcType=VARCHAR}, #{inputTime,jdbcType=VARCHAR}, 
+      #{dataDate,jdbcType=VARCHAR}, #{channelType,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.BAT_CBM_REPAY_SPLIT_DET">
+    insert into BAT_CBM_REPAY_SPLIT_DET
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="serialno != null">
+        SERIALNO,
+      </if>
+      <if test="transserialno != null">
+        TRANSSERIALNO,
+      </if>
+      <if test="objecttype != null">
+        OBJECTTYPE,
+      </if>
+      <if test="objectno != null">
+        OBJECTNO,
+      </if>
+      <if test="relativeobjecttype != null">
+        RELATIVEOBJECTTYPE,
+      </if>
+      <if test="relativeobjectno != null">
+        RELATIVEOBJECTNO,
+      </if>
+      <if test="paydate != null">
+        PAYDATE,
+      </if>
+      <if test="actualpaydate != null">
+        ACTUALPAYDATE,
+      </if>
+      <if test="currency != null">
+        CURRENCY,
+      </if>
+      <if test="payprincipalamt != null">
+        PAYPRINCIPALAMT,
+      </if>
+      <if test="actualpayprincipalamt != null">
+        ACTUALPAYPRINCIPALAMT,
+      </if>
+      <if test="waiveprincipalamt != null">
+        WAIVEPRINCIPALAMT,
+      </if>
+      <if test="principalbalance != null">
+        PRINCIPALBALANCE,
+      </if>
+      <if test="payinterestamt != null">
+        PAYINTERESTAMT,
+      </if>
+      <if test="actualpayinterestamt != null">
+        ACTUALPAYINTERESTAMT,
+      </if>
+      <if test="waiveinterestamt != null">
+        WAIVEINTERESTAMT,
+      </if>
+      <if test="payprincipalpenaltyamt != null">
+        PAYPRINCIPALPENALTYAMT,
+      </if>
+      <if test="actualpayprincipalpenaltyamt != null">
+        ACTUALPAYPRINCIPALPENALTYAMT,
+      </if>
+      <if test="waiveprincipalpenaltyamt != null">
+        WAIVEPRINCIPALPENALTYAMT,
+      </if>
+      <if test="payinterestpenaltyamt != null">
+        PAYINTERESTPENALTYAMT,
+      </if>
+      <if test="actualpayinterestpenaltyamt != null">
+        ACTUALPAYINTERESTPENALTYAMT,
+      </if>
+      <if test="waiveinterestpenaltyamt != null">
+        WAIVEINTERESTPENALTYAMT,
+      </if>
+      <if test="status != null">
+        STATUS,
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE,
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME,
+      </if>
+      <if test="dataDate != null">
+        DATA_DATE,
+      </if>
+      <if test="channelType != null">
+        CHANNEL_TYPE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="serialno != null">
+        #{serialno,jdbcType=VARCHAR},
+      </if>
+      <if test="transserialno != null">
+        #{transserialno,jdbcType=VARCHAR},
+      </if>
+      <if test="objecttype != null">
+        #{objecttype,jdbcType=VARCHAR},
+      </if>
+      <if test="objectno != null">
+        #{objectno,jdbcType=VARCHAR},
+      </if>
+      <if test="relativeobjecttype != null">
+        #{relativeobjecttype,jdbcType=VARCHAR},
+      </if>
+      <if test="relativeobjectno != null">
+        #{relativeobjectno,jdbcType=VARCHAR},
+      </if>
+      <if test="paydate != null">
+        #{paydate,jdbcType=VARCHAR},
+      </if>
+      <if test="actualpaydate != null">
+        #{actualpaydate,jdbcType=VARCHAR},
+      </if>
+      <if test="currency != null">
+        #{currency,jdbcType=VARCHAR},
+      </if>
+      <if test="payprincipalamt != null">
+        #{payprincipalamt,jdbcType=DECIMAL},
+      </if>
+      <if test="actualpayprincipalamt != null">
+        #{actualpayprincipalamt,jdbcType=DECIMAL},
+      </if>
+      <if test="waiveprincipalamt != null">
+        #{waiveprincipalamt,jdbcType=DECIMAL},
+      </if>
+      <if test="principalbalance != null">
+        #{principalbalance,jdbcType=DECIMAL},
+      </if>
+      <if test="payinterestamt != null">
+        #{payinterestamt,jdbcType=DECIMAL},
+      </if>
+      <if test="actualpayinterestamt != null">
+        #{actualpayinterestamt,jdbcType=DECIMAL},
+      </if>
+      <if test="waiveinterestamt != null">
+        #{waiveinterestamt,jdbcType=DECIMAL},
+      </if>
+      <if test="payprincipalpenaltyamt != null">
+        #{payprincipalpenaltyamt,jdbcType=DECIMAL},
+      </if>
+      <if test="actualpayprincipalpenaltyamt != null">
+        #{actualpayprincipalpenaltyamt,jdbcType=DECIMAL},
+      </if>
+      <if test="waiveprincipalpenaltyamt != null">
+        #{waiveprincipalpenaltyamt,jdbcType=DECIMAL},
+      </if>
+      <if test="payinterestpenaltyamt != null">
+        #{payinterestpenaltyamt,jdbcType=DECIMAL},
+      </if>
+      <if test="actualpayinterestpenaltyamt != null">
+        #{actualpayinterestpenaltyamt,jdbcType=DECIMAL},
+      </if>
+      <if test="waiveinterestpenaltyamt != null">
+        #{waiveinterestpenaltyamt,jdbcType=DECIMAL},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="dataDate != null">
+        #{dataDate,jdbcType=VARCHAR},
+      </if>
+      <if test="channelType != null">
+        #{channelType,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

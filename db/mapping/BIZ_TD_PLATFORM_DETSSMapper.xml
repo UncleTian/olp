@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.BIZ_TD_PLATFORM_DETSSMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.BIZ_TD_PLATFORM_DETSS">
+    <result column="APP_NO" jdbcType="VARCHAR" property="appNo" />
+    <result column="RULE_ID" jdbcType="VARCHAR" property="ruleId" />
+    <result column="TYPE" jdbcType="VARCHAR" property="type" />
+    <result column="DIMENSION" jdbcType="VARCHAR" property="dimension" />
+    <result column="INDUSTRY_DISPLAY_NAME" jdbcType="VARCHAR" property="industryDisplayName" />
+    <result column="COUNT" jdbcType="VARCHAR" property="count" />
+    <result column="INPUT_DATE" jdbcType="VARCHAR" property="inputDate" />
+    <result column="INPUT_TIME" jdbcType="VARCHAR" property="inputTime" />
+    <result column="LAST_UPDATE_DATE" jdbcType="VARCHAR" property="lastUpdateDate" />
+    <result column="LAST_UPDATE_TIME" jdbcType="VARCHAR" property="lastUpdateTime" />
+  </resultMap>
+  <insert id="insert" parameterType="com.bea.olp.BIZ_TD_PLATFORM_DETSS">
+    insert into BIZ_TD_PLATFORM_DETSS (APP_NO, RULE_ID, TYPE, 
+      DIMENSION, INDUSTRY_DISPLAY_NAME, COUNT, 
+      INPUT_DATE, INPUT_TIME, LAST_UPDATE_DATE, 
+      LAST_UPDATE_TIME)
+    values (#{appNo,jdbcType=VARCHAR}, #{ruleId,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, 
+      #{dimension,jdbcType=VARCHAR}, #{industryDisplayName,jdbcType=VARCHAR}, #{count,jdbcType=VARCHAR}, 
+      #{inputDate,jdbcType=VARCHAR}, #{inputTime,jdbcType=VARCHAR}, #{lastUpdateDate,jdbcType=VARCHAR}, 
+      #{lastUpdateTime,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.BIZ_TD_PLATFORM_DETSS">
+    insert into BIZ_TD_PLATFORM_DETSS
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="appNo != null">
+        APP_NO,
+      </if>
+      <if test="ruleId != null">
+        RULE_ID,
+      </if>
+      <if test="type != null">
+        TYPE,
+      </if>
+      <if test="dimension != null">
+        DIMENSION,
+      </if>
+      <if test="industryDisplayName != null">
+        INDUSTRY_DISPLAY_NAME,
+      </if>
+      <if test="count != null">
+        COUNT,
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE,
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME,
+      </if>
+      <if test="lastUpdateDate != null">
+        LAST_UPDATE_DATE,
+      </if>
+      <if test="lastUpdateTime != null">
+        LAST_UPDATE_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="appNo != null">
+        #{appNo,jdbcType=VARCHAR},
+      </if>
+      <if test="ruleId != null">
+        #{ruleId,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="dimension != null">
+        #{dimension,jdbcType=VARCHAR},
+      </if>
+      <if test="industryDisplayName != null">
+        #{industryDisplayName,jdbcType=VARCHAR},
+      </if>
+      <if test="count != null">
+        #{count,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateDate != null">
+        #{lastUpdateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        #{lastUpdateTime,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

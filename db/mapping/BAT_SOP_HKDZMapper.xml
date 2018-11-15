@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.BAT_SOP_HKDZMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.BAT_SOP_HKDZ">
+    <result column="DT_DATE" jdbcType="VARCHAR" property="dtDate" />
+    <result column="BILL_NO" jdbcType="VARCHAR" property="billNo" />
+    <result column="PAY_SERNO" jdbcType="VARCHAR" property="paySerno" />
+    <result column="CO_PLATFORM" jdbcType="CHAR" property="coPlatform" />
+    <result column="PRD_CODE" jdbcType="VARCHAR" property="prdCode" />
+    <result column="PAY_WAY" jdbcType="CHAR" property="payWay" />
+    <result column="TRAN_CODE" jdbcType="VARCHAR" property="tranCode" />
+    <result column="NOR_PAY_FLAG" jdbcType="CHAR" property="norPayFlag" />
+    <result column="EXC_PAY_FLAG" jdbcType="CHAR" property="excPayFlag" />
+    <result column="PAY_TOTAL_AMT" jdbcType="DECIMAL" property="payTotalAmt" />
+    <result column="PAIED_EXPNORM_AMT" jdbcType="DECIMAL" property="paiedExpnormAmt" />
+    <result column="PAIED_EXPINTE_AMT" jdbcType="DECIMAL" property="paiedExpinteAmt" />
+    <result column="PAIED_EXCNORM_AMT" jdbcType="DECIMAL" property="paiedExcnormAmt" />
+    <result column="PAIED_EXCINTE_AMT" jdbcType="DECIMAL" property="paiedExcinteAmt" />
+    <result column="TRADE_TYPE" jdbcType="CHAR" property="tradeType" />
+    <result column="PAY_BAL_AMT" jdbcType="DECIMAL" property="payBalAmt" />
+    <result column="BAL_NORM_AMT" jdbcType="DECIMAL" property="balNormAmt" />
+    <result column="INPUT_DATE" jdbcType="VARCHAR" property="inputDate" />
+    <result column="INPUT_TIME" jdbcType="VARCHAR" property="inputTime" />
+    <result column="LAST_UPDATE_DATE" jdbcType="VARCHAR" property="lastUpdateDate" />
+    <result column="LAST_UPDATE_TIME" jdbcType="VARCHAR" property="lastUpdateTime" />
+  </resultMap>
+  <insert id="insert" parameterType="com.bea.olp.BAT_SOP_HKDZ">
+    insert into BAT_SOP_HKDZ (DT_DATE, BILL_NO, PAY_SERNO, 
+      CO_PLATFORM, PRD_CODE, PAY_WAY, 
+      TRAN_CODE, NOR_PAY_FLAG, EXC_PAY_FLAG, 
+      PAY_TOTAL_AMT, PAIED_EXPNORM_AMT, PAIED_EXPINTE_AMT, 
+      PAIED_EXCNORM_AMT, PAIED_EXCINTE_AMT, TRADE_TYPE, 
+      PAY_BAL_AMT, BAL_NORM_AMT, INPUT_DATE, 
+      INPUT_TIME, LAST_UPDATE_DATE, LAST_UPDATE_TIME
+      )
+    values (#{dtDate,jdbcType=VARCHAR}, #{billNo,jdbcType=VARCHAR}, #{paySerno,jdbcType=VARCHAR}, 
+      #{coPlatform,jdbcType=CHAR}, #{prdCode,jdbcType=VARCHAR}, #{payWay,jdbcType=CHAR}, 
+      #{tranCode,jdbcType=VARCHAR}, #{norPayFlag,jdbcType=CHAR}, #{excPayFlag,jdbcType=CHAR}, 
+      #{payTotalAmt,jdbcType=DECIMAL}, #{paiedExpnormAmt,jdbcType=DECIMAL}, #{paiedExpinteAmt,jdbcType=DECIMAL}, 
+      #{paiedExcnormAmt,jdbcType=DECIMAL}, #{paiedExcinteAmt,jdbcType=DECIMAL}, #{tradeType,jdbcType=CHAR}, 
+      #{payBalAmt,jdbcType=DECIMAL}, #{balNormAmt,jdbcType=DECIMAL}, #{inputDate,jdbcType=VARCHAR}, 
+      #{inputTime,jdbcType=VARCHAR}, #{lastUpdateDate,jdbcType=VARCHAR}, #{lastUpdateTime,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.BAT_SOP_HKDZ">
+    insert into BAT_SOP_HKDZ
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="dtDate != null">
+        DT_DATE,
+      </if>
+      <if test="billNo != null">
+        BILL_NO,
+      </if>
+      <if test="paySerno != null">
+        PAY_SERNO,
+      </if>
+      <if test="coPlatform != null">
+        CO_PLATFORM,
+      </if>
+      <if test="prdCode != null">
+        PRD_CODE,
+      </if>
+      <if test="payWay != null">
+        PAY_WAY,
+      </if>
+      <if test="tranCode != null">
+        TRAN_CODE,
+      </if>
+      <if test="norPayFlag != null">
+        NOR_PAY_FLAG,
+      </if>
+      <if test="excPayFlag != null">
+        EXC_PAY_FLAG,
+      </if>
+      <if test="payTotalAmt != null">
+        PAY_TOTAL_AMT,
+      </if>
+      <if test="paiedExpnormAmt != null">
+        PAIED_EXPNORM_AMT,
+      </if>
+      <if test="paiedExpinteAmt != null">
+        PAIED_EXPINTE_AMT,
+      </if>
+      <if test="paiedExcnormAmt != null">
+        PAIED_EXCNORM_AMT,
+      </if>
+      <if test="paiedExcinteAmt != null">
+        PAIED_EXCINTE_AMT,
+      </if>
+      <if test="tradeType != null">
+        TRADE_TYPE,
+      </if>
+      <if test="payBalAmt != null">
+        PAY_BAL_AMT,
+      </if>
+      <if test="balNormAmt != null">
+        BAL_NORM_AMT,
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE,
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME,
+      </if>
+      <if test="lastUpdateDate != null">
+        LAST_UPDATE_DATE,
+      </if>
+      <if test="lastUpdateTime != null">
+        LAST_UPDATE_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="dtDate != null">
+        #{dtDate,jdbcType=VARCHAR},
+      </if>
+      <if test="billNo != null">
+        #{billNo,jdbcType=VARCHAR},
+      </if>
+      <if test="paySerno != null">
+        #{paySerno,jdbcType=VARCHAR},
+      </if>
+      <if test="coPlatform != null">
+        #{coPlatform,jdbcType=CHAR},
+      </if>
+      <if test="prdCode != null">
+        #{prdCode,jdbcType=VARCHAR},
+      </if>
+      <if test="payWay != null">
+        #{payWay,jdbcType=CHAR},
+      </if>
+      <if test="tranCode != null">
+        #{tranCode,jdbcType=VARCHAR},
+      </if>
+      <if test="norPayFlag != null">
+        #{norPayFlag,jdbcType=CHAR},
+      </if>
+      <if test="excPayFlag != null">
+        #{excPayFlag,jdbcType=CHAR},
+      </if>
+      <if test="payTotalAmt != null">
+        #{payTotalAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="paiedExpnormAmt != null">
+        #{paiedExpnormAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="paiedExpinteAmt != null">
+        #{paiedExpinteAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="paiedExcnormAmt != null">
+        #{paiedExcnormAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="paiedExcinteAmt != null">
+        #{paiedExcinteAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="tradeType != null">
+        #{tradeType,jdbcType=CHAR},
+      </if>
+      <if test="payBalAmt != null">
+        #{payBalAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="balNormAmt != null">
+        #{balNormAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="inputDate != null">
+        #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateDate != null">
+        #{lastUpdateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        #{lastUpdateTime,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

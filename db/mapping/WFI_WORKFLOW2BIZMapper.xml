@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.WFI_WORKFLOW2BIZMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.WFI_WORKFLOW2BIZ">
+    <id column="PK1" jdbcType="VARCHAR" property="pk1" />
+    <result column="APPL_TYPE" jdbcType="VARCHAR" property="applType" />
+    <result column="WFSIGN" jdbcType="VARCHAR" property="wfsign" />
+    <result column="WFNAME" jdbcType="VARCHAR" property="wfname" />
+    <result column="APP_URL" jdbcType="VARCHAR" property="appUrl" />
+    <result column="BIZ_URL" jdbcType="VARCHAR" property="bizUrl" />
+    <result column="PREVENT_LIST" jdbcType="VARCHAR" property="preventList" />
+    <result column="SCENE_SCOPE" jdbcType="CHAR" property="sceneScope" />
+    <result column="REMARK" jdbcType="VARCHAR" property="remark" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    PK1, APPL_TYPE, WFSIGN, WFNAME, APP_URL, BIZ_URL, PREVENT_LIST, SCENE_SCOPE, REMARK
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from WFI_WORKFLOW2BIZ
+    where PK1 = #{pk1,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from WFI_WORKFLOW2BIZ
+    where PK1 = #{pk1,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.WFI_WORKFLOW2BIZ">
+    insert into WFI_WORKFLOW2BIZ (PK1, APPL_TYPE, WFSIGN, 
+      WFNAME, APP_URL, BIZ_URL, 
+      PREVENT_LIST, SCENE_SCOPE, REMARK
+      )
+    values (#{pk1,jdbcType=VARCHAR}, #{applType,jdbcType=VARCHAR}, #{wfsign,jdbcType=VARCHAR}, 
+      #{wfname,jdbcType=VARCHAR}, #{appUrl,jdbcType=VARCHAR}, #{bizUrl,jdbcType=VARCHAR}, 
+      #{preventList,jdbcType=VARCHAR}, #{sceneScope,jdbcType=CHAR}, #{remark,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.WFI_WORKFLOW2BIZ">
+    insert into WFI_WORKFLOW2BIZ
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="pk1 != null">
+        PK1,
+      </if>
+      <if test="applType != null">
+        APPL_TYPE,
+      </if>
+      <if test="wfsign != null">
+        WFSIGN,
+      </if>
+      <if test="wfname != null">
+        WFNAME,
+      </if>
+      <if test="appUrl != null">
+        APP_URL,
+      </if>
+      <if test="bizUrl != null">
+        BIZ_URL,
+      </if>
+      <if test="preventList != null">
+        PREVENT_LIST,
+      </if>
+      <if test="sceneScope != null">
+        SCENE_SCOPE,
+      </if>
+      <if test="remark != null">
+        REMARK,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="pk1 != null">
+        #{pk1,jdbcType=VARCHAR},
+      </if>
+      <if test="applType != null">
+        #{applType,jdbcType=VARCHAR},
+      </if>
+      <if test="wfsign != null">
+        #{wfsign,jdbcType=VARCHAR},
+      </if>
+      <if test="wfname != null">
+        #{wfname,jdbcType=VARCHAR},
+      </if>
+      <if test="appUrl != null">
+        #{appUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="bizUrl != null">
+        #{bizUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="preventList != null">
+        #{preventList,jdbcType=VARCHAR},
+      </if>
+      <if test="sceneScope != null">
+        #{sceneScope,jdbcType=CHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.WFI_WORKFLOW2BIZ">
+    update WFI_WORKFLOW2BIZ
+    <set>
+      <if test="applType != null">
+        APPL_TYPE = #{applType,jdbcType=VARCHAR},
+      </if>
+      <if test="wfsign != null">
+        WFSIGN = #{wfsign,jdbcType=VARCHAR},
+      </if>
+      <if test="wfname != null">
+        WFNAME = #{wfname,jdbcType=VARCHAR},
+      </if>
+      <if test="appUrl != null">
+        APP_URL = #{appUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="bizUrl != null">
+        BIZ_URL = #{bizUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="preventList != null">
+        PREVENT_LIST = #{preventList,jdbcType=VARCHAR},
+      </if>
+      <if test="sceneScope != null">
+        SCENE_SCOPE = #{sceneScope,jdbcType=CHAR},
+      </if>
+      <if test="remark != null">
+        REMARK = #{remark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where PK1 = #{pk1,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.WFI_WORKFLOW2BIZ">
+    update WFI_WORKFLOW2BIZ
+    set APPL_TYPE = #{applType,jdbcType=VARCHAR},
+      WFSIGN = #{wfsign,jdbcType=VARCHAR},
+      WFNAME = #{wfname,jdbcType=VARCHAR},
+      APP_URL = #{appUrl,jdbcType=VARCHAR},
+      BIZ_URL = #{bizUrl,jdbcType=VARCHAR},
+      PREVENT_LIST = #{preventList,jdbcType=VARCHAR},
+      SCENE_SCOPE = #{sceneScope,jdbcType=CHAR},
+      REMARK = #{remark,jdbcType=VARCHAR}
+    where PK1 = #{pk1,jdbcType=VARCHAR}
+  </update>
+</mapper>

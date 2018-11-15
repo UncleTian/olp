@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.BAT_TRANSFER_CFGMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.BAT_TRANSFER_CFG">
+    <id column="TASK_NO" jdbcType="VARCHAR" property="taskNo" />
+    <result column="IP" jdbcType="VARCHAR" property="ip" />
+    <result column="PORT" jdbcType="VARCHAR" property="port" />
+    <result column="USERNAME" jdbcType="VARCHAR" property="username" />
+    <result column="USERPSW" jdbcType="VARCHAR" property="userpsw" />
+    <result column="HOSTNO" jdbcType="VARCHAR" property="hostno" />
+    <result column="ROUTENO" jdbcType="VARCHAR" property="routeno" />
+    <result column="WORK_DIR" jdbcType="VARCHAR" property="workDir" />
+    <result column="LOCAL_DIR" jdbcType="VARCHAR" property="localDir" />
+    <result column="REMOTE_DIR" jdbcType="VARCHAR" property="remoteDir" />
+    <result column="REMARKS" jdbcType="VARCHAR" property="remarks" />
+    <result column="OP_USER_ID" jdbcType="VARCHAR" property="opUserId" />
+    <result column="OP_ORG_ID" jdbcType="VARCHAR" property="opOrgId" />
+    <result column="INPUT_DATE" jdbcType="VARCHAR" property="inputDate" />
+    <result column="INPUT_TIME" jdbcType="VARCHAR" property="inputTime" />
+    <result column="LAST_UPDATE_DATE" jdbcType="VARCHAR" property="lastUpdateDate" />
+    <result column="LAST_UPDATE_TIME" jdbcType="VARCHAR" property="lastUpdateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    TASK_NO, IP, PORT, USERNAME, USERPSW, HOSTNO, ROUTENO, WORK_DIR, LOCAL_DIR, REMOTE_DIR, 
+    REMARKS, OP_USER_ID, OP_ORG_ID, INPUT_DATE, INPUT_TIME, LAST_UPDATE_DATE, LAST_UPDATE_TIME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from BAT_TRANSFER_CFG
+    where TASK_NO = #{taskNo,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from BAT_TRANSFER_CFG
+    where TASK_NO = #{taskNo,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.BAT_TRANSFER_CFG">
+    insert into BAT_TRANSFER_CFG (TASK_NO, IP, PORT, 
+      USERNAME, USERPSW, HOSTNO, 
+      ROUTENO, WORK_DIR, LOCAL_DIR, 
+      REMOTE_DIR, REMARKS, OP_USER_ID, 
+      OP_ORG_ID, INPUT_DATE, INPUT_TIME, 
+      LAST_UPDATE_DATE, LAST_UPDATE_TIME)
+    values (#{taskNo,jdbcType=VARCHAR}, #{ip,jdbcType=VARCHAR}, #{port,jdbcType=VARCHAR}, 
+      #{username,jdbcType=VARCHAR}, #{userpsw,jdbcType=VARCHAR}, #{hostno,jdbcType=VARCHAR}, 
+      #{routeno,jdbcType=VARCHAR}, #{workDir,jdbcType=VARCHAR}, #{localDir,jdbcType=VARCHAR}, 
+      #{remoteDir,jdbcType=VARCHAR}, #{remarks,jdbcType=VARCHAR}, #{opUserId,jdbcType=VARCHAR}, 
+      #{opOrgId,jdbcType=VARCHAR}, #{inputDate,jdbcType=VARCHAR}, #{inputTime,jdbcType=VARCHAR}, 
+      #{lastUpdateDate,jdbcType=VARCHAR}, #{lastUpdateTime,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.BAT_TRANSFER_CFG">
+    insert into BAT_TRANSFER_CFG
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="taskNo != null">
+        TASK_NO,
+      </if>
+      <if test="ip != null">
+        IP,
+      </if>
+      <if test="port != null">
+        PORT,
+      </if>
+      <if test="username != null">
+        USERNAME,
+      </if>
+      <if test="userpsw != null">
+        USERPSW,
+      </if>
+      <if test="hostno != null">
+        HOSTNO,
+      </if>
+      <if test="routeno != null">
+        ROUTENO,
+      </if>
+      <if test="workDir != null">
+        WORK_DIR,
+      </if>
+      <if test="localDir != null">
+        LOCAL_DIR,
+      </if>
+      <if test="remoteDir != null">
+        REMOTE_DIR,
+      </if>
+      <if test="remarks != null">
+        REMARKS,
+      </if>
+      <if test="opUserId != null">
+        OP_USER_ID,
+      </if>
+      <if test="opOrgId != null">
+        OP_ORG_ID,
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE,
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME,
+      </if>
+      <if test="lastUpdateDate != null">
+        LAST_UPDATE_DATE,
+      </if>
+      <if test="lastUpdateTime != null">
+        LAST_UPDATE_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="taskNo != null">
+        #{taskNo,jdbcType=VARCHAR},
+      </if>
+      <if test="ip != null">
+        #{ip,jdbcType=VARCHAR},
+      </if>
+      <if test="port != null">
+        #{port,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="userpsw != null">
+        #{userpsw,jdbcType=VARCHAR},
+      </if>
+      <if test="hostno != null">
+        #{hostno,jdbcType=VARCHAR},
+      </if>
+      <if test="routeno != null">
+        #{routeno,jdbcType=VARCHAR},
+      </if>
+      <if test="workDir != null">
+        #{workDir,jdbcType=VARCHAR},
+      </if>
+      <if test="localDir != null">
+        #{localDir,jdbcType=VARCHAR},
+      </if>
+      <if test="remoteDir != null">
+        #{remoteDir,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null">
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="opUserId != null">
+        #{opUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="opOrgId != null">
+        #{opOrgId,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateDate != null">
+        #{lastUpdateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        #{lastUpdateTime,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.BAT_TRANSFER_CFG">
+    update BAT_TRANSFER_CFG
+    <set>
+      <if test="ip != null">
+        IP = #{ip,jdbcType=VARCHAR},
+      </if>
+      <if test="port != null">
+        PORT = #{port,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        USERNAME = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="userpsw != null">
+        USERPSW = #{userpsw,jdbcType=VARCHAR},
+      </if>
+      <if test="hostno != null">
+        HOSTNO = #{hostno,jdbcType=VARCHAR},
+      </if>
+      <if test="routeno != null">
+        ROUTENO = #{routeno,jdbcType=VARCHAR},
+      </if>
+      <if test="workDir != null">
+        WORK_DIR = #{workDir,jdbcType=VARCHAR},
+      </if>
+      <if test="localDir != null">
+        LOCAL_DIR = #{localDir,jdbcType=VARCHAR},
+      </if>
+      <if test="remoteDir != null">
+        REMOTE_DIR = #{remoteDir,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null">
+        REMARKS = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="opUserId != null">
+        OP_USER_ID = #{opUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="opOrgId != null">
+        OP_ORG_ID = #{opOrgId,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE = #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME = #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateDate != null">
+        LAST_UPDATE_DATE = #{lastUpdateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where TASK_NO = #{taskNo,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.BAT_TRANSFER_CFG">
+    update BAT_TRANSFER_CFG
+    set IP = #{ip,jdbcType=VARCHAR},
+      PORT = #{port,jdbcType=VARCHAR},
+      USERNAME = #{username,jdbcType=VARCHAR},
+      USERPSW = #{userpsw,jdbcType=VARCHAR},
+      HOSTNO = #{hostno,jdbcType=VARCHAR},
+      ROUTENO = #{routeno,jdbcType=VARCHAR},
+      WORK_DIR = #{workDir,jdbcType=VARCHAR},
+      LOCAL_DIR = #{localDir,jdbcType=VARCHAR},
+      REMOTE_DIR = #{remoteDir,jdbcType=VARCHAR},
+      REMARKS = #{remarks,jdbcType=VARCHAR},
+      OP_USER_ID = #{opUserId,jdbcType=VARCHAR},
+      OP_ORG_ID = #{opOrgId,jdbcType=VARCHAR},
+      INPUT_DATE = #{inputDate,jdbcType=VARCHAR},
+      INPUT_TIME = #{inputTime,jdbcType=VARCHAR},
+      LAST_UPDATE_DATE = #{lastUpdateDate,jdbcType=VARCHAR},
+      LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=VARCHAR}
+    where TASK_NO = #{taskNo,jdbcType=VARCHAR}
+  </update>
+</mapper>

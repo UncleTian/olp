@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.AMT_INFOMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.AMT_INFO">
+    <id column="SERNO" jdbcType="VARCHAR" property="serno" />
+    <result column="AMTTYPE" jdbcType="CHAR" property="amttype" />
+    <result column="CODE_NO" jdbcType="VARCHAR" property="codeNo" />
+    <result column="AMT" jdbcType="DECIMAL" property="amt" />
+    <result column="OPTYPE" jdbcType="CHAR" property="optype" />
+    <result column="AMT_STATUS" jdbcType="CHAR" property="amtStatus" />
+    <result column="INPUT_TIME" jdbcType="VARCHAR" property="inputTime" />
+    <result column="INPUT_ID" jdbcType="VARCHAR" property="inputId" />
+    <result column="INPUT_BR_ID" jdbcType="VARCHAR" property="inputBrId" />
+    <result column="LAST_UPDATE_TIME" jdbcType="VARCHAR" property="lastUpdateTime" />
+    <result column="LAST_UPDATE_ID" jdbcType="VARCHAR" property="lastUpdateId" />
+    <result column="AVA_AMT" jdbcType="DECIMAL" property="avaAmt" />
+    <result column="LOAN_PROP" jdbcType="VARCHAR" property="loanProp" />
+    <result column="PRD_CODE" jdbcType="VARCHAR" property="prdCode" />
+    <result column="CO_PLATFORM" jdbcType="VARCHAR" property="coPlatform" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    SERNO, AMTTYPE, CODE_NO, AMT, OPTYPE, AMT_STATUS, INPUT_TIME, INPUT_ID, INPUT_BR_ID, 
+    LAST_UPDATE_TIME, LAST_UPDATE_ID, AVA_AMT, LOAN_PROP, PRD_CODE, CO_PLATFORM
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from AMT_INFO
+    where SERNO = #{serno,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from AMT_INFO
+    where SERNO = #{serno,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.AMT_INFO">
+    insert into AMT_INFO (SERNO, AMTTYPE, CODE_NO, 
+      AMT, OPTYPE, AMT_STATUS, INPUT_TIME, 
+      INPUT_ID, INPUT_BR_ID, LAST_UPDATE_TIME, 
+      LAST_UPDATE_ID, AVA_AMT, LOAN_PROP, 
+      PRD_CODE, CO_PLATFORM)
+    values (#{serno,jdbcType=VARCHAR}, #{amttype,jdbcType=CHAR}, #{codeNo,jdbcType=VARCHAR}, 
+      #{amt,jdbcType=DECIMAL}, #{optype,jdbcType=CHAR}, #{amtStatus,jdbcType=CHAR}, #{inputTime,jdbcType=VARCHAR}, 
+      #{inputId,jdbcType=VARCHAR}, #{inputBrId,jdbcType=VARCHAR}, #{lastUpdateTime,jdbcType=VARCHAR}, 
+      #{lastUpdateId,jdbcType=VARCHAR}, #{avaAmt,jdbcType=DECIMAL}, #{loanProp,jdbcType=VARCHAR}, 
+      #{prdCode,jdbcType=VARCHAR}, #{coPlatform,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.AMT_INFO">
+    insert into AMT_INFO
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="serno != null">
+        SERNO,
+      </if>
+      <if test="amttype != null">
+        AMTTYPE,
+      </if>
+      <if test="codeNo != null">
+        CODE_NO,
+      </if>
+      <if test="amt != null">
+        AMT,
+      </if>
+      <if test="optype != null">
+        OPTYPE,
+      </if>
+      <if test="amtStatus != null">
+        AMT_STATUS,
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME,
+      </if>
+      <if test="inputId != null">
+        INPUT_ID,
+      </if>
+      <if test="inputBrId != null">
+        INPUT_BR_ID,
+      </if>
+      <if test="lastUpdateTime != null">
+        LAST_UPDATE_TIME,
+      </if>
+      <if test="lastUpdateId != null">
+        LAST_UPDATE_ID,
+      </if>
+      <if test="avaAmt != null">
+        AVA_AMT,
+      </if>
+      <if test="loanProp != null">
+        LOAN_PROP,
+      </if>
+      <if test="prdCode != null">
+        PRD_CODE,
+      </if>
+      <if test="coPlatform != null">
+        CO_PLATFORM,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="serno != null">
+        #{serno,jdbcType=VARCHAR},
+      </if>
+      <if test="amttype != null">
+        #{amttype,jdbcType=CHAR},
+      </if>
+      <if test="codeNo != null">
+        #{codeNo,jdbcType=VARCHAR},
+      </if>
+      <if test="amt != null">
+        #{amt,jdbcType=DECIMAL},
+      </if>
+      <if test="optype != null">
+        #{optype,jdbcType=CHAR},
+      </if>
+      <if test="amtStatus != null">
+        #{amtStatus,jdbcType=CHAR},
+      </if>
+      <if test="inputTime != null">
+        #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="inputId != null">
+        #{inputId,jdbcType=VARCHAR},
+      </if>
+      <if test="inputBrId != null">
+        #{inputBrId,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        #{lastUpdateTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateId != null">
+        #{lastUpdateId,jdbcType=VARCHAR},
+      </if>
+      <if test="avaAmt != null">
+        #{avaAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="loanProp != null">
+        #{loanProp,jdbcType=VARCHAR},
+      </if>
+      <if test="prdCode != null">
+        #{prdCode,jdbcType=VARCHAR},
+      </if>
+      <if test="coPlatform != null">
+        #{coPlatform,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.AMT_INFO">
+    update AMT_INFO
+    <set>
+      <if test="amttype != null">
+        AMTTYPE = #{amttype,jdbcType=CHAR},
+      </if>
+      <if test="codeNo != null">
+        CODE_NO = #{codeNo,jdbcType=VARCHAR},
+      </if>
+      <if test="amt != null">
+        AMT = #{amt,jdbcType=DECIMAL},
+      </if>
+      <if test="optype != null">
+        OPTYPE = #{optype,jdbcType=CHAR},
+      </if>
+      <if test="amtStatus != null">
+        AMT_STATUS = #{amtStatus,jdbcType=CHAR},
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME = #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="inputId != null">
+        INPUT_ID = #{inputId,jdbcType=VARCHAR},
+      </if>
+      <if test="inputBrId != null">
+        INPUT_BR_ID = #{inputBrId,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateId != null">
+        LAST_UPDATE_ID = #{lastUpdateId,jdbcType=VARCHAR},
+      </if>
+      <if test="avaAmt != null">
+        AVA_AMT = #{avaAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="loanProp != null">
+        LOAN_PROP = #{loanProp,jdbcType=VARCHAR},
+      </if>
+      <if test="prdCode != null">
+        PRD_CODE = #{prdCode,jdbcType=VARCHAR},
+      </if>
+      <if test="coPlatform != null">
+        CO_PLATFORM = #{coPlatform,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where SERNO = #{serno,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.AMT_INFO">
+    update AMT_INFO
+    set AMTTYPE = #{amttype,jdbcType=CHAR},
+      CODE_NO = #{codeNo,jdbcType=VARCHAR},
+      AMT = #{amt,jdbcType=DECIMAL},
+      OPTYPE = #{optype,jdbcType=CHAR},
+      AMT_STATUS = #{amtStatus,jdbcType=CHAR},
+      INPUT_TIME = #{inputTime,jdbcType=VARCHAR},
+      INPUT_ID = #{inputId,jdbcType=VARCHAR},
+      INPUT_BR_ID = #{inputBrId,jdbcType=VARCHAR},
+      LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=VARCHAR},
+      LAST_UPDATE_ID = #{lastUpdateId,jdbcType=VARCHAR},
+      AVA_AMT = #{avaAmt,jdbcType=DECIMAL},
+      LOAN_PROP = #{loanProp,jdbcType=VARCHAR},
+      PRD_CODE = #{prdCode,jdbcType=VARCHAR},
+      CO_PLATFORM = #{coPlatform,jdbcType=VARCHAR}
+    where SERNO = #{serno,jdbcType=VARCHAR}
+  </update>
+</mapper>

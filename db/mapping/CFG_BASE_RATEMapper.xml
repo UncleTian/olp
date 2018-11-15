@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.CFG_BASE_RATEMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.CFG_BASE_RATE">
+    <id column="RPT_PK" jdbcType="VARCHAR" property="rptPk" />
+    <result column="INT_BASIS" jdbcType="VARCHAR" property="intBasis" />
+    <result column="INT_BASIS_DESC" jdbcType="VARCHAR" property="intBasisDesc" />
+    <result column="INT_BASIS_RATE" jdbcType="DECIMAL" property="intBasisRate" />
+    <result column="CCY" jdbcType="VARCHAR" property="ccy" />
+    <result column="EFFECT_DATE" jdbcType="VARCHAR" property="effectDate" />
+    <result column="REMARK" jdbcType="VARCHAR" property="remark" />
+    <result column="STATUS" jdbcType="VARCHAR" property="status" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    RPT_PK, INT_BASIS, INT_BASIS_DESC, INT_BASIS_RATE, CCY, EFFECT_DATE, REMARK, STATUS
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from CFG_BASE_RATE
+    where RPT_PK = #{rptPk,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from CFG_BASE_RATE
+    where RPT_PK = #{rptPk,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.CFG_BASE_RATE">
+    insert into CFG_BASE_RATE (RPT_PK, INT_BASIS, INT_BASIS_DESC, 
+      INT_BASIS_RATE, CCY, EFFECT_DATE, 
+      REMARK, STATUS)
+    values (#{rptPk,jdbcType=VARCHAR}, #{intBasis,jdbcType=VARCHAR}, #{intBasisDesc,jdbcType=VARCHAR}, 
+      #{intBasisRate,jdbcType=DECIMAL}, #{ccy,jdbcType=VARCHAR}, #{effectDate,jdbcType=VARCHAR}, 
+      #{remark,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.CFG_BASE_RATE">
+    insert into CFG_BASE_RATE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="rptPk != null">
+        RPT_PK,
+      </if>
+      <if test="intBasis != null">
+        INT_BASIS,
+      </if>
+      <if test="intBasisDesc != null">
+        INT_BASIS_DESC,
+      </if>
+      <if test="intBasisRate != null">
+        INT_BASIS_RATE,
+      </if>
+      <if test="ccy != null">
+        CCY,
+      </if>
+      <if test="effectDate != null">
+        EFFECT_DATE,
+      </if>
+      <if test="remark != null">
+        REMARK,
+      </if>
+      <if test="status != null">
+        STATUS,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="rptPk != null">
+        #{rptPk,jdbcType=VARCHAR},
+      </if>
+      <if test="intBasis != null">
+        #{intBasis,jdbcType=VARCHAR},
+      </if>
+      <if test="intBasisDesc != null">
+        #{intBasisDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="intBasisRate != null">
+        #{intBasisRate,jdbcType=DECIMAL},
+      </if>
+      <if test="ccy != null">
+        #{ccy,jdbcType=VARCHAR},
+      </if>
+      <if test="effectDate != null">
+        #{effectDate,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.CFG_BASE_RATE">
+    update CFG_BASE_RATE
+    <set>
+      <if test="intBasis != null">
+        INT_BASIS = #{intBasis,jdbcType=VARCHAR},
+      </if>
+      <if test="intBasisDesc != null">
+        INT_BASIS_DESC = #{intBasisDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="intBasisRate != null">
+        INT_BASIS_RATE = #{intBasisRate,jdbcType=DECIMAL},
+      </if>
+      <if test="ccy != null">
+        CCY = #{ccy,jdbcType=VARCHAR},
+      </if>
+      <if test="effectDate != null">
+        EFFECT_DATE = #{effectDate,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        REMARK = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        STATUS = #{status,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where RPT_PK = #{rptPk,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.CFG_BASE_RATE">
+    update CFG_BASE_RATE
+    set INT_BASIS = #{intBasis,jdbcType=VARCHAR},
+      INT_BASIS_DESC = #{intBasisDesc,jdbcType=VARCHAR},
+      INT_BASIS_RATE = #{intBasisRate,jdbcType=DECIMAL},
+      CCY = #{ccy,jdbcType=VARCHAR},
+      EFFECT_DATE = #{effectDate,jdbcType=VARCHAR},
+      REMARK = #{remark,jdbcType=VARCHAR},
+      STATUS = #{status,jdbcType=VARCHAR}
+    where RPT_PK = #{rptPk,jdbcType=VARCHAR}
+  </update>
+</mapper>

@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.BIZ_ANT_ZMINFOMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.BIZ_ANT_ZMINFO">
+    <id column="APP_NO" jdbcType="VARCHAR" property="appNo" />
+    <result column="APPLYNO" jdbcType="VARCHAR" property="applyno" />
+    <result column="CREDITSCORE" jdbcType="VARCHAR" property="creditscore" />
+    <result column="WATCHLISTII" jdbcType="VARCHAR" property="watchlistii" />
+    <result column="IVS" jdbcType="VARCHAR" property="ivs" />
+    <result column="ZMAUTHFLAG" jdbcType="VARCHAR" property="zmauthflag" />
+    <result column="HASJBADMIT" jdbcType="VARCHAR" property="hasjbadmit" />
+    <result column="COMPANY_NAME" jdbcType="VARCHAR" property="companyName" />
+    <result column="OCCUPATION" jdbcType="VARCHAR" property="occupation" />
+    <result column="HAVE_CAR_FLAG" jdbcType="VARCHAR" property="haveCarFlag" />
+    <result column="HAVE_FANG_FLAG" jdbcType="VARCHAR" property="haveFangFlag" />
+    <result column="AUTH_FIN_LAST_1M_CNT" jdbcType="DECIMAL" property="authFinLast1mCnt" />
+    <result column="AUTH_FIN_LAST_3M_CNT" jdbcType="DECIMAL" property="authFinLast3mCnt" />
+    <result column="AUTH_FIN_LAST_6M_CNT" jdbcType="DECIMAL" property="authFinLast6mCnt" />
+    <result column="OVD_ORDER_CNT_6M" jdbcType="DECIMAL" property="ovdOrderCnt6m" />
+    <result column="OVD_ORDER_AMT_6M" jdbcType="DECIMAL" property="ovdOrderAmt6m" />
+    <result column="MOBILE_FIXED_DAYS" jdbcType="DECIMAL" property="mobileFixedDays" />
+    <result column="ADR_STABILITY_DAYS" jdbcType="DECIMAL" property="adrStabilityDays" />
+    <result column="LAST_6M_AVG_ASSET_TOTAL" jdbcType="DECIMAL" property="last6mAvgAssetTotal" />
+    <result column="TOT_PAY_AMT_6M" jdbcType="DECIMAL" property="totPayAmt6m" />
+    <result column="XFDC_INDEX" jdbcType="VARCHAR" property="xfdcIndex" />
+    <result column="POSITIVE_BIZ_CNT_1Y" jdbcType="DECIMAL" property="positiveBizCnt1y" />
+    <result column="INPUT_DATE" jdbcType="VARCHAR" property="inputDate" />
+    <result column="INPUT_TIME" jdbcType="VARCHAR" property="inputTime" />
+    <result column="LAST_UPDATE_DATE" jdbcType="VARCHAR" property="lastUpdateDate" />
+    <result column="LAST_UPDATE_TIME" jdbcType="VARCHAR" property="lastUpdateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    APP_NO, APPLYNO, CREDITSCORE, WATCHLISTII, IVS, ZMAUTHFLAG, HASJBADMIT, COMPANY_NAME, 
+    OCCUPATION, HAVE_CAR_FLAG, HAVE_FANG_FLAG, AUTH_FIN_LAST_1M_CNT, AUTH_FIN_LAST_3M_CNT, 
+    AUTH_FIN_LAST_6M_CNT, OVD_ORDER_CNT_6M, OVD_ORDER_AMT_6M, MOBILE_FIXED_DAYS, ADR_STABILITY_DAYS, 
+    LAST_6M_AVG_ASSET_TOTAL, TOT_PAY_AMT_6M, XFDC_INDEX, POSITIVE_BIZ_CNT_1Y, INPUT_DATE, 
+    INPUT_TIME, LAST_UPDATE_DATE, LAST_UPDATE_TIME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from BIZ_ANT_ZMINFO
+    where APP_NO = #{appNo,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from BIZ_ANT_ZMINFO
+    where APP_NO = #{appNo,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.BIZ_ANT_ZMINFO">
+    insert into BIZ_ANT_ZMINFO (APP_NO, APPLYNO, CREDITSCORE, 
+      WATCHLISTII, IVS, ZMAUTHFLAG, 
+      HASJBADMIT, COMPANY_NAME, OCCUPATION, 
+      HAVE_CAR_FLAG, HAVE_FANG_FLAG, AUTH_FIN_LAST_1M_CNT, 
+      AUTH_FIN_LAST_3M_CNT, AUTH_FIN_LAST_6M_CNT, OVD_ORDER_CNT_6M, 
+      OVD_ORDER_AMT_6M, MOBILE_FIXED_DAYS, ADR_STABILITY_DAYS, 
+      LAST_6M_AVG_ASSET_TOTAL, TOT_PAY_AMT_6M, XFDC_INDEX, 
+      POSITIVE_BIZ_CNT_1Y, INPUT_DATE, INPUT_TIME, 
+      LAST_UPDATE_DATE, LAST_UPDATE_TIME)
+    values (#{appNo,jdbcType=VARCHAR}, #{applyno,jdbcType=VARCHAR}, #{creditscore,jdbcType=VARCHAR}, 
+      #{watchlistii,jdbcType=VARCHAR}, #{ivs,jdbcType=VARCHAR}, #{zmauthflag,jdbcType=VARCHAR}, 
+      #{hasjbadmit,jdbcType=VARCHAR}, #{companyName,jdbcType=VARCHAR}, #{occupation,jdbcType=VARCHAR}, 
+      #{haveCarFlag,jdbcType=VARCHAR}, #{haveFangFlag,jdbcType=VARCHAR}, #{authFinLast1mCnt,jdbcType=DECIMAL}, 
+      #{authFinLast3mCnt,jdbcType=DECIMAL}, #{authFinLast6mCnt,jdbcType=DECIMAL}, #{ovdOrderCnt6m,jdbcType=DECIMAL}, 
+      #{ovdOrderAmt6m,jdbcType=DECIMAL}, #{mobileFixedDays,jdbcType=DECIMAL}, #{adrStabilityDays,jdbcType=DECIMAL}, 
+      #{last6mAvgAssetTotal,jdbcType=DECIMAL}, #{totPayAmt6m,jdbcType=DECIMAL}, #{xfdcIndex,jdbcType=VARCHAR}, 
+      #{positiveBizCnt1y,jdbcType=DECIMAL}, #{inputDate,jdbcType=VARCHAR}, #{inputTime,jdbcType=VARCHAR}, 
+      #{lastUpdateDate,jdbcType=VARCHAR}, #{lastUpdateTime,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.BIZ_ANT_ZMINFO">
+    insert into BIZ_ANT_ZMINFO
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="appNo != null">
+        APP_NO,
+      </if>
+      <if test="applyno != null">
+        APPLYNO,
+      </if>
+      <if test="creditscore != null">
+        CREDITSCORE,
+      </if>
+      <if test="watchlistii != null">
+        WATCHLISTII,
+      </if>
+      <if test="ivs != null">
+        IVS,
+      </if>
+      <if test="zmauthflag != null">
+        ZMAUTHFLAG,
+      </if>
+      <if test="hasjbadmit != null">
+        HASJBADMIT,
+      </if>
+      <if test="companyName != null">
+        COMPANY_NAME,
+      </if>
+      <if test="occupation != null">
+        OCCUPATION,
+      </if>
+      <if test="haveCarFlag != null">
+        HAVE_CAR_FLAG,
+      </if>
+      <if test="haveFangFlag != null">
+        HAVE_FANG_FLAG,
+      </if>
+      <if test="authFinLast1mCnt != null">
+        AUTH_FIN_LAST_1M_CNT,
+      </if>
+      <if test="authFinLast3mCnt != null">
+        AUTH_FIN_LAST_3M_CNT,
+      </if>
+      <if test="authFinLast6mCnt != null">
+        AUTH_FIN_LAST_6M_CNT,
+      </if>
+      <if test="ovdOrderCnt6m != null">
+        OVD_ORDER_CNT_6M,
+      </if>
+      <if test="ovdOrderAmt6m != null">
+        OVD_ORDER_AMT_6M,
+      </if>
+      <if test="mobileFixedDays != null">
+        MOBILE_FIXED_DAYS,
+      </if>
+      <if test="adrStabilityDays != null">
+        ADR_STABILITY_DAYS,
+      </if>
+      <if test="last6mAvgAssetTotal != null">
+        LAST_6M_AVG_ASSET_TOTAL,
+      </if>
+      <if test="totPayAmt6m != null">
+        TOT_PAY_AMT_6M,
+      </if>
+      <if test="xfdcIndex != null">
+        XFDC_INDEX,
+      </if>
+      <if test="positiveBizCnt1y != null">
+        POSITIVE_BIZ_CNT_1Y,
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE,
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME,
+      </if>
+      <if test="lastUpdateDate != null">
+        LAST_UPDATE_DATE,
+      </if>
+      <if test="lastUpdateTime != null">
+        LAST_UPDATE_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="appNo != null">
+        #{appNo,jdbcType=VARCHAR},
+      </if>
+      <if test="applyno != null">
+        #{applyno,jdbcType=VARCHAR},
+      </if>
+      <if test="creditscore != null">
+        #{creditscore,jdbcType=VARCHAR},
+      </if>
+      <if test="watchlistii != null">
+        #{watchlistii,jdbcType=VARCHAR},
+      </if>
+      <if test="ivs != null">
+        #{ivs,jdbcType=VARCHAR},
+      </if>
+      <if test="zmauthflag != null">
+        #{zmauthflag,jdbcType=VARCHAR},
+      </if>
+      <if test="hasjbadmit != null">
+        #{hasjbadmit,jdbcType=VARCHAR},
+      </if>
+      <if test="companyName != null">
+        #{companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="occupation != null">
+        #{occupation,jdbcType=VARCHAR},
+      </if>
+      <if test="haveCarFlag != null">
+        #{haveCarFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="haveFangFlag != null">
+        #{haveFangFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="authFinLast1mCnt != null">
+        #{authFinLast1mCnt,jdbcType=DECIMAL},
+      </if>
+      <if test="authFinLast3mCnt != null">
+        #{authFinLast3mCnt,jdbcType=DECIMAL},
+      </if>
+      <if test="authFinLast6mCnt != null">
+        #{authFinLast6mCnt,jdbcType=DECIMAL},
+      </if>
+      <if test="ovdOrderCnt6m != null">
+        #{ovdOrderCnt6m,jdbcType=DECIMAL},
+      </if>
+      <if test="ovdOrderAmt6m != null">
+        #{ovdOrderAmt6m,jdbcType=DECIMAL},
+      </if>
+      <if test="mobileFixedDays != null">
+        #{mobileFixedDays,jdbcType=DECIMAL},
+      </if>
+      <if test="adrStabilityDays != null">
+        #{adrStabilityDays,jdbcType=DECIMAL},
+      </if>
+      <if test="last6mAvgAssetTotal != null">
+        #{last6mAvgAssetTotal,jdbcType=DECIMAL},
+      </if>
+      <if test="totPayAmt6m != null">
+        #{totPayAmt6m,jdbcType=DECIMAL},
+      </if>
+      <if test="xfdcIndex != null">
+        #{xfdcIndex,jdbcType=VARCHAR},
+      </if>
+      <if test="positiveBizCnt1y != null">
+        #{positiveBizCnt1y,jdbcType=DECIMAL},
+      </if>
+      <if test="inputDate != null">
+        #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateDate != null">
+        #{lastUpdateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        #{lastUpdateTime,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.BIZ_ANT_ZMINFO">
+    update BIZ_ANT_ZMINFO
+    <set>
+      <if test="applyno != null">
+        APPLYNO = #{applyno,jdbcType=VARCHAR},
+      </if>
+      <if test="creditscore != null">
+        CREDITSCORE = #{creditscore,jdbcType=VARCHAR},
+      </if>
+      <if test="watchlistii != null">
+        WATCHLISTII = #{watchlistii,jdbcType=VARCHAR},
+      </if>
+      <if test="ivs != null">
+        IVS = #{ivs,jdbcType=VARCHAR},
+      </if>
+      <if test="zmauthflag != null">
+        ZMAUTHFLAG = #{zmauthflag,jdbcType=VARCHAR},
+      </if>
+      <if test="hasjbadmit != null">
+        HASJBADMIT = #{hasjbadmit,jdbcType=VARCHAR},
+      </if>
+      <if test="companyName != null">
+        COMPANY_NAME = #{companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="occupation != null">
+        OCCUPATION = #{occupation,jdbcType=VARCHAR},
+      </if>
+      <if test="haveCarFlag != null">
+        HAVE_CAR_FLAG = #{haveCarFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="haveFangFlag != null">
+        HAVE_FANG_FLAG = #{haveFangFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="authFinLast1mCnt != null">
+        AUTH_FIN_LAST_1M_CNT = #{authFinLast1mCnt,jdbcType=DECIMAL},
+      </if>
+      <if test="authFinLast3mCnt != null">
+        AUTH_FIN_LAST_3M_CNT = #{authFinLast3mCnt,jdbcType=DECIMAL},
+      </if>
+      <if test="authFinLast6mCnt != null">
+        AUTH_FIN_LAST_6M_CNT = #{authFinLast6mCnt,jdbcType=DECIMAL},
+      </if>
+      <if test="ovdOrderCnt6m != null">
+        OVD_ORDER_CNT_6M = #{ovdOrderCnt6m,jdbcType=DECIMAL},
+      </if>
+      <if test="ovdOrderAmt6m != null">
+        OVD_ORDER_AMT_6M = #{ovdOrderAmt6m,jdbcType=DECIMAL},
+      </if>
+      <if test="mobileFixedDays != null">
+        MOBILE_FIXED_DAYS = #{mobileFixedDays,jdbcType=DECIMAL},
+      </if>
+      <if test="adrStabilityDays != null">
+        ADR_STABILITY_DAYS = #{adrStabilityDays,jdbcType=DECIMAL},
+      </if>
+      <if test="last6mAvgAssetTotal != null">
+        LAST_6M_AVG_ASSET_TOTAL = #{last6mAvgAssetTotal,jdbcType=DECIMAL},
+      </if>
+      <if test="totPayAmt6m != null">
+        TOT_PAY_AMT_6M = #{totPayAmt6m,jdbcType=DECIMAL},
+      </if>
+      <if test="xfdcIndex != null">
+        XFDC_INDEX = #{xfdcIndex,jdbcType=VARCHAR},
+      </if>
+      <if test="positiveBizCnt1y != null">
+        POSITIVE_BIZ_CNT_1Y = #{positiveBizCnt1y,jdbcType=DECIMAL},
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE = #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME = #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateDate != null">
+        LAST_UPDATE_DATE = #{lastUpdateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where APP_NO = #{appNo,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.BIZ_ANT_ZMINFO">
+    update BIZ_ANT_ZMINFO
+    set APPLYNO = #{applyno,jdbcType=VARCHAR},
+      CREDITSCORE = #{creditscore,jdbcType=VARCHAR},
+      WATCHLISTII = #{watchlistii,jdbcType=VARCHAR},
+      IVS = #{ivs,jdbcType=VARCHAR},
+      ZMAUTHFLAG = #{zmauthflag,jdbcType=VARCHAR},
+      HASJBADMIT = #{hasjbadmit,jdbcType=VARCHAR},
+      COMPANY_NAME = #{companyName,jdbcType=VARCHAR},
+      OCCUPATION = #{occupation,jdbcType=VARCHAR},
+      HAVE_CAR_FLAG = #{haveCarFlag,jdbcType=VARCHAR},
+      HAVE_FANG_FLAG = #{haveFangFlag,jdbcType=VARCHAR},
+      AUTH_FIN_LAST_1M_CNT = #{authFinLast1mCnt,jdbcType=DECIMAL},
+      AUTH_FIN_LAST_3M_CNT = #{authFinLast3mCnt,jdbcType=DECIMAL},
+      AUTH_FIN_LAST_6M_CNT = #{authFinLast6mCnt,jdbcType=DECIMAL},
+      OVD_ORDER_CNT_6M = #{ovdOrderCnt6m,jdbcType=DECIMAL},
+      OVD_ORDER_AMT_6M = #{ovdOrderAmt6m,jdbcType=DECIMAL},
+      MOBILE_FIXED_DAYS = #{mobileFixedDays,jdbcType=DECIMAL},
+      ADR_STABILITY_DAYS = #{adrStabilityDays,jdbcType=DECIMAL},
+      LAST_6M_AVG_ASSET_TOTAL = #{last6mAvgAssetTotal,jdbcType=DECIMAL},
+      TOT_PAY_AMT_6M = #{totPayAmt6m,jdbcType=DECIMAL},
+      XFDC_INDEX = #{xfdcIndex,jdbcType=VARCHAR},
+      POSITIVE_BIZ_CNT_1Y = #{positiveBizCnt1y,jdbcType=DECIMAL},
+      INPUT_DATE = #{inputDate,jdbcType=VARCHAR},
+      INPUT_TIME = #{inputTime,jdbcType=VARCHAR},
+      LAST_UPDATE_DATE = #{lastUpdateDate,jdbcType=VARCHAR},
+      LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=VARCHAR}
+    where APP_NO = #{appNo,jdbcType=VARCHAR}
+  </update>
+</mapper>

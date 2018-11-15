@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.WF_NODE_ROUTE_PROPERTYMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.WF_NODE_ROUTE_PROPERTY">
+    <id column="ROUTEID" jdbcType="VARCHAR" property="routeid" />
+    <result column="NODEID" jdbcType="VARCHAR" property="nodeid" />
+    <result column="WFID" jdbcType="VARCHAR" property="wfid" />
+    <result column="ROUTENAME" jdbcType="VARCHAR" property="routename" />
+    <result column="ROUTECONDITION" jdbcType="VARCHAR" property="routecondition" />
+    <result column="ROUTEITEMLISTIN" jdbcType="VARCHAR" property="routeitemlistin" />
+    <result column="ROUTEITEMCONTENTIN" jdbcType="VARCHAR" property="routeitemcontentin" />
+    <result column="CLASSNAME" jdbcType="VARCHAR" property="classname" />
+    <result column="METHOD" jdbcType="VARCHAR" property="method" />
+    <result column="ROUTERUNSCRIPTSIGN" jdbcType="CHAR" property="routerunscriptsign" />
+    <result column="ROUTERUNSCRIPT" jdbcType="VARCHAR" property="routerunscript" />
+    <result column="NODEROUTERNODEID" jdbcType="VARCHAR" property="noderouternodeid" />
+    <result column="APPSIGN" jdbcType="VARCHAR" property="appsign" />
+    <result column="SPSTATUS" jdbcType="CHAR" property="spstatus" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ROUTEID, NODEID, WFID, ROUTENAME, ROUTECONDITION, ROUTEITEMLISTIN, ROUTEITEMCONTENTIN, 
+    CLASSNAME, METHOD, ROUTERUNSCRIPTSIGN, ROUTERUNSCRIPT, NODEROUTERNODEID, APPSIGN, 
+    SPSTATUS
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from WF_NODE_ROUTE_PROPERTY
+    where ROUTEID = #{routeid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from WF_NODE_ROUTE_PROPERTY
+    where ROUTEID = #{routeid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.WF_NODE_ROUTE_PROPERTY">
+    insert into WF_NODE_ROUTE_PROPERTY (ROUTEID, NODEID, WFID, 
+      ROUTENAME, ROUTECONDITION, ROUTEITEMLISTIN, 
+      ROUTEITEMCONTENTIN, CLASSNAME, METHOD, 
+      ROUTERUNSCRIPTSIGN, ROUTERUNSCRIPT, NODEROUTERNODEID, 
+      APPSIGN, SPSTATUS)
+    values (#{routeid,jdbcType=VARCHAR}, #{nodeid,jdbcType=VARCHAR}, #{wfid,jdbcType=VARCHAR}, 
+      #{routename,jdbcType=VARCHAR}, #{routecondition,jdbcType=VARCHAR}, #{routeitemlistin,jdbcType=VARCHAR}, 
+      #{routeitemcontentin,jdbcType=VARCHAR}, #{classname,jdbcType=VARCHAR}, #{method,jdbcType=VARCHAR}, 
+      #{routerunscriptsign,jdbcType=CHAR}, #{routerunscript,jdbcType=VARCHAR}, #{noderouternodeid,jdbcType=VARCHAR}, 
+      #{appsign,jdbcType=VARCHAR}, #{spstatus,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.WF_NODE_ROUTE_PROPERTY">
+    insert into WF_NODE_ROUTE_PROPERTY
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="routeid != null">
+        ROUTEID,
+      </if>
+      <if test="nodeid != null">
+        NODEID,
+      </if>
+      <if test="wfid != null">
+        WFID,
+      </if>
+      <if test="routename != null">
+        ROUTENAME,
+      </if>
+      <if test="routecondition != null">
+        ROUTECONDITION,
+      </if>
+      <if test="routeitemlistin != null">
+        ROUTEITEMLISTIN,
+      </if>
+      <if test="routeitemcontentin != null">
+        ROUTEITEMCONTENTIN,
+      </if>
+      <if test="classname != null">
+        CLASSNAME,
+      </if>
+      <if test="method != null">
+        METHOD,
+      </if>
+      <if test="routerunscriptsign != null">
+        ROUTERUNSCRIPTSIGN,
+      </if>
+      <if test="routerunscript != null">
+        ROUTERUNSCRIPT,
+      </if>
+      <if test="noderouternodeid != null">
+        NODEROUTERNODEID,
+      </if>
+      <if test="appsign != null">
+        APPSIGN,
+      </if>
+      <if test="spstatus != null">
+        SPSTATUS,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="routeid != null">
+        #{routeid,jdbcType=VARCHAR},
+      </if>
+      <if test="nodeid != null">
+        #{nodeid,jdbcType=VARCHAR},
+      </if>
+      <if test="wfid != null">
+        #{wfid,jdbcType=VARCHAR},
+      </if>
+      <if test="routename != null">
+        #{routename,jdbcType=VARCHAR},
+      </if>
+      <if test="routecondition != null">
+        #{routecondition,jdbcType=VARCHAR},
+      </if>
+      <if test="routeitemlistin != null">
+        #{routeitemlistin,jdbcType=VARCHAR},
+      </if>
+      <if test="routeitemcontentin != null">
+        #{routeitemcontentin,jdbcType=VARCHAR},
+      </if>
+      <if test="classname != null">
+        #{classname,jdbcType=VARCHAR},
+      </if>
+      <if test="method != null">
+        #{method,jdbcType=VARCHAR},
+      </if>
+      <if test="routerunscriptsign != null">
+        #{routerunscriptsign,jdbcType=CHAR},
+      </if>
+      <if test="routerunscript != null">
+        #{routerunscript,jdbcType=VARCHAR},
+      </if>
+      <if test="noderouternodeid != null">
+        #{noderouternodeid,jdbcType=VARCHAR},
+      </if>
+      <if test="appsign != null">
+        #{appsign,jdbcType=VARCHAR},
+      </if>
+      <if test="spstatus != null">
+        #{spstatus,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.WF_NODE_ROUTE_PROPERTY">
+    update WF_NODE_ROUTE_PROPERTY
+    <set>
+      <if test="nodeid != null">
+        NODEID = #{nodeid,jdbcType=VARCHAR},
+      </if>
+      <if test="wfid != null">
+        WFID = #{wfid,jdbcType=VARCHAR},
+      </if>
+      <if test="routename != null">
+        ROUTENAME = #{routename,jdbcType=VARCHAR},
+      </if>
+      <if test="routecondition != null">
+        ROUTECONDITION = #{routecondition,jdbcType=VARCHAR},
+      </if>
+      <if test="routeitemlistin != null">
+        ROUTEITEMLISTIN = #{routeitemlistin,jdbcType=VARCHAR},
+      </if>
+      <if test="routeitemcontentin != null">
+        ROUTEITEMCONTENTIN = #{routeitemcontentin,jdbcType=VARCHAR},
+      </if>
+      <if test="classname != null">
+        CLASSNAME = #{classname,jdbcType=VARCHAR},
+      </if>
+      <if test="method != null">
+        METHOD = #{method,jdbcType=VARCHAR},
+      </if>
+      <if test="routerunscriptsign != null">
+        ROUTERUNSCRIPTSIGN = #{routerunscriptsign,jdbcType=CHAR},
+      </if>
+      <if test="routerunscript != null">
+        ROUTERUNSCRIPT = #{routerunscript,jdbcType=VARCHAR},
+      </if>
+      <if test="noderouternodeid != null">
+        NODEROUTERNODEID = #{noderouternodeid,jdbcType=VARCHAR},
+      </if>
+      <if test="appsign != null">
+        APPSIGN = #{appsign,jdbcType=VARCHAR},
+      </if>
+      <if test="spstatus != null">
+        SPSTATUS = #{spstatus,jdbcType=CHAR},
+      </if>
+    </set>
+    where ROUTEID = #{routeid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.WF_NODE_ROUTE_PROPERTY">
+    update WF_NODE_ROUTE_PROPERTY
+    set NODEID = #{nodeid,jdbcType=VARCHAR},
+      WFID = #{wfid,jdbcType=VARCHAR},
+      ROUTENAME = #{routename,jdbcType=VARCHAR},
+      ROUTECONDITION = #{routecondition,jdbcType=VARCHAR},
+      ROUTEITEMLISTIN = #{routeitemlistin,jdbcType=VARCHAR},
+      ROUTEITEMCONTENTIN = #{routeitemcontentin,jdbcType=VARCHAR},
+      CLASSNAME = #{classname,jdbcType=VARCHAR},
+      METHOD = #{method,jdbcType=VARCHAR},
+      ROUTERUNSCRIPTSIGN = #{routerunscriptsign,jdbcType=CHAR},
+      ROUTERUNSCRIPT = #{routerunscript,jdbcType=VARCHAR},
+      NODEROUTERNODEID = #{noderouternodeid,jdbcType=VARCHAR},
+      APPSIGN = #{appsign,jdbcType=VARCHAR},
+      SPSTATUS = #{spstatus,jdbcType=CHAR}
+    where ROUTEID = #{routeid,jdbcType=VARCHAR}
+  </update>
+</mapper>

@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.RISK_INFO_JDMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.RISK_INFO_JD">
+    <id column="MHT_APPLY_NO" jdbcType="VARCHAR" property="mhtApplyNo" />
+    <result column="APPLY_NO" jdbcType="VARCHAR" property="applyNo" />
+    <result column="CERT_NO" jdbcType="VARCHAR" property="certNo" />
+    <result column="CERT_TYPE" jdbcType="VARCHAR" property="certType" />
+    <result column="INPUT_DATE" jdbcType="VARCHAR" property="inputDate" />
+    <result column="INPUT_TIME" jdbcType="VARCHAR" property="inputTime" />
+    <result column="LAST_INPUT_DATE" jdbcType="VARCHAR" property="lastInputDate" />
+    <result column="LAST_INPUT_TIME" jdbcType="VARCHAR" property="lastInputTime" />
+    <result column="FIELD1" jdbcType="VARCHAR" property="field1" />
+    <result column="FIELD2" jdbcType="VARCHAR" property="field2" />
+    <result column="FIELD3" jdbcType="VARCHAR" property="field3" />
+    <result column="FIELD4" jdbcType="VARCHAR" property="field4" />
+    <result column="FIELD5" jdbcType="VARCHAR" property="field5" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.bea.olp.RISK_INFO_JDWithBLOBs">
+    <result column="RISKINFO_FIRST" jdbcType="CLOB" property="riskinfoFirst" />
+    <result column="RISKINFO_SECOND" jdbcType="CLOB" property="riskinfoSecond" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    MHT_APPLY_NO, APPLY_NO, CERT_NO, CERT_TYPE, INPUT_DATE, INPUT_TIME, LAST_INPUT_DATE, 
+    LAST_INPUT_TIME, FIELD1, FIELD2, FIELD3, FIELD4, FIELD5
+  </sql>
+  <sql id="Blob_Column_List">
+    RISKINFO_FIRST, RISKINFO_SECOND
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from RISK_INFO_JD
+    where MHT_APPLY_NO = #{mhtApplyNo,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from RISK_INFO_JD
+    where MHT_APPLY_NO = #{mhtApplyNo,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.RISK_INFO_JDWithBLOBs">
+    insert into RISK_INFO_JD (MHT_APPLY_NO, APPLY_NO, CERT_NO, 
+      CERT_TYPE, INPUT_DATE, INPUT_TIME, 
+      LAST_INPUT_DATE, LAST_INPUT_TIME, FIELD1, 
+      FIELD2, FIELD3, FIELD4, 
+      FIELD5, RISKINFO_FIRST, RISKINFO_SECOND
+      )
+    values (#{mhtApplyNo,jdbcType=VARCHAR}, #{applyNo,jdbcType=VARCHAR}, #{certNo,jdbcType=VARCHAR}, 
+      #{certType,jdbcType=VARCHAR}, #{inputDate,jdbcType=VARCHAR}, #{inputTime,jdbcType=VARCHAR}, 
+      #{lastInputDate,jdbcType=VARCHAR}, #{lastInputTime,jdbcType=VARCHAR}, #{field1,jdbcType=VARCHAR}, 
+      #{field2,jdbcType=VARCHAR}, #{field3,jdbcType=VARCHAR}, #{field4,jdbcType=VARCHAR}, 
+      #{field5,jdbcType=VARCHAR}, #{riskinfoFirst,jdbcType=CLOB}, #{riskinfoSecond,jdbcType=CLOB}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.RISK_INFO_JDWithBLOBs">
+    insert into RISK_INFO_JD
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="mhtApplyNo != null">
+        MHT_APPLY_NO,
+      </if>
+      <if test="applyNo != null">
+        APPLY_NO,
+      </if>
+      <if test="certNo != null">
+        CERT_NO,
+      </if>
+      <if test="certType != null">
+        CERT_TYPE,
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE,
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME,
+      </if>
+      <if test="lastInputDate != null">
+        LAST_INPUT_DATE,
+      </if>
+      <if test="lastInputTime != null">
+        LAST_INPUT_TIME,
+      </if>
+      <if test="field1 != null">
+        FIELD1,
+      </if>
+      <if test="field2 != null">
+        FIELD2,
+      </if>
+      <if test="field3 != null">
+        FIELD3,
+      </if>
+      <if test="field4 != null">
+        FIELD4,
+      </if>
+      <if test="field5 != null">
+        FIELD5,
+      </if>
+      <if test="riskinfoFirst != null">
+        RISKINFO_FIRST,
+      </if>
+      <if test="riskinfoSecond != null">
+        RISKINFO_SECOND,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="mhtApplyNo != null">
+        #{mhtApplyNo,jdbcType=VARCHAR},
+      </if>
+      <if test="applyNo != null">
+        #{applyNo,jdbcType=VARCHAR},
+      </if>
+      <if test="certNo != null">
+        #{certNo,jdbcType=VARCHAR},
+      </if>
+      <if test="certType != null">
+        #{certType,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastInputDate != null">
+        #{lastInputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lastInputTime != null">
+        #{lastInputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="field1 != null">
+        #{field1,jdbcType=VARCHAR},
+      </if>
+      <if test="field2 != null">
+        #{field2,jdbcType=VARCHAR},
+      </if>
+      <if test="field3 != null">
+        #{field3,jdbcType=VARCHAR},
+      </if>
+      <if test="field4 != null">
+        #{field4,jdbcType=VARCHAR},
+      </if>
+      <if test="field5 != null">
+        #{field5,jdbcType=VARCHAR},
+      </if>
+      <if test="riskinfoFirst != null">
+        #{riskinfoFirst,jdbcType=CLOB},
+      </if>
+      <if test="riskinfoSecond != null">
+        #{riskinfoSecond,jdbcType=CLOB},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.RISK_INFO_JDWithBLOBs">
+    update RISK_INFO_JD
+    <set>
+      <if test="applyNo != null">
+        APPLY_NO = #{applyNo,jdbcType=VARCHAR},
+      </if>
+      <if test="certNo != null">
+        CERT_NO = #{certNo,jdbcType=VARCHAR},
+      </if>
+      <if test="certType != null">
+        CERT_TYPE = #{certType,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE = #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME = #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastInputDate != null">
+        LAST_INPUT_DATE = #{lastInputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lastInputTime != null">
+        LAST_INPUT_TIME = #{lastInputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="field1 != null">
+        FIELD1 = #{field1,jdbcType=VARCHAR},
+      </if>
+      <if test="field2 != null">
+        FIELD2 = #{field2,jdbcType=VARCHAR},
+      </if>
+      <if test="field3 != null">
+        FIELD3 = #{field3,jdbcType=VARCHAR},
+      </if>
+      <if test="field4 != null">
+        FIELD4 = #{field4,jdbcType=VARCHAR},
+      </if>
+      <if test="field5 != null">
+        FIELD5 = #{field5,jdbcType=VARCHAR},
+      </if>
+      <if test="riskinfoFirst != null">
+        RISKINFO_FIRST = #{riskinfoFirst,jdbcType=CLOB},
+      </if>
+      <if test="riskinfoSecond != null">
+        RISKINFO_SECOND = #{riskinfoSecond,jdbcType=CLOB},
+      </if>
+    </set>
+    where MHT_APPLY_NO = #{mhtApplyNo,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.bea.olp.RISK_INFO_JDWithBLOBs">
+    update RISK_INFO_JD
+    set APPLY_NO = #{applyNo,jdbcType=VARCHAR},
+      CERT_NO = #{certNo,jdbcType=VARCHAR},
+      CERT_TYPE = #{certType,jdbcType=VARCHAR},
+      INPUT_DATE = #{inputDate,jdbcType=VARCHAR},
+      INPUT_TIME = #{inputTime,jdbcType=VARCHAR},
+      LAST_INPUT_DATE = #{lastInputDate,jdbcType=VARCHAR},
+      LAST_INPUT_TIME = #{lastInputTime,jdbcType=VARCHAR},
+      FIELD1 = #{field1,jdbcType=VARCHAR},
+      FIELD2 = #{field2,jdbcType=VARCHAR},
+      FIELD3 = #{field3,jdbcType=VARCHAR},
+      FIELD4 = #{field4,jdbcType=VARCHAR},
+      FIELD5 = #{field5,jdbcType=VARCHAR},
+      RISKINFO_FIRST = #{riskinfoFirst,jdbcType=CLOB},
+      RISKINFO_SECOND = #{riskinfoSecond,jdbcType=CLOB}
+    where MHT_APPLY_NO = #{mhtApplyNo,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.RISK_INFO_JD">
+    update RISK_INFO_JD
+    set APPLY_NO = #{applyNo,jdbcType=VARCHAR},
+      CERT_NO = #{certNo,jdbcType=VARCHAR},
+      CERT_TYPE = #{certType,jdbcType=VARCHAR},
+      INPUT_DATE = #{inputDate,jdbcType=VARCHAR},
+      INPUT_TIME = #{inputTime,jdbcType=VARCHAR},
+      LAST_INPUT_DATE = #{lastInputDate,jdbcType=VARCHAR},
+      LAST_INPUT_TIME = #{lastInputTime,jdbcType=VARCHAR},
+      FIELD1 = #{field1,jdbcType=VARCHAR},
+      FIELD2 = #{field2,jdbcType=VARCHAR},
+      FIELD3 = #{field3,jdbcType=VARCHAR},
+      FIELD4 = #{field4,jdbcType=VARCHAR},
+      FIELD5 = #{field5,jdbcType=VARCHAR}
+    where MHT_APPLY_NO = #{mhtApplyNo,jdbcType=VARCHAR}
+  </update>
+</mapper>

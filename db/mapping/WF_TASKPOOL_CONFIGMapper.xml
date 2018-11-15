@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.WF_TASKPOOL_CONFIGMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.WF_TASKPOOL_CONFIGKey">
+    <id column="TPID" jdbcType="NVARCHAR" property="tpid" />
+    <id column="RELATED_TYPE" jdbcType="NVARCHAR" property="relatedType" />
+    <id column="RELATED_CODE" jdbcType="NVARCHAR" property="relatedCode" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="com.bea.olp.WF_TASKPOOL_CONFIGKey">
+    delete from WF_TASKPOOL_CONFIG
+    where TPID = #{tpid,jdbcType=NVARCHAR}
+      and RELATED_TYPE = #{relatedType,jdbcType=NVARCHAR}
+      and RELATED_CODE = #{relatedCode,jdbcType=NVARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.WF_TASKPOOL_CONFIGKey">
+    insert into WF_TASKPOOL_CONFIG (TPID, RELATED_TYPE, RELATED_CODE
+      )
+    values (#{tpid,jdbcType=NVARCHAR}, #{relatedType,jdbcType=NVARCHAR}, #{relatedCode,jdbcType=NVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.WF_TASKPOOL_CONFIGKey">
+    insert into WF_TASKPOOL_CONFIG
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="tpid != null">
+        TPID,
+      </if>
+      <if test="relatedType != null">
+        RELATED_TYPE,
+      </if>
+      <if test="relatedCode != null">
+        RELATED_CODE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="tpid != null">
+        #{tpid,jdbcType=NVARCHAR},
+      </if>
+      <if test="relatedType != null">
+        #{relatedType,jdbcType=NVARCHAR},
+      </if>
+      <if test="relatedCode != null">
+        #{relatedCode,jdbcType=NVARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

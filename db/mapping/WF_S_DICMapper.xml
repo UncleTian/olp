@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.WF_S_DICMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.WF_S_DIC">
+    <id column="ENNAME" jdbcType="VARCHAR" property="enname" />
+    <id column="DICTYPE" jdbcType="VARCHAR" property="dictype" />
+    <result column="CNNAME" jdbcType="VARCHAR" property="cnname" />
+    <result column="MEMO" jdbcType="VARCHAR" property="memo" />
+    <result column="CREATETIME" jdbcType="VARCHAR" property="createtime" />
+    <result column="LASTUPDOPRID" jdbcType="VARCHAR" property="lastupdoprid" />
+    <result column="LASTUPDPGMID" jdbcType="VARCHAR" property="lastupdpgmid" />
+    <result column="LASTUPDTIME" jdbcType="VARCHAR" property="lastupdtime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ENNAME, DICTYPE, CNNAME, MEMO, CREATETIME, LASTUPDOPRID, LASTUPDPGMID, LASTUPDTIME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="com.bea.olp.WF_S_DICKey" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from WF_S_DIC
+    where ENNAME = #{enname,jdbcType=VARCHAR}
+      and DICTYPE = #{dictype,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.bea.olp.WF_S_DICKey">
+    delete from WF_S_DIC
+    where ENNAME = #{enname,jdbcType=VARCHAR}
+      and DICTYPE = #{dictype,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.WF_S_DIC">
+    insert into WF_S_DIC (ENNAME, DICTYPE, CNNAME, 
+      MEMO, CREATETIME, LASTUPDOPRID, 
+      LASTUPDPGMID, LASTUPDTIME)
+    values (#{enname,jdbcType=VARCHAR}, #{dictype,jdbcType=VARCHAR}, #{cnname,jdbcType=VARCHAR}, 
+      #{memo,jdbcType=VARCHAR}, #{createtime,jdbcType=VARCHAR}, #{lastupdoprid,jdbcType=VARCHAR}, 
+      #{lastupdpgmid,jdbcType=VARCHAR}, #{lastupdtime,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.WF_S_DIC">
+    insert into WF_S_DIC
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="enname != null">
+        ENNAME,
+      </if>
+      <if test="dictype != null">
+        DICTYPE,
+      </if>
+      <if test="cnname != null">
+        CNNAME,
+      </if>
+      <if test="memo != null">
+        MEMO,
+      </if>
+      <if test="createtime != null">
+        CREATETIME,
+      </if>
+      <if test="lastupdoprid != null">
+        LASTUPDOPRID,
+      </if>
+      <if test="lastupdpgmid != null">
+        LASTUPDPGMID,
+      </if>
+      <if test="lastupdtime != null">
+        LASTUPDTIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="enname != null">
+        #{enname,jdbcType=VARCHAR},
+      </if>
+      <if test="dictype != null">
+        #{dictype,jdbcType=VARCHAR},
+      </if>
+      <if test="cnname != null">
+        #{cnname,jdbcType=VARCHAR},
+      </if>
+      <if test="memo != null">
+        #{memo,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastupdoprid != null">
+        #{lastupdoprid,jdbcType=VARCHAR},
+      </if>
+      <if test="lastupdpgmid != null">
+        #{lastupdpgmid,jdbcType=VARCHAR},
+      </if>
+      <if test="lastupdtime != null">
+        #{lastupdtime,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.WF_S_DIC">
+    update WF_S_DIC
+    <set>
+      <if test="cnname != null">
+        CNNAME = #{cnname,jdbcType=VARCHAR},
+      </if>
+      <if test="memo != null">
+        MEMO = #{memo,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        CREATETIME = #{createtime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastupdoprid != null">
+        LASTUPDOPRID = #{lastupdoprid,jdbcType=VARCHAR},
+      </if>
+      <if test="lastupdpgmid != null">
+        LASTUPDPGMID = #{lastupdpgmid,jdbcType=VARCHAR},
+      </if>
+      <if test="lastupdtime != null">
+        LASTUPDTIME = #{lastupdtime,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ENNAME = #{enname,jdbcType=VARCHAR}
+      and DICTYPE = #{dictype,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.WF_S_DIC">
+    update WF_S_DIC
+    set CNNAME = #{cnname,jdbcType=VARCHAR},
+      MEMO = #{memo,jdbcType=VARCHAR},
+      CREATETIME = #{createtime,jdbcType=VARCHAR},
+      LASTUPDOPRID = #{lastupdoprid,jdbcType=VARCHAR},
+      LASTUPDPGMID = #{lastupdpgmid,jdbcType=VARCHAR},
+      LASTUPDTIME = #{lastupdtime,jdbcType=VARCHAR}
+    where ENNAME = #{enname,jdbcType=VARCHAR}
+      and DICTYPE = #{dictype,jdbcType=VARCHAR}
+  </update>
+</mapper>

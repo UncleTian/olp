@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.BAT_ANT_ACCOUNTING_TEMPMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.BAT_ANT_ACCOUNTING_TEMP">
+    <result column="ACCOUNTING_TYPE" jdbcType="VARCHAR" property="accountingType" />
+    <result column="ACCOUNTING_AMT" jdbcType="DECIMAL" property="accountingAmt" />
+    <result column="INPUT_DATE" jdbcType="VARCHAR" property="inputDate" />
+    <result column="INPUT_TIME" jdbcType="VARCHAR" property="inputTime" />
+    <result column="DATA_DATE" jdbcType="VARCHAR" property="dataDate" />
+  </resultMap>
+  <insert id="insert" parameterType="com.bea.olp.BAT_ANT_ACCOUNTING_TEMP">
+    insert into BAT_ANT_ACCOUNTING_TEMP (ACCOUNTING_TYPE, ACCOUNTING_AMT, INPUT_DATE, 
+      INPUT_TIME, DATA_DATE)
+    values (#{accountingType,jdbcType=VARCHAR}, #{accountingAmt,jdbcType=DECIMAL}, #{inputDate,jdbcType=VARCHAR}, 
+      #{inputTime,jdbcType=VARCHAR}, #{dataDate,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.BAT_ANT_ACCOUNTING_TEMP">
+    insert into BAT_ANT_ACCOUNTING_TEMP
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="accountingType != null">
+        ACCOUNTING_TYPE,
+      </if>
+      <if test="accountingAmt != null">
+        ACCOUNTING_AMT,
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE,
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME,
+      </if>
+      <if test="dataDate != null">
+        DATA_DATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="accountingType != null">
+        #{accountingType,jdbcType=VARCHAR},
+      </if>
+      <if test="accountingAmt != null">
+        #{accountingAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="inputDate != null">
+        #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="dataDate != null">
+        #{dataDate,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

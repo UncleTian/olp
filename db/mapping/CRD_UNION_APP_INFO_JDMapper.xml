@@ -1,0 +1,447 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.CRD_UNION_APP_INFO_JDMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.CRD_UNION_APP_INFO_JD">
+    <id column="MHT_APPLY_NO" jdbcType="VARCHAR" property="mhtApplyNo" />
+    <result column="PRO_CODE" jdbcType="VARCHAR" property="proCode" />
+    <result column="PRO_TYPE" jdbcType="VARCHAR" property="proType" />
+    <result column="REQUEST_NO" jdbcType="VARCHAR" property="requestNo" />
+    <result column="TX_CODE" jdbcType="VARCHAR" property="txCode" />
+    <result column="VERSION_JD" jdbcType="VARCHAR" property="versionJd" />
+    <result column="CHANNEL_CODE" jdbcType="VARCHAR" property="channelCode" />
+    <result column="REQUEST_TIME" jdbcType="VARCHAR" property="requestTime" />
+    <result column="APPLY_NO" jdbcType="VARCHAR" property="applyNo" />
+    <result column="APPLY_TIME" jdbcType="VARCHAR" property="applyTime" />
+    <result column="BUSSINESS_TYPE" jdbcType="VARCHAR" property="bussinessType" />
+    <result column="APPLY_AMOUNT" jdbcType="VARCHAR" property="applyAmount" />
+    <result column="USER_NAME" jdbcType="VARCHAR" property="userName" />
+    <result column="CERT_TYPE" jdbcType="VARCHAR" property="certType" />
+    <result column="PIN" jdbcType="VARCHAR" property="pin" />
+    <result column="CERT_NO" jdbcType="VARCHAR" property="certNo" />
+    <result column="USER_TEL" jdbcType="VARCHAR" property="userTel" />
+    <result column="ADDRESS" jdbcType="VARCHAR" property="address" />
+    <result column="INTEREST_RATE" jdbcType="DECIMAL" property="interestRate" />
+    <result column="ACTIVATE_TAG" jdbcType="VARCHAR" property="activateTag" />
+    <result column="CHECK_STATUS" jdbcType="VARCHAR" property="checkStatus" />
+    <result column="PASS_DATE" jdbcType="VARCHAR" property="passDate" />
+    <result column="PASS_TIME" jdbcType="VARCHAR" property="passTime" />
+    <result column="REFUSE_REASON" jdbcType="VARCHAR" property="refuseReason" />
+    <result column="SUB_REASON" jdbcType="VARCHAR" property="subReason" />
+    <result column="GEN_REASON" jdbcType="VARCHAR" property="genReason" />
+    <result column="INPUT_DATE" jdbcType="VARCHAR" property="inputDate" />
+    <result column="INPUT_TIME" jdbcType="VARCHAR" property="inputTime" />
+    <result column="LAST_INPUT_DATE" jdbcType="VARCHAR" property="lastInputDate" />
+    <result column="LAST_INPUT_TIME" jdbcType="VARCHAR" property="lastInputTime" />
+    <result column="FIELD1" jdbcType="VARCHAR" property="field1" />
+    <result column="FIELD2" jdbcType="VARCHAR" property="field2" />
+    <result column="FIELD3" jdbcType="VARCHAR" property="field3" />
+    <result column="FIELD4" jdbcType="VARCHAR" property="field4" />
+    <result column="FIELD5" jdbcType="VARCHAR" property="field5" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    MHT_APPLY_NO, PRO_CODE, PRO_TYPE, REQUEST_NO, TX_CODE, VERSION_JD, CHANNEL_CODE, 
+    REQUEST_TIME, APPLY_NO, APPLY_TIME, BUSSINESS_TYPE, APPLY_AMOUNT, USER_NAME, CERT_TYPE, 
+    PIN, CERT_NO, USER_TEL, ADDRESS, INTEREST_RATE, ACTIVATE_TAG, CHECK_STATUS, PASS_DATE, 
+    PASS_TIME, REFUSE_REASON, SUB_REASON, GEN_REASON, INPUT_DATE, INPUT_TIME, LAST_INPUT_DATE, 
+    LAST_INPUT_TIME, FIELD1, FIELD2, FIELD3, FIELD4, FIELD5
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from CRD_UNION_APP_INFO_JD
+    where MHT_APPLY_NO = #{mhtApplyNo,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from CRD_UNION_APP_INFO_JD
+    where MHT_APPLY_NO = #{mhtApplyNo,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.CRD_UNION_APP_INFO_JD">
+    insert into CRD_UNION_APP_INFO_JD (MHT_APPLY_NO, PRO_CODE, PRO_TYPE, 
+      REQUEST_NO, TX_CODE, VERSION_JD, 
+      CHANNEL_CODE, REQUEST_TIME, APPLY_NO, 
+      APPLY_TIME, BUSSINESS_TYPE, APPLY_AMOUNT, 
+      USER_NAME, CERT_TYPE, PIN, 
+      CERT_NO, USER_TEL, ADDRESS, 
+      INTEREST_RATE, ACTIVATE_TAG, CHECK_STATUS, 
+      PASS_DATE, PASS_TIME, REFUSE_REASON, 
+      SUB_REASON, GEN_REASON, INPUT_DATE, 
+      INPUT_TIME, LAST_INPUT_DATE, LAST_INPUT_TIME, 
+      FIELD1, FIELD2, FIELD3, 
+      FIELD4, FIELD5)
+    values (#{mhtApplyNo,jdbcType=VARCHAR}, #{proCode,jdbcType=VARCHAR}, #{proType,jdbcType=VARCHAR}, 
+      #{requestNo,jdbcType=VARCHAR}, #{txCode,jdbcType=VARCHAR}, #{versionJd,jdbcType=VARCHAR}, 
+      #{channelCode,jdbcType=VARCHAR}, #{requestTime,jdbcType=VARCHAR}, #{applyNo,jdbcType=VARCHAR}, 
+      #{applyTime,jdbcType=VARCHAR}, #{bussinessType,jdbcType=VARCHAR}, #{applyAmount,jdbcType=VARCHAR}, 
+      #{userName,jdbcType=VARCHAR}, #{certType,jdbcType=VARCHAR}, #{pin,jdbcType=VARCHAR}, 
+      #{certNo,jdbcType=VARCHAR}, #{userTel,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, 
+      #{interestRate,jdbcType=DECIMAL}, #{activateTag,jdbcType=VARCHAR}, #{checkStatus,jdbcType=VARCHAR}, 
+      #{passDate,jdbcType=VARCHAR}, #{passTime,jdbcType=VARCHAR}, #{refuseReason,jdbcType=VARCHAR}, 
+      #{subReason,jdbcType=VARCHAR}, #{genReason,jdbcType=VARCHAR}, #{inputDate,jdbcType=VARCHAR}, 
+      #{inputTime,jdbcType=VARCHAR}, #{lastInputDate,jdbcType=VARCHAR}, #{lastInputTime,jdbcType=VARCHAR}, 
+      #{field1,jdbcType=VARCHAR}, #{field2,jdbcType=VARCHAR}, #{field3,jdbcType=VARCHAR}, 
+      #{field4,jdbcType=VARCHAR}, #{field5,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.CRD_UNION_APP_INFO_JD">
+    insert into CRD_UNION_APP_INFO_JD
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="mhtApplyNo != null">
+        MHT_APPLY_NO,
+      </if>
+      <if test="proCode != null">
+        PRO_CODE,
+      </if>
+      <if test="proType != null">
+        PRO_TYPE,
+      </if>
+      <if test="requestNo != null">
+        REQUEST_NO,
+      </if>
+      <if test="txCode != null">
+        TX_CODE,
+      </if>
+      <if test="versionJd != null">
+        VERSION_JD,
+      </if>
+      <if test="channelCode != null">
+        CHANNEL_CODE,
+      </if>
+      <if test="requestTime != null">
+        REQUEST_TIME,
+      </if>
+      <if test="applyNo != null">
+        APPLY_NO,
+      </if>
+      <if test="applyTime != null">
+        APPLY_TIME,
+      </if>
+      <if test="bussinessType != null">
+        BUSSINESS_TYPE,
+      </if>
+      <if test="applyAmount != null">
+        APPLY_AMOUNT,
+      </if>
+      <if test="userName != null">
+        USER_NAME,
+      </if>
+      <if test="certType != null">
+        CERT_TYPE,
+      </if>
+      <if test="pin != null">
+        PIN,
+      </if>
+      <if test="certNo != null">
+        CERT_NO,
+      </if>
+      <if test="userTel != null">
+        USER_TEL,
+      </if>
+      <if test="address != null">
+        ADDRESS,
+      </if>
+      <if test="interestRate != null">
+        INTEREST_RATE,
+      </if>
+      <if test="activateTag != null">
+        ACTIVATE_TAG,
+      </if>
+      <if test="checkStatus != null">
+        CHECK_STATUS,
+      </if>
+      <if test="passDate != null">
+        PASS_DATE,
+      </if>
+      <if test="passTime != null">
+        PASS_TIME,
+      </if>
+      <if test="refuseReason != null">
+        REFUSE_REASON,
+      </if>
+      <if test="subReason != null">
+        SUB_REASON,
+      </if>
+      <if test="genReason != null">
+        GEN_REASON,
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE,
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME,
+      </if>
+      <if test="lastInputDate != null">
+        LAST_INPUT_DATE,
+      </if>
+      <if test="lastInputTime != null">
+        LAST_INPUT_TIME,
+      </if>
+      <if test="field1 != null">
+        FIELD1,
+      </if>
+      <if test="field2 != null">
+        FIELD2,
+      </if>
+      <if test="field3 != null">
+        FIELD3,
+      </if>
+      <if test="field4 != null">
+        FIELD4,
+      </if>
+      <if test="field5 != null">
+        FIELD5,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="mhtApplyNo != null">
+        #{mhtApplyNo,jdbcType=VARCHAR},
+      </if>
+      <if test="proCode != null">
+        #{proCode,jdbcType=VARCHAR},
+      </if>
+      <if test="proType != null">
+        #{proType,jdbcType=VARCHAR},
+      </if>
+      <if test="requestNo != null">
+        #{requestNo,jdbcType=VARCHAR},
+      </if>
+      <if test="txCode != null">
+        #{txCode,jdbcType=VARCHAR},
+      </if>
+      <if test="versionJd != null">
+        #{versionJd,jdbcType=VARCHAR},
+      </if>
+      <if test="channelCode != null">
+        #{channelCode,jdbcType=VARCHAR},
+      </if>
+      <if test="requestTime != null">
+        #{requestTime,jdbcType=VARCHAR},
+      </if>
+      <if test="applyNo != null">
+        #{applyNo,jdbcType=VARCHAR},
+      </if>
+      <if test="applyTime != null">
+        #{applyTime,jdbcType=VARCHAR},
+      </if>
+      <if test="bussinessType != null">
+        #{bussinessType,jdbcType=VARCHAR},
+      </if>
+      <if test="applyAmount != null">
+        #{applyAmount,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null">
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="certType != null">
+        #{certType,jdbcType=VARCHAR},
+      </if>
+      <if test="pin != null">
+        #{pin,jdbcType=VARCHAR},
+      </if>
+      <if test="certNo != null">
+        #{certNo,jdbcType=VARCHAR},
+      </if>
+      <if test="userTel != null">
+        #{userTel,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="interestRate != null">
+        #{interestRate,jdbcType=DECIMAL},
+      </if>
+      <if test="activateTag != null">
+        #{activateTag,jdbcType=VARCHAR},
+      </if>
+      <if test="checkStatus != null">
+        #{checkStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="passDate != null">
+        #{passDate,jdbcType=VARCHAR},
+      </if>
+      <if test="passTime != null">
+        #{passTime,jdbcType=VARCHAR},
+      </if>
+      <if test="refuseReason != null">
+        #{refuseReason,jdbcType=VARCHAR},
+      </if>
+      <if test="subReason != null">
+        #{subReason,jdbcType=VARCHAR},
+      </if>
+      <if test="genReason != null">
+        #{genReason,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastInputDate != null">
+        #{lastInputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lastInputTime != null">
+        #{lastInputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="field1 != null">
+        #{field1,jdbcType=VARCHAR},
+      </if>
+      <if test="field2 != null">
+        #{field2,jdbcType=VARCHAR},
+      </if>
+      <if test="field3 != null">
+        #{field3,jdbcType=VARCHAR},
+      </if>
+      <if test="field4 != null">
+        #{field4,jdbcType=VARCHAR},
+      </if>
+      <if test="field5 != null">
+        #{field5,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.CRD_UNION_APP_INFO_JD">
+    update CRD_UNION_APP_INFO_JD
+    <set>
+      <if test="proCode != null">
+        PRO_CODE = #{proCode,jdbcType=VARCHAR},
+      </if>
+      <if test="proType != null">
+        PRO_TYPE = #{proType,jdbcType=VARCHAR},
+      </if>
+      <if test="requestNo != null">
+        REQUEST_NO = #{requestNo,jdbcType=VARCHAR},
+      </if>
+      <if test="txCode != null">
+        TX_CODE = #{txCode,jdbcType=VARCHAR},
+      </if>
+      <if test="versionJd != null">
+        VERSION_JD = #{versionJd,jdbcType=VARCHAR},
+      </if>
+      <if test="channelCode != null">
+        CHANNEL_CODE = #{channelCode,jdbcType=VARCHAR},
+      </if>
+      <if test="requestTime != null">
+        REQUEST_TIME = #{requestTime,jdbcType=VARCHAR},
+      </if>
+      <if test="applyNo != null">
+        APPLY_NO = #{applyNo,jdbcType=VARCHAR},
+      </if>
+      <if test="applyTime != null">
+        APPLY_TIME = #{applyTime,jdbcType=VARCHAR},
+      </if>
+      <if test="bussinessType != null">
+        BUSSINESS_TYPE = #{bussinessType,jdbcType=VARCHAR},
+      </if>
+      <if test="applyAmount != null">
+        APPLY_AMOUNT = #{applyAmount,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null">
+        USER_NAME = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="certType != null">
+        CERT_TYPE = #{certType,jdbcType=VARCHAR},
+      </if>
+      <if test="pin != null">
+        PIN = #{pin,jdbcType=VARCHAR},
+      </if>
+      <if test="certNo != null">
+        CERT_NO = #{certNo,jdbcType=VARCHAR},
+      </if>
+      <if test="userTel != null">
+        USER_TEL = #{userTel,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        ADDRESS = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="interestRate != null">
+        INTEREST_RATE = #{interestRate,jdbcType=DECIMAL},
+      </if>
+      <if test="activateTag != null">
+        ACTIVATE_TAG = #{activateTag,jdbcType=VARCHAR},
+      </if>
+      <if test="checkStatus != null">
+        CHECK_STATUS = #{checkStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="passDate != null">
+        PASS_DATE = #{passDate,jdbcType=VARCHAR},
+      </if>
+      <if test="passTime != null">
+        PASS_TIME = #{passTime,jdbcType=VARCHAR},
+      </if>
+      <if test="refuseReason != null">
+        REFUSE_REASON = #{refuseReason,jdbcType=VARCHAR},
+      </if>
+      <if test="subReason != null">
+        SUB_REASON = #{subReason,jdbcType=VARCHAR},
+      </if>
+      <if test="genReason != null">
+        GEN_REASON = #{genReason,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE = #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME = #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastInputDate != null">
+        LAST_INPUT_DATE = #{lastInputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lastInputTime != null">
+        LAST_INPUT_TIME = #{lastInputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="field1 != null">
+        FIELD1 = #{field1,jdbcType=VARCHAR},
+      </if>
+      <if test="field2 != null">
+        FIELD2 = #{field2,jdbcType=VARCHAR},
+      </if>
+      <if test="field3 != null">
+        FIELD3 = #{field3,jdbcType=VARCHAR},
+      </if>
+      <if test="field4 != null">
+        FIELD4 = #{field4,jdbcType=VARCHAR},
+      </if>
+      <if test="field5 != null">
+        FIELD5 = #{field5,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where MHT_APPLY_NO = #{mhtApplyNo,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.CRD_UNION_APP_INFO_JD">
+    update CRD_UNION_APP_INFO_JD
+    set PRO_CODE = #{proCode,jdbcType=VARCHAR},
+      PRO_TYPE = #{proType,jdbcType=VARCHAR},
+      REQUEST_NO = #{requestNo,jdbcType=VARCHAR},
+      TX_CODE = #{txCode,jdbcType=VARCHAR},
+      VERSION_JD = #{versionJd,jdbcType=VARCHAR},
+      CHANNEL_CODE = #{channelCode,jdbcType=VARCHAR},
+      REQUEST_TIME = #{requestTime,jdbcType=VARCHAR},
+      APPLY_NO = #{applyNo,jdbcType=VARCHAR},
+      APPLY_TIME = #{applyTime,jdbcType=VARCHAR},
+      BUSSINESS_TYPE = #{bussinessType,jdbcType=VARCHAR},
+      APPLY_AMOUNT = #{applyAmount,jdbcType=VARCHAR},
+      USER_NAME = #{userName,jdbcType=VARCHAR},
+      CERT_TYPE = #{certType,jdbcType=VARCHAR},
+      PIN = #{pin,jdbcType=VARCHAR},
+      CERT_NO = #{certNo,jdbcType=VARCHAR},
+      USER_TEL = #{userTel,jdbcType=VARCHAR},
+      ADDRESS = #{address,jdbcType=VARCHAR},
+      INTEREST_RATE = #{interestRate,jdbcType=DECIMAL},
+      ACTIVATE_TAG = #{activateTag,jdbcType=VARCHAR},
+      CHECK_STATUS = #{checkStatus,jdbcType=VARCHAR},
+      PASS_DATE = #{passDate,jdbcType=VARCHAR},
+      PASS_TIME = #{passTime,jdbcType=VARCHAR},
+      REFUSE_REASON = #{refuseReason,jdbcType=VARCHAR},
+      SUB_REASON = #{subReason,jdbcType=VARCHAR},
+      GEN_REASON = #{genReason,jdbcType=VARCHAR},
+      INPUT_DATE = #{inputDate,jdbcType=VARCHAR},
+      INPUT_TIME = #{inputTime,jdbcType=VARCHAR},
+      LAST_INPUT_DATE = #{lastInputDate,jdbcType=VARCHAR},
+      LAST_INPUT_TIME = #{lastInputTime,jdbcType=VARCHAR},
+      FIELD1 = #{field1,jdbcType=VARCHAR},
+      FIELD2 = #{field2,jdbcType=VARCHAR},
+      FIELD3 = #{field3,jdbcType=VARCHAR},
+      FIELD4 = #{field4,jdbcType=VARCHAR},
+      FIELD5 = #{field5,jdbcType=VARCHAR}
+    where MHT_APPLY_NO = #{mhtApplyNo,jdbcType=VARCHAR}
+  </update>
+</mapper>

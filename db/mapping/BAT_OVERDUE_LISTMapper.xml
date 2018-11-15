@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.BAT_OVERDUE_LISTMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.BAT_OVERDUE_LIST">
+    <result column="CERT_CODE" jdbcType="VARCHAR" property="certCode" />
+  </resultMap>
+  <insert id="insert" parameterType="com.bea.olp.BAT_OVERDUE_LIST">
+    insert into BAT_OVERDUE_LIST (CERT_CODE)
+    values (#{certCode,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.BAT_OVERDUE_LIST">
+    insert into BAT_OVERDUE_LIST
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="certCode != null">
+        CERT_CODE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="certCode != null">
+        #{certCode,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.LOAN_PRD_GROUP_RELMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.LOAN_PRD_GROUP_REL">
+    <result column="LMT_NO" jdbcType="VARCHAR" property="lmtNo" />
+    <result column="PRD_NO" jdbcType="VARCHAR" property="prdNo" />
+    <result column="REL_STATE" jdbcType="CHAR" property="relState" />
+  </resultMap>
+  <insert id="insert" parameterType="com.bea.olp.LOAN_PRD_GROUP_REL">
+    insert into LOAN_PRD_GROUP_REL (LMT_NO, PRD_NO, REL_STATE
+      )
+    values (#{lmtNo,jdbcType=VARCHAR}, #{prdNo,jdbcType=VARCHAR}, #{relState,jdbcType=CHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.LOAN_PRD_GROUP_REL">
+    insert into LOAN_PRD_GROUP_REL
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="lmtNo != null">
+        LMT_NO,
+      </if>
+      <if test="prdNo != null">
+        PRD_NO,
+      </if>
+      <if test="relState != null">
+        REL_STATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="lmtNo != null">
+        #{lmtNo,jdbcType=VARCHAR},
+      </if>
+      <if test="prdNo != null">
+        #{prdNo,jdbcType=VARCHAR},
+      </if>
+      <if test="relState != null">
+        #{relState,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

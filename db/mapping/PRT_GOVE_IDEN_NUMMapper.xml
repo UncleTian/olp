@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.PRT_GOVE_IDEN_NUMMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.PRT_GOVE_IDEN_NUM">
+    <result column="EXT_SYSTEM_ID" jdbcType="VARCHAR" property="extSystemId" />
+    <result column="EXT_CLIENT_NO" jdbcType="VARCHAR" property="extClientNo" />
+    <result column="UPDATED_USER" jdbcType="VARCHAR" property="updatedUser" />
+    <result column="UPDATED_AUTH_USER" jdbcType="VARCHAR" property="updatedAuthUser" />
+    <result column="UPDATED_UNIT" jdbcType="VARCHAR" property="updatedUnit" />
+    <result column="SRC_UPDATED_TS" jdbcType="VARCHAR" property="srcUpdatedTs" />
+    <result column="UPDATED_SYSTEM_ID" jdbcType="VARCHAR" property="updatedSystemId" />
+    <result column="PARTY_CLAS_CODE" jdbcType="VARCHAR" property="partyClasCode" />
+    <result column="GOVE_IDEN_NUM" jdbcType="VARCHAR" property="goveIdenNum" />
+    <result column="GOVE_IDEN_NUM_TYPE_CODE" jdbcType="VARCHAR" property="goveIdenNumTypeCode" />
+    <result column="ISS_COUNTRY" jdbcType="VARCHAR" property="issCountry" />
+    <result column="ISS_DATE" jdbcType="VARCHAR" property="issDate" />
+    <result column="EXPIRY_DATE" jdbcType="VARCHAR" property="expiryDate" />
+    <result column="ISS_PLACE" jdbcType="VARCHAR" property="issPlace" />
+    <result column="ISS_UNIT" jdbcType="VARCHAR" property="issUnit" />
+    <result column="GOVE_IDEN_NUM_VALID_FLAG" jdbcType="VARCHAR" property="goveIdenNumValidFlag" />
+    <result column="CH_NAME" jdbcType="VARCHAR" property="chName" />
+    <result column="EN_NAME" jdbcType="VARCHAR" property="enName" />
+    <result column="ECIF_ID" jdbcType="VARCHAR" property="ecifId" />
+    <result column="INPUT_DATE" jdbcType="VARCHAR" property="inputDate" />
+    <result column="INPUT_TIME" jdbcType="VARCHAR" property="inputTime" />
+    <result column="DATA_DATE" jdbcType="VARCHAR" property="dataDate" />
+    <result column="CHANNEL_TYPE" jdbcType="VARCHAR" property="channelType" />
+  </resultMap>
+  <insert id="insert" parameterType="com.bea.olp.PRT_GOVE_IDEN_NUM">
+    insert into PRT_GOVE_IDEN_NUM (EXT_SYSTEM_ID, EXT_CLIENT_NO, UPDATED_USER, 
+      UPDATED_AUTH_USER, UPDATED_UNIT, SRC_UPDATED_TS, 
+      UPDATED_SYSTEM_ID, PARTY_CLAS_CODE, GOVE_IDEN_NUM, 
+      GOVE_IDEN_NUM_TYPE_CODE, ISS_COUNTRY, ISS_DATE, 
+      EXPIRY_DATE, ISS_PLACE, ISS_UNIT, 
+      GOVE_IDEN_NUM_VALID_FLAG, CH_NAME, EN_NAME, 
+      ECIF_ID, INPUT_DATE, INPUT_TIME, 
+      DATA_DATE, CHANNEL_TYPE)
+    values (#{extSystemId,jdbcType=VARCHAR}, #{extClientNo,jdbcType=VARCHAR}, #{updatedUser,jdbcType=VARCHAR}, 
+      #{updatedAuthUser,jdbcType=VARCHAR}, #{updatedUnit,jdbcType=VARCHAR}, #{srcUpdatedTs,jdbcType=VARCHAR}, 
+      #{updatedSystemId,jdbcType=VARCHAR}, #{partyClasCode,jdbcType=VARCHAR}, #{goveIdenNum,jdbcType=VARCHAR}, 
+      #{goveIdenNumTypeCode,jdbcType=VARCHAR}, #{issCountry,jdbcType=VARCHAR}, #{issDate,jdbcType=VARCHAR}, 
+      #{expiryDate,jdbcType=VARCHAR}, #{issPlace,jdbcType=VARCHAR}, #{issUnit,jdbcType=VARCHAR}, 
+      #{goveIdenNumValidFlag,jdbcType=VARCHAR}, #{chName,jdbcType=VARCHAR}, #{enName,jdbcType=VARCHAR}, 
+      #{ecifId,jdbcType=VARCHAR}, #{inputDate,jdbcType=VARCHAR}, #{inputTime,jdbcType=VARCHAR}, 
+      #{dataDate,jdbcType=VARCHAR}, #{channelType,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.PRT_GOVE_IDEN_NUM">
+    insert into PRT_GOVE_IDEN_NUM
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="extSystemId != null">
+        EXT_SYSTEM_ID,
+      </if>
+      <if test="extClientNo != null">
+        EXT_CLIENT_NO,
+      </if>
+      <if test="updatedUser != null">
+        UPDATED_USER,
+      </if>
+      <if test="updatedAuthUser != null">
+        UPDATED_AUTH_USER,
+      </if>
+      <if test="updatedUnit != null">
+        UPDATED_UNIT,
+      </if>
+      <if test="srcUpdatedTs != null">
+        SRC_UPDATED_TS,
+      </if>
+      <if test="updatedSystemId != null">
+        UPDATED_SYSTEM_ID,
+      </if>
+      <if test="partyClasCode != null">
+        PARTY_CLAS_CODE,
+      </if>
+      <if test="goveIdenNum != null">
+        GOVE_IDEN_NUM,
+      </if>
+      <if test="goveIdenNumTypeCode != null">
+        GOVE_IDEN_NUM_TYPE_CODE,
+      </if>
+      <if test="issCountry != null">
+        ISS_COUNTRY,
+      </if>
+      <if test="issDate != null">
+        ISS_DATE,
+      </if>
+      <if test="expiryDate != null">
+        EXPIRY_DATE,
+      </if>
+      <if test="issPlace != null">
+        ISS_PLACE,
+      </if>
+      <if test="issUnit != null">
+        ISS_UNIT,
+      </if>
+      <if test="goveIdenNumValidFlag != null">
+        GOVE_IDEN_NUM_VALID_FLAG,
+      </if>
+      <if test="chName != null">
+        CH_NAME,
+      </if>
+      <if test="enName != null">
+        EN_NAME,
+      </if>
+      <if test="ecifId != null">
+        ECIF_ID,
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE,
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME,
+      </if>
+      <if test="dataDate != null">
+        DATA_DATE,
+      </if>
+      <if test="channelType != null">
+        CHANNEL_TYPE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="extSystemId != null">
+        #{extSystemId,jdbcType=VARCHAR},
+      </if>
+      <if test="extClientNo != null">
+        #{extClientNo,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedUser != null">
+        #{updatedUser,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedAuthUser != null">
+        #{updatedAuthUser,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedUnit != null">
+        #{updatedUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="srcUpdatedTs != null">
+        #{srcUpdatedTs,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedSystemId != null">
+        #{updatedSystemId,jdbcType=VARCHAR},
+      </if>
+      <if test="partyClasCode != null">
+        #{partyClasCode,jdbcType=VARCHAR},
+      </if>
+      <if test="goveIdenNum != null">
+        #{goveIdenNum,jdbcType=VARCHAR},
+      </if>
+      <if test="goveIdenNumTypeCode != null">
+        #{goveIdenNumTypeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="issCountry != null">
+        #{issCountry,jdbcType=VARCHAR},
+      </if>
+      <if test="issDate != null">
+        #{issDate,jdbcType=VARCHAR},
+      </if>
+      <if test="expiryDate != null">
+        #{expiryDate,jdbcType=VARCHAR},
+      </if>
+      <if test="issPlace != null">
+        #{issPlace,jdbcType=VARCHAR},
+      </if>
+      <if test="issUnit != null">
+        #{issUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="goveIdenNumValidFlag != null">
+        #{goveIdenNumValidFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="chName != null">
+        #{chName,jdbcType=VARCHAR},
+      </if>
+      <if test="enName != null">
+        #{enName,jdbcType=VARCHAR},
+      </if>
+      <if test="ecifId != null">
+        #{ecifId,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="dataDate != null">
+        #{dataDate,jdbcType=VARCHAR},
+      </if>
+      <if test="channelType != null">
+        #{channelType,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

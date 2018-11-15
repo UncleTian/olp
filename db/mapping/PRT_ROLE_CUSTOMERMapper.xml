@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.PRT_ROLE_CUSTOMERMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.PRT_ROLE_CUSTOMER">
+    <result column="EXT_SYSTEM_ID" jdbcType="VARCHAR" property="extSystemId" />
+    <result column="EXT_CLIENT_NO" jdbcType="VARCHAR" property="extClientNo" />
+    <result column="UPDATED_USER" jdbcType="VARCHAR" property="updatedUser" />
+    <result column="UPDATED_AUTH_USER" jdbcType="VARCHAR" property="updatedAuthUser" />
+    <result column="UPDATED_UNIT" jdbcType="VARCHAR" property="updatedUnit" />
+    <result column="SRC_UPDATED_TS" jdbcType="VARCHAR" property="srcUpdatedTs" />
+    <result column="UPDATED_SYSTEM_ID" jdbcType="VARCHAR" property="updatedSystemId" />
+    <result column="CUST_ATTR" jdbcType="VARCHAR" property="custAttr" />
+    <result column="RECOMMAND_CLIENT" jdbcType="VARCHAR" property="recommandClient" />
+    <result column="TEMP_CUST" jdbcType="VARCHAR" property="tempCust" />
+    <result column="IS_ECS_GUARANTOR" jdbcType="VARCHAR" property="isEcsGuarantor" />
+    <result column="CLIENT_SOURCE" jdbcType="VARCHAR" property="clientSource" />
+    <result column="IS_ALREADY_LOAN" jdbcType="VARCHAR" property="isAlreadyLoan" />
+    <result column="INPUT_DATE" jdbcType="VARCHAR" property="inputDate" />
+    <result column="INPUT_TIME" jdbcType="VARCHAR" property="inputTime" />
+    <result column="DATA_DATE" jdbcType="VARCHAR" property="dataDate" />
+    <result column="CHANNEL_TYPE" jdbcType="VARCHAR" property="channelType" />
+  </resultMap>
+  <insert id="insert" parameterType="com.bea.olp.PRT_ROLE_CUSTOMER">
+    insert into PRT_ROLE_CUSTOMER (EXT_SYSTEM_ID, EXT_CLIENT_NO, UPDATED_USER, 
+      UPDATED_AUTH_USER, UPDATED_UNIT, SRC_UPDATED_TS, 
+      UPDATED_SYSTEM_ID, CUST_ATTR, RECOMMAND_CLIENT, 
+      TEMP_CUST, IS_ECS_GUARANTOR, CLIENT_SOURCE, 
+      IS_ALREADY_LOAN, INPUT_DATE, INPUT_TIME, 
+      DATA_DATE, CHANNEL_TYPE)
+    values (#{extSystemId,jdbcType=VARCHAR}, #{extClientNo,jdbcType=VARCHAR}, #{updatedUser,jdbcType=VARCHAR}, 
+      #{updatedAuthUser,jdbcType=VARCHAR}, #{updatedUnit,jdbcType=VARCHAR}, #{srcUpdatedTs,jdbcType=VARCHAR}, 
+      #{updatedSystemId,jdbcType=VARCHAR}, #{custAttr,jdbcType=VARCHAR}, #{recommandClient,jdbcType=VARCHAR}, 
+      #{tempCust,jdbcType=VARCHAR}, #{isEcsGuarantor,jdbcType=VARCHAR}, #{clientSource,jdbcType=VARCHAR}, 
+      #{isAlreadyLoan,jdbcType=VARCHAR}, #{inputDate,jdbcType=VARCHAR}, #{inputTime,jdbcType=VARCHAR}, 
+      #{dataDate,jdbcType=VARCHAR}, #{channelType,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.PRT_ROLE_CUSTOMER">
+    insert into PRT_ROLE_CUSTOMER
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="extSystemId != null">
+        EXT_SYSTEM_ID,
+      </if>
+      <if test="extClientNo != null">
+        EXT_CLIENT_NO,
+      </if>
+      <if test="updatedUser != null">
+        UPDATED_USER,
+      </if>
+      <if test="updatedAuthUser != null">
+        UPDATED_AUTH_USER,
+      </if>
+      <if test="updatedUnit != null">
+        UPDATED_UNIT,
+      </if>
+      <if test="srcUpdatedTs != null">
+        SRC_UPDATED_TS,
+      </if>
+      <if test="updatedSystemId != null">
+        UPDATED_SYSTEM_ID,
+      </if>
+      <if test="custAttr != null">
+        CUST_ATTR,
+      </if>
+      <if test="recommandClient != null">
+        RECOMMAND_CLIENT,
+      </if>
+      <if test="tempCust != null">
+        TEMP_CUST,
+      </if>
+      <if test="isEcsGuarantor != null">
+        IS_ECS_GUARANTOR,
+      </if>
+      <if test="clientSource != null">
+        CLIENT_SOURCE,
+      </if>
+      <if test="isAlreadyLoan != null">
+        IS_ALREADY_LOAN,
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE,
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME,
+      </if>
+      <if test="dataDate != null">
+        DATA_DATE,
+      </if>
+      <if test="channelType != null">
+        CHANNEL_TYPE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="extSystemId != null">
+        #{extSystemId,jdbcType=VARCHAR},
+      </if>
+      <if test="extClientNo != null">
+        #{extClientNo,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedUser != null">
+        #{updatedUser,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedAuthUser != null">
+        #{updatedAuthUser,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedUnit != null">
+        #{updatedUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="srcUpdatedTs != null">
+        #{srcUpdatedTs,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedSystemId != null">
+        #{updatedSystemId,jdbcType=VARCHAR},
+      </if>
+      <if test="custAttr != null">
+        #{custAttr,jdbcType=VARCHAR},
+      </if>
+      <if test="recommandClient != null">
+        #{recommandClient,jdbcType=VARCHAR},
+      </if>
+      <if test="tempCust != null">
+        #{tempCust,jdbcType=VARCHAR},
+      </if>
+      <if test="isEcsGuarantor != null">
+        #{isEcsGuarantor,jdbcType=VARCHAR},
+      </if>
+      <if test="clientSource != null">
+        #{clientSource,jdbcType=VARCHAR},
+      </if>
+      <if test="isAlreadyLoan != null">
+        #{isAlreadyLoan,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="dataDate != null">
+        #{dataDate,jdbcType=VARCHAR},
+      </if>
+      <if test="channelType != null">
+        #{channelType,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

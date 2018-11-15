@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.BAT_XW_BFJ_SUM_HISMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.BAT_XW_BFJ_SUM_HIS">
+    <result column="PROVISIONS_ACCT" jdbcType="VARCHAR" property="provisionsAcct" />
+    <result column="TD_DATE" jdbcType="VARCHAR" property="tdDate" />
+    <result column="ACCT_AMT" jdbcType="DECIMAL" property="acctAmt" />
+    <result column="INPUT_DATE" jdbcType="VARCHAR" property="inputDate" />
+    <result column="INPUT_TIME" jdbcType="VARCHAR" property="inputTime" />
+    <result column="DATA_DATE" jdbcType="VARCHAR" property="dataDate" />
+  </resultMap>
+  <insert id="insert" parameterType="com.bea.olp.BAT_XW_BFJ_SUM_HIS">
+    insert into BAT_XW_BFJ_SUM_HIS (PROVISIONS_ACCT, TD_DATE, ACCT_AMT, 
+      INPUT_DATE, INPUT_TIME, DATA_DATE
+      )
+    values (#{provisionsAcct,jdbcType=VARCHAR}, #{tdDate,jdbcType=VARCHAR}, #{acctAmt,jdbcType=DECIMAL}, 
+      #{inputDate,jdbcType=VARCHAR}, #{inputTime,jdbcType=VARCHAR}, #{dataDate,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.BAT_XW_BFJ_SUM_HIS">
+    insert into BAT_XW_BFJ_SUM_HIS
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="provisionsAcct != null">
+        PROVISIONS_ACCT,
+      </if>
+      <if test="tdDate != null">
+        TD_DATE,
+      </if>
+      <if test="acctAmt != null">
+        ACCT_AMT,
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE,
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME,
+      </if>
+      <if test="dataDate != null">
+        DATA_DATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="provisionsAcct != null">
+        #{provisionsAcct,jdbcType=VARCHAR},
+      </if>
+      <if test="tdDate != null">
+        #{tdDate,jdbcType=VARCHAR},
+      </if>
+      <if test="acctAmt != null">
+        #{acctAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="inputDate != null">
+        #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="dataDate != null">
+        #{dataDate,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.BAT_ANT_REPAY_INSTMNT_DT_HISMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.BAT_ANT_REPAY_INSTMNT_DT_HIS">
+    <result column="CONTRACT_NO" jdbcType="VARCHAR" property="contractNo" />
+    <result column="SEQ_NO" jdbcType="VARCHAR" property="seqNo" />
+    <result column="TERM_NO" jdbcType="DECIMAL" property="termNo" />
+    <result column="REPAY_AMT_TYPE" jdbcType="VARCHAR" property="repayAmtType" />
+    <result column="REPAY_DATE" jdbcType="VARCHAR" property="repayDate" />
+    <result column="CURR_PRIN_BAL" jdbcType="DECIMAL" property="currPrinBal" />
+    <result column="CURR_INT_BAL" jdbcType="DECIMAL" property="currIntBal" />
+    <result column="CURR_OVD_PRIN_PNLT_BAL" jdbcType="DECIMAL" property="currOvdPrinPnltBal" />
+    <result column="CURR_OVD_INT_PNLT_BAL" jdbcType="DECIMAL" property="currOvdIntPnltBal" />
+    <result column="REPAY_AMT" jdbcType="DECIMAL" property="repayAmt" />
+    <result column="PAID_PRIN_AMT" jdbcType="DECIMAL" property="paidPrinAmt" />
+    <result column="PAID_INT_AMT" jdbcType="DECIMAL" property="paidIntAmt" />
+    <result column="PAID_OVD_PRIN_PNLT_AMT" jdbcType="DECIMAL" property="paidOvdPrinPnltAmt" />
+    <result column="PAID_OVD_INT_PNLT_AMT" jdbcType="DECIMAL" property="paidOvdIntPnltAmt" />
+    <result column="INPUT_DATE" jdbcType="VARCHAR" property="inputDate" />
+    <result column="INPUT_TIME" jdbcType="VARCHAR" property="inputTime" />
+    <result column="DATA_DATE" jdbcType="VARCHAR" property="dataDate" />
+  </resultMap>
+  <insert id="insert" parameterType="com.bea.olp.BAT_ANT_REPAY_INSTMNT_DT_HIS">
+    insert into BAT_ANT_REPAY_INSTMNT_DT_HIS (CONTRACT_NO, SEQ_NO, TERM_NO, 
+      REPAY_AMT_TYPE, REPAY_DATE, CURR_PRIN_BAL, 
+      CURR_INT_BAL, CURR_OVD_PRIN_PNLT_BAL, CURR_OVD_INT_PNLT_BAL, 
+      REPAY_AMT, PAID_PRIN_AMT, PAID_INT_AMT, 
+      PAID_OVD_PRIN_PNLT_AMT, PAID_OVD_INT_PNLT_AMT, 
+      INPUT_DATE, INPUT_TIME, DATA_DATE
+      )
+    values (#{contractNo,jdbcType=VARCHAR}, #{seqNo,jdbcType=VARCHAR}, #{termNo,jdbcType=DECIMAL}, 
+      #{repayAmtType,jdbcType=VARCHAR}, #{repayDate,jdbcType=VARCHAR}, #{currPrinBal,jdbcType=DECIMAL}, 
+      #{currIntBal,jdbcType=DECIMAL}, #{currOvdPrinPnltBal,jdbcType=DECIMAL}, #{currOvdIntPnltBal,jdbcType=DECIMAL}, 
+      #{repayAmt,jdbcType=DECIMAL}, #{paidPrinAmt,jdbcType=DECIMAL}, #{paidIntAmt,jdbcType=DECIMAL}, 
+      #{paidOvdPrinPnltAmt,jdbcType=DECIMAL}, #{paidOvdIntPnltAmt,jdbcType=DECIMAL}, 
+      #{inputDate,jdbcType=VARCHAR}, #{inputTime,jdbcType=VARCHAR}, #{dataDate,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.BAT_ANT_REPAY_INSTMNT_DT_HIS">
+    insert into BAT_ANT_REPAY_INSTMNT_DT_HIS
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="contractNo != null">
+        CONTRACT_NO,
+      </if>
+      <if test="seqNo != null">
+        SEQ_NO,
+      </if>
+      <if test="termNo != null">
+        TERM_NO,
+      </if>
+      <if test="repayAmtType != null">
+        REPAY_AMT_TYPE,
+      </if>
+      <if test="repayDate != null">
+        REPAY_DATE,
+      </if>
+      <if test="currPrinBal != null">
+        CURR_PRIN_BAL,
+      </if>
+      <if test="currIntBal != null">
+        CURR_INT_BAL,
+      </if>
+      <if test="currOvdPrinPnltBal != null">
+        CURR_OVD_PRIN_PNLT_BAL,
+      </if>
+      <if test="currOvdIntPnltBal != null">
+        CURR_OVD_INT_PNLT_BAL,
+      </if>
+      <if test="repayAmt != null">
+        REPAY_AMT,
+      </if>
+      <if test="paidPrinAmt != null">
+        PAID_PRIN_AMT,
+      </if>
+      <if test="paidIntAmt != null">
+        PAID_INT_AMT,
+      </if>
+      <if test="paidOvdPrinPnltAmt != null">
+        PAID_OVD_PRIN_PNLT_AMT,
+      </if>
+      <if test="paidOvdIntPnltAmt != null">
+        PAID_OVD_INT_PNLT_AMT,
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE,
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME,
+      </if>
+      <if test="dataDate != null">
+        DATA_DATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="contractNo != null">
+        #{contractNo,jdbcType=VARCHAR},
+      </if>
+      <if test="seqNo != null">
+        #{seqNo,jdbcType=VARCHAR},
+      </if>
+      <if test="termNo != null">
+        #{termNo,jdbcType=DECIMAL},
+      </if>
+      <if test="repayAmtType != null">
+        #{repayAmtType,jdbcType=VARCHAR},
+      </if>
+      <if test="repayDate != null">
+        #{repayDate,jdbcType=VARCHAR},
+      </if>
+      <if test="currPrinBal != null">
+        #{currPrinBal,jdbcType=DECIMAL},
+      </if>
+      <if test="currIntBal != null">
+        #{currIntBal,jdbcType=DECIMAL},
+      </if>
+      <if test="currOvdPrinPnltBal != null">
+        #{currOvdPrinPnltBal,jdbcType=DECIMAL},
+      </if>
+      <if test="currOvdIntPnltBal != null">
+        #{currOvdIntPnltBal,jdbcType=DECIMAL},
+      </if>
+      <if test="repayAmt != null">
+        #{repayAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="paidPrinAmt != null">
+        #{paidPrinAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="paidIntAmt != null">
+        #{paidIntAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="paidOvdPrinPnltAmt != null">
+        #{paidOvdPrinPnltAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="paidOvdIntPnltAmt != null">
+        #{paidOvdIntPnltAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="inputDate != null">
+        #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="dataDate != null">
+        #{dataDate,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

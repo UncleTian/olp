@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.WF_NODE_ACTION_RECORDENDMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.WF_NODE_ACTION_RECORDEND">
+    <id column="NODEACTIONID" jdbcType="VARCHAR" property="nodeactionid" />
+    <result column="INSTANCEID" jdbcType="VARCHAR" property="instanceid" />
+    <result column="NODEID" jdbcType="VARCHAR" property="nodeid" />
+    <result column="NODENAME" jdbcType="VARCHAR" property="nodename" />
+    <result column="TRANSACTOR" jdbcType="VARCHAR" property="transactor" />
+    <result column="TRANSACTORNAME" jdbcType="VARCHAR" property="transactorname" />
+    <result column="ROLEID" jdbcType="VARCHAR" property="roleid" />
+    <result column="ROLENAME" jdbcType="VARCHAR" property="rolename" />
+    <result column="ACTTIME" jdbcType="CHAR" property="acttime" />
+    <result column="ACTIONNAME" jdbcType="VARCHAR" property="actionname" />
+    <result column="SENDTO" jdbcType="VARCHAR" property="sendto" />
+    <result column="SENDTONAME" jdbcType="VARCHAR" property="sendtoname" />
+    <result column="SENDTOROLEID" jdbcType="VARCHAR" property="sendtoroleid" />
+    <result column="SENDTOROLENAME" jdbcType="VARCHAR" property="sendtorolename" />
+    <result column="ROUTEID" jdbcType="VARCHAR" property="routeid" />
+    <result column="ROUTENAME" jdbcType="VARCHAR" property="routename" />
+    <result column="NEXTNODEID" jdbcType="VARCHAR" property="nextnodeid" />
+    <result column="NEXTNODENAME" jdbcType="VARCHAR" property="nextnodename" />
+    <result column="ORGID" jdbcType="VARCHAR" property="orgid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    NODEACTIONID, INSTANCEID, NODEID, NODENAME, TRANSACTOR, TRANSACTORNAME, ROLEID, ROLENAME, 
+    ACTTIME, ACTIONNAME, SENDTO, SENDTONAME, SENDTOROLEID, SENDTOROLENAME, ROUTEID, ROUTENAME, 
+    NEXTNODEID, NEXTNODENAME, ORGID
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from WF_NODE_ACTION_RECORDEND
+    where NODEACTIONID = #{nodeactionid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from WF_NODE_ACTION_RECORDEND
+    where NODEACTIONID = #{nodeactionid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.WF_NODE_ACTION_RECORDEND">
+    insert into WF_NODE_ACTION_RECORDEND (NODEACTIONID, INSTANCEID, NODEID, 
+      NODENAME, TRANSACTOR, TRANSACTORNAME, 
+      ROLEID, ROLENAME, ACTTIME, 
+      ACTIONNAME, SENDTO, SENDTONAME, 
+      SENDTOROLEID, SENDTOROLENAME, ROUTEID, 
+      ROUTENAME, NEXTNODEID, NEXTNODENAME, 
+      ORGID)
+    values (#{nodeactionid,jdbcType=VARCHAR}, #{instanceid,jdbcType=VARCHAR}, #{nodeid,jdbcType=VARCHAR}, 
+      #{nodename,jdbcType=VARCHAR}, #{transactor,jdbcType=VARCHAR}, #{transactorname,jdbcType=VARCHAR}, 
+      #{roleid,jdbcType=VARCHAR}, #{rolename,jdbcType=VARCHAR}, #{acttime,jdbcType=CHAR}, 
+      #{actionname,jdbcType=VARCHAR}, #{sendto,jdbcType=VARCHAR}, #{sendtoname,jdbcType=VARCHAR}, 
+      #{sendtoroleid,jdbcType=VARCHAR}, #{sendtorolename,jdbcType=VARCHAR}, #{routeid,jdbcType=VARCHAR}, 
+      #{routename,jdbcType=VARCHAR}, #{nextnodeid,jdbcType=VARCHAR}, #{nextnodename,jdbcType=VARCHAR}, 
+      #{orgid,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.WF_NODE_ACTION_RECORDEND">
+    insert into WF_NODE_ACTION_RECORDEND
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="nodeactionid != null">
+        NODEACTIONID,
+      </if>
+      <if test="instanceid != null">
+        INSTANCEID,
+      </if>
+      <if test="nodeid != null">
+        NODEID,
+      </if>
+      <if test="nodename != null">
+        NODENAME,
+      </if>
+      <if test="transactor != null">
+        TRANSACTOR,
+      </if>
+      <if test="transactorname != null">
+        TRANSACTORNAME,
+      </if>
+      <if test="roleid != null">
+        ROLEID,
+      </if>
+      <if test="rolename != null">
+        ROLENAME,
+      </if>
+      <if test="acttime != null">
+        ACTTIME,
+      </if>
+      <if test="actionname != null">
+        ACTIONNAME,
+      </if>
+      <if test="sendto != null">
+        SENDTO,
+      </if>
+      <if test="sendtoname != null">
+        SENDTONAME,
+      </if>
+      <if test="sendtoroleid != null">
+        SENDTOROLEID,
+      </if>
+      <if test="sendtorolename != null">
+        SENDTOROLENAME,
+      </if>
+      <if test="routeid != null">
+        ROUTEID,
+      </if>
+      <if test="routename != null">
+        ROUTENAME,
+      </if>
+      <if test="nextnodeid != null">
+        NEXTNODEID,
+      </if>
+      <if test="nextnodename != null">
+        NEXTNODENAME,
+      </if>
+      <if test="orgid != null">
+        ORGID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="nodeactionid != null">
+        #{nodeactionid,jdbcType=VARCHAR},
+      </if>
+      <if test="instanceid != null">
+        #{instanceid,jdbcType=VARCHAR},
+      </if>
+      <if test="nodeid != null">
+        #{nodeid,jdbcType=VARCHAR},
+      </if>
+      <if test="nodename != null">
+        #{nodename,jdbcType=VARCHAR},
+      </if>
+      <if test="transactor != null">
+        #{transactor,jdbcType=VARCHAR},
+      </if>
+      <if test="transactorname != null">
+        #{transactorname,jdbcType=VARCHAR},
+      </if>
+      <if test="roleid != null">
+        #{roleid,jdbcType=VARCHAR},
+      </if>
+      <if test="rolename != null">
+        #{rolename,jdbcType=VARCHAR},
+      </if>
+      <if test="acttime != null">
+        #{acttime,jdbcType=CHAR},
+      </if>
+      <if test="actionname != null">
+        #{actionname,jdbcType=VARCHAR},
+      </if>
+      <if test="sendto != null">
+        #{sendto,jdbcType=VARCHAR},
+      </if>
+      <if test="sendtoname != null">
+        #{sendtoname,jdbcType=VARCHAR},
+      </if>
+      <if test="sendtoroleid != null">
+        #{sendtoroleid,jdbcType=VARCHAR},
+      </if>
+      <if test="sendtorolename != null">
+        #{sendtorolename,jdbcType=VARCHAR},
+      </if>
+      <if test="routeid != null">
+        #{routeid,jdbcType=VARCHAR},
+      </if>
+      <if test="routename != null">
+        #{routename,jdbcType=VARCHAR},
+      </if>
+      <if test="nextnodeid != null">
+        #{nextnodeid,jdbcType=VARCHAR},
+      </if>
+      <if test="nextnodename != null">
+        #{nextnodename,jdbcType=VARCHAR},
+      </if>
+      <if test="orgid != null">
+        #{orgid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.WF_NODE_ACTION_RECORDEND">
+    update WF_NODE_ACTION_RECORDEND
+    <set>
+      <if test="instanceid != null">
+        INSTANCEID = #{instanceid,jdbcType=VARCHAR},
+      </if>
+      <if test="nodeid != null">
+        NODEID = #{nodeid,jdbcType=VARCHAR},
+      </if>
+      <if test="nodename != null">
+        NODENAME = #{nodename,jdbcType=VARCHAR},
+      </if>
+      <if test="transactor != null">
+        TRANSACTOR = #{transactor,jdbcType=VARCHAR},
+      </if>
+      <if test="transactorname != null">
+        TRANSACTORNAME = #{transactorname,jdbcType=VARCHAR},
+      </if>
+      <if test="roleid != null">
+        ROLEID = #{roleid,jdbcType=VARCHAR},
+      </if>
+      <if test="rolename != null">
+        ROLENAME = #{rolename,jdbcType=VARCHAR},
+      </if>
+      <if test="acttime != null">
+        ACTTIME = #{acttime,jdbcType=CHAR},
+      </if>
+      <if test="actionname != null">
+        ACTIONNAME = #{actionname,jdbcType=VARCHAR},
+      </if>
+      <if test="sendto != null">
+        SENDTO = #{sendto,jdbcType=VARCHAR},
+      </if>
+      <if test="sendtoname != null">
+        SENDTONAME = #{sendtoname,jdbcType=VARCHAR},
+      </if>
+      <if test="sendtoroleid != null">
+        SENDTOROLEID = #{sendtoroleid,jdbcType=VARCHAR},
+      </if>
+      <if test="sendtorolename != null">
+        SENDTOROLENAME = #{sendtorolename,jdbcType=VARCHAR},
+      </if>
+      <if test="routeid != null">
+        ROUTEID = #{routeid,jdbcType=VARCHAR},
+      </if>
+      <if test="routename != null">
+        ROUTENAME = #{routename,jdbcType=VARCHAR},
+      </if>
+      <if test="nextnodeid != null">
+        NEXTNODEID = #{nextnodeid,jdbcType=VARCHAR},
+      </if>
+      <if test="nextnodename != null">
+        NEXTNODENAME = #{nextnodename,jdbcType=VARCHAR},
+      </if>
+      <if test="orgid != null">
+        ORGID = #{orgid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where NODEACTIONID = #{nodeactionid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.WF_NODE_ACTION_RECORDEND">
+    update WF_NODE_ACTION_RECORDEND
+    set INSTANCEID = #{instanceid,jdbcType=VARCHAR},
+      NODEID = #{nodeid,jdbcType=VARCHAR},
+      NODENAME = #{nodename,jdbcType=VARCHAR},
+      TRANSACTOR = #{transactor,jdbcType=VARCHAR},
+      TRANSACTORNAME = #{transactorname,jdbcType=VARCHAR},
+      ROLEID = #{roleid,jdbcType=VARCHAR},
+      ROLENAME = #{rolename,jdbcType=VARCHAR},
+      ACTTIME = #{acttime,jdbcType=CHAR},
+      ACTIONNAME = #{actionname,jdbcType=VARCHAR},
+      SENDTO = #{sendto,jdbcType=VARCHAR},
+      SENDTONAME = #{sendtoname,jdbcType=VARCHAR},
+      SENDTOROLEID = #{sendtoroleid,jdbcType=VARCHAR},
+      SENDTOROLENAME = #{sendtorolename,jdbcType=VARCHAR},
+      ROUTEID = #{routeid,jdbcType=VARCHAR},
+      ROUTENAME = #{routename,jdbcType=VARCHAR},
+      NEXTNODEID = #{nextnodeid,jdbcType=VARCHAR},
+      NEXTNODENAME = #{nextnodename,jdbcType=VARCHAR},
+      ORGID = #{orgid,jdbcType=VARCHAR}
+    where NODEACTIONID = #{nodeactionid,jdbcType=VARCHAR}
+  </update>
+</mapper>

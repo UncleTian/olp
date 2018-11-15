@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.BAT_DATA_SIGNMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.BAT_DATA_SIGN">
+    <id column="DT_DATE" jdbcType="VARCHAR" property="dtDate" />
+    <id column="TABLE_NAME" jdbcType="VARCHAR" property="tableName" />
+    <id column="SYS_NAME" jdbcType="VARCHAR" property="sysName" />
+    <result column="DT_STATE" jdbcType="CHAR" property="dtState" />
+    <result column="LAST_UPDATE_TIME" jdbcType="VARCHAR" property="lastUpdateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    DT_DATE, TABLE_NAME, SYS_NAME, DT_STATE, LAST_UPDATE_TIME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="com.bea.olp.BAT_DATA_SIGNKey" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from BAT_DATA_SIGN
+    where DT_DATE = #{dtDate,jdbcType=VARCHAR}
+      and TABLE_NAME = #{tableName,jdbcType=VARCHAR}
+      and SYS_NAME = #{sysName,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.bea.olp.BAT_DATA_SIGNKey">
+    delete from BAT_DATA_SIGN
+    where DT_DATE = #{dtDate,jdbcType=VARCHAR}
+      and TABLE_NAME = #{tableName,jdbcType=VARCHAR}
+      and SYS_NAME = #{sysName,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.BAT_DATA_SIGN">
+    insert into BAT_DATA_SIGN (DT_DATE, TABLE_NAME, SYS_NAME, 
+      DT_STATE, LAST_UPDATE_TIME)
+    values (#{dtDate,jdbcType=VARCHAR}, #{tableName,jdbcType=VARCHAR}, #{sysName,jdbcType=VARCHAR}, 
+      #{dtState,jdbcType=CHAR}, #{lastUpdateTime,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.BAT_DATA_SIGN">
+    insert into BAT_DATA_SIGN
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="dtDate != null">
+        DT_DATE,
+      </if>
+      <if test="tableName != null">
+        TABLE_NAME,
+      </if>
+      <if test="sysName != null">
+        SYS_NAME,
+      </if>
+      <if test="dtState != null">
+        DT_STATE,
+      </if>
+      <if test="lastUpdateTime != null">
+        LAST_UPDATE_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="dtDate != null">
+        #{dtDate,jdbcType=VARCHAR},
+      </if>
+      <if test="tableName != null">
+        #{tableName,jdbcType=VARCHAR},
+      </if>
+      <if test="sysName != null">
+        #{sysName,jdbcType=VARCHAR},
+      </if>
+      <if test="dtState != null">
+        #{dtState,jdbcType=CHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        #{lastUpdateTime,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.BAT_DATA_SIGN">
+    update BAT_DATA_SIGN
+    <set>
+      <if test="dtState != null">
+        DT_STATE = #{dtState,jdbcType=CHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where DT_DATE = #{dtDate,jdbcType=VARCHAR}
+      and TABLE_NAME = #{tableName,jdbcType=VARCHAR}
+      and SYS_NAME = #{sysName,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.BAT_DATA_SIGN">
+    update BAT_DATA_SIGN
+    set DT_STATE = #{dtState,jdbcType=CHAR},
+      LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=VARCHAR}
+    where DT_DATE = #{dtDate,jdbcType=VARCHAR}
+      and TABLE_NAME = #{tableName,jdbcType=VARCHAR}
+      and SYS_NAME = #{sysName,jdbcType=VARCHAR}
+  </update>
+</mapper>

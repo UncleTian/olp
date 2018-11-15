@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.WF_INSTANCE_GATHER_PROPERTYMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.WF_INSTANCE_GATHER_PROPERTY">
+    <id column="INSTANCEID" jdbcType="VARCHAR" property="instanceid" />
+    <result column="BEFOREINSTANCEID" jdbcType="VARCHAR" property="beforeinstanceid" />
+    <result column="MAININSTANCEID" jdbcType="VARCHAR" property="maininstanceid" />
+    <result column="BIZSEQNO" jdbcType="VARCHAR" property="bizseqno" />
+    <result column="MAINNODEID" jdbcType="VARCHAR" property="mainnodeid" />
+    <result column="MAINNODENAME" jdbcType="VARCHAR" property="mainnodename" />
+    <result column="MAINJOBNAME" jdbcType="VARCHAR" property="mainjobname" />
+    <result column="GATHERSTARTUSERID" jdbcType="VARCHAR" property="gatherstartuserid" />
+    <result column="GATHERSTARTUSERNAME" jdbcType="VARCHAR" property="gatherstartusername" />
+    <result column="GATHERENDUSERID" jdbcType="VARCHAR" property="gatherenduserid" />
+    <result column="GATHERENDUSERNAME" jdbcType="VARCHAR" property="gatherendusername" />
+    <result column="GATHERTITLE" jdbcType="VARCHAR" property="gathertitle" />
+    <result column="GATHERDESC" jdbcType="VARCHAR" property="gatherdesc" />
+    <result column="CURRENTGATHERUSERLIST" jdbcType="VARCHAR" property="currentgatheruserlist" />
+    <result column="ALLPROCESSOR" jdbcType="VARCHAR" property="allprocessor" />
+    <result column="ALLPROCESSORNAME" jdbcType="VARCHAR" property="allprocessorname" />
+    <result column="CURRENTGATHERPROCESSORS" jdbcType="VARCHAR" property="currentgatherprocessors" />
+    <result column="GATHERSTARTTIME" jdbcType="CHAR" property="gatherstarttime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    INSTANCEID, BEFOREINSTANCEID, MAININSTANCEID, BIZSEQNO, MAINNODEID, MAINNODENAME, 
+    MAINJOBNAME, GATHERSTARTUSERID, GATHERSTARTUSERNAME, GATHERENDUSERID, GATHERENDUSERNAME, 
+    GATHERTITLE, GATHERDESC, CURRENTGATHERUSERLIST, ALLPROCESSOR, ALLPROCESSORNAME, CURRENTGATHERPROCESSORS, 
+    GATHERSTARTTIME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from WF_INSTANCE_GATHER_PROPERTY
+    where INSTANCEID = #{instanceid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from WF_INSTANCE_GATHER_PROPERTY
+    where INSTANCEID = #{instanceid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.WF_INSTANCE_GATHER_PROPERTY">
+    insert into WF_INSTANCE_GATHER_PROPERTY (INSTANCEID, BEFOREINSTANCEID, MAININSTANCEID, 
+      BIZSEQNO, MAINNODEID, MAINNODENAME, 
+      MAINJOBNAME, GATHERSTARTUSERID, GATHERSTARTUSERNAME, 
+      GATHERENDUSERID, GATHERENDUSERNAME, GATHERTITLE, 
+      GATHERDESC, CURRENTGATHERUSERLIST, ALLPROCESSOR, 
+      ALLPROCESSORNAME, CURRENTGATHERPROCESSORS, 
+      GATHERSTARTTIME)
+    values (#{instanceid,jdbcType=VARCHAR}, #{beforeinstanceid,jdbcType=VARCHAR}, #{maininstanceid,jdbcType=VARCHAR}, 
+      #{bizseqno,jdbcType=VARCHAR}, #{mainnodeid,jdbcType=VARCHAR}, #{mainnodename,jdbcType=VARCHAR}, 
+      #{mainjobname,jdbcType=VARCHAR}, #{gatherstartuserid,jdbcType=VARCHAR}, #{gatherstartusername,jdbcType=VARCHAR}, 
+      #{gatherenduserid,jdbcType=VARCHAR}, #{gatherendusername,jdbcType=VARCHAR}, #{gathertitle,jdbcType=VARCHAR}, 
+      #{gatherdesc,jdbcType=VARCHAR}, #{currentgatheruserlist,jdbcType=VARCHAR}, #{allprocessor,jdbcType=VARCHAR}, 
+      #{allprocessorname,jdbcType=VARCHAR}, #{currentgatherprocessors,jdbcType=VARCHAR}, 
+      #{gatherstarttime,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.WF_INSTANCE_GATHER_PROPERTY">
+    insert into WF_INSTANCE_GATHER_PROPERTY
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="instanceid != null">
+        INSTANCEID,
+      </if>
+      <if test="beforeinstanceid != null">
+        BEFOREINSTANCEID,
+      </if>
+      <if test="maininstanceid != null">
+        MAININSTANCEID,
+      </if>
+      <if test="bizseqno != null">
+        BIZSEQNO,
+      </if>
+      <if test="mainnodeid != null">
+        MAINNODEID,
+      </if>
+      <if test="mainnodename != null">
+        MAINNODENAME,
+      </if>
+      <if test="mainjobname != null">
+        MAINJOBNAME,
+      </if>
+      <if test="gatherstartuserid != null">
+        GATHERSTARTUSERID,
+      </if>
+      <if test="gatherstartusername != null">
+        GATHERSTARTUSERNAME,
+      </if>
+      <if test="gatherenduserid != null">
+        GATHERENDUSERID,
+      </if>
+      <if test="gatherendusername != null">
+        GATHERENDUSERNAME,
+      </if>
+      <if test="gathertitle != null">
+        GATHERTITLE,
+      </if>
+      <if test="gatherdesc != null">
+        GATHERDESC,
+      </if>
+      <if test="currentgatheruserlist != null">
+        CURRENTGATHERUSERLIST,
+      </if>
+      <if test="allprocessor != null">
+        ALLPROCESSOR,
+      </if>
+      <if test="allprocessorname != null">
+        ALLPROCESSORNAME,
+      </if>
+      <if test="currentgatherprocessors != null">
+        CURRENTGATHERPROCESSORS,
+      </if>
+      <if test="gatherstarttime != null">
+        GATHERSTARTTIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="instanceid != null">
+        #{instanceid,jdbcType=VARCHAR},
+      </if>
+      <if test="beforeinstanceid != null">
+        #{beforeinstanceid,jdbcType=VARCHAR},
+      </if>
+      <if test="maininstanceid != null">
+        #{maininstanceid,jdbcType=VARCHAR},
+      </if>
+      <if test="bizseqno != null">
+        #{bizseqno,jdbcType=VARCHAR},
+      </if>
+      <if test="mainnodeid != null">
+        #{mainnodeid,jdbcType=VARCHAR},
+      </if>
+      <if test="mainnodename != null">
+        #{mainnodename,jdbcType=VARCHAR},
+      </if>
+      <if test="mainjobname != null">
+        #{mainjobname,jdbcType=VARCHAR},
+      </if>
+      <if test="gatherstartuserid != null">
+        #{gatherstartuserid,jdbcType=VARCHAR},
+      </if>
+      <if test="gatherstartusername != null">
+        #{gatherstartusername,jdbcType=VARCHAR},
+      </if>
+      <if test="gatherenduserid != null">
+        #{gatherenduserid,jdbcType=VARCHAR},
+      </if>
+      <if test="gatherendusername != null">
+        #{gatherendusername,jdbcType=VARCHAR},
+      </if>
+      <if test="gathertitle != null">
+        #{gathertitle,jdbcType=VARCHAR},
+      </if>
+      <if test="gatherdesc != null">
+        #{gatherdesc,jdbcType=VARCHAR},
+      </if>
+      <if test="currentgatheruserlist != null">
+        #{currentgatheruserlist,jdbcType=VARCHAR},
+      </if>
+      <if test="allprocessor != null">
+        #{allprocessor,jdbcType=VARCHAR},
+      </if>
+      <if test="allprocessorname != null">
+        #{allprocessorname,jdbcType=VARCHAR},
+      </if>
+      <if test="currentgatherprocessors != null">
+        #{currentgatherprocessors,jdbcType=VARCHAR},
+      </if>
+      <if test="gatherstarttime != null">
+        #{gatherstarttime,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.WF_INSTANCE_GATHER_PROPERTY">
+    update WF_INSTANCE_GATHER_PROPERTY
+    <set>
+      <if test="beforeinstanceid != null">
+        BEFOREINSTANCEID = #{beforeinstanceid,jdbcType=VARCHAR},
+      </if>
+      <if test="maininstanceid != null">
+        MAININSTANCEID = #{maininstanceid,jdbcType=VARCHAR},
+      </if>
+      <if test="bizseqno != null">
+        BIZSEQNO = #{bizseqno,jdbcType=VARCHAR},
+      </if>
+      <if test="mainnodeid != null">
+        MAINNODEID = #{mainnodeid,jdbcType=VARCHAR},
+      </if>
+      <if test="mainnodename != null">
+        MAINNODENAME = #{mainnodename,jdbcType=VARCHAR},
+      </if>
+      <if test="mainjobname != null">
+        MAINJOBNAME = #{mainjobname,jdbcType=VARCHAR},
+      </if>
+      <if test="gatherstartuserid != null">
+        GATHERSTARTUSERID = #{gatherstartuserid,jdbcType=VARCHAR},
+      </if>
+      <if test="gatherstartusername != null">
+        GATHERSTARTUSERNAME = #{gatherstartusername,jdbcType=VARCHAR},
+      </if>
+      <if test="gatherenduserid != null">
+        GATHERENDUSERID = #{gatherenduserid,jdbcType=VARCHAR},
+      </if>
+      <if test="gatherendusername != null">
+        GATHERENDUSERNAME = #{gatherendusername,jdbcType=VARCHAR},
+      </if>
+      <if test="gathertitle != null">
+        GATHERTITLE = #{gathertitle,jdbcType=VARCHAR},
+      </if>
+      <if test="gatherdesc != null">
+        GATHERDESC = #{gatherdesc,jdbcType=VARCHAR},
+      </if>
+      <if test="currentgatheruserlist != null">
+        CURRENTGATHERUSERLIST = #{currentgatheruserlist,jdbcType=VARCHAR},
+      </if>
+      <if test="allprocessor != null">
+        ALLPROCESSOR = #{allprocessor,jdbcType=VARCHAR},
+      </if>
+      <if test="allprocessorname != null">
+        ALLPROCESSORNAME = #{allprocessorname,jdbcType=VARCHAR},
+      </if>
+      <if test="currentgatherprocessors != null">
+        CURRENTGATHERPROCESSORS = #{currentgatherprocessors,jdbcType=VARCHAR},
+      </if>
+      <if test="gatherstarttime != null">
+        GATHERSTARTTIME = #{gatherstarttime,jdbcType=CHAR},
+      </if>
+    </set>
+    where INSTANCEID = #{instanceid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.WF_INSTANCE_GATHER_PROPERTY">
+    update WF_INSTANCE_GATHER_PROPERTY
+    set BEFOREINSTANCEID = #{beforeinstanceid,jdbcType=VARCHAR},
+      MAININSTANCEID = #{maininstanceid,jdbcType=VARCHAR},
+      BIZSEQNO = #{bizseqno,jdbcType=VARCHAR},
+      MAINNODEID = #{mainnodeid,jdbcType=VARCHAR},
+      MAINNODENAME = #{mainnodename,jdbcType=VARCHAR},
+      MAINJOBNAME = #{mainjobname,jdbcType=VARCHAR},
+      GATHERSTARTUSERID = #{gatherstartuserid,jdbcType=VARCHAR},
+      GATHERSTARTUSERNAME = #{gatherstartusername,jdbcType=VARCHAR},
+      GATHERENDUSERID = #{gatherenduserid,jdbcType=VARCHAR},
+      GATHERENDUSERNAME = #{gatherendusername,jdbcType=VARCHAR},
+      GATHERTITLE = #{gathertitle,jdbcType=VARCHAR},
+      GATHERDESC = #{gatherdesc,jdbcType=VARCHAR},
+      CURRENTGATHERUSERLIST = #{currentgatheruserlist,jdbcType=VARCHAR},
+      ALLPROCESSOR = #{allprocessor,jdbcType=VARCHAR},
+      ALLPROCESSORNAME = #{allprocessorname,jdbcType=VARCHAR},
+      CURRENTGATHERPROCESSORS = #{currentgatherprocessors,jdbcType=VARCHAR},
+      GATHERSTARTTIME = #{gatherstarttime,jdbcType=CHAR}
+    where INSTANCEID = #{instanceid,jdbcType=VARCHAR}
+  </update>
+</mapper>

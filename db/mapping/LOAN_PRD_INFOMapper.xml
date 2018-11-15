@@ -1,0 +1,685 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.LOAN_PRD_INFOMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.LOAN_PRD_INFO">
+    <id column="LOAN_NO" jdbcType="VARCHAR" property="loanNo" />
+    <result column="PRD_CATE" jdbcType="VARCHAR" property="prdCate" />
+    <result column="LOAN_TYPE" jdbcType="VARCHAR" property="loanType" />
+    <result column="PRD_NAME" jdbcType="VARCHAR" property="prdName" />
+    <result column="CO_PLATFORM" jdbcType="CHAR" property="coPlatform" />
+    <result column="START_DATE" jdbcType="VARCHAR" property="startDate" />
+    <result column="END_DATE" jdbcType="VARCHAR" property="endDate" />
+    <result column="REPAY_WAY" jdbcType="VARCHAR" property="repayWay" />
+    <result column="CRD_MAIN_TYPE" jdbcType="VARCHAR" property="crdMainType" />
+    <result column="CRD_SUB_TYPE" jdbcType="VARCHAR" property="crdSubType" />
+    <result column="CORE_TYP" jdbcType="VARCHAR" property="coreTyp" />
+    <result column="SHORT_TYP" jdbcType="VARCHAR" property="shortTyp" />
+    <result column="META_TYP" jdbcType="VARCHAR" property="metaTyp" />
+    <result column="LONG_TYP" jdbcType="VARCHAR" property="longTyp" />
+    <result column="PAY_WAY" jdbcType="CHAR" property="payWay" />
+    <result column="LOAN_AMT_MAX" jdbcType="DECIMAL" property="loanAmtMax" />
+    <result column="LOAN_AMT_MIN" jdbcType="DECIMAL" property="loanAmtMin" />
+    <result column="CREDIT_AMT_MAX" jdbcType="DECIMAL" property="creditAmtMax" />
+    <result column="CREDIT_AMT_MIN" jdbcType="DECIMAL" property="creditAmtMin" />
+    <result column="OVERDUE_UP_RATE" jdbcType="DECIMAL" property="overdueUpRate" />
+    <result column="SPDB_ACC_RATE" jdbcType="DECIMAL" property="spdbAccRate" />
+    <result column="ONEDAY_APP_FAIL_TIMES" jdbcType="DECIMAL" property="onedayAppFailTimes" />
+    <result column="CRD_FAIL_DAY" jdbcType="DECIMAL" property="crdFailDay" />
+    <result column="LOAN_FAIL_DAY" jdbcType="DECIMAL" property="loanFailDay" />
+    <result column="CRD_TIMEOUT_DAY" jdbcType="DECIMAL" property="crdTimeoutDay" />
+    <result column="LOAN_TIMEOUT_DAY" jdbcType="DECIMAL" property="loanTimeoutDay" />
+    <result column="PSP_WARN_DAY" jdbcType="DECIMAL" property="pspWarnDay" />
+    <result column="CAN_INTERPOSE_RATIO" jdbcType="DECIMAL" property="canInterposeRatio" />
+    <result column="INTERPOSE_TOP_DAY" jdbcType="VARCHAR" property="interposeTopDay" />
+    <result column="CAN_CANCEL_LMT" jdbcType="CHAR" property="canCancelLmt" />
+    <result column="CANCEL_LMT_LOW" jdbcType="VARCHAR" property="cancelLmtLow" />
+    <result column="QUERY_USER_ID" jdbcType="VARCHAR" property="queryUserId" />
+    <result column="CYCLE_FLAG" jdbcType="VARCHAR" property="cycleFlag" />
+    <result column="LOAN_PROP" jdbcType="VARCHAR" property="loanProp" />
+    <result column="ORG_GET_TYPE" jdbcType="VARCHAR" property="orgGetType" />
+    <result column="MSG_ALL_CHANNEL" jdbcType="VARCHAR" property="msgAllChannel" />
+    <result column="MSG_IN_CHANNEL" jdbcType="VARCHAR" property="msgInChannel" />
+    <result column="APPLY_FLAG" jdbcType="VARCHAR" property="applyFlag" />
+    <result column="LOAN_TERM_MIN" jdbcType="VARCHAR" property="loanTermMin" />
+    <result column="LOAN_TERM_MAX" jdbcType="VARCHAR" property="loanTermMax" />
+    <result column="LOAN_INNER_ACC" jdbcType="VARCHAR" property="loanInnerAcc" />
+    <result column="PRD_RATE_BP" jdbcType="DECIMAL" property="prdRateBp" />
+    <result column="ACCEPT_BRANCH_ID" jdbcType="VARCHAR" property="acceptBranchId" />
+    <result column="BASIC_RATE" jdbcType="DECIMAL" property="basicRate" />
+    <result column="REMARK" jdbcType="VARCHAR" property="remark" />
+    <result column="STATUS" jdbcType="CHAR" property="status" />
+    <result column="INPUT_TIME" jdbcType="VARCHAR" property="inputTime" />
+    <result column="INPUT_ID" jdbcType="VARCHAR" property="inputId" />
+    <result column="INPUT_BR_ID" jdbcType="VARCHAR" property="inputBrId" />
+    <result column="LAST_UPDATE_TIME" jdbcType="VARCHAR" property="lastUpdateTime" />
+    <result column="LAST_UPDATE_ID" jdbcType="VARCHAR" property="lastUpdateId" />
+    <result column="QUERY_USER_PW" jdbcType="VARCHAR" property="queryUserPw" />
+    <result column="VALID_PERIOD" jdbcType="VARCHAR" property="validPeriod" />
+    <result column="MIN_RATE" jdbcType="DECIMAL" property="minRate" />
+    <result column="MAX_RATE" jdbcType="DECIMAL" property="maxRate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    LOAN_NO, PRD_CATE, LOAN_TYPE, PRD_NAME, CO_PLATFORM, START_DATE, END_DATE, REPAY_WAY, 
+    CRD_MAIN_TYPE, CRD_SUB_TYPE, CORE_TYP, SHORT_TYP, META_TYP, LONG_TYP, PAY_WAY, LOAN_AMT_MAX, 
+    LOAN_AMT_MIN, CREDIT_AMT_MAX, CREDIT_AMT_MIN, OVERDUE_UP_RATE, SPDB_ACC_RATE, ONEDAY_APP_FAIL_TIMES, 
+    CRD_FAIL_DAY, LOAN_FAIL_DAY, CRD_TIMEOUT_DAY, LOAN_TIMEOUT_DAY, PSP_WARN_DAY, CAN_INTERPOSE_RATIO, 
+    INTERPOSE_TOP_DAY, CAN_CANCEL_LMT, CANCEL_LMT_LOW, QUERY_USER_ID, CYCLE_FLAG, LOAN_PROP, 
+    ORG_GET_TYPE, MSG_ALL_CHANNEL, MSG_IN_CHANNEL, APPLY_FLAG, LOAN_TERM_MIN, LOAN_TERM_MAX, 
+    LOAN_INNER_ACC, PRD_RATE_BP, ACCEPT_BRANCH_ID, BASIC_RATE, REMARK, STATUS, INPUT_TIME, 
+    INPUT_ID, INPUT_BR_ID, LAST_UPDATE_TIME, LAST_UPDATE_ID, QUERY_USER_PW, VALID_PERIOD, 
+    MIN_RATE, MAX_RATE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from LOAN_PRD_INFO
+    where LOAN_NO = #{loanNo,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from LOAN_PRD_INFO
+    where LOAN_NO = #{loanNo,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.LOAN_PRD_INFO">
+    insert into LOAN_PRD_INFO (LOAN_NO, PRD_CATE, LOAN_TYPE, 
+      PRD_NAME, CO_PLATFORM, START_DATE, 
+      END_DATE, REPAY_WAY, CRD_MAIN_TYPE, 
+      CRD_SUB_TYPE, CORE_TYP, SHORT_TYP, 
+      META_TYP, LONG_TYP, PAY_WAY, 
+      LOAN_AMT_MAX, LOAN_AMT_MIN, CREDIT_AMT_MAX, 
+      CREDIT_AMT_MIN, OVERDUE_UP_RATE, SPDB_ACC_RATE, 
+      ONEDAY_APP_FAIL_TIMES, CRD_FAIL_DAY, LOAN_FAIL_DAY, 
+      CRD_TIMEOUT_DAY, LOAN_TIMEOUT_DAY, PSP_WARN_DAY, 
+      CAN_INTERPOSE_RATIO, INTERPOSE_TOP_DAY, CAN_CANCEL_LMT, 
+      CANCEL_LMT_LOW, QUERY_USER_ID, CYCLE_FLAG, 
+      LOAN_PROP, ORG_GET_TYPE, MSG_ALL_CHANNEL, 
+      MSG_IN_CHANNEL, APPLY_FLAG, LOAN_TERM_MIN, 
+      LOAN_TERM_MAX, LOAN_INNER_ACC, PRD_RATE_BP, 
+      ACCEPT_BRANCH_ID, BASIC_RATE, REMARK, 
+      STATUS, INPUT_TIME, INPUT_ID, 
+      INPUT_BR_ID, LAST_UPDATE_TIME, LAST_UPDATE_ID, 
+      QUERY_USER_PW, VALID_PERIOD, MIN_RATE, 
+      MAX_RATE)
+    values (#{loanNo,jdbcType=VARCHAR}, #{prdCate,jdbcType=VARCHAR}, #{loanType,jdbcType=VARCHAR}, 
+      #{prdName,jdbcType=VARCHAR}, #{coPlatform,jdbcType=CHAR}, #{startDate,jdbcType=VARCHAR}, 
+      #{endDate,jdbcType=VARCHAR}, #{repayWay,jdbcType=VARCHAR}, #{crdMainType,jdbcType=VARCHAR}, 
+      #{crdSubType,jdbcType=VARCHAR}, #{coreTyp,jdbcType=VARCHAR}, #{shortTyp,jdbcType=VARCHAR}, 
+      #{metaTyp,jdbcType=VARCHAR}, #{longTyp,jdbcType=VARCHAR}, #{payWay,jdbcType=CHAR}, 
+      #{loanAmtMax,jdbcType=DECIMAL}, #{loanAmtMin,jdbcType=DECIMAL}, #{creditAmtMax,jdbcType=DECIMAL}, 
+      #{creditAmtMin,jdbcType=DECIMAL}, #{overdueUpRate,jdbcType=DECIMAL}, #{spdbAccRate,jdbcType=DECIMAL}, 
+      #{onedayAppFailTimes,jdbcType=DECIMAL}, #{crdFailDay,jdbcType=DECIMAL}, #{loanFailDay,jdbcType=DECIMAL}, 
+      #{crdTimeoutDay,jdbcType=DECIMAL}, #{loanTimeoutDay,jdbcType=DECIMAL}, #{pspWarnDay,jdbcType=DECIMAL}, 
+      #{canInterposeRatio,jdbcType=DECIMAL}, #{interposeTopDay,jdbcType=VARCHAR}, #{canCancelLmt,jdbcType=CHAR}, 
+      #{cancelLmtLow,jdbcType=VARCHAR}, #{queryUserId,jdbcType=VARCHAR}, #{cycleFlag,jdbcType=VARCHAR}, 
+      #{loanProp,jdbcType=VARCHAR}, #{orgGetType,jdbcType=VARCHAR}, #{msgAllChannel,jdbcType=VARCHAR}, 
+      #{msgInChannel,jdbcType=VARCHAR}, #{applyFlag,jdbcType=VARCHAR}, #{loanTermMin,jdbcType=VARCHAR}, 
+      #{loanTermMax,jdbcType=VARCHAR}, #{loanInnerAcc,jdbcType=VARCHAR}, #{prdRateBp,jdbcType=DECIMAL}, 
+      #{acceptBranchId,jdbcType=VARCHAR}, #{basicRate,jdbcType=DECIMAL}, #{remark,jdbcType=VARCHAR}, 
+      #{status,jdbcType=CHAR}, #{inputTime,jdbcType=VARCHAR}, #{inputId,jdbcType=VARCHAR}, 
+      #{inputBrId,jdbcType=VARCHAR}, #{lastUpdateTime,jdbcType=VARCHAR}, #{lastUpdateId,jdbcType=VARCHAR}, 
+      #{queryUserPw,jdbcType=VARCHAR}, #{validPeriod,jdbcType=VARCHAR}, #{minRate,jdbcType=DECIMAL}, 
+      #{maxRate,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.LOAN_PRD_INFO">
+    insert into LOAN_PRD_INFO
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="loanNo != null">
+        LOAN_NO,
+      </if>
+      <if test="prdCate != null">
+        PRD_CATE,
+      </if>
+      <if test="loanType != null">
+        LOAN_TYPE,
+      </if>
+      <if test="prdName != null">
+        PRD_NAME,
+      </if>
+      <if test="coPlatform != null">
+        CO_PLATFORM,
+      </if>
+      <if test="startDate != null">
+        START_DATE,
+      </if>
+      <if test="endDate != null">
+        END_DATE,
+      </if>
+      <if test="repayWay != null">
+        REPAY_WAY,
+      </if>
+      <if test="crdMainType != null">
+        CRD_MAIN_TYPE,
+      </if>
+      <if test="crdSubType != null">
+        CRD_SUB_TYPE,
+      </if>
+      <if test="coreTyp != null">
+        CORE_TYP,
+      </if>
+      <if test="shortTyp != null">
+        SHORT_TYP,
+      </if>
+      <if test="metaTyp != null">
+        META_TYP,
+      </if>
+      <if test="longTyp != null">
+        LONG_TYP,
+      </if>
+      <if test="payWay != null">
+        PAY_WAY,
+      </if>
+      <if test="loanAmtMax != null">
+        LOAN_AMT_MAX,
+      </if>
+      <if test="loanAmtMin != null">
+        LOAN_AMT_MIN,
+      </if>
+      <if test="creditAmtMax != null">
+        CREDIT_AMT_MAX,
+      </if>
+      <if test="creditAmtMin != null">
+        CREDIT_AMT_MIN,
+      </if>
+      <if test="overdueUpRate != null">
+        OVERDUE_UP_RATE,
+      </if>
+      <if test="spdbAccRate != null">
+        SPDB_ACC_RATE,
+      </if>
+      <if test="onedayAppFailTimes != null">
+        ONEDAY_APP_FAIL_TIMES,
+      </if>
+      <if test="crdFailDay != null">
+        CRD_FAIL_DAY,
+      </if>
+      <if test="loanFailDay != null">
+        LOAN_FAIL_DAY,
+      </if>
+      <if test="crdTimeoutDay != null">
+        CRD_TIMEOUT_DAY,
+      </if>
+      <if test="loanTimeoutDay != null">
+        LOAN_TIMEOUT_DAY,
+      </if>
+      <if test="pspWarnDay != null">
+        PSP_WARN_DAY,
+      </if>
+      <if test="canInterposeRatio != null">
+        CAN_INTERPOSE_RATIO,
+      </if>
+      <if test="interposeTopDay != null">
+        INTERPOSE_TOP_DAY,
+      </if>
+      <if test="canCancelLmt != null">
+        CAN_CANCEL_LMT,
+      </if>
+      <if test="cancelLmtLow != null">
+        CANCEL_LMT_LOW,
+      </if>
+      <if test="queryUserId != null">
+        QUERY_USER_ID,
+      </if>
+      <if test="cycleFlag != null">
+        CYCLE_FLAG,
+      </if>
+      <if test="loanProp != null">
+        LOAN_PROP,
+      </if>
+      <if test="orgGetType != null">
+        ORG_GET_TYPE,
+      </if>
+      <if test="msgAllChannel != null">
+        MSG_ALL_CHANNEL,
+      </if>
+      <if test="msgInChannel != null">
+        MSG_IN_CHANNEL,
+      </if>
+      <if test="applyFlag != null">
+        APPLY_FLAG,
+      </if>
+      <if test="loanTermMin != null">
+        LOAN_TERM_MIN,
+      </if>
+      <if test="loanTermMax != null">
+        LOAN_TERM_MAX,
+      </if>
+      <if test="loanInnerAcc != null">
+        LOAN_INNER_ACC,
+      </if>
+      <if test="prdRateBp != null">
+        PRD_RATE_BP,
+      </if>
+      <if test="acceptBranchId != null">
+        ACCEPT_BRANCH_ID,
+      </if>
+      <if test="basicRate != null">
+        BASIC_RATE,
+      </if>
+      <if test="remark != null">
+        REMARK,
+      </if>
+      <if test="status != null">
+        STATUS,
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME,
+      </if>
+      <if test="inputId != null">
+        INPUT_ID,
+      </if>
+      <if test="inputBrId != null">
+        INPUT_BR_ID,
+      </if>
+      <if test="lastUpdateTime != null">
+        LAST_UPDATE_TIME,
+      </if>
+      <if test="lastUpdateId != null">
+        LAST_UPDATE_ID,
+      </if>
+      <if test="queryUserPw != null">
+        QUERY_USER_PW,
+      </if>
+      <if test="validPeriod != null">
+        VALID_PERIOD,
+      </if>
+      <if test="minRate != null">
+        MIN_RATE,
+      </if>
+      <if test="maxRate != null">
+        MAX_RATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="loanNo != null">
+        #{loanNo,jdbcType=VARCHAR},
+      </if>
+      <if test="prdCate != null">
+        #{prdCate,jdbcType=VARCHAR},
+      </if>
+      <if test="loanType != null">
+        #{loanType,jdbcType=VARCHAR},
+      </if>
+      <if test="prdName != null">
+        #{prdName,jdbcType=VARCHAR},
+      </if>
+      <if test="coPlatform != null">
+        #{coPlatform,jdbcType=CHAR},
+      </if>
+      <if test="startDate != null">
+        #{startDate,jdbcType=VARCHAR},
+      </if>
+      <if test="endDate != null">
+        #{endDate,jdbcType=VARCHAR},
+      </if>
+      <if test="repayWay != null">
+        #{repayWay,jdbcType=VARCHAR},
+      </if>
+      <if test="crdMainType != null">
+        #{crdMainType,jdbcType=VARCHAR},
+      </if>
+      <if test="crdSubType != null">
+        #{crdSubType,jdbcType=VARCHAR},
+      </if>
+      <if test="coreTyp != null">
+        #{coreTyp,jdbcType=VARCHAR},
+      </if>
+      <if test="shortTyp != null">
+        #{shortTyp,jdbcType=VARCHAR},
+      </if>
+      <if test="metaTyp != null">
+        #{metaTyp,jdbcType=VARCHAR},
+      </if>
+      <if test="longTyp != null">
+        #{longTyp,jdbcType=VARCHAR},
+      </if>
+      <if test="payWay != null">
+        #{payWay,jdbcType=CHAR},
+      </if>
+      <if test="loanAmtMax != null">
+        #{loanAmtMax,jdbcType=DECIMAL},
+      </if>
+      <if test="loanAmtMin != null">
+        #{loanAmtMin,jdbcType=DECIMAL},
+      </if>
+      <if test="creditAmtMax != null">
+        #{creditAmtMax,jdbcType=DECIMAL},
+      </if>
+      <if test="creditAmtMin != null">
+        #{creditAmtMin,jdbcType=DECIMAL},
+      </if>
+      <if test="overdueUpRate != null">
+        #{overdueUpRate,jdbcType=DECIMAL},
+      </if>
+      <if test="spdbAccRate != null">
+        #{spdbAccRate,jdbcType=DECIMAL},
+      </if>
+      <if test="onedayAppFailTimes != null">
+        #{onedayAppFailTimes,jdbcType=DECIMAL},
+      </if>
+      <if test="crdFailDay != null">
+        #{crdFailDay,jdbcType=DECIMAL},
+      </if>
+      <if test="loanFailDay != null">
+        #{loanFailDay,jdbcType=DECIMAL},
+      </if>
+      <if test="crdTimeoutDay != null">
+        #{crdTimeoutDay,jdbcType=DECIMAL},
+      </if>
+      <if test="loanTimeoutDay != null">
+        #{loanTimeoutDay,jdbcType=DECIMAL},
+      </if>
+      <if test="pspWarnDay != null">
+        #{pspWarnDay,jdbcType=DECIMAL},
+      </if>
+      <if test="canInterposeRatio != null">
+        #{canInterposeRatio,jdbcType=DECIMAL},
+      </if>
+      <if test="interposeTopDay != null">
+        #{interposeTopDay,jdbcType=VARCHAR},
+      </if>
+      <if test="canCancelLmt != null">
+        #{canCancelLmt,jdbcType=CHAR},
+      </if>
+      <if test="cancelLmtLow != null">
+        #{cancelLmtLow,jdbcType=VARCHAR},
+      </if>
+      <if test="queryUserId != null">
+        #{queryUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="cycleFlag != null">
+        #{cycleFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="loanProp != null">
+        #{loanProp,jdbcType=VARCHAR},
+      </if>
+      <if test="orgGetType != null">
+        #{orgGetType,jdbcType=VARCHAR},
+      </if>
+      <if test="msgAllChannel != null">
+        #{msgAllChannel,jdbcType=VARCHAR},
+      </if>
+      <if test="msgInChannel != null">
+        #{msgInChannel,jdbcType=VARCHAR},
+      </if>
+      <if test="applyFlag != null">
+        #{applyFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="loanTermMin != null">
+        #{loanTermMin,jdbcType=VARCHAR},
+      </if>
+      <if test="loanTermMax != null">
+        #{loanTermMax,jdbcType=VARCHAR},
+      </if>
+      <if test="loanInnerAcc != null">
+        #{loanInnerAcc,jdbcType=VARCHAR},
+      </if>
+      <if test="prdRateBp != null">
+        #{prdRateBp,jdbcType=DECIMAL},
+      </if>
+      <if test="acceptBranchId != null">
+        #{acceptBranchId,jdbcType=VARCHAR},
+      </if>
+      <if test="basicRate != null">
+        #{basicRate,jdbcType=DECIMAL},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=CHAR},
+      </if>
+      <if test="inputTime != null">
+        #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="inputId != null">
+        #{inputId,jdbcType=VARCHAR},
+      </if>
+      <if test="inputBrId != null">
+        #{inputBrId,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        #{lastUpdateTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateId != null">
+        #{lastUpdateId,jdbcType=VARCHAR},
+      </if>
+      <if test="queryUserPw != null">
+        #{queryUserPw,jdbcType=VARCHAR},
+      </if>
+      <if test="validPeriod != null">
+        #{validPeriod,jdbcType=VARCHAR},
+      </if>
+      <if test="minRate != null">
+        #{minRate,jdbcType=DECIMAL},
+      </if>
+      <if test="maxRate != null">
+        #{maxRate,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.LOAN_PRD_INFO">
+    update LOAN_PRD_INFO
+    <set>
+      <if test="prdCate != null">
+        PRD_CATE = #{prdCate,jdbcType=VARCHAR},
+      </if>
+      <if test="loanType != null">
+        LOAN_TYPE = #{loanType,jdbcType=VARCHAR},
+      </if>
+      <if test="prdName != null">
+        PRD_NAME = #{prdName,jdbcType=VARCHAR},
+      </if>
+      <if test="coPlatform != null">
+        CO_PLATFORM = #{coPlatform,jdbcType=CHAR},
+      </if>
+      <if test="startDate != null">
+        START_DATE = #{startDate,jdbcType=VARCHAR},
+      </if>
+      <if test="endDate != null">
+        END_DATE = #{endDate,jdbcType=VARCHAR},
+      </if>
+      <if test="repayWay != null">
+        REPAY_WAY = #{repayWay,jdbcType=VARCHAR},
+      </if>
+      <if test="crdMainType != null">
+        CRD_MAIN_TYPE = #{crdMainType,jdbcType=VARCHAR},
+      </if>
+      <if test="crdSubType != null">
+        CRD_SUB_TYPE = #{crdSubType,jdbcType=VARCHAR},
+      </if>
+      <if test="coreTyp != null">
+        CORE_TYP = #{coreTyp,jdbcType=VARCHAR},
+      </if>
+      <if test="shortTyp != null">
+        SHORT_TYP = #{shortTyp,jdbcType=VARCHAR},
+      </if>
+      <if test="metaTyp != null">
+        META_TYP = #{metaTyp,jdbcType=VARCHAR},
+      </if>
+      <if test="longTyp != null">
+        LONG_TYP = #{longTyp,jdbcType=VARCHAR},
+      </if>
+      <if test="payWay != null">
+        PAY_WAY = #{payWay,jdbcType=CHAR},
+      </if>
+      <if test="loanAmtMax != null">
+        LOAN_AMT_MAX = #{loanAmtMax,jdbcType=DECIMAL},
+      </if>
+      <if test="loanAmtMin != null">
+        LOAN_AMT_MIN = #{loanAmtMin,jdbcType=DECIMAL},
+      </if>
+      <if test="creditAmtMax != null">
+        CREDIT_AMT_MAX = #{creditAmtMax,jdbcType=DECIMAL},
+      </if>
+      <if test="creditAmtMin != null">
+        CREDIT_AMT_MIN = #{creditAmtMin,jdbcType=DECIMAL},
+      </if>
+      <if test="overdueUpRate != null">
+        OVERDUE_UP_RATE = #{overdueUpRate,jdbcType=DECIMAL},
+      </if>
+      <if test="spdbAccRate != null">
+        SPDB_ACC_RATE = #{spdbAccRate,jdbcType=DECIMAL},
+      </if>
+      <if test="onedayAppFailTimes != null">
+        ONEDAY_APP_FAIL_TIMES = #{onedayAppFailTimes,jdbcType=DECIMAL},
+      </if>
+      <if test="crdFailDay != null">
+        CRD_FAIL_DAY = #{crdFailDay,jdbcType=DECIMAL},
+      </if>
+      <if test="loanFailDay != null">
+        LOAN_FAIL_DAY = #{loanFailDay,jdbcType=DECIMAL},
+      </if>
+      <if test="crdTimeoutDay != null">
+        CRD_TIMEOUT_DAY = #{crdTimeoutDay,jdbcType=DECIMAL},
+      </if>
+      <if test="loanTimeoutDay != null">
+        LOAN_TIMEOUT_DAY = #{loanTimeoutDay,jdbcType=DECIMAL},
+      </if>
+      <if test="pspWarnDay != null">
+        PSP_WARN_DAY = #{pspWarnDay,jdbcType=DECIMAL},
+      </if>
+      <if test="canInterposeRatio != null">
+        CAN_INTERPOSE_RATIO = #{canInterposeRatio,jdbcType=DECIMAL},
+      </if>
+      <if test="interposeTopDay != null">
+        INTERPOSE_TOP_DAY = #{interposeTopDay,jdbcType=VARCHAR},
+      </if>
+      <if test="canCancelLmt != null">
+        CAN_CANCEL_LMT = #{canCancelLmt,jdbcType=CHAR},
+      </if>
+      <if test="cancelLmtLow != null">
+        CANCEL_LMT_LOW = #{cancelLmtLow,jdbcType=VARCHAR},
+      </if>
+      <if test="queryUserId != null">
+        QUERY_USER_ID = #{queryUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="cycleFlag != null">
+        CYCLE_FLAG = #{cycleFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="loanProp != null">
+        LOAN_PROP = #{loanProp,jdbcType=VARCHAR},
+      </if>
+      <if test="orgGetType != null">
+        ORG_GET_TYPE = #{orgGetType,jdbcType=VARCHAR},
+      </if>
+      <if test="msgAllChannel != null">
+        MSG_ALL_CHANNEL = #{msgAllChannel,jdbcType=VARCHAR},
+      </if>
+      <if test="msgInChannel != null">
+        MSG_IN_CHANNEL = #{msgInChannel,jdbcType=VARCHAR},
+      </if>
+      <if test="applyFlag != null">
+        APPLY_FLAG = #{applyFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="loanTermMin != null">
+        LOAN_TERM_MIN = #{loanTermMin,jdbcType=VARCHAR},
+      </if>
+      <if test="loanTermMax != null">
+        LOAN_TERM_MAX = #{loanTermMax,jdbcType=VARCHAR},
+      </if>
+      <if test="loanInnerAcc != null">
+        LOAN_INNER_ACC = #{loanInnerAcc,jdbcType=VARCHAR},
+      </if>
+      <if test="prdRateBp != null">
+        PRD_RATE_BP = #{prdRateBp,jdbcType=DECIMAL},
+      </if>
+      <if test="acceptBranchId != null">
+        ACCEPT_BRANCH_ID = #{acceptBranchId,jdbcType=VARCHAR},
+      </if>
+      <if test="basicRate != null">
+        BASIC_RATE = #{basicRate,jdbcType=DECIMAL},
+      </if>
+      <if test="remark != null">
+        REMARK = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        STATUS = #{status,jdbcType=CHAR},
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME = #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="inputId != null">
+        INPUT_ID = #{inputId,jdbcType=VARCHAR},
+      </if>
+      <if test="inputBrId != null">
+        INPUT_BR_ID = #{inputBrId,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateId != null">
+        LAST_UPDATE_ID = #{lastUpdateId,jdbcType=VARCHAR},
+      </if>
+      <if test="queryUserPw != null">
+        QUERY_USER_PW = #{queryUserPw,jdbcType=VARCHAR},
+      </if>
+      <if test="validPeriod != null">
+        VALID_PERIOD = #{validPeriod,jdbcType=VARCHAR},
+      </if>
+      <if test="minRate != null">
+        MIN_RATE = #{minRate,jdbcType=DECIMAL},
+      </if>
+      <if test="maxRate != null">
+        MAX_RATE = #{maxRate,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where LOAN_NO = #{loanNo,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.LOAN_PRD_INFO">
+    update LOAN_PRD_INFO
+    set PRD_CATE = #{prdCate,jdbcType=VARCHAR},
+      LOAN_TYPE = #{loanType,jdbcType=VARCHAR},
+      PRD_NAME = #{prdName,jdbcType=VARCHAR},
+      CO_PLATFORM = #{coPlatform,jdbcType=CHAR},
+      START_DATE = #{startDate,jdbcType=VARCHAR},
+      END_DATE = #{endDate,jdbcType=VARCHAR},
+      REPAY_WAY = #{repayWay,jdbcType=VARCHAR},
+      CRD_MAIN_TYPE = #{crdMainType,jdbcType=VARCHAR},
+      CRD_SUB_TYPE = #{crdSubType,jdbcType=VARCHAR},
+      CORE_TYP = #{coreTyp,jdbcType=VARCHAR},
+      SHORT_TYP = #{shortTyp,jdbcType=VARCHAR},
+      META_TYP = #{metaTyp,jdbcType=VARCHAR},
+      LONG_TYP = #{longTyp,jdbcType=VARCHAR},
+      PAY_WAY = #{payWay,jdbcType=CHAR},
+      LOAN_AMT_MAX = #{loanAmtMax,jdbcType=DECIMAL},
+      LOAN_AMT_MIN = #{loanAmtMin,jdbcType=DECIMAL},
+      CREDIT_AMT_MAX = #{creditAmtMax,jdbcType=DECIMAL},
+      CREDIT_AMT_MIN = #{creditAmtMin,jdbcType=DECIMAL},
+      OVERDUE_UP_RATE = #{overdueUpRate,jdbcType=DECIMAL},
+      SPDB_ACC_RATE = #{spdbAccRate,jdbcType=DECIMAL},
+      ONEDAY_APP_FAIL_TIMES = #{onedayAppFailTimes,jdbcType=DECIMAL},
+      CRD_FAIL_DAY = #{crdFailDay,jdbcType=DECIMAL},
+      LOAN_FAIL_DAY = #{loanFailDay,jdbcType=DECIMAL},
+      CRD_TIMEOUT_DAY = #{crdTimeoutDay,jdbcType=DECIMAL},
+      LOAN_TIMEOUT_DAY = #{loanTimeoutDay,jdbcType=DECIMAL},
+      PSP_WARN_DAY = #{pspWarnDay,jdbcType=DECIMAL},
+      CAN_INTERPOSE_RATIO = #{canInterposeRatio,jdbcType=DECIMAL},
+      INTERPOSE_TOP_DAY = #{interposeTopDay,jdbcType=VARCHAR},
+      CAN_CANCEL_LMT = #{canCancelLmt,jdbcType=CHAR},
+      CANCEL_LMT_LOW = #{cancelLmtLow,jdbcType=VARCHAR},
+      QUERY_USER_ID = #{queryUserId,jdbcType=VARCHAR},
+      CYCLE_FLAG = #{cycleFlag,jdbcType=VARCHAR},
+      LOAN_PROP = #{loanProp,jdbcType=VARCHAR},
+      ORG_GET_TYPE = #{orgGetType,jdbcType=VARCHAR},
+      MSG_ALL_CHANNEL = #{msgAllChannel,jdbcType=VARCHAR},
+      MSG_IN_CHANNEL = #{msgInChannel,jdbcType=VARCHAR},
+      APPLY_FLAG = #{applyFlag,jdbcType=VARCHAR},
+      LOAN_TERM_MIN = #{loanTermMin,jdbcType=VARCHAR},
+      LOAN_TERM_MAX = #{loanTermMax,jdbcType=VARCHAR},
+      LOAN_INNER_ACC = #{loanInnerAcc,jdbcType=VARCHAR},
+      PRD_RATE_BP = #{prdRateBp,jdbcType=DECIMAL},
+      ACCEPT_BRANCH_ID = #{acceptBranchId,jdbcType=VARCHAR},
+      BASIC_RATE = #{basicRate,jdbcType=DECIMAL},
+      REMARK = #{remark,jdbcType=VARCHAR},
+      STATUS = #{status,jdbcType=CHAR},
+      INPUT_TIME = #{inputTime,jdbcType=VARCHAR},
+      INPUT_ID = #{inputId,jdbcType=VARCHAR},
+      INPUT_BR_ID = #{inputBrId,jdbcType=VARCHAR},
+      LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=VARCHAR},
+      LAST_UPDATE_ID = #{lastUpdateId,jdbcType=VARCHAR},
+      QUERY_USER_PW = #{queryUserPw,jdbcType=VARCHAR},
+      VALID_PERIOD = #{validPeriod,jdbcType=VARCHAR},
+      MIN_RATE = #{minRate,jdbcType=DECIMAL},
+      MAX_RATE = #{maxRate,jdbcType=DECIMAL}
+    where LOAN_NO = #{loanNo,jdbcType=VARCHAR}
+  </update>
+</mapper>

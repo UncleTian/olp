@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.S_LOGMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.S_LOG">
+    <result column="LOG_DT" jdbcType="CHAR" property="logDt" />
+    <result column="LOG_TIME" jdbcType="CHAR" property="logTime" />
+    <result column="LOG_LEVEL" jdbcType="VARCHAR" property="logLevel" />
+    <result column="LOG_CATEGORY" jdbcType="VARCHAR" property="logCategory" />
+    <result column="LOG_THREAD" jdbcType="VARCHAR" property="logThread" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.bea.olp.S_LOGWithBLOBs">
+    <result column="MESSAGE" jdbcType="CLOB" property="message" />
+    <result column="THROWABLE" jdbcType="CLOB" property="throwable" />
+  </resultMap>
+  <sql id="Blob_Column_List">
+    MESSAGE, THROWABLE
+  </sql>
+  <insert id="insert" parameterType="com.bea.olp.S_LOGWithBLOBs">
+    insert into S_LOG (LOG_DT, LOG_TIME, LOG_LEVEL, 
+      LOG_CATEGORY, LOG_THREAD, MESSAGE, 
+      THROWABLE)
+    values (#{logDt,jdbcType=CHAR}, #{logTime,jdbcType=CHAR}, #{logLevel,jdbcType=VARCHAR}, 
+      #{logCategory,jdbcType=VARCHAR}, #{logThread,jdbcType=VARCHAR}, #{message,jdbcType=CLOB}, 
+      #{throwable,jdbcType=CLOB})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.S_LOGWithBLOBs">
+    insert into S_LOG
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="logDt != null">
+        LOG_DT,
+      </if>
+      <if test="logTime != null">
+        LOG_TIME,
+      </if>
+      <if test="logLevel != null">
+        LOG_LEVEL,
+      </if>
+      <if test="logCategory != null">
+        LOG_CATEGORY,
+      </if>
+      <if test="logThread != null">
+        LOG_THREAD,
+      </if>
+      <if test="message != null">
+        MESSAGE,
+      </if>
+      <if test="throwable != null">
+        THROWABLE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="logDt != null">
+        #{logDt,jdbcType=CHAR},
+      </if>
+      <if test="logTime != null">
+        #{logTime,jdbcType=CHAR},
+      </if>
+      <if test="logLevel != null">
+        #{logLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="logCategory != null">
+        #{logCategory,jdbcType=VARCHAR},
+      </if>
+      <if test="logThread != null">
+        #{logThread,jdbcType=VARCHAR},
+      </if>
+      <if test="message != null">
+        #{message,jdbcType=CLOB},
+      </if>
+      <if test="throwable != null">
+        #{throwable,jdbcType=CLOB},
+      </if>
+    </trim>
+  </insert>
+</mapper>

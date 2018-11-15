@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.WF_STUDIOMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.WF_STUDIO">
+    <id column="WFID" jdbcType="DECIMAL" property="wfid" />
+    <result column="WFNAME" jdbcType="VARCHAR" property="wfname" />
+    <result column="WFSIGN" jdbcType="VARCHAR" property="wfsign" />
+    <result column="WFSORT" jdbcType="VARCHAR" property="wfsort" />
+    <result column="WFFOLDER" jdbcType="VARCHAR" property="wffolder" />
+    <result column="WFVER" jdbcType="VARCHAR" property="wfver" />
+    <result column="STATE" jdbcType="CHAR" property="state" />
+    <result column="AUTHOR" jdbcType="VARCHAR" property="author" />
+    <result column="DEPID" jdbcType="VARCHAR" property="depid" />
+    <result column="ORGID" jdbcType="VARCHAR" property="orgid" />
+    <result column="SYSID" jdbcType="VARCHAR" property="sysid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    WFID, WFNAME, WFSIGN, WFSORT, WFFOLDER, WFVER, STATE, AUTHOR, DEPID, ORGID, SYSID
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from WF_STUDIO
+    where WFID = #{wfid,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.math.BigDecimal">
+    delete from WF_STUDIO
+    where WFID = #{wfid,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.WF_STUDIO">
+    insert into WF_STUDIO (WFID, WFNAME, WFSIGN, 
+      WFSORT, WFFOLDER, WFVER, 
+      STATE, AUTHOR, DEPID, 
+      ORGID, SYSID)
+    values (#{wfid,jdbcType=DECIMAL}, #{wfname,jdbcType=VARCHAR}, #{wfsign,jdbcType=VARCHAR}, 
+      #{wfsort,jdbcType=VARCHAR}, #{wffolder,jdbcType=VARCHAR}, #{wfver,jdbcType=VARCHAR}, 
+      #{state,jdbcType=CHAR}, #{author,jdbcType=VARCHAR}, #{depid,jdbcType=VARCHAR}, 
+      #{orgid,jdbcType=VARCHAR}, #{sysid,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.WF_STUDIO">
+    insert into WF_STUDIO
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="wfid != null">
+        WFID,
+      </if>
+      <if test="wfname != null">
+        WFNAME,
+      </if>
+      <if test="wfsign != null">
+        WFSIGN,
+      </if>
+      <if test="wfsort != null">
+        WFSORT,
+      </if>
+      <if test="wffolder != null">
+        WFFOLDER,
+      </if>
+      <if test="wfver != null">
+        WFVER,
+      </if>
+      <if test="state != null">
+        STATE,
+      </if>
+      <if test="author != null">
+        AUTHOR,
+      </if>
+      <if test="depid != null">
+        DEPID,
+      </if>
+      <if test="orgid != null">
+        ORGID,
+      </if>
+      <if test="sysid != null">
+        SYSID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="wfid != null">
+        #{wfid,jdbcType=DECIMAL},
+      </if>
+      <if test="wfname != null">
+        #{wfname,jdbcType=VARCHAR},
+      </if>
+      <if test="wfsign != null">
+        #{wfsign,jdbcType=VARCHAR},
+      </if>
+      <if test="wfsort != null">
+        #{wfsort,jdbcType=VARCHAR},
+      </if>
+      <if test="wffolder != null">
+        #{wffolder,jdbcType=VARCHAR},
+      </if>
+      <if test="wfver != null">
+        #{wfver,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null">
+        #{state,jdbcType=CHAR},
+      </if>
+      <if test="author != null">
+        #{author,jdbcType=VARCHAR},
+      </if>
+      <if test="depid != null">
+        #{depid,jdbcType=VARCHAR},
+      </if>
+      <if test="orgid != null">
+        #{orgid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysid != null">
+        #{sysid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.WF_STUDIO">
+    update WF_STUDIO
+    <set>
+      <if test="wfname != null">
+        WFNAME = #{wfname,jdbcType=VARCHAR},
+      </if>
+      <if test="wfsign != null">
+        WFSIGN = #{wfsign,jdbcType=VARCHAR},
+      </if>
+      <if test="wfsort != null">
+        WFSORT = #{wfsort,jdbcType=VARCHAR},
+      </if>
+      <if test="wffolder != null">
+        WFFOLDER = #{wffolder,jdbcType=VARCHAR},
+      </if>
+      <if test="wfver != null">
+        WFVER = #{wfver,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null">
+        STATE = #{state,jdbcType=CHAR},
+      </if>
+      <if test="author != null">
+        AUTHOR = #{author,jdbcType=VARCHAR},
+      </if>
+      <if test="depid != null">
+        DEPID = #{depid,jdbcType=VARCHAR},
+      </if>
+      <if test="orgid != null">
+        ORGID = #{orgid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysid != null">
+        SYSID = #{sysid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where WFID = #{wfid,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.WF_STUDIO">
+    update WF_STUDIO
+    set WFNAME = #{wfname,jdbcType=VARCHAR},
+      WFSIGN = #{wfsign,jdbcType=VARCHAR},
+      WFSORT = #{wfsort,jdbcType=VARCHAR},
+      WFFOLDER = #{wffolder,jdbcType=VARCHAR},
+      WFVER = #{wfver,jdbcType=VARCHAR},
+      STATE = #{state,jdbcType=CHAR},
+      AUTHOR = #{author,jdbcType=VARCHAR},
+      DEPID = #{depid,jdbcType=VARCHAR},
+      ORGID = #{orgid,jdbcType=VARCHAR},
+      SYSID = #{sysid,jdbcType=VARCHAR}
+    where WFID = #{wfid,jdbcType=DECIMAL}
+  </update>
+</mapper>

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.S_USR_DUTYMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.S_USR_DUTY">
+    <id column="DUTY_CDE" jdbcType="VARCHAR" property="dutyCde" />
+    <id column="USR_CDE" jdbcType="VARCHAR" property="usrCde" />
+    <result column="INSTU_CDE" jdbcType="VARCHAR" property="instuCde" />
+    <result column="STS" jdbcType="VARCHAR" property="sts" />
+    <result column="LAST_CHG_DT" jdbcType="VARCHAR" property="lastChgDt" />
+    <result column="LAST_CHG_USR" jdbcType="VARCHAR" property="lastChgUsr" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    DUTY_CDE, USR_CDE, INSTU_CDE, STS, LAST_CHG_DT, LAST_CHG_USR
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="com.bea.olp.S_USR_DUTYKey" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from S_USR_DUTY
+    where DUTY_CDE = #{dutyCde,jdbcType=VARCHAR}
+      and USR_CDE = #{usrCde,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.bea.olp.S_USR_DUTYKey">
+    delete from S_USR_DUTY
+    where DUTY_CDE = #{dutyCde,jdbcType=VARCHAR}
+      and USR_CDE = #{usrCde,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.S_USR_DUTY">
+    insert into S_USR_DUTY (DUTY_CDE, USR_CDE, INSTU_CDE, 
+      STS, LAST_CHG_DT, LAST_CHG_USR
+      )
+    values (#{dutyCde,jdbcType=VARCHAR}, #{usrCde,jdbcType=VARCHAR}, #{instuCde,jdbcType=VARCHAR}, 
+      #{sts,jdbcType=VARCHAR}, #{lastChgDt,jdbcType=VARCHAR}, #{lastChgUsr,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.S_USR_DUTY">
+    insert into S_USR_DUTY
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="dutyCde != null">
+        DUTY_CDE,
+      </if>
+      <if test="usrCde != null">
+        USR_CDE,
+      </if>
+      <if test="instuCde != null">
+        INSTU_CDE,
+      </if>
+      <if test="sts != null">
+        STS,
+      </if>
+      <if test="lastChgDt != null">
+        LAST_CHG_DT,
+      </if>
+      <if test="lastChgUsr != null">
+        LAST_CHG_USR,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="dutyCde != null">
+        #{dutyCde,jdbcType=VARCHAR},
+      </if>
+      <if test="usrCde != null">
+        #{usrCde,jdbcType=VARCHAR},
+      </if>
+      <if test="instuCde != null">
+        #{instuCde,jdbcType=VARCHAR},
+      </if>
+      <if test="sts != null">
+        #{sts,jdbcType=VARCHAR},
+      </if>
+      <if test="lastChgDt != null">
+        #{lastChgDt,jdbcType=VARCHAR},
+      </if>
+      <if test="lastChgUsr != null">
+        #{lastChgUsr,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.S_USR_DUTY">
+    update S_USR_DUTY
+    <set>
+      <if test="instuCde != null">
+        INSTU_CDE = #{instuCde,jdbcType=VARCHAR},
+      </if>
+      <if test="sts != null">
+        STS = #{sts,jdbcType=VARCHAR},
+      </if>
+      <if test="lastChgDt != null">
+        LAST_CHG_DT = #{lastChgDt,jdbcType=VARCHAR},
+      </if>
+      <if test="lastChgUsr != null">
+        LAST_CHG_USR = #{lastChgUsr,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where DUTY_CDE = #{dutyCde,jdbcType=VARCHAR}
+      and USR_CDE = #{usrCde,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.S_USR_DUTY">
+    update S_USR_DUTY
+    set INSTU_CDE = #{instuCde,jdbcType=VARCHAR},
+      STS = #{sts,jdbcType=VARCHAR},
+      LAST_CHG_DT = #{lastChgDt,jdbcType=VARCHAR},
+      LAST_CHG_USR = #{lastChgUsr,jdbcType=VARCHAR}
+    where DUTY_CDE = #{dutyCde,jdbcType=VARCHAR}
+      and USR_CDE = #{usrCde,jdbcType=VARCHAR}
+  </update>
+</mapper>

@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.BAT_QUARZ_ECIF_CUST_INFOMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.BAT_QUARZ_ECIF_CUST_INFO">
+    <id column="CUS_ID" jdbcType="VARCHAR" property="cusId" />
+    <result column="CH_NAME" jdbcType="VARCHAR" property="chName" />
+    <result column="EN_NAME" jdbcType="VARCHAR" property="enName" />
+    <result column="GOVE_IDEN_NUM" jdbcType="VARCHAR" property="goveIdenNum" />
+    <result column="STATUS" jdbcType="VARCHAR" property="status" />
+    <result column="ERROR_COD" jdbcType="VARCHAR" property="errorCod" />
+    <result column="ERROR_MSG" jdbcType="VARCHAR" property="errorMsg" />
+    <result column="CHANNEL_TYPE" jdbcType="VARCHAR" property="channelType" />
+    <result column="LAST_UPDATE_DATE" jdbcType="VARCHAR" property="lastUpdateDate" />
+    <result column="LAST_UPDATE_TIME" jdbcType="VARCHAR" property="lastUpdateTime" />
+    <result column="EXT_CLIENT_NO" jdbcType="VARCHAR" property="extClientNo" />
+    <result column="DATA_DATE" jdbcType="VARCHAR" property="dataDate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    CUS_ID, CH_NAME, EN_NAME, GOVE_IDEN_NUM, STATUS, ERROR_COD, ERROR_MSG, CHANNEL_TYPE, 
+    LAST_UPDATE_DATE, LAST_UPDATE_TIME, EXT_CLIENT_NO, DATA_DATE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from BAT_QUARZ_ECIF_CUST_INFO
+    where CUS_ID = #{cusId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from BAT_QUARZ_ECIF_CUST_INFO
+    where CUS_ID = #{cusId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.BAT_QUARZ_ECIF_CUST_INFO">
+    insert into BAT_QUARZ_ECIF_CUST_INFO (CUS_ID, CH_NAME, EN_NAME, 
+      GOVE_IDEN_NUM, STATUS, ERROR_COD, 
+      ERROR_MSG, CHANNEL_TYPE, LAST_UPDATE_DATE, 
+      LAST_UPDATE_TIME, EXT_CLIENT_NO, DATA_DATE
+      )
+    values (#{cusId,jdbcType=VARCHAR}, #{chName,jdbcType=VARCHAR}, #{enName,jdbcType=VARCHAR}, 
+      #{goveIdenNum,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, #{errorCod,jdbcType=VARCHAR}, 
+      #{errorMsg,jdbcType=VARCHAR}, #{channelType,jdbcType=VARCHAR}, #{lastUpdateDate,jdbcType=VARCHAR}, 
+      #{lastUpdateTime,jdbcType=VARCHAR}, #{extClientNo,jdbcType=VARCHAR}, #{dataDate,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.BAT_QUARZ_ECIF_CUST_INFO">
+    insert into BAT_QUARZ_ECIF_CUST_INFO
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="cusId != null">
+        CUS_ID,
+      </if>
+      <if test="chName != null">
+        CH_NAME,
+      </if>
+      <if test="enName != null">
+        EN_NAME,
+      </if>
+      <if test="goveIdenNum != null">
+        GOVE_IDEN_NUM,
+      </if>
+      <if test="status != null">
+        STATUS,
+      </if>
+      <if test="errorCod != null">
+        ERROR_COD,
+      </if>
+      <if test="errorMsg != null">
+        ERROR_MSG,
+      </if>
+      <if test="channelType != null">
+        CHANNEL_TYPE,
+      </if>
+      <if test="lastUpdateDate != null">
+        LAST_UPDATE_DATE,
+      </if>
+      <if test="lastUpdateTime != null">
+        LAST_UPDATE_TIME,
+      </if>
+      <if test="extClientNo != null">
+        EXT_CLIENT_NO,
+      </if>
+      <if test="dataDate != null">
+        DATA_DATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="cusId != null">
+        #{cusId,jdbcType=VARCHAR},
+      </if>
+      <if test="chName != null">
+        #{chName,jdbcType=VARCHAR},
+      </if>
+      <if test="enName != null">
+        #{enName,jdbcType=VARCHAR},
+      </if>
+      <if test="goveIdenNum != null">
+        #{goveIdenNum,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="errorCod != null">
+        #{errorCod,jdbcType=VARCHAR},
+      </if>
+      <if test="errorMsg != null">
+        #{errorMsg,jdbcType=VARCHAR},
+      </if>
+      <if test="channelType != null">
+        #{channelType,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateDate != null">
+        #{lastUpdateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        #{lastUpdateTime,jdbcType=VARCHAR},
+      </if>
+      <if test="extClientNo != null">
+        #{extClientNo,jdbcType=VARCHAR},
+      </if>
+      <if test="dataDate != null">
+        #{dataDate,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.BAT_QUARZ_ECIF_CUST_INFO">
+    update BAT_QUARZ_ECIF_CUST_INFO
+    <set>
+      <if test="chName != null">
+        CH_NAME = #{chName,jdbcType=VARCHAR},
+      </if>
+      <if test="enName != null">
+        EN_NAME = #{enName,jdbcType=VARCHAR},
+      </if>
+      <if test="goveIdenNum != null">
+        GOVE_IDEN_NUM = #{goveIdenNum,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        STATUS = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="errorCod != null">
+        ERROR_COD = #{errorCod,jdbcType=VARCHAR},
+      </if>
+      <if test="errorMsg != null">
+        ERROR_MSG = #{errorMsg,jdbcType=VARCHAR},
+      </if>
+      <if test="channelType != null">
+        CHANNEL_TYPE = #{channelType,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateDate != null">
+        LAST_UPDATE_DATE = #{lastUpdateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=VARCHAR},
+      </if>
+      <if test="extClientNo != null">
+        EXT_CLIENT_NO = #{extClientNo,jdbcType=VARCHAR},
+      </if>
+      <if test="dataDate != null">
+        DATA_DATE = #{dataDate,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where CUS_ID = #{cusId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.BAT_QUARZ_ECIF_CUST_INFO">
+    update BAT_QUARZ_ECIF_CUST_INFO
+    set CH_NAME = #{chName,jdbcType=VARCHAR},
+      EN_NAME = #{enName,jdbcType=VARCHAR},
+      GOVE_IDEN_NUM = #{goveIdenNum,jdbcType=VARCHAR},
+      STATUS = #{status,jdbcType=VARCHAR},
+      ERROR_COD = #{errorCod,jdbcType=VARCHAR},
+      ERROR_MSG = #{errorMsg,jdbcType=VARCHAR},
+      CHANNEL_TYPE = #{channelType,jdbcType=VARCHAR},
+      LAST_UPDATE_DATE = #{lastUpdateDate,jdbcType=VARCHAR},
+      LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=VARCHAR},
+      EXT_CLIENT_NO = #{extClientNo,jdbcType=VARCHAR},
+      DATA_DATE = #{dataDate,jdbcType=VARCHAR}
+    where CUS_ID = #{cusId,jdbcType=VARCHAR}
+  </update>
+</mapper>

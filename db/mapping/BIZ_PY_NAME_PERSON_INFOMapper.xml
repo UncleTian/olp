@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.BIZ_PY_NAME_PERSON_INFOMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.BIZ_PY_NAME_PERSON_INFO">
+    <id column="APP_NO" jdbcType="VARCHAR" property="appNo" />
+    <result column="BATNO" jdbcType="VARCHAR" property="batno" />
+    <result column="UNITNAME" jdbcType="VARCHAR" property="unitname" />
+    <result column="SUBORGAN" jdbcType="VARCHAR" property="suborgan" />
+    <result column="QUERYUSERID" jdbcType="VARCHAR" property="queryuserid" />
+    <result column="QUERYCOUNT" jdbcType="DECIMAL" property="querycount" />
+    <result column="RECEIVETIME" jdbcType="VARCHAR" property="receivetime" />
+    <result column="REPORTID" jdbcType="VARCHAR" property="reportid" />
+    <result column="BUILDENDTIME" jdbcType="VARCHAR" property="buildendtime" />
+    <result column="QUERYREASONID" jdbcType="DECIMAL" property="queryreasonid" />
+    <result column="SUBREPORTTYPES" jdbcType="VARCHAR" property="subreporttypes" />
+    <result column="TREATRESULT" jdbcType="VARCHAR" property="treatresult" />
+    <result column="SUBREPORTTYPESSHORTCAPTION" jdbcType="VARCHAR" property="subreporttypesshortcaption" />
+    <result column="REFID" jdbcType="VARCHAR" property="refid" />
+    <result column="HASSYSTEMERROR" jdbcType="VARCHAR" property="hassystemerror" />
+    <result column="ISFROZEN" jdbcType="VARCHAR" property="isfrozen" />
+    <result column="SUBREPORTTYPE" jdbcType="DECIMAL" property="subreporttype" />
+    <result column="SUBREPORTTYPECOST" jdbcType="DECIMAL" property="subreporttypecost" />
+    <result column="TREATRESULTINFO" jdbcType="DECIMAL" property="treatresultinfo" />
+    <result column="TREATERRORCODE" jdbcType="VARCHAR" property="treaterrorcode" />
+    <result column="ERRORMESSAGE" jdbcType="VARCHAR" property="errormessage" />
+    <result column="NORMALIZECORPNAME" jdbcType="VARCHAR" property="normalizecorpname" />
+    <result column="MATCHTRUSTDEGREE" jdbcType="DECIMAL" property="matchtrustdegree" />
+    <result column="ESTIMATERESULT" jdbcType="VARCHAR" property="estimateresult" />
+    <result column="INTERFACETYPE" jdbcType="DECIMAL" property="interfacetype" />
+    <result column="INPUT_DATE" jdbcType="VARCHAR" property="inputDate" />
+    <result column="INPUT_TIME" jdbcType="VARCHAR" property="inputTime" />
+    <result column="LAST_UPDATE_DATE" jdbcType="VARCHAR" property="lastUpdateDate" />
+    <result column="LAST_UPDATE_TIME" jdbcType="VARCHAR" property="lastUpdateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    APP_NO, BATNO, UNITNAME, SUBORGAN, QUERYUSERID, QUERYCOUNT, RECEIVETIME, REPORTID, 
+    BUILDENDTIME, QUERYREASONID, SUBREPORTTYPES, TREATRESULT, SUBREPORTTYPESSHORTCAPTION, 
+    REFID, HASSYSTEMERROR, ISFROZEN, SUBREPORTTYPE, SUBREPORTTYPECOST, TREATRESULTINFO, 
+    TREATERRORCODE, ERRORMESSAGE, NORMALIZECORPNAME, MATCHTRUSTDEGREE, ESTIMATERESULT, 
+    INTERFACETYPE, INPUT_DATE, INPUT_TIME, LAST_UPDATE_DATE, LAST_UPDATE_TIME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from BIZ_PY_NAME_PERSON_INFO
+    where APP_NO = #{appNo,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from BIZ_PY_NAME_PERSON_INFO
+    where APP_NO = #{appNo,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.BIZ_PY_NAME_PERSON_INFO">
+    insert into BIZ_PY_NAME_PERSON_INFO (APP_NO, BATNO, UNITNAME, 
+      SUBORGAN, QUERYUSERID, QUERYCOUNT, 
+      RECEIVETIME, REPORTID, BUILDENDTIME, 
+      QUERYREASONID, SUBREPORTTYPES, TREATRESULT, 
+      SUBREPORTTYPESSHORTCAPTION, REFID, HASSYSTEMERROR, 
+      ISFROZEN, SUBREPORTTYPE, SUBREPORTTYPECOST, 
+      TREATRESULTINFO, TREATERRORCODE, ERRORMESSAGE, 
+      NORMALIZECORPNAME, MATCHTRUSTDEGREE, ESTIMATERESULT, 
+      INTERFACETYPE, INPUT_DATE, INPUT_TIME, 
+      LAST_UPDATE_DATE, LAST_UPDATE_TIME)
+    values (#{appNo,jdbcType=VARCHAR}, #{batno,jdbcType=VARCHAR}, #{unitname,jdbcType=VARCHAR}, 
+      #{suborgan,jdbcType=VARCHAR}, #{queryuserid,jdbcType=VARCHAR}, #{querycount,jdbcType=DECIMAL}, 
+      #{receivetime,jdbcType=VARCHAR}, #{reportid,jdbcType=VARCHAR}, #{buildendtime,jdbcType=VARCHAR}, 
+      #{queryreasonid,jdbcType=DECIMAL}, #{subreporttypes,jdbcType=VARCHAR}, #{treatresult,jdbcType=VARCHAR}, 
+      #{subreporttypesshortcaption,jdbcType=VARCHAR}, #{refid,jdbcType=VARCHAR}, #{hassystemerror,jdbcType=VARCHAR}, 
+      #{isfrozen,jdbcType=VARCHAR}, #{subreporttype,jdbcType=DECIMAL}, #{subreporttypecost,jdbcType=DECIMAL}, 
+      #{treatresultinfo,jdbcType=DECIMAL}, #{treaterrorcode,jdbcType=VARCHAR}, #{errormessage,jdbcType=VARCHAR}, 
+      #{normalizecorpname,jdbcType=VARCHAR}, #{matchtrustdegree,jdbcType=DECIMAL}, #{estimateresult,jdbcType=VARCHAR}, 
+      #{interfacetype,jdbcType=DECIMAL}, #{inputDate,jdbcType=VARCHAR}, #{inputTime,jdbcType=VARCHAR}, 
+      #{lastUpdateDate,jdbcType=VARCHAR}, #{lastUpdateTime,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.BIZ_PY_NAME_PERSON_INFO">
+    insert into BIZ_PY_NAME_PERSON_INFO
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="appNo != null">
+        APP_NO,
+      </if>
+      <if test="batno != null">
+        BATNO,
+      </if>
+      <if test="unitname != null">
+        UNITNAME,
+      </if>
+      <if test="suborgan != null">
+        SUBORGAN,
+      </if>
+      <if test="queryuserid != null">
+        QUERYUSERID,
+      </if>
+      <if test="querycount != null">
+        QUERYCOUNT,
+      </if>
+      <if test="receivetime != null">
+        RECEIVETIME,
+      </if>
+      <if test="reportid != null">
+        REPORTID,
+      </if>
+      <if test="buildendtime != null">
+        BUILDENDTIME,
+      </if>
+      <if test="queryreasonid != null">
+        QUERYREASONID,
+      </if>
+      <if test="subreporttypes != null">
+        SUBREPORTTYPES,
+      </if>
+      <if test="treatresult != null">
+        TREATRESULT,
+      </if>
+      <if test="subreporttypesshortcaption != null">
+        SUBREPORTTYPESSHORTCAPTION,
+      </if>
+      <if test="refid != null">
+        REFID,
+      </if>
+      <if test="hassystemerror != null">
+        HASSYSTEMERROR,
+      </if>
+      <if test="isfrozen != null">
+        ISFROZEN,
+      </if>
+      <if test="subreporttype != null">
+        SUBREPORTTYPE,
+      </if>
+      <if test="subreporttypecost != null">
+        SUBREPORTTYPECOST,
+      </if>
+      <if test="treatresultinfo != null">
+        TREATRESULTINFO,
+      </if>
+      <if test="treaterrorcode != null">
+        TREATERRORCODE,
+      </if>
+      <if test="errormessage != null">
+        ERRORMESSAGE,
+      </if>
+      <if test="normalizecorpname != null">
+        NORMALIZECORPNAME,
+      </if>
+      <if test="matchtrustdegree != null">
+        MATCHTRUSTDEGREE,
+      </if>
+      <if test="estimateresult != null">
+        ESTIMATERESULT,
+      </if>
+      <if test="interfacetype != null">
+        INTERFACETYPE,
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE,
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME,
+      </if>
+      <if test="lastUpdateDate != null">
+        LAST_UPDATE_DATE,
+      </if>
+      <if test="lastUpdateTime != null">
+        LAST_UPDATE_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="appNo != null">
+        #{appNo,jdbcType=VARCHAR},
+      </if>
+      <if test="batno != null">
+        #{batno,jdbcType=VARCHAR},
+      </if>
+      <if test="unitname != null">
+        #{unitname,jdbcType=VARCHAR},
+      </if>
+      <if test="suborgan != null">
+        #{suborgan,jdbcType=VARCHAR},
+      </if>
+      <if test="queryuserid != null">
+        #{queryuserid,jdbcType=VARCHAR},
+      </if>
+      <if test="querycount != null">
+        #{querycount,jdbcType=DECIMAL},
+      </if>
+      <if test="receivetime != null">
+        #{receivetime,jdbcType=VARCHAR},
+      </if>
+      <if test="reportid != null">
+        #{reportid,jdbcType=VARCHAR},
+      </if>
+      <if test="buildendtime != null">
+        #{buildendtime,jdbcType=VARCHAR},
+      </if>
+      <if test="queryreasonid != null">
+        #{queryreasonid,jdbcType=DECIMAL},
+      </if>
+      <if test="subreporttypes != null">
+        #{subreporttypes,jdbcType=VARCHAR},
+      </if>
+      <if test="treatresult != null">
+        #{treatresult,jdbcType=VARCHAR},
+      </if>
+      <if test="subreporttypesshortcaption != null">
+        #{subreporttypesshortcaption,jdbcType=VARCHAR},
+      </if>
+      <if test="refid != null">
+        #{refid,jdbcType=VARCHAR},
+      </if>
+      <if test="hassystemerror != null">
+        #{hassystemerror,jdbcType=VARCHAR},
+      </if>
+      <if test="isfrozen != null">
+        #{isfrozen,jdbcType=VARCHAR},
+      </if>
+      <if test="subreporttype != null">
+        #{subreporttype,jdbcType=DECIMAL},
+      </if>
+      <if test="subreporttypecost != null">
+        #{subreporttypecost,jdbcType=DECIMAL},
+      </if>
+      <if test="treatresultinfo != null">
+        #{treatresultinfo,jdbcType=DECIMAL},
+      </if>
+      <if test="treaterrorcode != null">
+        #{treaterrorcode,jdbcType=VARCHAR},
+      </if>
+      <if test="errormessage != null">
+        #{errormessage,jdbcType=VARCHAR},
+      </if>
+      <if test="normalizecorpname != null">
+        #{normalizecorpname,jdbcType=VARCHAR},
+      </if>
+      <if test="matchtrustdegree != null">
+        #{matchtrustdegree,jdbcType=DECIMAL},
+      </if>
+      <if test="estimateresult != null">
+        #{estimateresult,jdbcType=VARCHAR},
+      </if>
+      <if test="interfacetype != null">
+        #{interfacetype,jdbcType=DECIMAL},
+      </if>
+      <if test="inputDate != null">
+        #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateDate != null">
+        #{lastUpdateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        #{lastUpdateTime,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.BIZ_PY_NAME_PERSON_INFO">
+    update BIZ_PY_NAME_PERSON_INFO
+    <set>
+      <if test="batno != null">
+        BATNO = #{batno,jdbcType=VARCHAR},
+      </if>
+      <if test="unitname != null">
+        UNITNAME = #{unitname,jdbcType=VARCHAR},
+      </if>
+      <if test="suborgan != null">
+        SUBORGAN = #{suborgan,jdbcType=VARCHAR},
+      </if>
+      <if test="queryuserid != null">
+        QUERYUSERID = #{queryuserid,jdbcType=VARCHAR},
+      </if>
+      <if test="querycount != null">
+        QUERYCOUNT = #{querycount,jdbcType=DECIMAL},
+      </if>
+      <if test="receivetime != null">
+        RECEIVETIME = #{receivetime,jdbcType=VARCHAR},
+      </if>
+      <if test="reportid != null">
+        REPORTID = #{reportid,jdbcType=VARCHAR},
+      </if>
+      <if test="buildendtime != null">
+        BUILDENDTIME = #{buildendtime,jdbcType=VARCHAR},
+      </if>
+      <if test="queryreasonid != null">
+        QUERYREASONID = #{queryreasonid,jdbcType=DECIMAL},
+      </if>
+      <if test="subreporttypes != null">
+        SUBREPORTTYPES = #{subreporttypes,jdbcType=VARCHAR},
+      </if>
+      <if test="treatresult != null">
+        TREATRESULT = #{treatresult,jdbcType=VARCHAR},
+      </if>
+      <if test="subreporttypesshortcaption != null">
+        SUBREPORTTYPESSHORTCAPTION = #{subreporttypesshortcaption,jdbcType=VARCHAR},
+      </if>
+      <if test="refid != null">
+        REFID = #{refid,jdbcType=VARCHAR},
+      </if>
+      <if test="hassystemerror != null">
+        HASSYSTEMERROR = #{hassystemerror,jdbcType=VARCHAR},
+      </if>
+      <if test="isfrozen != null">
+        ISFROZEN = #{isfrozen,jdbcType=VARCHAR},
+      </if>
+      <if test="subreporttype != null">
+        SUBREPORTTYPE = #{subreporttype,jdbcType=DECIMAL},
+      </if>
+      <if test="subreporttypecost != null">
+        SUBREPORTTYPECOST = #{subreporttypecost,jdbcType=DECIMAL},
+      </if>
+      <if test="treatresultinfo != null">
+        TREATRESULTINFO = #{treatresultinfo,jdbcType=DECIMAL},
+      </if>
+      <if test="treaterrorcode != null">
+        TREATERRORCODE = #{treaterrorcode,jdbcType=VARCHAR},
+      </if>
+      <if test="errormessage != null">
+        ERRORMESSAGE = #{errormessage,jdbcType=VARCHAR},
+      </if>
+      <if test="normalizecorpname != null">
+        NORMALIZECORPNAME = #{normalizecorpname,jdbcType=VARCHAR},
+      </if>
+      <if test="matchtrustdegree != null">
+        MATCHTRUSTDEGREE = #{matchtrustdegree,jdbcType=DECIMAL},
+      </if>
+      <if test="estimateresult != null">
+        ESTIMATERESULT = #{estimateresult,jdbcType=VARCHAR},
+      </if>
+      <if test="interfacetype != null">
+        INTERFACETYPE = #{interfacetype,jdbcType=DECIMAL},
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE = #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME = #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateDate != null">
+        LAST_UPDATE_DATE = #{lastUpdateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where APP_NO = #{appNo,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.BIZ_PY_NAME_PERSON_INFO">
+    update BIZ_PY_NAME_PERSON_INFO
+    set BATNO = #{batno,jdbcType=VARCHAR},
+      UNITNAME = #{unitname,jdbcType=VARCHAR},
+      SUBORGAN = #{suborgan,jdbcType=VARCHAR},
+      QUERYUSERID = #{queryuserid,jdbcType=VARCHAR},
+      QUERYCOUNT = #{querycount,jdbcType=DECIMAL},
+      RECEIVETIME = #{receivetime,jdbcType=VARCHAR},
+      REPORTID = #{reportid,jdbcType=VARCHAR},
+      BUILDENDTIME = #{buildendtime,jdbcType=VARCHAR},
+      QUERYREASONID = #{queryreasonid,jdbcType=DECIMAL},
+      SUBREPORTTYPES = #{subreporttypes,jdbcType=VARCHAR},
+      TREATRESULT = #{treatresult,jdbcType=VARCHAR},
+      SUBREPORTTYPESSHORTCAPTION = #{subreporttypesshortcaption,jdbcType=VARCHAR},
+      REFID = #{refid,jdbcType=VARCHAR},
+      HASSYSTEMERROR = #{hassystemerror,jdbcType=VARCHAR},
+      ISFROZEN = #{isfrozen,jdbcType=VARCHAR},
+      SUBREPORTTYPE = #{subreporttype,jdbcType=DECIMAL},
+      SUBREPORTTYPECOST = #{subreporttypecost,jdbcType=DECIMAL},
+      TREATRESULTINFO = #{treatresultinfo,jdbcType=DECIMAL},
+      TREATERRORCODE = #{treaterrorcode,jdbcType=VARCHAR},
+      ERRORMESSAGE = #{errormessage,jdbcType=VARCHAR},
+      NORMALIZECORPNAME = #{normalizecorpname,jdbcType=VARCHAR},
+      MATCHTRUSTDEGREE = #{matchtrustdegree,jdbcType=DECIMAL},
+      ESTIMATERESULT = #{estimateresult,jdbcType=VARCHAR},
+      INTERFACETYPE = #{interfacetype,jdbcType=DECIMAL},
+      INPUT_DATE = #{inputDate,jdbcType=VARCHAR},
+      INPUT_TIME = #{inputTime,jdbcType=VARCHAR},
+      LAST_UPDATE_DATE = #{lastUpdateDate,jdbcType=VARCHAR},
+      LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=VARCHAR}
+    where APP_NO = #{appNo,jdbcType=VARCHAR}
+  </update>
+</mapper>

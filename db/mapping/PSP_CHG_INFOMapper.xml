@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.PSP_CHG_INFOMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.PSP_CHG_INFO">
+    <id column="CHG_NO" jdbcType="VARCHAR" property="chgNo" />
+    <result column="CUST_ID" jdbcType="VARCHAR" property="custId" />
+    <result column="CHANNEL_TYPE" jdbcType="VARCHAR" property="channelType" />
+    <result column="CHG_TYPE" jdbcType="VARCHAR" property="chgType" />
+    <result column="AGREEMENT_NO" jdbcType="VARCHAR" property="agreementNo" />
+    <result column="AGREEMENT_TIME" jdbcType="VARCHAR" property="agreementTime" />
+    <result column="CUST_CHG_FLAG" jdbcType="VARCHAR" property="custChgFlag" />
+    <result column="BILL_NO" jdbcType="VARCHAR" property="billNo" />
+    <result column="CRD_CONT_NO" jdbcType="VARCHAR" property="crdContNo" />
+    <result column="CUST_ID_CORE" jdbcType="VARCHAR" property="custIdCore" />
+    <result column="SOURCE_DATA" jdbcType="VARCHAR" property="sourceData" />
+    <result column="TARGET_DATA" jdbcType="VARCHAR" property="targetData" />
+    <result column="TAB_NAME" jdbcType="VARCHAR" property="tabName" />
+    <result column="COL_NAME" jdbcType="VARCHAR" property="colName" />
+    <result column="CHG_DATE" jdbcType="VARCHAR" property="chgDate" />
+    <result column="CHG_TIME" jdbcType="VARCHAR" property="chgTime" />
+    <result column="REMARKS" jdbcType="VARCHAR" property="remarks" />
+    <result column="BIZ_OP_ID" jdbcType="VARCHAR" property="bizOpId" />
+    <result column="BIZ_ORG_ID" jdbcType="VARCHAR" property="bizOrgId" />
+    <result column="INPUT_DATE" jdbcType="VARCHAR" property="inputDate" />
+    <result column="INPUT_TIME" jdbcType="VARCHAR" property="inputTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    CHG_NO, CUST_ID, CHANNEL_TYPE, CHG_TYPE, AGREEMENT_NO, AGREEMENT_TIME, CUST_CHG_FLAG, 
+    BILL_NO, CRD_CONT_NO, CUST_ID_CORE, SOURCE_DATA, TARGET_DATA, TAB_NAME, COL_NAME, 
+    CHG_DATE, CHG_TIME, REMARKS, BIZ_OP_ID, BIZ_ORG_ID, INPUT_DATE, INPUT_TIME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from PSP_CHG_INFO
+    where CHG_NO = #{chgNo,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from PSP_CHG_INFO
+    where CHG_NO = #{chgNo,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.PSP_CHG_INFO">
+    insert into PSP_CHG_INFO (CHG_NO, CUST_ID, CHANNEL_TYPE, 
+      CHG_TYPE, AGREEMENT_NO, AGREEMENT_TIME, 
+      CUST_CHG_FLAG, BILL_NO, CRD_CONT_NO, 
+      CUST_ID_CORE, SOURCE_DATA, TARGET_DATA, 
+      TAB_NAME, COL_NAME, CHG_DATE, 
+      CHG_TIME, REMARKS, BIZ_OP_ID, 
+      BIZ_ORG_ID, INPUT_DATE, INPUT_TIME
+      )
+    values (#{chgNo,jdbcType=VARCHAR}, #{custId,jdbcType=VARCHAR}, #{channelType,jdbcType=VARCHAR}, 
+      #{chgType,jdbcType=VARCHAR}, #{agreementNo,jdbcType=VARCHAR}, #{agreementTime,jdbcType=VARCHAR}, 
+      #{custChgFlag,jdbcType=VARCHAR}, #{billNo,jdbcType=VARCHAR}, #{crdContNo,jdbcType=VARCHAR}, 
+      #{custIdCore,jdbcType=VARCHAR}, #{sourceData,jdbcType=VARCHAR}, #{targetData,jdbcType=VARCHAR}, 
+      #{tabName,jdbcType=VARCHAR}, #{colName,jdbcType=VARCHAR}, #{chgDate,jdbcType=VARCHAR}, 
+      #{chgTime,jdbcType=VARCHAR}, #{remarks,jdbcType=VARCHAR}, #{bizOpId,jdbcType=VARCHAR}, 
+      #{bizOrgId,jdbcType=VARCHAR}, #{inputDate,jdbcType=VARCHAR}, #{inputTime,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.PSP_CHG_INFO">
+    insert into PSP_CHG_INFO
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="chgNo != null">
+        CHG_NO,
+      </if>
+      <if test="custId != null">
+        CUST_ID,
+      </if>
+      <if test="channelType != null">
+        CHANNEL_TYPE,
+      </if>
+      <if test="chgType != null">
+        CHG_TYPE,
+      </if>
+      <if test="agreementNo != null">
+        AGREEMENT_NO,
+      </if>
+      <if test="agreementTime != null">
+        AGREEMENT_TIME,
+      </if>
+      <if test="custChgFlag != null">
+        CUST_CHG_FLAG,
+      </if>
+      <if test="billNo != null">
+        BILL_NO,
+      </if>
+      <if test="crdContNo != null">
+        CRD_CONT_NO,
+      </if>
+      <if test="custIdCore != null">
+        CUST_ID_CORE,
+      </if>
+      <if test="sourceData != null">
+        SOURCE_DATA,
+      </if>
+      <if test="targetData != null">
+        TARGET_DATA,
+      </if>
+      <if test="tabName != null">
+        TAB_NAME,
+      </if>
+      <if test="colName != null">
+        COL_NAME,
+      </if>
+      <if test="chgDate != null">
+        CHG_DATE,
+      </if>
+      <if test="chgTime != null">
+        CHG_TIME,
+      </if>
+      <if test="remarks != null">
+        REMARKS,
+      </if>
+      <if test="bizOpId != null">
+        BIZ_OP_ID,
+      </if>
+      <if test="bizOrgId != null">
+        BIZ_ORG_ID,
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE,
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="chgNo != null">
+        #{chgNo,jdbcType=VARCHAR},
+      </if>
+      <if test="custId != null">
+        #{custId,jdbcType=VARCHAR},
+      </if>
+      <if test="channelType != null">
+        #{channelType,jdbcType=VARCHAR},
+      </if>
+      <if test="chgType != null">
+        #{chgType,jdbcType=VARCHAR},
+      </if>
+      <if test="agreementNo != null">
+        #{agreementNo,jdbcType=VARCHAR},
+      </if>
+      <if test="agreementTime != null">
+        #{agreementTime,jdbcType=VARCHAR},
+      </if>
+      <if test="custChgFlag != null">
+        #{custChgFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="billNo != null">
+        #{billNo,jdbcType=VARCHAR},
+      </if>
+      <if test="crdContNo != null">
+        #{crdContNo,jdbcType=VARCHAR},
+      </if>
+      <if test="custIdCore != null">
+        #{custIdCore,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceData != null">
+        #{sourceData,jdbcType=VARCHAR},
+      </if>
+      <if test="targetData != null">
+        #{targetData,jdbcType=VARCHAR},
+      </if>
+      <if test="tabName != null">
+        #{tabName,jdbcType=VARCHAR},
+      </if>
+      <if test="colName != null">
+        #{colName,jdbcType=VARCHAR},
+      </if>
+      <if test="chgDate != null">
+        #{chgDate,jdbcType=VARCHAR},
+      </if>
+      <if test="chgTime != null">
+        #{chgTime,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null">
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="bizOpId != null">
+        #{bizOpId,jdbcType=VARCHAR},
+      </if>
+      <if test="bizOrgId != null">
+        #{bizOrgId,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        #{inputTime,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.PSP_CHG_INFO">
+    update PSP_CHG_INFO
+    <set>
+      <if test="custId != null">
+        CUST_ID = #{custId,jdbcType=VARCHAR},
+      </if>
+      <if test="channelType != null">
+        CHANNEL_TYPE = #{channelType,jdbcType=VARCHAR},
+      </if>
+      <if test="chgType != null">
+        CHG_TYPE = #{chgType,jdbcType=VARCHAR},
+      </if>
+      <if test="agreementNo != null">
+        AGREEMENT_NO = #{agreementNo,jdbcType=VARCHAR},
+      </if>
+      <if test="agreementTime != null">
+        AGREEMENT_TIME = #{agreementTime,jdbcType=VARCHAR},
+      </if>
+      <if test="custChgFlag != null">
+        CUST_CHG_FLAG = #{custChgFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="billNo != null">
+        BILL_NO = #{billNo,jdbcType=VARCHAR},
+      </if>
+      <if test="crdContNo != null">
+        CRD_CONT_NO = #{crdContNo,jdbcType=VARCHAR},
+      </if>
+      <if test="custIdCore != null">
+        CUST_ID_CORE = #{custIdCore,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceData != null">
+        SOURCE_DATA = #{sourceData,jdbcType=VARCHAR},
+      </if>
+      <if test="targetData != null">
+        TARGET_DATA = #{targetData,jdbcType=VARCHAR},
+      </if>
+      <if test="tabName != null">
+        TAB_NAME = #{tabName,jdbcType=VARCHAR},
+      </if>
+      <if test="colName != null">
+        COL_NAME = #{colName,jdbcType=VARCHAR},
+      </if>
+      <if test="chgDate != null">
+        CHG_DATE = #{chgDate,jdbcType=VARCHAR},
+      </if>
+      <if test="chgTime != null">
+        CHG_TIME = #{chgTime,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null">
+        REMARKS = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="bizOpId != null">
+        BIZ_OP_ID = #{bizOpId,jdbcType=VARCHAR},
+      </if>
+      <if test="bizOrgId != null">
+        BIZ_ORG_ID = #{bizOrgId,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE = #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME = #{inputTime,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where CHG_NO = #{chgNo,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.PSP_CHG_INFO">
+    update PSP_CHG_INFO
+    set CUST_ID = #{custId,jdbcType=VARCHAR},
+      CHANNEL_TYPE = #{channelType,jdbcType=VARCHAR},
+      CHG_TYPE = #{chgType,jdbcType=VARCHAR},
+      AGREEMENT_NO = #{agreementNo,jdbcType=VARCHAR},
+      AGREEMENT_TIME = #{agreementTime,jdbcType=VARCHAR},
+      CUST_CHG_FLAG = #{custChgFlag,jdbcType=VARCHAR},
+      BILL_NO = #{billNo,jdbcType=VARCHAR},
+      CRD_CONT_NO = #{crdContNo,jdbcType=VARCHAR},
+      CUST_ID_CORE = #{custIdCore,jdbcType=VARCHAR},
+      SOURCE_DATA = #{sourceData,jdbcType=VARCHAR},
+      TARGET_DATA = #{targetData,jdbcType=VARCHAR},
+      TAB_NAME = #{tabName,jdbcType=VARCHAR},
+      COL_NAME = #{colName,jdbcType=VARCHAR},
+      CHG_DATE = #{chgDate,jdbcType=VARCHAR},
+      CHG_TIME = #{chgTime,jdbcType=VARCHAR},
+      REMARKS = #{remarks,jdbcType=VARCHAR},
+      BIZ_OP_ID = #{bizOpId,jdbcType=VARCHAR},
+      BIZ_ORG_ID = #{bizOrgId,jdbcType=VARCHAR},
+      INPUT_DATE = #{inputDate,jdbcType=VARCHAR},
+      INPUT_TIME = #{inputTime,jdbcType=VARCHAR}
+    where CHG_NO = #{chgNo,jdbcType=VARCHAR}
+  </update>
+</mapper>

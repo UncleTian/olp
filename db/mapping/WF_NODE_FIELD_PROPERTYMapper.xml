@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.WF_NODE_FIELD_PROPERTYMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.WF_NODE_FIELD_PROPERTY">
+    <id column="NODEFIELDID" jdbcType="VARCHAR" property="nodefieldid" />
+    <result column="NODEID" jdbcType="VARCHAR" property="nodeid" />
+    <result column="WFID" jdbcType="VARCHAR" property="wfid" />
+    <result column="FIELDCONTROLTYPE" jdbcType="CHAR" property="fieldcontroltype" />
+    <result column="FIELDID" jdbcType="VARCHAR" property="fieldid" />
+    <result column="FIELDNAME" jdbcType="VARCHAR" property="fieldname" />
+    <result column="FIELDCODE" jdbcType="VARCHAR" property="fieldcode" />
+    <result column="FIELDCONTROL" jdbcType="CHAR" property="fieldcontrol" />
+    <result column="FIELDFILLIN" jdbcType="VARCHAR" property="fieldfillin" />
+    <result column="OWNTABLE" jdbcType="VARCHAR" property="owntable" />
+    <result column="FORMID" jdbcType="VARCHAR" property="formid" />
+    <result column="GROUPID" jdbcType="VARCHAR" property="groupid" />
+    <result column="PAGEID" jdbcType="VARCHAR" property="pageid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    NODEFIELDID, NODEID, WFID, FIELDCONTROLTYPE, FIELDID, FIELDNAME, FIELDCODE, FIELDCONTROL, 
+    FIELDFILLIN, OWNTABLE, FORMID, GROUPID, PAGEID
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from WF_NODE_FIELD_PROPERTY
+    where NODEFIELDID = #{nodefieldid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from WF_NODE_FIELD_PROPERTY
+    where NODEFIELDID = #{nodefieldid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.WF_NODE_FIELD_PROPERTY">
+    insert into WF_NODE_FIELD_PROPERTY (NODEFIELDID, NODEID, WFID, 
+      FIELDCONTROLTYPE, FIELDID, FIELDNAME, 
+      FIELDCODE, FIELDCONTROL, FIELDFILLIN, 
+      OWNTABLE, FORMID, GROUPID, 
+      PAGEID)
+    values (#{nodefieldid,jdbcType=VARCHAR}, #{nodeid,jdbcType=VARCHAR}, #{wfid,jdbcType=VARCHAR}, 
+      #{fieldcontroltype,jdbcType=CHAR}, #{fieldid,jdbcType=VARCHAR}, #{fieldname,jdbcType=VARCHAR}, 
+      #{fieldcode,jdbcType=VARCHAR}, #{fieldcontrol,jdbcType=CHAR}, #{fieldfillin,jdbcType=VARCHAR}, 
+      #{owntable,jdbcType=VARCHAR}, #{formid,jdbcType=VARCHAR}, #{groupid,jdbcType=VARCHAR}, 
+      #{pageid,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.WF_NODE_FIELD_PROPERTY">
+    insert into WF_NODE_FIELD_PROPERTY
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="nodefieldid != null">
+        NODEFIELDID,
+      </if>
+      <if test="nodeid != null">
+        NODEID,
+      </if>
+      <if test="wfid != null">
+        WFID,
+      </if>
+      <if test="fieldcontroltype != null">
+        FIELDCONTROLTYPE,
+      </if>
+      <if test="fieldid != null">
+        FIELDID,
+      </if>
+      <if test="fieldname != null">
+        FIELDNAME,
+      </if>
+      <if test="fieldcode != null">
+        FIELDCODE,
+      </if>
+      <if test="fieldcontrol != null">
+        FIELDCONTROL,
+      </if>
+      <if test="fieldfillin != null">
+        FIELDFILLIN,
+      </if>
+      <if test="owntable != null">
+        OWNTABLE,
+      </if>
+      <if test="formid != null">
+        FORMID,
+      </if>
+      <if test="groupid != null">
+        GROUPID,
+      </if>
+      <if test="pageid != null">
+        PAGEID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="nodefieldid != null">
+        #{nodefieldid,jdbcType=VARCHAR},
+      </if>
+      <if test="nodeid != null">
+        #{nodeid,jdbcType=VARCHAR},
+      </if>
+      <if test="wfid != null">
+        #{wfid,jdbcType=VARCHAR},
+      </if>
+      <if test="fieldcontroltype != null">
+        #{fieldcontroltype,jdbcType=CHAR},
+      </if>
+      <if test="fieldid != null">
+        #{fieldid,jdbcType=VARCHAR},
+      </if>
+      <if test="fieldname != null">
+        #{fieldname,jdbcType=VARCHAR},
+      </if>
+      <if test="fieldcode != null">
+        #{fieldcode,jdbcType=VARCHAR},
+      </if>
+      <if test="fieldcontrol != null">
+        #{fieldcontrol,jdbcType=CHAR},
+      </if>
+      <if test="fieldfillin != null">
+        #{fieldfillin,jdbcType=VARCHAR},
+      </if>
+      <if test="owntable != null">
+        #{owntable,jdbcType=VARCHAR},
+      </if>
+      <if test="formid != null">
+        #{formid,jdbcType=VARCHAR},
+      </if>
+      <if test="groupid != null">
+        #{groupid,jdbcType=VARCHAR},
+      </if>
+      <if test="pageid != null">
+        #{pageid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.WF_NODE_FIELD_PROPERTY">
+    update WF_NODE_FIELD_PROPERTY
+    <set>
+      <if test="nodeid != null">
+        NODEID = #{nodeid,jdbcType=VARCHAR},
+      </if>
+      <if test="wfid != null">
+        WFID = #{wfid,jdbcType=VARCHAR},
+      </if>
+      <if test="fieldcontroltype != null">
+        FIELDCONTROLTYPE = #{fieldcontroltype,jdbcType=CHAR},
+      </if>
+      <if test="fieldid != null">
+        FIELDID = #{fieldid,jdbcType=VARCHAR},
+      </if>
+      <if test="fieldname != null">
+        FIELDNAME = #{fieldname,jdbcType=VARCHAR},
+      </if>
+      <if test="fieldcode != null">
+        FIELDCODE = #{fieldcode,jdbcType=VARCHAR},
+      </if>
+      <if test="fieldcontrol != null">
+        FIELDCONTROL = #{fieldcontrol,jdbcType=CHAR},
+      </if>
+      <if test="fieldfillin != null">
+        FIELDFILLIN = #{fieldfillin,jdbcType=VARCHAR},
+      </if>
+      <if test="owntable != null">
+        OWNTABLE = #{owntable,jdbcType=VARCHAR},
+      </if>
+      <if test="formid != null">
+        FORMID = #{formid,jdbcType=VARCHAR},
+      </if>
+      <if test="groupid != null">
+        GROUPID = #{groupid,jdbcType=VARCHAR},
+      </if>
+      <if test="pageid != null">
+        PAGEID = #{pageid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where NODEFIELDID = #{nodefieldid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.WF_NODE_FIELD_PROPERTY">
+    update WF_NODE_FIELD_PROPERTY
+    set NODEID = #{nodeid,jdbcType=VARCHAR},
+      WFID = #{wfid,jdbcType=VARCHAR},
+      FIELDCONTROLTYPE = #{fieldcontroltype,jdbcType=CHAR},
+      FIELDID = #{fieldid,jdbcType=VARCHAR},
+      FIELDNAME = #{fieldname,jdbcType=VARCHAR},
+      FIELDCODE = #{fieldcode,jdbcType=VARCHAR},
+      FIELDCONTROL = #{fieldcontrol,jdbcType=CHAR},
+      FIELDFILLIN = #{fieldfillin,jdbcType=VARCHAR},
+      OWNTABLE = #{owntable,jdbcType=VARCHAR},
+      FORMID = #{formid,jdbcType=VARCHAR},
+      GROUPID = #{groupid,jdbcType=VARCHAR},
+      PAGEID = #{pageid,jdbcType=VARCHAR}
+    where NODEFIELDID = #{nodefieldid,jdbcType=VARCHAR}
+  </update>
+</mapper>

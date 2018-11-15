@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.WF_TXN_LOGMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.WF_TXN_LOG">
+    <id column="SEQ_NO" jdbcType="VARCHAR" property="seqNo" />
+    <result column="TXN_CODE" jdbcType="VARCHAR" property="txnCode" />
+    <result column="TXN_TYPE" jdbcType="CHAR" property="txnType" />
+    <result column="REQ_SYS_ID" jdbcType="CHAR" property="reqSysId" />
+    <result column="REQ_TXN_DATE" jdbcType="CHAR" property="reqTxnDate" />
+    <result column="REQ_TXN_TIME" jdbcType="CHAR" property="reqTxnTime" />
+    <result column="REQ_TXN_SEQ_ID" jdbcType="VARCHAR" property="reqTxnSeqId" />
+    <result column="REQ_USER_ID" jdbcType="VARCHAR" property="reqUserId" />
+    <result column="REQ_ORG_ID" jdbcType="VARCHAR" property="reqOrgId" />
+    <result column="DEST_SYS_ID" jdbcType="CHAR" property="destSysId" />
+    <result column="DEST_TXN_DATE" jdbcType="CHAR" property="destTxnDate" />
+    <result column="DEST_TXN_TIME" jdbcType="CHAR" property="destTxnTime" />
+    <result column="WF_INSTANCE_ID" jdbcType="VARCHAR" property="wfInstanceId" />
+    <result column="FLOW_ID" jdbcType="VARCHAR" property="flowId" />
+    <result column="FLOW_TYPE" jdbcType="CHAR" property="flowType" />
+    <result column="FLOW_SUB_TYPE" jdbcType="CHAR" property="flowSubType" />
+    <result column="BIZ_SEQ_NO" jdbcType="VARCHAR" property="bizSeqNo" />
+    <result column="BIZ_TYPE" jdbcType="VARCHAR" property="bizType" />
+    <result column="BIZ_SUB_TYPE" jdbcType="VARCHAR" property="bizSubType" />
+    <result column="CUST_ID" jdbcType="VARCHAR" property="custId" />
+    <result column="CUST_NAME" jdbcType="VARCHAR" property="custName" />
+    <result column="TXN_MSG_BODY" jdbcType="VARCHAR" property="txnMsgBody" />
+    <result column="TXN_STAT" jdbcType="CHAR" property="txnStat" />
+    <result column="REPLY_CD" jdbcType="VARCHAR" property="replyCd" />
+    <result column="REPLY_DESC" jdbcType="VARCHAR" property="replyDesc" />
+    <result column="MISC" jdbcType="VARCHAR" property="misc" />
+    <result column="CREATE_TIME" jdbcType="CHAR" property="createTime" />
+    <result column="LAST_UPD_OPR_ID" jdbcType="VARCHAR" property="lastUpdOprId" />
+    <result column="LAST_UPD_PGM_ID" jdbcType="VARCHAR" property="lastUpdPgmId" />
+    <result column="LAST_UPD_TIME" jdbcType="CHAR" property="lastUpdTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    SEQ_NO, TXN_CODE, TXN_TYPE, REQ_SYS_ID, REQ_TXN_DATE, REQ_TXN_TIME, REQ_TXN_SEQ_ID, 
+    REQ_USER_ID, REQ_ORG_ID, DEST_SYS_ID, DEST_TXN_DATE, DEST_TXN_TIME, WF_INSTANCE_ID, 
+    FLOW_ID, FLOW_TYPE, FLOW_SUB_TYPE, BIZ_SEQ_NO, BIZ_TYPE, BIZ_SUB_TYPE, CUST_ID, CUST_NAME, 
+    TXN_MSG_BODY, TXN_STAT, REPLY_CD, REPLY_DESC, MISC, CREATE_TIME, LAST_UPD_OPR_ID, 
+    LAST_UPD_PGM_ID, LAST_UPD_TIME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from WF_TXN_LOG
+    where SEQ_NO = #{seqNo,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from WF_TXN_LOG
+    where SEQ_NO = #{seqNo,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.WF_TXN_LOG">
+    insert into WF_TXN_LOG (SEQ_NO, TXN_CODE, TXN_TYPE, 
+      REQ_SYS_ID, REQ_TXN_DATE, REQ_TXN_TIME, 
+      REQ_TXN_SEQ_ID, REQ_USER_ID, REQ_ORG_ID, 
+      DEST_SYS_ID, DEST_TXN_DATE, DEST_TXN_TIME, 
+      WF_INSTANCE_ID, FLOW_ID, FLOW_TYPE, 
+      FLOW_SUB_TYPE, BIZ_SEQ_NO, BIZ_TYPE, 
+      BIZ_SUB_TYPE, CUST_ID, CUST_NAME, 
+      TXN_MSG_BODY, TXN_STAT, REPLY_CD, 
+      REPLY_DESC, MISC, CREATE_TIME, 
+      LAST_UPD_OPR_ID, LAST_UPD_PGM_ID, LAST_UPD_TIME
+      )
+    values (#{seqNo,jdbcType=VARCHAR}, #{txnCode,jdbcType=VARCHAR}, #{txnType,jdbcType=CHAR}, 
+      #{reqSysId,jdbcType=CHAR}, #{reqTxnDate,jdbcType=CHAR}, #{reqTxnTime,jdbcType=CHAR}, 
+      #{reqTxnSeqId,jdbcType=VARCHAR}, #{reqUserId,jdbcType=VARCHAR}, #{reqOrgId,jdbcType=VARCHAR}, 
+      #{destSysId,jdbcType=CHAR}, #{destTxnDate,jdbcType=CHAR}, #{destTxnTime,jdbcType=CHAR}, 
+      #{wfInstanceId,jdbcType=VARCHAR}, #{flowId,jdbcType=VARCHAR}, #{flowType,jdbcType=CHAR}, 
+      #{flowSubType,jdbcType=CHAR}, #{bizSeqNo,jdbcType=VARCHAR}, #{bizType,jdbcType=VARCHAR}, 
+      #{bizSubType,jdbcType=VARCHAR}, #{custId,jdbcType=VARCHAR}, #{custName,jdbcType=VARCHAR}, 
+      #{txnMsgBody,jdbcType=VARCHAR}, #{txnStat,jdbcType=CHAR}, #{replyCd,jdbcType=VARCHAR}, 
+      #{replyDesc,jdbcType=VARCHAR}, #{misc,jdbcType=VARCHAR}, #{createTime,jdbcType=CHAR}, 
+      #{lastUpdOprId,jdbcType=VARCHAR}, #{lastUpdPgmId,jdbcType=VARCHAR}, #{lastUpdTime,jdbcType=CHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.WF_TXN_LOG">
+    insert into WF_TXN_LOG
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="seqNo != null">
+        SEQ_NO,
+      </if>
+      <if test="txnCode != null">
+        TXN_CODE,
+      </if>
+      <if test="txnType != null">
+        TXN_TYPE,
+      </if>
+      <if test="reqSysId != null">
+        REQ_SYS_ID,
+      </if>
+      <if test="reqTxnDate != null">
+        REQ_TXN_DATE,
+      </if>
+      <if test="reqTxnTime != null">
+        REQ_TXN_TIME,
+      </if>
+      <if test="reqTxnSeqId != null">
+        REQ_TXN_SEQ_ID,
+      </if>
+      <if test="reqUserId != null">
+        REQ_USER_ID,
+      </if>
+      <if test="reqOrgId != null">
+        REQ_ORG_ID,
+      </if>
+      <if test="destSysId != null">
+        DEST_SYS_ID,
+      </if>
+      <if test="destTxnDate != null">
+        DEST_TXN_DATE,
+      </if>
+      <if test="destTxnTime != null">
+        DEST_TXN_TIME,
+      </if>
+      <if test="wfInstanceId != null">
+        WF_INSTANCE_ID,
+      </if>
+      <if test="flowId != null">
+        FLOW_ID,
+      </if>
+      <if test="flowType != null">
+        FLOW_TYPE,
+      </if>
+      <if test="flowSubType != null">
+        FLOW_SUB_TYPE,
+      </if>
+      <if test="bizSeqNo != null">
+        BIZ_SEQ_NO,
+      </if>
+      <if test="bizType != null">
+        BIZ_TYPE,
+      </if>
+      <if test="bizSubType != null">
+        BIZ_SUB_TYPE,
+      </if>
+      <if test="custId != null">
+        CUST_ID,
+      </if>
+      <if test="custName != null">
+        CUST_NAME,
+      </if>
+      <if test="txnMsgBody != null">
+        TXN_MSG_BODY,
+      </if>
+      <if test="txnStat != null">
+        TXN_STAT,
+      </if>
+      <if test="replyCd != null">
+        REPLY_CD,
+      </if>
+      <if test="replyDesc != null">
+        REPLY_DESC,
+      </if>
+      <if test="misc != null">
+        MISC,
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME,
+      </if>
+      <if test="lastUpdOprId != null">
+        LAST_UPD_OPR_ID,
+      </if>
+      <if test="lastUpdPgmId != null">
+        LAST_UPD_PGM_ID,
+      </if>
+      <if test="lastUpdTime != null">
+        LAST_UPD_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="seqNo != null">
+        #{seqNo,jdbcType=VARCHAR},
+      </if>
+      <if test="txnCode != null">
+        #{txnCode,jdbcType=VARCHAR},
+      </if>
+      <if test="txnType != null">
+        #{txnType,jdbcType=CHAR},
+      </if>
+      <if test="reqSysId != null">
+        #{reqSysId,jdbcType=CHAR},
+      </if>
+      <if test="reqTxnDate != null">
+        #{reqTxnDate,jdbcType=CHAR},
+      </if>
+      <if test="reqTxnTime != null">
+        #{reqTxnTime,jdbcType=CHAR},
+      </if>
+      <if test="reqTxnSeqId != null">
+        #{reqTxnSeqId,jdbcType=VARCHAR},
+      </if>
+      <if test="reqUserId != null">
+        #{reqUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="reqOrgId != null">
+        #{reqOrgId,jdbcType=VARCHAR},
+      </if>
+      <if test="destSysId != null">
+        #{destSysId,jdbcType=CHAR},
+      </if>
+      <if test="destTxnDate != null">
+        #{destTxnDate,jdbcType=CHAR},
+      </if>
+      <if test="destTxnTime != null">
+        #{destTxnTime,jdbcType=CHAR},
+      </if>
+      <if test="wfInstanceId != null">
+        #{wfInstanceId,jdbcType=VARCHAR},
+      </if>
+      <if test="flowId != null">
+        #{flowId,jdbcType=VARCHAR},
+      </if>
+      <if test="flowType != null">
+        #{flowType,jdbcType=CHAR},
+      </if>
+      <if test="flowSubType != null">
+        #{flowSubType,jdbcType=CHAR},
+      </if>
+      <if test="bizSeqNo != null">
+        #{bizSeqNo,jdbcType=VARCHAR},
+      </if>
+      <if test="bizType != null">
+        #{bizType,jdbcType=VARCHAR},
+      </if>
+      <if test="bizSubType != null">
+        #{bizSubType,jdbcType=VARCHAR},
+      </if>
+      <if test="custId != null">
+        #{custId,jdbcType=VARCHAR},
+      </if>
+      <if test="custName != null">
+        #{custName,jdbcType=VARCHAR},
+      </if>
+      <if test="txnMsgBody != null">
+        #{txnMsgBody,jdbcType=VARCHAR},
+      </if>
+      <if test="txnStat != null">
+        #{txnStat,jdbcType=CHAR},
+      </if>
+      <if test="replyCd != null">
+        #{replyCd,jdbcType=VARCHAR},
+      </if>
+      <if test="replyDesc != null">
+        #{replyDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="misc != null">
+        #{misc,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=CHAR},
+      </if>
+      <if test="lastUpdOprId != null">
+        #{lastUpdOprId,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdPgmId != null">
+        #{lastUpdPgmId,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdTime != null">
+        #{lastUpdTime,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.WF_TXN_LOG">
+    update WF_TXN_LOG
+    <set>
+      <if test="txnCode != null">
+        TXN_CODE = #{txnCode,jdbcType=VARCHAR},
+      </if>
+      <if test="txnType != null">
+        TXN_TYPE = #{txnType,jdbcType=CHAR},
+      </if>
+      <if test="reqSysId != null">
+        REQ_SYS_ID = #{reqSysId,jdbcType=CHAR},
+      </if>
+      <if test="reqTxnDate != null">
+        REQ_TXN_DATE = #{reqTxnDate,jdbcType=CHAR},
+      </if>
+      <if test="reqTxnTime != null">
+        REQ_TXN_TIME = #{reqTxnTime,jdbcType=CHAR},
+      </if>
+      <if test="reqTxnSeqId != null">
+        REQ_TXN_SEQ_ID = #{reqTxnSeqId,jdbcType=VARCHAR},
+      </if>
+      <if test="reqUserId != null">
+        REQ_USER_ID = #{reqUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="reqOrgId != null">
+        REQ_ORG_ID = #{reqOrgId,jdbcType=VARCHAR},
+      </if>
+      <if test="destSysId != null">
+        DEST_SYS_ID = #{destSysId,jdbcType=CHAR},
+      </if>
+      <if test="destTxnDate != null">
+        DEST_TXN_DATE = #{destTxnDate,jdbcType=CHAR},
+      </if>
+      <if test="destTxnTime != null">
+        DEST_TXN_TIME = #{destTxnTime,jdbcType=CHAR},
+      </if>
+      <if test="wfInstanceId != null">
+        WF_INSTANCE_ID = #{wfInstanceId,jdbcType=VARCHAR},
+      </if>
+      <if test="flowId != null">
+        FLOW_ID = #{flowId,jdbcType=VARCHAR},
+      </if>
+      <if test="flowType != null">
+        FLOW_TYPE = #{flowType,jdbcType=CHAR},
+      </if>
+      <if test="flowSubType != null">
+        FLOW_SUB_TYPE = #{flowSubType,jdbcType=CHAR},
+      </if>
+      <if test="bizSeqNo != null">
+        BIZ_SEQ_NO = #{bizSeqNo,jdbcType=VARCHAR},
+      </if>
+      <if test="bizType != null">
+        BIZ_TYPE = #{bizType,jdbcType=VARCHAR},
+      </if>
+      <if test="bizSubType != null">
+        BIZ_SUB_TYPE = #{bizSubType,jdbcType=VARCHAR},
+      </if>
+      <if test="custId != null">
+        CUST_ID = #{custId,jdbcType=VARCHAR},
+      </if>
+      <if test="custName != null">
+        CUST_NAME = #{custName,jdbcType=VARCHAR},
+      </if>
+      <if test="txnMsgBody != null">
+        TXN_MSG_BODY = #{txnMsgBody,jdbcType=VARCHAR},
+      </if>
+      <if test="txnStat != null">
+        TXN_STAT = #{txnStat,jdbcType=CHAR},
+      </if>
+      <if test="replyCd != null">
+        REPLY_CD = #{replyCd,jdbcType=VARCHAR},
+      </if>
+      <if test="replyDesc != null">
+        REPLY_DESC = #{replyDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="misc != null">
+        MISC = #{misc,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME = #{createTime,jdbcType=CHAR},
+      </if>
+      <if test="lastUpdOprId != null">
+        LAST_UPD_OPR_ID = #{lastUpdOprId,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdPgmId != null">
+        LAST_UPD_PGM_ID = #{lastUpdPgmId,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdTime != null">
+        LAST_UPD_TIME = #{lastUpdTime,jdbcType=CHAR},
+      </if>
+    </set>
+    where SEQ_NO = #{seqNo,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.WF_TXN_LOG">
+    update WF_TXN_LOG
+    set TXN_CODE = #{txnCode,jdbcType=VARCHAR},
+      TXN_TYPE = #{txnType,jdbcType=CHAR},
+      REQ_SYS_ID = #{reqSysId,jdbcType=CHAR},
+      REQ_TXN_DATE = #{reqTxnDate,jdbcType=CHAR},
+      REQ_TXN_TIME = #{reqTxnTime,jdbcType=CHAR},
+      REQ_TXN_SEQ_ID = #{reqTxnSeqId,jdbcType=VARCHAR},
+      REQ_USER_ID = #{reqUserId,jdbcType=VARCHAR},
+      REQ_ORG_ID = #{reqOrgId,jdbcType=VARCHAR},
+      DEST_SYS_ID = #{destSysId,jdbcType=CHAR},
+      DEST_TXN_DATE = #{destTxnDate,jdbcType=CHAR},
+      DEST_TXN_TIME = #{destTxnTime,jdbcType=CHAR},
+      WF_INSTANCE_ID = #{wfInstanceId,jdbcType=VARCHAR},
+      FLOW_ID = #{flowId,jdbcType=VARCHAR},
+      FLOW_TYPE = #{flowType,jdbcType=CHAR},
+      FLOW_SUB_TYPE = #{flowSubType,jdbcType=CHAR},
+      BIZ_SEQ_NO = #{bizSeqNo,jdbcType=VARCHAR},
+      BIZ_TYPE = #{bizType,jdbcType=VARCHAR},
+      BIZ_SUB_TYPE = #{bizSubType,jdbcType=VARCHAR},
+      CUST_ID = #{custId,jdbcType=VARCHAR},
+      CUST_NAME = #{custName,jdbcType=VARCHAR},
+      TXN_MSG_BODY = #{txnMsgBody,jdbcType=VARCHAR},
+      TXN_STAT = #{txnStat,jdbcType=CHAR},
+      REPLY_CD = #{replyCd,jdbcType=VARCHAR},
+      REPLY_DESC = #{replyDesc,jdbcType=VARCHAR},
+      MISC = #{misc,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=CHAR},
+      LAST_UPD_OPR_ID = #{lastUpdOprId,jdbcType=VARCHAR},
+      LAST_UPD_PGM_ID = #{lastUpdPgmId,jdbcType=VARCHAR},
+      LAST_UPD_TIME = #{lastUpdTime,jdbcType=CHAR}
+    where SEQ_NO = #{seqNo,jdbcType=VARCHAR}
+  </update>
+</mapper>

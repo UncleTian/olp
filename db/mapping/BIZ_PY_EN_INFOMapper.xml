@@ -1,0 +1,794 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.BIZ_PY_EN_INFOMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.BIZ_PY_EN_INFO">
+    <id column="APP_NO" jdbcType="VARCHAR" property="appNo" />
+    <result column="BATNO" jdbcType="VARCHAR" property="batno" />
+    <result column="UNITNAME" jdbcType="VARCHAR" property="unitname" />
+    <result column="SUBORGAN" jdbcType="VARCHAR" property="suborgan" />
+    <result column="QUERYUSERID" jdbcType="VARCHAR" property="queryuserid" />
+    <result column="QUERYCOUNT" jdbcType="DECIMAL" property="querycount" />
+    <result column="RECEIVETIME" jdbcType="VARCHAR" property="receivetime" />
+    <result column="REPORTID" jdbcType="VARCHAR" property="reportid" />
+    <result column="BUILDENDTIME" jdbcType="VARCHAR" property="buildendtime" />
+    <result column="QUERYREASONID" jdbcType="DECIMAL" property="queryreasonid" />
+    <result column="SUBREPORTTYPES" jdbcType="VARCHAR" property="subreporttypes" />
+    <result column="TREATRESULT" jdbcType="VARCHAR" property="treatresult" />
+    <result column="SUBREPORTTYPESSHORTCAPTION" jdbcType="VARCHAR" property="subreporttypesshortcaption" />
+    <result column="REFID" jdbcType="VARCHAR" property="refid" />
+    <result column="HASSYSTEMERROR" jdbcType="VARCHAR" property="hassystemerror" />
+    <result column="ISFROZEN" jdbcType="VARCHAR" property="isfrozen" />
+    <result column="SUBREPORTTYPE" jdbcType="DECIMAL" property="subreporttype" />
+    <result column="SUBREPORTTYPECOST" jdbcType="DECIMAL" property="subreporttypecost" />
+    <result column="TREATRESULTINFO" jdbcType="DECIMAL" property="treatresultinfo" />
+    <result column="TREATERRORCODE" jdbcType="VARCHAR" property="treaterrorcode" />
+    <result column="ERRORMESSAGE" jdbcType="VARCHAR" property="errormessage" />
+    <result column="ORGCODE" jdbcType="VARCHAR" property="orgcode" />
+    <result column="REGISTERNO" jdbcType="VARCHAR" property="registerno" />
+    <result column="ARTIFICIALNAME" jdbcType="VARCHAR" property="artificialname" />
+    <result column="ARTIFICIALNAME2" jdbcType="VARCHAR" property="artificialname2" />
+    <result column="REGISTDATE" jdbcType="VARCHAR" property="registdate" />
+    <result column="HANDLEDATE" jdbcType="VARCHAR" property="handledate" />
+    <result column="CANCELDATE" jdbcType="VARCHAR" property="canceldate" />
+    <result column="URL" jdbcType="VARCHAR" property="url" />
+    <result column="STATUSID" jdbcType="VARCHAR" property="statusid" />
+    <result column="FLAG" jdbcType="VARCHAR" property="flag" />
+    <result column="STATUSID2" jdbcType="VARCHAR" property="statusid2" />
+    <result column="STATUSCAPTION2" jdbcType="VARCHAR" property="statuscaption2" />
+    <result column="REGISTFUND" jdbcType="DECIMAL" property="registfund" />
+    <result column="FUNDCURRENCY" jdbcType="VARCHAR" property="fundcurrency" />
+    <result column="REGISTFUND2" jdbcType="DECIMAL" property="registfund2" />
+    <result column="FUNDCURRENCY2" jdbcType="VARCHAR" property="fundcurrency2" />
+    <result column="ORGANTYPE" jdbcType="VARCHAR" property="organtype" />
+    <result column="ECONOMICTYPE" jdbcType="VARCHAR" property="economictype" />
+    <result column="STAFFNUMBER" jdbcType="VARCHAR" property="staffnumber" />
+    <result column="TRADECODE" jdbcType="VARCHAR" property="tradecode" />
+    <result column="TRADENAME1" jdbcType="VARCHAR" property="tradename1" />
+    <result column="TRADENAME2" jdbcType="VARCHAR" property="tradename2" />
+    <result column="TRADENAME3" jdbcType="VARCHAR" property="tradename3" />
+    <result column="TRADENAME4" jdbcType="VARCHAR" property="tradename4" />
+    <result column="MANAGERANGE" jdbcType="VARCHAR" property="managerange" />
+    <result column="OPENDATE" jdbcType="VARCHAR" property="opendate" />
+    <result column="MANAGEBEGINDATE" jdbcType="VARCHAR" property="managebegindate" />
+    <result column="MANAGEENDDATE" jdbcType="VARCHAR" property="manageenddate" />
+    <result column="CORPTYPEID" jdbcType="VARCHAR" property="corptypeid" />
+    <result column="CORPTYPECAPTION" jdbcType="VARCHAR" property="corptypecaption" />
+    <result column="ALLOWMANAGEPROJECT" jdbcType="VARCHAR" property="allowmanageproject" />
+    <result column="GENERALMANAGEPROJECT" jdbcType="VARCHAR" property="generalmanageproject" />
+    <result column="MANAGERANGEFASHION" jdbcType="VARCHAR" property="managerangefashion" />
+    <result column="REGISTERDEPARTMENT" jdbcType="VARCHAR" property="registerdepartment" />
+    <result column="LASTCHECKYEAR" jdbcType="VARCHAR" property="lastcheckyear" />
+    <result column="LASTCHECKDATE" jdbcType="VARCHAR" property="lastcheckdate" />
+    <result column="LOGOUTDATE" jdbcType="VARCHAR" property="logoutdate" />
+    <result column="REVOKEDATE" jdbcType="VARCHAR" property="revokedate" />
+    <result column="INPUT_DATE" jdbcType="VARCHAR" property="inputDate" />
+    <result column="INPUT_TIME" jdbcType="VARCHAR" property="inputTime" />
+    <result column="LAST_UPDATE_DATE" jdbcType="VARCHAR" property="lastUpdateDate" />
+    <result column="LAST_UPDATE_TIME" jdbcType="VARCHAR" property="lastUpdateTime" />
+    <result column="CORPNAME" jdbcType="VARCHAR" property="corpname" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    APP_NO, BATNO, UNITNAME, SUBORGAN, QUERYUSERID, QUERYCOUNT, RECEIVETIME, REPORTID, 
+    BUILDENDTIME, QUERYREASONID, SUBREPORTTYPES, TREATRESULT, SUBREPORTTYPESSHORTCAPTION, 
+    REFID, HASSYSTEMERROR, ISFROZEN, SUBREPORTTYPE, SUBREPORTTYPECOST, TREATRESULTINFO, 
+    TREATERRORCODE, ERRORMESSAGE, ORGCODE, REGISTERNO, ARTIFICIALNAME, ARTIFICIALNAME2, 
+    REGISTDATE, HANDLEDATE, CANCELDATE, URL, STATUSID, FLAG, STATUSID2, STATUSCAPTION2, 
+    REGISTFUND, FUNDCURRENCY, REGISTFUND2, FUNDCURRENCY2, ORGANTYPE, ECONOMICTYPE, STAFFNUMBER, 
+    TRADECODE, TRADENAME1, TRADENAME2, TRADENAME3, TRADENAME4, MANAGERANGE, OPENDATE, 
+    MANAGEBEGINDATE, MANAGEENDDATE, CORPTYPEID, CORPTYPECAPTION, ALLOWMANAGEPROJECT, 
+    GENERALMANAGEPROJECT, MANAGERANGEFASHION, REGISTERDEPARTMENT, LASTCHECKYEAR, LASTCHECKDATE, 
+    LOGOUTDATE, REVOKEDATE, INPUT_DATE, INPUT_TIME, LAST_UPDATE_DATE, LAST_UPDATE_TIME, 
+    CORPNAME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from BIZ_PY_EN_INFO
+    where APP_NO = #{appNo,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from BIZ_PY_EN_INFO
+    where APP_NO = #{appNo,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.BIZ_PY_EN_INFO">
+    insert into BIZ_PY_EN_INFO (APP_NO, BATNO, UNITNAME, 
+      SUBORGAN, QUERYUSERID, QUERYCOUNT, 
+      RECEIVETIME, REPORTID, BUILDENDTIME, 
+      QUERYREASONID, SUBREPORTTYPES, TREATRESULT, 
+      SUBREPORTTYPESSHORTCAPTION, REFID, HASSYSTEMERROR, 
+      ISFROZEN, SUBREPORTTYPE, SUBREPORTTYPECOST, 
+      TREATRESULTINFO, TREATERRORCODE, ERRORMESSAGE, 
+      ORGCODE, REGISTERNO, ARTIFICIALNAME, 
+      ARTIFICIALNAME2, REGISTDATE, HANDLEDATE, 
+      CANCELDATE, URL, STATUSID, 
+      FLAG, STATUSID2, STATUSCAPTION2, 
+      REGISTFUND, FUNDCURRENCY, REGISTFUND2, 
+      FUNDCURRENCY2, ORGANTYPE, ECONOMICTYPE, 
+      STAFFNUMBER, TRADECODE, TRADENAME1, 
+      TRADENAME2, TRADENAME3, TRADENAME4, 
+      MANAGERANGE, OPENDATE, MANAGEBEGINDATE, 
+      MANAGEENDDATE, CORPTYPEID, CORPTYPECAPTION, 
+      ALLOWMANAGEPROJECT, GENERALMANAGEPROJECT, 
+      MANAGERANGEFASHION, REGISTERDEPARTMENT, 
+      LASTCHECKYEAR, LASTCHECKDATE, LOGOUTDATE, 
+      REVOKEDATE, INPUT_DATE, INPUT_TIME, 
+      LAST_UPDATE_DATE, LAST_UPDATE_TIME, CORPNAME
+      )
+    values (#{appNo,jdbcType=VARCHAR}, #{batno,jdbcType=VARCHAR}, #{unitname,jdbcType=VARCHAR}, 
+      #{suborgan,jdbcType=VARCHAR}, #{queryuserid,jdbcType=VARCHAR}, #{querycount,jdbcType=DECIMAL}, 
+      #{receivetime,jdbcType=VARCHAR}, #{reportid,jdbcType=VARCHAR}, #{buildendtime,jdbcType=VARCHAR}, 
+      #{queryreasonid,jdbcType=DECIMAL}, #{subreporttypes,jdbcType=VARCHAR}, #{treatresult,jdbcType=VARCHAR}, 
+      #{subreporttypesshortcaption,jdbcType=VARCHAR}, #{refid,jdbcType=VARCHAR}, #{hassystemerror,jdbcType=VARCHAR}, 
+      #{isfrozen,jdbcType=VARCHAR}, #{subreporttype,jdbcType=DECIMAL}, #{subreporttypecost,jdbcType=DECIMAL}, 
+      #{treatresultinfo,jdbcType=DECIMAL}, #{treaterrorcode,jdbcType=VARCHAR}, #{errormessage,jdbcType=VARCHAR}, 
+      #{orgcode,jdbcType=VARCHAR}, #{registerno,jdbcType=VARCHAR}, #{artificialname,jdbcType=VARCHAR}, 
+      #{artificialname2,jdbcType=VARCHAR}, #{registdate,jdbcType=VARCHAR}, #{handledate,jdbcType=VARCHAR}, 
+      #{canceldate,jdbcType=VARCHAR}, #{url,jdbcType=VARCHAR}, #{statusid,jdbcType=VARCHAR}, 
+      #{flag,jdbcType=VARCHAR}, #{statusid2,jdbcType=VARCHAR}, #{statuscaption2,jdbcType=VARCHAR}, 
+      #{registfund,jdbcType=DECIMAL}, #{fundcurrency,jdbcType=VARCHAR}, #{registfund2,jdbcType=DECIMAL}, 
+      #{fundcurrency2,jdbcType=VARCHAR}, #{organtype,jdbcType=VARCHAR}, #{economictype,jdbcType=VARCHAR}, 
+      #{staffnumber,jdbcType=VARCHAR}, #{tradecode,jdbcType=VARCHAR}, #{tradename1,jdbcType=VARCHAR}, 
+      #{tradename2,jdbcType=VARCHAR}, #{tradename3,jdbcType=VARCHAR}, #{tradename4,jdbcType=VARCHAR}, 
+      #{managerange,jdbcType=VARCHAR}, #{opendate,jdbcType=VARCHAR}, #{managebegindate,jdbcType=VARCHAR}, 
+      #{manageenddate,jdbcType=VARCHAR}, #{corptypeid,jdbcType=VARCHAR}, #{corptypecaption,jdbcType=VARCHAR}, 
+      #{allowmanageproject,jdbcType=VARCHAR}, #{generalmanageproject,jdbcType=VARCHAR}, 
+      #{managerangefashion,jdbcType=VARCHAR}, #{registerdepartment,jdbcType=VARCHAR}, 
+      #{lastcheckyear,jdbcType=VARCHAR}, #{lastcheckdate,jdbcType=VARCHAR}, #{logoutdate,jdbcType=VARCHAR}, 
+      #{revokedate,jdbcType=VARCHAR}, #{inputDate,jdbcType=VARCHAR}, #{inputTime,jdbcType=VARCHAR}, 
+      #{lastUpdateDate,jdbcType=VARCHAR}, #{lastUpdateTime,jdbcType=VARCHAR}, #{corpname,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.BIZ_PY_EN_INFO">
+    insert into BIZ_PY_EN_INFO
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="appNo != null">
+        APP_NO,
+      </if>
+      <if test="batno != null">
+        BATNO,
+      </if>
+      <if test="unitname != null">
+        UNITNAME,
+      </if>
+      <if test="suborgan != null">
+        SUBORGAN,
+      </if>
+      <if test="queryuserid != null">
+        QUERYUSERID,
+      </if>
+      <if test="querycount != null">
+        QUERYCOUNT,
+      </if>
+      <if test="receivetime != null">
+        RECEIVETIME,
+      </if>
+      <if test="reportid != null">
+        REPORTID,
+      </if>
+      <if test="buildendtime != null">
+        BUILDENDTIME,
+      </if>
+      <if test="queryreasonid != null">
+        QUERYREASONID,
+      </if>
+      <if test="subreporttypes != null">
+        SUBREPORTTYPES,
+      </if>
+      <if test="treatresult != null">
+        TREATRESULT,
+      </if>
+      <if test="subreporttypesshortcaption != null">
+        SUBREPORTTYPESSHORTCAPTION,
+      </if>
+      <if test="refid != null">
+        REFID,
+      </if>
+      <if test="hassystemerror != null">
+        HASSYSTEMERROR,
+      </if>
+      <if test="isfrozen != null">
+        ISFROZEN,
+      </if>
+      <if test="subreporttype != null">
+        SUBREPORTTYPE,
+      </if>
+      <if test="subreporttypecost != null">
+        SUBREPORTTYPECOST,
+      </if>
+      <if test="treatresultinfo != null">
+        TREATRESULTINFO,
+      </if>
+      <if test="treaterrorcode != null">
+        TREATERRORCODE,
+      </if>
+      <if test="errormessage != null">
+        ERRORMESSAGE,
+      </if>
+      <if test="orgcode != null">
+        ORGCODE,
+      </if>
+      <if test="registerno != null">
+        REGISTERNO,
+      </if>
+      <if test="artificialname != null">
+        ARTIFICIALNAME,
+      </if>
+      <if test="artificialname2 != null">
+        ARTIFICIALNAME2,
+      </if>
+      <if test="registdate != null">
+        REGISTDATE,
+      </if>
+      <if test="handledate != null">
+        HANDLEDATE,
+      </if>
+      <if test="canceldate != null">
+        CANCELDATE,
+      </if>
+      <if test="url != null">
+        URL,
+      </if>
+      <if test="statusid != null">
+        STATUSID,
+      </if>
+      <if test="flag != null">
+        FLAG,
+      </if>
+      <if test="statusid2 != null">
+        STATUSID2,
+      </if>
+      <if test="statuscaption2 != null">
+        STATUSCAPTION2,
+      </if>
+      <if test="registfund != null">
+        REGISTFUND,
+      </if>
+      <if test="fundcurrency != null">
+        FUNDCURRENCY,
+      </if>
+      <if test="registfund2 != null">
+        REGISTFUND2,
+      </if>
+      <if test="fundcurrency2 != null">
+        FUNDCURRENCY2,
+      </if>
+      <if test="organtype != null">
+        ORGANTYPE,
+      </if>
+      <if test="economictype != null">
+        ECONOMICTYPE,
+      </if>
+      <if test="staffnumber != null">
+        STAFFNUMBER,
+      </if>
+      <if test="tradecode != null">
+        TRADECODE,
+      </if>
+      <if test="tradename1 != null">
+        TRADENAME1,
+      </if>
+      <if test="tradename2 != null">
+        TRADENAME2,
+      </if>
+      <if test="tradename3 != null">
+        TRADENAME3,
+      </if>
+      <if test="tradename4 != null">
+        TRADENAME4,
+      </if>
+      <if test="managerange != null">
+        MANAGERANGE,
+      </if>
+      <if test="opendate != null">
+        OPENDATE,
+      </if>
+      <if test="managebegindate != null">
+        MANAGEBEGINDATE,
+      </if>
+      <if test="manageenddate != null">
+        MANAGEENDDATE,
+      </if>
+      <if test="corptypeid != null">
+        CORPTYPEID,
+      </if>
+      <if test="corptypecaption != null">
+        CORPTYPECAPTION,
+      </if>
+      <if test="allowmanageproject != null">
+        ALLOWMANAGEPROJECT,
+      </if>
+      <if test="generalmanageproject != null">
+        GENERALMANAGEPROJECT,
+      </if>
+      <if test="managerangefashion != null">
+        MANAGERANGEFASHION,
+      </if>
+      <if test="registerdepartment != null">
+        REGISTERDEPARTMENT,
+      </if>
+      <if test="lastcheckyear != null">
+        LASTCHECKYEAR,
+      </if>
+      <if test="lastcheckdate != null">
+        LASTCHECKDATE,
+      </if>
+      <if test="logoutdate != null">
+        LOGOUTDATE,
+      </if>
+      <if test="revokedate != null">
+        REVOKEDATE,
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE,
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME,
+      </if>
+      <if test="lastUpdateDate != null">
+        LAST_UPDATE_DATE,
+      </if>
+      <if test="lastUpdateTime != null">
+        LAST_UPDATE_TIME,
+      </if>
+      <if test="corpname != null">
+        CORPNAME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="appNo != null">
+        #{appNo,jdbcType=VARCHAR},
+      </if>
+      <if test="batno != null">
+        #{batno,jdbcType=VARCHAR},
+      </if>
+      <if test="unitname != null">
+        #{unitname,jdbcType=VARCHAR},
+      </if>
+      <if test="suborgan != null">
+        #{suborgan,jdbcType=VARCHAR},
+      </if>
+      <if test="queryuserid != null">
+        #{queryuserid,jdbcType=VARCHAR},
+      </if>
+      <if test="querycount != null">
+        #{querycount,jdbcType=DECIMAL},
+      </if>
+      <if test="receivetime != null">
+        #{receivetime,jdbcType=VARCHAR},
+      </if>
+      <if test="reportid != null">
+        #{reportid,jdbcType=VARCHAR},
+      </if>
+      <if test="buildendtime != null">
+        #{buildendtime,jdbcType=VARCHAR},
+      </if>
+      <if test="queryreasonid != null">
+        #{queryreasonid,jdbcType=DECIMAL},
+      </if>
+      <if test="subreporttypes != null">
+        #{subreporttypes,jdbcType=VARCHAR},
+      </if>
+      <if test="treatresult != null">
+        #{treatresult,jdbcType=VARCHAR},
+      </if>
+      <if test="subreporttypesshortcaption != null">
+        #{subreporttypesshortcaption,jdbcType=VARCHAR},
+      </if>
+      <if test="refid != null">
+        #{refid,jdbcType=VARCHAR},
+      </if>
+      <if test="hassystemerror != null">
+        #{hassystemerror,jdbcType=VARCHAR},
+      </if>
+      <if test="isfrozen != null">
+        #{isfrozen,jdbcType=VARCHAR},
+      </if>
+      <if test="subreporttype != null">
+        #{subreporttype,jdbcType=DECIMAL},
+      </if>
+      <if test="subreporttypecost != null">
+        #{subreporttypecost,jdbcType=DECIMAL},
+      </if>
+      <if test="treatresultinfo != null">
+        #{treatresultinfo,jdbcType=DECIMAL},
+      </if>
+      <if test="treaterrorcode != null">
+        #{treaterrorcode,jdbcType=VARCHAR},
+      </if>
+      <if test="errormessage != null">
+        #{errormessage,jdbcType=VARCHAR},
+      </if>
+      <if test="orgcode != null">
+        #{orgcode,jdbcType=VARCHAR},
+      </if>
+      <if test="registerno != null">
+        #{registerno,jdbcType=VARCHAR},
+      </if>
+      <if test="artificialname != null">
+        #{artificialname,jdbcType=VARCHAR},
+      </if>
+      <if test="artificialname2 != null">
+        #{artificialname2,jdbcType=VARCHAR},
+      </if>
+      <if test="registdate != null">
+        #{registdate,jdbcType=VARCHAR},
+      </if>
+      <if test="handledate != null">
+        #{handledate,jdbcType=VARCHAR},
+      </if>
+      <if test="canceldate != null">
+        #{canceldate,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null">
+        #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="statusid != null">
+        #{statusid,jdbcType=VARCHAR},
+      </if>
+      <if test="flag != null">
+        #{flag,jdbcType=VARCHAR},
+      </if>
+      <if test="statusid2 != null">
+        #{statusid2,jdbcType=VARCHAR},
+      </if>
+      <if test="statuscaption2 != null">
+        #{statuscaption2,jdbcType=VARCHAR},
+      </if>
+      <if test="registfund != null">
+        #{registfund,jdbcType=DECIMAL},
+      </if>
+      <if test="fundcurrency != null">
+        #{fundcurrency,jdbcType=VARCHAR},
+      </if>
+      <if test="registfund2 != null">
+        #{registfund2,jdbcType=DECIMAL},
+      </if>
+      <if test="fundcurrency2 != null">
+        #{fundcurrency2,jdbcType=VARCHAR},
+      </if>
+      <if test="organtype != null">
+        #{organtype,jdbcType=VARCHAR},
+      </if>
+      <if test="economictype != null">
+        #{economictype,jdbcType=VARCHAR},
+      </if>
+      <if test="staffnumber != null">
+        #{staffnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="tradecode != null">
+        #{tradecode,jdbcType=VARCHAR},
+      </if>
+      <if test="tradename1 != null">
+        #{tradename1,jdbcType=VARCHAR},
+      </if>
+      <if test="tradename2 != null">
+        #{tradename2,jdbcType=VARCHAR},
+      </if>
+      <if test="tradename3 != null">
+        #{tradename3,jdbcType=VARCHAR},
+      </if>
+      <if test="tradename4 != null">
+        #{tradename4,jdbcType=VARCHAR},
+      </if>
+      <if test="managerange != null">
+        #{managerange,jdbcType=VARCHAR},
+      </if>
+      <if test="opendate != null">
+        #{opendate,jdbcType=VARCHAR},
+      </if>
+      <if test="managebegindate != null">
+        #{managebegindate,jdbcType=VARCHAR},
+      </if>
+      <if test="manageenddate != null">
+        #{manageenddate,jdbcType=VARCHAR},
+      </if>
+      <if test="corptypeid != null">
+        #{corptypeid,jdbcType=VARCHAR},
+      </if>
+      <if test="corptypecaption != null">
+        #{corptypecaption,jdbcType=VARCHAR},
+      </if>
+      <if test="allowmanageproject != null">
+        #{allowmanageproject,jdbcType=VARCHAR},
+      </if>
+      <if test="generalmanageproject != null">
+        #{generalmanageproject,jdbcType=VARCHAR},
+      </if>
+      <if test="managerangefashion != null">
+        #{managerangefashion,jdbcType=VARCHAR},
+      </if>
+      <if test="registerdepartment != null">
+        #{registerdepartment,jdbcType=VARCHAR},
+      </if>
+      <if test="lastcheckyear != null">
+        #{lastcheckyear,jdbcType=VARCHAR},
+      </if>
+      <if test="lastcheckdate != null">
+        #{lastcheckdate,jdbcType=VARCHAR},
+      </if>
+      <if test="logoutdate != null">
+        #{logoutdate,jdbcType=VARCHAR},
+      </if>
+      <if test="revokedate != null">
+        #{revokedate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateDate != null">
+        #{lastUpdateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        #{lastUpdateTime,jdbcType=VARCHAR},
+      </if>
+      <if test="corpname != null">
+        #{corpname,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.BIZ_PY_EN_INFO">
+    update BIZ_PY_EN_INFO
+    <set>
+      <if test="batno != null">
+        BATNO = #{batno,jdbcType=VARCHAR},
+      </if>
+      <if test="unitname != null">
+        UNITNAME = #{unitname,jdbcType=VARCHAR},
+      </if>
+      <if test="suborgan != null">
+        SUBORGAN = #{suborgan,jdbcType=VARCHAR},
+      </if>
+      <if test="queryuserid != null">
+        QUERYUSERID = #{queryuserid,jdbcType=VARCHAR},
+      </if>
+      <if test="querycount != null">
+        QUERYCOUNT = #{querycount,jdbcType=DECIMAL},
+      </if>
+      <if test="receivetime != null">
+        RECEIVETIME = #{receivetime,jdbcType=VARCHAR},
+      </if>
+      <if test="reportid != null">
+        REPORTID = #{reportid,jdbcType=VARCHAR},
+      </if>
+      <if test="buildendtime != null">
+        BUILDENDTIME = #{buildendtime,jdbcType=VARCHAR},
+      </if>
+      <if test="queryreasonid != null">
+        QUERYREASONID = #{queryreasonid,jdbcType=DECIMAL},
+      </if>
+      <if test="subreporttypes != null">
+        SUBREPORTTYPES = #{subreporttypes,jdbcType=VARCHAR},
+      </if>
+      <if test="treatresult != null">
+        TREATRESULT = #{treatresult,jdbcType=VARCHAR},
+      </if>
+      <if test="subreporttypesshortcaption != null">
+        SUBREPORTTYPESSHORTCAPTION = #{subreporttypesshortcaption,jdbcType=VARCHAR},
+      </if>
+      <if test="refid != null">
+        REFID = #{refid,jdbcType=VARCHAR},
+      </if>
+      <if test="hassystemerror != null">
+        HASSYSTEMERROR = #{hassystemerror,jdbcType=VARCHAR},
+      </if>
+      <if test="isfrozen != null">
+        ISFROZEN = #{isfrozen,jdbcType=VARCHAR},
+      </if>
+      <if test="subreporttype != null">
+        SUBREPORTTYPE = #{subreporttype,jdbcType=DECIMAL},
+      </if>
+      <if test="subreporttypecost != null">
+        SUBREPORTTYPECOST = #{subreporttypecost,jdbcType=DECIMAL},
+      </if>
+      <if test="treatresultinfo != null">
+        TREATRESULTINFO = #{treatresultinfo,jdbcType=DECIMAL},
+      </if>
+      <if test="treaterrorcode != null">
+        TREATERRORCODE = #{treaterrorcode,jdbcType=VARCHAR},
+      </if>
+      <if test="errormessage != null">
+        ERRORMESSAGE = #{errormessage,jdbcType=VARCHAR},
+      </if>
+      <if test="orgcode != null">
+        ORGCODE = #{orgcode,jdbcType=VARCHAR},
+      </if>
+      <if test="registerno != null">
+        REGISTERNO = #{registerno,jdbcType=VARCHAR},
+      </if>
+      <if test="artificialname != null">
+        ARTIFICIALNAME = #{artificialname,jdbcType=VARCHAR},
+      </if>
+      <if test="artificialname2 != null">
+        ARTIFICIALNAME2 = #{artificialname2,jdbcType=VARCHAR},
+      </if>
+      <if test="registdate != null">
+        REGISTDATE = #{registdate,jdbcType=VARCHAR},
+      </if>
+      <if test="handledate != null">
+        HANDLEDATE = #{handledate,jdbcType=VARCHAR},
+      </if>
+      <if test="canceldate != null">
+        CANCELDATE = #{canceldate,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null">
+        URL = #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="statusid != null">
+        STATUSID = #{statusid,jdbcType=VARCHAR},
+      </if>
+      <if test="flag != null">
+        FLAG = #{flag,jdbcType=VARCHAR},
+      </if>
+      <if test="statusid2 != null">
+        STATUSID2 = #{statusid2,jdbcType=VARCHAR},
+      </if>
+      <if test="statuscaption2 != null">
+        STATUSCAPTION2 = #{statuscaption2,jdbcType=VARCHAR},
+      </if>
+      <if test="registfund != null">
+        REGISTFUND = #{registfund,jdbcType=DECIMAL},
+      </if>
+      <if test="fundcurrency != null">
+        FUNDCURRENCY = #{fundcurrency,jdbcType=VARCHAR},
+      </if>
+      <if test="registfund2 != null">
+        REGISTFUND2 = #{registfund2,jdbcType=DECIMAL},
+      </if>
+      <if test="fundcurrency2 != null">
+        FUNDCURRENCY2 = #{fundcurrency2,jdbcType=VARCHAR},
+      </if>
+      <if test="organtype != null">
+        ORGANTYPE = #{organtype,jdbcType=VARCHAR},
+      </if>
+      <if test="economictype != null">
+        ECONOMICTYPE = #{economictype,jdbcType=VARCHAR},
+      </if>
+      <if test="staffnumber != null">
+        STAFFNUMBER = #{staffnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="tradecode != null">
+        TRADECODE = #{tradecode,jdbcType=VARCHAR},
+      </if>
+      <if test="tradename1 != null">
+        TRADENAME1 = #{tradename1,jdbcType=VARCHAR},
+      </if>
+      <if test="tradename2 != null">
+        TRADENAME2 = #{tradename2,jdbcType=VARCHAR},
+      </if>
+      <if test="tradename3 != null">
+        TRADENAME3 = #{tradename3,jdbcType=VARCHAR},
+      </if>
+      <if test="tradename4 != null">
+        TRADENAME4 = #{tradename4,jdbcType=VARCHAR},
+      </if>
+      <if test="managerange != null">
+        MANAGERANGE = #{managerange,jdbcType=VARCHAR},
+      </if>
+      <if test="opendate != null">
+        OPENDATE = #{opendate,jdbcType=VARCHAR},
+      </if>
+      <if test="managebegindate != null">
+        MANAGEBEGINDATE = #{managebegindate,jdbcType=VARCHAR},
+      </if>
+      <if test="manageenddate != null">
+        MANAGEENDDATE = #{manageenddate,jdbcType=VARCHAR},
+      </if>
+      <if test="corptypeid != null">
+        CORPTYPEID = #{corptypeid,jdbcType=VARCHAR},
+      </if>
+      <if test="corptypecaption != null">
+        CORPTYPECAPTION = #{corptypecaption,jdbcType=VARCHAR},
+      </if>
+      <if test="allowmanageproject != null">
+        ALLOWMANAGEPROJECT = #{allowmanageproject,jdbcType=VARCHAR},
+      </if>
+      <if test="generalmanageproject != null">
+        GENERALMANAGEPROJECT = #{generalmanageproject,jdbcType=VARCHAR},
+      </if>
+      <if test="managerangefashion != null">
+        MANAGERANGEFASHION = #{managerangefashion,jdbcType=VARCHAR},
+      </if>
+      <if test="registerdepartment != null">
+        REGISTERDEPARTMENT = #{registerdepartment,jdbcType=VARCHAR},
+      </if>
+      <if test="lastcheckyear != null">
+        LASTCHECKYEAR = #{lastcheckyear,jdbcType=VARCHAR},
+      </if>
+      <if test="lastcheckdate != null">
+        LASTCHECKDATE = #{lastcheckdate,jdbcType=VARCHAR},
+      </if>
+      <if test="logoutdate != null">
+        LOGOUTDATE = #{logoutdate,jdbcType=VARCHAR},
+      </if>
+      <if test="revokedate != null">
+        REVOKEDATE = #{revokedate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE = #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME = #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateDate != null">
+        LAST_UPDATE_DATE = #{lastUpdateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=VARCHAR},
+      </if>
+      <if test="corpname != null">
+        CORPNAME = #{corpname,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where APP_NO = #{appNo,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.BIZ_PY_EN_INFO">
+    update BIZ_PY_EN_INFO
+    set BATNO = #{batno,jdbcType=VARCHAR},
+      UNITNAME = #{unitname,jdbcType=VARCHAR},
+      SUBORGAN = #{suborgan,jdbcType=VARCHAR},
+      QUERYUSERID = #{queryuserid,jdbcType=VARCHAR},
+      QUERYCOUNT = #{querycount,jdbcType=DECIMAL},
+      RECEIVETIME = #{receivetime,jdbcType=VARCHAR},
+      REPORTID = #{reportid,jdbcType=VARCHAR},
+      BUILDENDTIME = #{buildendtime,jdbcType=VARCHAR},
+      QUERYREASONID = #{queryreasonid,jdbcType=DECIMAL},
+      SUBREPORTTYPES = #{subreporttypes,jdbcType=VARCHAR},
+      TREATRESULT = #{treatresult,jdbcType=VARCHAR},
+      SUBREPORTTYPESSHORTCAPTION = #{subreporttypesshortcaption,jdbcType=VARCHAR},
+      REFID = #{refid,jdbcType=VARCHAR},
+      HASSYSTEMERROR = #{hassystemerror,jdbcType=VARCHAR},
+      ISFROZEN = #{isfrozen,jdbcType=VARCHAR},
+      SUBREPORTTYPE = #{subreporttype,jdbcType=DECIMAL},
+      SUBREPORTTYPECOST = #{subreporttypecost,jdbcType=DECIMAL},
+      TREATRESULTINFO = #{treatresultinfo,jdbcType=DECIMAL},
+      TREATERRORCODE = #{treaterrorcode,jdbcType=VARCHAR},
+      ERRORMESSAGE = #{errormessage,jdbcType=VARCHAR},
+      ORGCODE = #{orgcode,jdbcType=VARCHAR},
+      REGISTERNO = #{registerno,jdbcType=VARCHAR},
+      ARTIFICIALNAME = #{artificialname,jdbcType=VARCHAR},
+      ARTIFICIALNAME2 = #{artificialname2,jdbcType=VARCHAR},
+      REGISTDATE = #{registdate,jdbcType=VARCHAR},
+      HANDLEDATE = #{handledate,jdbcType=VARCHAR},
+      CANCELDATE = #{canceldate,jdbcType=VARCHAR},
+      URL = #{url,jdbcType=VARCHAR},
+      STATUSID = #{statusid,jdbcType=VARCHAR},
+      FLAG = #{flag,jdbcType=VARCHAR},
+      STATUSID2 = #{statusid2,jdbcType=VARCHAR},
+      STATUSCAPTION2 = #{statuscaption2,jdbcType=VARCHAR},
+      REGISTFUND = #{registfund,jdbcType=DECIMAL},
+      FUNDCURRENCY = #{fundcurrency,jdbcType=VARCHAR},
+      REGISTFUND2 = #{registfund2,jdbcType=DECIMAL},
+      FUNDCURRENCY2 = #{fundcurrency2,jdbcType=VARCHAR},
+      ORGANTYPE = #{organtype,jdbcType=VARCHAR},
+      ECONOMICTYPE = #{economictype,jdbcType=VARCHAR},
+      STAFFNUMBER = #{staffnumber,jdbcType=VARCHAR},
+      TRADECODE = #{tradecode,jdbcType=VARCHAR},
+      TRADENAME1 = #{tradename1,jdbcType=VARCHAR},
+      TRADENAME2 = #{tradename2,jdbcType=VARCHAR},
+      TRADENAME3 = #{tradename3,jdbcType=VARCHAR},
+      TRADENAME4 = #{tradename4,jdbcType=VARCHAR},
+      MANAGERANGE = #{managerange,jdbcType=VARCHAR},
+      OPENDATE = #{opendate,jdbcType=VARCHAR},
+      MANAGEBEGINDATE = #{managebegindate,jdbcType=VARCHAR},
+      MANAGEENDDATE = #{manageenddate,jdbcType=VARCHAR},
+      CORPTYPEID = #{corptypeid,jdbcType=VARCHAR},
+      CORPTYPECAPTION = #{corptypecaption,jdbcType=VARCHAR},
+      ALLOWMANAGEPROJECT = #{allowmanageproject,jdbcType=VARCHAR},
+      GENERALMANAGEPROJECT = #{generalmanageproject,jdbcType=VARCHAR},
+      MANAGERANGEFASHION = #{managerangefashion,jdbcType=VARCHAR},
+      REGISTERDEPARTMENT = #{registerdepartment,jdbcType=VARCHAR},
+      LASTCHECKYEAR = #{lastcheckyear,jdbcType=VARCHAR},
+      LASTCHECKDATE = #{lastcheckdate,jdbcType=VARCHAR},
+      LOGOUTDATE = #{logoutdate,jdbcType=VARCHAR},
+      REVOKEDATE = #{revokedate,jdbcType=VARCHAR},
+      INPUT_DATE = #{inputDate,jdbcType=VARCHAR},
+      INPUT_TIME = #{inputTime,jdbcType=VARCHAR},
+      LAST_UPDATE_DATE = #{lastUpdateDate,jdbcType=VARCHAR},
+      LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=VARCHAR},
+      CORPNAME = #{corpname,jdbcType=VARCHAR}
+    where APP_NO = #{appNo,jdbcType=VARCHAR}
+  </update>
+</mapper>

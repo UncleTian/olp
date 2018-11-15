@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.BAT_XWFILE_CFGMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.BAT_XWFILE_CFG">
+    <id column="FILE_ID" jdbcType="VARCHAR" property="fileId" />
+    <result column="FILE_NAME" jdbcType="VARCHAR" property="fileName" />
+    <result column="DATA_FILE_NAME" jdbcType="VARCHAR" property="dataFileName" />
+    <result column="SIGNAL_FILE_NAME" jdbcType="VARCHAR" property="signalFileName" />
+    <result column="CHECK_FILE_NO" jdbcType="VARCHAR" property="checkFileNo" />
+    <result column="CHECK_NUM_FLAG" jdbcType="VARCHAR" property="checkNumFlag" />
+    <result column="CHECK_FORMAT_FLAG" jdbcType="VARCHAR" property="checkFormatFlag" />
+    <result column="USE_FLAG" jdbcType="VARCHAR" property="useFlag" />
+    <result column="INPUT_DATE" jdbcType="VARCHAR" property="inputDate" />
+    <result column="TASK_NO" jdbcType="VARCHAR" property="taskNo" />
+    <result column="EVENT_NO" jdbcType="VARCHAR" property="eventNo" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    FILE_ID, FILE_NAME, DATA_FILE_NAME, SIGNAL_FILE_NAME, CHECK_FILE_NO, CHECK_NUM_FLAG, 
+    CHECK_FORMAT_FLAG, USE_FLAG, INPUT_DATE, TASK_NO, EVENT_NO
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from BAT_XWFILE_CFG
+    where FILE_ID = #{fileId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from BAT_XWFILE_CFG
+    where FILE_ID = #{fileId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.BAT_XWFILE_CFG">
+    insert into BAT_XWFILE_CFG (FILE_ID, FILE_NAME, DATA_FILE_NAME, 
+      SIGNAL_FILE_NAME, CHECK_FILE_NO, CHECK_NUM_FLAG, 
+      CHECK_FORMAT_FLAG, USE_FLAG, INPUT_DATE, 
+      TASK_NO, EVENT_NO)
+    values (#{fileId,jdbcType=VARCHAR}, #{fileName,jdbcType=VARCHAR}, #{dataFileName,jdbcType=VARCHAR}, 
+      #{signalFileName,jdbcType=VARCHAR}, #{checkFileNo,jdbcType=VARCHAR}, #{checkNumFlag,jdbcType=VARCHAR}, 
+      #{checkFormatFlag,jdbcType=VARCHAR}, #{useFlag,jdbcType=VARCHAR}, #{inputDate,jdbcType=VARCHAR}, 
+      #{taskNo,jdbcType=VARCHAR}, #{eventNo,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.BAT_XWFILE_CFG">
+    insert into BAT_XWFILE_CFG
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="fileId != null">
+        FILE_ID,
+      </if>
+      <if test="fileName != null">
+        FILE_NAME,
+      </if>
+      <if test="dataFileName != null">
+        DATA_FILE_NAME,
+      </if>
+      <if test="signalFileName != null">
+        SIGNAL_FILE_NAME,
+      </if>
+      <if test="checkFileNo != null">
+        CHECK_FILE_NO,
+      </if>
+      <if test="checkNumFlag != null">
+        CHECK_NUM_FLAG,
+      </if>
+      <if test="checkFormatFlag != null">
+        CHECK_FORMAT_FLAG,
+      </if>
+      <if test="useFlag != null">
+        USE_FLAG,
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE,
+      </if>
+      <if test="taskNo != null">
+        TASK_NO,
+      </if>
+      <if test="eventNo != null">
+        EVENT_NO,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="fileId != null">
+        #{fileId,jdbcType=VARCHAR},
+      </if>
+      <if test="fileName != null">
+        #{fileName,jdbcType=VARCHAR},
+      </if>
+      <if test="dataFileName != null">
+        #{dataFileName,jdbcType=VARCHAR},
+      </if>
+      <if test="signalFileName != null">
+        #{signalFileName,jdbcType=VARCHAR},
+      </if>
+      <if test="checkFileNo != null">
+        #{checkFileNo,jdbcType=VARCHAR},
+      </if>
+      <if test="checkNumFlag != null">
+        #{checkNumFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="checkFormatFlag != null">
+        #{checkFormatFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="useFlag != null">
+        #{useFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="taskNo != null">
+        #{taskNo,jdbcType=VARCHAR},
+      </if>
+      <if test="eventNo != null">
+        #{eventNo,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.BAT_XWFILE_CFG">
+    update BAT_XWFILE_CFG
+    <set>
+      <if test="fileName != null">
+        FILE_NAME = #{fileName,jdbcType=VARCHAR},
+      </if>
+      <if test="dataFileName != null">
+        DATA_FILE_NAME = #{dataFileName,jdbcType=VARCHAR},
+      </if>
+      <if test="signalFileName != null">
+        SIGNAL_FILE_NAME = #{signalFileName,jdbcType=VARCHAR},
+      </if>
+      <if test="checkFileNo != null">
+        CHECK_FILE_NO = #{checkFileNo,jdbcType=VARCHAR},
+      </if>
+      <if test="checkNumFlag != null">
+        CHECK_NUM_FLAG = #{checkNumFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="checkFormatFlag != null">
+        CHECK_FORMAT_FLAG = #{checkFormatFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="useFlag != null">
+        USE_FLAG = #{useFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE = #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="taskNo != null">
+        TASK_NO = #{taskNo,jdbcType=VARCHAR},
+      </if>
+      <if test="eventNo != null">
+        EVENT_NO = #{eventNo,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where FILE_ID = #{fileId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.BAT_XWFILE_CFG">
+    update BAT_XWFILE_CFG
+    set FILE_NAME = #{fileName,jdbcType=VARCHAR},
+      DATA_FILE_NAME = #{dataFileName,jdbcType=VARCHAR},
+      SIGNAL_FILE_NAME = #{signalFileName,jdbcType=VARCHAR},
+      CHECK_FILE_NO = #{checkFileNo,jdbcType=VARCHAR},
+      CHECK_NUM_FLAG = #{checkNumFlag,jdbcType=VARCHAR},
+      CHECK_FORMAT_FLAG = #{checkFormatFlag,jdbcType=VARCHAR},
+      USE_FLAG = #{useFlag,jdbcType=VARCHAR},
+      INPUT_DATE = #{inputDate,jdbcType=VARCHAR},
+      TASK_NO = #{taskNo,jdbcType=VARCHAR},
+      EVENT_NO = #{eventNo,jdbcType=VARCHAR}
+    where FILE_ID = #{fileId,jdbcType=VARCHAR}
+  </update>
+</mapper>

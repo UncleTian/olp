@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.BIZ_TD_RESULT_INFOMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.BIZ_TD_RESULT_INFO">
+    <id column="APP_NO" jdbcType="VARCHAR" property="appNo" />
+    <result column="FINAL_SCORE" jdbcType="VARCHAR" property="finalScore" />
+    <result column="FINAL_DECISION" jdbcType="VARCHAR" property="finalDecision" />
+    <result column="RISK_ITEMS" jdbcType="VARCHAR" property="riskItems" />
+    <result column="INPUT_DATE" jdbcType="VARCHAR" property="inputDate" />
+    <result column="INPUT_TIME" jdbcType="VARCHAR" property="inputTime" />
+    <result column="LAST_UPDATE_DATE" jdbcType="VARCHAR" property="lastUpdateDate" />
+    <result column="LAST_UPDATE_TIME" jdbcType="VARCHAR" property="lastUpdateTime" />
+    <result column="ERROR_INFO" jdbcType="VARCHAR" property="errorInfo" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    APP_NO, FINAL_SCORE, FINAL_DECISION, RISK_ITEMS, INPUT_DATE, INPUT_TIME, LAST_UPDATE_DATE, 
+    LAST_UPDATE_TIME, ERROR_INFO
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from BIZ_TD_RESULT_INFO
+    where APP_NO = #{appNo,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from BIZ_TD_RESULT_INFO
+    where APP_NO = #{appNo,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.BIZ_TD_RESULT_INFO">
+    insert into BIZ_TD_RESULT_INFO (APP_NO, FINAL_SCORE, FINAL_DECISION, 
+      RISK_ITEMS, INPUT_DATE, INPUT_TIME, 
+      LAST_UPDATE_DATE, LAST_UPDATE_TIME, ERROR_INFO
+      )
+    values (#{appNo,jdbcType=VARCHAR}, #{finalScore,jdbcType=VARCHAR}, #{finalDecision,jdbcType=VARCHAR}, 
+      #{riskItems,jdbcType=VARCHAR}, #{inputDate,jdbcType=VARCHAR}, #{inputTime,jdbcType=VARCHAR}, 
+      #{lastUpdateDate,jdbcType=VARCHAR}, #{lastUpdateTime,jdbcType=VARCHAR}, #{errorInfo,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.BIZ_TD_RESULT_INFO">
+    insert into BIZ_TD_RESULT_INFO
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="appNo != null">
+        APP_NO,
+      </if>
+      <if test="finalScore != null">
+        FINAL_SCORE,
+      </if>
+      <if test="finalDecision != null">
+        FINAL_DECISION,
+      </if>
+      <if test="riskItems != null">
+        RISK_ITEMS,
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE,
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME,
+      </if>
+      <if test="lastUpdateDate != null">
+        LAST_UPDATE_DATE,
+      </if>
+      <if test="lastUpdateTime != null">
+        LAST_UPDATE_TIME,
+      </if>
+      <if test="errorInfo != null">
+        ERROR_INFO,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="appNo != null">
+        #{appNo,jdbcType=VARCHAR},
+      </if>
+      <if test="finalScore != null">
+        #{finalScore,jdbcType=VARCHAR},
+      </if>
+      <if test="finalDecision != null">
+        #{finalDecision,jdbcType=VARCHAR},
+      </if>
+      <if test="riskItems != null">
+        #{riskItems,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateDate != null">
+        #{lastUpdateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        #{lastUpdateTime,jdbcType=VARCHAR},
+      </if>
+      <if test="errorInfo != null">
+        #{errorInfo,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.BIZ_TD_RESULT_INFO">
+    update BIZ_TD_RESULT_INFO
+    <set>
+      <if test="finalScore != null">
+        FINAL_SCORE = #{finalScore,jdbcType=VARCHAR},
+      </if>
+      <if test="finalDecision != null">
+        FINAL_DECISION = #{finalDecision,jdbcType=VARCHAR},
+      </if>
+      <if test="riskItems != null">
+        RISK_ITEMS = #{riskItems,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE = #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME = #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateDate != null">
+        LAST_UPDATE_DATE = #{lastUpdateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=VARCHAR},
+      </if>
+      <if test="errorInfo != null">
+        ERROR_INFO = #{errorInfo,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where APP_NO = #{appNo,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.BIZ_TD_RESULT_INFO">
+    update BIZ_TD_RESULT_INFO
+    set FINAL_SCORE = #{finalScore,jdbcType=VARCHAR},
+      FINAL_DECISION = #{finalDecision,jdbcType=VARCHAR},
+      RISK_ITEMS = #{riskItems,jdbcType=VARCHAR},
+      INPUT_DATE = #{inputDate,jdbcType=VARCHAR},
+      INPUT_TIME = #{inputTime,jdbcType=VARCHAR},
+      LAST_UPDATE_DATE = #{lastUpdateDate,jdbcType=VARCHAR},
+      LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=VARCHAR},
+      ERROR_INFO = #{errorInfo,jdbcType=VARCHAR}
+    where APP_NO = #{appNo,jdbcType=VARCHAR}
+  </update>
+</mapper>

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.SF_RULECONSTANTMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.SF_RULECONSTANT">
+    <id column="RULESETID" jdbcType="VARCHAR" property="rulesetid" />
+    <id column="RULEID" jdbcType="VARCHAR" property="ruleid" />
+    <id column="CONSTANT_ID" jdbcType="VARCHAR" property="constantId" />
+    <result column="CONSTANT_NAME" jdbcType="VARCHAR" property="constantName" />
+    <result column="CONSTANT_TYPE" jdbcType="VARCHAR" property="constantType" />
+    <result column="CONSTANT_VALUE" jdbcType="VARCHAR" property="constantValue" />
+    <result column="CONSTANT_DESC" jdbcType="VARCHAR" property="constantDesc" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    RULESETID, RULEID, CONSTANT_ID, CONSTANT_NAME, CONSTANT_TYPE, CONSTANT_VALUE, CONSTANT_DESC
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="com.bea.olp.SF_RULECONSTANTKey" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from SF_RULECONSTANT
+    where RULESETID = #{rulesetid,jdbcType=VARCHAR}
+      and RULEID = #{ruleid,jdbcType=VARCHAR}
+      and CONSTANT_ID = #{constantId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.bea.olp.SF_RULECONSTANTKey">
+    delete from SF_RULECONSTANT
+    where RULESETID = #{rulesetid,jdbcType=VARCHAR}
+      and RULEID = #{ruleid,jdbcType=VARCHAR}
+      and CONSTANT_ID = #{constantId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.SF_RULECONSTANT">
+    insert into SF_RULECONSTANT (RULESETID, RULEID, CONSTANT_ID, 
+      CONSTANT_NAME, CONSTANT_TYPE, CONSTANT_VALUE, 
+      CONSTANT_DESC)
+    values (#{rulesetid,jdbcType=VARCHAR}, #{ruleid,jdbcType=VARCHAR}, #{constantId,jdbcType=VARCHAR}, 
+      #{constantName,jdbcType=VARCHAR}, #{constantType,jdbcType=VARCHAR}, #{constantValue,jdbcType=VARCHAR}, 
+      #{constantDesc,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.SF_RULECONSTANT">
+    insert into SF_RULECONSTANT
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="rulesetid != null">
+        RULESETID,
+      </if>
+      <if test="ruleid != null">
+        RULEID,
+      </if>
+      <if test="constantId != null">
+        CONSTANT_ID,
+      </if>
+      <if test="constantName != null">
+        CONSTANT_NAME,
+      </if>
+      <if test="constantType != null">
+        CONSTANT_TYPE,
+      </if>
+      <if test="constantValue != null">
+        CONSTANT_VALUE,
+      </if>
+      <if test="constantDesc != null">
+        CONSTANT_DESC,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="rulesetid != null">
+        #{rulesetid,jdbcType=VARCHAR},
+      </if>
+      <if test="ruleid != null">
+        #{ruleid,jdbcType=VARCHAR},
+      </if>
+      <if test="constantId != null">
+        #{constantId,jdbcType=VARCHAR},
+      </if>
+      <if test="constantName != null">
+        #{constantName,jdbcType=VARCHAR},
+      </if>
+      <if test="constantType != null">
+        #{constantType,jdbcType=VARCHAR},
+      </if>
+      <if test="constantValue != null">
+        #{constantValue,jdbcType=VARCHAR},
+      </if>
+      <if test="constantDesc != null">
+        #{constantDesc,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.SF_RULECONSTANT">
+    update SF_RULECONSTANT
+    <set>
+      <if test="constantName != null">
+        CONSTANT_NAME = #{constantName,jdbcType=VARCHAR},
+      </if>
+      <if test="constantType != null">
+        CONSTANT_TYPE = #{constantType,jdbcType=VARCHAR},
+      </if>
+      <if test="constantValue != null">
+        CONSTANT_VALUE = #{constantValue,jdbcType=VARCHAR},
+      </if>
+      <if test="constantDesc != null">
+        CONSTANT_DESC = #{constantDesc,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where RULESETID = #{rulesetid,jdbcType=VARCHAR}
+      and RULEID = #{ruleid,jdbcType=VARCHAR}
+      and CONSTANT_ID = #{constantId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.SF_RULECONSTANT">
+    update SF_RULECONSTANT
+    set CONSTANT_NAME = #{constantName,jdbcType=VARCHAR},
+      CONSTANT_TYPE = #{constantType,jdbcType=VARCHAR},
+      CONSTANT_VALUE = #{constantValue,jdbcType=VARCHAR},
+      CONSTANT_DESC = #{constantDesc,jdbcType=VARCHAR}
+    where RULESETID = #{rulesetid,jdbcType=VARCHAR}
+      and RULEID = #{ruleid,jdbcType=VARCHAR}
+      and CONSTANT_ID = #{constantId,jdbcType=VARCHAR}
+  </update>
+</mapper>

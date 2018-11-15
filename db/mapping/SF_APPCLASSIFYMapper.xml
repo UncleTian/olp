@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.SF_APPCLASSIFYMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.SF_APPCLASSIFY">
+    <id column="FORDER" jdbcType="VARCHAR" property="forder" />
+    <result column="CNNAME" jdbcType="VARCHAR" property="cnname" />
+    <result column="DESCINFO" jdbcType="VARCHAR" property="descinfo" />
+    <result column="SYSID" jdbcType="VARCHAR" property="sysid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    FORDER, CNNAME, DESCINFO, SYSID
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from SF_APPCLASSIFY
+    where FORDER = #{forder,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from SF_APPCLASSIFY
+    where FORDER = #{forder,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.SF_APPCLASSIFY">
+    insert into SF_APPCLASSIFY (FORDER, CNNAME, DESCINFO, 
+      SYSID)
+    values (#{forder,jdbcType=VARCHAR}, #{cnname,jdbcType=VARCHAR}, #{descinfo,jdbcType=VARCHAR}, 
+      #{sysid,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.SF_APPCLASSIFY">
+    insert into SF_APPCLASSIFY
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="forder != null">
+        FORDER,
+      </if>
+      <if test="cnname != null">
+        CNNAME,
+      </if>
+      <if test="descinfo != null">
+        DESCINFO,
+      </if>
+      <if test="sysid != null">
+        SYSID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="forder != null">
+        #{forder,jdbcType=VARCHAR},
+      </if>
+      <if test="cnname != null">
+        #{cnname,jdbcType=VARCHAR},
+      </if>
+      <if test="descinfo != null">
+        #{descinfo,jdbcType=VARCHAR},
+      </if>
+      <if test="sysid != null">
+        #{sysid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.SF_APPCLASSIFY">
+    update SF_APPCLASSIFY
+    <set>
+      <if test="cnname != null">
+        CNNAME = #{cnname,jdbcType=VARCHAR},
+      </if>
+      <if test="descinfo != null">
+        DESCINFO = #{descinfo,jdbcType=VARCHAR},
+      </if>
+      <if test="sysid != null">
+        SYSID = #{sysid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where FORDER = #{forder,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.SF_APPCLASSIFY">
+    update SF_APPCLASSIFY
+    set CNNAME = #{cnname,jdbcType=VARCHAR},
+      DESCINFO = #{descinfo,jdbcType=VARCHAR},
+      SYSID = #{sysid,jdbcType=VARCHAR}
+    where FORDER = #{forder,jdbcType=VARCHAR}
+  </update>
+</mapper>

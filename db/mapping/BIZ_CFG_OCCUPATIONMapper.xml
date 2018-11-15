@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.BIZ_CFG_OCCUPATIONMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.BIZ_CFG_OCCUPATION">
+    <result column="OCCUPATION_ID" jdbcType="VARCHAR" property="occupationId" />
+    <result column="SOURCE" jdbcType="VARCHAR" property="source" />
+    <result column="OCCUPATION" jdbcType="VARCHAR" property="occupation" />
+    <result column="CBM_CODE" jdbcType="VARCHAR" property="cbmCode" />
+    <result column="OCCUPATION_DESC" jdbcType="VARCHAR" property="occupationDesc" />
+    <result column="OCCUPATION_RISK_LEVEL" jdbcType="VARCHAR" property="occupationRiskLevel" />
+    <result column="INPUT_DATE" jdbcType="VARCHAR" property="inputDate" />
+    <result column="INPUT_TIME" jdbcType="VARCHAR" property="inputTime" />
+  </resultMap>
+  <insert id="insert" parameterType="com.bea.olp.BIZ_CFG_OCCUPATION">
+    insert into BIZ_CFG_OCCUPATION (OCCUPATION_ID, SOURCE, OCCUPATION, 
+      CBM_CODE, OCCUPATION_DESC, OCCUPATION_RISK_LEVEL, 
+      INPUT_DATE, INPUT_TIME)
+    values (#{occupationId,jdbcType=VARCHAR}, #{source,jdbcType=VARCHAR}, #{occupation,jdbcType=VARCHAR}, 
+      #{cbmCode,jdbcType=VARCHAR}, #{occupationDesc,jdbcType=VARCHAR}, #{occupationRiskLevel,jdbcType=VARCHAR}, 
+      #{inputDate,jdbcType=VARCHAR}, #{inputTime,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.BIZ_CFG_OCCUPATION">
+    insert into BIZ_CFG_OCCUPATION
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="occupationId != null">
+        OCCUPATION_ID,
+      </if>
+      <if test="source != null">
+        SOURCE,
+      </if>
+      <if test="occupation != null">
+        OCCUPATION,
+      </if>
+      <if test="cbmCode != null">
+        CBM_CODE,
+      </if>
+      <if test="occupationDesc != null">
+        OCCUPATION_DESC,
+      </if>
+      <if test="occupationRiskLevel != null">
+        OCCUPATION_RISK_LEVEL,
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE,
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="occupationId != null">
+        #{occupationId,jdbcType=VARCHAR},
+      </if>
+      <if test="source != null">
+        #{source,jdbcType=VARCHAR},
+      </if>
+      <if test="occupation != null">
+        #{occupation,jdbcType=VARCHAR},
+      </if>
+      <if test="cbmCode != null">
+        #{cbmCode,jdbcType=VARCHAR},
+      </if>
+      <if test="occupationDesc != null">
+        #{occupationDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="occupationRiskLevel != null">
+        #{occupationRiskLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        #{inputTime,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

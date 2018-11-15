@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.WFI_SIGN_VOTEMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.WFI_SIGN_VOTE">
+    <id column="SV_VOTE_ID" jdbcType="VARCHAR" property="svVoteId" />
+    <result column="ST_TASK_ID" jdbcType="VARCHAR" property="stTaskId" />
+    <result column="SV_EXE_USER" jdbcType="VARCHAR" property="svExeUser" />
+    <result column="SV_RESULT" jdbcType="CHAR" property="svResult" />
+    <result column="SV_ADVICE" jdbcType="VARCHAR" property="svAdvice" />
+    <result column="SV_STATUS" jdbcType="CHAR" property="svStatus" />
+    <result column="SV_START_TIME" jdbcType="VARCHAR" property="svStartTime" />
+    <result column="SV_END_TIME" jdbcType="VARCHAR" property="svEndTime" />
+    <result column="SV_REQUEST_TIME" jdbcType="VARCHAR" property="svRequestTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    SV_VOTE_ID, ST_TASK_ID, SV_EXE_USER, SV_RESULT, SV_ADVICE, SV_STATUS, SV_START_TIME, 
+    SV_END_TIME, SV_REQUEST_TIME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from WFI_SIGN_VOTE
+    where SV_VOTE_ID = #{svVoteId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from WFI_SIGN_VOTE
+    where SV_VOTE_ID = #{svVoteId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.WFI_SIGN_VOTE">
+    insert into WFI_SIGN_VOTE (SV_VOTE_ID, ST_TASK_ID, SV_EXE_USER, 
+      SV_RESULT, SV_ADVICE, SV_STATUS, 
+      SV_START_TIME, SV_END_TIME, SV_REQUEST_TIME
+      )
+    values (#{svVoteId,jdbcType=VARCHAR}, #{stTaskId,jdbcType=VARCHAR}, #{svExeUser,jdbcType=VARCHAR}, 
+      #{svResult,jdbcType=CHAR}, #{svAdvice,jdbcType=VARCHAR}, #{svStatus,jdbcType=CHAR}, 
+      #{svStartTime,jdbcType=VARCHAR}, #{svEndTime,jdbcType=VARCHAR}, #{svRequestTime,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.WFI_SIGN_VOTE">
+    insert into WFI_SIGN_VOTE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="svVoteId != null">
+        SV_VOTE_ID,
+      </if>
+      <if test="stTaskId != null">
+        ST_TASK_ID,
+      </if>
+      <if test="svExeUser != null">
+        SV_EXE_USER,
+      </if>
+      <if test="svResult != null">
+        SV_RESULT,
+      </if>
+      <if test="svAdvice != null">
+        SV_ADVICE,
+      </if>
+      <if test="svStatus != null">
+        SV_STATUS,
+      </if>
+      <if test="svStartTime != null">
+        SV_START_TIME,
+      </if>
+      <if test="svEndTime != null">
+        SV_END_TIME,
+      </if>
+      <if test="svRequestTime != null">
+        SV_REQUEST_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="svVoteId != null">
+        #{svVoteId,jdbcType=VARCHAR},
+      </if>
+      <if test="stTaskId != null">
+        #{stTaskId,jdbcType=VARCHAR},
+      </if>
+      <if test="svExeUser != null">
+        #{svExeUser,jdbcType=VARCHAR},
+      </if>
+      <if test="svResult != null">
+        #{svResult,jdbcType=CHAR},
+      </if>
+      <if test="svAdvice != null">
+        #{svAdvice,jdbcType=VARCHAR},
+      </if>
+      <if test="svStatus != null">
+        #{svStatus,jdbcType=CHAR},
+      </if>
+      <if test="svStartTime != null">
+        #{svStartTime,jdbcType=VARCHAR},
+      </if>
+      <if test="svEndTime != null">
+        #{svEndTime,jdbcType=VARCHAR},
+      </if>
+      <if test="svRequestTime != null">
+        #{svRequestTime,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.WFI_SIGN_VOTE">
+    update WFI_SIGN_VOTE
+    <set>
+      <if test="stTaskId != null">
+        ST_TASK_ID = #{stTaskId,jdbcType=VARCHAR},
+      </if>
+      <if test="svExeUser != null">
+        SV_EXE_USER = #{svExeUser,jdbcType=VARCHAR},
+      </if>
+      <if test="svResult != null">
+        SV_RESULT = #{svResult,jdbcType=CHAR},
+      </if>
+      <if test="svAdvice != null">
+        SV_ADVICE = #{svAdvice,jdbcType=VARCHAR},
+      </if>
+      <if test="svStatus != null">
+        SV_STATUS = #{svStatus,jdbcType=CHAR},
+      </if>
+      <if test="svStartTime != null">
+        SV_START_TIME = #{svStartTime,jdbcType=VARCHAR},
+      </if>
+      <if test="svEndTime != null">
+        SV_END_TIME = #{svEndTime,jdbcType=VARCHAR},
+      </if>
+      <if test="svRequestTime != null">
+        SV_REQUEST_TIME = #{svRequestTime,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where SV_VOTE_ID = #{svVoteId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.WFI_SIGN_VOTE">
+    update WFI_SIGN_VOTE
+    set ST_TASK_ID = #{stTaskId,jdbcType=VARCHAR},
+      SV_EXE_USER = #{svExeUser,jdbcType=VARCHAR},
+      SV_RESULT = #{svResult,jdbcType=CHAR},
+      SV_ADVICE = #{svAdvice,jdbcType=VARCHAR},
+      SV_STATUS = #{svStatus,jdbcType=CHAR},
+      SV_START_TIME = #{svStartTime,jdbcType=VARCHAR},
+      SV_END_TIME = #{svEndTime,jdbcType=VARCHAR},
+      SV_REQUEST_TIME = #{svRequestTime,jdbcType=VARCHAR}
+    where SV_VOTE_ID = #{svVoteId,jdbcType=VARCHAR}
+  </update>
+</mapper>

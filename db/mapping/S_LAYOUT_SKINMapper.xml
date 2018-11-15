@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.S_LAYOUT_SKINMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.S_LAYOUT_SKIN">
+    <id column="USR_CDE" jdbcType="VARCHAR" property="usrCde" />
+    <result column="LAYOUT" jdbcType="VARCHAR" property="layout" />
+    <result column="SKIN" jdbcType="VARCHAR" property="skin" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    USR_CDE, LAYOUT, SKIN
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from S_LAYOUT_SKIN
+    where USR_CDE = #{usrCde,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from S_LAYOUT_SKIN
+    where USR_CDE = #{usrCde,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.S_LAYOUT_SKIN">
+    insert into S_LAYOUT_SKIN (USR_CDE, LAYOUT, SKIN
+      )
+    values (#{usrCde,jdbcType=VARCHAR}, #{layout,jdbcType=VARCHAR}, #{skin,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.S_LAYOUT_SKIN">
+    insert into S_LAYOUT_SKIN
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="usrCde != null">
+        USR_CDE,
+      </if>
+      <if test="layout != null">
+        LAYOUT,
+      </if>
+      <if test="skin != null">
+        SKIN,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="usrCde != null">
+        #{usrCde,jdbcType=VARCHAR},
+      </if>
+      <if test="layout != null">
+        #{layout,jdbcType=VARCHAR},
+      </if>
+      <if test="skin != null">
+        #{skin,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.S_LAYOUT_SKIN">
+    update S_LAYOUT_SKIN
+    <set>
+      <if test="layout != null">
+        LAYOUT = #{layout,jdbcType=VARCHAR},
+      </if>
+      <if test="skin != null">
+        SKIN = #{skin,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where USR_CDE = #{usrCde,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.S_LAYOUT_SKIN">
+    update S_LAYOUT_SKIN
+    set LAYOUT = #{layout,jdbcType=VARCHAR},
+      SKIN = #{skin,jdbcType=VARCHAR}
+    where USR_CDE = #{usrCde,jdbcType=VARCHAR}
+  </update>
+</mapper>

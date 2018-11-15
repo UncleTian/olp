@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.SYS_OP_LOGMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.SYS_OP_LOG">
+    <id column="LOG_NO" jdbcType="VARCHAR" property="logNo" />
+    <result column="OP_FUNC" jdbcType="VARCHAR" property="opFunc" />
+    <result column="OP_TAB_NAME" jdbcType="VARCHAR" property="opTabName" />
+    <result column="SOURCE_DATA" jdbcType="VARCHAR" property="sourceData" />
+    <result column="TARGET_DATA" jdbcType="VARCHAR" property="targetData" />
+    <result column="BIZ_OP_ID" jdbcType="VARCHAR" property="bizOpId" />
+    <result column="BIZ_ORG_ID" jdbcType="VARCHAR" property="bizOrgId" />
+    <result column="BIZ_OP_ROLES" jdbcType="VARCHAR" property="bizOpRoles" />
+    <result column="OP_DATE" jdbcType="VARCHAR" property="opDate" />
+    <result column="OP_TIME" jdbcType="VARCHAR" property="opTime" />
+    <result column="FIELD1" jdbcType="VARCHAR" property="field1" />
+    <result column="FIELD2" jdbcType="VARCHAR" property="field2" />
+    <result column="FIELD3" jdbcType="VARCHAR" property="field3" />
+    <result column="FIELD4" jdbcType="VARCHAR" property="field4" />
+    <result column="FIELD5" jdbcType="VARCHAR" property="field5" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    LOG_NO, OP_FUNC, OP_TAB_NAME, SOURCE_DATA, TARGET_DATA, BIZ_OP_ID, BIZ_ORG_ID, BIZ_OP_ROLES, 
+    OP_DATE, OP_TIME, FIELD1, FIELD2, FIELD3, FIELD4, FIELD5
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from SYS_OP_LOG
+    where LOG_NO = #{logNo,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from SYS_OP_LOG
+    where LOG_NO = #{logNo,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.SYS_OP_LOG">
+    insert into SYS_OP_LOG (LOG_NO, OP_FUNC, OP_TAB_NAME, 
+      SOURCE_DATA, TARGET_DATA, BIZ_OP_ID, 
+      BIZ_ORG_ID, BIZ_OP_ROLES, OP_DATE, 
+      OP_TIME, FIELD1, FIELD2, 
+      FIELD3, FIELD4, FIELD5
+      )
+    values (#{logNo,jdbcType=VARCHAR}, #{opFunc,jdbcType=VARCHAR}, #{opTabName,jdbcType=VARCHAR}, 
+      #{sourceData,jdbcType=VARCHAR}, #{targetData,jdbcType=VARCHAR}, #{bizOpId,jdbcType=VARCHAR}, 
+      #{bizOrgId,jdbcType=VARCHAR}, #{bizOpRoles,jdbcType=VARCHAR}, #{opDate,jdbcType=VARCHAR}, 
+      #{opTime,jdbcType=VARCHAR}, #{field1,jdbcType=VARCHAR}, #{field2,jdbcType=VARCHAR}, 
+      #{field3,jdbcType=VARCHAR}, #{field4,jdbcType=VARCHAR}, #{field5,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.SYS_OP_LOG">
+    insert into SYS_OP_LOG
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="logNo != null">
+        LOG_NO,
+      </if>
+      <if test="opFunc != null">
+        OP_FUNC,
+      </if>
+      <if test="opTabName != null">
+        OP_TAB_NAME,
+      </if>
+      <if test="sourceData != null">
+        SOURCE_DATA,
+      </if>
+      <if test="targetData != null">
+        TARGET_DATA,
+      </if>
+      <if test="bizOpId != null">
+        BIZ_OP_ID,
+      </if>
+      <if test="bizOrgId != null">
+        BIZ_ORG_ID,
+      </if>
+      <if test="bizOpRoles != null">
+        BIZ_OP_ROLES,
+      </if>
+      <if test="opDate != null">
+        OP_DATE,
+      </if>
+      <if test="opTime != null">
+        OP_TIME,
+      </if>
+      <if test="field1 != null">
+        FIELD1,
+      </if>
+      <if test="field2 != null">
+        FIELD2,
+      </if>
+      <if test="field3 != null">
+        FIELD3,
+      </if>
+      <if test="field4 != null">
+        FIELD4,
+      </if>
+      <if test="field5 != null">
+        FIELD5,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="logNo != null">
+        #{logNo,jdbcType=VARCHAR},
+      </if>
+      <if test="opFunc != null">
+        #{opFunc,jdbcType=VARCHAR},
+      </if>
+      <if test="opTabName != null">
+        #{opTabName,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceData != null">
+        #{sourceData,jdbcType=VARCHAR},
+      </if>
+      <if test="targetData != null">
+        #{targetData,jdbcType=VARCHAR},
+      </if>
+      <if test="bizOpId != null">
+        #{bizOpId,jdbcType=VARCHAR},
+      </if>
+      <if test="bizOrgId != null">
+        #{bizOrgId,jdbcType=VARCHAR},
+      </if>
+      <if test="bizOpRoles != null">
+        #{bizOpRoles,jdbcType=VARCHAR},
+      </if>
+      <if test="opDate != null">
+        #{opDate,jdbcType=VARCHAR},
+      </if>
+      <if test="opTime != null">
+        #{opTime,jdbcType=VARCHAR},
+      </if>
+      <if test="field1 != null">
+        #{field1,jdbcType=VARCHAR},
+      </if>
+      <if test="field2 != null">
+        #{field2,jdbcType=VARCHAR},
+      </if>
+      <if test="field3 != null">
+        #{field3,jdbcType=VARCHAR},
+      </if>
+      <if test="field4 != null">
+        #{field4,jdbcType=VARCHAR},
+      </if>
+      <if test="field5 != null">
+        #{field5,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.SYS_OP_LOG">
+    update SYS_OP_LOG
+    <set>
+      <if test="opFunc != null">
+        OP_FUNC = #{opFunc,jdbcType=VARCHAR},
+      </if>
+      <if test="opTabName != null">
+        OP_TAB_NAME = #{opTabName,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceData != null">
+        SOURCE_DATA = #{sourceData,jdbcType=VARCHAR},
+      </if>
+      <if test="targetData != null">
+        TARGET_DATA = #{targetData,jdbcType=VARCHAR},
+      </if>
+      <if test="bizOpId != null">
+        BIZ_OP_ID = #{bizOpId,jdbcType=VARCHAR},
+      </if>
+      <if test="bizOrgId != null">
+        BIZ_ORG_ID = #{bizOrgId,jdbcType=VARCHAR},
+      </if>
+      <if test="bizOpRoles != null">
+        BIZ_OP_ROLES = #{bizOpRoles,jdbcType=VARCHAR},
+      </if>
+      <if test="opDate != null">
+        OP_DATE = #{opDate,jdbcType=VARCHAR},
+      </if>
+      <if test="opTime != null">
+        OP_TIME = #{opTime,jdbcType=VARCHAR},
+      </if>
+      <if test="field1 != null">
+        FIELD1 = #{field1,jdbcType=VARCHAR},
+      </if>
+      <if test="field2 != null">
+        FIELD2 = #{field2,jdbcType=VARCHAR},
+      </if>
+      <if test="field3 != null">
+        FIELD3 = #{field3,jdbcType=VARCHAR},
+      </if>
+      <if test="field4 != null">
+        FIELD4 = #{field4,jdbcType=VARCHAR},
+      </if>
+      <if test="field5 != null">
+        FIELD5 = #{field5,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where LOG_NO = #{logNo,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.SYS_OP_LOG">
+    update SYS_OP_LOG
+    set OP_FUNC = #{opFunc,jdbcType=VARCHAR},
+      OP_TAB_NAME = #{opTabName,jdbcType=VARCHAR},
+      SOURCE_DATA = #{sourceData,jdbcType=VARCHAR},
+      TARGET_DATA = #{targetData,jdbcType=VARCHAR},
+      BIZ_OP_ID = #{bizOpId,jdbcType=VARCHAR},
+      BIZ_ORG_ID = #{bizOrgId,jdbcType=VARCHAR},
+      BIZ_OP_ROLES = #{bizOpRoles,jdbcType=VARCHAR},
+      OP_DATE = #{opDate,jdbcType=VARCHAR},
+      OP_TIME = #{opTime,jdbcType=VARCHAR},
+      FIELD1 = #{field1,jdbcType=VARCHAR},
+      FIELD2 = #{field2,jdbcType=VARCHAR},
+      FIELD3 = #{field3,jdbcType=VARCHAR},
+      FIELD4 = #{field4,jdbcType=VARCHAR},
+      FIELD5 = #{field5,jdbcType=VARCHAR}
+    where LOG_NO = #{logNo,jdbcType=VARCHAR}
+  </update>
+</mapper>

@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.WF_NODE_RECORDENDMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.WF_NODE_RECORDEND">
+    <id column="INSTANCEID" jdbcType="VARCHAR" property="instanceid" />
+    <id column="NODEID" jdbcType="VARCHAR" property="nodeid" />
+    <result column="WFID" jdbcType="VARCHAR" property="wfid" />
+    <result column="WFNAME" jdbcType="VARCHAR" property="wfname" />
+    <result column="NODENAME" jdbcType="VARCHAR" property="nodename" />
+    <result column="NODESIGN" jdbcType="VARCHAR" property="nodesign" />
+    <result column="NODENUMBER" jdbcType="VARCHAR" property="nodenumber" />
+    <result column="NODESTARTTIME" jdbcType="CHAR" property="nodestarttime" />
+    <result column="NODEENDTIME" jdbcType="CHAR" property="nodeendtime" />
+    <result column="NODEACCEPTTIME" jdbcType="CHAR" property="nodeaccepttime" />
+    <result column="NODESTATUS" jdbcType="VARCHAR" property="nodestatus" />
+    <result column="NODEPLANENDTIME" jdbcType="CHAR" property="nodeplanendtime" />
+    <result column="COSTTIMES" jdbcType="DECIMAL" property="costtimes" />
+    <result column="CURRENTNODEUSERS" jdbcType="VARCHAR" property="currentnodeusers" />
+    <result column="CURRENTNODEUSER" jdbcType="VARCHAR" property="currentnodeuser" />
+    <result column="CURRENTNODEPROCESSORS" jdbcType="VARCHAR" property="currentnodeprocessors" />
+    <result column="ORIGINALUSERS" jdbcType="VARCHAR" property="originalusers" />
+    <result column="NODEMULTEIT" jdbcType="CHAR" property="nodemulteit" />
+    <result column="NODEUSERMODIFYTYPE" jdbcType="CHAR" property="nodeusermodifytype" />
+    <result column="NODEWEIGH" jdbcType="VARCHAR" property="nodeweigh" />
+    <result column="ORGID" jdbcType="VARCHAR" property="orgid" />
+    <result column="ROLEID" jdbcType="VARCHAR" property="roleid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    INSTANCEID, NODEID, WFID, WFNAME, NODENAME, NODESIGN, NODENUMBER, NODESTARTTIME, 
+    NODEENDTIME, NODEACCEPTTIME, NODESTATUS, NODEPLANENDTIME, COSTTIMES, CURRENTNODEUSERS, 
+    CURRENTNODEUSER, CURRENTNODEPROCESSORS, ORIGINALUSERS, NODEMULTEIT, NODEUSERMODIFYTYPE, 
+    NODEWEIGH, ORGID, ROLEID
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="com.bea.olp.WF_NODE_RECORDENDKey" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from WF_NODE_RECORDEND
+    where INSTANCEID = #{instanceid,jdbcType=VARCHAR}
+      and NODEID = #{nodeid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.bea.olp.WF_NODE_RECORDENDKey">
+    delete from WF_NODE_RECORDEND
+    where INSTANCEID = #{instanceid,jdbcType=VARCHAR}
+      and NODEID = #{nodeid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.WF_NODE_RECORDEND">
+    insert into WF_NODE_RECORDEND (INSTANCEID, NODEID, WFID, 
+      WFNAME, NODENAME, NODESIGN, 
+      NODENUMBER, NODESTARTTIME, NODEENDTIME, 
+      NODEACCEPTTIME, NODESTATUS, NODEPLANENDTIME, 
+      COSTTIMES, CURRENTNODEUSERS, CURRENTNODEUSER, 
+      CURRENTNODEPROCESSORS, ORIGINALUSERS, NODEMULTEIT, 
+      NODEUSERMODIFYTYPE, NODEWEIGH, ORGID, 
+      ROLEID)
+    values (#{instanceid,jdbcType=VARCHAR}, #{nodeid,jdbcType=VARCHAR}, #{wfid,jdbcType=VARCHAR}, 
+      #{wfname,jdbcType=VARCHAR}, #{nodename,jdbcType=VARCHAR}, #{nodesign,jdbcType=VARCHAR}, 
+      #{nodenumber,jdbcType=VARCHAR}, #{nodestarttime,jdbcType=CHAR}, #{nodeendtime,jdbcType=CHAR}, 
+      #{nodeaccepttime,jdbcType=CHAR}, #{nodestatus,jdbcType=VARCHAR}, #{nodeplanendtime,jdbcType=CHAR}, 
+      #{costtimes,jdbcType=DECIMAL}, #{currentnodeusers,jdbcType=VARCHAR}, #{currentnodeuser,jdbcType=VARCHAR}, 
+      #{currentnodeprocessors,jdbcType=VARCHAR}, #{originalusers,jdbcType=VARCHAR}, #{nodemulteit,jdbcType=CHAR}, 
+      #{nodeusermodifytype,jdbcType=CHAR}, #{nodeweigh,jdbcType=VARCHAR}, #{orgid,jdbcType=VARCHAR}, 
+      #{roleid,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.WF_NODE_RECORDEND">
+    insert into WF_NODE_RECORDEND
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="instanceid != null">
+        INSTANCEID,
+      </if>
+      <if test="nodeid != null">
+        NODEID,
+      </if>
+      <if test="wfid != null">
+        WFID,
+      </if>
+      <if test="wfname != null">
+        WFNAME,
+      </if>
+      <if test="nodename != null">
+        NODENAME,
+      </if>
+      <if test="nodesign != null">
+        NODESIGN,
+      </if>
+      <if test="nodenumber != null">
+        NODENUMBER,
+      </if>
+      <if test="nodestarttime != null">
+        NODESTARTTIME,
+      </if>
+      <if test="nodeendtime != null">
+        NODEENDTIME,
+      </if>
+      <if test="nodeaccepttime != null">
+        NODEACCEPTTIME,
+      </if>
+      <if test="nodestatus != null">
+        NODESTATUS,
+      </if>
+      <if test="nodeplanendtime != null">
+        NODEPLANENDTIME,
+      </if>
+      <if test="costtimes != null">
+        COSTTIMES,
+      </if>
+      <if test="currentnodeusers != null">
+        CURRENTNODEUSERS,
+      </if>
+      <if test="currentnodeuser != null">
+        CURRENTNODEUSER,
+      </if>
+      <if test="currentnodeprocessors != null">
+        CURRENTNODEPROCESSORS,
+      </if>
+      <if test="originalusers != null">
+        ORIGINALUSERS,
+      </if>
+      <if test="nodemulteit != null">
+        NODEMULTEIT,
+      </if>
+      <if test="nodeusermodifytype != null">
+        NODEUSERMODIFYTYPE,
+      </if>
+      <if test="nodeweigh != null">
+        NODEWEIGH,
+      </if>
+      <if test="orgid != null">
+        ORGID,
+      </if>
+      <if test="roleid != null">
+        ROLEID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="instanceid != null">
+        #{instanceid,jdbcType=VARCHAR},
+      </if>
+      <if test="nodeid != null">
+        #{nodeid,jdbcType=VARCHAR},
+      </if>
+      <if test="wfid != null">
+        #{wfid,jdbcType=VARCHAR},
+      </if>
+      <if test="wfname != null">
+        #{wfname,jdbcType=VARCHAR},
+      </if>
+      <if test="nodename != null">
+        #{nodename,jdbcType=VARCHAR},
+      </if>
+      <if test="nodesign != null">
+        #{nodesign,jdbcType=VARCHAR},
+      </if>
+      <if test="nodenumber != null">
+        #{nodenumber,jdbcType=VARCHAR},
+      </if>
+      <if test="nodestarttime != null">
+        #{nodestarttime,jdbcType=CHAR},
+      </if>
+      <if test="nodeendtime != null">
+        #{nodeendtime,jdbcType=CHAR},
+      </if>
+      <if test="nodeaccepttime != null">
+        #{nodeaccepttime,jdbcType=CHAR},
+      </if>
+      <if test="nodestatus != null">
+        #{nodestatus,jdbcType=VARCHAR},
+      </if>
+      <if test="nodeplanendtime != null">
+        #{nodeplanendtime,jdbcType=CHAR},
+      </if>
+      <if test="costtimes != null">
+        #{costtimes,jdbcType=DECIMAL},
+      </if>
+      <if test="currentnodeusers != null">
+        #{currentnodeusers,jdbcType=VARCHAR},
+      </if>
+      <if test="currentnodeuser != null">
+        #{currentnodeuser,jdbcType=VARCHAR},
+      </if>
+      <if test="currentnodeprocessors != null">
+        #{currentnodeprocessors,jdbcType=VARCHAR},
+      </if>
+      <if test="originalusers != null">
+        #{originalusers,jdbcType=VARCHAR},
+      </if>
+      <if test="nodemulteit != null">
+        #{nodemulteit,jdbcType=CHAR},
+      </if>
+      <if test="nodeusermodifytype != null">
+        #{nodeusermodifytype,jdbcType=CHAR},
+      </if>
+      <if test="nodeweigh != null">
+        #{nodeweigh,jdbcType=VARCHAR},
+      </if>
+      <if test="orgid != null">
+        #{orgid,jdbcType=VARCHAR},
+      </if>
+      <if test="roleid != null">
+        #{roleid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.WF_NODE_RECORDEND">
+    update WF_NODE_RECORDEND
+    <set>
+      <if test="wfid != null">
+        WFID = #{wfid,jdbcType=VARCHAR},
+      </if>
+      <if test="wfname != null">
+        WFNAME = #{wfname,jdbcType=VARCHAR},
+      </if>
+      <if test="nodename != null">
+        NODENAME = #{nodename,jdbcType=VARCHAR},
+      </if>
+      <if test="nodesign != null">
+        NODESIGN = #{nodesign,jdbcType=VARCHAR},
+      </if>
+      <if test="nodenumber != null">
+        NODENUMBER = #{nodenumber,jdbcType=VARCHAR},
+      </if>
+      <if test="nodestarttime != null">
+        NODESTARTTIME = #{nodestarttime,jdbcType=CHAR},
+      </if>
+      <if test="nodeendtime != null">
+        NODEENDTIME = #{nodeendtime,jdbcType=CHAR},
+      </if>
+      <if test="nodeaccepttime != null">
+        NODEACCEPTTIME = #{nodeaccepttime,jdbcType=CHAR},
+      </if>
+      <if test="nodestatus != null">
+        NODESTATUS = #{nodestatus,jdbcType=VARCHAR},
+      </if>
+      <if test="nodeplanendtime != null">
+        NODEPLANENDTIME = #{nodeplanendtime,jdbcType=CHAR},
+      </if>
+      <if test="costtimes != null">
+        COSTTIMES = #{costtimes,jdbcType=DECIMAL},
+      </if>
+      <if test="currentnodeusers != null">
+        CURRENTNODEUSERS = #{currentnodeusers,jdbcType=VARCHAR},
+      </if>
+      <if test="currentnodeuser != null">
+        CURRENTNODEUSER = #{currentnodeuser,jdbcType=VARCHAR},
+      </if>
+      <if test="currentnodeprocessors != null">
+        CURRENTNODEPROCESSORS = #{currentnodeprocessors,jdbcType=VARCHAR},
+      </if>
+      <if test="originalusers != null">
+        ORIGINALUSERS = #{originalusers,jdbcType=VARCHAR},
+      </if>
+      <if test="nodemulteit != null">
+        NODEMULTEIT = #{nodemulteit,jdbcType=CHAR},
+      </if>
+      <if test="nodeusermodifytype != null">
+        NODEUSERMODIFYTYPE = #{nodeusermodifytype,jdbcType=CHAR},
+      </if>
+      <if test="nodeweigh != null">
+        NODEWEIGH = #{nodeweigh,jdbcType=VARCHAR},
+      </if>
+      <if test="orgid != null">
+        ORGID = #{orgid,jdbcType=VARCHAR},
+      </if>
+      <if test="roleid != null">
+        ROLEID = #{roleid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where INSTANCEID = #{instanceid,jdbcType=VARCHAR}
+      and NODEID = #{nodeid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.WF_NODE_RECORDEND">
+    update WF_NODE_RECORDEND
+    set WFID = #{wfid,jdbcType=VARCHAR},
+      WFNAME = #{wfname,jdbcType=VARCHAR},
+      NODENAME = #{nodename,jdbcType=VARCHAR},
+      NODESIGN = #{nodesign,jdbcType=VARCHAR},
+      NODENUMBER = #{nodenumber,jdbcType=VARCHAR},
+      NODESTARTTIME = #{nodestarttime,jdbcType=CHAR},
+      NODEENDTIME = #{nodeendtime,jdbcType=CHAR},
+      NODEACCEPTTIME = #{nodeaccepttime,jdbcType=CHAR},
+      NODESTATUS = #{nodestatus,jdbcType=VARCHAR},
+      NODEPLANENDTIME = #{nodeplanendtime,jdbcType=CHAR},
+      COSTTIMES = #{costtimes,jdbcType=DECIMAL},
+      CURRENTNODEUSERS = #{currentnodeusers,jdbcType=VARCHAR},
+      CURRENTNODEUSER = #{currentnodeuser,jdbcType=VARCHAR},
+      CURRENTNODEPROCESSORS = #{currentnodeprocessors,jdbcType=VARCHAR},
+      ORIGINALUSERS = #{originalusers,jdbcType=VARCHAR},
+      NODEMULTEIT = #{nodemulteit,jdbcType=CHAR},
+      NODEUSERMODIFYTYPE = #{nodeusermodifytype,jdbcType=CHAR},
+      NODEWEIGH = #{nodeweigh,jdbcType=VARCHAR},
+      ORGID = #{orgid,jdbcType=VARCHAR},
+      ROLEID = #{roleid,jdbcType=VARCHAR}
+    where INSTANCEID = #{instanceid,jdbcType=VARCHAR}
+      and NODEID = #{nodeid,jdbcType=VARCHAR}
+  </update>
+</mapper>

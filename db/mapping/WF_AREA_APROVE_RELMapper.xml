@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.WF_AREA_APROVE_RELMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.WF_AREA_APROVE_REL">
+    <id column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="AREA_ORG_ID" jdbcType="VARCHAR" property="areaOrgId" />
+    <result column="AREA_ORG_NAME" jdbcType="VARCHAR" property="areaOrgName" />
+    <result column="SUB_ORG_ID" jdbcType="VARCHAR" property="subOrgId" />
+    <result column="SUB_ORG_NAME" jdbcType="VARCHAR" property="subOrgName" />
+    <result column="CREATE_TIME" jdbcType="VARCHAR" property="createTime" />
+    <result column="LAST_UPD_OPR_ID" jdbcType="VARCHAR" property="lastUpdOprId" />
+    <result column="LAST_UPD_PGM_ID" jdbcType="VARCHAR" property="lastUpdPgmId" />
+    <result column="LAST_UPD_TIME" jdbcType="VARCHAR" property="lastUpdTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, AREA_ORG_ID, AREA_ORG_NAME, SUB_ORG_ID, SUB_ORG_NAME, CREATE_TIME, LAST_UPD_OPR_ID, 
+    LAST_UPD_PGM_ID, LAST_UPD_TIME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from WF_AREA_APROVE_REL
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from WF_AREA_APROVE_REL
+    where ID = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.WF_AREA_APROVE_REL">
+    insert into WF_AREA_APROVE_REL (ID, AREA_ORG_ID, AREA_ORG_NAME, 
+      SUB_ORG_ID, SUB_ORG_NAME, CREATE_TIME, 
+      LAST_UPD_OPR_ID, LAST_UPD_PGM_ID, LAST_UPD_TIME
+      )
+    values (#{id,jdbcType=VARCHAR}, #{areaOrgId,jdbcType=VARCHAR}, #{areaOrgName,jdbcType=VARCHAR}, 
+      #{subOrgId,jdbcType=VARCHAR}, #{subOrgName,jdbcType=VARCHAR}, #{createTime,jdbcType=VARCHAR}, 
+      #{lastUpdOprId,jdbcType=VARCHAR}, #{lastUpdPgmId,jdbcType=VARCHAR}, #{lastUpdTime,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.WF_AREA_APROVE_REL">
+    insert into WF_AREA_APROVE_REL
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="areaOrgId != null">
+        AREA_ORG_ID,
+      </if>
+      <if test="areaOrgName != null">
+        AREA_ORG_NAME,
+      </if>
+      <if test="subOrgId != null">
+        SUB_ORG_ID,
+      </if>
+      <if test="subOrgName != null">
+        SUB_ORG_NAME,
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME,
+      </if>
+      <if test="lastUpdOprId != null">
+        LAST_UPD_OPR_ID,
+      </if>
+      <if test="lastUpdPgmId != null">
+        LAST_UPD_PGM_ID,
+      </if>
+      <if test="lastUpdTime != null">
+        LAST_UPD_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="areaOrgId != null">
+        #{areaOrgId,jdbcType=VARCHAR},
+      </if>
+      <if test="areaOrgName != null">
+        #{areaOrgName,jdbcType=VARCHAR},
+      </if>
+      <if test="subOrgId != null">
+        #{subOrgId,jdbcType=VARCHAR},
+      </if>
+      <if test="subOrgName != null">
+        #{subOrgName,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdOprId != null">
+        #{lastUpdOprId,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdPgmId != null">
+        #{lastUpdPgmId,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdTime != null">
+        #{lastUpdTime,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.WF_AREA_APROVE_REL">
+    update WF_AREA_APROVE_REL
+    <set>
+      <if test="areaOrgId != null">
+        AREA_ORG_ID = #{areaOrgId,jdbcType=VARCHAR},
+      </if>
+      <if test="areaOrgName != null">
+        AREA_ORG_NAME = #{areaOrgName,jdbcType=VARCHAR},
+      </if>
+      <if test="subOrgId != null">
+        SUB_ORG_ID = #{subOrgId,jdbcType=VARCHAR},
+      </if>
+      <if test="subOrgName != null">
+        SUB_ORG_NAME = #{subOrgName,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME = #{createTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdOprId != null">
+        LAST_UPD_OPR_ID = #{lastUpdOprId,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdPgmId != null">
+        LAST_UPD_PGM_ID = #{lastUpdPgmId,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdTime != null">
+        LAST_UPD_TIME = #{lastUpdTime,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.WF_AREA_APROVE_REL">
+    update WF_AREA_APROVE_REL
+    set AREA_ORG_ID = #{areaOrgId,jdbcType=VARCHAR},
+      AREA_ORG_NAME = #{areaOrgName,jdbcType=VARCHAR},
+      SUB_ORG_ID = #{subOrgId,jdbcType=VARCHAR},
+      SUB_ORG_NAME = #{subOrgName,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=VARCHAR},
+      LAST_UPD_OPR_ID = #{lastUpdOprId,jdbcType=VARCHAR},
+      LAST_UPD_PGM_ID = #{lastUpdPgmId,jdbcType=VARCHAR},
+      LAST_UPD_TIME = #{lastUpdTime,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

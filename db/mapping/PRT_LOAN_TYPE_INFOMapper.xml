@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.PRT_LOAN_TYPE_INFOMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.PRT_LOAN_TYPE_INFO">
+    <result column="LOAN_TYPE" jdbcType="VARCHAR" property="loanType" />
+    <result column="TP_OBJ_ID" jdbcType="VARCHAR" property="tpObjId" />
+    <result column="BIZ_OP_ID" jdbcType="VARCHAR" property="bizOpId" />
+    <result column="BIZ_ORG_ID" jdbcType="VARCHAR" property="bizOrgId" />
+    <result column="CRD_AMT" jdbcType="DECIMAL" property="crdAmt" />
+    <result column="DATA_DATE" jdbcType="VARCHAR" property="dataDate" />
+    <result column="INPUT_DATE" jdbcType="VARCHAR" property="inputDate" />
+    <result column="INPUT_TIME" jdbcType="VARCHAR" property="inputTime" />
+    <result column="LAST_UPDATE_DATE" jdbcType="VARCHAR" property="lastUpdateDate" />
+    <result column="LAST_UPDATE_TIME" jdbcType="VARCHAR" property="lastUpdateTime" />
+    <result column="LOAN_AMT" jdbcType="DECIMAL" property="loanAmt" />
+    <result column="LOAN_BAL" jdbcType="DECIMAL" property="loanBal" />
+    <result column="LOAN_INTE" jdbcType="DECIMAL" property="loanInte" />
+    <result column="LOAN_NUM" jdbcType="DECIMAL" property="loanNum" />
+    <result column="CUST_NAME" jdbcType="VARCHAR" property="custName" />
+    <result column="CERT_CODE" jdbcType="VARCHAR" property="certCode" />
+  </resultMap>
+  <insert id="insert" parameterType="com.bea.olp.PRT_LOAN_TYPE_INFO">
+    insert into PRT_LOAN_TYPE_INFO (LOAN_TYPE, TP_OBJ_ID, BIZ_OP_ID, 
+      BIZ_ORG_ID, CRD_AMT, DATA_DATE, 
+      INPUT_DATE, INPUT_TIME, LAST_UPDATE_DATE, 
+      LAST_UPDATE_TIME, LOAN_AMT, LOAN_BAL, 
+      LOAN_INTE, LOAN_NUM, CUST_NAME, 
+      CERT_CODE)
+    values (#{loanType,jdbcType=VARCHAR}, #{tpObjId,jdbcType=VARCHAR}, #{bizOpId,jdbcType=VARCHAR}, 
+      #{bizOrgId,jdbcType=VARCHAR}, #{crdAmt,jdbcType=DECIMAL}, #{dataDate,jdbcType=VARCHAR}, 
+      #{inputDate,jdbcType=VARCHAR}, #{inputTime,jdbcType=VARCHAR}, #{lastUpdateDate,jdbcType=VARCHAR}, 
+      #{lastUpdateTime,jdbcType=VARCHAR}, #{loanAmt,jdbcType=DECIMAL}, #{loanBal,jdbcType=DECIMAL}, 
+      #{loanInte,jdbcType=DECIMAL}, #{loanNum,jdbcType=DECIMAL}, #{custName,jdbcType=VARCHAR}, 
+      #{certCode,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.PRT_LOAN_TYPE_INFO">
+    insert into PRT_LOAN_TYPE_INFO
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="loanType != null">
+        LOAN_TYPE,
+      </if>
+      <if test="tpObjId != null">
+        TP_OBJ_ID,
+      </if>
+      <if test="bizOpId != null">
+        BIZ_OP_ID,
+      </if>
+      <if test="bizOrgId != null">
+        BIZ_ORG_ID,
+      </if>
+      <if test="crdAmt != null">
+        CRD_AMT,
+      </if>
+      <if test="dataDate != null">
+        DATA_DATE,
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE,
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME,
+      </if>
+      <if test="lastUpdateDate != null">
+        LAST_UPDATE_DATE,
+      </if>
+      <if test="lastUpdateTime != null">
+        LAST_UPDATE_TIME,
+      </if>
+      <if test="loanAmt != null">
+        LOAN_AMT,
+      </if>
+      <if test="loanBal != null">
+        LOAN_BAL,
+      </if>
+      <if test="loanInte != null">
+        LOAN_INTE,
+      </if>
+      <if test="loanNum != null">
+        LOAN_NUM,
+      </if>
+      <if test="custName != null">
+        CUST_NAME,
+      </if>
+      <if test="certCode != null">
+        CERT_CODE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="loanType != null">
+        #{loanType,jdbcType=VARCHAR},
+      </if>
+      <if test="tpObjId != null">
+        #{tpObjId,jdbcType=VARCHAR},
+      </if>
+      <if test="bizOpId != null">
+        #{bizOpId,jdbcType=VARCHAR},
+      </if>
+      <if test="bizOrgId != null">
+        #{bizOrgId,jdbcType=VARCHAR},
+      </if>
+      <if test="crdAmt != null">
+        #{crdAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="dataDate != null">
+        #{dataDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateDate != null">
+        #{lastUpdateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        #{lastUpdateTime,jdbcType=VARCHAR},
+      </if>
+      <if test="loanAmt != null">
+        #{loanAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="loanBal != null">
+        #{loanBal,jdbcType=DECIMAL},
+      </if>
+      <if test="loanInte != null">
+        #{loanInte,jdbcType=DECIMAL},
+      </if>
+      <if test="loanNum != null">
+        #{loanNum,jdbcType=DECIMAL},
+      </if>
+      <if test="custName != null">
+        #{custName,jdbcType=VARCHAR},
+      </if>
+      <if test="certCode != null">
+        #{certCode,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.RPT_FIVE_CLASSIFY_LISTMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.RPT_FIVE_CLASSIFY_LIST">
+    <result column="SERAL_NO" jdbcType="VARCHAR" property="seralNo" />
+    <result column="GL_SERAL_NO" jdbcType="VARCHAR" property="glSeralNo" />
+    <result column="WF_APPR_STS" jdbcType="VARCHAR" property="wfApprSts" />
+    <result column="REMARK" jdbcType="VARCHAR" property="remark" />
+  </resultMap>
+  <insert id="insert" parameterType="com.bea.olp.RPT_FIVE_CLASSIFY_LIST">
+    insert into RPT_FIVE_CLASSIFY_LIST (SERAL_NO, GL_SERAL_NO, WF_APPR_STS, 
+      REMARK)
+    values (#{seralNo,jdbcType=VARCHAR}, #{glSeralNo,jdbcType=VARCHAR}, #{wfApprSts,jdbcType=VARCHAR}, 
+      #{remark,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.RPT_FIVE_CLASSIFY_LIST">
+    insert into RPT_FIVE_CLASSIFY_LIST
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="seralNo != null">
+        SERAL_NO,
+      </if>
+      <if test="glSeralNo != null">
+        GL_SERAL_NO,
+      </if>
+      <if test="wfApprSts != null">
+        WF_APPR_STS,
+      </if>
+      <if test="remark != null">
+        REMARK,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="seralNo != null">
+        #{seralNo,jdbcType=VARCHAR},
+      </if>
+      <if test="glSeralNo != null">
+        #{glSeralNo,jdbcType=VARCHAR},
+      </if>
+      <if test="wfApprSts != null">
+        #{wfApprSts,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

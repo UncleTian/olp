@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.S_ROLE_RULEMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.S_ROLE_RULE">
+    <id column="INSTU_CDE" jdbcType="VARCHAR" property="instuCde" />
+    <id column="ROLE_CDE" jdbcType="VARCHAR" property="roleCde" />
+    <id column="RESC_CDE" jdbcType="VARCHAR" property="rescCde" />
+    <id column="RESC_ACT_CDE" jdbcType="VARCHAR" property="rescActCde" />
+    <result column="STS" jdbcType="VARCHAR" property="sts" />
+    <result column="LAST_CHG_DT" jdbcType="VARCHAR" property="lastChgDt" />
+    <result column="LAST_CHG_USR" jdbcType="VARCHAR" property="lastChgUsr" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    INSTU_CDE, ROLE_CDE, RESC_CDE, RESC_ACT_CDE, STS, LAST_CHG_DT, LAST_CHG_USR
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="com.bea.olp.S_ROLE_RULEKey" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from S_ROLE_RULE
+    where INSTU_CDE = #{instuCde,jdbcType=VARCHAR}
+      and ROLE_CDE = #{roleCde,jdbcType=VARCHAR}
+      and RESC_CDE = #{rescCde,jdbcType=VARCHAR}
+      and RESC_ACT_CDE = #{rescActCde,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.bea.olp.S_ROLE_RULEKey">
+    delete from S_ROLE_RULE
+    where INSTU_CDE = #{instuCde,jdbcType=VARCHAR}
+      and ROLE_CDE = #{roleCde,jdbcType=VARCHAR}
+      and RESC_CDE = #{rescCde,jdbcType=VARCHAR}
+      and RESC_ACT_CDE = #{rescActCde,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.S_ROLE_RULE">
+    insert into S_ROLE_RULE (INSTU_CDE, ROLE_CDE, RESC_CDE, 
+      RESC_ACT_CDE, STS, LAST_CHG_DT, 
+      LAST_CHG_USR)
+    values (#{instuCde,jdbcType=VARCHAR}, #{roleCde,jdbcType=VARCHAR}, #{rescCde,jdbcType=VARCHAR}, 
+      #{rescActCde,jdbcType=VARCHAR}, #{sts,jdbcType=VARCHAR}, #{lastChgDt,jdbcType=VARCHAR}, 
+      #{lastChgUsr,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.S_ROLE_RULE">
+    insert into S_ROLE_RULE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="instuCde != null">
+        INSTU_CDE,
+      </if>
+      <if test="roleCde != null">
+        ROLE_CDE,
+      </if>
+      <if test="rescCde != null">
+        RESC_CDE,
+      </if>
+      <if test="rescActCde != null">
+        RESC_ACT_CDE,
+      </if>
+      <if test="sts != null">
+        STS,
+      </if>
+      <if test="lastChgDt != null">
+        LAST_CHG_DT,
+      </if>
+      <if test="lastChgUsr != null">
+        LAST_CHG_USR,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="instuCde != null">
+        #{instuCde,jdbcType=VARCHAR},
+      </if>
+      <if test="roleCde != null">
+        #{roleCde,jdbcType=VARCHAR},
+      </if>
+      <if test="rescCde != null">
+        #{rescCde,jdbcType=VARCHAR},
+      </if>
+      <if test="rescActCde != null">
+        #{rescActCde,jdbcType=VARCHAR},
+      </if>
+      <if test="sts != null">
+        #{sts,jdbcType=VARCHAR},
+      </if>
+      <if test="lastChgDt != null">
+        #{lastChgDt,jdbcType=VARCHAR},
+      </if>
+      <if test="lastChgUsr != null">
+        #{lastChgUsr,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.S_ROLE_RULE">
+    update S_ROLE_RULE
+    <set>
+      <if test="sts != null">
+        STS = #{sts,jdbcType=VARCHAR},
+      </if>
+      <if test="lastChgDt != null">
+        LAST_CHG_DT = #{lastChgDt,jdbcType=VARCHAR},
+      </if>
+      <if test="lastChgUsr != null">
+        LAST_CHG_USR = #{lastChgUsr,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where INSTU_CDE = #{instuCde,jdbcType=VARCHAR}
+      and ROLE_CDE = #{roleCde,jdbcType=VARCHAR}
+      and RESC_CDE = #{rescCde,jdbcType=VARCHAR}
+      and RESC_ACT_CDE = #{rescActCde,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.S_ROLE_RULE">
+    update S_ROLE_RULE
+    set STS = #{sts,jdbcType=VARCHAR},
+      LAST_CHG_DT = #{lastChgDt,jdbcType=VARCHAR},
+      LAST_CHG_USR = #{lastChgUsr,jdbcType=VARCHAR}
+    where INSTU_CDE = #{instuCde,jdbcType=VARCHAR}
+      and ROLE_CDE = #{roleCde,jdbcType=VARCHAR}
+      and RESC_CDE = #{rescCde,jdbcType=VARCHAR}
+      and RESC_ACT_CDE = #{rescActCde,jdbcType=VARCHAR}
+  </update>
+</mapper>

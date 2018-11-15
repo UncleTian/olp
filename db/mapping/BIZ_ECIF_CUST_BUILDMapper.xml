@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.BIZ_ECIF_CUST_BUILDMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.BIZ_ECIF_CUST_BUILD">
+    <id column="FLOW_ID" jdbcType="VARCHAR" property="flowId" />
+    <result column="SERVICE_CODE" jdbcType="VARCHAR" property="serviceCode" />
+    <result column="UPDATED_SYSTEM_ID" jdbcType="VARCHAR" property="updatedSystemId" />
+    <result column="SRC_UPDATED_TS" jdbcType="VARCHAR" property="srcUpdatedTs" />
+    <result column="UPDATED_USER" jdbcType="VARCHAR" property="updatedUser" />
+    <result column="UPDATED_AUTH_USER" jdbcType="VARCHAR" property="updatedAuthUser" />
+    <result column="UPDATED_UNIT" jdbcType="VARCHAR" property="updatedUnit" />
+    <result column="ERROR_CODE" jdbcType="VARCHAR" property="errorCode" />
+    <result column="ERROR_MSG" jdbcType="VARCHAR" property="errorMsg" />
+    <result column="PARTY_ID" jdbcType="VARCHAR" property="partyId" />
+    <result column="INPUT_DATE" jdbcType="VARCHAR" property="inputDate" />
+    <result column="INPUT_TIME" jdbcType="VARCHAR" property="inputTime" />
+    <result column="LAST_UPDATE_DATE" jdbcType="VARCHAR" property="lastUpdateDate" />
+    <result column="LAST_UPDATE_TIME" jdbcType="VARCHAR" property="lastUpdateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    FLOW_ID, SERVICE_CODE, UPDATED_SYSTEM_ID, SRC_UPDATED_TS, UPDATED_USER, UPDATED_AUTH_USER, 
+    UPDATED_UNIT, ERROR_CODE, ERROR_MSG, PARTY_ID, INPUT_DATE, INPUT_TIME, LAST_UPDATE_DATE, 
+    LAST_UPDATE_TIME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from BIZ_ECIF_CUST_BUILD
+    where FLOW_ID = #{flowId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from BIZ_ECIF_CUST_BUILD
+    where FLOW_ID = #{flowId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.BIZ_ECIF_CUST_BUILD">
+    insert into BIZ_ECIF_CUST_BUILD (FLOW_ID, SERVICE_CODE, UPDATED_SYSTEM_ID, 
+      SRC_UPDATED_TS, UPDATED_USER, UPDATED_AUTH_USER, 
+      UPDATED_UNIT, ERROR_CODE, ERROR_MSG, 
+      PARTY_ID, INPUT_DATE, INPUT_TIME, 
+      LAST_UPDATE_DATE, LAST_UPDATE_TIME)
+    values (#{flowId,jdbcType=VARCHAR}, #{serviceCode,jdbcType=VARCHAR}, #{updatedSystemId,jdbcType=VARCHAR}, 
+      #{srcUpdatedTs,jdbcType=VARCHAR}, #{updatedUser,jdbcType=VARCHAR}, #{updatedAuthUser,jdbcType=VARCHAR}, 
+      #{updatedUnit,jdbcType=VARCHAR}, #{errorCode,jdbcType=VARCHAR}, #{errorMsg,jdbcType=VARCHAR}, 
+      #{partyId,jdbcType=VARCHAR}, #{inputDate,jdbcType=VARCHAR}, #{inputTime,jdbcType=VARCHAR}, 
+      #{lastUpdateDate,jdbcType=VARCHAR}, #{lastUpdateTime,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.BIZ_ECIF_CUST_BUILD">
+    insert into BIZ_ECIF_CUST_BUILD
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="flowId != null">
+        FLOW_ID,
+      </if>
+      <if test="serviceCode != null">
+        SERVICE_CODE,
+      </if>
+      <if test="updatedSystemId != null">
+        UPDATED_SYSTEM_ID,
+      </if>
+      <if test="srcUpdatedTs != null">
+        SRC_UPDATED_TS,
+      </if>
+      <if test="updatedUser != null">
+        UPDATED_USER,
+      </if>
+      <if test="updatedAuthUser != null">
+        UPDATED_AUTH_USER,
+      </if>
+      <if test="updatedUnit != null">
+        UPDATED_UNIT,
+      </if>
+      <if test="errorCode != null">
+        ERROR_CODE,
+      </if>
+      <if test="errorMsg != null">
+        ERROR_MSG,
+      </if>
+      <if test="partyId != null">
+        PARTY_ID,
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE,
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME,
+      </if>
+      <if test="lastUpdateDate != null">
+        LAST_UPDATE_DATE,
+      </if>
+      <if test="lastUpdateTime != null">
+        LAST_UPDATE_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="flowId != null">
+        #{flowId,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceCode != null">
+        #{serviceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedSystemId != null">
+        #{updatedSystemId,jdbcType=VARCHAR},
+      </if>
+      <if test="srcUpdatedTs != null">
+        #{srcUpdatedTs,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedUser != null">
+        #{updatedUser,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedAuthUser != null">
+        #{updatedAuthUser,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedUnit != null">
+        #{updatedUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="errorCode != null">
+        #{errorCode,jdbcType=VARCHAR},
+      </if>
+      <if test="errorMsg != null">
+        #{errorMsg,jdbcType=VARCHAR},
+      </if>
+      <if test="partyId != null">
+        #{partyId,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateDate != null">
+        #{lastUpdateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        #{lastUpdateTime,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.BIZ_ECIF_CUST_BUILD">
+    update BIZ_ECIF_CUST_BUILD
+    <set>
+      <if test="serviceCode != null">
+        SERVICE_CODE = #{serviceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedSystemId != null">
+        UPDATED_SYSTEM_ID = #{updatedSystemId,jdbcType=VARCHAR},
+      </if>
+      <if test="srcUpdatedTs != null">
+        SRC_UPDATED_TS = #{srcUpdatedTs,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedUser != null">
+        UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedAuthUser != null">
+        UPDATED_AUTH_USER = #{updatedAuthUser,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedUnit != null">
+        UPDATED_UNIT = #{updatedUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="errorCode != null">
+        ERROR_CODE = #{errorCode,jdbcType=VARCHAR},
+      </if>
+      <if test="errorMsg != null">
+        ERROR_MSG = #{errorMsg,jdbcType=VARCHAR},
+      </if>
+      <if test="partyId != null">
+        PARTY_ID = #{partyId,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE = #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME = #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateDate != null">
+        LAST_UPDATE_DATE = #{lastUpdateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where FLOW_ID = #{flowId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.BIZ_ECIF_CUST_BUILD">
+    update BIZ_ECIF_CUST_BUILD
+    set SERVICE_CODE = #{serviceCode,jdbcType=VARCHAR},
+      UPDATED_SYSTEM_ID = #{updatedSystemId,jdbcType=VARCHAR},
+      SRC_UPDATED_TS = #{srcUpdatedTs,jdbcType=VARCHAR},
+      UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+      UPDATED_AUTH_USER = #{updatedAuthUser,jdbcType=VARCHAR},
+      UPDATED_UNIT = #{updatedUnit,jdbcType=VARCHAR},
+      ERROR_CODE = #{errorCode,jdbcType=VARCHAR},
+      ERROR_MSG = #{errorMsg,jdbcType=VARCHAR},
+      PARTY_ID = #{partyId,jdbcType=VARCHAR},
+      INPUT_DATE = #{inputDate,jdbcType=VARCHAR},
+      INPUT_TIME = #{inputTime,jdbcType=VARCHAR},
+      LAST_UPDATE_DATE = #{lastUpdateDate,jdbcType=VARCHAR},
+      LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=VARCHAR}
+    where FLOW_ID = #{flowId,jdbcType=VARCHAR}
+  </update>
+</mapper>

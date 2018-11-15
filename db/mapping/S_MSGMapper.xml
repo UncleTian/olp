@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.S_MSGMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.S_MSG">
+    <id column="MSG_CDE" jdbcType="VARCHAR" property="msgCde" />
+    <result column="MSG_DESC" jdbcType="VARCHAR" property="msgDesc" />
+    <result column="MSG_LEVEL" jdbcType="VARCHAR" property="msgLevel" />
+    <result column="MSG_STS" jdbcType="VARCHAR" property="msgSts" />
+    <result column="LAST_CHG_DT" jdbcType="VARCHAR" property="lastChgDt" />
+    <result column="LAST_CHG_USR" jdbcType="VARCHAR" property="lastChgUsr" />
+    <result column="MSG_TYP" jdbcType="VARCHAR" property="msgTyp" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    MSG_CDE, MSG_DESC, MSG_LEVEL, MSG_STS, LAST_CHG_DT, LAST_CHG_USR, MSG_TYP
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from S_MSG
+    where MSG_CDE = #{msgCde,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from S_MSG
+    where MSG_CDE = #{msgCde,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.S_MSG">
+    insert into S_MSG (MSG_CDE, MSG_DESC, MSG_LEVEL, 
+      MSG_STS, LAST_CHG_DT, LAST_CHG_USR, 
+      MSG_TYP)
+    values (#{msgCde,jdbcType=VARCHAR}, #{msgDesc,jdbcType=VARCHAR}, #{msgLevel,jdbcType=VARCHAR}, 
+      #{msgSts,jdbcType=VARCHAR}, #{lastChgDt,jdbcType=VARCHAR}, #{lastChgUsr,jdbcType=VARCHAR}, 
+      #{msgTyp,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.S_MSG">
+    insert into S_MSG
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="msgCde != null">
+        MSG_CDE,
+      </if>
+      <if test="msgDesc != null">
+        MSG_DESC,
+      </if>
+      <if test="msgLevel != null">
+        MSG_LEVEL,
+      </if>
+      <if test="msgSts != null">
+        MSG_STS,
+      </if>
+      <if test="lastChgDt != null">
+        LAST_CHG_DT,
+      </if>
+      <if test="lastChgUsr != null">
+        LAST_CHG_USR,
+      </if>
+      <if test="msgTyp != null">
+        MSG_TYP,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="msgCde != null">
+        #{msgCde,jdbcType=VARCHAR},
+      </if>
+      <if test="msgDesc != null">
+        #{msgDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="msgLevel != null">
+        #{msgLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="msgSts != null">
+        #{msgSts,jdbcType=VARCHAR},
+      </if>
+      <if test="lastChgDt != null">
+        #{lastChgDt,jdbcType=VARCHAR},
+      </if>
+      <if test="lastChgUsr != null">
+        #{lastChgUsr,jdbcType=VARCHAR},
+      </if>
+      <if test="msgTyp != null">
+        #{msgTyp,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.S_MSG">
+    update S_MSG
+    <set>
+      <if test="msgDesc != null">
+        MSG_DESC = #{msgDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="msgLevel != null">
+        MSG_LEVEL = #{msgLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="msgSts != null">
+        MSG_STS = #{msgSts,jdbcType=VARCHAR},
+      </if>
+      <if test="lastChgDt != null">
+        LAST_CHG_DT = #{lastChgDt,jdbcType=VARCHAR},
+      </if>
+      <if test="lastChgUsr != null">
+        LAST_CHG_USR = #{lastChgUsr,jdbcType=VARCHAR},
+      </if>
+      <if test="msgTyp != null">
+        MSG_TYP = #{msgTyp,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where MSG_CDE = #{msgCde,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.S_MSG">
+    update S_MSG
+    set MSG_DESC = #{msgDesc,jdbcType=VARCHAR},
+      MSG_LEVEL = #{msgLevel,jdbcType=VARCHAR},
+      MSG_STS = #{msgSts,jdbcType=VARCHAR},
+      LAST_CHG_DT = #{lastChgDt,jdbcType=VARCHAR},
+      LAST_CHG_USR = #{lastChgUsr,jdbcType=VARCHAR},
+      MSG_TYP = #{msgTyp,jdbcType=VARCHAR}
+    where MSG_CDE = #{msgCde,jdbcType=VARCHAR}
+  </update>
+</mapper>

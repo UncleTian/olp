@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.WF_ORGVARMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.WF_ORGVAR">
+    <id column="ORGID" jdbcType="VARCHAR" property="orgid" />
+    <id column="VARID" jdbcType="VARCHAR" property="varid" />
+    <result column="ORGNAME" jdbcType="VARCHAR" property="orgname" />
+    <result column="VARNAME" jdbcType="VARCHAR" property="varname" />
+    <result column="VARVALUE" jdbcType="VARCHAR" property="varvalue" />
+    <result column="SYSID" jdbcType="VARCHAR" property="sysid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ORGID, VARID, ORGNAME, VARNAME, VARVALUE, SYSID
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="com.bea.olp.WF_ORGVARKey" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from WF_ORGVAR
+    where ORGID = #{orgid,jdbcType=VARCHAR}
+      and VARID = #{varid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.bea.olp.WF_ORGVARKey">
+    delete from WF_ORGVAR
+    where ORGID = #{orgid,jdbcType=VARCHAR}
+      and VARID = #{varid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.WF_ORGVAR">
+    insert into WF_ORGVAR (ORGID, VARID, ORGNAME, 
+      VARNAME, VARVALUE, SYSID
+      )
+    values (#{orgid,jdbcType=VARCHAR}, #{varid,jdbcType=VARCHAR}, #{orgname,jdbcType=VARCHAR}, 
+      #{varname,jdbcType=VARCHAR}, #{varvalue,jdbcType=VARCHAR}, #{sysid,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.WF_ORGVAR">
+    insert into WF_ORGVAR
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="orgid != null">
+        ORGID,
+      </if>
+      <if test="varid != null">
+        VARID,
+      </if>
+      <if test="orgname != null">
+        ORGNAME,
+      </if>
+      <if test="varname != null">
+        VARNAME,
+      </if>
+      <if test="varvalue != null">
+        VARVALUE,
+      </if>
+      <if test="sysid != null">
+        SYSID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="orgid != null">
+        #{orgid,jdbcType=VARCHAR},
+      </if>
+      <if test="varid != null">
+        #{varid,jdbcType=VARCHAR},
+      </if>
+      <if test="orgname != null">
+        #{orgname,jdbcType=VARCHAR},
+      </if>
+      <if test="varname != null">
+        #{varname,jdbcType=VARCHAR},
+      </if>
+      <if test="varvalue != null">
+        #{varvalue,jdbcType=VARCHAR},
+      </if>
+      <if test="sysid != null">
+        #{sysid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.WF_ORGVAR">
+    update WF_ORGVAR
+    <set>
+      <if test="orgname != null">
+        ORGNAME = #{orgname,jdbcType=VARCHAR},
+      </if>
+      <if test="varname != null">
+        VARNAME = #{varname,jdbcType=VARCHAR},
+      </if>
+      <if test="varvalue != null">
+        VARVALUE = #{varvalue,jdbcType=VARCHAR},
+      </if>
+      <if test="sysid != null">
+        SYSID = #{sysid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ORGID = #{orgid,jdbcType=VARCHAR}
+      and VARID = #{varid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.WF_ORGVAR">
+    update WF_ORGVAR
+    set ORGNAME = #{orgname,jdbcType=VARCHAR},
+      VARNAME = #{varname,jdbcType=VARCHAR},
+      VARVALUE = #{varvalue,jdbcType=VARCHAR},
+      SYSID = #{sysid,jdbcType=VARCHAR}
+    where ORGID = #{orgid,jdbcType=VARCHAR}
+      and VARID = #{varid,jdbcType=VARCHAR}
+  </update>
+</mapper>

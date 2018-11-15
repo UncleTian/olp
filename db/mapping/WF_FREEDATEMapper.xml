@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.WF_FREEDATEMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.WF_FREEDATE">
+    <id column="CURDATE" jdbcType="VARCHAR" property="curdate" />
+    <result column="WORKDAYFLG" jdbcType="CHAR" property="workdayflg" />
+    <result column="PREWORKDATE" jdbcType="VARCHAR" property="preworkdate" />
+    <result column="NEXTWORKDATE" jdbcType="VARCHAR" property="nextworkdate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    CURDATE, WORKDAYFLG, PREWORKDATE, NEXTWORKDATE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from WF_FREEDATE
+    where CURDATE = #{curdate,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from WF_FREEDATE
+    where CURDATE = #{curdate,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.WF_FREEDATE">
+    insert into WF_FREEDATE (CURDATE, WORKDAYFLG, PREWORKDATE, 
+      NEXTWORKDATE)
+    values (#{curdate,jdbcType=VARCHAR}, #{workdayflg,jdbcType=CHAR}, #{preworkdate,jdbcType=VARCHAR}, 
+      #{nextworkdate,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.WF_FREEDATE">
+    insert into WF_FREEDATE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="curdate != null">
+        CURDATE,
+      </if>
+      <if test="workdayflg != null">
+        WORKDAYFLG,
+      </if>
+      <if test="preworkdate != null">
+        PREWORKDATE,
+      </if>
+      <if test="nextworkdate != null">
+        NEXTWORKDATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="curdate != null">
+        #{curdate,jdbcType=VARCHAR},
+      </if>
+      <if test="workdayflg != null">
+        #{workdayflg,jdbcType=CHAR},
+      </if>
+      <if test="preworkdate != null">
+        #{preworkdate,jdbcType=VARCHAR},
+      </if>
+      <if test="nextworkdate != null">
+        #{nextworkdate,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.WF_FREEDATE">
+    update WF_FREEDATE
+    <set>
+      <if test="workdayflg != null">
+        WORKDAYFLG = #{workdayflg,jdbcType=CHAR},
+      </if>
+      <if test="preworkdate != null">
+        PREWORKDATE = #{preworkdate,jdbcType=VARCHAR},
+      </if>
+      <if test="nextworkdate != null">
+        NEXTWORKDATE = #{nextworkdate,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where CURDATE = #{curdate,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.WF_FREEDATE">
+    update WF_FREEDATE
+    set WORKDAYFLG = #{workdayflg,jdbcType=CHAR},
+      PREWORKDATE = #{preworkdate,jdbcType=VARCHAR},
+      NEXTWORKDATE = #{nextworkdate,jdbcType=VARCHAR}
+    where CURDATE = #{curdate,jdbcType=VARCHAR}
+  </update>
+</mapper>

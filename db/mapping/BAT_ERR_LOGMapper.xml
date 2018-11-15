@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.BAT_ERR_LOGMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.BAT_ERR_LOG">
+    <result column="THREADS_SERNO" jdbcType="VARCHAR" property="threadsSerno" />
+    <result column="RULE_SN" jdbcType="VARCHAR" property="ruleSn" />
+    <result column="ERR_INFO" jdbcType="VARCHAR" property="errInfo" />
+    <result column="RUN_DATE" jdbcType="VARCHAR" property="runDate" />
+    <result column="RECORD_TIME" jdbcType="VARCHAR" property="recordTime" />
+    <result column="FAIL_REASON" jdbcType="VARCHAR" property="failReason" />
+  </resultMap>
+  <insert id="insert" parameterType="com.bea.olp.BAT_ERR_LOG">
+    insert into BAT_ERR_LOG (THREADS_SERNO, RULE_SN, ERR_INFO, 
+      RUN_DATE, RECORD_TIME, FAIL_REASON
+      )
+    values (#{threadsSerno,jdbcType=VARCHAR}, #{ruleSn,jdbcType=VARCHAR}, #{errInfo,jdbcType=VARCHAR}, 
+      #{runDate,jdbcType=VARCHAR}, #{recordTime,jdbcType=VARCHAR}, #{failReason,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.BAT_ERR_LOG">
+    insert into BAT_ERR_LOG
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="threadsSerno != null">
+        THREADS_SERNO,
+      </if>
+      <if test="ruleSn != null">
+        RULE_SN,
+      </if>
+      <if test="errInfo != null">
+        ERR_INFO,
+      </if>
+      <if test="runDate != null">
+        RUN_DATE,
+      </if>
+      <if test="recordTime != null">
+        RECORD_TIME,
+      </if>
+      <if test="failReason != null">
+        FAIL_REASON,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="threadsSerno != null">
+        #{threadsSerno,jdbcType=VARCHAR},
+      </if>
+      <if test="ruleSn != null">
+        #{ruleSn,jdbcType=VARCHAR},
+      </if>
+      <if test="errInfo != null">
+        #{errInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="runDate != null">
+        #{runDate,jdbcType=VARCHAR},
+      </if>
+      <if test="recordTime != null">
+        #{recordTime,jdbcType=VARCHAR},
+      </if>
+      <if test="failReason != null">
+        #{failReason,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

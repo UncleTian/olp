@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.BAT_XW_FILE_NUM_HISMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.BAT_XW_FILE_NUM_HIS">
+    <result column="FILE_DATE" jdbcType="VARCHAR" property="fileDate" />
+    <result column="CUST_MSG_SUM" jdbcType="DECIMAL" property="custMsgSum" />
+    <result column="CUST_CREDIT_MSG_SUM" jdbcType="DECIMAL" property="custCreditMsgSum" />
+    <result column="GRANT_LOAN_SUM" jdbcType="DECIMAL" property="grantLoanSum" />
+    <result column="PLAN_REPAY_SUM" jdbcType="DECIMAL" property="planRepaySum" />
+    <result column="RECYCLE_REPAY_SUM" jdbcType="DECIMAL" property="recycleRepaySum" />
+    <result column="SPECIAL_TD_SUM" jdbcType="DECIMAL" property="specialTdSum" />
+    <result column="ACCT_ENTRY_DAILY_SUM" jdbcType="DECIMAL" property="acctEntryDailySum" />
+    <result column="PROVISIONS_SERNO_SUM" jdbcType="DECIMAL" property="provisionsSernoSum" />
+    <result column="PROVISIONS_AMT_SUM" jdbcType="DECIMAL" property="provisionsAmtSum" />
+    <result column="DEDUCT_TABLE_INFO_SUM" jdbcType="DECIMAL" property="deductTableInfoSum" />
+    <result column="REVERSAL_TD_SUM" jdbcType="DECIMAL" property="reversalTdSum" />
+    <result column="LOAN_CARINFO_SUM" jdbcType="DECIMAL" property="loanCarinfoSum" />
+    <result column="LOAN_FEE_SUM" jdbcType="DECIMAL" property="loanFeeSum" />
+    <result column="INT_DEDUCT_SUM" jdbcType="DECIMAL" property="intDeductSum" />
+    <result column="DEDUCT_TYPE_SUM" jdbcType="DECIMAL" property="deductTypeSum" />
+    <result column="INPUT_DATE" jdbcType="VARCHAR" property="inputDate" />
+    <result column="INPUT_TIME" jdbcType="VARCHAR" property="inputTime" />
+    <result column="DATA_DATE" jdbcType="VARCHAR" property="dataDate" />
+  </resultMap>
+  <insert id="insert" parameterType="com.bea.olp.BAT_XW_FILE_NUM_HIS">
+    insert into BAT_XW_FILE_NUM_HIS (FILE_DATE, CUST_MSG_SUM, CUST_CREDIT_MSG_SUM, 
+      GRANT_LOAN_SUM, PLAN_REPAY_SUM, RECYCLE_REPAY_SUM, 
+      SPECIAL_TD_SUM, ACCT_ENTRY_DAILY_SUM, PROVISIONS_SERNO_SUM, 
+      PROVISIONS_AMT_SUM, DEDUCT_TABLE_INFO_SUM, REVERSAL_TD_SUM, 
+      LOAN_CARINFO_SUM, LOAN_FEE_SUM, INT_DEDUCT_SUM, 
+      DEDUCT_TYPE_SUM, INPUT_DATE, INPUT_TIME, 
+      DATA_DATE)
+    values (#{fileDate,jdbcType=VARCHAR}, #{custMsgSum,jdbcType=DECIMAL}, #{custCreditMsgSum,jdbcType=DECIMAL}, 
+      #{grantLoanSum,jdbcType=DECIMAL}, #{planRepaySum,jdbcType=DECIMAL}, #{recycleRepaySum,jdbcType=DECIMAL}, 
+      #{specialTdSum,jdbcType=DECIMAL}, #{acctEntryDailySum,jdbcType=DECIMAL}, #{provisionsSernoSum,jdbcType=DECIMAL}, 
+      #{provisionsAmtSum,jdbcType=DECIMAL}, #{deductTableInfoSum,jdbcType=DECIMAL}, #{reversalTdSum,jdbcType=DECIMAL}, 
+      #{loanCarinfoSum,jdbcType=DECIMAL}, #{loanFeeSum,jdbcType=DECIMAL}, #{intDeductSum,jdbcType=DECIMAL}, 
+      #{deductTypeSum,jdbcType=DECIMAL}, #{inputDate,jdbcType=VARCHAR}, #{inputTime,jdbcType=VARCHAR}, 
+      #{dataDate,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.BAT_XW_FILE_NUM_HIS">
+    insert into BAT_XW_FILE_NUM_HIS
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="fileDate != null">
+        FILE_DATE,
+      </if>
+      <if test="custMsgSum != null">
+        CUST_MSG_SUM,
+      </if>
+      <if test="custCreditMsgSum != null">
+        CUST_CREDIT_MSG_SUM,
+      </if>
+      <if test="grantLoanSum != null">
+        GRANT_LOAN_SUM,
+      </if>
+      <if test="planRepaySum != null">
+        PLAN_REPAY_SUM,
+      </if>
+      <if test="recycleRepaySum != null">
+        RECYCLE_REPAY_SUM,
+      </if>
+      <if test="specialTdSum != null">
+        SPECIAL_TD_SUM,
+      </if>
+      <if test="acctEntryDailySum != null">
+        ACCT_ENTRY_DAILY_SUM,
+      </if>
+      <if test="provisionsSernoSum != null">
+        PROVISIONS_SERNO_SUM,
+      </if>
+      <if test="provisionsAmtSum != null">
+        PROVISIONS_AMT_SUM,
+      </if>
+      <if test="deductTableInfoSum != null">
+        DEDUCT_TABLE_INFO_SUM,
+      </if>
+      <if test="reversalTdSum != null">
+        REVERSAL_TD_SUM,
+      </if>
+      <if test="loanCarinfoSum != null">
+        LOAN_CARINFO_SUM,
+      </if>
+      <if test="loanFeeSum != null">
+        LOAN_FEE_SUM,
+      </if>
+      <if test="intDeductSum != null">
+        INT_DEDUCT_SUM,
+      </if>
+      <if test="deductTypeSum != null">
+        DEDUCT_TYPE_SUM,
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE,
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME,
+      </if>
+      <if test="dataDate != null">
+        DATA_DATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="fileDate != null">
+        #{fileDate,jdbcType=VARCHAR},
+      </if>
+      <if test="custMsgSum != null">
+        #{custMsgSum,jdbcType=DECIMAL},
+      </if>
+      <if test="custCreditMsgSum != null">
+        #{custCreditMsgSum,jdbcType=DECIMAL},
+      </if>
+      <if test="grantLoanSum != null">
+        #{grantLoanSum,jdbcType=DECIMAL},
+      </if>
+      <if test="planRepaySum != null">
+        #{planRepaySum,jdbcType=DECIMAL},
+      </if>
+      <if test="recycleRepaySum != null">
+        #{recycleRepaySum,jdbcType=DECIMAL},
+      </if>
+      <if test="specialTdSum != null">
+        #{specialTdSum,jdbcType=DECIMAL},
+      </if>
+      <if test="acctEntryDailySum != null">
+        #{acctEntryDailySum,jdbcType=DECIMAL},
+      </if>
+      <if test="provisionsSernoSum != null">
+        #{provisionsSernoSum,jdbcType=DECIMAL},
+      </if>
+      <if test="provisionsAmtSum != null">
+        #{provisionsAmtSum,jdbcType=DECIMAL},
+      </if>
+      <if test="deductTableInfoSum != null">
+        #{deductTableInfoSum,jdbcType=DECIMAL},
+      </if>
+      <if test="reversalTdSum != null">
+        #{reversalTdSum,jdbcType=DECIMAL},
+      </if>
+      <if test="loanCarinfoSum != null">
+        #{loanCarinfoSum,jdbcType=DECIMAL},
+      </if>
+      <if test="loanFeeSum != null">
+        #{loanFeeSum,jdbcType=DECIMAL},
+      </if>
+      <if test="intDeductSum != null">
+        #{intDeductSum,jdbcType=DECIMAL},
+      </if>
+      <if test="deductTypeSum != null">
+        #{deductTypeSum,jdbcType=DECIMAL},
+      </if>
+      <if test="inputDate != null">
+        #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="dataDate != null">
+        #{dataDate,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

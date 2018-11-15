@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.SHORTCUT_BOOKMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.SHORTCUT_BOOK">
+    <result column="USR_ID" jdbcType="VARCHAR" property="usrId" />
+    <result column="SID" jdbcType="VARCHAR" property="sid" />
+    <result column="STATUS" jdbcType="CHAR" property="status" />
+    <result column="CRT_DT" jdbcType="VARCHAR" property="crtDt" />
+    <result column="INSTU_CDE" jdbcType="VARCHAR" property="instuCde" />
+  </resultMap>
+  <insert id="insert" parameterType="com.bea.olp.SHORTCUT_BOOK">
+    insert into SHORTCUT_BOOK (USR_ID, SID, STATUS, 
+      CRT_DT, INSTU_CDE)
+    values (#{usrId,jdbcType=VARCHAR}, #{sid,jdbcType=VARCHAR}, #{status,jdbcType=CHAR}, 
+      #{crtDt,jdbcType=VARCHAR}, #{instuCde,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.SHORTCUT_BOOK">
+    insert into SHORTCUT_BOOK
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="usrId != null">
+        USR_ID,
+      </if>
+      <if test="sid != null">
+        SID,
+      </if>
+      <if test="status != null">
+        STATUS,
+      </if>
+      <if test="crtDt != null">
+        CRT_DT,
+      </if>
+      <if test="instuCde != null">
+        INSTU_CDE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="usrId != null">
+        #{usrId,jdbcType=VARCHAR},
+      </if>
+      <if test="sid != null">
+        #{sid,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=CHAR},
+      </if>
+      <if test="crtDt != null">
+        #{crtDt,jdbcType=VARCHAR},
+      </if>
+      <if test="instuCde != null">
+        #{instuCde,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

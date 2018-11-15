@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.BIZ_XW_REV_TRANSMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.BIZ_XW_REV_TRANS">
+    <id column="LOAN_NO" jdbcType="VARCHAR" property="loanNo" />
+    <id column="REVERSAL_DATE" jdbcType="VARCHAR" property="reversalDate" />
+    <result column="REVERSAL_REASON" jdbcType="VARCHAR" property="reversalReason" />
+    <result column="ORIGINAL_TD_DATE" jdbcType="VARCHAR" property="originalTdDate" />
+    <result column="REVERSAL_AMT" jdbcType="DECIMAL" property="reversalAmt" />
+    <result column="REVERSAL_PRIN" jdbcType="DECIMAL" property="reversalPrin" />
+    <result column="REVERSAL_INT" jdbcType="DECIMAL" property="reversalInt" />
+    <result column="REVERSAL_PNLT" jdbcType="DECIMAL" property="reversalPnlt" />
+    <result column="WRITEOFF_AMT" jdbcType="DECIMAL" property="writeoffAmt" />
+    <result column="INPUT_DATE" jdbcType="VARCHAR" property="inputDate" />
+    <result column="INPUT_TIME" jdbcType="VARCHAR" property="inputTime" />
+    <result column="DATA_DATE" jdbcType="VARCHAR" property="dataDate" />
+    <result column="LAST_UPDATE_DATE" jdbcType="VARCHAR" property="lastUpdateDate" />
+    <result column="LAST_UPDATE_TIME" jdbcType="VARCHAR" property="lastUpdateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    LOAN_NO, REVERSAL_DATE, REVERSAL_REASON, ORIGINAL_TD_DATE, REVERSAL_AMT, REVERSAL_PRIN, 
+    REVERSAL_INT, REVERSAL_PNLT, WRITEOFF_AMT, INPUT_DATE, INPUT_TIME, DATA_DATE, LAST_UPDATE_DATE, 
+    LAST_UPDATE_TIME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="com.bea.olp.BIZ_XW_REV_TRANSKey" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from BIZ_XW_REV_TRANS
+    where LOAN_NO = #{loanNo,jdbcType=VARCHAR}
+      and REVERSAL_DATE = #{reversalDate,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.bea.olp.BIZ_XW_REV_TRANSKey">
+    delete from BIZ_XW_REV_TRANS
+    where LOAN_NO = #{loanNo,jdbcType=VARCHAR}
+      and REVERSAL_DATE = #{reversalDate,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.BIZ_XW_REV_TRANS">
+    insert into BIZ_XW_REV_TRANS (LOAN_NO, REVERSAL_DATE, REVERSAL_REASON, 
+      ORIGINAL_TD_DATE, REVERSAL_AMT, REVERSAL_PRIN, 
+      REVERSAL_INT, REVERSAL_PNLT, WRITEOFF_AMT, 
+      INPUT_DATE, INPUT_TIME, DATA_DATE, 
+      LAST_UPDATE_DATE, LAST_UPDATE_TIME)
+    values (#{loanNo,jdbcType=VARCHAR}, #{reversalDate,jdbcType=VARCHAR}, #{reversalReason,jdbcType=VARCHAR}, 
+      #{originalTdDate,jdbcType=VARCHAR}, #{reversalAmt,jdbcType=DECIMAL}, #{reversalPrin,jdbcType=DECIMAL}, 
+      #{reversalInt,jdbcType=DECIMAL}, #{reversalPnlt,jdbcType=DECIMAL}, #{writeoffAmt,jdbcType=DECIMAL}, 
+      #{inputDate,jdbcType=VARCHAR}, #{inputTime,jdbcType=VARCHAR}, #{dataDate,jdbcType=VARCHAR}, 
+      #{lastUpdateDate,jdbcType=VARCHAR}, #{lastUpdateTime,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.BIZ_XW_REV_TRANS">
+    insert into BIZ_XW_REV_TRANS
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="loanNo != null">
+        LOAN_NO,
+      </if>
+      <if test="reversalDate != null">
+        REVERSAL_DATE,
+      </if>
+      <if test="reversalReason != null">
+        REVERSAL_REASON,
+      </if>
+      <if test="originalTdDate != null">
+        ORIGINAL_TD_DATE,
+      </if>
+      <if test="reversalAmt != null">
+        REVERSAL_AMT,
+      </if>
+      <if test="reversalPrin != null">
+        REVERSAL_PRIN,
+      </if>
+      <if test="reversalInt != null">
+        REVERSAL_INT,
+      </if>
+      <if test="reversalPnlt != null">
+        REVERSAL_PNLT,
+      </if>
+      <if test="writeoffAmt != null">
+        WRITEOFF_AMT,
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE,
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME,
+      </if>
+      <if test="dataDate != null">
+        DATA_DATE,
+      </if>
+      <if test="lastUpdateDate != null">
+        LAST_UPDATE_DATE,
+      </if>
+      <if test="lastUpdateTime != null">
+        LAST_UPDATE_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="loanNo != null">
+        #{loanNo,jdbcType=VARCHAR},
+      </if>
+      <if test="reversalDate != null">
+        #{reversalDate,jdbcType=VARCHAR},
+      </if>
+      <if test="reversalReason != null">
+        #{reversalReason,jdbcType=VARCHAR},
+      </if>
+      <if test="originalTdDate != null">
+        #{originalTdDate,jdbcType=VARCHAR},
+      </if>
+      <if test="reversalAmt != null">
+        #{reversalAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="reversalPrin != null">
+        #{reversalPrin,jdbcType=DECIMAL},
+      </if>
+      <if test="reversalInt != null">
+        #{reversalInt,jdbcType=DECIMAL},
+      </if>
+      <if test="reversalPnlt != null">
+        #{reversalPnlt,jdbcType=DECIMAL},
+      </if>
+      <if test="writeoffAmt != null">
+        #{writeoffAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="inputDate != null">
+        #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="dataDate != null">
+        #{dataDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateDate != null">
+        #{lastUpdateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        #{lastUpdateTime,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.BIZ_XW_REV_TRANS">
+    update BIZ_XW_REV_TRANS
+    <set>
+      <if test="reversalReason != null">
+        REVERSAL_REASON = #{reversalReason,jdbcType=VARCHAR},
+      </if>
+      <if test="originalTdDate != null">
+        ORIGINAL_TD_DATE = #{originalTdDate,jdbcType=VARCHAR},
+      </if>
+      <if test="reversalAmt != null">
+        REVERSAL_AMT = #{reversalAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="reversalPrin != null">
+        REVERSAL_PRIN = #{reversalPrin,jdbcType=DECIMAL},
+      </if>
+      <if test="reversalInt != null">
+        REVERSAL_INT = #{reversalInt,jdbcType=DECIMAL},
+      </if>
+      <if test="reversalPnlt != null">
+        REVERSAL_PNLT = #{reversalPnlt,jdbcType=DECIMAL},
+      </if>
+      <if test="writeoffAmt != null">
+        WRITEOFF_AMT = #{writeoffAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE = #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME = #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="dataDate != null">
+        DATA_DATE = #{dataDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateDate != null">
+        LAST_UPDATE_DATE = #{lastUpdateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where LOAN_NO = #{loanNo,jdbcType=VARCHAR}
+      and REVERSAL_DATE = #{reversalDate,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.BIZ_XW_REV_TRANS">
+    update BIZ_XW_REV_TRANS
+    set REVERSAL_REASON = #{reversalReason,jdbcType=VARCHAR},
+      ORIGINAL_TD_DATE = #{originalTdDate,jdbcType=VARCHAR},
+      REVERSAL_AMT = #{reversalAmt,jdbcType=DECIMAL},
+      REVERSAL_PRIN = #{reversalPrin,jdbcType=DECIMAL},
+      REVERSAL_INT = #{reversalInt,jdbcType=DECIMAL},
+      REVERSAL_PNLT = #{reversalPnlt,jdbcType=DECIMAL},
+      WRITEOFF_AMT = #{writeoffAmt,jdbcType=DECIMAL},
+      INPUT_DATE = #{inputDate,jdbcType=VARCHAR},
+      INPUT_TIME = #{inputTime,jdbcType=VARCHAR},
+      DATA_DATE = #{dataDate,jdbcType=VARCHAR},
+      LAST_UPDATE_DATE = #{lastUpdateDate,jdbcType=VARCHAR},
+      LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=VARCHAR}
+    where LOAN_NO = #{loanNo,jdbcType=VARCHAR}
+      and REVERSAL_DATE = #{reversalDate,jdbcType=VARCHAR}
+  </update>
+</mapper>

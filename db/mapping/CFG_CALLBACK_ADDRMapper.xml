@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.CFG_CALLBACK_ADDRMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.CFG_CALLBACK_ADDR">
+    <id column="PRD_CODE" jdbcType="VARCHAR" property="prdCode" />
+    <result column="SENCE_ID" jdbcType="VARCHAR" property="senceId" />
+    <result column="INTERFACE_TYPE" jdbcType="VARCHAR" property="interfaceType" />
+    <result column="NOTICE_ADDR" jdbcType="VARCHAR" property="noticeAddr" />
+    <result column="NOTICE_PORT" jdbcType="VARCHAR" property="noticePort" />
+    <result column="DEAL_CLASS" jdbcType="VARCHAR" property="dealClass" />
+    <result column="FULL_ADDR" jdbcType="VARCHAR" property="fullAddr" />
+    <result column="INPUT_DATE" jdbcType="VARCHAR" property="inputDate" />
+    <result column="INPUT_TIME" jdbcType="VARCHAR" property="inputTime" />
+    <result column="LAST_UPDATE_TIME" jdbcType="VARCHAR" property="lastUpdateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    PRD_CODE, SENCE_ID, INTERFACE_TYPE, NOTICE_ADDR, NOTICE_PORT, DEAL_CLASS, FULL_ADDR, 
+    INPUT_DATE, INPUT_TIME, LAST_UPDATE_TIME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from CFG_CALLBACK_ADDR
+    where PRD_CODE = #{prdCode,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from CFG_CALLBACK_ADDR
+    where PRD_CODE = #{prdCode,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.CFG_CALLBACK_ADDR">
+    insert into CFG_CALLBACK_ADDR (PRD_CODE, SENCE_ID, INTERFACE_TYPE, 
+      NOTICE_ADDR, NOTICE_PORT, DEAL_CLASS, 
+      FULL_ADDR, INPUT_DATE, INPUT_TIME, 
+      LAST_UPDATE_TIME)
+    values (#{prdCode,jdbcType=VARCHAR}, #{senceId,jdbcType=VARCHAR}, #{interfaceType,jdbcType=VARCHAR}, 
+      #{noticeAddr,jdbcType=VARCHAR}, #{noticePort,jdbcType=VARCHAR}, #{dealClass,jdbcType=VARCHAR}, 
+      #{fullAddr,jdbcType=VARCHAR}, #{inputDate,jdbcType=VARCHAR}, #{inputTime,jdbcType=VARCHAR}, 
+      #{lastUpdateTime,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.CFG_CALLBACK_ADDR">
+    insert into CFG_CALLBACK_ADDR
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="prdCode != null">
+        PRD_CODE,
+      </if>
+      <if test="senceId != null">
+        SENCE_ID,
+      </if>
+      <if test="interfaceType != null">
+        INTERFACE_TYPE,
+      </if>
+      <if test="noticeAddr != null">
+        NOTICE_ADDR,
+      </if>
+      <if test="noticePort != null">
+        NOTICE_PORT,
+      </if>
+      <if test="dealClass != null">
+        DEAL_CLASS,
+      </if>
+      <if test="fullAddr != null">
+        FULL_ADDR,
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE,
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME,
+      </if>
+      <if test="lastUpdateTime != null">
+        LAST_UPDATE_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="prdCode != null">
+        #{prdCode,jdbcType=VARCHAR},
+      </if>
+      <if test="senceId != null">
+        #{senceId,jdbcType=VARCHAR},
+      </if>
+      <if test="interfaceType != null">
+        #{interfaceType,jdbcType=VARCHAR},
+      </if>
+      <if test="noticeAddr != null">
+        #{noticeAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="noticePort != null">
+        #{noticePort,jdbcType=VARCHAR},
+      </if>
+      <if test="dealClass != null">
+        #{dealClass,jdbcType=VARCHAR},
+      </if>
+      <if test="fullAddr != null">
+        #{fullAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        #{lastUpdateTime,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.CFG_CALLBACK_ADDR">
+    update CFG_CALLBACK_ADDR
+    <set>
+      <if test="senceId != null">
+        SENCE_ID = #{senceId,jdbcType=VARCHAR},
+      </if>
+      <if test="interfaceType != null">
+        INTERFACE_TYPE = #{interfaceType,jdbcType=VARCHAR},
+      </if>
+      <if test="noticeAddr != null">
+        NOTICE_ADDR = #{noticeAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="noticePort != null">
+        NOTICE_PORT = #{noticePort,jdbcType=VARCHAR},
+      </if>
+      <if test="dealClass != null">
+        DEAL_CLASS = #{dealClass,jdbcType=VARCHAR},
+      </if>
+      <if test="fullAddr != null">
+        FULL_ADDR = #{fullAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE = #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME = #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where PRD_CODE = #{prdCode,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.CFG_CALLBACK_ADDR">
+    update CFG_CALLBACK_ADDR
+    set SENCE_ID = #{senceId,jdbcType=VARCHAR},
+      INTERFACE_TYPE = #{interfaceType,jdbcType=VARCHAR},
+      NOTICE_ADDR = #{noticeAddr,jdbcType=VARCHAR},
+      NOTICE_PORT = #{noticePort,jdbcType=VARCHAR},
+      DEAL_CLASS = #{dealClass,jdbcType=VARCHAR},
+      FULL_ADDR = #{fullAddr,jdbcType=VARCHAR},
+      INPUT_DATE = #{inputDate,jdbcType=VARCHAR},
+      INPUT_TIME = #{inputTime,jdbcType=VARCHAR},
+      LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=VARCHAR}
+    where PRD_CODE = #{prdCode,jdbcType=VARCHAR}
+  </update>
+</mapper>

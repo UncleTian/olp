@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.SF_TRANSRULEMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.SF_TRANSRULE">
+    <id column="TRANS_ID" jdbcType="VARCHAR" property="transId" />
+    <id column="RULESETID" jdbcType="VARCHAR" property="rulesetid" />
+    <result column="RULEID" jdbcType="VARCHAR" property="ruleid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    TRANS_ID, RULESETID, RULEID
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="com.bea.olp.SF_TRANSRULEKey" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from SF_TRANSRULE
+    where TRANS_ID = #{transId,jdbcType=VARCHAR}
+      and RULESETID = #{rulesetid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.bea.olp.SF_TRANSRULEKey">
+    delete from SF_TRANSRULE
+    where TRANS_ID = #{transId,jdbcType=VARCHAR}
+      and RULESETID = #{rulesetid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.SF_TRANSRULE">
+    insert into SF_TRANSRULE (TRANS_ID, RULESETID, RULEID
+      )
+    values (#{transId,jdbcType=VARCHAR}, #{rulesetid,jdbcType=VARCHAR}, #{ruleid,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.SF_TRANSRULE">
+    insert into SF_TRANSRULE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="transId != null">
+        TRANS_ID,
+      </if>
+      <if test="rulesetid != null">
+        RULESETID,
+      </if>
+      <if test="ruleid != null">
+        RULEID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="transId != null">
+        #{transId,jdbcType=VARCHAR},
+      </if>
+      <if test="rulesetid != null">
+        #{rulesetid,jdbcType=VARCHAR},
+      </if>
+      <if test="ruleid != null">
+        #{ruleid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.SF_TRANSRULE">
+    update SF_TRANSRULE
+    <set>
+      <if test="ruleid != null">
+        RULEID = #{ruleid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where TRANS_ID = #{transId,jdbcType=VARCHAR}
+      and RULESETID = #{rulesetid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.SF_TRANSRULE">
+    update SF_TRANSRULE
+    set RULEID = #{ruleid,jdbcType=VARCHAR}
+    where TRANS_ID = #{transId,jdbcType=VARCHAR}
+      and RULESETID = #{rulesetid,jdbcType=VARCHAR}
+  </update>
+</mapper>

@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.PRT_EXT_SYSTEM_INDEXMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.PRT_EXT_SYSTEM_INDEX">
+    <result column="EXT_SYSTEM_ID" jdbcType="VARCHAR" property="extSystemId" />
+    <result column="EXT_CLIENT_NO" jdbcType="VARCHAR" property="extClientNo" />
+    <result column="PARTY_ID" jdbcType="VARCHAR" property="partyId" />
+    <result column="SRC_CREATE_TS" jdbcType="VARCHAR" property="srcCreateTs" />
+    <result column="CREATED_SYSTEM_ID" jdbcType="VARCHAR" property="createdSystemId" />
+    <result column="UPDATED_USER" jdbcType="VARCHAR" property="updatedUser" />
+    <result column="UPDATED_AUTH_USER" jdbcType="VARCHAR" property="updatedAuthUser" />
+    <result column="UPDATED_UNIT" jdbcType="VARCHAR" property="updatedUnit" />
+    <result column="SRC_UPDATED_TS" jdbcType="VARCHAR" property="srcUpdatedTs" />
+    <result column="UPDATED_SYSTEM_ID" jdbcType="VARCHAR" property="updatedSystemId" />
+    <result column="UPDATED_TS" jdbcType="VARCHAR" property="updatedTs" />
+    <result column="PARTY_CLAS_CODE" jdbcType="VARCHAR" property="partyClasCode" />
+    <result column="CTRL_UNIT" jdbcType="VARCHAR" property="ctrlUnit" />
+    <result column="DEPARTMENT" jdbcType="VARCHAR" property="department" />
+    <result column="INPUT_DATE" jdbcType="VARCHAR" property="inputDate" />
+    <result column="INPUT_TIME" jdbcType="VARCHAR" property="inputTime" />
+    <result column="DATA_DATE" jdbcType="VARCHAR" property="dataDate" />
+  </resultMap>
+  <insert id="insert" parameterType="com.bea.olp.PRT_EXT_SYSTEM_INDEX">
+    insert into PRT_EXT_SYSTEM_INDEX (EXT_SYSTEM_ID, EXT_CLIENT_NO, PARTY_ID, 
+      SRC_CREATE_TS, CREATED_SYSTEM_ID, UPDATED_USER, 
+      UPDATED_AUTH_USER, UPDATED_UNIT, SRC_UPDATED_TS, 
+      UPDATED_SYSTEM_ID, UPDATED_TS, PARTY_CLAS_CODE, 
+      CTRL_UNIT, DEPARTMENT, INPUT_DATE, 
+      INPUT_TIME, DATA_DATE)
+    values (#{extSystemId,jdbcType=VARCHAR}, #{extClientNo,jdbcType=VARCHAR}, #{partyId,jdbcType=VARCHAR}, 
+      #{srcCreateTs,jdbcType=VARCHAR}, #{createdSystemId,jdbcType=VARCHAR}, #{updatedUser,jdbcType=VARCHAR}, 
+      #{updatedAuthUser,jdbcType=VARCHAR}, #{updatedUnit,jdbcType=VARCHAR}, #{srcUpdatedTs,jdbcType=VARCHAR}, 
+      #{updatedSystemId,jdbcType=VARCHAR}, #{updatedTs,jdbcType=VARCHAR}, #{partyClasCode,jdbcType=VARCHAR}, 
+      #{ctrlUnit,jdbcType=VARCHAR}, #{department,jdbcType=VARCHAR}, #{inputDate,jdbcType=VARCHAR}, 
+      #{inputTime,jdbcType=VARCHAR}, #{dataDate,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.PRT_EXT_SYSTEM_INDEX">
+    insert into PRT_EXT_SYSTEM_INDEX
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="extSystemId != null">
+        EXT_SYSTEM_ID,
+      </if>
+      <if test="extClientNo != null">
+        EXT_CLIENT_NO,
+      </if>
+      <if test="partyId != null">
+        PARTY_ID,
+      </if>
+      <if test="srcCreateTs != null">
+        SRC_CREATE_TS,
+      </if>
+      <if test="createdSystemId != null">
+        CREATED_SYSTEM_ID,
+      </if>
+      <if test="updatedUser != null">
+        UPDATED_USER,
+      </if>
+      <if test="updatedAuthUser != null">
+        UPDATED_AUTH_USER,
+      </if>
+      <if test="updatedUnit != null">
+        UPDATED_UNIT,
+      </if>
+      <if test="srcUpdatedTs != null">
+        SRC_UPDATED_TS,
+      </if>
+      <if test="updatedSystemId != null">
+        UPDATED_SYSTEM_ID,
+      </if>
+      <if test="updatedTs != null">
+        UPDATED_TS,
+      </if>
+      <if test="partyClasCode != null">
+        PARTY_CLAS_CODE,
+      </if>
+      <if test="ctrlUnit != null">
+        CTRL_UNIT,
+      </if>
+      <if test="department != null">
+        DEPARTMENT,
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE,
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME,
+      </if>
+      <if test="dataDate != null">
+        DATA_DATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="extSystemId != null">
+        #{extSystemId,jdbcType=VARCHAR},
+      </if>
+      <if test="extClientNo != null">
+        #{extClientNo,jdbcType=VARCHAR},
+      </if>
+      <if test="partyId != null">
+        #{partyId,jdbcType=VARCHAR},
+      </if>
+      <if test="srcCreateTs != null">
+        #{srcCreateTs,jdbcType=VARCHAR},
+      </if>
+      <if test="createdSystemId != null">
+        #{createdSystemId,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedUser != null">
+        #{updatedUser,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedAuthUser != null">
+        #{updatedAuthUser,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedUnit != null">
+        #{updatedUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="srcUpdatedTs != null">
+        #{srcUpdatedTs,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedSystemId != null">
+        #{updatedSystemId,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedTs != null">
+        #{updatedTs,jdbcType=VARCHAR},
+      </if>
+      <if test="partyClasCode != null">
+        #{partyClasCode,jdbcType=VARCHAR},
+      </if>
+      <if test="ctrlUnit != null">
+        #{ctrlUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="department != null">
+        #{department,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="dataDate != null">
+        #{dataDate,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.BIZ_PY_EN_REG_INFOMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.BIZ_PY_EN_REG_INFO">
+    <id column="APP_NO" jdbcType="VARCHAR" property="appNo" />
+    <result column="SUBREPORTTYPE" jdbcType="DECIMAL" property="subreporttype" />
+    <result column="SUBREPORTTYPECOST" jdbcType="DECIMAL" property="subreporttypecost" />
+    <result column="TREATRESULT" jdbcType="DECIMAL" property="treatresult" />
+    <result column="TREATERRORCODE" jdbcType="VARCHAR" property="treaterrorcode" />
+    <result column="ERRORMESSAGE" jdbcType="VARCHAR" property="errormessage" />
+    <result column="AREACODE" jdbcType="VARCHAR" property="areacode" />
+    <result column="AREADESC" jdbcType="VARCHAR" property="areadesc" />
+    <result column="ADDRESS" jdbcType="VARCHAR" property="address" />
+    <result column="TEL" jdbcType="VARCHAR" property="tel" />
+    <result column="POSTCODE" jdbcType="VARCHAR" property="postcode" />
+    <result column="INPUT_DATE" jdbcType="VARCHAR" property="inputDate" />
+    <result column="INPUT_TIME" jdbcType="VARCHAR" property="inputTime" />
+    <result column="LAST_UPDATE_DATE" jdbcType="VARCHAR" property="lastUpdateDate" />
+    <result column="LAST_UPDATE_TIME" jdbcType="VARCHAR" property="lastUpdateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    APP_NO, SUBREPORTTYPE, SUBREPORTTYPECOST, TREATRESULT, TREATERRORCODE, ERRORMESSAGE, 
+    AREACODE, AREADESC, ADDRESS, TEL, POSTCODE, INPUT_DATE, INPUT_TIME, LAST_UPDATE_DATE, 
+    LAST_UPDATE_TIME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from BIZ_PY_EN_REG_INFO
+    where APP_NO = #{appNo,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from BIZ_PY_EN_REG_INFO
+    where APP_NO = #{appNo,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.BIZ_PY_EN_REG_INFO">
+    insert into BIZ_PY_EN_REG_INFO (APP_NO, SUBREPORTTYPE, SUBREPORTTYPECOST, 
+      TREATRESULT, TREATERRORCODE, ERRORMESSAGE, 
+      AREACODE, AREADESC, ADDRESS, 
+      TEL, POSTCODE, INPUT_DATE, 
+      INPUT_TIME, LAST_UPDATE_DATE, LAST_UPDATE_TIME
+      )
+    values (#{appNo,jdbcType=VARCHAR}, #{subreporttype,jdbcType=DECIMAL}, #{subreporttypecost,jdbcType=DECIMAL}, 
+      #{treatresult,jdbcType=DECIMAL}, #{treaterrorcode,jdbcType=VARCHAR}, #{errormessage,jdbcType=VARCHAR}, 
+      #{areacode,jdbcType=VARCHAR}, #{areadesc,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, 
+      #{tel,jdbcType=VARCHAR}, #{postcode,jdbcType=VARCHAR}, #{inputDate,jdbcType=VARCHAR}, 
+      #{inputTime,jdbcType=VARCHAR}, #{lastUpdateDate,jdbcType=VARCHAR}, #{lastUpdateTime,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.BIZ_PY_EN_REG_INFO">
+    insert into BIZ_PY_EN_REG_INFO
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="appNo != null">
+        APP_NO,
+      </if>
+      <if test="subreporttype != null">
+        SUBREPORTTYPE,
+      </if>
+      <if test="subreporttypecost != null">
+        SUBREPORTTYPECOST,
+      </if>
+      <if test="treatresult != null">
+        TREATRESULT,
+      </if>
+      <if test="treaterrorcode != null">
+        TREATERRORCODE,
+      </if>
+      <if test="errormessage != null">
+        ERRORMESSAGE,
+      </if>
+      <if test="areacode != null">
+        AREACODE,
+      </if>
+      <if test="areadesc != null">
+        AREADESC,
+      </if>
+      <if test="address != null">
+        ADDRESS,
+      </if>
+      <if test="tel != null">
+        TEL,
+      </if>
+      <if test="postcode != null">
+        POSTCODE,
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE,
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME,
+      </if>
+      <if test="lastUpdateDate != null">
+        LAST_UPDATE_DATE,
+      </if>
+      <if test="lastUpdateTime != null">
+        LAST_UPDATE_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="appNo != null">
+        #{appNo,jdbcType=VARCHAR},
+      </if>
+      <if test="subreporttype != null">
+        #{subreporttype,jdbcType=DECIMAL},
+      </if>
+      <if test="subreporttypecost != null">
+        #{subreporttypecost,jdbcType=DECIMAL},
+      </if>
+      <if test="treatresult != null">
+        #{treatresult,jdbcType=DECIMAL},
+      </if>
+      <if test="treaterrorcode != null">
+        #{treaterrorcode,jdbcType=VARCHAR},
+      </if>
+      <if test="errormessage != null">
+        #{errormessage,jdbcType=VARCHAR},
+      </if>
+      <if test="areacode != null">
+        #{areacode,jdbcType=VARCHAR},
+      </if>
+      <if test="areadesc != null">
+        #{areadesc,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="tel != null">
+        #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="postcode != null">
+        #{postcode,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateDate != null">
+        #{lastUpdateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        #{lastUpdateTime,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.BIZ_PY_EN_REG_INFO">
+    update BIZ_PY_EN_REG_INFO
+    <set>
+      <if test="subreporttype != null">
+        SUBREPORTTYPE = #{subreporttype,jdbcType=DECIMAL},
+      </if>
+      <if test="subreporttypecost != null">
+        SUBREPORTTYPECOST = #{subreporttypecost,jdbcType=DECIMAL},
+      </if>
+      <if test="treatresult != null">
+        TREATRESULT = #{treatresult,jdbcType=DECIMAL},
+      </if>
+      <if test="treaterrorcode != null">
+        TREATERRORCODE = #{treaterrorcode,jdbcType=VARCHAR},
+      </if>
+      <if test="errormessage != null">
+        ERRORMESSAGE = #{errormessage,jdbcType=VARCHAR},
+      </if>
+      <if test="areacode != null">
+        AREACODE = #{areacode,jdbcType=VARCHAR},
+      </if>
+      <if test="areadesc != null">
+        AREADESC = #{areadesc,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        ADDRESS = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="tel != null">
+        TEL = #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="postcode != null">
+        POSTCODE = #{postcode,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE = #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME = #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateDate != null">
+        LAST_UPDATE_DATE = #{lastUpdateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where APP_NO = #{appNo,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.BIZ_PY_EN_REG_INFO">
+    update BIZ_PY_EN_REG_INFO
+    set SUBREPORTTYPE = #{subreporttype,jdbcType=DECIMAL},
+      SUBREPORTTYPECOST = #{subreporttypecost,jdbcType=DECIMAL},
+      TREATRESULT = #{treatresult,jdbcType=DECIMAL},
+      TREATERRORCODE = #{treaterrorcode,jdbcType=VARCHAR},
+      ERRORMESSAGE = #{errormessage,jdbcType=VARCHAR},
+      AREACODE = #{areacode,jdbcType=VARCHAR},
+      AREADESC = #{areadesc,jdbcType=VARCHAR},
+      ADDRESS = #{address,jdbcType=VARCHAR},
+      TEL = #{tel,jdbcType=VARCHAR},
+      POSTCODE = #{postcode,jdbcType=VARCHAR},
+      INPUT_DATE = #{inputDate,jdbcType=VARCHAR},
+      INPUT_TIME = #{inputTime,jdbcType=VARCHAR},
+      LAST_UPDATE_DATE = #{lastUpdateDate,jdbcType=VARCHAR},
+      LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=VARCHAR}
+    where APP_NO = #{appNo,jdbcType=VARCHAR}
+  </update>
+</mapper>

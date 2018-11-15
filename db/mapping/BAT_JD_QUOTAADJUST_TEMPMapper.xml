@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.BAT_JD_QUOTAADJUST_TEMPMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.BAT_JD_QUOTAADJUST_TEMP">
+    <result column="BUSI_DATE" jdbcType="VARCHAR" property="busiDate" />
+    <result column="CUST_NO" jdbcType="VARCHAR" property="custNo" />
+    <result column="PRO_NO" jdbcType="VARCHAR" property="proNo" />
+    <result column="LIMIT_NO" jdbcType="VARCHAR" property="limitNo" />
+    <result column="QUOTA_ADJUST_TYPE" jdbcType="VARCHAR" property="quotaAdjustType" />
+    <result column="QUOTA_ADJUST_MODE" jdbcType="VARCHAR" property="quotaAdjustMode" />
+    <result column="QUOTA" jdbcType="DECIMAL" property="quota" />
+    <result column="QUOTA_BEF" jdbcType="DECIMAL" property="quotaBef" />
+    <result column="QUOTA_AFT" jdbcType="DECIMAL" property="quotaAft" />
+    <result column="QUOTA_BUILD_DATE" jdbcType="VARCHAR" property="quotaBuildDate" />
+    <result column="QUOTA_EFFECT_DATE" jdbcType="VARCHAR" property="quotaEffectDate" />
+    <result column="QUOTA_SERIAL_NO" jdbcType="VARCHAR" property="quotaSerialNo" />
+    <result column="INPUT_DATE" jdbcType="VARCHAR" property="inputDate" />
+    <result column="INPUT_TIME" jdbcType="VARCHAR" property="inputTime" />
+    <result column="DATA_DATE" jdbcType="VARCHAR" property="dataDate" />
+  </resultMap>
+  <insert id="insert" parameterType="com.bea.olp.BAT_JD_QUOTAADJUST_TEMP">
+    insert into BAT_JD_QUOTAADJUST_TEMP (BUSI_DATE, CUST_NO, PRO_NO, 
+      LIMIT_NO, QUOTA_ADJUST_TYPE, QUOTA_ADJUST_MODE, 
+      QUOTA, QUOTA_BEF, QUOTA_AFT, 
+      QUOTA_BUILD_DATE, QUOTA_EFFECT_DATE, QUOTA_SERIAL_NO, 
+      INPUT_DATE, INPUT_TIME, DATA_DATE
+      )
+    values (#{busiDate,jdbcType=VARCHAR}, #{custNo,jdbcType=VARCHAR}, #{proNo,jdbcType=VARCHAR}, 
+      #{limitNo,jdbcType=VARCHAR}, #{quotaAdjustType,jdbcType=VARCHAR}, #{quotaAdjustMode,jdbcType=VARCHAR}, 
+      #{quota,jdbcType=DECIMAL}, #{quotaBef,jdbcType=DECIMAL}, #{quotaAft,jdbcType=DECIMAL}, 
+      #{quotaBuildDate,jdbcType=VARCHAR}, #{quotaEffectDate,jdbcType=VARCHAR}, #{quotaSerialNo,jdbcType=VARCHAR}, 
+      #{inputDate,jdbcType=VARCHAR}, #{inputTime,jdbcType=VARCHAR}, #{dataDate,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.BAT_JD_QUOTAADJUST_TEMP">
+    insert into BAT_JD_QUOTAADJUST_TEMP
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="busiDate != null">
+        BUSI_DATE,
+      </if>
+      <if test="custNo != null">
+        CUST_NO,
+      </if>
+      <if test="proNo != null">
+        PRO_NO,
+      </if>
+      <if test="limitNo != null">
+        LIMIT_NO,
+      </if>
+      <if test="quotaAdjustType != null">
+        QUOTA_ADJUST_TYPE,
+      </if>
+      <if test="quotaAdjustMode != null">
+        QUOTA_ADJUST_MODE,
+      </if>
+      <if test="quota != null">
+        QUOTA,
+      </if>
+      <if test="quotaBef != null">
+        QUOTA_BEF,
+      </if>
+      <if test="quotaAft != null">
+        QUOTA_AFT,
+      </if>
+      <if test="quotaBuildDate != null">
+        QUOTA_BUILD_DATE,
+      </if>
+      <if test="quotaEffectDate != null">
+        QUOTA_EFFECT_DATE,
+      </if>
+      <if test="quotaSerialNo != null">
+        QUOTA_SERIAL_NO,
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE,
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME,
+      </if>
+      <if test="dataDate != null">
+        DATA_DATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="busiDate != null">
+        #{busiDate,jdbcType=VARCHAR},
+      </if>
+      <if test="custNo != null">
+        #{custNo,jdbcType=VARCHAR},
+      </if>
+      <if test="proNo != null">
+        #{proNo,jdbcType=VARCHAR},
+      </if>
+      <if test="limitNo != null">
+        #{limitNo,jdbcType=VARCHAR},
+      </if>
+      <if test="quotaAdjustType != null">
+        #{quotaAdjustType,jdbcType=VARCHAR},
+      </if>
+      <if test="quotaAdjustMode != null">
+        #{quotaAdjustMode,jdbcType=VARCHAR},
+      </if>
+      <if test="quota != null">
+        #{quota,jdbcType=DECIMAL},
+      </if>
+      <if test="quotaBef != null">
+        #{quotaBef,jdbcType=DECIMAL},
+      </if>
+      <if test="quotaAft != null">
+        #{quotaAft,jdbcType=DECIMAL},
+      </if>
+      <if test="quotaBuildDate != null">
+        #{quotaBuildDate,jdbcType=VARCHAR},
+      </if>
+      <if test="quotaEffectDate != null">
+        #{quotaEffectDate,jdbcType=VARCHAR},
+      </if>
+      <if test="quotaSerialNo != null">
+        #{quotaSerialNo,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="dataDate != null">
+        #{dataDate,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

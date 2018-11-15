@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.WF_LINKMANMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.WF_LINKMAN">
+    <id column="REGIUSERID" jdbcType="VARCHAR" property="regiuserid" />
+    <id column="LINKMANID" jdbcType="VARCHAR" property="linkmanid" />
+    <result column="REGIUSERNAME" jdbcType="VARCHAR" property="regiusername" />
+    <result column="LINKMANNO" jdbcType="VARCHAR" property="linkmanno" />
+    <result column="LINKMANNAME" jdbcType="VARCHAR" property="linkmanname" />
+    <result column="LINKROLENAME" jdbcType="VARCHAR" property="linkrolename" />
+    <result column="LINKROLEID" jdbcType="VARCHAR" property="linkroleid" />
+    <result column="LINKORGNAME" jdbcType="VARCHAR" property="linkorgname" />
+    <result column="LINKORGID" jdbcType="VARCHAR" property="linkorgid" />
+    <result column="REGIDATE" jdbcType="CHAR" property="regidate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    REGIUSERID, LINKMANID, REGIUSERNAME, LINKMANNO, LINKMANNAME, LINKROLENAME, LINKROLEID, 
+    LINKORGNAME, LINKORGID, REGIDATE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="com.bea.olp.WF_LINKMANKey" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from WF_LINKMAN
+    where REGIUSERID = #{regiuserid,jdbcType=VARCHAR}
+      and LINKMANID = #{linkmanid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.bea.olp.WF_LINKMANKey">
+    delete from WF_LINKMAN
+    where REGIUSERID = #{regiuserid,jdbcType=VARCHAR}
+      and LINKMANID = #{linkmanid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.WF_LINKMAN">
+    insert into WF_LINKMAN (REGIUSERID, LINKMANID, REGIUSERNAME, 
+      LINKMANNO, LINKMANNAME, LINKROLENAME, 
+      LINKROLEID, LINKORGNAME, LINKORGID, 
+      REGIDATE)
+    values (#{regiuserid,jdbcType=VARCHAR}, #{linkmanid,jdbcType=VARCHAR}, #{regiusername,jdbcType=VARCHAR}, 
+      #{linkmanno,jdbcType=VARCHAR}, #{linkmanname,jdbcType=VARCHAR}, #{linkrolename,jdbcType=VARCHAR}, 
+      #{linkroleid,jdbcType=VARCHAR}, #{linkorgname,jdbcType=VARCHAR}, #{linkorgid,jdbcType=VARCHAR}, 
+      #{regidate,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.WF_LINKMAN">
+    insert into WF_LINKMAN
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="regiuserid != null">
+        REGIUSERID,
+      </if>
+      <if test="linkmanid != null">
+        LINKMANID,
+      </if>
+      <if test="regiusername != null">
+        REGIUSERNAME,
+      </if>
+      <if test="linkmanno != null">
+        LINKMANNO,
+      </if>
+      <if test="linkmanname != null">
+        LINKMANNAME,
+      </if>
+      <if test="linkrolename != null">
+        LINKROLENAME,
+      </if>
+      <if test="linkroleid != null">
+        LINKROLEID,
+      </if>
+      <if test="linkorgname != null">
+        LINKORGNAME,
+      </if>
+      <if test="linkorgid != null">
+        LINKORGID,
+      </if>
+      <if test="regidate != null">
+        REGIDATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="regiuserid != null">
+        #{regiuserid,jdbcType=VARCHAR},
+      </if>
+      <if test="linkmanid != null">
+        #{linkmanid,jdbcType=VARCHAR},
+      </if>
+      <if test="regiusername != null">
+        #{regiusername,jdbcType=VARCHAR},
+      </if>
+      <if test="linkmanno != null">
+        #{linkmanno,jdbcType=VARCHAR},
+      </if>
+      <if test="linkmanname != null">
+        #{linkmanname,jdbcType=VARCHAR},
+      </if>
+      <if test="linkrolename != null">
+        #{linkrolename,jdbcType=VARCHAR},
+      </if>
+      <if test="linkroleid != null">
+        #{linkroleid,jdbcType=VARCHAR},
+      </if>
+      <if test="linkorgname != null">
+        #{linkorgname,jdbcType=VARCHAR},
+      </if>
+      <if test="linkorgid != null">
+        #{linkorgid,jdbcType=VARCHAR},
+      </if>
+      <if test="regidate != null">
+        #{regidate,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.WF_LINKMAN">
+    update WF_LINKMAN
+    <set>
+      <if test="regiusername != null">
+        REGIUSERNAME = #{regiusername,jdbcType=VARCHAR},
+      </if>
+      <if test="linkmanno != null">
+        LINKMANNO = #{linkmanno,jdbcType=VARCHAR},
+      </if>
+      <if test="linkmanname != null">
+        LINKMANNAME = #{linkmanname,jdbcType=VARCHAR},
+      </if>
+      <if test="linkrolename != null">
+        LINKROLENAME = #{linkrolename,jdbcType=VARCHAR},
+      </if>
+      <if test="linkroleid != null">
+        LINKROLEID = #{linkroleid,jdbcType=VARCHAR},
+      </if>
+      <if test="linkorgname != null">
+        LINKORGNAME = #{linkorgname,jdbcType=VARCHAR},
+      </if>
+      <if test="linkorgid != null">
+        LINKORGID = #{linkorgid,jdbcType=VARCHAR},
+      </if>
+      <if test="regidate != null">
+        REGIDATE = #{regidate,jdbcType=CHAR},
+      </if>
+    </set>
+    where REGIUSERID = #{regiuserid,jdbcType=VARCHAR}
+      and LINKMANID = #{linkmanid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.WF_LINKMAN">
+    update WF_LINKMAN
+    set REGIUSERNAME = #{regiusername,jdbcType=VARCHAR},
+      LINKMANNO = #{linkmanno,jdbcType=VARCHAR},
+      LINKMANNAME = #{linkmanname,jdbcType=VARCHAR},
+      LINKROLENAME = #{linkrolename,jdbcType=VARCHAR},
+      LINKROLEID = #{linkroleid,jdbcType=VARCHAR},
+      LINKORGNAME = #{linkorgname,jdbcType=VARCHAR},
+      LINKORGID = #{linkorgid,jdbcType=VARCHAR},
+      REGIDATE = #{regidate,jdbcType=CHAR}
+    where REGIUSERID = #{regiuserid,jdbcType=VARCHAR}
+      and LINKMANID = #{linkmanid,jdbcType=VARCHAR}
+  </update>
+</mapper>

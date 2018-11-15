@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.BAT_JD_LOAN_HISMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.BAT_JD_LOAN_HIS">
+    <result column="BUSI_DATE" jdbcType="VARCHAR" property="busiDate" />
+    <result column="CONTRACT_NO" jdbcType="VARCHAR" property="contractNo" />
+    <result column="CUST_NO" jdbcType="VARCHAR" property="custNo" />
+    <result column="PRO_NO" jdbcType="VARCHAR" property="proNo" />
+    <result column="LIMIT_NO" jdbcType="VARCHAR" property="limitNo" />
+    <result column="LOAN_NO" jdbcType="VARCHAR" property="loanNo" />
+    <result column="CURRENCY" jdbcType="VARCHAR" property="currency" />
+    <result column="LOAN_STATUS" jdbcType="VARCHAR" property="loanStatus" />
+    <result column="LOAN_DATE" jdbcType="VARCHAR" property="loanDate" />
+    <result column="LOAN_AMT" jdbcType="DECIMAL" property="loanAmt" />
+    <result column="DUE_DATE" jdbcType="VARCHAR" property="dueDate" />
+    <result column="LOAN_AMT_LOC" jdbcType="VARCHAR" property="loanAmtLoc" />
+    <result column="PRINC_REPAY_FREQ" jdbcType="VARCHAR" property="princRepayFreq" />
+    <result column="INTER_REPAY_FREQ" jdbcType="VARCHAR" property="interRepayFreq" />
+    <result column="SELF_PAY_AMT" jdbcType="DECIMAL" property="selfPayAmt" />
+    <result column="FIDUC_PAY_AMT" jdbcType="DECIMAL" property="fiducPayAmt" />
+    <result column="OVD_FLAG" jdbcType="VARCHAR" property="ovdFlag" />
+    <result column="OVD_DAY" jdbcType="DECIMAL" property="ovdDay" />
+    <result column="GRACE_PERIOD" jdbcType="DECIMAL" property="gracePeriod" />
+    <result column="PRINC_OVER_DUE_DATE" jdbcType="VARCHAR" property="princOverDueDate" />
+    <result column="INT_OVER_DUE_DATE" jdbcType="VARCHAR" property="intOverDueDate" />
+    <result column="NEXT_INT_PAY_DAY" jdbcType="VARCHAR" property="nextIntPayDay" />
+    <result column="RATE_TYPE" jdbcType="VARCHAR" property="rateType" />
+    <result column="LOAN_OS_PRCP" jdbcType="DECIMAL" property="loanOsPrcp" />
+    <result column="OVD_LOAN_OS_PRCP" jdbcType="DECIMAL" property="ovdLoanOsPrcp" />
+    <result column="OVD_INT" jdbcType="DECIMAL" property="ovdInt" />
+    <result column="OUT_DEBIT_INT" jdbcType="DECIMAL" property="outDebitInt" />
+    <result column="INT_FLAG" jdbcType="VARCHAR" property="intFlag" />
+    <result column="ACCRUED_INT" jdbcType="DECIMAL" property="accruedInt" />
+    <result column="DAY_INT" jdbcType="DECIMAL" property="dayInt" />
+    <result column="DAY_OD_INT" jdbcType="DECIMAL" property="dayOdInt" />
+    <result column="LOAN_ACCOUNT_NO" jdbcType="VARCHAR" property="loanAccountNo" />
+    <result column="REPAY_ACCOUNT" jdbcType="VARCHAR" property="repayAccount" />
+    <result column="GRUARANTEE_METHOD" jdbcType="VARCHAR" property="gruaranteeMethod" />
+    <result column="REPAY_METHOD" jdbcType="VARCHAR" property="repayMethod" />
+    <result column="LOAN_INT_RATE" jdbcType="DECIMAL" property="loanIntRate" />
+    <result column="OD_INT_RATE" jdbcType="DECIMAL" property="odIntRate" />
+    <result column="LOAN_INT_RATE_TYPE" jdbcType="VARCHAR" property="loanIntRateType" />
+    <result column="OD_INT_RATE_TYPE" jdbcType="VARCHAR" property="odIntRateType" />
+    <result column="SERIAL_NO" jdbcType="VARCHAR" property="serialNo" />
+    <result column="LOAN_USAGE" jdbcType="VARCHAR" property="loanUsage" />
+    <result column="LOAN_EXECU_RATE" jdbcType="DECIMAL" property="loanExecuRate" />
+    <result column="LOAN_EXECU_RATE_TYPE" jdbcType="VARCHAR" property="loanExecuRateType" />
+    <result column="INPUT_DATE" jdbcType="VARCHAR" property="inputDate" />
+    <result column="INPUT_TIME" jdbcType="VARCHAR" property="inputTime" />
+    <result column="DATA_DATE" jdbcType="VARCHAR" property="dataDate" />
+  </resultMap>
+  <insert id="insert" parameterType="com.bea.olp.BAT_JD_LOAN_HIS">
+    insert into BAT_JD_LOAN_HIS (BUSI_DATE, CONTRACT_NO, CUST_NO, 
+      PRO_NO, LIMIT_NO, LOAN_NO, 
+      CURRENCY, LOAN_STATUS, LOAN_DATE, 
+      LOAN_AMT, DUE_DATE, LOAN_AMT_LOC, 
+      PRINC_REPAY_FREQ, INTER_REPAY_FREQ, SELF_PAY_AMT, 
+      FIDUC_PAY_AMT, OVD_FLAG, OVD_DAY, 
+      GRACE_PERIOD, PRINC_OVER_DUE_DATE, INT_OVER_DUE_DATE, 
+      NEXT_INT_PAY_DAY, RATE_TYPE, LOAN_OS_PRCP, 
+      OVD_LOAN_OS_PRCP, OVD_INT, OUT_DEBIT_INT, 
+      INT_FLAG, ACCRUED_INT, DAY_INT, 
+      DAY_OD_INT, LOAN_ACCOUNT_NO, REPAY_ACCOUNT, 
+      GRUARANTEE_METHOD, REPAY_METHOD, LOAN_INT_RATE, 
+      OD_INT_RATE, LOAN_INT_RATE_TYPE, OD_INT_RATE_TYPE, 
+      SERIAL_NO, LOAN_USAGE, LOAN_EXECU_RATE, 
+      LOAN_EXECU_RATE_TYPE, INPUT_DATE, INPUT_TIME, 
+      DATA_DATE)
+    values (#{busiDate,jdbcType=VARCHAR}, #{contractNo,jdbcType=VARCHAR}, #{custNo,jdbcType=VARCHAR}, 
+      #{proNo,jdbcType=VARCHAR}, #{limitNo,jdbcType=VARCHAR}, #{loanNo,jdbcType=VARCHAR}, 
+      #{currency,jdbcType=VARCHAR}, #{loanStatus,jdbcType=VARCHAR}, #{loanDate,jdbcType=VARCHAR}, 
+      #{loanAmt,jdbcType=DECIMAL}, #{dueDate,jdbcType=VARCHAR}, #{loanAmtLoc,jdbcType=VARCHAR}, 
+      #{princRepayFreq,jdbcType=VARCHAR}, #{interRepayFreq,jdbcType=VARCHAR}, #{selfPayAmt,jdbcType=DECIMAL}, 
+      #{fiducPayAmt,jdbcType=DECIMAL}, #{ovdFlag,jdbcType=VARCHAR}, #{ovdDay,jdbcType=DECIMAL}, 
+      #{gracePeriod,jdbcType=DECIMAL}, #{princOverDueDate,jdbcType=VARCHAR}, #{intOverDueDate,jdbcType=VARCHAR}, 
+      #{nextIntPayDay,jdbcType=VARCHAR}, #{rateType,jdbcType=VARCHAR}, #{loanOsPrcp,jdbcType=DECIMAL}, 
+      #{ovdLoanOsPrcp,jdbcType=DECIMAL}, #{ovdInt,jdbcType=DECIMAL}, #{outDebitInt,jdbcType=DECIMAL}, 
+      #{intFlag,jdbcType=VARCHAR}, #{accruedInt,jdbcType=DECIMAL}, #{dayInt,jdbcType=DECIMAL}, 
+      #{dayOdInt,jdbcType=DECIMAL}, #{loanAccountNo,jdbcType=VARCHAR}, #{repayAccount,jdbcType=VARCHAR}, 
+      #{gruaranteeMethod,jdbcType=VARCHAR}, #{repayMethod,jdbcType=VARCHAR}, #{loanIntRate,jdbcType=DECIMAL}, 
+      #{odIntRate,jdbcType=DECIMAL}, #{loanIntRateType,jdbcType=VARCHAR}, #{odIntRateType,jdbcType=VARCHAR}, 
+      #{serialNo,jdbcType=VARCHAR}, #{loanUsage,jdbcType=VARCHAR}, #{loanExecuRate,jdbcType=DECIMAL}, 
+      #{loanExecuRateType,jdbcType=VARCHAR}, #{inputDate,jdbcType=VARCHAR}, #{inputTime,jdbcType=VARCHAR}, 
+      #{dataDate,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.BAT_JD_LOAN_HIS">
+    insert into BAT_JD_LOAN_HIS
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="busiDate != null">
+        BUSI_DATE,
+      </if>
+      <if test="contractNo != null">
+        CONTRACT_NO,
+      </if>
+      <if test="custNo != null">
+        CUST_NO,
+      </if>
+      <if test="proNo != null">
+        PRO_NO,
+      </if>
+      <if test="limitNo != null">
+        LIMIT_NO,
+      </if>
+      <if test="loanNo != null">
+        LOAN_NO,
+      </if>
+      <if test="currency != null">
+        CURRENCY,
+      </if>
+      <if test="loanStatus != null">
+        LOAN_STATUS,
+      </if>
+      <if test="loanDate != null">
+        LOAN_DATE,
+      </if>
+      <if test="loanAmt != null">
+        LOAN_AMT,
+      </if>
+      <if test="dueDate != null">
+        DUE_DATE,
+      </if>
+      <if test="loanAmtLoc != null">
+        LOAN_AMT_LOC,
+      </if>
+      <if test="princRepayFreq != null">
+        PRINC_REPAY_FREQ,
+      </if>
+      <if test="interRepayFreq != null">
+        INTER_REPAY_FREQ,
+      </if>
+      <if test="selfPayAmt != null">
+        SELF_PAY_AMT,
+      </if>
+      <if test="fiducPayAmt != null">
+        FIDUC_PAY_AMT,
+      </if>
+      <if test="ovdFlag != null">
+        OVD_FLAG,
+      </if>
+      <if test="ovdDay != null">
+        OVD_DAY,
+      </if>
+      <if test="gracePeriod != null">
+        GRACE_PERIOD,
+      </if>
+      <if test="princOverDueDate != null">
+        PRINC_OVER_DUE_DATE,
+      </if>
+      <if test="intOverDueDate != null">
+        INT_OVER_DUE_DATE,
+      </if>
+      <if test="nextIntPayDay != null">
+        NEXT_INT_PAY_DAY,
+      </if>
+      <if test="rateType != null">
+        RATE_TYPE,
+      </if>
+      <if test="loanOsPrcp != null">
+        LOAN_OS_PRCP,
+      </if>
+      <if test="ovdLoanOsPrcp != null">
+        OVD_LOAN_OS_PRCP,
+      </if>
+      <if test="ovdInt != null">
+        OVD_INT,
+      </if>
+      <if test="outDebitInt != null">
+        OUT_DEBIT_INT,
+      </if>
+      <if test="intFlag != null">
+        INT_FLAG,
+      </if>
+      <if test="accruedInt != null">
+        ACCRUED_INT,
+      </if>
+      <if test="dayInt != null">
+        DAY_INT,
+      </if>
+      <if test="dayOdInt != null">
+        DAY_OD_INT,
+      </if>
+      <if test="loanAccountNo != null">
+        LOAN_ACCOUNT_NO,
+      </if>
+      <if test="repayAccount != null">
+        REPAY_ACCOUNT,
+      </if>
+      <if test="gruaranteeMethod != null">
+        GRUARANTEE_METHOD,
+      </if>
+      <if test="repayMethod != null">
+        REPAY_METHOD,
+      </if>
+      <if test="loanIntRate != null">
+        LOAN_INT_RATE,
+      </if>
+      <if test="odIntRate != null">
+        OD_INT_RATE,
+      </if>
+      <if test="loanIntRateType != null">
+        LOAN_INT_RATE_TYPE,
+      </if>
+      <if test="odIntRateType != null">
+        OD_INT_RATE_TYPE,
+      </if>
+      <if test="serialNo != null">
+        SERIAL_NO,
+      </if>
+      <if test="loanUsage != null">
+        LOAN_USAGE,
+      </if>
+      <if test="loanExecuRate != null">
+        LOAN_EXECU_RATE,
+      </if>
+      <if test="loanExecuRateType != null">
+        LOAN_EXECU_RATE_TYPE,
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE,
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME,
+      </if>
+      <if test="dataDate != null">
+        DATA_DATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="busiDate != null">
+        #{busiDate,jdbcType=VARCHAR},
+      </if>
+      <if test="contractNo != null">
+        #{contractNo,jdbcType=VARCHAR},
+      </if>
+      <if test="custNo != null">
+        #{custNo,jdbcType=VARCHAR},
+      </if>
+      <if test="proNo != null">
+        #{proNo,jdbcType=VARCHAR},
+      </if>
+      <if test="limitNo != null">
+        #{limitNo,jdbcType=VARCHAR},
+      </if>
+      <if test="loanNo != null">
+        #{loanNo,jdbcType=VARCHAR},
+      </if>
+      <if test="currency != null">
+        #{currency,jdbcType=VARCHAR},
+      </if>
+      <if test="loanStatus != null">
+        #{loanStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="loanDate != null">
+        #{loanDate,jdbcType=VARCHAR},
+      </if>
+      <if test="loanAmt != null">
+        #{loanAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="dueDate != null">
+        #{dueDate,jdbcType=VARCHAR},
+      </if>
+      <if test="loanAmtLoc != null">
+        #{loanAmtLoc,jdbcType=VARCHAR},
+      </if>
+      <if test="princRepayFreq != null">
+        #{princRepayFreq,jdbcType=VARCHAR},
+      </if>
+      <if test="interRepayFreq != null">
+        #{interRepayFreq,jdbcType=VARCHAR},
+      </if>
+      <if test="selfPayAmt != null">
+        #{selfPayAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="fiducPayAmt != null">
+        #{fiducPayAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="ovdFlag != null">
+        #{ovdFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="ovdDay != null">
+        #{ovdDay,jdbcType=DECIMAL},
+      </if>
+      <if test="gracePeriod != null">
+        #{gracePeriod,jdbcType=DECIMAL},
+      </if>
+      <if test="princOverDueDate != null">
+        #{princOverDueDate,jdbcType=VARCHAR},
+      </if>
+      <if test="intOverDueDate != null">
+        #{intOverDueDate,jdbcType=VARCHAR},
+      </if>
+      <if test="nextIntPayDay != null">
+        #{nextIntPayDay,jdbcType=VARCHAR},
+      </if>
+      <if test="rateType != null">
+        #{rateType,jdbcType=VARCHAR},
+      </if>
+      <if test="loanOsPrcp != null">
+        #{loanOsPrcp,jdbcType=DECIMAL},
+      </if>
+      <if test="ovdLoanOsPrcp != null">
+        #{ovdLoanOsPrcp,jdbcType=DECIMAL},
+      </if>
+      <if test="ovdInt != null">
+        #{ovdInt,jdbcType=DECIMAL},
+      </if>
+      <if test="outDebitInt != null">
+        #{outDebitInt,jdbcType=DECIMAL},
+      </if>
+      <if test="intFlag != null">
+        #{intFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="accruedInt != null">
+        #{accruedInt,jdbcType=DECIMAL},
+      </if>
+      <if test="dayInt != null">
+        #{dayInt,jdbcType=DECIMAL},
+      </if>
+      <if test="dayOdInt != null">
+        #{dayOdInt,jdbcType=DECIMAL},
+      </if>
+      <if test="loanAccountNo != null">
+        #{loanAccountNo,jdbcType=VARCHAR},
+      </if>
+      <if test="repayAccount != null">
+        #{repayAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="gruaranteeMethod != null">
+        #{gruaranteeMethod,jdbcType=VARCHAR},
+      </if>
+      <if test="repayMethod != null">
+        #{repayMethod,jdbcType=VARCHAR},
+      </if>
+      <if test="loanIntRate != null">
+        #{loanIntRate,jdbcType=DECIMAL},
+      </if>
+      <if test="odIntRate != null">
+        #{odIntRate,jdbcType=DECIMAL},
+      </if>
+      <if test="loanIntRateType != null">
+        #{loanIntRateType,jdbcType=VARCHAR},
+      </if>
+      <if test="odIntRateType != null">
+        #{odIntRateType,jdbcType=VARCHAR},
+      </if>
+      <if test="serialNo != null">
+        #{serialNo,jdbcType=VARCHAR},
+      </if>
+      <if test="loanUsage != null">
+        #{loanUsage,jdbcType=VARCHAR},
+      </if>
+      <if test="loanExecuRate != null">
+        #{loanExecuRate,jdbcType=DECIMAL},
+      </if>
+      <if test="loanExecuRateType != null">
+        #{loanExecuRateType,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="dataDate != null">
+        #{dataDate,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

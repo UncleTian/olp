@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.BIZ_CHSI_INFOMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.BIZ_CHSI_INFO">
+    <id column="APP_NO" jdbcType="VARCHAR" property="appNo" />
+    <result column="APPLY_NO" jdbcType="VARCHAR" property="applyNo" />
+    <result column="SCHOOL_NAME" jdbcType="VARCHAR" property="schoolName" />
+    <result column="EDU_LEVEL" jdbcType="VARCHAR" property="eduLevel" />
+    <result column="EDU_TYPE" jdbcType="VARCHAR" property="eduType" />
+    <result column="SCHOOL_YEAR" jdbcType="VARCHAR" property="schoolYear" />
+    <result column="INPUT_DATE" jdbcType="VARCHAR" property="inputDate" />
+    <result column="INPUT_TIME" jdbcType="VARCHAR" property="inputTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    APP_NO, APPLY_NO, SCHOOL_NAME, EDU_LEVEL, EDU_TYPE, SCHOOL_YEAR, INPUT_DATE, INPUT_TIME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from BIZ_CHSI_INFO
+    where APP_NO = #{appNo,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from BIZ_CHSI_INFO
+    where APP_NO = #{appNo,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.BIZ_CHSI_INFO">
+    insert into BIZ_CHSI_INFO (APP_NO, APPLY_NO, SCHOOL_NAME, 
+      EDU_LEVEL, EDU_TYPE, SCHOOL_YEAR, 
+      INPUT_DATE, INPUT_TIME)
+    values (#{appNo,jdbcType=VARCHAR}, #{applyNo,jdbcType=VARCHAR}, #{schoolName,jdbcType=VARCHAR}, 
+      #{eduLevel,jdbcType=VARCHAR}, #{eduType,jdbcType=VARCHAR}, #{schoolYear,jdbcType=VARCHAR}, 
+      #{inputDate,jdbcType=VARCHAR}, #{inputTime,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.BIZ_CHSI_INFO">
+    insert into BIZ_CHSI_INFO
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="appNo != null">
+        APP_NO,
+      </if>
+      <if test="applyNo != null">
+        APPLY_NO,
+      </if>
+      <if test="schoolName != null">
+        SCHOOL_NAME,
+      </if>
+      <if test="eduLevel != null">
+        EDU_LEVEL,
+      </if>
+      <if test="eduType != null">
+        EDU_TYPE,
+      </if>
+      <if test="schoolYear != null">
+        SCHOOL_YEAR,
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE,
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="appNo != null">
+        #{appNo,jdbcType=VARCHAR},
+      </if>
+      <if test="applyNo != null">
+        #{applyNo,jdbcType=VARCHAR},
+      </if>
+      <if test="schoolName != null">
+        #{schoolName,jdbcType=VARCHAR},
+      </if>
+      <if test="eduLevel != null">
+        #{eduLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="eduType != null">
+        #{eduType,jdbcType=VARCHAR},
+      </if>
+      <if test="schoolYear != null">
+        #{schoolYear,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        #{inputTime,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.BIZ_CHSI_INFO">
+    update BIZ_CHSI_INFO
+    <set>
+      <if test="applyNo != null">
+        APPLY_NO = #{applyNo,jdbcType=VARCHAR},
+      </if>
+      <if test="schoolName != null">
+        SCHOOL_NAME = #{schoolName,jdbcType=VARCHAR},
+      </if>
+      <if test="eduLevel != null">
+        EDU_LEVEL = #{eduLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="eduType != null">
+        EDU_TYPE = #{eduType,jdbcType=VARCHAR},
+      </if>
+      <if test="schoolYear != null">
+        SCHOOL_YEAR = #{schoolYear,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE = #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME = #{inputTime,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where APP_NO = #{appNo,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.BIZ_CHSI_INFO">
+    update BIZ_CHSI_INFO
+    set APPLY_NO = #{applyNo,jdbcType=VARCHAR},
+      SCHOOL_NAME = #{schoolName,jdbcType=VARCHAR},
+      EDU_LEVEL = #{eduLevel,jdbcType=VARCHAR},
+      EDU_TYPE = #{eduType,jdbcType=VARCHAR},
+      SCHOOL_YEAR = #{schoolYear,jdbcType=VARCHAR},
+      INPUT_DATE = #{inputDate,jdbcType=VARCHAR},
+      INPUT_TIME = #{inputTime,jdbcType=VARCHAR}
+    where APP_NO = #{appNo,jdbcType=VARCHAR}
+  </update>
+</mapper>

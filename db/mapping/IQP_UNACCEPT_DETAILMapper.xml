@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.IQP_UNACCEPT_DETAILMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.IQP_UNACCEPT_DETAIL">
+    <id column="DETAIL_SERNO" jdbcType="VARCHAR" property="detailSerno" />
+    <result column="SERNO" jdbcType="VARCHAR" property="serno" />
+    <result column="APPL_DATE" jdbcType="VARCHAR" property="applDate" />
+    <result column="CO_PLATFORM" jdbcType="CHAR" property="coPlatform" />
+    <result column="CERT_TYPE" jdbcType="VARCHAR" property="certType" />
+    <result column="CERT_CODE" jdbcType="VARCHAR" property="certCode" />
+    <result column="UNACCEPT_NUM" jdbcType="VARCHAR" property="unacceptNum" />
+    <result column="INPUT_TIME" jdbcType="VARCHAR" property="inputTime" />
+    <result column="ORDER_NUM" jdbcType="DECIMAL" property="orderNum" />
+    <result column="CUST_NAME" jdbcType="VARCHAR" property="custName" />
+    <result column="LIST_STATUS" jdbcType="VARCHAR" property="listStatus" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    DETAIL_SERNO, SERNO, APPL_DATE, CO_PLATFORM, CERT_TYPE, CERT_CODE, UNACCEPT_NUM, 
+    INPUT_TIME, ORDER_NUM, CUST_NAME, LIST_STATUS
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from IQP_UNACCEPT_DETAIL
+    where DETAIL_SERNO = #{detailSerno,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from IQP_UNACCEPT_DETAIL
+    where DETAIL_SERNO = #{detailSerno,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.IQP_UNACCEPT_DETAIL">
+    insert into IQP_UNACCEPT_DETAIL (DETAIL_SERNO, SERNO, APPL_DATE, 
+      CO_PLATFORM, CERT_TYPE, CERT_CODE, 
+      UNACCEPT_NUM, INPUT_TIME, ORDER_NUM, 
+      CUST_NAME, LIST_STATUS)
+    values (#{detailSerno,jdbcType=VARCHAR}, #{serno,jdbcType=VARCHAR}, #{applDate,jdbcType=VARCHAR}, 
+      #{coPlatform,jdbcType=CHAR}, #{certType,jdbcType=VARCHAR}, #{certCode,jdbcType=VARCHAR}, 
+      #{unacceptNum,jdbcType=VARCHAR}, #{inputTime,jdbcType=VARCHAR}, #{orderNum,jdbcType=DECIMAL}, 
+      #{custName,jdbcType=VARCHAR}, #{listStatus,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.IQP_UNACCEPT_DETAIL">
+    insert into IQP_UNACCEPT_DETAIL
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="detailSerno != null">
+        DETAIL_SERNO,
+      </if>
+      <if test="serno != null">
+        SERNO,
+      </if>
+      <if test="applDate != null">
+        APPL_DATE,
+      </if>
+      <if test="coPlatform != null">
+        CO_PLATFORM,
+      </if>
+      <if test="certType != null">
+        CERT_TYPE,
+      </if>
+      <if test="certCode != null">
+        CERT_CODE,
+      </if>
+      <if test="unacceptNum != null">
+        UNACCEPT_NUM,
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME,
+      </if>
+      <if test="orderNum != null">
+        ORDER_NUM,
+      </if>
+      <if test="custName != null">
+        CUST_NAME,
+      </if>
+      <if test="listStatus != null">
+        LIST_STATUS,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="detailSerno != null">
+        #{detailSerno,jdbcType=VARCHAR},
+      </if>
+      <if test="serno != null">
+        #{serno,jdbcType=VARCHAR},
+      </if>
+      <if test="applDate != null">
+        #{applDate,jdbcType=VARCHAR},
+      </if>
+      <if test="coPlatform != null">
+        #{coPlatform,jdbcType=CHAR},
+      </if>
+      <if test="certType != null">
+        #{certType,jdbcType=VARCHAR},
+      </if>
+      <if test="certCode != null">
+        #{certCode,jdbcType=VARCHAR},
+      </if>
+      <if test="unacceptNum != null">
+        #{unacceptNum,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="orderNum != null">
+        #{orderNum,jdbcType=DECIMAL},
+      </if>
+      <if test="custName != null">
+        #{custName,jdbcType=VARCHAR},
+      </if>
+      <if test="listStatus != null">
+        #{listStatus,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.IQP_UNACCEPT_DETAIL">
+    update IQP_UNACCEPT_DETAIL
+    <set>
+      <if test="serno != null">
+        SERNO = #{serno,jdbcType=VARCHAR},
+      </if>
+      <if test="applDate != null">
+        APPL_DATE = #{applDate,jdbcType=VARCHAR},
+      </if>
+      <if test="coPlatform != null">
+        CO_PLATFORM = #{coPlatform,jdbcType=CHAR},
+      </if>
+      <if test="certType != null">
+        CERT_TYPE = #{certType,jdbcType=VARCHAR},
+      </if>
+      <if test="certCode != null">
+        CERT_CODE = #{certCode,jdbcType=VARCHAR},
+      </if>
+      <if test="unacceptNum != null">
+        UNACCEPT_NUM = #{unacceptNum,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME = #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="orderNum != null">
+        ORDER_NUM = #{orderNum,jdbcType=DECIMAL},
+      </if>
+      <if test="custName != null">
+        CUST_NAME = #{custName,jdbcType=VARCHAR},
+      </if>
+      <if test="listStatus != null">
+        LIST_STATUS = #{listStatus,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where DETAIL_SERNO = #{detailSerno,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.IQP_UNACCEPT_DETAIL">
+    update IQP_UNACCEPT_DETAIL
+    set SERNO = #{serno,jdbcType=VARCHAR},
+      APPL_DATE = #{applDate,jdbcType=VARCHAR},
+      CO_PLATFORM = #{coPlatform,jdbcType=CHAR},
+      CERT_TYPE = #{certType,jdbcType=VARCHAR},
+      CERT_CODE = #{certCode,jdbcType=VARCHAR},
+      UNACCEPT_NUM = #{unacceptNum,jdbcType=VARCHAR},
+      INPUT_TIME = #{inputTime,jdbcType=VARCHAR},
+      ORDER_NUM = #{orderNum,jdbcType=DECIMAL},
+      CUST_NAME = #{custName,jdbcType=VARCHAR},
+      LIST_STATUS = #{listStatus,jdbcType=VARCHAR}
+    where DETAIL_SERNO = #{detailSerno,jdbcType=VARCHAR}
+  </update>
+</mapper>

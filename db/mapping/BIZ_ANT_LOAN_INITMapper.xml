@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.BIZ_ANT_LOAN_INITMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.BIZ_ANT_LOAN_INIT">
+    <id column="CONTRACT_NO" jdbcType="VARCHAR" property="contractNo" />
+    <result column="SETTLE_DATE" jdbcType="VARCHAR" property="settleDate" />
+    <result column="STATUS" jdbcType="VARCHAR" property="status" />
+    <result column="CLEAR_DATE" jdbcType="VARCHAR" property="clearDate" />
+    <result column="ASSET_CLASS" jdbcType="VARCHAR" property="assetClass" />
+    <result column="ACCRUED_STATUS" jdbcType="VARCHAR" property="accruedStatus" />
+    <result column="NEXT_REPAY_DATE" jdbcType="VARCHAR" property="nextRepayDate" />
+    <result column="UNCLEAR_TERMS" jdbcType="DECIMAL" property="unclearTerms" />
+    <result column="OVD_TERMS" jdbcType="DECIMAL" property="ovdTerms" />
+    <result column="PRIN_OVD_DAYS" jdbcType="DECIMAL" property="prinOvdDays" />
+    <result column="INT_OVD_DAYS" jdbcType="DECIMAL" property="intOvdDays" />
+    <result column="PRIN_BAL" jdbcType="DECIMAL" property="prinBal" />
+    <result column="OVD_PRIN_BAL" jdbcType="DECIMAL" property="ovdPrinBal" />
+    <result column="INT_BAL" jdbcType="DECIMAL" property="intBal" />
+    <result column="OVD_INT_BAL" jdbcType="DECIMAL" property="ovdIntBal" />
+    <result column="OVD_PRIN_PNLT_BAL" jdbcType="DECIMAL" property="ovdPrinPnltBal" />
+    <result column="OVD_INT_PNLT_BAL" jdbcType="DECIMAL" property="ovdIntPnltBal" />
+    <result column="INPUT_DATE" jdbcType="VARCHAR" property="inputDate" />
+    <result column="INPUT_TIME" jdbcType="VARCHAR" property="inputTime" />
+    <result column="LAST_UPDATE_DATE" jdbcType="VARCHAR" property="lastUpdateDate" />
+    <result column="LAST_UPDATE_TIME" jdbcType="VARCHAR" property="lastUpdateTime" />
+    <result column="DATA_DATE" jdbcType="VARCHAR" property="dataDate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    CONTRACT_NO, SETTLE_DATE, STATUS, CLEAR_DATE, ASSET_CLASS, ACCRUED_STATUS, NEXT_REPAY_DATE, 
+    UNCLEAR_TERMS, OVD_TERMS, PRIN_OVD_DAYS, INT_OVD_DAYS, PRIN_BAL, OVD_PRIN_BAL, INT_BAL, 
+    OVD_INT_BAL, OVD_PRIN_PNLT_BAL, OVD_INT_PNLT_BAL, INPUT_DATE, INPUT_TIME, LAST_UPDATE_DATE, 
+    LAST_UPDATE_TIME, DATA_DATE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from BIZ_ANT_LOAN_INIT
+    where CONTRACT_NO = #{contractNo,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from BIZ_ANT_LOAN_INIT
+    where CONTRACT_NO = #{contractNo,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.BIZ_ANT_LOAN_INIT">
+    insert into BIZ_ANT_LOAN_INIT (CONTRACT_NO, SETTLE_DATE, STATUS, 
+      CLEAR_DATE, ASSET_CLASS, ACCRUED_STATUS, 
+      NEXT_REPAY_DATE, UNCLEAR_TERMS, OVD_TERMS, 
+      PRIN_OVD_DAYS, INT_OVD_DAYS, PRIN_BAL, 
+      OVD_PRIN_BAL, INT_BAL, OVD_INT_BAL, 
+      OVD_PRIN_PNLT_BAL, OVD_INT_PNLT_BAL, INPUT_DATE, 
+      INPUT_TIME, LAST_UPDATE_DATE, LAST_UPDATE_TIME, 
+      DATA_DATE)
+    values (#{contractNo,jdbcType=VARCHAR}, #{settleDate,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, 
+      #{clearDate,jdbcType=VARCHAR}, #{assetClass,jdbcType=VARCHAR}, #{accruedStatus,jdbcType=VARCHAR}, 
+      #{nextRepayDate,jdbcType=VARCHAR}, #{unclearTerms,jdbcType=DECIMAL}, #{ovdTerms,jdbcType=DECIMAL}, 
+      #{prinOvdDays,jdbcType=DECIMAL}, #{intOvdDays,jdbcType=DECIMAL}, #{prinBal,jdbcType=DECIMAL}, 
+      #{ovdPrinBal,jdbcType=DECIMAL}, #{intBal,jdbcType=DECIMAL}, #{ovdIntBal,jdbcType=DECIMAL}, 
+      #{ovdPrinPnltBal,jdbcType=DECIMAL}, #{ovdIntPnltBal,jdbcType=DECIMAL}, #{inputDate,jdbcType=VARCHAR}, 
+      #{inputTime,jdbcType=VARCHAR}, #{lastUpdateDate,jdbcType=VARCHAR}, #{lastUpdateTime,jdbcType=VARCHAR}, 
+      #{dataDate,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.BIZ_ANT_LOAN_INIT">
+    insert into BIZ_ANT_LOAN_INIT
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="contractNo != null">
+        CONTRACT_NO,
+      </if>
+      <if test="settleDate != null">
+        SETTLE_DATE,
+      </if>
+      <if test="status != null">
+        STATUS,
+      </if>
+      <if test="clearDate != null">
+        CLEAR_DATE,
+      </if>
+      <if test="assetClass != null">
+        ASSET_CLASS,
+      </if>
+      <if test="accruedStatus != null">
+        ACCRUED_STATUS,
+      </if>
+      <if test="nextRepayDate != null">
+        NEXT_REPAY_DATE,
+      </if>
+      <if test="unclearTerms != null">
+        UNCLEAR_TERMS,
+      </if>
+      <if test="ovdTerms != null">
+        OVD_TERMS,
+      </if>
+      <if test="prinOvdDays != null">
+        PRIN_OVD_DAYS,
+      </if>
+      <if test="intOvdDays != null">
+        INT_OVD_DAYS,
+      </if>
+      <if test="prinBal != null">
+        PRIN_BAL,
+      </if>
+      <if test="ovdPrinBal != null">
+        OVD_PRIN_BAL,
+      </if>
+      <if test="intBal != null">
+        INT_BAL,
+      </if>
+      <if test="ovdIntBal != null">
+        OVD_INT_BAL,
+      </if>
+      <if test="ovdPrinPnltBal != null">
+        OVD_PRIN_PNLT_BAL,
+      </if>
+      <if test="ovdIntPnltBal != null">
+        OVD_INT_PNLT_BAL,
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE,
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME,
+      </if>
+      <if test="lastUpdateDate != null">
+        LAST_UPDATE_DATE,
+      </if>
+      <if test="lastUpdateTime != null">
+        LAST_UPDATE_TIME,
+      </if>
+      <if test="dataDate != null">
+        DATA_DATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="contractNo != null">
+        #{contractNo,jdbcType=VARCHAR},
+      </if>
+      <if test="settleDate != null">
+        #{settleDate,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="clearDate != null">
+        #{clearDate,jdbcType=VARCHAR},
+      </if>
+      <if test="assetClass != null">
+        #{assetClass,jdbcType=VARCHAR},
+      </if>
+      <if test="accruedStatus != null">
+        #{accruedStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="nextRepayDate != null">
+        #{nextRepayDate,jdbcType=VARCHAR},
+      </if>
+      <if test="unclearTerms != null">
+        #{unclearTerms,jdbcType=DECIMAL},
+      </if>
+      <if test="ovdTerms != null">
+        #{ovdTerms,jdbcType=DECIMAL},
+      </if>
+      <if test="prinOvdDays != null">
+        #{prinOvdDays,jdbcType=DECIMAL},
+      </if>
+      <if test="intOvdDays != null">
+        #{intOvdDays,jdbcType=DECIMAL},
+      </if>
+      <if test="prinBal != null">
+        #{prinBal,jdbcType=DECIMAL},
+      </if>
+      <if test="ovdPrinBal != null">
+        #{ovdPrinBal,jdbcType=DECIMAL},
+      </if>
+      <if test="intBal != null">
+        #{intBal,jdbcType=DECIMAL},
+      </if>
+      <if test="ovdIntBal != null">
+        #{ovdIntBal,jdbcType=DECIMAL},
+      </if>
+      <if test="ovdPrinPnltBal != null">
+        #{ovdPrinPnltBal,jdbcType=DECIMAL},
+      </if>
+      <if test="ovdIntPnltBal != null">
+        #{ovdIntPnltBal,jdbcType=DECIMAL},
+      </if>
+      <if test="inputDate != null">
+        #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateDate != null">
+        #{lastUpdateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        #{lastUpdateTime,jdbcType=VARCHAR},
+      </if>
+      <if test="dataDate != null">
+        #{dataDate,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.BIZ_ANT_LOAN_INIT">
+    update BIZ_ANT_LOAN_INIT
+    <set>
+      <if test="settleDate != null">
+        SETTLE_DATE = #{settleDate,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        STATUS = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="clearDate != null">
+        CLEAR_DATE = #{clearDate,jdbcType=VARCHAR},
+      </if>
+      <if test="assetClass != null">
+        ASSET_CLASS = #{assetClass,jdbcType=VARCHAR},
+      </if>
+      <if test="accruedStatus != null">
+        ACCRUED_STATUS = #{accruedStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="nextRepayDate != null">
+        NEXT_REPAY_DATE = #{nextRepayDate,jdbcType=VARCHAR},
+      </if>
+      <if test="unclearTerms != null">
+        UNCLEAR_TERMS = #{unclearTerms,jdbcType=DECIMAL},
+      </if>
+      <if test="ovdTerms != null">
+        OVD_TERMS = #{ovdTerms,jdbcType=DECIMAL},
+      </if>
+      <if test="prinOvdDays != null">
+        PRIN_OVD_DAYS = #{prinOvdDays,jdbcType=DECIMAL},
+      </if>
+      <if test="intOvdDays != null">
+        INT_OVD_DAYS = #{intOvdDays,jdbcType=DECIMAL},
+      </if>
+      <if test="prinBal != null">
+        PRIN_BAL = #{prinBal,jdbcType=DECIMAL},
+      </if>
+      <if test="ovdPrinBal != null">
+        OVD_PRIN_BAL = #{ovdPrinBal,jdbcType=DECIMAL},
+      </if>
+      <if test="intBal != null">
+        INT_BAL = #{intBal,jdbcType=DECIMAL},
+      </if>
+      <if test="ovdIntBal != null">
+        OVD_INT_BAL = #{ovdIntBal,jdbcType=DECIMAL},
+      </if>
+      <if test="ovdPrinPnltBal != null">
+        OVD_PRIN_PNLT_BAL = #{ovdPrinPnltBal,jdbcType=DECIMAL},
+      </if>
+      <if test="ovdIntPnltBal != null">
+        OVD_INT_PNLT_BAL = #{ovdIntPnltBal,jdbcType=DECIMAL},
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE = #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME = #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateDate != null">
+        LAST_UPDATE_DATE = #{lastUpdateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=VARCHAR},
+      </if>
+      <if test="dataDate != null">
+        DATA_DATE = #{dataDate,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where CONTRACT_NO = #{contractNo,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.BIZ_ANT_LOAN_INIT">
+    update BIZ_ANT_LOAN_INIT
+    set SETTLE_DATE = #{settleDate,jdbcType=VARCHAR},
+      STATUS = #{status,jdbcType=VARCHAR},
+      CLEAR_DATE = #{clearDate,jdbcType=VARCHAR},
+      ASSET_CLASS = #{assetClass,jdbcType=VARCHAR},
+      ACCRUED_STATUS = #{accruedStatus,jdbcType=VARCHAR},
+      NEXT_REPAY_DATE = #{nextRepayDate,jdbcType=VARCHAR},
+      UNCLEAR_TERMS = #{unclearTerms,jdbcType=DECIMAL},
+      OVD_TERMS = #{ovdTerms,jdbcType=DECIMAL},
+      PRIN_OVD_DAYS = #{prinOvdDays,jdbcType=DECIMAL},
+      INT_OVD_DAYS = #{intOvdDays,jdbcType=DECIMAL},
+      PRIN_BAL = #{prinBal,jdbcType=DECIMAL},
+      OVD_PRIN_BAL = #{ovdPrinBal,jdbcType=DECIMAL},
+      INT_BAL = #{intBal,jdbcType=DECIMAL},
+      OVD_INT_BAL = #{ovdIntBal,jdbcType=DECIMAL},
+      OVD_PRIN_PNLT_BAL = #{ovdPrinPnltBal,jdbcType=DECIMAL},
+      OVD_INT_PNLT_BAL = #{ovdIntPnltBal,jdbcType=DECIMAL},
+      INPUT_DATE = #{inputDate,jdbcType=VARCHAR},
+      INPUT_TIME = #{inputTime,jdbcType=VARCHAR},
+      LAST_UPDATE_DATE = #{lastUpdateDate,jdbcType=VARCHAR},
+      LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=VARCHAR},
+      DATA_DATE = #{dataDate,jdbcType=VARCHAR}
+    where CONTRACT_NO = #{contractNo,jdbcType=VARCHAR}
+  </update>
+</mapper>

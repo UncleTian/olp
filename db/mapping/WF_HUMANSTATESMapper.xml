@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.WF_HUMANSTATESMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.WF_HUMANSTATES">
+    <id column="PKEY" jdbcType="VARCHAR" property="pkey" />
+    <result column="USERID" jdbcType="VARCHAR" property="userid" />
+    <result column="USERNAME" jdbcType="VARCHAR" property="username" />
+    <result column="VICAR" jdbcType="VARCHAR" property="vicar" />
+    <result column="VICARNAME" jdbcType="VARCHAR" property="vicarname" />
+    <result column="VICARIOUSTYPE" jdbcType="CHAR" property="vicarioustype" />
+    <result column="VICARMEMO" jdbcType="VARCHAR" property="vicarmemo" />
+    <result column="ONOFF" jdbcType="CHAR" property="onoff" />
+    <result column="APPID" jdbcType="VARCHAR" property="appid" />
+    <result column="APPNAME" jdbcType="VARCHAR" property="appname" />
+    <result column="WFID" jdbcType="VARCHAR" property="wfid" />
+    <result column="WFNAME" jdbcType="VARCHAR" property="wfname" />
+    <result column="BEGINTIME" jdbcType="VARCHAR" property="begintime" />
+    <result column="ENDTIME" jdbcType="VARCHAR" property="endtime" />
+    <result column="ORGID" jdbcType="VARCHAR" property="orgid" />
+    <result column="SYSID" jdbcType="VARCHAR" property="sysid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    PKEY, USERID, USERNAME, VICAR, VICARNAME, VICARIOUSTYPE, VICARMEMO, ONOFF, APPID, 
+    APPNAME, WFID, WFNAME, BEGINTIME, ENDTIME, ORGID, SYSID
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from WF_HUMANSTATES
+    where PKEY = #{pkey,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from WF_HUMANSTATES
+    where PKEY = #{pkey,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.WF_HUMANSTATES">
+    insert into WF_HUMANSTATES (PKEY, USERID, USERNAME, 
+      VICAR, VICARNAME, VICARIOUSTYPE, 
+      VICARMEMO, ONOFF, APPID, 
+      APPNAME, WFID, WFNAME, 
+      BEGINTIME, ENDTIME, ORGID, 
+      SYSID)
+    values (#{pkey,jdbcType=VARCHAR}, #{userid,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, 
+      #{vicar,jdbcType=VARCHAR}, #{vicarname,jdbcType=VARCHAR}, #{vicarioustype,jdbcType=CHAR}, 
+      #{vicarmemo,jdbcType=VARCHAR}, #{onoff,jdbcType=CHAR}, #{appid,jdbcType=VARCHAR}, 
+      #{appname,jdbcType=VARCHAR}, #{wfid,jdbcType=VARCHAR}, #{wfname,jdbcType=VARCHAR}, 
+      #{begintime,jdbcType=VARCHAR}, #{endtime,jdbcType=VARCHAR}, #{orgid,jdbcType=VARCHAR}, 
+      #{sysid,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.WF_HUMANSTATES">
+    insert into WF_HUMANSTATES
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="pkey != null">
+        PKEY,
+      </if>
+      <if test="userid != null">
+        USERID,
+      </if>
+      <if test="username != null">
+        USERNAME,
+      </if>
+      <if test="vicar != null">
+        VICAR,
+      </if>
+      <if test="vicarname != null">
+        VICARNAME,
+      </if>
+      <if test="vicarioustype != null">
+        VICARIOUSTYPE,
+      </if>
+      <if test="vicarmemo != null">
+        VICARMEMO,
+      </if>
+      <if test="onoff != null">
+        ONOFF,
+      </if>
+      <if test="appid != null">
+        APPID,
+      </if>
+      <if test="appname != null">
+        APPNAME,
+      </if>
+      <if test="wfid != null">
+        WFID,
+      </if>
+      <if test="wfname != null">
+        WFNAME,
+      </if>
+      <if test="begintime != null">
+        BEGINTIME,
+      </if>
+      <if test="endtime != null">
+        ENDTIME,
+      </if>
+      <if test="orgid != null">
+        ORGID,
+      </if>
+      <if test="sysid != null">
+        SYSID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="pkey != null">
+        #{pkey,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null">
+        #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="vicar != null">
+        #{vicar,jdbcType=VARCHAR},
+      </if>
+      <if test="vicarname != null">
+        #{vicarname,jdbcType=VARCHAR},
+      </if>
+      <if test="vicarioustype != null">
+        #{vicarioustype,jdbcType=CHAR},
+      </if>
+      <if test="vicarmemo != null">
+        #{vicarmemo,jdbcType=VARCHAR},
+      </if>
+      <if test="onoff != null">
+        #{onoff,jdbcType=CHAR},
+      </if>
+      <if test="appid != null">
+        #{appid,jdbcType=VARCHAR},
+      </if>
+      <if test="appname != null">
+        #{appname,jdbcType=VARCHAR},
+      </if>
+      <if test="wfid != null">
+        #{wfid,jdbcType=VARCHAR},
+      </if>
+      <if test="wfname != null">
+        #{wfname,jdbcType=VARCHAR},
+      </if>
+      <if test="begintime != null">
+        #{begintime,jdbcType=VARCHAR},
+      </if>
+      <if test="endtime != null">
+        #{endtime,jdbcType=VARCHAR},
+      </if>
+      <if test="orgid != null">
+        #{orgid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysid != null">
+        #{sysid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.WF_HUMANSTATES">
+    update WF_HUMANSTATES
+    <set>
+      <if test="userid != null">
+        USERID = #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        USERNAME = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="vicar != null">
+        VICAR = #{vicar,jdbcType=VARCHAR},
+      </if>
+      <if test="vicarname != null">
+        VICARNAME = #{vicarname,jdbcType=VARCHAR},
+      </if>
+      <if test="vicarioustype != null">
+        VICARIOUSTYPE = #{vicarioustype,jdbcType=CHAR},
+      </if>
+      <if test="vicarmemo != null">
+        VICARMEMO = #{vicarmemo,jdbcType=VARCHAR},
+      </if>
+      <if test="onoff != null">
+        ONOFF = #{onoff,jdbcType=CHAR},
+      </if>
+      <if test="appid != null">
+        APPID = #{appid,jdbcType=VARCHAR},
+      </if>
+      <if test="appname != null">
+        APPNAME = #{appname,jdbcType=VARCHAR},
+      </if>
+      <if test="wfid != null">
+        WFID = #{wfid,jdbcType=VARCHAR},
+      </if>
+      <if test="wfname != null">
+        WFNAME = #{wfname,jdbcType=VARCHAR},
+      </if>
+      <if test="begintime != null">
+        BEGINTIME = #{begintime,jdbcType=VARCHAR},
+      </if>
+      <if test="endtime != null">
+        ENDTIME = #{endtime,jdbcType=VARCHAR},
+      </if>
+      <if test="orgid != null">
+        ORGID = #{orgid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysid != null">
+        SYSID = #{sysid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where PKEY = #{pkey,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.WF_HUMANSTATES">
+    update WF_HUMANSTATES
+    set USERID = #{userid,jdbcType=VARCHAR},
+      USERNAME = #{username,jdbcType=VARCHAR},
+      VICAR = #{vicar,jdbcType=VARCHAR},
+      VICARNAME = #{vicarname,jdbcType=VARCHAR},
+      VICARIOUSTYPE = #{vicarioustype,jdbcType=CHAR},
+      VICARMEMO = #{vicarmemo,jdbcType=VARCHAR},
+      ONOFF = #{onoff,jdbcType=CHAR},
+      APPID = #{appid,jdbcType=VARCHAR},
+      APPNAME = #{appname,jdbcType=VARCHAR},
+      WFID = #{wfid,jdbcType=VARCHAR},
+      WFNAME = #{wfname,jdbcType=VARCHAR},
+      BEGINTIME = #{begintime,jdbcType=VARCHAR},
+      ENDTIME = #{endtime,jdbcType=VARCHAR},
+      ORGID = #{orgid,jdbcType=VARCHAR},
+      SYSID = #{sysid,jdbcType=VARCHAR}
+    where PKEY = #{pkey,jdbcType=VARCHAR}
+  </update>
+</mapper>

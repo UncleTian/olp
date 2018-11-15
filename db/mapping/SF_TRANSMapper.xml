@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.SF_TRANSMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.SF_TRANS">
+    <id column="TRANS_ID" jdbcType="VARCHAR" property="transId" />
+    <result column="TRANS_NAME" jdbcType="VARCHAR" property="transName" />
+    <result column="TRANS_PERMISSION" jdbcType="VARCHAR" property="transPermission" />
+    <result column="TRANS_EXT" jdbcType="VARCHAR" property="transExt" />
+    <result column="TRANS_DESC" jdbcType="VARCHAR" property="transDesc" />
+    <result column="SYSID" jdbcType="VARCHAR" property="sysid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    TRANS_ID, TRANS_NAME, TRANS_PERMISSION, TRANS_EXT, TRANS_DESC, SYSID
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from SF_TRANS
+    where TRANS_ID = #{transId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from SF_TRANS
+    where TRANS_ID = #{transId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.SF_TRANS">
+    insert into SF_TRANS (TRANS_ID, TRANS_NAME, TRANS_PERMISSION, 
+      TRANS_EXT, TRANS_DESC, SYSID
+      )
+    values (#{transId,jdbcType=VARCHAR}, #{transName,jdbcType=VARCHAR}, #{transPermission,jdbcType=VARCHAR}, 
+      #{transExt,jdbcType=VARCHAR}, #{transDesc,jdbcType=VARCHAR}, #{sysid,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.SF_TRANS">
+    insert into SF_TRANS
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="transId != null">
+        TRANS_ID,
+      </if>
+      <if test="transName != null">
+        TRANS_NAME,
+      </if>
+      <if test="transPermission != null">
+        TRANS_PERMISSION,
+      </if>
+      <if test="transExt != null">
+        TRANS_EXT,
+      </if>
+      <if test="transDesc != null">
+        TRANS_DESC,
+      </if>
+      <if test="sysid != null">
+        SYSID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="transId != null">
+        #{transId,jdbcType=VARCHAR},
+      </if>
+      <if test="transName != null">
+        #{transName,jdbcType=VARCHAR},
+      </if>
+      <if test="transPermission != null">
+        #{transPermission,jdbcType=VARCHAR},
+      </if>
+      <if test="transExt != null">
+        #{transExt,jdbcType=VARCHAR},
+      </if>
+      <if test="transDesc != null">
+        #{transDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="sysid != null">
+        #{sysid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.SF_TRANS">
+    update SF_TRANS
+    <set>
+      <if test="transName != null">
+        TRANS_NAME = #{transName,jdbcType=VARCHAR},
+      </if>
+      <if test="transPermission != null">
+        TRANS_PERMISSION = #{transPermission,jdbcType=VARCHAR},
+      </if>
+      <if test="transExt != null">
+        TRANS_EXT = #{transExt,jdbcType=VARCHAR},
+      </if>
+      <if test="transDesc != null">
+        TRANS_DESC = #{transDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="sysid != null">
+        SYSID = #{sysid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where TRANS_ID = #{transId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.SF_TRANS">
+    update SF_TRANS
+    set TRANS_NAME = #{transName,jdbcType=VARCHAR},
+      TRANS_PERMISSION = #{transPermission,jdbcType=VARCHAR},
+      TRANS_EXT = #{transExt,jdbcType=VARCHAR},
+      TRANS_DESC = #{transDesc,jdbcType=VARCHAR},
+      SYSID = #{sysid,jdbcType=VARCHAR}
+    where TRANS_ID = #{transId,jdbcType=VARCHAR}
+  </update>
+</mapper>

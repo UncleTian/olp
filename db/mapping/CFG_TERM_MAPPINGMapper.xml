@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.CFG_TERM_MAPPINGMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.CFG_TERM_MAPPING">
+    <result column="OLSTERM" jdbcType="VARCHAR" property="olsterm" />
+    <result column="CORETERM" jdbcType="VARCHAR" property="coreterm" />
+    <result column="INPUT_TIME" jdbcType="VARCHAR" property="inputTime" />
+    <result column="OLS_STD_TERM" jdbcType="VARCHAR" property="olsStdTerm" />
+  </resultMap>
+  <insert id="insert" parameterType="com.bea.olp.CFG_TERM_MAPPING">
+    insert into CFG_TERM_MAPPING (OLSTERM, CORETERM, INPUT_TIME, 
+      OLS_STD_TERM)
+    values (#{olsterm,jdbcType=VARCHAR}, #{coreterm,jdbcType=VARCHAR}, #{inputTime,jdbcType=VARCHAR}, 
+      #{olsStdTerm,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.CFG_TERM_MAPPING">
+    insert into CFG_TERM_MAPPING
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="olsterm != null">
+        OLSTERM,
+      </if>
+      <if test="coreterm != null">
+        CORETERM,
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME,
+      </if>
+      <if test="olsStdTerm != null">
+        OLS_STD_TERM,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="olsterm != null">
+        #{olsterm,jdbcType=VARCHAR},
+      </if>
+      <if test="coreterm != null">
+        #{coreterm,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="olsStdTerm != null">
+        #{olsStdTerm,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

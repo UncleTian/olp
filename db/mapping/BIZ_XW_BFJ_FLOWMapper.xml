@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.BIZ_XW_BFJ_FLOWMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.BIZ_XW_BFJ_FLOW">
+    <result column="PROVISIONS_ACCT" jdbcType="VARCHAR" property="provisionsAcct" />
+    <result column="TD_DATE" jdbcType="VARCHAR" property="tdDate" />
+    <result column="SUBJECT" jdbcType="VARCHAR" property="subject" />
+    <result column="TD_AMT" jdbcType="DECIMAL" property="tdAmt" />
+    <result column="TD_DESCRIBE" jdbcType="VARCHAR" property="tdDescribe" />
+    <result column="LOAN_SIGN" jdbcType="VARCHAR" property="loanSign" />
+    <result column="LOAN_NO" jdbcType="VARCHAR" property="loanNo" />
+    <result column="APPLY_NO" jdbcType="VARCHAR" property="applyNo" />
+    <result column="FLU_TRAN" jdbcType="VARCHAR" property="fluTran" />
+    <result column="INPUT_DATE" jdbcType="VARCHAR" property="inputDate" />
+    <result column="INPUT_TIME" jdbcType="VARCHAR" property="inputTime" />
+    <result column="DATA_DATE" jdbcType="VARCHAR" property="dataDate" />
+    <result column="LAST_UPDATE_DATE" jdbcType="VARCHAR" property="lastUpdateDate" />
+    <result column="LAST_UPDATE_TIME" jdbcType="VARCHAR" property="lastUpdateTime" />
+  </resultMap>
+  <insert id="insert" parameterType="com.bea.olp.BIZ_XW_BFJ_FLOW">
+    insert into BIZ_XW_BFJ_FLOW (PROVISIONS_ACCT, TD_DATE, SUBJECT, 
+      TD_AMT, TD_DESCRIBE, LOAN_SIGN, 
+      LOAN_NO, APPLY_NO, FLU_TRAN, 
+      INPUT_DATE, INPUT_TIME, DATA_DATE, 
+      LAST_UPDATE_DATE, LAST_UPDATE_TIME)
+    values (#{provisionsAcct,jdbcType=VARCHAR}, #{tdDate,jdbcType=VARCHAR}, #{subject,jdbcType=VARCHAR}, 
+      #{tdAmt,jdbcType=DECIMAL}, #{tdDescribe,jdbcType=VARCHAR}, #{loanSign,jdbcType=VARCHAR}, 
+      #{loanNo,jdbcType=VARCHAR}, #{applyNo,jdbcType=VARCHAR}, #{fluTran,jdbcType=VARCHAR}, 
+      #{inputDate,jdbcType=VARCHAR}, #{inputTime,jdbcType=VARCHAR}, #{dataDate,jdbcType=VARCHAR}, 
+      #{lastUpdateDate,jdbcType=VARCHAR}, #{lastUpdateTime,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.BIZ_XW_BFJ_FLOW">
+    insert into BIZ_XW_BFJ_FLOW
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="provisionsAcct != null">
+        PROVISIONS_ACCT,
+      </if>
+      <if test="tdDate != null">
+        TD_DATE,
+      </if>
+      <if test="subject != null">
+        SUBJECT,
+      </if>
+      <if test="tdAmt != null">
+        TD_AMT,
+      </if>
+      <if test="tdDescribe != null">
+        TD_DESCRIBE,
+      </if>
+      <if test="loanSign != null">
+        LOAN_SIGN,
+      </if>
+      <if test="loanNo != null">
+        LOAN_NO,
+      </if>
+      <if test="applyNo != null">
+        APPLY_NO,
+      </if>
+      <if test="fluTran != null">
+        FLU_TRAN,
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE,
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME,
+      </if>
+      <if test="dataDate != null">
+        DATA_DATE,
+      </if>
+      <if test="lastUpdateDate != null">
+        LAST_UPDATE_DATE,
+      </if>
+      <if test="lastUpdateTime != null">
+        LAST_UPDATE_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="provisionsAcct != null">
+        #{provisionsAcct,jdbcType=VARCHAR},
+      </if>
+      <if test="tdDate != null">
+        #{tdDate,jdbcType=VARCHAR},
+      </if>
+      <if test="subject != null">
+        #{subject,jdbcType=VARCHAR},
+      </if>
+      <if test="tdAmt != null">
+        #{tdAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="tdDescribe != null">
+        #{tdDescribe,jdbcType=VARCHAR},
+      </if>
+      <if test="loanSign != null">
+        #{loanSign,jdbcType=VARCHAR},
+      </if>
+      <if test="loanNo != null">
+        #{loanNo,jdbcType=VARCHAR},
+      </if>
+      <if test="applyNo != null">
+        #{applyNo,jdbcType=VARCHAR},
+      </if>
+      <if test="fluTran != null">
+        #{fluTran,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="dataDate != null">
+        #{dataDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateDate != null">
+        #{lastUpdateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        #{lastUpdateTime,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

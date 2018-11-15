@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.WF_MAIN_REPORTMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.WF_MAIN_REPORT">
+    <id column="INSTANCE_ID" jdbcType="VARCHAR" property="instanceId" />
+    <result column="IN_BATCH_NO" jdbcType="VARCHAR" property="inBatchNo" />
+    <result column="IN_BATCH_TIME" jdbcType="CHAR" property="inBatchTime" />
+    <result column="OUT_BATCH_NO" jdbcType="VARCHAR" property="outBatchNo" />
+    <result column="OUT_BATCH_TIME" jdbcType="CHAR" property="outBatchTime" />
+    <result column="BIZ_SEQ_NO" jdbcType="VARCHAR" property="bizSeqNo" />
+    <result column="CUST_ID" jdbcType="VARCHAR" property="custId" />
+    <result column="CUST_NAME" jdbcType="VARCHAR" property="custName" />
+    <result column="BIZ_TYPE_CODE" jdbcType="VARCHAR" property="bizTypeCode" />
+    <result column="BIZ_TYPE_NAME" jdbcType="VARCHAR" property="bizTypeName" />
+    <result column="MAIN_INSTANCE_ID" jdbcType="VARCHAR" property="mainInstanceId" />
+    <result column="MAIN_NODE_ID" jdbcType="VARCHAR" property="mainNodeId" />
+    <result column="WF_START_TIME" jdbcType="CHAR" property="wfStartTime" />
+    <result column="WF_END_TIME" jdbcType="CHAR" property="wfEndTime" />
+    <result column="WF_PLAN_END_TIME" jdbcType="CHAR" property="wfPlanEndTime" />
+    <result column="WF_STATUS" jdbcType="CHAR" property="wfStatus" />
+    <result column="WF_NAME" jdbcType="VARCHAR" property="wfName" />
+    <result column="WF_SIGN" jdbcType="VARCHAR" property="wfSign" />
+    <result column="WF_TYPE_ID" jdbcType="VARCHAR" property="wfTypeId" />
+    <result column="WF_TYPE_NAME" jdbcType="VARCHAR" property="wfTypeName" />
+    <result column="WF_ORG_ID" jdbcType="VARCHAR" property="wfOrgId" />
+    <result column="SYS_ID" jdbcType="VARCHAR" property="sysId" />
+    <result column="BATCH_STATUS" jdbcType="CHAR" property="batchStatus" />
+    <result column="LAST_UPD_OPR_ID" jdbcType="VARCHAR" property="lastUpdOprId" />
+    <result column="LAST_UPD_PGM_ID" jdbcType="VARCHAR" property="lastUpdPgmId" />
+    <result column="LAST_UPD_TIME" jdbcType="CHAR" property="lastUpdTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    INSTANCE_ID, IN_BATCH_NO, IN_BATCH_TIME, OUT_BATCH_NO, OUT_BATCH_TIME, BIZ_SEQ_NO, 
+    CUST_ID, CUST_NAME, BIZ_TYPE_CODE, BIZ_TYPE_NAME, MAIN_INSTANCE_ID, MAIN_NODE_ID, 
+    WF_START_TIME, WF_END_TIME, WF_PLAN_END_TIME, WF_STATUS, WF_NAME, WF_SIGN, WF_TYPE_ID, 
+    WF_TYPE_NAME, WF_ORG_ID, SYS_ID, BATCH_STATUS, LAST_UPD_OPR_ID, LAST_UPD_PGM_ID, 
+    LAST_UPD_TIME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from WF_MAIN_REPORT
+    where INSTANCE_ID = #{instanceId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from WF_MAIN_REPORT
+    where INSTANCE_ID = #{instanceId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.WF_MAIN_REPORT">
+    insert into WF_MAIN_REPORT (INSTANCE_ID, IN_BATCH_NO, IN_BATCH_TIME, 
+      OUT_BATCH_NO, OUT_BATCH_TIME, BIZ_SEQ_NO, 
+      CUST_ID, CUST_NAME, BIZ_TYPE_CODE, 
+      BIZ_TYPE_NAME, MAIN_INSTANCE_ID, MAIN_NODE_ID, 
+      WF_START_TIME, WF_END_TIME, WF_PLAN_END_TIME, 
+      WF_STATUS, WF_NAME, WF_SIGN, 
+      WF_TYPE_ID, WF_TYPE_NAME, WF_ORG_ID, 
+      SYS_ID, BATCH_STATUS, LAST_UPD_OPR_ID, 
+      LAST_UPD_PGM_ID, LAST_UPD_TIME)
+    values (#{instanceId,jdbcType=VARCHAR}, #{inBatchNo,jdbcType=VARCHAR}, #{inBatchTime,jdbcType=CHAR}, 
+      #{outBatchNo,jdbcType=VARCHAR}, #{outBatchTime,jdbcType=CHAR}, #{bizSeqNo,jdbcType=VARCHAR}, 
+      #{custId,jdbcType=VARCHAR}, #{custName,jdbcType=VARCHAR}, #{bizTypeCode,jdbcType=VARCHAR}, 
+      #{bizTypeName,jdbcType=VARCHAR}, #{mainInstanceId,jdbcType=VARCHAR}, #{mainNodeId,jdbcType=VARCHAR}, 
+      #{wfStartTime,jdbcType=CHAR}, #{wfEndTime,jdbcType=CHAR}, #{wfPlanEndTime,jdbcType=CHAR}, 
+      #{wfStatus,jdbcType=CHAR}, #{wfName,jdbcType=VARCHAR}, #{wfSign,jdbcType=VARCHAR}, 
+      #{wfTypeId,jdbcType=VARCHAR}, #{wfTypeName,jdbcType=VARCHAR}, #{wfOrgId,jdbcType=VARCHAR}, 
+      #{sysId,jdbcType=VARCHAR}, #{batchStatus,jdbcType=CHAR}, #{lastUpdOprId,jdbcType=VARCHAR}, 
+      #{lastUpdPgmId,jdbcType=VARCHAR}, #{lastUpdTime,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.WF_MAIN_REPORT">
+    insert into WF_MAIN_REPORT
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="instanceId != null">
+        INSTANCE_ID,
+      </if>
+      <if test="inBatchNo != null">
+        IN_BATCH_NO,
+      </if>
+      <if test="inBatchTime != null">
+        IN_BATCH_TIME,
+      </if>
+      <if test="outBatchNo != null">
+        OUT_BATCH_NO,
+      </if>
+      <if test="outBatchTime != null">
+        OUT_BATCH_TIME,
+      </if>
+      <if test="bizSeqNo != null">
+        BIZ_SEQ_NO,
+      </if>
+      <if test="custId != null">
+        CUST_ID,
+      </if>
+      <if test="custName != null">
+        CUST_NAME,
+      </if>
+      <if test="bizTypeCode != null">
+        BIZ_TYPE_CODE,
+      </if>
+      <if test="bizTypeName != null">
+        BIZ_TYPE_NAME,
+      </if>
+      <if test="mainInstanceId != null">
+        MAIN_INSTANCE_ID,
+      </if>
+      <if test="mainNodeId != null">
+        MAIN_NODE_ID,
+      </if>
+      <if test="wfStartTime != null">
+        WF_START_TIME,
+      </if>
+      <if test="wfEndTime != null">
+        WF_END_TIME,
+      </if>
+      <if test="wfPlanEndTime != null">
+        WF_PLAN_END_TIME,
+      </if>
+      <if test="wfStatus != null">
+        WF_STATUS,
+      </if>
+      <if test="wfName != null">
+        WF_NAME,
+      </if>
+      <if test="wfSign != null">
+        WF_SIGN,
+      </if>
+      <if test="wfTypeId != null">
+        WF_TYPE_ID,
+      </if>
+      <if test="wfTypeName != null">
+        WF_TYPE_NAME,
+      </if>
+      <if test="wfOrgId != null">
+        WF_ORG_ID,
+      </if>
+      <if test="sysId != null">
+        SYS_ID,
+      </if>
+      <if test="batchStatus != null">
+        BATCH_STATUS,
+      </if>
+      <if test="lastUpdOprId != null">
+        LAST_UPD_OPR_ID,
+      </if>
+      <if test="lastUpdPgmId != null">
+        LAST_UPD_PGM_ID,
+      </if>
+      <if test="lastUpdTime != null">
+        LAST_UPD_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="instanceId != null">
+        #{instanceId,jdbcType=VARCHAR},
+      </if>
+      <if test="inBatchNo != null">
+        #{inBatchNo,jdbcType=VARCHAR},
+      </if>
+      <if test="inBatchTime != null">
+        #{inBatchTime,jdbcType=CHAR},
+      </if>
+      <if test="outBatchNo != null">
+        #{outBatchNo,jdbcType=VARCHAR},
+      </if>
+      <if test="outBatchTime != null">
+        #{outBatchTime,jdbcType=CHAR},
+      </if>
+      <if test="bizSeqNo != null">
+        #{bizSeqNo,jdbcType=VARCHAR},
+      </if>
+      <if test="custId != null">
+        #{custId,jdbcType=VARCHAR},
+      </if>
+      <if test="custName != null">
+        #{custName,jdbcType=VARCHAR},
+      </if>
+      <if test="bizTypeCode != null">
+        #{bizTypeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="bizTypeName != null">
+        #{bizTypeName,jdbcType=VARCHAR},
+      </if>
+      <if test="mainInstanceId != null">
+        #{mainInstanceId,jdbcType=VARCHAR},
+      </if>
+      <if test="mainNodeId != null">
+        #{mainNodeId,jdbcType=VARCHAR},
+      </if>
+      <if test="wfStartTime != null">
+        #{wfStartTime,jdbcType=CHAR},
+      </if>
+      <if test="wfEndTime != null">
+        #{wfEndTime,jdbcType=CHAR},
+      </if>
+      <if test="wfPlanEndTime != null">
+        #{wfPlanEndTime,jdbcType=CHAR},
+      </if>
+      <if test="wfStatus != null">
+        #{wfStatus,jdbcType=CHAR},
+      </if>
+      <if test="wfName != null">
+        #{wfName,jdbcType=VARCHAR},
+      </if>
+      <if test="wfSign != null">
+        #{wfSign,jdbcType=VARCHAR},
+      </if>
+      <if test="wfTypeId != null">
+        #{wfTypeId,jdbcType=VARCHAR},
+      </if>
+      <if test="wfTypeName != null">
+        #{wfTypeName,jdbcType=VARCHAR},
+      </if>
+      <if test="wfOrgId != null">
+        #{wfOrgId,jdbcType=VARCHAR},
+      </if>
+      <if test="sysId != null">
+        #{sysId,jdbcType=VARCHAR},
+      </if>
+      <if test="batchStatus != null">
+        #{batchStatus,jdbcType=CHAR},
+      </if>
+      <if test="lastUpdOprId != null">
+        #{lastUpdOprId,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdPgmId != null">
+        #{lastUpdPgmId,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdTime != null">
+        #{lastUpdTime,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.WF_MAIN_REPORT">
+    update WF_MAIN_REPORT
+    <set>
+      <if test="inBatchNo != null">
+        IN_BATCH_NO = #{inBatchNo,jdbcType=VARCHAR},
+      </if>
+      <if test="inBatchTime != null">
+        IN_BATCH_TIME = #{inBatchTime,jdbcType=CHAR},
+      </if>
+      <if test="outBatchNo != null">
+        OUT_BATCH_NO = #{outBatchNo,jdbcType=VARCHAR},
+      </if>
+      <if test="outBatchTime != null">
+        OUT_BATCH_TIME = #{outBatchTime,jdbcType=CHAR},
+      </if>
+      <if test="bizSeqNo != null">
+        BIZ_SEQ_NO = #{bizSeqNo,jdbcType=VARCHAR},
+      </if>
+      <if test="custId != null">
+        CUST_ID = #{custId,jdbcType=VARCHAR},
+      </if>
+      <if test="custName != null">
+        CUST_NAME = #{custName,jdbcType=VARCHAR},
+      </if>
+      <if test="bizTypeCode != null">
+        BIZ_TYPE_CODE = #{bizTypeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="bizTypeName != null">
+        BIZ_TYPE_NAME = #{bizTypeName,jdbcType=VARCHAR},
+      </if>
+      <if test="mainInstanceId != null">
+        MAIN_INSTANCE_ID = #{mainInstanceId,jdbcType=VARCHAR},
+      </if>
+      <if test="mainNodeId != null">
+        MAIN_NODE_ID = #{mainNodeId,jdbcType=VARCHAR},
+      </if>
+      <if test="wfStartTime != null">
+        WF_START_TIME = #{wfStartTime,jdbcType=CHAR},
+      </if>
+      <if test="wfEndTime != null">
+        WF_END_TIME = #{wfEndTime,jdbcType=CHAR},
+      </if>
+      <if test="wfPlanEndTime != null">
+        WF_PLAN_END_TIME = #{wfPlanEndTime,jdbcType=CHAR},
+      </if>
+      <if test="wfStatus != null">
+        WF_STATUS = #{wfStatus,jdbcType=CHAR},
+      </if>
+      <if test="wfName != null">
+        WF_NAME = #{wfName,jdbcType=VARCHAR},
+      </if>
+      <if test="wfSign != null">
+        WF_SIGN = #{wfSign,jdbcType=VARCHAR},
+      </if>
+      <if test="wfTypeId != null">
+        WF_TYPE_ID = #{wfTypeId,jdbcType=VARCHAR},
+      </if>
+      <if test="wfTypeName != null">
+        WF_TYPE_NAME = #{wfTypeName,jdbcType=VARCHAR},
+      </if>
+      <if test="wfOrgId != null">
+        WF_ORG_ID = #{wfOrgId,jdbcType=VARCHAR},
+      </if>
+      <if test="sysId != null">
+        SYS_ID = #{sysId,jdbcType=VARCHAR},
+      </if>
+      <if test="batchStatus != null">
+        BATCH_STATUS = #{batchStatus,jdbcType=CHAR},
+      </if>
+      <if test="lastUpdOprId != null">
+        LAST_UPD_OPR_ID = #{lastUpdOprId,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdPgmId != null">
+        LAST_UPD_PGM_ID = #{lastUpdPgmId,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdTime != null">
+        LAST_UPD_TIME = #{lastUpdTime,jdbcType=CHAR},
+      </if>
+    </set>
+    where INSTANCE_ID = #{instanceId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.WF_MAIN_REPORT">
+    update WF_MAIN_REPORT
+    set IN_BATCH_NO = #{inBatchNo,jdbcType=VARCHAR},
+      IN_BATCH_TIME = #{inBatchTime,jdbcType=CHAR},
+      OUT_BATCH_NO = #{outBatchNo,jdbcType=VARCHAR},
+      OUT_BATCH_TIME = #{outBatchTime,jdbcType=CHAR},
+      BIZ_SEQ_NO = #{bizSeqNo,jdbcType=VARCHAR},
+      CUST_ID = #{custId,jdbcType=VARCHAR},
+      CUST_NAME = #{custName,jdbcType=VARCHAR},
+      BIZ_TYPE_CODE = #{bizTypeCode,jdbcType=VARCHAR},
+      BIZ_TYPE_NAME = #{bizTypeName,jdbcType=VARCHAR},
+      MAIN_INSTANCE_ID = #{mainInstanceId,jdbcType=VARCHAR},
+      MAIN_NODE_ID = #{mainNodeId,jdbcType=VARCHAR},
+      WF_START_TIME = #{wfStartTime,jdbcType=CHAR},
+      WF_END_TIME = #{wfEndTime,jdbcType=CHAR},
+      WF_PLAN_END_TIME = #{wfPlanEndTime,jdbcType=CHAR},
+      WF_STATUS = #{wfStatus,jdbcType=CHAR},
+      WF_NAME = #{wfName,jdbcType=VARCHAR},
+      WF_SIGN = #{wfSign,jdbcType=VARCHAR},
+      WF_TYPE_ID = #{wfTypeId,jdbcType=VARCHAR},
+      WF_TYPE_NAME = #{wfTypeName,jdbcType=VARCHAR},
+      WF_ORG_ID = #{wfOrgId,jdbcType=VARCHAR},
+      SYS_ID = #{sysId,jdbcType=VARCHAR},
+      BATCH_STATUS = #{batchStatus,jdbcType=CHAR},
+      LAST_UPD_OPR_ID = #{lastUpdOprId,jdbcType=VARCHAR},
+      LAST_UPD_PGM_ID = #{lastUpdPgmId,jdbcType=VARCHAR},
+      LAST_UPD_TIME = #{lastUpdTime,jdbcType=CHAR}
+    where INSTANCE_ID = #{instanceId,jdbcType=VARCHAR}
+  </update>
+</mapper>

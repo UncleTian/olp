@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.COO_AGR_INFOMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.COO_AGR_INFO">
+    <id column="AGREEMENT_NO" jdbcType="VARCHAR" property="agreementNo" />
+    <result column="CO_CUST_ID" jdbcType="VARCHAR" property="coCustId" />
+    <result column="PRD_CODE" jdbcType="VARCHAR" property="prdCode" />
+    <result column="CO_PLATFORM" jdbcType="CHAR" property="coPlatform" />
+    <result column="PYBL" jdbcType="DECIMAL" property="pybl" />
+    <result column="ACNO" jdbcType="VARCHAR" property="acno" />
+    <result column="PKAC" jdbcType="VARCHAR" property="pkac" />
+    <result column="STDT" jdbcType="VARCHAR" property="stdt" />
+    <result column="EDDT" jdbcType="VARCHAR" property="eddt" />
+    <result column="BZAC" jdbcType="VARCHAR" property="bzac" />
+    <result column="BZBL" jdbcType="DECIMAL" property="bzbl" />
+    <result column="FKFG" jdbcType="VARCHAR" property="fkfg" />
+    <result column="GDAC" jdbcType="VARCHAR" property="gdac" />
+    <result column="FIELD2" jdbcType="VARCHAR" property="field2" />
+    <result column="FIELD1" jdbcType="VARCHAR" property="field1" />
+    <result column="FIELD3" jdbcType="VARCHAR" property="field3" />
+    <result column="FIELD4" jdbcType="VARCHAR" property="field4" />
+    <result column="FIELD5" jdbcType="VARCHAR" property="field5" />
+    <result column="FIELD6" jdbcType="DECIMAL" property="field6" />
+    <result column="FIELD7" jdbcType="DECIMAL" property="field7" />
+    <result column="FIELD8" jdbcType="DECIMAL" property="field8" />
+    <result column="FIELD9" jdbcType="DECIMAL" property="field9" />
+    <result column="FIELD10" jdbcType="DECIMAL" property="field10" />
+    <result column="BIZ_OP_ID" jdbcType="VARCHAR" property="bizOpId" />
+    <result column="BIZ_ORG_ID" jdbcType="VARCHAR" property="bizOrgId" />
+    <result column="INPUT_DATE" jdbcType="VARCHAR" property="inputDate" />
+    <result column="INPUT_TIME" jdbcType="VARCHAR" property="inputTime" />
+    <result column="LAST_UPDATE_DATE" jdbcType="VARCHAR" property="lastUpdateDate" />
+    <result column="LAST_UPDATE_TIME" jdbcType="VARCHAR" property="lastUpdateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    AGREEMENT_NO, CO_CUST_ID, PRD_CODE, CO_PLATFORM, PYBL, ACNO, PKAC, STDT, EDDT, BZAC, 
+    BZBL, FKFG, GDAC, FIELD2, FIELD1, FIELD3, FIELD4, FIELD5, FIELD6, FIELD7, FIELD8, 
+    FIELD9, FIELD10, BIZ_OP_ID, BIZ_ORG_ID, INPUT_DATE, INPUT_TIME, LAST_UPDATE_DATE, 
+    LAST_UPDATE_TIME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from COO_AGR_INFO
+    where AGREEMENT_NO = #{agreementNo,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from COO_AGR_INFO
+    where AGREEMENT_NO = #{agreementNo,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.COO_AGR_INFO">
+    insert into COO_AGR_INFO (AGREEMENT_NO, CO_CUST_ID, PRD_CODE, 
+      CO_PLATFORM, PYBL, ACNO, 
+      PKAC, STDT, EDDT, BZAC, 
+      BZBL, FKFG, GDAC, FIELD2, 
+      FIELD1, FIELD3, FIELD4, 
+      FIELD5, FIELD6, FIELD7, 
+      FIELD8, FIELD9, FIELD10, 
+      BIZ_OP_ID, BIZ_ORG_ID, INPUT_DATE, 
+      INPUT_TIME, LAST_UPDATE_DATE, LAST_UPDATE_TIME
+      )
+    values (#{agreementNo,jdbcType=VARCHAR}, #{coCustId,jdbcType=VARCHAR}, #{prdCode,jdbcType=VARCHAR}, 
+      #{coPlatform,jdbcType=CHAR}, #{pybl,jdbcType=DECIMAL}, #{acno,jdbcType=VARCHAR}, 
+      #{pkac,jdbcType=VARCHAR}, #{stdt,jdbcType=VARCHAR}, #{eddt,jdbcType=VARCHAR}, #{bzac,jdbcType=VARCHAR}, 
+      #{bzbl,jdbcType=DECIMAL}, #{fkfg,jdbcType=VARCHAR}, #{gdac,jdbcType=VARCHAR}, #{field2,jdbcType=VARCHAR}, 
+      #{field1,jdbcType=VARCHAR}, #{field3,jdbcType=VARCHAR}, #{field4,jdbcType=VARCHAR}, 
+      #{field5,jdbcType=VARCHAR}, #{field6,jdbcType=DECIMAL}, #{field7,jdbcType=DECIMAL}, 
+      #{field8,jdbcType=DECIMAL}, #{field9,jdbcType=DECIMAL}, #{field10,jdbcType=DECIMAL}, 
+      #{bizOpId,jdbcType=VARCHAR}, #{bizOrgId,jdbcType=VARCHAR}, #{inputDate,jdbcType=VARCHAR}, 
+      #{inputTime,jdbcType=VARCHAR}, #{lastUpdateDate,jdbcType=VARCHAR}, #{lastUpdateTime,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.COO_AGR_INFO">
+    insert into COO_AGR_INFO
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="agreementNo != null">
+        AGREEMENT_NO,
+      </if>
+      <if test="coCustId != null">
+        CO_CUST_ID,
+      </if>
+      <if test="prdCode != null">
+        PRD_CODE,
+      </if>
+      <if test="coPlatform != null">
+        CO_PLATFORM,
+      </if>
+      <if test="pybl != null">
+        PYBL,
+      </if>
+      <if test="acno != null">
+        ACNO,
+      </if>
+      <if test="pkac != null">
+        PKAC,
+      </if>
+      <if test="stdt != null">
+        STDT,
+      </if>
+      <if test="eddt != null">
+        EDDT,
+      </if>
+      <if test="bzac != null">
+        BZAC,
+      </if>
+      <if test="bzbl != null">
+        BZBL,
+      </if>
+      <if test="fkfg != null">
+        FKFG,
+      </if>
+      <if test="gdac != null">
+        GDAC,
+      </if>
+      <if test="field2 != null">
+        FIELD2,
+      </if>
+      <if test="field1 != null">
+        FIELD1,
+      </if>
+      <if test="field3 != null">
+        FIELD3,
+      </if>
+      <if test="field4 != null">
+        FIELD4,
+      </if>
+      <if test="field5 != null">
+        FIELD5,
+      </if>
+      <if test="field6 != null">
+        FIELD6,
+      </if>
+      <if test="field7 != null">
+        FIELD7,
+      </if>
+      <if test="field8 != null">
+        FIELD8,
+      </if>
+      <if test="field9 != null">
+        FIELD9,
+      </if>
+      <if test="field10 != null">
+        FIELD10,
+      </if>
+      <if test="bizOpId != null">
+        BIZ_OP_ID,
+      </if>
+      <if test="bizOrgId != null">
+        BIZ_ORG_ID,
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE,
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME,
+      </if>
+      <if test="lastUpdateDate != null">
+        LAST_UPDATE_DATE,
+      </if>
+      <if test="lastUpdateTime != null">
+        LAST_UPDATE_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="agreementNo != null">
+        #{agreementNo,jdbcType=VARCHAR},
+      </if>
+      <if test="coCustId != null">
+        #{coCustId,jdbcType=VARCHAR},
+      </if>
+      <if test="prdCode != null">
+        #{prdCode,jdbcType=VARCHAR},
+      </if>
+      <if test="coPlatform != null">
+        #{coPlatform,jdbcType=CHAR},
+      </if>
+      <if test="pybl != null">
+        #{pybl,jdbcType=DECIMAL},
+      </if>
+      <if test="acno != null">
+        #{acno,jdbcType=VARCHAR},
+      </if>
+      <if test="pkac != null">
+        #{pkac,jdbcType=VARCHAR},
+      </if>
+      <if test="stdt != null">
+        #{stdt,jdbcType=VARCHAR},
+      </if>
+      <if test="eddt != null">
+        #{eddt,jdbcType=VARCHAR},
+      </if>
+      <if test="bzac != null">
+        #{bzac,jdbcType=VARCHAR},
+      </if>
+      <if test="bzbl != null">
+        #{bzbl,jdbcType=DECIMAL},
+      </if>
+      <if test="fkfg != null">
+        #{fkfg,jdbcType=VARCHAR},
+      </if>
+      <if test="gdac != null">
+        #{gdac,jdbcType=VARCHAR},
+      </if>
+      <if test="field2 != null">
+        #{field2,jdbcType=VARCHAR},
+      </if>
+      <if test="field1 != null">
+        #{field1,jdbcType=VARCHAR},
+      </if>
+      <if test="field3 != null">
+        #{field3,jdbcType=VARCHAR},
+      </if>
+      <if test="field4 != null">
+        #{field4,jdbcType=VARCHAR},
+      </if>
+      <if test="field5 != null">
+        #{field5,jdbcType=VARCHAR},
+      </if>
+      <if test="field6 != null">
+        #{field6,jdbcType=DECIMAL},
+      </if>
+      <if test="field7 != null">
+        #{field7,jdbcType=DECIMAL},
+      </if>
+      <if test="field8 != null">
+        #{field8,jdbcType=DECIMAL},
+      </if>
+      <if test="field9 != null">
+        #{field9,jdbcType=DECIMAL},
+      </if>
+      <if test="field10 != null">
+        #{field10,jdbcType=DECIMAL},
+      </if>
+      <if test="bizOpId != null">
+        #{bizOpId,jdbcType=VARCHAR},
+      </if>
+      <if test="bizOrgId != null">
+        #{bizOrgId,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateDate != null">
+        #{lastUpdateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        #{lastUpdateTime,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.COO_AGR_INFO">
+    update COO_AGR_INFO
+    <set>
+      <if test="coCustId != null">
+        CO_CUST_ID = #{coCustId,jdbcType=VARCHAR},
+      </if>
+      <if test="prdCode != null">
+        PRD_CODE = #{prdCode,jdbcType=VARCHAR},
+      </if>
+      <if test="coPlatform != null">
+        CO_PLATFORM = #{coPlatform,jdbcType=CHAR},
+      </if>
+      <if test="pybl != null">
+        PYBL = #{pybl,jdbcType=DECIMAL},
+      </if>
+      <if test="acno != null">
+        ACNO = #{acno,jdbcType=VARCHAR},
+      </if>
+      <if test="pkac != null">
+        PKAC = #{pkac,jdbcType=VARCHAR},
+      </if>
+      <if test="stdt != null">
+        STDT = #{stdt,jdbcType=VARCHAR},
+      </if>
+      <if test="eddt != null">
+        EDDT = #{eddt,jdbcType=VARCHAR},
+      </if>
+      <if test="bzac != null">
+        BZAC = #{bzac,jdbcType=VARCHAR},
+      </if>
+      <if test="bzbl != null">
+        BZBL = #{bzbl,jdbcType=DECIMAL},
+      </if>
+      <if test="fkfg != null">
+        FKFG = #{fkfg,jdbcType=VARCHAR},
+      </if>
+      <if test="gdac != null">
+        GDAC = #{gdac,jdbcType=VARCHAR},
+      </if>
+      <if test="field2 != null">
+        FIELD2 = #{field2,jdbcType=VARCHAR},
+      </if>
+      <if test="field1 != null">
+        FIELD1 = #{field1,jdbcType=VARCHAR},
+      </if>
+      <if test="field3 != null">
+        FIELD3 = #{field3,jdbcType=VARCHAR},
+      </if>
+      <if test="field4 != null">
+        FIELD4 = #{field4,jdbcType=VARCHAR},
+      </if>
+      <if test="field5 != null">
+        FIELD5 = #{field5,jdbcType=VARCHAR},
+      </if>
+      <if test="field6 != null">
+        FIELD6 = #{field6,jdbcType=DECIMAL},
+      </if>
+      <if test="field7 != null">
+        FIELD7 = #{field7,jdbcType=DECIMAL},
+      </if>
+      <if test="field8 != null">
+        FIELD8 = #{field8,jdbcType=DECIMAL},
+      </if>
+      <if test="field9 != null">
+        FIELD9 = #{field9,jdbcType=DECIMAL},
+      </if>
+      <if test="field10 != null">
+        FIELD10 = #{field10,jdbcType=DECIMAL},
+      </if>
+      <if test="bizOpId != null">
+        BIZ_OP_ID = #{bizOpId,jdbcType=VARCHAR},
+      </if>
+      <if test="bizOrgId != null">
+        BIZ_ORG_ID = #{bizOrgId,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE = #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME = #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateDate != null">
+        LAST_UPDATE_DATE = #{lastUpdateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where AGREEMENT_NO = #{agreementNo,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.COO_AGR_INFO">
+    update COO_AGR_INFO
+    set CO_CUST_ID = #{coCustId,jdbcType=VARCHAR},
+      PRD_CODE = #{prdCode,jdbcType=VARCHAR},
+      CO_PLATFORM = #{coPlatform,jdbcType=CHAR},
+      PYBL = #{pybl,jdbcType=DECIMAL},
+      ACNO = #{acno,jdbcType=VARCHAR},
+      PKAC = #{pkac,jdbcType=VARCHAR},
+      STDT = #{stdt,jdbcType=VARCHAR},
+      EDDT = #{eddt,jdbcType=VARCHAR},
+      BZAC = #{bzac,jdbcType=VARCHAR},
+      BZBL = #{bzbl,jdbcType=DECIMAL},
+      FKFG = #{fkfg,jdbcType=VARCHAR},
+      GDAC = #{gdac,jdbcType=VARCHAR},
+      FIELD2 = #{field2,jdbcType=VARCHAR},
+      FIELD1 = #{field1,jdbcType=VARCHAR},
+      FIELD3 = #{field3,jdbcType=VARCHAR},
+      FIELD4 = #{field4,jdbcType=VARCHAR},
+      FIELD5 = #{field5,jdbcType=VARCHAR},
+      FIELD6 = #{field6,jdbcType=DECIMAL},
+      FIELD7 = #{field7,jdbcType=DECIMAL},
+      FIELD8 = #{field8,jdbcType=DECIMAL},
+      FIELD9 = #{field9,jdbcType=DECIMAL},
+      FIELD10 = #{field10,jdbcType=DECIMAL},
+      BIZ_OP_ID = #{bizOpId,jdbcType=VARCHAR},
+      BIZ_ORG_ID = #{bizOrgId,jdbcType=VARCHAR},
+      INPUT_DATE = #{inputDate,jdbcType=VARCHAR},
+      INPUT_TIME = #{inputTime,jdbcType=VARCHAR},
+      LAST_UPDATE_DATE = #{lastUpdateDate,jdbcType=VARCHAR},
+      LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=VARCHAR}
+    where AGREEMENT_NO = #{agreementNo,jdbcType=VARCHAR}
+  </update>
+</mapper>

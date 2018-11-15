@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.WF_NODE_EXTEND_PROPERTYMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.WF_NODE_EXTEND_PROPERTY">
+    <id column="NODEID" jdbcType="VARCHAR" property="nodeid" />
+    <result column="WFID" jdbcType="VARCHAR" property="wfid" />
+    <result column="NODEITEMLISTIN" jdbcType="VARCHAR" property="nodeitemlistin" />
+    <result column="NODEITEMCONTENTIN" jdbcType="VARCHAR" property="nodeitemcontentin" />
+    <result column="CLASSNAME" jdbcType="VARCHAR" property="classname" />
+    <result column="METHOD" jdbcType="VARCHAR" property="method" />
+    <result column="NODERUNSCRIPTSIGN" jdbcType="CHAR" property="noderunscriptsign" />
+    <result column="NODERUNSCRIPT" jdbcType="VARCHAR" property="noderunscript" />
+    <result column="NODERETURNRECEIPTSCOPE" jdbcType="CHAR" property="nodereturnreceiptscope" />
+    <result column="NODEUSESUBWF" jdbcType="CHAR" property="nodeusesubwf" />
+    <result column="SUBWFID" jdbcType="VARCHAR" property="subwfid" />
+    <result column="NODEWISEFLOWSIGN" jdbcType="CHAR" property="nodewiseflowsign" />
+    <result column="NODEDISTRIBUTE" jdbcType="CHAR" property="nodedistribute" />
+    <result column="NODEFREEFLOWSIGN" jdbcType="CHAR" property="nodefreeflowsign" />
+    <result column="NODEANNOUNCESET" jdbcType="CHAR" property="nodeannounceset" />
+    <result column="NODEANNOUNCEUSER" jdbcType="VARCHAR" property="nodeannounceuser" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    NODEID, WFID, NODEITEMLISTIN, NODEITEMCONTENTIN, CLASSNAME, METHOD, NODERUNSCRIPTSIGN, 
+    NODERUNSCRIPT, NODERETURNRECEIPTSCOPE, NODEUSESUBWF, SUBWFID, NODEWISEFLOWSIGN, NODEDISTRIBUTE, 
+    NODEFREEFLOWSIGN, NODEANNOUNCESET, NODEANNOUNCEUSER
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from WF_NODE_EXTEND_PROPERTY
+    where NODEID = #{nodeid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from WF_NODE_EXTEND_PROPERTY
+    where NODEID = #{nodeid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.WF_NODE_EXTEND_PROPERTY">
+    insert into WF_NODE_EXTEND_PROPERTY (NODEID, WFID, NODEITEMLISTIN, 
+      NODEITEMCONTENTIN, CLASSNAME, METHOD, 
+      NODERUNSCRIPTSIGN, NODERUNSCRIPT, NODERETURNRECEIPTSCOPE, 
+      NODEUSESUBWF, SUBWFID, NODEWISEFLOWSIGN, 
+      NODEDISTRIBUTE, NODEFREEFLOWSIGN, NODEANNOUNCESET, 
+      NODEANNOUNCEUSER)
+    values (#{nodeid,jdbcType=VARCHAR}, #{wfid,jdbcType=VARCHAR}, #{nodeitemlistin,jdbcType=VARCHAR}, 
+      #{nodeitemcontentin,jdbcType=VARCHAR}, #{classname,jdbcType=VARCHAR}, #{method,jdbcType=VARCHAR}, 
+      #{noderunscriptsign,jdbcType=CHAR}, #{noderunscript,jdbcType=VARCHAR}, #{nodereturnreceiptscope,jdbcType=CHAR}, 
+      #{nodeusesubwf,jdbcType=CHAR}, #{subwfid,jdbcType=VARCHAR}, #{nodewiseflowsign,jdbcType=CHAR}, 
+      #{nodedistribute,jdbcType=CHAR}, #{nodefreeflowsign,jdbcType=CHAR}, #{nodeannounceset,jdbcType=CHAR}, 
+      #{nodeannounceuser,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.WF_NODE_EXTEND_PROPERTY">
+    insert into WF_NODE_EXTEND_PROPERTY
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="nodeid != null">
+        NODEID,
+      </if>
+      <if test="wfid != null">
+        WFID,
+      </if>
+      <if test="nodeitemlistin != null">
+        NODEITEMLISTIN,
+      </if>
+      <if test="nodeitemcontentin != null">
+        NODEITEMCONTENTIN,
+      </if>
+      <if test="classname != null">
+        CLASSNAME,
+      </if>
+      <if test="method != null">
+        METHOD,
+      </if>
+      <if test="noderunscriptsign != null">
+        NODERUNSCRIPTSIGN,
+      </if>
+      <if test="noderunscript != null">
+        NODERUNSCRIPT,
+      </if>
+      <if test="nodereturnreceiptscope != null">
+        NODERETURNRECEIPTSCOPE,
+      </if>
+      <if test="nodeusesubwf != null">
+        NODEUSESUBWF,
+      </if>
+      <if test="subwfid != null">
+        SUBWFID,
+      </if>
+      <if test="nodewiseflowsign != null">
+        NODEWISEFLOWSIGN,
+      </if>
+      <if test="nodedistribute != null">
+        NODEDISTRIBUTE,
+      </if>
+      <if test="nodefreeflowsign != null">
+        NODEFREEFLOWSIGN,
+      </if>
+      <if test="nodeannounceset != null">
+        NODEANNOUNCESET,
+      </if>
+      <if test="nodeannounceuser != null">
+        NODEANNOUNCEUSER,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="nodeid != null">
+        #{nodeid,jdbcType=VARCHAR},
+      </if>
+      <if test="wfid != null">
+        #{wfid,jdbcType=VARCHAR},
+      </if>
+      <if test="nodeitemlistin != null">
+        #{nodeitemlistin,jdbcType=VARCHAR},
+      </if>
+      <if test="nodeitemcontentin != null">
+        #{nodeitemcontentin,jdbcType=VARCHAR},
+      </if>
+      <if test="classname != null">
+        #{classname,jdbcType=VARCHAR},
+      </if>
+      <if test="method != null">
+        #{method,jdbcType=VARCHAR},
+      </if>
+      <if test="noderunscriptsign != null">
+        #{noderunscriptsign,jdbcType=CHAR},
+      </if>
+      <if test="noderunscript != null">
+        #{noderunscript,jdbcType=VARCHAR},
+      </if>
+      <if test="nodereturnreceiptscope != null">
+        #{nodereturnreceiptscope,jdbcType=CHAR},
+      </if>
+      <if test="nodeusesubwf != null">
+        #{nodeusesubwf,jdbcType=CHAR},
+      </if>
+      <if test="subwfid != null">
+        #{subwfid,jdbcType=VARCHAR},
+      </if>
+      <if test="nodewiseflowsign != null">
+        #{nodewiseflowsign,jdbcType=CHAR},
+      </if>
+      <if test="nodedistribute != null">
+        #{nodedistribute,jdbcType=CHAR},
+      </if>
+      <if test="nodefreeflowsign != null">
+        #{nodefreeflowsign,jdbcType=CHAR},
+      </if>
+      <if test="nodeannounceset != null">
+        #{nodeannounceset,jdbcType=CHAR},
+      </if>
+      <if test="nodeannounceuser != null">
+        #{nodeannounceuser,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.WF_NODE_EXTEND_PROPERTY">
+    update WF_NODE_EXTEND_PROPERTY
+    <set>
+      <if test="wfid != null">
+        WFID = #{wfid,jdbcType=VARCHAR},
+      </if>
+      <if test="nodeitemlistin != null">
+        NODEITEMLISTIN = #{nodeitemlistin,jdbcType=VARCHAR},
+      </if>
+      <if test="nodeitemcontentin != null">
+        NODEITEMCONTENTIN = #{nodeitemcontentin,jdbcType=VARCHAR},
+      </if>
+      <if test="classname != null">
+        CLASSNAME = #{classname,jdbcType=VARCHAR},
+      </if>
+      <if test="method != null">
+        METHOD = #{method,jdbcType=VARCHAR},
+      </if>
+      <if test="noderunscriptsign != null">
+        NODERUNSCRIPTSIGN = #{noderunscriptsign,jdbcType=CHAR},
+      </if>
+      <if test="noderunscript != null">
+        NODERUNSCRIPT = #{noderunscript,jdbcType=VARCHAR},
+      </if>
+      <if test="nodereturnreceiptscope != null">
+        NODERETURNRECEIPTSCOPE = #{nodereturnreceiptscope,jdbcType=CHAR},
+      </if>
+      <if test="nodeusesubwf != null">
+        NODEUSESUBWF = #{nodeusesubwf,jdbcType=CHAR},
+      </if>
+      <if test="subwfid != null">
+        SUBWFID = #{subwfid,jdbcType=VARCHAR},
+      </if>
+      <if test="nodewiseflowsign != null">
+        NODEWISEFLOWSIGN = #{nodewiseflowsign,jdbcType=CHAR},
+      </if>
+      <if test="nodedistribute != null">
+        NODEDISTRIBUTE = #{nodedistribute,jdbcType=CHAR},
+      </if>
+      <if test="nodefreeflowsign != null">
+        NODEFREEFLOWSIGN = #{nodefreeflowsign,jdbcType=CHAR},
+      </if>
+      <if test="nodeannounceset != null">
+        NODEANNOUNCESET = #{nodeannounceset,jdbcType=CHAR},
+      </if>
+      <if test="nodeannounceuser != null">
+        NODEANNOUNCEUSER = #{nodeannounceuser,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where NODEID = #{nodeid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.WF_NODE_EXTEND_PROPERTY">
+    update WF_NODE_EXTEND_PROPERTY
+    set WFID = #{wfid,jdbcType=VARCHAR},
+      NODEITEMLISTIN = #{nodeitemlistin,jdbcType=VARCHAR},
+      NODEITEMCONTENTIN = #{nodeitemcontentin,jdbcType=VARCHAR},
+      CLASSNAME = #{classname,jdbcType=VARCHAR},
+      METHOD = #{method,jdbcType=VARCHAR},
+      NODERUNSCRIPTSIGN = #{noderunscriptsign,jdbcType=CHAR},
+      NODERUNSCRIPT = #{noderunscript,jdbcType=VARCHAR},
+      NODERETURNRECEIPTSCOPE = #{nodereturnreceiptscope,jdbcType=CHAR},
+      NODEUSESUBWF = #{nodeusesubwf,jdbcType=CHAR},
+      SUBWFID = #{subwfid,jdbcType=VARCHAR},
+      NODEWISEFLOWSIGN = #{nodewiseflowsign,jdbcType=CHAR},
+      NODEDISTRIBUTE = #{nodedistribute,jdbcType=CHAR},
+      NODEFREEFLOWSIGN = #{nodefreeflowsign,jdbcType=CHAR},
+      NODEANNOUNCESET = #{nodeannounceset,jdbcType=CHAR},
+      NODEANNOUNCEUSER = #{nodeannounceuser,jdbcType=VARCHAR}
+    where NODEID = #{nodeid,jdbcType=VARCHAR}
+  </update>
+</mapper>

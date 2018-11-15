@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.S_PERMISSIONS_LOGMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.S_PERMISSIONS_LOG">
+    <id column="CT_DATE" jdbcType="VARCHAR" property="ctDate" />
+    <result column="CT_FLAG" jdbcType="CHAR" property="ctFlag" />
+    <result column="LAST_UPDATE_TIME" jdbcType="VARCHAR" property="lastUpdateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    CT_DATE, CT_FLAG, LAST_UPDATE_TIME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from S_PERMISSIONS_LOG
+    where CT_DATE = #{ctDate,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from S_PERMISSIONS_LOG
+    where CT_DATE = #{ctDate,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.S_PERMISSIONS_LOG">
+    insert into S_PERMISSIONS_LOG (CT_DATE, CT_FLAG, LAST_UPDATE_TIME
+      )
+    values (#{ctDate,jdbcType=VARCHAR}, #{ctFlag,jdbcType=CHAR}, #{lastUpdateTime,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.S_PERMISSIONS_LOG">
+    insert into S_PERMISSIONS_LOG
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ctDate != null">
+        CT_DATE,
+      </if>
+      <if test="ctFlag != null">
+        CT_FLAG,
+      </if>
+      <if test="lastUpdateTime != null">
+        LAST_UPDATE_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ctDate != null">
+        #{ctDate,jdbcType=VARCHAR},
+      </if>
+      <if test="ctFlag != null">
+        #{ctFlag,jdbcType=CHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        #{lastUpdateTime,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.S_PERMISSIONS_LOG">
+    update S_PERMISSIONS_LOG
+    <set>
+      <if test="ctFlag != null">
+        CT_FLAG = #{ctFlag,jdbcType=CHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where CT_DATE = #{ctDate,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.S_PERMISSIONS_LOG">
+    update S_PERMISSIONS_LOG
+    set CT_FLAG = #{ctFlag,jdbcType=CHAR},
+      LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=VARCHAR}
+    where CT_DATE = #{ctDate,jdbcType=VARCHAR}
+  </update>
+</mapper>

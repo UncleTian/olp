@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.WFI_DEMOMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.WFI_DEMO">
+    <id column="SERNO" jdbcType="VARCHAR" property="serno" />
+    <result column="CUS_ID" jdbcType="VARCHAR" property="cusId" />
+    <result column="CUS_NAME" jdbcType="VARCHAR" property="cusName" />
+    <result column="WF_APPR_STS" jdbcType="VARCHAR" property="wfApprSts" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    SERNO, CUS_ID, CUS_NAME, WF_APPR_STS
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from WFI_DEMO
+    where SERNO = #{serno,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from WFI_DEMO
+    where SERNO = #{serno,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.WFI_DEMO">
+    insert into WFI_DEMO (SERNO, CUS_ID, CUS_NAME, 
+      WF_APPR_STS)
+    values (#{serno,jdbcType=VARCHAR}, #{cusId,jdbcType=VARCHAR}, #{cusName,jdbcType=VARCHAR}, 
+      #{wfApprSts,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.WFI_DEMO">
+    insert into WFI_DEMO
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="serno != null">
+        SERNO,
+      </if>
+      <if test="cusId != null">
+        CUS_ID,
+      </if>
+      <if test="cusName != null">
+        CUS_NAME,
+      </if>
+      <if test="wfApprSts != null">
+        WF_APPR_STS,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="serno != null">
+        #{serno,jdbcType=VARCHAR},
+      </if>
+      <if test="cusId != null">
+        #{cusId,jdbcType=VARCHAR},
+      </if>
+      <if test="cusName != null">
+        #{cusName,jdbcType=VARCHAR},
+      </if>
+      <if test="wfApprSts != null">
+        #{wfApprSts,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.WFI_DEMO">
+    update WFI_DEMO
+    <set>
+      <if test="cusId != null">
+        CUS_ID = #{cusId,jdbcType=VARCHAR},
+      </if>
+      <if test="cusName != null">
+        CUS_NAME = #{cusName,jdbcType=VARCHAR},
+      </if>
+      <if test="wfApprSts != null">
+        WF_APPR_STS = #{wfApprSts,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where SERNO = #{serno,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.WFI_DEMO">
+    update WFI_DEMO
+    set CUS_ID = #{cusId,jdbcType=VARCHAR},
+      CUS_NAME = #{cusName,jdbcType=VARCHAR},
+      WF_APPR_STS = #{wfApprSts,jdbcType=VARCHAR}
+    where SERNO = #{serno,jdbcType=VARCHAR}
+  </update>
+</mapper>

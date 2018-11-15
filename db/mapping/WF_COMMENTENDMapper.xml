@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.WF_COMMENTENDMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.WF_COMMENTEND">
+    <id column="COMMENTID" jdbcType="VARCHAR" property="commentid" />
+    <result column="NODEACTIONID" jdbcType="VARCHAR" property="nodeactionid" />
+    <result column="INSTANCEID" jdbcType="VARCHAR" property="instanceid" />
+    <result column="NODEID" jdbcType="VARCHAR" property="nodeid" />
+    <result column="NODENAME" jdbcType="VARCHAR" property="nodename" />
+    <result column="USERID" jdbcType="VARCHAR" property="userid" />
+    <result column="USERNAME" jdbcType="VARCHAR" property="username" />
+    <result column="APPENDROLE" jdbcType="VARCHAR" property="appendrole" />
+    <result column="COMMENTTIME" jdbcType="CHAR" property="commenttime" />
+    <result column="COMMENTTYPE" jdbcType="CHAR" property="commenttype" />
+    <result column="COMMENTLEVEL" jdbcType="DECIMAL" property="commentlevel" />
+    <result column="COMMENTSIGN" jdbcType="VARCHAR" property="commentsign" />
+    <result column="COMMENTCONTENT" jdbcType="VARCHAR" property="commentcontent" />
+    <result column="COMMENTREADERS" jdbcType="VARCHAR" property="commentreaders" />
+    <result column="ORGID" jdbcType="VARCHAR" property="orgid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    COMMENTID, NODEACTIONID, INSTANCEID, NODEID, NODENAME, USERID, USERNAME, APPENDROLE, 
+    COMMENTTIME, COMMENTTYPE, COMMENTLEVEL, COMMENTSIGN, COMMENTCONTENT, COMMENTREADERS, 
+    ORGID
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from WF_COMMENTEND
+    where COMMENTID = #{commentid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from WF_COMMENTEND
+    where COMMENTID = #{commentid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.WF_COMMENTEND">
+    insert into WF_COMMENTEND (COMMENTID, NODEACTIONID, INSTANCEID, 
+      NODEID, NODENAME, USERID, 
+      USERNAME, APPENDROLE, COMMENTTIME, 
+      COMMENTTYPE, COMMENTLEVEL, COMMENTSIGN, 
+      COMMENTCONTENT, COMMENTREADERS, ORGID
+      )
+    values (#{commentid,jdbcType=VARCHAR}, #{nodeactionid,jdbcType=VARCHAR}, #{instanceid,jdbcType=VARCHAR}, 
+      #{nodeid,jdbcType=VARCHAR}, #{nodename,jdbcType=VARCHAR}, #{userid,jdbcType=VARCHAR}, 
+      #{username,jdbcType=VARCHAR}, #{appendrole,jdbcType=VARCHAR}, #{commenttime,jdbcType=CHAR}, 
+      #{commenttype,jdbcType=CHAR}, #{commentlevel,jdbcType=DECIMAL}, #{commentsign,jdbcType=VARCHAR}, 
+      #{commentcontent,jdbcType=VARCHAR}, #{commentreaders,jdbcType=VARCHAR}, #{orgid,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.WF_COMMENTEND">
+    insert into WF_COMMENTEND
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="commentid != null">
+        COMMENTID,
+      </if>
+      <if test="nodeactionid != null">
+        NODEACTIONID,
+      </if>
+      <if test="instanceid != null">
+        INSTANCEID,
+      </if>
+      <if test="nodeid != null">
+        NODEID,
+      </if>
+      <if test="nodename != null">
+        NODENAME,
+      </if>
+      <if test="userid != null">
+        USERID,
+      </if>
+      <if test="username != null">
+        USERNAME,
+      </if>
+      <if test="appendrole != null">
+        APPENDROLE,
+      </if>
+      <if test="commenttime != null">
+        COMMENTTIME,
+      </if>
+      <if test="commenttype != null">
+        COMMENTTYPE,
+      </if>
+      <if test="commentlevel != null">
+        COMMENTLEVEL,
+      </if>
+      <if test="commentsign != null">
+        COMMENTSIGN,
+      </if>
+      <if test="commentcontent != null">
+        COMMENTCONTENT,
+      </if>
+      <if test="commentreaders != null">
+        COMMENTREADERS,
+      </if>
+      <if test="orgid != null">
+        ORGID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="commentid != null">
+        #{commentid,jdbcType=VARCHAR},
+      </if>
+      <if test="nodeactionid != null">
+        #{nodeactionid,jdbcType=VARCHAR},
+      </if>
+      <if test="instanceid != null">
+        #{instanceid,jdbcType=VARCHAR},
+      </if>
+      <if test="nodeid != null">
+        #{nodeid,jdbcType=VARCHAR},
+      </if>
+      <if test="nodename != null">
+        #{nodename,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null">
+        #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="appendrole != null">
+        #{appendrole,jdbcType=VARCHAR},
+      </if>
+      <if test="commenttime != null">
+        #{commenttime,jdbcType=CHAR},
+      </if>
+      <if test="commenttype != null">
+        #{commenttype,jdbcType=CHAR},
+      </if>
+      <if test="commentlevel != null">
+        #{commentlevel,jdbcType=DECIMAL},
+      </if>
+      <if test="commentsign != null">
+        #{commentsign,jdbcType=VARCHAR},
+      </if>
+      <if test="commentcontent != null">
+        #{commentcontent,jdbcType=VARCHAR},
+      </if>
+      <if test="commentreaders != null">
+        #{commentreaders,jdbcType=VARCHAR},
+      </if>
+      <if test="orgid != null">
+        #{orgid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.WF_COMMENTEND">
+    update WF_COMMENTEND
+    <set>
+      <if test="nodeactionid != null">
+        NODEACTIONID = #{nodeactionid,jdbcType=VARCHAR},
+      </if>
+      <if test="instanceid != null">
+        INSTANCEID = #{instanceid,jdbcType=VARCHAR},
+      </if>
+      <if test="nodeid != null">
+        NODEID = #{nodeid,jdbcType=VARCHAR},
+      </if>
+      <if test="nodename != null">
+        NODENAME = #{nodename,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null">
+        USERID = #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        USERNAME = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="appendrole != null">
+        APPENDROLE = #{appendrole,jdbcType=VARCHAR},
+      </if>
+      <if test="commenttime != null">
+        COMMENTTIME = #{commenttime,jdbcType=CHAR},
+      </if>
+      <if test="commenttype != null">
+        COMMENTTYPE = #{commenttype,jdbcType=CHAR},
+      </if>
+      <if test="commentlevel != null">
+        COMMENTLEVEL = #{commentlevel,jdbcType=DECIMAL},
+      </if>
+      <if test="commentsign != null">
+        COMMENTSIGN = #{commentsign,jdbcType=VARCHAR},
+      </if>
+      <if test="commentcontent != null">
+        COMMENTCONTENT = #{commentcontent,jdbcType=VARCHAR},
+      </if>
+      <if test="commentreaders != null">
+        COMMENTREADERS = #{commentreaders,jdbcType=VARCHAR},
+      </if>
+      <if test="orgid != null">
+        ORGID = #{orgid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where COMMENTID = #{commentid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.WF_COMMENTEND">
+    update WF_COMMENTEND
+    set NODEACTIONID = #{nodeactionid,jdbcType=VARCHAR},
+      INSTANCEID = #{instanceid,jdbcType=VARCHAR},
+      NODEID = #{nodeid,jdbcType=VARCHAR},
+      NODENAME = #{nodename,jdbcType=VARCHAR},
+      USERID = #{userid,jdbcType=VARCHAR},
+      USERNAME = #{username,jdbcType=VARCHAR},
+      APPENDROLE = #{appendrole,jdbcType=VARCHAR},
+      COMMENTTIME = #{commenttime,jdbcType=CHAR},
+      COMMENTTYPE = #{commenttype,jdbcType=CHAR},
+      COMMENTLEVEL = #{commentlevel,jdbcType=DECIMAL},
+      COMMENTSIGN = #{commentsign,jdbcType=VARCHAR},
+      COMMENTCONTENT = #{commentcontent,jdbcType=VARCHAR},
+      COMMENTREADERS = #{commentreaders,jdbcType=VARCHAR},
+      ORGID = #{orgid,jdbcType=VARCHAR}
+    where COMMENTID = #{commentid,jdbcType=VARCHAR}
+  </update>
+</mapper>

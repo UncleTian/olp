@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.WF_TREE_DICMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.WF_TREE_DIC">
+    <id column="ITEMPK" jdbcType="VARCHAR" property="itempk" />
+    <result column="ITEMID" jdbcType="VARCHAR" property="itemid" />
+    <result column="ITEMNAME" jdbcType="VARCHAR" property="itemname" />
+    <result column="TREETYPE" jdbcType="VARCHAR" property="treetype" />
+    <result column="SUPITEMPK" jdbcType="VARCHAR" property="supitempk" />
+    <result column="MEMO" jdbcType="VARCHAR" property="memo" />
+    <result column="CREATEDUSERID" jdbcType="VARCHAR" property="createduserid" />
+    <result column="CREATEDTIME" jdbcType="CHAR" property="createdtime" />
+    <result column="LASTUPDOPRID" jdbcType="VARCHAR" property="lastupdoprid" />
+    <result column="LASTUPDPGMID" jdbcType="VARCHAR" property="lastupdpgmid" />
+    <result column="LASTUPDTIME" jdbcType="CHAR" property="lastupdtime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ITEMPK, ITEMID, ITEMNAME, TREETYPE, SUPITEMPK, MEMO, CREATEDUSERID, CREATEDTIME, 
+    LASTUPDOPRID, LASTUPDPGMID, LASTUPDTIME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from WF_TREE_DIC
+    where ITEMPK = #{itempk,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from WF_TREE_DIC
+    where ITEMPK = #{itempk,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.WF_TREE_DIC">
+    insert into WF_TREE_DIC (ITEMPK, ITEMID, ITEMNAME, 
+      TREETYPE, SUPITEMPK, MEMO, 
+      CREATEDUSERID, CREATEDTIME, LASTUPDOPRID, 
+      LASTUPDPGMID, LASTUPDTIME)
+    values (#{itempk,jdbcType=VARCHAR}, #{itemid,jdbcType=VARCHAR}, #{itemname,jdbcType=VARCHAR}, 
+      #{treetype,jdbcType=VARCHAR}, #{supitempk,jdbcType=VARCHAR}, #{memo,jdbcType=VARCHAR}, 
+      #{createduserid,jdbcType=VARCHAR}, #{createdtime,jdbcType=CHAR}, #{lastupdoprid,jdbcType=VARCHAR}, 
+      #{lastupdpgmid,jdbcType=VARCHAR}, #{lastupdtime,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.WF_TREE_DIC">
+    insert into WF_TREE_DIC
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="itempk != null">
+        ITEMPK,
+      </if>
+      <if test="itemid != null">
+        ITEMID,
+      </if>
+      <if test="itemname != null">
+        ITEMNAME,
+      </if>
+      <if test="treetype != null">
+        TREETYPE,
+      </if>
+      <if test="supitempk != null">
+        SUPITEMPK,
+      </if>
+      <if test="memo != null">
+        MEMO,
+      </if>
+      <if test="createduserid != null">
+        CREATEDUSERID,
+      </if>
+      <if test="createdtime != null">
+        CREATEDTIME,
+      </if>
+      <if test="lastupdoprid != null">
+        LASTUPDOPRID,
+      </if>
+      <if test="lastupdpgmid != null">
+        LASTUPDPGMID,
+      </if>
+      <if test="lastupdtime != null">
+        LASTUPDTIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="itempk != null">
+        #{itempk,jdbcType=VARCHAR},
+      </if>
+      <if test="itemid != null">
+        #{itemid,jdbcType=VARCHAR},
+      </if>
+      <if test="itemname != null">
+        #{itemname,jdbcType=VARCHAR},
+      </if>
+      <if test="treetype != null">
+        #{treetype,jdbcType=VARCHAR},
+      </if>
+      <if test="supitempk != null">
+        #{supitempk,jdbcType=VARCHAR},
+      </if>
+      <if test="memo != null">
+        #{memo,jdbcType=VARCHAR},
+      </if>
+      <if test="createduserid != null">
+        #{createduserid,jdbcType=VARCHAR},
+      </if>
+      <if test="createdtime != null">
+        #{createdtime,jdbcType=CHAR},
+      </if>
+      <if test="lastupdoprid != null">
+        #{lastupdoprid,jdbcType=VARCHAR},
+      </if>
+      <if test="lastupdpgmid != null">
+        #{lastupdpgmid,jdbcType=VARCHAR},
+      </if>
+      <if test="lastupdtime != null">
+        #{lastupdtime,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.WF_TREE_DIC">
+    update WF_TREE_DIC
+    <set>
+      <if test="itemid != null">
+        ITEMID = #{itemid,jdbcType=VARCHAR},
+      </if>
+      <if test="itemname != null">
+        ITEMNAME = #{itemname,jdbcType=VARCHAR},
+      </if>
+      <if test="treetype != null">
+        TREETYPE = #{treetype,jdbcType=VARCHAR},
+      </if>
+      <if test="supitempk != null">
+        SUPITEMPK = #{supitempk,jdbcType=VARCHAR},
+      </if>
+      <if test="memo != null">
+        MEMO = #{memo,jdbcType=VARCHAR},
+      </if>
+      <if test="createduserid != null">
+        CREATEDUSERID = #{createduserid,jdbcType=VARCHAR},
+      </if>
+      <if test="createdtime != null">
+        CREATEDTIME = #{createdtime,jdbcType=CHAR},
+      </if>
+      <if test="lastupdoprid != null">
+        LASTUPDOPRID = #{lastupdoprid,jdbcType=VARCHAR},
+      </if>
+      <if test="lastupdpgmid != null">
+        LASTUPDPGMID = #{lastupdpgmid,jdbcType=VARCHAR},
+      </if>
+      <if test="lastupdtime != null">
+        LASTUPDTIME = #{lastupdtime,jdbcType=CHAR},
+      </if>
+    </set>
+    where ITEMPK = #{itempk,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.WF_TREE_DIC">
+    update WF_TREE_DIC
+    set ITEMID = #{itemid,jdbcType=VARCHAR},
+      ITEMNAME = #{itemname,jdbcType=VARCHAR},
+      TREETYPE = #{treetype,jdbcType=VARCHAR},
+      SUPITEMPK = #{supitempk,jdbcType=VARCHAR},
+      MEMO = #{memo,jdbcType=VARCHAR},
+      CREATEDUSERID = #{createduserid,jdbcType=VARCHAR},
+      CREATEDTIME = #{createdtime,jdbcType=CHAR},
+      LASTUPDOPRID = #{lastupdoprid,jdbcType=VARCHAR},
+      LASTUPDPGMID = #{lastupdpgmid,jdbcType=VARCHAR},
+      LASTUPDTIME = #{lastupdtime,jdbcType=CHAR}
+    where ITEMPK = #{itempk,jdbcType=VARCHAR}
+  </update>
+</mapper>

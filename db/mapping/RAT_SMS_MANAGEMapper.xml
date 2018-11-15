@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.RAT_SMS_MANAGEMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.RAT_SMS_MANAGE">
+    <id column="SMS_ID" jdbcType="VARCHAR" property="smsId" />
+    <result column="PHONE" jdbcType="VARCHAR" property="phone" />
+    <result column="GROUP_ID" jdbcType="VARCHAR" property="groupId" />
+    <result column="SMS_CONTENT" jdbcType="VARCHAR" property="smsContent" />
+    <result column="SUB_CODE" jdbcType="VARCHAR" property="subCode" />
+    <result column="USER_ID" jdbcType="VARCHAR" property="userId" />
+    <result column="SMS_TYPE" jdbcType="VARCHAR" property="smsType" />
+    <result column="INPUT_TIME" jdbcType="VARCHAR" property="inputTime" />
+    <result column="SEND_TIME" jdbcType="VARCHAR" property="sendTime" />
+    <result column="STATE" jdbcType="CHAR" property="state" />
+    <result column="SUBSTAT" jdbcType="VARCHAR" property="substat" />
+    <result column="SMS_FLAG" jdbcType="CHAR" property="smsFlag" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    SMS_ID, PHONE, GROUP_ID, SMS_CONTENT, SUB_CODE, USER_ID, SMS_TYPE, INPUT_TIME, SEND_TIME, 
+    STATE, SUBSTAT, SMS_FLAG
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from RAT_SMS_MANAGE
+    where SMS_ID = #{smsId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from RAT_SMS_MANAGE
+    where SMS_ID = #{smsId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.RAT_SMS_MANAGE">
+    insert into RAT_SMS_MANAGE (SMS_ID, PHONE, GROUP_ID, 
+      SMS_CONTENT, SUB_CODE, USER_ID, 
+      SMS_TYPE, INPUT_TIME, SEND_TIME, 
+      STATE, SUBSTAT, SMS_FLAG)
+    values (#{smsId,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{groupId,jdbcType=VARCHAR}, 
+      #{smsContent,jdbcType=VARCHAR}, #{subCode,jdbcType=VARCHAR}, #{userId,jdbcType=VARCHAR}, 
+      #{smsType,jdbcType=VARCHAR}, #{inputTime,jdbcType=VARCHAR}, #{sendTime,jdbcType=VARCHAR}, 
+      #{state,jdbcType=CHAR}, #{substat,jdbcType=VARCHAR}, #{smsFlag,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.RAT_SMS_MANAGE">
+    insert into RAT_SMS_MANAGE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="smsId != null">
+        SMS_ID,
+      </if>
+      <if test="phone != null">
+        PHONE,
+      </if>
+      <if test="groupId != null">
+        GROUP_ID,
+      </if>
+      <if test="smsContent != null">
+        SMS_CONTENT,
+      </if>
+      <if test="subCode != null">
+        SUB_CODE,
+      </if>
+      <if test="userId != null">
+        USER_ID,
+      </if>
+      <if test="smsType != null">
+        SMS_TYPE,
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME,
+      </if>
+      <if test="sendTime != null">
+        SEND_TIME,
+      </if>
+      <if test="state != null">
+        STATE,
+      </if>
+      <if test="substat != null">
+        SUBSTAT,
+      </if>
+      <if test="smsFlag != null">
+        SMS_FLAG,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="smsId != null">
+        #{smsId,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="groupId != null">
+        #{groupId,jdbcType=VARCHAR},
+      </if>
+      <if test="smsContent != null">
+        #{smsContent,jdbcType=VARCHAR},
+      </if>
+      <if test="subCode != null">
+        #{subCode,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="smsType != null">
+        #{smsType,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="sendTime != null">
+        #{sendTime,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null">
+        #{state,jdbcType=CHAR},
+      </if>
+      <if test="substat != null">
+        #{substat,jdbcType=VARCHAR},
+      </if>
+      <if test="smsFlag != null">
+        #{smsFlag,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.RAT_SMS_MANAGE">
+    update RAT_SMS_MANAGE
+    <set>
+      <if test="phone != null">
+        PHONE = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="groupId != null">
+        GROUP_ID = #{groupId,jdbcType=VARCHAR},
+      </if>
+      <if test="smsContent != null">
+        SMS_CONTENT = #{smsContent,jdbcType=VARCHAR},
+      </if>
+      <if test="subCode != null">
+        SUB_CODE = #{subCode,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null">
+        USER_ID = #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="smsType != null">
+        SMS_TYPE = #{smsType,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME = #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="sendTime != null">
+        SEND_TIME = #{sendTime,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null">
+        STATE = #{state,jdbcType=CHAR},
+      </if>
+      <if test="substat != null">
+        SUBSTAT = #{substat,jdbcType=VARCHAR},
+      </if>
+      <if test="smsFlag != null">
+        SMS_FLAG = #{smsFlag,jdbcType=CHAR},
+      </if>
+    </set>
+    where SMS_ID = #{smsId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.RAT_SMS_MANAGE">
+    update RAT_SMS_MANAGE
+    set PHONE = #{phone,jdbcType=VARCHAR},
+      GROUP_ID = #{groupId,jdbcType=VARCHAR},
+      SMS_CONTENT = #{smsContent,jdbcType=VARCHAR},
+      SUB_CODE = #{subCode,jdbcType=VARCHAR},
+      USER_ID = #{userId,jdbcType=VARCHAR},
+      SMS_TYPE = #{smsType,jdbcType=VARCHAR},
+      INPUT_TIME = #{inputTime,jdbcType=VARCHAR},
+      SEND_TIME = #{sendTime,jdbcType=VARCHAR},
+      STATE = #{state,jdbcType=CHAR},
+      SUBSTAT = #{substat,jdbcType=VARCHAR},
+      SMS_FLAG = #{smsFlag,jdbcType=CHAR}
+    where SMS_ID = #{smsId,jdbcType=VARCHAR}
+  </update>
+</mapper>

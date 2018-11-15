@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.S_COM_TYPMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.S_COM_TYP">
+    <id column="COM_TYP" jdbcType="VARCHAR" property="comTyp" />
+    <result column="COM_TYP_DESC" jdbcType="VARCHAR" property="comTypDesc" />
+    <result column="MODEL_ID" jdbcType="VARCHAR" property="modelId" />
+    <result column="COM_STS" jdbcType="VARCHAR" property="comSts" />
+    <result column="LAST_CHG_USR" jdbcType="VARCHAR" property="lastChgUsr" />
+    <result column="LAST_CHG_DT" jdbcType="VARCHAR" property="lastChgDt" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    COM_TYP, COM_TYP_DESC, MODEL_ID, COM_STS, LAST_CHG_USR, LAST_CHG_DT
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from S_COM_TYP
+    where COM_TYP = #{comTyp,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from S_COM_TYP
+    where COM_TYP = #{comTyp,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.S_COM_TYP">
+    insert into S_COM_TYP (COM_TYP, COM_TYP_DESC, MODEL_ID, 
+      COM_STS, LAST_CHG_USR, LAST_CHG_DT
+      )
+    values (#{comTyp,jdbcType=VARCHAR}, #{comTypDesc,jdbcType=VARCHAR}, #{modelId,jdbcType=VARCHAR}, 
+      #{comSts,jdbcType=VARCHAR}, #{lastChgUsr,jdbcType=VARCHAR}, #{lastChgDt,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.S_COM_TYP">
+    insert into S_COM_TYP
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="comTyp != null">
+        COM_TYP,
+      </if>
+      <if test="comTypDesc != null">
+        COM_TYP_DESC,
+      </if>
+      <if test="modelId != null">
+        MODEL_ID,
+      </if>
+      <if test="comSts != null">
+        COM_STS,
+      </if>
+      <if test="lastChgUsr != null">
+        LAST_CHG_USR,
+      </if>
+      <if test="lastChgDt != null">
+        LAST_CHG_DT,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="comTyp != null">
+        #{comTyp,jdbcType=VARCHAR},
+      </if>
+      <if test="comTypDesc != null">
+        #{comTypDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="modelId != null">
+        #{modelId,jdbcType=VARCHAR},
+      </if>
+      <if test="comSts != null">
+        #{comSts,jdbcType=VARCHAR},
+      </if>
+      <if test="lastChgUsr != null">
+        #{lastChgUsr,jdbcType=VARCHAR},
+      </if>
+      <if test="lastChgDt != null">
+        #{lastChgDt,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.S_COM_TYP">
+    update S_COM_TYP
+    <set>
+      <if test="comTypDesc != null">
+        COM_TYP_DESC = #{comTypDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="modelId != null">
+        MODEL_ID = #{modelId,jdbcType=VARCHAR},
+      </if>
+      <if test="comSts != null">
+        COM_STS = #{comSts,jdbcType=VARCHAR},
+      </if>
+      <if test="lastChgUsr != null">
+        LAST_CHG_USR = #{lastChgUsr,jdbcType=VARCHAR},
+      </if>
+      <if test="lastChgDt != null">
+        LAST_CHG_DT = #{lastChgDt,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where COM_TYP = #{comTyp,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.S_COM_TYP">
+    update S_COM_TYP
+    set COM_TYP_DESC = #{comTypDesc,jdbcType=VARCHAR},
+      MODEL_ID = #{modelId,jdbcType=VARCHAR},
+      COM_STS = #{comSts,jdbcType=VARCHAR},
+      LAST_CHG_USR = #{lastChgUsr,jdbcType=VARCHAR},
+      LAST_CHG_DT = #{lastChgDt,jdbcType=VARCHAR}
+    where COM_TYP = #{comTyp,jdbcType=VARCHAR}
+  </update>
+</mapper>

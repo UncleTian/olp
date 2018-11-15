@@ -1,0 +1,966 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.BIZ_TD_OAC_RESULT_DETMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.BIZ_TD_OAC_RESULT_DET">
+    <id column="APP_NO" jdbcType="VARCHAR" property="appNo" />
+    <result column="ASSBALV2" jdbcType="VARCHAR" property="assbalv2" />
+    <result column="ASSBALV7" jdbcType="VARCHAR" property="assbalv7" />
+    <result column="ASSBALV1" jdbcType="VARCHAR" property="assbalv1" />
+    <result column="ASSBALV9" jdbcType="VARCHAR" property="assbalv9" />
+    <result column="ASSCREV8" jdbcType="VARCHAR" property="asscrev8" />
+    <result column="ASSCREV1" jdbcType="VARCHAR" property="asscrev1" />
+    <result column="ASSCREV10" jdbcType="VARCHAR" property="asscrev10" />
+    <result column="ASSDEBV8" jdbcType="VARCHAR" property="assdebv8" />
+    <result column="ASSDEBV1" jdbcType="VARCHAR" property="assdebv1" />
+    <result column="ASSDEBV10" jdbcType="VARCHAR" property="assdebv10" />
+    <result column="ASSBALV6" jdbcType="VARCHAR" property="assbalv6" />
+    <result column="ASSDEBV6" jdbcType="VARCHAR" property="assdebv6" />
+    <result column="ASSDEBV16" jdbcType="VARCHAR" property="assdebv16" />
+    <result column="ASSBALV4" jdbcType="VARCHAR" property="assbalv4" />
+    <result column="ASSCREV17" jdbcType="VARCHAR" property="asscrev17" />
+    <result column="ASSDEBV20" jdbcType="VARCHAR" property="assdebv20" />
+    <result column="ASSDEBV22" jdbcType="VARCHAR" property="assdebv22" />
+    <result column="ASSBALV12" jdbcType="VARCHAR" property="assbalv12" />
+    <result column="ASSDEBV9" jdbcType="VARCHAR" property="assdebv9" />
+    <result column="ASSBALV22" jdbcType="VARCHAR" property="assbalv22" />
+    <result column="ASSDEBV18" jdbcType="VARCHAR" property="assdebv18" />
+    <result column="ASSBALV14" jdbcType="VARCHAR" property="assbalv14" />
+    <result column="ASSDEBV15" jdbcType="VARCHAR" property="assdebv15" />
+    <result column="ASSCREV16" jdbcType="VARCHAR" property="asscrev16" />
+    <result column="ASSCREV25" jdbcType="VARCHAR" property="asscrev25" />
+    <result column="ASSBALV21" jdbcType="VARCHAR" property="assbalv21" />
+    <result column="ASSDEBV17" jdbcType="VARCHAR" property="assdebv17" />
+    <result column="ASSBALV11" jdbcType="VARCHAR" property="assbalv11" />
+    <result column="ASSCREV24" jdbcType="VARCHAR" property="asscrev24" />
+    <result column="ASSCREV5" jdbcType="VARCHAR" property="asscrev5" />
+    <result column="ASSCREV7" jdbcType="VARCHAR" property="asscrev7" />
+    <result column="ASSCREV19" jdbcType="VARCHAR" property="asscrev19" />
+    <result column="ASSDEBV21" jdbcType="VARCHAR" property="assdebv21" />
+    <result column="ASSCREV20" jdbcType="VARCHAR" property="asscrev20" />
+    <result column="ASSCREV12" jdbcType="VARCHAR" property="asscrev12" />
+    <result column="ASSCREV21" jdbcType="VARCHAR" property="asscrev21" />
+    <result column="ASSCREV2" jdbcType="VARCHAR" property="asscrev2" />
+    <result column="ASSBALV10" jdbcType="VARCHAR" property="assbalv10" />
+    <result column="ASSCREV3" jdbcType="VARCHAR" property="asscrev3" />
+    <result column="ASSDEBV13" jdbcType="VARCHAR" property="assdebv13" />
+    <result column="ASSBALV5" jdbcType="VARCHAR" property="assbalv5" />
+    <result column="ASSDEBV12" jdbcType="VARCHAR" property="assdebv12" />
+    <result column="ASSCREV9" jdbcType="VARCHAR" property="asscrev9" />
+    <result column="ASSCREV6" jdbcType="VARCHAR" property="asscrev6" />
+    <result column="ASSCREV11" jdbcType="VARCHAR" property="asscrev11" />
+    <result column="ASSCREV18" jdbcType="VARCHAR" property="asscrev18" />
+    <result column="ASSBALV18" jdbcType="VARCHAR" property="assbalv18" />
+    <result column="ASSCREV23" jdbcType="VARCHAR" property="asscrev23" />
+    <result column="ASSBALV20" jdbcType="VARCHAR" property="assbalv20" />
+    <result column="ASSBALV8" jdbcType="VARCHAR" property="assbalv8" />
+    <result column="ASSCREV22" jdbcType="VARCHAR" property="asscrev22" />
+    <result column="ASSDEBV11" jdbcType="VARCHAR" property="assdebv11" />
+    <result column="ASSDEBV23" jdbcType="VARCHAR" property="assdebv23" />
+    <result column="ASSDEBV7" jdbcType="VARCHAR" property="assdebv7" />
+    <result column="ASSCREV4" jdbcType="VARCHAR" property="asscrev4" />
+    <result column="ASSBALV17" jdbcType="VARCHAR" property="assbalv17" />
+    <result column="ASSCREV26" jdbcType="VARCHAR" property="asscrev26" />
+    <result column="ASSBALV13" jdbcType="VARCHAR" property="assbalv13" />
+    <result column="ASSDEBV4" jdbcType="VARCHAR" property="assdebv4" />
+    <result column="ASSDEBV2" jdbcType="VARCHAR" property="assdebv2" />
+    <result column="ASSDEBV26" jdbcType="VARCHAR" property="assdebv26" />
+    <result column="ASSCREV13" jdbcType="VARCHAR" property="asscrev13" />
+    <result column="ASSDEBV3" jdbcType="VARCHAR" property="assdebv3" />
+    <result column="ASSDEBV25" jdbcType="VARCHAR" property="assdebv25" />
+    <result column="ASSDEBV5" jdbcType="VARCHAR" property="assdebv5" />
+    <result column="ASSDEBV19" jdbcType="VARCHAR" property="assdebv19" />
+    <result column="ASSCREV15" jdbcType="VARCHAR" property="asscrev15" />
+    <result column="ASSDEBV24" jdbcType="VARCHAR" property="assdebv24" />
+    <result column="ASSBALV19" jdbcType="VARCHAR" property="assbalv19" />
+    <result column="ASSCREV14" jdbcType="VARCHAR" property="asscrev14" />
+    <result column="ASSBALV3" jdbcType="VARCHAR" property="assbalv3" />
+    <result column="ASSDEBV14" jdbcType="VARCHAR" property="assdebv14" />
+    <result column="ASSBALV15" jdbcType="VARCHAR" property="assbalv15" />
+    <result column="ASSBALV16" jdbcType="VARCHAR" property="assbalv16" />
+    <result column="INPUT_DATE" jdbcType="VARCHAR" property="inputDate" />
+    <result column="INPUT_TIME" jdbcType="VARCHAR" property="inputTime" />
+    <result column="LAST_UPDATE_DATE" jdbcType="VARCHAR" property="lastUpdateDate" />
+    <result column="LAST_UPDATE_TIME" jdbcType="VARCHAR" property="lastUpdateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    APP_NO, ASSBALV2, ASSBALV7, ASSBALV1, ASSBALV9, ASSCREV8, ASSCREV1, ASSCREV10, ASSDEBV8, 
+    ASSDEBV1, ASSDEBV10, ASSBALV6, ASSDEBV6, ASSDEBV16, ASSBALV4, ASSCREV17, ASSDEBV20, 
+    ASSDEBV22, ASSBALV12, ASSDEBV9, ASSBALV22, ASSDEBV18, ASSBALV14, ASSDEBV15, ASSCREV16, 
+    ASSCREV25, ASSBALV21, ASSDEBV17, ASSBALV11, ASSCREV24, ASSCREV5, ASSCREV7, ASSCREV19, 
+    ASSDEBV21, ASSCREV20, ASSCREV12, ASSCREV21, ASSCREV2, ASSBALV10, ASSCREV3, ASSDEBV13, 
+    ASSBALV5, ASSDEBV12, ASSCREV9, ASSCREV6, ASSCREV11, ASSCREV18, ASSBALV18, ASSCREV23, 
+    ASSBALV20, ASSBALV8, ASSCREV22, ASSDEBV11, ASSDEBV23, ASSDEBV7, ASSCREV4, ASSBALV17, 
+    ASSCREV26, ASSBALV13, ASSDEBV4, ASSDEBV2, ASSDEBV26, ASSCREV13, ASSDEBV3, ASSDEBV25, 
+    ASSDEBV5, ASSDEBV19, ASSCREV15, ASSDEBV24, ASSBALV19, ASSCREV14, ASSBALV3, ASSDEBV14, 
+    ASSBALV15, ASSBALV16, INPUT_DATE, INPUT_TIME, LAST_UPDATE_DATE, LAST_UPDATE_TIME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from BIZ_TD_OAC_RESULT_DET
+    where APP_NO = #{appNo,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from BIZ_TD_OAC_RESULT_DET
+    where APP_NO = #{appNo,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.BIZ_TD_OAC_RESULT_DET">
+    insert into BIZ_TD_OAC_RESULT_DET (APP_NO, ASSBALV2, ASSBALV7, 
+      ASSBALV1, ASSBALV9, ASSCREV8, 
+      ASSCREV1, ASSCREV10, ASSDEBV8, 
+      ASSDEBV1, ASSDEBV10, ASSBALV6, 
+      ASSDEBV6, ASSDEBV16, ASSBALV4, 
+      ASSCREV17, ASSDEBV20, ASSDEBV22, 
+      ASSBALV12, ASSDEBV9, ASSBALV22, 
+      ASSDEBV18, ASSBALV14, ASSDEBV15, 
+      ASSCREV16, ASSCREV25, ASSBALV21, 
+      ASSDEBV17, ASSBALV11, ASSCREV24, 
+      ASSCREV5, ASSCREV7, ASSCREV19, 
+      ASSDEBV21, ASSCREV20, ASSCREV12, 
+      ASSCREV21, ASSCREV2, ASSBALV10, 
+      ASSCREV3, ASSDEBV13, ASSBALV5, 
+      ASSDEBV12, ASSCREV9, ASSCREV6, 
+      ASSCREV11, ASSCREV18, ASSBALV18, 
+      ASSCREV23, ASSBALV20, ASSBALV8, 
+      ASSCREV22, ASSDEBV11, ASSDEBV23, 
+      ASSDEBV7, ASSCREV4, ASSBALV17, 
+      ASSCREV26, ASSBALV13, ASSDEBV4, 
+      ASSDEBV2, ASSDEBV26, ASSCREV13, 
+      ASSDEBV3, ASSDEBV25, ASSDEBV5, 
+      ASSDEBV19, ASSCREV15, ASSDEBV24, 
+      ASSBALV19, ASSCREV14, ASSBALV3, 
+      ASSDEBV14, ASSBALV15, ASSBALV16, 
+      INPUT_DATE, INPUT_TIME, LAST_UPDATE_DATE, 
+      LAST_UPDATE_TIME)
+    values (#{appNo,jdbcType=VARCHAR}, #{assbalv2,jdbcType=VARCHAR}, #{assbalv7,jdbcType=VARCHAR}, 
+      #{assbalv1,jdbcType=VARCHAR}, #{assbalv9,jdbcType=VARCHAR}, #{asscrev8,jdbcType=VARCHAR}, 
+      #{asscrev1,jdbcType=VARCHAR}, #{asscrev10,jdbcType=VARCHAR}, #{assdebv8,jdbcType=VARCHAR}, 
+      #{assdebv1,jdbcType=VARCHAR}, #{assdebv10,jdbcType=VARCHAR}, #{assbalv6,jdbcType=VARCHAR}, 
+      #{assdebv6,jdbcType=VARCHAR}, #{assdebv16,jdbcType=VARCHAR}, #{assbalv4,jdbcType=VARCHAR}, 
+      #{asscrev17,jdbcType=VARCHAR}, #{assdebv20,jdbcType=VARCHAR}, #{assdebv22,jdbcType=VARCHAR}, 
+      #{assbalv12,jdbcType=VARCHAR}, #{assdebv9,jdbcType=VARCHAR}, #{assbalv22,jdbcType=VARCHAR}, 
+      #{assdebv18,jdbcType=VARCHAR}, #{assbalv14,jdbcType=VARCHAR}, #{assdebv15,jdbcType=VARCHAR}, 
+      #{asscrev16,jdbcType=VARCHAR}, #{asscrev25,jdbcType=VARCHAR}, #{assbalv21,jdbcType=VARCHAR}, 
+      #{assdebv17,jdbcType=VARCHAR}, #{assbalv11,jdbcType=VARCHAR}, #{asscrev24,jdbcType=VARCHAR}, 
+      #{asscrev5,jdbcType=VARCHAR}, #{asscrev7,jdbcType=VARCHAR}, #{asscrev19,jdbcType=VARCHAR}, 
+      #{assdebv21,jdbcType=VARCHAR}, #{asscrev20,jdbcType=VARCHAR}, #{asscrev12,jdbcType=VARCHAR}, 
+      #{asscrev21,jdbcType=VARCHAR}, #{asscrev2,jdbcType=VARCHAR}, #{assbalv10,jdbcType=VARCHAR}, 
+      #{asscrev3,jdbcType=VARCHAR}, #{assdebv13,jdbcType=VARCHAR}, #{assbalv5,jdbcType=VARCHAR}, 
+      #{assdebv12,jdbcType=VARCHAR}, #{asscrev9,jdbcType=VARCHAR}, #{asscrev6,jdbcType=VARCHAR}, 
+      #{asscrev11,jdbcType=VARCHAR}, #{asscrev18,jdbcType=VARCHAR}, #{assbalv18,jdbcType=VARCHAR}, 
+      #{asscrev23,jdbcType=VARCHAR}, #{assbalv20,jdbcType=VARCHAR}, #{assbalv8,jdbcType=VARCHAR}, 
+      #{asscrev22,jdbcType=VARCHAR}, #{assdebv11,jdbcType=VARCHAR}, #{assdebv23,jdbcType=VARCHAR}, 
+      #{assdebv7,jdbcType=VARCHAR}, #{asscrev4,jdbcType=VARCHAR}, #{assbalv17,jdbcType=VARCHAR}, 
+      #{asscrev26,jdbcType=VARCHAR}, #{assbalv13,jdbcType=VARCHAR}, #{assdebv4,jdbcType=VARCHAR}, 
+      #{assdebv2,jdbcType=VARCHAR}, #{assdebv26,jdbcType=VARCHAR}, #{asscrev13,jdbcType=VARCHAR}, 
+      #{assdebv3,jdbcType=VARCHAR}, #{assdebv25,jdbcType=VARCHAR}, #{assdebv5,jdbcType=VARCHAR}, 
+      #{assdebv19,jdbcType=VARCHAR}, #{asscrev15,jdbcType=VARCHAR}, #{assdebv24,jdbcType=VARCHAR}, 
+      #{assbalv19,jdbcType=VARCHAR}, #{asscrev14,jdbcType=VARCHAR}, #{assbalv3,jdbcType=VARCHAR}, 
+      #{assdebv14,jdbcType=VARCHAR}, #{assbalv15,jdbcType=VARCHAR}, #{assbalv16,jdbcType=VARCHAR}, 
+      #{inputDate,jdbcType=VARCHAR}, #{inputTime,jdbcType=VARCHAR}, #{lastUpdateDate,jdbcType=VARCHAR}, 
+      #{lastUpdateTime,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.BIZ_TD_OAC_RESULT_DET">
+    insert into BIZ_TD_OAC_RESULT_DET
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="appNo != null">
+        APP_NO,
+      </if>
+      <if test="assbalv2 != null">
+        ASSBALV2,
+      </if>
+      <if test="assbalv7 != null">
+        ASSBALV7,
+      </if>
+      <if test="assbalv1 != null">
+        ASSBALV1,
+      </if>
+      <if test="assbalv9 != null">
+        ASSBALV9,
+      </if>
+      <if test="asscrev8 != null">
+        ASSCREV8,
+      </if>
+      <if test="asscrev1 != null">
+        ASSCREV1,
+      </if>
+      <if test="asscrev10 != null">
+        ASSCREV10,
+      </if>
+      <if test="assdebv8 != null">
+        ASSDEBV8,
+      </if>
+      <if test="assdebv1 != null">
+        ASSDEBV1,
+      </if>
+      <if test="assdebv10 != null">
+        ASSDEBV10,
+      </if>
+      <if test="assbalv6 != null">
+        ASSBALV6,
+      </if>
+      <if test="assdebv6 != null">
+        ASSDEBV6,
+      </if>
+      <if test="assdebv16 != null">
+        ASSDEBV16,
+      </if>
+      <if test="assbalv4 != null">
+        ASSBALV4,
+      </if>
+      <if test="asscrev17 != null">
+        ASSCREV17,
+      </if>
+      <if test="assdebv20 != null">
+        ASSDEBV20,
+      </if>
+      <if test="assdebv22 != null">
+        ASSDEBV22,
+      </if>
+      <if test="assbalv12 != null">
+        ASSBALV12,
+      </if>
+      <if test="assdebv9 != null">
+        ASSDEBV9,
+      </if>
+      <if test="assbalv22 != null">
+        ASSBALV22,
+      </if>
+      <if test="assdebv18 != null">
+        ASSDEBV18,
+      </if>
+      <if test="assbalv14 != null">
+        ASSBALV14,
+      </if>
+      <if test="assdebv15 != null">
+        ASSDEBV15,
+      </if>
+      <if test="asscrev16 != null">
+        ASSCREV16,
+      </if>
+      <if test="asscrev25 != null">
+        ASSCREV25,
+      </if>
+      <if test="assbalv21 != null">
+        ASSBALV21,
+      </if>
+      <if test="assdebv17 != null">
+        ASSDEBV17,
+      </if>
+      <if test="assbalv11 != null">
+        ASSBALV11,
+      </if>
+      <if test="asscrev24 != null">
+        ASSCREV24,
+      </if>
+      <if test="asscrev5 != null">
+        ASSCREV5,
+      </if>
+      <if test="asscrev7 != null">
+        ASSCREV7,
+      </if>
+      <if test="asscrev19 != null">
+        ASSCREV19,
+      </if>
+      <if test="assdebv21 != null">
+        ASSDEBV21,
+      </if>
+      <if test="asscrev20 != null">
+        ASSCREV20,
+      </if>
+      <if test="asscrev12 != null">
+        ASSCREV12,
+      </if>
+      <if test="asscrev21 != null">
+        ASSCREV21,
+      </if>
+      <if test="asscrev2 != null">
+        ASSCREV2,
+      </if>
+      <if test="assbalv10 != null">
+        ASSBALV10,
+      </if>
+      <if test="asscrev3 != null">
+        ASSCREV3,
+      </if>
+      <if test="assdebv13 != null">
+        ASSDEBV13,
+      </if>
+      <if test="assbalv5 != null">
+        ASSBALV5,
+      </if>
+      <if test="assdebv12 != null">
+        ASSDEBV12,
+      </if>
+      <if test="asscrev9 != null">
+        ASSCREV9,
+      </if>
+      <if test="asscrev6 != null">
+        ASSCREV6,
+      </if>
+      <if test="asscrev11 != null">
+        ASSCREV11,
+      </if>
+      <if test="asscrev18 != null">
+        ASSCREV18,
+      </if>
+      <if test="assbalv18 != null">
+        ASSBALV18,
+      </if>
+      <if test="asscrev23 != null">
+        ASSCREV23,
+      </if>
+      <if test="assbalv20 != null">
+        ASSBALV20,
+      </if>
+      <if test="assbalv8 != null">
+        ASSBALV8,
+      </if>
+      <if test="asscrev22 != null">
+        ASSCREV22,
+      </if>
+      <if test="assdebv11 != null">
+        ASSDEBV11,
+      </if>
+      <if test="assdebv23 != null">
+        ASSDEBV23,
+      </if>
+      <if test="assdebv7 != null">
+        ASSDEBV7,
+      </if>
+      <if test="asscrev4 != null">
+        ASSCREV4,
+      </if>
+      <if test="assbalv17 != null">
+        ASSBALV17,
+      </if>
+      <if test="asscrev26 != null">
+        ASSCREV26,
+      </if>
+      <if test="assbalv13 != null">
+        ASSBALV13,
+      </if>
+      <if test="assdebv4 != null">
+        ASSDEBV4,
+      </if>
+      <if test="assdebv2 != null">
+        ASSDEBV2,
+      </if>
+      <if test="assdebv26 != null">
+        ASSDEBV26,
+      </if>
+      <if test="asscrev13 != null">
+        ASSCREV13,
+      </if>
+      <if test="assdebv3 != null">
+        ASSDEBV3,
+      </if>
+      <if test="assdebv25 != null">
+        ASSDEBV25,
+      </if>
+      <if test="assdebv5 != null">
+        ASSDEBV5,
+      </if>
+      <if test="assdebv19 != null">
+        ASSDEBV19,
+      </if>
+      <if test="asscrev15 != null">
+        ASSCREV15,
+      </if>
+      <if test="assdebv24 != null">
+        ASSDEBV24,
+      </if>
+      <if test="assbalv19 != null">
+        ASSBALV19,
+      </if>
+      <if test="asscrev14 != null">
+        ASSCREV14,
+      </if>
+      <if test="assbalv3 != null">
+        ASSBALV3,
+      </if>
+      <if test="assdebv14 != null">
+        ASSDEBV14,
+      </if>
+      <if test="assbalv15 != null">
+        ASSBALV15,
+      </if>
+      <if test="assbalv16 != null">
+        ASSBALV16,
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE,
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME,
+      </if>
+      <if test="lastUpdateDate != null">
+        LAST_UPDATE_DATE,
+      </if>
+      <if test="lastUpdateTime != null">
+        LAST_UPDATE_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="appNo != null">
+        #{appNo,jdbcType=VARCHAR},
+      </if>
+      <if test="assbalv2 != null">
+        #{assbalv2,jdbcType=VARCHAR},
+      </if>
+      <if test="assbalv7 != null">
+        #{assbalv7,jdbcType=VARCHAR},
+      </if>
+      <if test="assbalv1 != null">
+        #{assbalv1,jdbcType=VARCHAR},
+      </if>
+      <if test="assbalv9 != null">
+        #{assbalv9,jdbcType=VARCHAR},
+      </if>
+      <if test="asscrev8 != null">
+        #{asscrev8,jdbcType=VARCHAR},
+      </if>
+      <if test="asscrev1 != null">
+        #{asscrev1,jdbcType=VARCHAR},
+      </if>
+      <if test="asscrev10 != null">
+        #{asscrev10,jdbcType=VARCHAR},
+      </if>
+      <if test="assdebv8 != null">
+        #{assdebv8,jdbcType=VARCHAR},
+      </if>
+      <if test="assdebv1 != null">
+        #{assdebv1,jdbcType=VARCHAR},
+      </if>
+      <if test="assdebv10 != null">
+        #{assdebv10,jdbcType=VARCHAR},
+      </if>
+      <if test="assbalv6 != null">
+        #{assbalv6,jdbcType=VARCHAR},
+      </if>
+      <if test="assdebv6 != null">
+        #{assdebv6,jdbcType=VARCHAR},
+      </if>
+      <if test="assdebv16 != null">
+        #{assdebv16,jdbcType=VARCHAR},
+      </if>
+      <if test="assbalv4 != null">
+        #{assbalv4,jdbcType=VARCHAR},
+      </if>
+      <if test="asscrev17 != null">
+        #{asscrev17,jdbcType=VARCHAR},
+      </if>
+      <if test="assdebv20 != null">
+        #{assdebv20,jdbcType=VARCHAR},
+      </if>
+      <if test="assdebv22 != null">
+        #{assdebv22,jdbcType=VARCHAR},
+      </if>
+      <if test="assbalv12 != null">
+        #{assbalv12,jdbcType=VARCHAR},
+      </if>
+      <if test="assdebv9 != null">
+        #{assdebv9,jdbcType=VARCHAR},
+      </if>
+      <if test="assbalv22 != null">
+        #{assbalv22,jdbcType=VARCHAR},
+      </if>
+      <if test="assdebv18 != null">
+        #{assdebv18,jdbcType=VARCHAR},
+      </if>
+      <if test="assbalv14 != null">
+        #{assbalv14,jdbcType=VARCHAR},
+      </if>
+      <if test="assdebv15 != null">
+        #{assdebv15,jdbcType=VARCHAR},
+      </if>
+      <if test="asscrev16 != null">
+        #{asscrev16,jdbcType=VARCHAR},
+      </if>
+      <if test="asscrev25 != null">
+        #{asscrev25,jdbcType=VARCHAR},
+      </if>
+      <if test="assbalv21 != null">
+        #{assbalv21,jdbcType=VARCHAR},
+      </if>
+      <if test="assdebv17 != null">
+        #{assdebv17,jdbcType=VARCHAR},
+      </if>
+      <if test="assbalv11 != null">
+        #{assbalv11,jdbcType=VARCHAR},
+      </if>
+      <if test="asscrev24 != null">
+        #{asscrev24,jdbcType=VARCHAR},
+      </if>
+      <if test="asscrev5 != null">
+        #{asscrev5,jdbcType=VARCHAR},
+      </if>
+      <if test="asscrev7 != null">
+        #{asscrev7,jdbcType=VARCHAR},
+      </if>
+      <if test="asscrev19 != null">
+        #{asscrev19,jdbcType=VARCHAR},
+      </if>
+      <if test="assdebv21 != null">
+        #{assdebv21,jdbcType=VARCHAR},
+      </if>
+      <if test="asscrev20 != null">
+        #{asscrev20,jdbcType=VARCHAR},
+      </if>
+      <if test="asscrev12 != null">
+        #{asscrev12,jdbcType=VARCHAR},
+      </if>
+      <if test="asscrev21 != null">
+        #{asscrev21,jdbcType=VARCHAR},
+      </if>
+      <if test="asscrev2 != null">
+        #{asscrev2,jdbcType=VARCHAR},
+      </if>
+      <if test="assbalv10 != null">
+        #{assbalv10,jdbcType=VARCHAR},
+      </if>
+      <if test="asscrev3 != null">
+        #{asscrev3,jdbcType=VARCHAR},
+      </if>
+      <if test="assdebv13 != null">
+        #{assdebv13,jdbcType=VARCHAR},
+      </if>
+      <if test="assbalv5 != null">
+        #{assbalv5,jdbcType=VARCHAR},
+      </if>
+      <if test="assdebv12 != null">
+        #{assdebv12,jdbcType=VARCHAR},
+      </if>
+      <if test="asscrev9 != null">
+        #{asscrev9,jdbcType=VARCHAR},
+      </if>
+      <if test="asscrev6 != null">
+        #{asscrev6,jdbcType=VARCHAR},
+      </if>
+      <if test="asscrev11 != null">
+        #{asscrev11,jdbcType=VARCHAR},
+      </if>
+      <if test="asscrev18 != null">
+        #{asscrev18,jdbcType=VARCHAR},
+      </if>
+      <if test="assbalv18 != null">
+        #{assbalv18,jdbcType=VARCHAR},
+      </if>
+      <if test="asscrev23 != null">
+        #{asscrev23,jdbcType=VARCHAR},
+      </if>
+      <if test="assbalv20 != null">
+        #{assbalv20,jdbcType=VARCHAR},
+      </if>
+      <if test="assbalv8 != null">
+        #{assbalv8,jdbcType=VARCHAR},
+      </if>
+      <if test="asscrev22 != null">
+        #{asscrev22,jdbcType=VARCHAR},
+      </if>
+      <if test="assdebv11 != null">
+        #{assdebv11,jdbcType=VARCHAR},
+      </if>
+      <if test="assdebv23 != null">
+        #{assdebv23,jdbcType=VARCHAR},
+      </if>
+      <if test="assdebv7 != null">
+        #{assdebv7,jdbcType=VARCHAR},
+      </if>
+      <if test="asscrev4 != null">
+        #{asscrev4,jdbcType=VARCHAR},
+      </if>
+      <if test="assbalv17 != null">
+        #{assbalv17,jdbcType=VARCHAR},
+      </if>
+      <if test="asscrev26 != null">
+        #{asscrev26,jdbcType=VARCHAR},
+      </if>
+      <if test="assbalv13 != null">
+        #{assbalv13,jdbcType=VARCHAR},
+      </if>
+      <if test="assdebv4 != null">
+        #{assdebv4,jdbcType=VARCHAR},
+      </if>
+      <if test="assdebv2 != null">
+        #{assdebv2,jdbcType=VARCHAR},
+      </if>
+      <if test="assdebv26 != null">
+        #{assdebv26,jdbcType=VARCHAR},
+      </if>
+      <if test="asscrev13 != null">
+        #{asscrev13,jdbcType=VARCHAR},
+      </if>
+      <if test="assdebv3 != null">
+        #{assdebv3,jdbcType=VARCHAR},
+      </if>
+      <if test="assdebv25 != null">
+        #{assdebv25,jdbcType=VARCHAR},
+      </if>
+      <if test="assdebv5 != null">
+        #{assdebv5,jdbcType=VARCHAR},
+      </if>
+      <if test="assdebv19 != null">
+        #{assdebv19,jdbcType=VARCHAR},
+      </if>
+      <if test="asscrev15 != null">
+        #{asscrev15,jdbcType=VARCHAR},
+      </if>
+      <if test="assdebv24 != null">
+        #{assdebv24,jdbcType=VARCHAR},
+      </if>
+      <if test="assbalv19 != null">
+        #{assbalv19,jdbcType=VARCHAR},
+      </if>
+      <if test="asscrev14 != null">
+        #{asscrev14,jdbcType=VARCHAR},
+      </if>
+      <if test="assbalv3 != null">
+        #{assbalv3,jdbcType=VARCHAR},
+      </if>
+      <if test="assdebv14 != null">
+        #{assdebv14,jdbcType=VARCHAR},
+      </if>
+      <if test="assbalv15 != null">
+        #{assbalv15,jdbcType=VARCHAR},
+      </if>
+      <if test="assbalv16 != null">
+        #{assbalv16,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateDate != null">
+        #{lastUpdateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        #{lastUpdateTime,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.BIZ_TD_OAC_RESULT_DET">
+    update BIZ_TD_OAC_RESULT_DET
+    <set>
+      <if test="assbalv2 != null">
+        ASSBALV2 = #{assbalv2,jdbcType=VARCHAR},
+      </if>
+      <if test="assbalv7 != null">
+        ASSBALV7 = #{assbalv7,jdbcType=VARCHAR},
+      </if>
+      <if test="assbalv1 != null">
+        ASSBALV1 = #{assbalv1,jdbcType=VARCHAR},
+      </if>
+      <if test="assbalv9 != null">
+        ASSBALV9 = #{assbalv9,jdbcType=VARCHAR},
+      </if>
+      <if test="asscrev8 != null">
+        ASSCREV8 = #{asscrev8,jdbcType=VARCHAR},
+      </if>
+      <if test="asscrev1 != null">
+        ASSCREV1 = #{asscrev1,jdbcType=VARCHAR},
+      </if>
+      <if test="asscrev10 != null">
+        ASSCREV10 = #{asscrev10,jdbcType=VARCHAR},
+      </if>
+      <if test="assdebv8 != null">
+        ASSDEBV8 = #{assdebv8,jdbcType=VARCHAR},
+      </if>
+      <if test="assdebv1 != null">
+        ASSDEBV1 = #{assdebv1,jdbcType=VARCHAR},
+      </if>
+      <if test="assdebv10 != null">
+        ASSDEBV10 = #{assdebv10,jdbcType=VARCHAR},
+      </if>
+      <if test="assbalv6 != null">
+        ASSBALV6 = #{assbalv6,jdbcType=VARCHAR},
+      </if>
+      <if test="assdebv6 != null">
+        ASSDEBV6 = #{assdebv6,jdbcType=VARCHAR},
+      </if>
+      <if test="assdebv16 != null">
+        ASSDEBV16 = #{assdebv16,jdbcType=VARCHAR},
+      </if>
+      <if test="assbalv4 != null">
+        ASSBALV4 = #{assbalv4,jdbcType=VARCHAR},
+      </if>
+      <if test="asscrev17 != null">
+        ASSCREV17 = #{asscrev17,jdbcType=VARCHAR},
+      </if>
+      <if test="assdebv20 != null">
+        ASSDEBV20 = #{assdebv20,jdbcType=VARCHAR},
+      </if>
+      <if test="assdebv22 != null">
+        ASSDEBV22 = #{assdebv22,jdbcType=VARCHAR},
+      </if>
+      <if test="assbalv12 != null">
+        ASSBALV12 = #{assbalv12,jdbcType=VARCHAR},
+      </if>
+      <if test="assdebv9 != null">
+        ASSDEBV9 = #{assdebv9,jdbcType=VARCHAR},
+      </if>
+      <if test="assbalv22 != null">
+        ASSBALV22 = #{assbalv22,jdbcType=VARCHAR},
+      </if>
+      <if test="assdebv18 != null">
+        ASSDEBV18 = #{assdebv18,jdbcType=VARCHAR},
+      </if>
+      <if test="assbalv14 != null">
+        ASSBALV14 = #{assbalv14,jdbcType=VARCHAR},
+      </if>
+      <if test="assdebv15 != null">
+        ASSDEBV15 = #{assdebv15,jdbcType=VARCHAR},
+      </if>
+      <if test="asscrev16 != null">
+        ASSCREV16 = #{asscrev16,jdbcType=VARCHAR},
+      </if>
+      <if test="asscrev25 != null">
+        ASSCREV25 = #{asscrev25,jdbcType=VARCHAR},
+      </if>
+      <if test="assbalv21 != null">
+        ASSBALV21 = #{assbalv21,jdbcType=VARCHAR},
+      </if>
+      <if test="assdebv17 != null">
+        ASSDEBV17 = #{assdebv17,jdbcType=VARCHAR},
+      </if>
+      <if test="assbalv11 != null">
+        ASSBALV11 = #{assbalv11,jdbcType=VARCHAR},
+      </if>
+      <if test="asscrev24 != null">
+        ASSCREV24 = #{asscrev24,jdbcType=VARCHAR},
+      </if>
+      <if test="asscrev5 != null">
+        ASSCREV5 = #{asscrev5,jdbcType=VARCHAR},
+      </if>
+      <if test="asscrev7 != null">
+        ASSCREV7 = #{asscrev7,jdbcType=VARCHAR},
+      </if>
+      <if test="asscrev19 != null">
+        ASSCREV19 = #{asscrev19,jdbcType=VARCHAR},
+      </if>
+      <if test="assdebv21 != null">
+        ASSDEBV21 = #{assdebv21,jdbcType=VARCHAR},
+      </if>
+      <if test="asscrev20 != null">
+        ASSCREV20 = #{asscrev20,jdbcType=VARCHAR},
+      </if>
+      <if test="asscrev12 != null">
+        ASSCREV12 = #{asscrev12,jdbcType=VARCHAR},
+      </if>
+      <if test="asscrev21 != null">
+        ASSCREV21 = #{asscrev21,jdbcType=VARCHAR},
+      </if>
+      <if test="asscrev2 != null">
+        ASSCREV2 = #{asscrev2,jdbcType=VARCHAR},
+      </if>
+      <if test="assbalv10 != null">
+        ASSBALV10 = #{assbalv10,jdbcType=VARCHAR},
+      </if>
+      <if test="asscrev3 != null">
+        ASSCREV3 = #{asscrev3,jdbcType=VARCHAR},
+      </if>
+      <if test="assdebv13 != null">
+        ASSDEBV13 = #{assdebv13,jdbcType=VARCHAR},
+      </if>
+      <if test="assbalv5 != null">
+        ASSBALV5 = #{assbalv5,jdbcType=VARCHAR},
+      </if>
+      <if test="assdebv12 != null">
+        ASSDEBV12 = #{assdebv12,jdbcType=VARCHAR},
+      </if>
+      <if test="asscrev9 != null">
+        ASSCREV9 = #{asscrev9,jdbcType=VARCHAR},
+      </if>
+      <if test="asscrev6 != null">
+        ASSCREV6 = #{asscrev6,jdbcType=VARCHAR},
+      </if>
+      <if test="asscrev11 != null">
+        ASSCREV11 = #{asscrev11,jdbcType=VARCHAR},
+      </if>
+      <if test="asscrev18 != null">
+        ASSCREV18 = #{asscrev18,jdbcType=VARCHAR},
+      </if>
+      <if test="assbalv18 != null">
+        ASSBALV18 = #{assbalv18,jdbcType=VARCHAR},
+      </if>
+      <if test="asscrev23 != null">
+        ASSCREV23 = #{asscrev23,jdbcType=VARCHAR},
+      </if>
+      <if test="assbalv20 != null">
+        ASSBALV20 = #{assbalv20,jdbcType=VARCHAR},
+      </if>
+      <if test="assbalv8 != null">
+        ASSBALV8 = #{assbalv8,jdbcType=VARCHAR},
+      </if>
+      <if test="asscrev22 != null">
+        ASSCREV22 = #{asscrev22,jdbcType=VARCHAR},
+      </if>
+      <if test="assdebv11 != null">
+        ASSDEBV11 = #{assdebv11,jdbcType=VARCHAR},
+      </if>
+      <if test="assdebv23 != null">
+        ASSDEBV23 = #{assdebv23,jdbcType=VARCHAR},
+      </if>
+      <if test="assdebv7 != null">
+        ASSDEBV7 = #{assdebv7,jdbcType=VARCHAR},
+      </if>
+      <if test="asscrev4 != null">
+        ASSCREV4 = #{asscrev4,jdbcType=VARCHAR},
+      </if>
+      <if test="assbalv17 != null">
+        ASSBALV17 = #{assbalv17,jdbcType=VARCHAR},
+      </if>
+      <if test="asscrev26 != null">
+        ASSCREV26 = #{asscrev26,jdbcType=VARCHAR},
+      </if>
+      <if test="assbalv13 != null">
+        ASSBALV13 = #{assbalv13,jdbcType=VARCHAR},
+      </if>
+      <if test="assdebv4 != null">
+        ASSDEBV4 = #{assdebv4,jdbcType=VARCHAR},
+      </if>
+      <if test="assdebv2 != null">
+        ASSDEBV2 = #{assdebv2,jdbcType=VARCHAR},
+      </if>
+      <if test="assdebv26 != null">
+        ASSDEBV26 = #{assdebv26,jdbcType=VARCHAR},
+      </if>
+      <if test="asscrev13 != null">
+        ASSCREV13 = #{asscrev13,jdbcType=VARCHAR},
+      </if>
+      <if test="assdebv3 != null">
+        ASSDEBV3 = #{assdebv3,jdbcType=VARCHAR},
+      </if>
+      <if test="assdebv25 != null">
+        ASSDEBV25 = #{assdebv25,jdbcType=VARCHAR},
+      </if>
+      <if test="assdebv5 != null">
+        ASSDEBV5 = #{assdebv5,jdbcType=VARCHAR},
+      </if>
+      <if test="assdebv19 != null">
+        ASSDEBV19 = #{assdebv19,jdbcType=VARCHAR},
+      </if>
+      <if test="asscrev15 != null">
+        ASSCREV15 = #{asscrev15,jdbcType=VARCHAR},
+      </if>
+      <if test="assdebv24 != null">
+        ASSDEBV24 = #{assdebv24,jdbcType=VARCHAR},
+      </if>
+      <if test="assbalv19 != null">
+        ASSBALV19 = #{assbalv19,jdbcType=VARCHAR},
+      </if>
+      <if test="asscrev14 != null">
+        ASSCREV14 = #{asscrev14,jdbcType=VARCHAR},
+      </if>
+      <if test="assbalv3 != null">
+        ASSBALV3 = #{assbalv3,jdbcType=VARCHAR},
+      </if>
+      <if test="assdebv14 != null">
+        ASSDEBV14 = #{assdebv14,jdbcType=VARCHAR},
+      </if>
+      <if test="assbalv15 != null">
+        ASSBALV15 = #{assbalv15,jdbcType=VARCHAR},
+      </if>
+      <if test="assbalv16 != null">
+        ASSBALV16 = #{assbalv16,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE = #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME = #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateDate != null">
+        LAST_UPDATE_DATE = #{lastUpdateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where APP_NO = #{appNo,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.BIZ_TD_OAC_RESULT_DET">
+    update BIZ_TD_OAC_RESULT_DET
+    set ASSBALV2 = #{assbalv2,jdbcType=VARCHAR},
+      ASSBALV7 = #{assbalv7,jdbcType=VARCHAR},
+      ASSBALV1 = #{assbalv1,jdbcType=VARCHAR},
+      ASSBALV9 = #{assbalv9,jdbcType=VARCHAR},
+      ASSCREV8 = #{asscrev8,jdbcType=VARCHAR},
+      ASSCREV1 = #{asscrev1,jdbcType=VARCHAR},
+      ASSCREV10 = #{asscrev10,jdbcType=VARCHAR},
+      ASSDEBV8 = #{assdebv8,jdbcType=VARCHAR},
+      ASSDEBV1 = #{assdebv1,jdbcType=VARCHAR},
+      ASSDEBV10 = #{assdebv10,jdbcType=VARCHAR},
+      ASSBALV6 = #{assbalv6,jdbcType=VARCHAR},
+      ASSDEBV6 = #{assdebv6,jdbcType=VARCHAR},
+      ASSDEBV16 = #{assdebv16,jdbcType=VARCHAR},
+      ASSBALV4 = #{assbalv4,jdbcType=VARCHAR},
+      ASSCREV17 = #{asscrev17,jdbcType=VARCHAR},
+      ASSDEBV20 = #{assdebv20,jdbcType=VARCHAR},
+      ASSDEBV22 = #{assdebv22,jdbcType=VARCHAR},
+      ASSBALV12 = #{assbalv12,jdbcType=VARCHAR},
+      ASSDEBV9 = #{assdebv9,jdbcType=VARCHAR},
+      ASSBALV22 = #{assbalv22,jdbcType=VARCHAR},
+      ASSDEBV18 = #{assdebv18,jdbcType=VARCHAR},
+      ASSBALV14 = #{assbalv14,jdbcType=VARCHAR},
+      ASSDEBV15 = #{assdebv15,jdbcType=VARCHAR},
+      ASSCREV16 = #{asscrev16,jdbcType=VARCHAR},
+      ASSCREV25 = #{asscrev25,jdbcType=VARCHAR},
+      ASSBALV21 = #{assbalv21,jdbcType=VARCHAR},
+      ASSDEBV17 = #{assdebv17,jdbcType=VARCHAR},
+      ASSBALV11 = #{assbalv11,jdbcType=VARCHAR},
+      ASSCREV24 = #{asscrev24,jdbcType=VARCHAR},
+      ASSCREV5 = #{asscrev5,jdbcType=VARCHAR},
+      ASSCREV7 = #{asscrev7,jdbcType=VARCHAR},
+      ASSCREV19 = #{asscrev19,jdbcType=VARCHAR},
+      ASSDEBV21 = #{assdebv21,jdbcType=VARCHAR},
+      ASSCREV20 = #{asscrev20,jdbcType=VARCHAR},
+      ASSCREV12 = #{asscrev12,jdbcType=VARCHAR},
+      ASSCREV21 = #{asscrev21,jdbcType=VARCHAR},
+      ASSCREV2 = #{asscrev2,jdbcType=VARCHAR},
+      ASSBALV10 = #{assbalv10,jdbcType=VARCHAR},
+      ASSCREV3 = #{asscrev3,jdbcType=VARCHAR},
+      ASSDEBV13 = #{assdebv13,jdbcType=VARCHAR},
+      ASSBALV5 = #{assbalv5,jdbcType=VARCHAR},
+      ASSDEBV12 = #{assdebv12,jdbcType=VARCHAR},
+      ASSCREV9 = #{asscrev9,jdbcType=VARCHAR},
+      ASSCREV6 = #{asscrev6,jdbcType=VARCHAR},
+      ASSCREV11 = #{asscrev11,jdbcType=VARCHAR},
+      ASSCREV18 = #{asscrev18,jdbcType=VARCHAR},
+      ASSBALV18 = #{assbalv18,jdbcType=VARCHAR},
+      ASSCREV23 = #{asscrev23,jdbcType=VARCHAR},
+      ASSBALV20 = #{assbalv20,jdbcType=VARCHAR},
+      ASSBALV8 = #{assbalv8,jdbcType=VARCHAR},
+      ASSCREV22 = #{asscrev22,jdbcType=VARCHAR},
+      ASSDEBV11 = #{assdebv11,jdbcType=VARCHAR},
+      ASSDEBV23 = #{assdebv23,jdbcType=VARCHAR},
+      ASSDEBV7 = #{assdebv7,jdbcType=VARCHAR},
+      ASSCREV4 = #{asscrev4,jdbcType=VARCHAR},
+      ASSBALV17 = #{assbalv17,jdbcType=VARCHAR},
+      ASSCREV26 = #{asscrev26,jdbcType=VARCHAR},
+      ASSBALV13 = #{assbalv13,jdbcType=VARCHAR},
+      ASSDEBV4 = #{assdebv4,jdbcType=VARCHAR},
+      ASSDEBV2 = #{assdebv2,jdbcType=VARCHAR},
+      ASSDEBV26 = #{assdebv26,jdbcType=VARCHAR},
+      ASSCREV13 = #{asscrev13,jdbcType=VARCHAR},
+      ASSDEBV3 = #{assdebv3,jdbcType=VARCHAR},
+      ASSDEBV25 = #{assdebv25,jdbcType=VARCHAR},
+      ASSDEBV5 = #{assdebv5,jdbcType=VARCHAR},
+      ASSDEBV19 = #{assdebv19,jdbcType=VARCHAR},
+      ASSCREV15 = #{asscrev15,jdbcType=VARCHAR},
+      ASSDEBV24 = #{assdebv24,jdbcType=VARCHAR},
+      ASSBALV19 = #{assbalv19,jdbcType=VARCHAR},
+      ASSCREV14 = #{asscrev14,jdbcType=VARCHAR},
+      ASSBALV3 = #{assbalv3,jdbcType=VARCHAR},
+      ASSDEBV14 = #{assdebv14,jdbcType=VARCHAR},
+      ASSBALV15 = #{assbalv15,jdbcType=VARCHAR},
+      ASSBALV16 = #{assbalv16,jdbcType=VARCHAR},
+      INPUT_DATE = #{inputDate,jdbcType=VARCHAR},
+      INPUT_TIME = #{inputTime,jdbcType=VARCHAR},
+      LAST_UPDATE_DATE = #{lastUpdateDate,jdbcType=VARCHAR},
+      LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=VARCHAR}
+    where APP_NO = #{appNo,jdbcType=VARCHAR}
+  </update>
+</mapper>

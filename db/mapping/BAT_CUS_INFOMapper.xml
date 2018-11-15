@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.BAT_CUS_INFOMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.BAT_CUS_INFO">
+    <result column="CUST_ID" jdbcType="VARCHAR" property="custId" />
+    <result column="CUST_ID_CORE" jdbcType="VARCHAR" property="custIdCore" />
+    <result column="CUST_NAME" jdbcType="VARCHAR" property="custName" />
+    <result column="CUST_TYPE" jdbcType="CHAR" property="custType" />
+    <result column="CERT_ORG" jdbcType="VARCHAR" property="certOrg" />
+    <result column="CERT_TYPE" jdbcType="CHAR" property="certType" />
+    <result column="CERT_CODE" jdbcType="VARCHAR" property="certCode" />
+    <result column="SEX" jdbcType="CHAR" property="sex" />
+    <result column="BIRTHDAY" jdbcType="VARCHAR" property="birthday" />
+    <result column="ID_DUE_DATE" jdbcType="VARCHAR" property="idDueDate" />
+    <result column="IFEDUC" jdbcType="CHAR" property="ifeduc" />
+    <result column="IFWEDD" jdbcType="CHAR" property="ifwedd" />
+    <result column="SIADDR" jdbcType="VARCHAR" property="siaddr" />
+    <result column="SITELP" jdbcType="VARCHAR" property="sitelp" />
+    <result column="IFMOBL" jdbcType="VARCHAR" property="ifmobl" />
+    <result column="LIVE_STATUS" jdbcType="CHAR" property="liveStatus" />
+    <result column="SIZPCD" jdbcType="CHAR" property="sizpcd" />
+    <result column="ADDR" jdbcType="VARCHAR" property="addr" />
+    <result column="ZPCD" jdbcType="CHAR" property="zpcd" />
+    <result column="IFMAIL" jdbcType="VARCHAR" property="ifmail" />
+    <result column="RELATED_PERSON_NAME" jdbcType="VARCHAR" property="relatedPersonName" />
+    <result column="RELATED_PERSON_ID_NO" jdbcType="VARCHAR" property="relatedPersonIdNo" />
+    <result column="RELATED_PERSON_REL" jdbcType="VARCHAR" property="relatedPersonRel" />
+    <result column="RELATED_PERSON_TELP" jdbcType="VARCHAR" property="relatedPersonTelp" />
+    <result column="SPOUSE_NAME" jdbcType="VARCHAR" property="spouseName" />
+    <result column="SPOUSE_CODE" jdbcType="VARCHAR" property="spouseCode" />
+    <result column="SPOUSE_TYPE" jdbcType="CHAR" property="spouseType" />
+    <result column="SPDB_PACC_FLAG" jdbcType="CHAR" property="spdbPaccFlag" />
+    <result column="RESET_FLAG" jdbcType="CHAR" property="resetFlag" />
+    <result column="BIZ_ORG_ID" jdbcType="VARCHAR" property="bizOrgId" />
+    <result column="INPUT_TIME" jdbcType="VARCHAR" property="inputTime" />
+    <result column="LAST_UPDATE_TIME" jdbcType="VARCHAR" property="lastUpdateTime" />
+    <result column="SPOUSE_PHONE" jdbcType="VARCHAR" property="spousePhone" />
+  </resultMap>
+  <insert id="insert" parameterType="com.bea.olp.BAT_CUS_INFO">
+    insert into BAT_CUS_INFO (CUST_ID, CUST_ID_CORE, CUST_NAME, 
+      CUST_TYPE, CERT_ORG, CERT_TYPE, 
+      CERT_CODE, SEX, BIRTHDAY, 
+      ID_DUE_DATE, IFEDUC, IFWEDD, 
+      SIADDR, SITELP, IFMOBL, 
+      LIVE_STATUS, SIZPCD, ADDR, 
+      ZPCD, IFMAIL, RELATED_PERSON_NAME, 
+      RELATED_PERSON_ID_NO, RELATED_PERSON_REL, RELATED_PERSON_TELP, 
+      SPOUSE_NAME, SPOUSE_CODE, SPOUSE_TYPE, 
+      SPDB_PACC_FLAG, RESET_FLAG, BIZ_ORG_ID, 
+      INPUT_TIME, LAST_UPDATE_TIME, SPOUSE_PHONE
+      )
+    values (#{custId,jdbcType=VARCHAR}, #{custIdCore,jdbcType=VARCHAR}, #{custName,jdbcType=VARCHAR}, 
+      #{custType,jdbcType=CHAR}, #{certOrg,jdbcType=VARCHAR}, #{certType,jdbcType=CHAR}, 
+      #{certCode,jdbcType=VARCHAR}, #{sex,jdbcType=CHAR}, #{birthday,jdbcType=VARCHAR}, 
+      #{idDueDate,jdbcType=VARCHAR}, #{ifeduc,jdbcType=CHAR}, #{ifwedd,jdbcType=CHAR}, 
+      #{siaddr,jdbcType=VARCHAR}, #{sitelp,jdbcType=VARCHAR}, #{ifmobl,jdbcType=VARCHAR}, 
+      #{liveStatus,jdbcType=CHAR}, #{sizpcd,jdbcType=CHAR}, #{addr,jdbcType=VARCHAR}, 
+      #{zpcd,jdbcType=CHAR}, #{ifmail,jdbcType=VARCHAR}, #{relatedPersonName,jdbcType=VARCHAR}, 
+      #{relatedPersonIdNo,jdbcType=VARCHAR}, #{relatedPersonRel,jdbcType=VARCHAR}, #{relatedPersonTelp,jdbcType=VARCHAR}, 
+      #{spouseName,jdbcType=VARCHAR}, #{spouseCode,jdbcType=VARCHAR}, #{spouseType,jdbcType=CHAR}, 
+      #{spdbPaccFlag,jdbcType=CHAR}, #{resetFlag,jdbcType=CHAR}, #{bizOrgId,jdbcType=VARCHAR}, 
+      #{inputTime,jdbcType=VARCHAR}, #{lastUpdateTime,jdbcType=VARCHAR}, #{spousePhone,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.BAT_CUS_INFO">
+    insert into BAT_CUS_INFO
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="custId != null">
+        CUST_ID,
+      </if>
+      <if test="custIdCore != null">
+        CUST_ID_CORE,
+      </if>
+      <if test="custName != null">
+        CUST_NAME,
+      </if>
+      <if test="custType != null">
+        CUST_TYPE,
+      </if>
+      <if test="certOrg != null">
+        CERT_ORG,
+      </if>
+      <if test="certType != null">
+        CERT_TYPE,
+      </if>
+      <if test="certCode != null">
+        CERT_CODE,
+      </if>
+      <if test="sex != null">
+        SEX,
+      </if>
+      <if test="birthday != null">
+        BIRTHDAY,
+      </if>
+      <if test="idDueDate != null">
+        ID_DUE_DATE,
+      </if>
+      <if test="ifeduc != null">
+        IFEDUC,
+      </if>
+      <if test="ifwedd != null">
+        IFWEDD,
+      </if>
+      <if test="siaddr != null">
+        SIADDR,
+      </if>
+      <if test="sitelp != null">
+        SITELP,
+      </if>
+      <if test="ifmobl != null">
+        IFMOBL,
+      </if>
+      <if test="liveStatus != null">
+        LIVE_STATUS,
+      </if>
+      <if test="sizpcd != null">
+        SIZPCD,
+      </if>
+      <if test="addr != null">
+        ADDR,
+      </if>
+      <if test="zpcd != null">
+        ZPCD,
+      </if>
+      <if test="ifmail != null">
+        IFMAIL,
+      </if>
+      <if test="relatedPersonName != null">
+        RELATED_PERSON_NAME,
+      </if>
+      <if test="relatedPersonIdNo != null">
+        RELATED_PERSON_ID_NO,
+      </if>
+      <if test="relatedPersonRel != null">
+        RELATED_PERSON_REL,
+      </if>
+      <if test="relatedPersonTelp != null">
+        RELATED_PERSON_TELP,
+      </if>
+      <if test="spouseName != null">
+        SPOUSE_NAME,
+      </if>
+      <if test="spouseCode != null">
+        SPOUSE_CODE,
+      </if>
+      <if test="spouseType != null">
+        SPOUSE_TYPE,
+      </if>
+      <if test="spdbPaccFlag != null">
+        SPDB_PACC_FLAG,
+      </if>
+      <if test="resetFlag != null">
+        RESET_FLAG,
+      </if>
+      <if test="bizOrgId != null">
+        BIZ_ORG_ID,
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME,
+      </if>
+      <if test="lastUpdateTime != null">
+        LAST_UPDATE_TIME,
+      </if>
+      <if test="spousePhone != null">
+        SPOUSE_PHONE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="custId != null">
+        #{custId,jdbcType=VARCHAR},
+      </if>
+      <if test="custIdCore != null">
+        #{custIdCore,jdbcType=VARCHAR},
+      </if>
+      <if test="custName != null">
+        #{custName,jdbcType=VARCHAR},
+      </if>
+      <if test="custType != null">
+        #{custType,jdbcType=CHAR},
+      </if>
+      <if test="certOrg != null">
+        #{certOrg,jdbcType=VARCHAR},
+      </if>
+      <if test="certType != null">
+        #{certType,jdbcType=CHAR},
+      </if>
+      <if test="certCode != null">
+        #{certCode,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        #{sex,jdbcType=CHAR},
+      </if>
+      <if test="birthday != null">
+        #{birthday,jdbcType=VARCHAR},
+      </if>
+      <if test="idDueDate != null">
+        #{idDueDate,jdbcType=VARCHAR},
+      </if>
+      <if test="ifeduc != null">
+        #{ifeduc,jdbcType=CHAR},
+      </if>
+      <if test="ifwedd != null">
+        #{ifwedd,jdbcType=CHAR},
+      </if>
+      <if test="siaddr != null">
+        #{siaddr,jdbcType=VARCHAR},
+      </if>
+      <if test="sitelp != null">
+        #{sitelp,jdbcType=VARCHAR},
+      </if>
+      <if test="ifmobl != null">
+        #{ifmobl,jdbcType=VARCHAR},
+      </if>
+      <if test="liveStatus != null">
+        #{liveStatus,jdbcType=CHAR},
+      </if>
+      <if test="sizpcd != null">
+        #{sizpcd,jdbcType=CHAR},
+      </if>
+      <if test="addr != null">
+        #{addr,jdbcType=VARCHAR},
+      </if>
+      <if test="zpcd != null">
+        #{zpcd,jdbcType=CHAR},
+      </if>
+      <if test="ifmail != null">
+        #{ifmail,jdbcType=VARCHAR},
+      </if>
+      <if test="relatedPersonName != null">
+        #{relatedPersonName,jdbcType=VARCHAR},
+      </if>
+      <if test="relatedPersonIdNo != null">
+        #{relatedPersonIdNo,jdbcType=VARCHAR},
+      </if>
+      <if test="relatedPersonRel != null">
+        #{relatedPersonRel,jdbcType=VARCHAR},
+      </if>
+      <if test="relatedPersonTelp != null">
+        #{relatedPersonTelp,jdbcType=VARCHAR},
+      </if>
+      <if test="spouseName != null">
+        #{spouseName,jdbcType=VARCHAR},
+      </if>
+      <if test="spouseCode != null">
+        #{spouseCode,jdbcType=VARCHAR},
+      </if>
+      <if test="spouseType != null">
+        #{spouseType,jdbcType=CHAR},
+      </if>
+      <if test="spdbPaccFlag != null">
+        #{spdbPaccFlag,jdbcType=CHAR},
+      </if>
+      <if test="resetFlag != null">
+        #{resetFlag,jdbcType=CHAR},
+      </if>
+      <if test="bizOrgId != null">
+        #{bizOrgId,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        #{lastUpdateTime,jdbcType=VARCHAR},
+      </if>
+      <if test="spousePhone != null">
+        #{spousePhone,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

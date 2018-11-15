@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.S_ERR_LOGMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.S_ERR_LOG">
+    <id column="LOG_SERNO" jdbcType="VARCHAR" property="logSerno" />
+    <result column="LOG_LEVEL" jdbcType="VARCHAR" property="logLevel" />
+    <result column="RECORD_TIME" jdbcType="VARCHAR" property="recordTime" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.bea.olp.S_ERR_LOG">
+    <result column="LOG_CONTENT" jdbcType="CLOB" property="logContent" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    LOG_SERNO, LOG_LEVEL, RECORD_TIME
+  </sql>
+  <sql id="Blob_Column_List">
+    LOG_CONTENT
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from S_ERR_LOG
+    where LOG_SERNO = #{logSerno,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from S_ERR_LOG
+    where LOG_SERNO = #{logSerno,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.S_ERR_LOG">
+    insert into S_ERR_LOG (LOG_SERNO, LOG_LEVEL, RECORD_TIME, 
+      LOG_CONTENT)
+    values (#{logSerno,jdbcType=VARCHAR}, #{logLevel,jdbcType=VARCHAR}, #{recordTime,jdbcType=VARCHAR}, 
+      #{logContent,jdbcType=CLOB})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.S_ERR_LOG">
+    insert into S_ERR_LOG
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="logSerno != null">
+        LOG_SERNO,
+      </if>
+      <if test="logLevel != null">
+        LOG_LEVEL,
+      </if>
+      <if test="recordTime != null">
+        RECORD_TIME,
+      </if>
+      <if test="logContent != null">
+        LOG_CONTENT,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="logSerno != null">
+        #{logSerno,jdbcType=VARCHAR},
+      </if>
+      <if test="logLevel != null">
+        #{logLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="recordTime != null">
+        #{recordTime,jdbcType=VARCHAR},
+      </if>
+      <if test="logContent != null">
+        #{logContent,jdbcType=CLOB},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.S_ERR_LOG">
+    update S_ERR_LOG
+    <set>
+      <if test="logLevel != null">
+        LOG_LEVEL = #{logLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="recordTime != null">
+        RECORD_TIME = #{recordTime,jdbcType=VARCHAR},
+      </if>
+      <if test="logContent != null">
+        LOG_CONTENT = #{logContent,jdbcType=CLOB},
+      </if>
+    </set>
+    where LOG_SERNO = #{logSerno,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.bea.olp.S_ERR_LOG">
+    update S_ERR_LOG
+    set LOG_LEVEL = #{logLevel,jdbcType=VARCHAR},
+      RECORD_TIME = #{recordTime,jdbcType=VARCHAR},
+      LOG_CONTENT = #{logContent,jdbcType=CLOB}
+    where LOG_SERNO = #{logSerno,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.S_ERR_LOG">
+    update S_ERR_LOG
+    set LOG_LEVEL = #{logLevel,jdbcType=VARCHAR},
+      RECORD_TIME = #{recordTime,jdbcType=VARCHAR}
+    where LOG_SERNO = #{logSerno,jdbcType=VARCHAR}
+  </update>
+</mapper>

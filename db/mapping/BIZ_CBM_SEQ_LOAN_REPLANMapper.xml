@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.BIZ_CBM_SEQ_LOAN_REPLANMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.BIZ_CBM_SEQ_LOAN_REPLAN">
+    <result column="CONTRACT_NO" jdbcType="VARCHAR" property="contractNo" />
+    <result column="TERM_NO" jdbcType="DECIMAL" property="termNo" />
+    <result column="SERIALNO" jdbcType="VARCHAR" property="serialno" />
+    <result column="INPUT_DATE" jdbcType="VARCHAR" property="inputDate" />
+    <result column="INPUT_TIME" jdbcType="VARCHAR" property="inputTime" />
+    <result column="DATA_DATE" jdbcType="VARCHAR" property="dataDate" />
+    <result column="CHANNEL_TYPE" jdbcType="VARCHAR" property="channelType" />
+  </resultMap>
+  <insert id="insert" parameterType="com.bea.olp.BIZ_CBM_SEQ_LOAN_REPLAN">
+    insert into BIZ_CBM_SEQ_LOAN_REPLAN (CONTRACT_NO, TERM_NO, SERIALNO, 
+      INPUT_DATE, INPUT_TIME, DATA_DATE, 
+      CHANNEL_TYPE)
+    values (#{contractNo,jdbcType=VARCHAR}, #{termNo,jdbcType=DECIMAL}, #{serialno,jdbcType=VARCHAR}, 
+      #{inputDate,jdbcType=VARCHAR}, #{inputTime,jdbcType=VARCHAR}, #{dataDate,jdbcType=VARCHAR}, 
+      #{channelType,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.BIZ_CBM_SEQ_LOAN_REPLAN">
+    insert into BIZ_CBM_SEQ_LOAN_REPLAN
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="contractNo != null">
+        CONTRACT_NO,
+      </if>
+      <if test="termNo != null">
+        TERM_NO,
+      </if>
+      <if test="serialno != null">
+        SERIALNO,
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE,
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME,
+      </if>
+      <if test="dataDate != null">
+        DATA_DATE,
+      </if>
+      <if test="channelType != null">
+        CHANNEL_TYPE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="contractNo != null">
+        #{contractNo,jdbcType=VARCHAR},
+      </if>
+      <if test="termNo != null">
+        #{termNo,jdbcType=DECIMAL},
+      </if>
+      <if test="serialno != null">
+        #{serialno,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="dataDate != null">
+        #{dataDate,jdbcType=VARCHAR},
+      </if>
+      <if test="channelType != null">
+        #{channelType,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

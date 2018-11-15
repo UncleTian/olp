@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.ACPT_RULE_INFOMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.ACPT_RULE_INFO">
+    <id column="APP_NO" jdbcType="VARCHAR" property="appNo" />
+    <result column="PRD_CODE" jdbcType="VARCHAR" property="prdCode" />
+    <result column="PRD_NAME" jdbcType="VARCHAR" property="prdName" />
+    <result column="APPLY_TYPE" jdbcType="VARCHAR" property="applyType" />
+    <result column="CERT_TYPE" jdbcType="VARCHAR" property="certType" />
+    <result column="CERT_CODE_LENGTH" jdbcType="VARCHAR" property="certCodeLength" />
+    <result column="AGE" jdbcType="VARCHAR" property="age" />
+    <result column="PROFESSION_TYPE" jdbcType="VARCHAR" property="professionType" />
+    <result column="OVERDUE_NUM" jdbcType="VARCHAR" property="overdueNum" />
+    <result column="REFUSE_NUM" jdbcType="VARCHAR" property="refuseNum" />
+    <result column="APPLY_FAILED_NUM" jdbcType="VARCHAR" property="applyFailedNum" />
+    <result column="INPUT_DATE" jdbcType="VARCHAR" property="inputDate" />
+    <result column="INPUT_TIME" jdbcType="VARCHAR" property="inputTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    APP_NO, PRD_CODE, PRD_NAME, APPLY_TYPE, CERT_TYPE, CERT_CODE_LENGTH, AGE, PROFESSION_TYPE, 
+    OVERDUE_NUM, REFUSE_NUM, APPLY_FAILED_NUM, INPUT_DATE, INPUT_TIME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from ACPT_RULE_INFO
+    where APP_NO = #{appNo,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from ACPT_RULE_INFO
+    where APP_NO = #{appNo,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.ACPT_RULE_INFO">
+    insert into ACPT_RULE_INFO (APP_NO, PRD_CODE, PRD_NAME, 
+      APPLY_TYPE, CERT_TYPE, CERT_CODE_LENGTH, 
+      AGE, PROFESSION_TYPE, OVERDUE_NUM, 
+      REFUSE_NUM, APPLY_FAILED_NUM, INPUT_DATE, 
+      INPUT_TIME)
+    values (#{appNo,jdbcType=VARCHAR}, #{prdCode,jdbcType=VARCHAR}, #{prdName,jdbcType=VARCHAR}, 
+      #{applyType,jdbcType=VARCHAR}, #{certType,jdbcType=VARCHAR}, #{certCodeLength,jdbcType=VARCHAR}, 
+      #{age,jdbcType=VARCHAR}, #{professionType,jdbcType=VARCHAR}, #{overdueNum,jdbcType=VARCHAR}, 
+      #{refuseNum,jdbcType=VARCHAR}, #{applyFailedNum,jdbcType=VARCHAR}, #{inputDate,jdbcType=VARCHAR}, 
+      #{inputTime,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.ACPT_RULE_INFO">
+    insert into ACPT_RULE_INFO
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="appNo != null">
+        APP_NO,
+      </if>
+      <if test="prdCode != null">
+        PRD_CODE,
+      </if>
+      <if test="prdName != null">
+        PRD_NAME,
+      </if>
+      <if test="applyType != null">
+        APPLY_TYPE,
+      </if>
+      <if test="certType != null">
+        CERT_TYPE,
+      </if>
+      <if test="certCodeLength != null">
+        CERT_CODE_LENGTH,
+      </if>
+      <if test="age != null">
+        AGE,
+      </if>
+      <if test="professionType != null">
+        PROFESSION_TYPE,
+      </if>
+      <if test="overdueNum != null">
+        OVERDUE_NUM,
+      </if>
+      <if test="refuseNum != null">
+        REFUSE_NUM,
+      </if>
+      <if test="applyFailedNum != null">
+        APPLY_FAILED_NUM,
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE,
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="appNo != null">
+        #{appNo,jdbcType=VARCHAR},
+      </if>
+      <if test="prdCode != null">
+        #{prdCode,jdbcType=VARCHAR},
+      </if>
+      <if test="prdName != null">
+        #{prdName,jdbcType=VARCHAR},
+      </if>
+      <if test="applyType != null">
+        #{applyType,jdbcType=VARCHAR},
+      </if>
+      <if test="certType != null">
+        #{certType,jdbcType=VARCHAR},
+      </if>
+      <if test="certCodeLength != null">
+        #{certCodeLength,jdbcType=VARCHAR},
+      </if>
+      <if test="age != null">
+        #{age,jdbcType=VARCHAR},
+      </if>
+      <if test="professionType != null">
+        #{professionType,jdbcType=VARCHAR},
+      </if>
+      <if test="overdueNum != null">
+        #{overdueNum,jdbcType=VARCHAR},
+      </if>
+      <if test="refuseNum != null">
+        #{refuseNum,jdbcType=VARCHAR},
+      </if>
+      <if test="applyFailedNum != null">
+        #{applyFailedNum,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        #{inputTime,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.ACPT_RULE_INFO">
+    update ACPT_RULE_INFO
+    <set>
+      <if test="prdCode != null">
+        PRD_CODE = #{prdCode,jdbcType=VARCHAR},
+      </if>
+      <if test="prdName != null">
+        PRD_NAME = #{prdName,jdbcType=VARCHAR},
+      </if>
+      <if test="applyType != null">
+        APPLY_TYPE = #{applyType,jdbcType=VARCHAR},
+      </if>
+      <if test="certType != null">
+        CERT_TYPE = #{certType,jdbcType=VARCHAR},
+      </if>
+      <if test="certCodeLength != null">
+        CERT_CODE_LENGTH = #{certCodeLength,jdbcType=VARCHAR},
+      </if>
+      <if test="age != null">
+        AGE = #{age,jdbcType=VARCHAR},
+      </if>
+      <if test="professionType != null">
+        PROFESSION_TYPE = #{professionType,jdbcType=VARCHAR},
+      </if>
+      <if test="overdueNum != null">
+        OVERDUE_NUM = #{overdueNum,jdbcType=VARCHAR},
+      </if>
+      <if test="refuseNum != null">
+        REFUSE_NUM = #{refuseNum,jdbcType=VARCHAR},
+      </if>
+      <if test="applyFailedNum != null">
+        APPLY_FAILED_NUM = #{applyFailedNum,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE = #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME = #{inputTime,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where APP_NO = #{appNo,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.ACPT_RULE_INFO">
+    update ACPT_RULE_INFO
+    set PRD_CODE = #{prdCode,jdbcType=VARCHAR},
+      PRD_NAME = #{prdName,jdbcType=VARCHAR},
+      APPLY_TYPE = #{applyType,jdbcType=VARCHAR},
+      CERT_TYPE = #{certType,jdbcType=VARCHAR},
+      CERT_CODE_LENGTH = #{certCodeLength,jdbcType=VARCHAR},
+      AGE = #{age,jdbcType=VARCHAR},
+      PROFESSION_TYPE = #{professionType,jdbcType=VARCHAR},
+      OVERDUE_NUM = #{overdueNum,jdbcType=VARCHAR},
+      REFUSE_NUM = #{refuseNum,jdbcType=VARCHAR},
+      APPLY_FAILED_NUM = #{applyFailedNum,jdbcType=VARCHAR},
+      INPUT_DATE = #{inputDate,jdbcType=VARCHAR},
+      INPUT_TIME = #{inputTime,jdbcType=VARCHAR}
+    where APP_NO = #{appNo,jdbcType=VARCHAR}
+  </update>
+</mapper>

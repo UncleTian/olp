@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.ORG_QUERY_LIMITSMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.ORG_QUERY_LIMITS">
+    <id column="BCH_CDE" jdbcType="VARCHAR" property="bchCde" />
+    <result column="BCH_DOWN" jdbcType="VARCHAR" property="bchDown" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    BCH_CDE, BCH_DOWN
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from ORG_QUERY_LIMITS
+    where BCH_CDE = #{bchCde,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from ORG_QUERY_LIMITS
+    where BCH_CDE = #{bchCde,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.ORG_QUERY_LIMITS">
+    insert into ORG_QUERY_LIMITS (BCH_CDE, BCH_DOWN)
+    values (#{bchCde,jdbcType=VARCHAR}, #{bchDown,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.ORG_QUERY_LIMITS">
+    insert into ORG_QUERY_LIMITS
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="bchCde != null">
+        BCH_CDE,
+      </if>
+      <if test="bchDown != null">
+        BCH_DOWN,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="bchCde != null">
+        #{bchCde,jdbcType=VARCHAR},
+      </if>
+      <if test="bchDown != null">
+        #{bchDown,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.ORG_QUERY_LIMITS">
+    update ORG_QUERY_LIMITS
+    <set>
+      <if test="bchDown != null">
+        BCH_DOWN = #{bchDown,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where BCH_CDE = #{bchCde,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.ORG_QUERY_LIMITS">
+    update ORG_QUERY_LIMITS
+    set BCH_DOWN = #{bchDown,jdbcType=VARCHAR}
+    where BCH_CDE = #{bchCde,jdbcType=VARCHAR}
+  </update>
+</mapper>

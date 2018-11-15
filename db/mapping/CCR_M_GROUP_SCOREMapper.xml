@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.CCR_M_GROUP_SCOREMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.CCR_M_GROUP_SCORE">
+    <id column="SERNO" jdbcType="VARCHAR" property="serno" />
+    <id column="CUS_ID" jdbcType="VARCHAR" property="cusId" />
+    <id column="MODEL_NO" jdbcType="VARCHAR" property="modelNo" />
+    <id column="GROUP_NO" jdbcType="VARCHAR" property="groupNo" />
+    <id column="CCR_DATE" jdbcType="VARCHAR" property="ccrDate" />
+    <result column="MODEL_NAME" jdbcType="VARCHAR" property="modelName" />
+    <result column="GROUP_NAME" jdbcType="VARCHAR" property="groupName" />
+    <result column="GROUP_SCORE" jdbcType="VARCHAR" property="groupScore" />
+    <result column="SCORING_MANAGER" jdbcType="VARCHAR" property="scoringManager" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    SERNO, CUS_ID, MODEL_NO, GROUP_NO, CCR_DATE, MODEL_NAME, GROUP_NAME, GROUP_SCORE, 
+    SCORING_MANAGER
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="com.bea.olp.CCR_M_GROUP_SCOREKey" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from CCR_M_GROUP_SCORE
+    where SERNO = #{serno,jdbcType=VARCHAR}
+      and CUS_ID = #{cusId,jdbcType=VARCHAR}
+      and MODEL_NO = #{modelNo,jdbcType=VARCHAR}
+      and GROUP_NO = #{groupNo,jdbcType=VARCHAR}
+      and CCR_DATE = #{ccrDate,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.bea.olp.CCR_M_GROUP_SCOREKey">
+    delete from CCR_M_GROUP_SCORE
+    where SERNO = #{serno,jdbcType=VARCHAR}
+      and CUS_ID = #{cusId,jdbcType=VARCHAR}
+      and MODEL_NO = #{modelNo,jdbcType=VARCHAR}
+      and GROUP_NO = #{groupNo,jdbcType=VARCHAR}
+      and CCR_DATE = #{ccrDate,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.CCR_M_GROUP_SCORE">
+    insert into CCR_M_GROUP_SCORE (SERNO, CUS_ID, MODEL_NO, 
+      GROUP_NO, CCR_DATE, MODEL_NAME, 
+      GROUP_NAME, GROUP_SCORE, SCORING_MANAGER
+      )
+    values (#{serno,jdbcType=VARCHAR}, #{cusId,jdbcType=VARCHAR}, #{modelNo,jdbcType=VARCHAR}, 
+      #{groupNo,jdbcType=VARCHAR}, #{ccrDate,jdbcType=VARCHAR}, #{modelName,jdbcType=VARCHAR}, 
+      #{groupName,jdbcType=VARCHAR}, #{groupScore,jdbcType=VARCHAR}, #{scoringManager,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.CCR_M_GROUP_SCORE">
+    insert into CCR_M_GROUP_SCORE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="serno != null">
+        SERNO,
+      </if>
+      <if test="cusId != null">
+        CUS_ID,
+      </if>
+      <if test="modelNo != null">
+        MODEL_NO,
+      </if>
+      <if test="groupNo != null">
+        GROUP_NO,
+      </if>
+      <if test="ccrDate != null">
+        CCR_DATE,
+      </if>
+      <if test="modelName != null">
+        MODEL_NAME,
+      </if>
+      <if test="groupName != null">
+        GROUP_NAME,
+      </if>
+      <if test="groupScore != null">
+        GROUP_SCORE,
+      </if>
+      <if test="scoringManager != null">
+        SCORING_MANAGER,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="serno != null">
+        #{serno,jdbcType=VARCHAR},
+      </if>
+      <if test="cusId != null">
+        #{cusId,jdbcType=VARCHAR},
+      </if>
+      <if test="modelNo != null">
+        #{modelNo,jdbcType=VARCHAR},
+      </if>
+      <if test="groupNo != null">
+        #{groupNo,jdbcType=VARCHAR},
+      </if>
+      <if test="ccrDate != null">
+        #{ccrDate,jdbcType=VARCHAR},
+      </if>
+      <if test="modelName != null">
+        #{modelName,jdbcType=VARCHAR},
+      </if>
+      <if test="groupName != null">
+        #{groupName,jdbcType=VARCHAR},
+      </if>
+      <if test="groupScore != null">
+        #{groupScore,jdbcType=VARCHAR},
+      </if>
+      <if test="scoringManager != null">
+        #{scoringManager,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.CCR_M_GROUP_SCORE">
+    update CCR_M_GROUP_SCORE
+    <set>
+      <if test="modelName != null">
+        MODEL_NAME = #{modelName,jdbcType=VARCHAR},
+      </if>
+      <if test="groupName != null">
+        GROUP_NAME = #{groupName,jdbcType=VARCHAR},
+      </if>
+      <if test="groupScore != null">
+        GROUP_SCORE = #{groupScore,jdbcType=VARCHAR},
+      </if>
+      <if test="scoringManager != null">
+        SCORING_MANAGER = #{scoringManager,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where SERNO = #{serno,jdbcType=VARCHAR}
+      and CUS_ID = #{cusId,jdbcType=VARCHAR}
+      and MODEL_NO = #{modelNo,jdbcType=VARCHAR}
+      and GROUP_NO = #{groupNo,jdbcType=VARCHAR}
+      and CCR_DATE = #{ccrDate,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.CCR_M_GROUP_SCORE">
+    update CCR_M_GROUP_SCORE
+    set MODEL_NAME = #{modelName,jdbcType=VARCHAR},
+      GROUP_NAME = #{groupName,jdbcType=VARCHAR},
+      GROUP_SCORE = #{groupScore,jdbcType=VARCHAR},
+      SCORING_MANAGER = #{scoringManager,jdbcType=VARCHAR}
+    where SERNO = #{serno,jdbcType=VARCHAR}
+      and CUS_ID = #{cusId,jdbcType=VARCHAR}
+      and MODEL_NO = #{modelNo,jdbcType=VARCHAR}
+      and GROUP_NO = #{groupNo,jdbcType=VARCHAR}
+      and CCR_DATE = #{ccrDate,jdbcType=VARCHAR}
+  </update>
+</mapper>

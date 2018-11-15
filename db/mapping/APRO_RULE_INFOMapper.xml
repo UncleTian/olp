@@ -1,0 +1,642 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.APRO_RULE_INFOMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.APRO_RULE_INFO">
+    <id column="APP_NO" jdbcType="VARCHAR" property="appNo" />
+    <result column="PRD_CODE" jdbcType="VARCHAR" property="prdCode" />
+    <result column="PRD_NAME" jdbcType="VARCHAR" property="prdName" />
+    <result column="APPLY_TYPE" jdbcType="VARCHAR" property="applyType" />
+    <result column="CHECK_RESULT" jdbcType="VARCHAR" property="checkResult" />
+    <result column="IS_BEA_RELATE" jdbcType="VARCHAR" property="isBeaRelate" />
+    <result column="AML_TYPE" jdbcType="VARCHAR" property="amlType" />
+    <result column="BLACK_NUMS" jdbcType="VARCHAR" property="blackNums" />
+    <result column="FLAG_SPECIAL_LIST_C" jdbcType="VARCHAR" property="flagSpecialListC" />
+    <result column="ALS_D15_CELL_NBANK_ORGNUM" jdbcType="VARCHAR" property="alsD15CellNbankOrgnum" />
+    <result column="ALS_D15_ID_NBANK_ORGNUM" jdbcType="VARCHAR" property="alsD15IdNbankOrgnum" />
+    <result column="ALS_M3_ID_NBANK_ORGNUM" jdbcType="VARCHAR" property="alsM3IdNbankOrgnum" />
+    <result column="ALS_M3_ID_NBANK_ALLNUM" jdbcType="VARCHAR" property="alsM3IdNbankAllnum" />
+    <result column="ALS_M3_CELL_NBANK_ORGNUM" jdbcType="VARCHAR" property="alsM3CellNbankOrgnum" />
+    <result column="ALS_M3_CELL_NBANK_ALLNUM" jdbcType="VARCHAR" property="alsM3CellNbankAllnum" />
+    <result column="FINAL_DECISION" jdbcType="VARCHAR" property="finalDecision" />
+    <result column="IS_RISK_TRADE" jdbcType="VARCHAR" property="isRiskTrade" />
+    <result column="IS_BAN_PRO" jdbcType="VARCHAR" property="isBanPro" />
+    <result column="AUTH_FIN_LAST_1M_CNT" jdbcType="VARCHAR" property="authFinLast1mCnt" />
+    <result column="AUTH_FIN_LAST_3M_CNT" jdbcType="VARCHAR" property="authFinLast3mCnt" />
+    <result column="AUTH_FIN_LAST_6M_CNT" jdbcType="VARCHAR" property="authFinLast6mCnt" />
+    <result column="OVD_ORDER_CNT_6M" jdbcType="VARCHAR" property="ovdOrderCnt6m" />
+    <result column="OVD_ORDER_AMT_6M" jdbcType="VARCHAR" property="ovdOrderAmt6m" />
+    <result column="ZM_SCORE" jdbcType="VARCHAR" property="zmScore" />
+    <result column="CREDIT_LINE" jdbcType="VARCHAR" property="creditLine" />
+    <result column="INCOME_DEBT_RAT" jdbcType="VARCHAR" property="incomeDebtRat" />
+    <result column="INPUT_DATE" jdbcType="VARCHAR" property="inputDate" />
+    <result column="INPUT_TIME" jdbcType="VARCHAR" property="inputTime" />
+    <result column="CBM_CODE" jdbcType="VARCHAR" property="cbmCode" />
+    <result column="INDUSTRY_CODE" jdbcType="VARCHAR" property="industryCode" />
+    <result column="FLAG_EXECUTION" jdbcType="VARCHAR" property="flagExecution" />
+    <result column="ASSET_SCORE" jdbcType="VARCHAR" property="assetScore" />
+    <result column="CREDIT_INFO_XA01" jdbcType="VARCHAR" property="creditInfoXa01" />
+    <result column="CREDIT_INFO_XA02" jdbcType="VARCHAR" property="creditInfoXa02" />
+    <result column="CREDIT_INFO_XA03" jdbcType="VARCHAR" property="creditInfoXa03" />
+    <result column="CREDIT_INFO_XA04" jdbcType="VARCHAR" property="creditInfoXa04" />
+    <result column="CREDIT_INFO_XA05" jdbcType="VARCHAR" property="creditInfoXa05" />
+    <result column="CREDIT_INFO_XA06" jdbcType="VARCHAR" property="creditInfoXa06" />
+    <result column="CREDIT_INFO_XA07" jdbcType="VARCHAR" property="creditInfoXa07" />
+    <result column="CREDIT_INFO_XA08" jdbcType="VARCHAR" property="creditInfoXa08" />
+    <result column="BLACK_SOURCE" jdbcType="VARCHAR" property="blackSource" />
+    <result column="BLACK_SCORE" jdbcType="VARCHAR" property="blackScore" />
+    <result column="IS_CLEAR" jdbcType="VARCHAR" property="isClear" />
+    <result column="CURR_BAL" jdbcType="VARCHAR" property="currBal" />
+    <result column="OVERDUE_D30_NUM" jdbcType="VARCHAR" property="overdueD30Num" />
+    <result column="WHITE_SCORE" jdbcType="VARCHAR" property="whiteScore" />
+    <result column="PERFORMANCE" jdbcType="VARCHAR" property="performance" />
+    <result column="IDENTITY" jdbcType="VARCHAR" property="identity" />
+    <result column="RELATIONSHIP_NETWORK" jdbcType="VARCHAR" property="relationshipNetwork" />
+    <result column="PURCHASING_POWER_RATING_LV" jdbcType="VARCHAR" property="purchasingPowerRatingLv" />
+    <result column="CHARACTERISTIC" jdbcType="VARCHAR" property="characteristic" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    APP_NO, PRD_CODE, PRD_NAME, APPLY_TYPE, CHECK_RESULT, IS_BEA_RELATE, AML_TYPE, BLACK_NUMS, 
+    FLAG_SPECIAL_LIST_C, ALS_D15_CELL_NBANK_ORGNUM, ALS_D15_ID_NBANK_ORGNUM, ALS_M3_ID_NBANK_ORGNUM, 
+    ALS_M3_ID_NBANK_ALLNUM, ALS_M3_CELL_NBANK_ORGNUM, ALS_M3_CELL_NBANK_ALLNUM, FINAL_DECISION, 
+    IS_RISK_TRADE, IS_BAN_PRO, AUTH_FIN_LAST_1M_CNT, AUTH_FIN_LAST_3M_CNT, AUTH_FIN_LAST_6M_CNT, 
+    OVD_ORDER_CNT_6M, OVD_ORDER_AMT_6M, ZM_SCORE, CREDIT_LINE, INCOME_DEBT_RAT, INPUT_DATE, 
+    INPUT_TIME, CBM_CODE, INDUSTRY_CODE, FLAG_EXECUTION, ASSET_SCORE, CREDIT_INFO_XA01, 
+    CREDIT_INFO_XA02, CREDIT_INFO_XA03, CREDIT_INFO_XA04, CREDIT_INFO_XA05, CREDIT_INFO_XA06, 
+    CREDIT_INFO_XA07, CREDIT_INFO_XA08, BLACK_SOURCE, BLACK_SCORE, IS_CLEAR, CURR_BAL, 
+    OVERDUE_D30_NUM, WHITE_SCORE, PERFORMANCE, IDENTITY, RELATIONSHIP_NETWORK, PURCHASING_POWER_RATING_LV, 
+    CHARACTERISTIC
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from APRO_RULE_INFO
+    where APP_NO = #{appNo,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from APRO_RULE_INFO
+    where APP_NO = #{appNo,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.APRO_RULE_INFO">
+    insert into APRO_RULE_INFO (APP_NO, PRD_CODE, PRD_NAME, 
+      APPLY_TYPE, CHECK_RESULT, IS_BEA_RELATE, 
+      AML_TYPE, BLACK_NUMS, FLAG_SPECIAL_LIST_C, 
+      ALS_D15_CELL_NBANK_ORGNUM, ALS_D15_ID_NBANK_ORGNUM, 
+      ALS_M3_ID_NBANK_ORGNUM, ALS_M3_ID_NBANK_ALLNUM, 
+      ALS_M3_CELL_NBANK_ORGNUM, ALS_M3_CELL_NBANK_ALLNUM, 
+      FINAL_DECISION, IS_RISK_TRADE, IS_BAN_PRO, 
+      AUTH_FIN_LAST_1M_CNT, AUTH_FIN_LAST_3M_CNT, AUTH_FIN_LAST_6M_CNT, 
+      OVD_ORDER_CNT_6M, OVD_ORDER_AMT_6M, ZM_SCORE, 
+      CREDIT_LINE, INCOME_DEBT_RAT, INPUT_DATE, 
+      INPUT_TIME, CBM_CODE, INDUSTRY_CODE, 
+      FLAG_EXECUTION, ASSET_SCORE, CREDIT_INFO_XA01, 
+      CREDIT_INFO_XA02, CREDIT_INFO_XA03, CREDIT_INFO_XA04, 
+      CREDIT_INFO_XA05, CREDIT_INFO_XA06, CREDIT_INFO_XA07, 
+      CREDIT_INFO_XA08, BLACK_SOURCE, BLACK_SCORE, 
+      IS_CLEAR, CURR_BAL, OVERDUE_D30_NUM, 
+      WHITE_SCORE, PERFORMANCE, IDENTITY, 
+      RELATIONSHIP_NETWORK, PURCHASING_POWER_RATING_LV, 
+      CHARACTERISTIC)
+    values (#{appNo,jdbcType=VARCHAR}, #{prdCode,jdbcType=VARCHAR}, #{prdName,jdbcType=VARCHAR}, 
+      #{applyType,jdbcType=VARCHAR}, #{checkResult,jdbcType=VARCHAR}, #{isBeaRelate,jdbcType=VARCHAR}, 
+      #{amlType,jdbcType=VARCHAR}, #{blackNums,jdbcType=VARCHAR}, #{flagSpecialListC,jdbcType=VARCHAR}, 
+      #{alsD15CellNbankOrgnum,jdbcType=VARCHAR}, #{alsD15IdNbankOrgnum,jdbcType=VARCHAR}, 
+      #{alsM3IdNbankOrgnum,jdbcType=VARCHAR}, #{alsM3IdNbankAllnum,jdbcType=VARCHAR}, 
+      #{alsM3CellNbankOrgnum,jdbcType=VARCHAR}, #{alsM3CellNbankAllnum,jdbcType=VARCHAR}, 
+      #{finalDecision,jdbcType=VARCHAR}, #{isRiskTrade,jdbcType=VARCHAR}, #{isBanPro,jdbcType=VARCHAR}, 
+      #{authFinLast1mCnt,jdbcType=VARCHAR}, #{authFinLast3mCnt,jdbcType=VARCHAR}, #{authFinLast6mCnt,jdbcType=VARCHAR}, 
+      #{ovdOrderCnt6m,jdbcType=VARCHAR}, #{ovdOrderAmt6m,jdbcType=VARCHAR}, #{zmScore,jdbcType=VARCHAR}, 
+      #{creditLine,jdbcType=VARCHAR}, #{incomeDebtRat,jdbcType=VARCHAR}, #{inputDate,jdbcType=VARCHAR}, 
+      #{inputTime,jdbcType=VARCHAR}, #{cbmCode,jdbcType=VARCHAR}, #{industryCode,jdbcType=VARCHAR}, 
+      #{flagExecution,jdbcType=VARCHAR}, #{assetScore,jdbcType=VARCHAR}, #{creditInfoXa01,jdbcType=VARCHAR}, 
+      #{creditInfoXa02,jdbcType=VARCHAR}, #{creditInfoXa03,jdbcType=VARCHAR}, #{creditInfoXa04,jdbcType=VARCHAR}, 
+      #{creditInfoXa05,jdbcType=VARCHAR}, #{creditInfoXa06,jdbcType=VARCHAR}, #{creditInfoXa07,jdbcType=VARCHAR}, 
+      #{creditInfoXa08,jdbcType=VARCHAR}, #{blackSource,jdbcType=VARCHAR}, #{blackScore,jdbcType=VARCHAR}, 
+      #{isClear,jdbcType=VARCHAR}, #{currBal,jdbcType=VARCHAR}, #{overdueD30Num,jdbcType=VARCHAR}, 
+      #{whiteScore,jdbcType=VARCHAR}, #{performance,jdbcType=VARCHAR}, #{identity,jdbcType=VARCHAR}, 
+      #{relationshipNetwork,jdbcType=VARCHAR}, #{purchasingPowerRatingLv,jdbcType=VARCHAR}, 
+      #{characteristic,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.APRO_RULE_INFO">
+    insert into APRO_RULE_INFO
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="appNo != null">
+        APP_NO,
+      </if>
+      <if test="prdCode != null">
+        PRD_CODE,
+      </if>
+      <if test="prdName != null">
+        PRD_NAME,
+      </if>
+      <if test="applyType != null">
+        APPLY_TYPE,
+      </if>
+      <if test="checkResult != null">
+        CHECK_RESULT,
+      </if>
+      <if test="isBeaRelate != null">
+        IS_BEA_RELATE,
+      </if>
+      <if test="amlType != null">
+        AML_TYPE,
+      </if>
+      <if test="blackNums != null">
+        BLACK_NUMS,
+      </if>
+      <if test="flagSpecialListC != null">
+        FLAG_SPECIAL_LIST_C,
+      </if>
+      <if test="alsD15CellNbankOrgnum != null">
+        ALS_D15_CELL_NBANK_ORGNUM,
+      </if>
+      <if test="alsD15IdNbankOrgnum != null">
+        ALS_D15_ID_NBANK_ORGNUM,
+      </if>
+      <if test="alsM3IdNbankOrgnum != null">
+        ALS_M3_ID_NBANK_ORGNUM,
+      </if>
+      <if test="alsM3IdNbankAllnum != null">
+        ALS_M3_ID_NBANK_ALLNUM,
+      </if>
+      <if test="alsM3CellNbankOrgnum != null">
+        ALS_M3_CELL_NBANK_ORGNUM,
+      </if>
+      <if test="alsM3CellNbankAllnum != null">
+        ALS_M3_CELL_NBANK_ALLNUM,
+      </if>
+      <if test="finalDecision != null">
+        FINAL_DECISION,
+      </if>
+      <if test="isRiskTrade != null">
+        IS_RISK_TRADE,
+      </if>
+      <if test="isBanPro != null">
+        IS_BAN_PRO,
+      </if>
+      <if test="authFinLast1mCnt != null">
+        AUTH_FIN_LAST_1M_CNT,
+      </if>
+      <if test="authFinLast3mCnt != null">
+        AUTH_FIN_LAST_3M_CNT,
+      </if>
+      <if test="authFinLast6mCnt != null">
+        AUTH_FIN_LAST_6M_CNT,
+      </if>
+      <if test="ovdOrderCnt6m != null">
+        OVD_ORDER_CNT_6M,
+      </if>
+      <if test="ovdOrderAmt6m != null">
+        OVD_ORDER_AMT_6M,
+      </if>
+      <if test="zmScore != null">
+        ZM_SCORE,
+      </if>
+      <if test="creditLine != null">
+        CREDIT_LINE,
+      </if>
+      <if test="incomeDebtRat != null">
+        INCOME_DEBT_RAT,
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE,
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME,
+      </if>
+      <if test="cbmCode != null">
+        CBM_CODE,
+      </if>
+      <if test="industryCode != null">
+        INDUSTRY_CODE,
+      </if>
+      <if test="flagExecution != null">
+        FLAG_EXECUTION,
+      </if>
+      <if test="assetScore != null">
+        ASSET_SCORE,
+      </if>
+      <if test="creditInfoXa01 != null">
+        CREDIT_INFO_XA01,
+      </if>
+      <if test="creditInfoXa02 != null">
+        CREDIT_INFO_XA02,
+      </if>
+      <if test="creditInfoXa03 != null">
+        CREDIT_INFO_XA03,
+      </if>
+      <if test="creditInfoXa04 != null">
+        CREDIT_INFO_XA04,
+      </if>
+      <if test="creditInfoXa05 != null">
+        CREDIT_INFO_XA05,
+      </if>
+      <if test="creditInfoXa06 != null">
+        CREDIT_INFO_XA06,
+      </if>
+      <if test="creditInfoXa07 != null">
+        CREDIT_INFO_XA07,
+      </if>
+      <if test="creditInfoXa08 != null">
+        CREDIT_INFO_XA08,
+      </if>
+      <if test="blackSource != null">
+        BLACK_SOURCE,
+      </if>
+      <if test="blackScore != null">
+        BLACK_SCORE,
+      </if>
+      <if test="isClear != null">
+        IS_CLEAR,
+      </if>
+      <if test="currBal != null">
+        CURR_BAL,
+      </if>
+      <if test="overdueD30Num != null">
+        OVERDUE_D30_NUM,
+      </if>
+      <if test="whiteScore != null">
+        WHITE_SCORE,
+      </if>
+      <if test="performance != null">
+        PERFORMANCE,
+      </if>
+      <if test="identity != null">
+        IDENTITY,
+      </if>
+      <if test="relationshipNetwork != null">
+        RELATIONSHIP_NETWORK,
+      </if>
+      <if test="purchasingPowerRatingLv != null">
+        PURCHASING_POWER_RATING_LV,
+      </if>
+      <if test="characteristic != null">
+        CHARACTERISTIC,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="appNo != null">
+        #{appNo,jdbcType=VARCHAR},
+      </if>
+      <if test="prdCode != null">
+        #{prdCode,jdbcType=VARCHAR},
+      </if>
+      <if test="prdName != null">
+        #{prdName,jdbcType=VARCHAR},
+      </if>
+      <if test="applyType != null">
+        #{applyType,jdbcType=VARCHAR},
+      </if>
+      <if test="checkResult != null">
+        #{checkResult,jdbcType=VARCHAR},
+      </if>
+      <if test="isBeaRelate != null">
+        #{isBeaRelate,jdbcType=VARCHAR},
+      </if>
+      <if test="amlType != null">
+        #{amlType,jdbcType=VARCHAR},
+      </if>
+      <if test="blackNums != null">
+        #{blackNums,jdbcType=VARCHAR},
+      </if>
+      <if test="flagSpecialListC != null">
+        #{flagSpecialListC,jdbcType=VARCHAR},
+      </if>
+      <if test="alsD15CellNbankOrgnum != null">
+        #{alsD15CellNbankOrgnum,jdbcType=VARCHAR},
+      </if>
+      <if test="alsD15IdNbankOrgnum != null">
+        #{alsD15IdNbankOrgnum,jdbcType=VARCHAR},
+      </if>
+      <if test="alsM3IdNbankOrgnum != null">
+        #{alsM3IdNbankOrgnum,jdbcType=VARCHAR},
+      </if>
+      <if test="alsM3IdNbankAllnum != null">
+        #{alsM3IdNbankAllnum,jdbcType=VARCHAR},
+      </if>
+      <if test="alsM3CellNbankOrgnum != null">
+        #{alsM3CellNbankOrgnum,jdbcType=VARCHAR},
+      </if>
+      <if test="alsM3CellNbankAllnum != null">
+        #{alsM3CellNbankAllnum,jdbcType=VARCHAR},
+      </if>
+      <if test="finalDecision != null">
+        #{finalDecision,jdbcType=VARCHAR},
+      </if>
+      <if test="isRiskTrade != null">
+        #{isRiskTrade,jdbcType=VARCHAR},
+      </if>
+      <if test="isBanPro != null">
+        #{isBanPro,jdbcType=VARCHAR},
+      </if>
+      <if test="authFinLast1mCnt != null">
+        #{authFinLast1mCnt,jdbcType=VARCHAR},
+      </if>
+      <if test="authFinLast3mCnt != null">
+        #{authFinLast3mCnt,jdbcType=VARCHAR},
+      </if>
+      <if test="authFinLast6mCnt != null">
+        #{authFinLast6mCnt,jdbcType=VARCHAR},
+      </if>
+      <if test="ovdOrderCnt6m != null">
+        #{ovdOrderCnt6m,jdbcType=VARCHAR},
+      </if>
+      <if test="ovdOrderAmt6m != null">
+        #{ovdOrderAmt6m,jdbcType=VARCHAR},
+      </if>
+      <if test="zmScore != null">
+        #{zmScore,jdbcType=VARCHAR},
+      </if>
+      <if test="creditLine != null">
+        #{creditLine,jdbcType=VARCHAR},
+      </if>
+      <if test="incomeDebtRat != null">
+        #{incomeDebtRat,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="cbmCode != null">
+        #{cbmCode,jdbcType=VARCHAR},
+      </if>
+      <if test="industryCode != null">
+        #{industryCode,jdbcType=VARCHAR},
+      </if>
+      <if test="flagExecution != null">
+        #{flagExecution,jdbcType=VARCHAR},
+      </if>
+      <if test="assetScore != null">
+        #{assetScore,jdbcType=VARCHAR},
+      </if>
+      <if test="creditInfoXa01 != null">
+        #{creditInfoXa01,jdbcType=VARCHAR},
+      </if>
+      <if test="creditInfoXa02 != null">
+        #{creditInfoXa02,jdbcType=VARCHAR},
+      </if>
+      <if test="creditInfoXa03 != null">
+        #{creditInfoXa03,jdbcType=VARCHAR},
+      </if>
+      <if test="creditInfoXa04 != null">
+        #{creditInfoXa04,jdbcType=VARCHAR},
+      </if>
+      <if test="creditInfoXa05 != null">
+        #{creditInfoXa05,jdbcType=VARCHAR},
+      </if>
+      <if test="creditInfoXa06 != null">
+        #{creditInfoXa06,jdbcType=VARCHAR},
+      </if>
+      <if test="creditInfoXa07 != null">
+        #{creditInfoXa07,jdbcType=VARCHAR},
+      </if>
+      <if test="creditInfoXa08 != null">
+        #{creditInfoXa08,jdbcType=VARCHAR},
+      </if>
+      <if test="blackSource != null">
+        #{blackSource,jdbcType=VARCHAR},
+      </if>
+      <if test="blackScore != null">
+        #{blackScore,jdbcType=VARCHAR},
+      </if>
+      <if test="isClear != null">
+        #{isClear,jdbcType=VARCHAR},
+      </if>
+      <if test="currBal != null">
+        #{currBal,jdbcType=VARCHAR},
+      </if>
+      <if test="overdueD30Num != null">
+        #{overdueD30Num,jdbcType=VARCHAR},
+      </if>
+      <if test="whiteScore != null">
+        #{whiteScore,jdbcType=VARCHAR},
+      </if>
+      <if test="performance != null">
+        #{performance,jdbcType=VARCHAR},
+      </if>
+      <if test="identity != null">
+        #{identity,jdbcType=VARCHAR},
+      </if>
+      <if test="relationshipNetwork != null">
+        #{relationshipNetwork,jdbcType=VARCHAR},
+      </if>
+      <if test="purchasingPowerRatingLv != null">
+        #{purchasingPowerRatingLv,jdbcType=VARCHAR},
+      </if>
+      <if test="characteristic != null">
+        #{characteristic,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.APRO_RULE_INFO">
+    update APRO_RULE_INFO
+    <set>
+      <if test="prdCode != null">
+        PRD_CODE = #{prdCode,jdbcType=VARCHAR},
+      </if>
+      <if test="prdName != null">
+        PRD_NAME = #{prdName,jdbcType=VARCHAR},
+      </if>
+      <if test="applyType != null">
+        APPLY_TYPE = #{applyType,jdbcType=VARCHAR},
+      </if>
+      <if test="checkResult != null">
+        CHECK_RESULT = #{checkResult,jdbcType=VARCHAR},
+      </if>
+      <if test="isBeaRelate != null">
+        IS_BEA_RELATE = #{isBeaRelate,jdbcType=VARCHAR},
+      </if>
+      <if test="amlType != null">
+        AML_TYPE = #{amlType,jdbcType=VARCHAR},
+      </if>
+      <if test="blackNums != null">
+        BLACK_NUMS = #{blackNums,jdbcType=VARCHAR},
+      </if>
+      <if test="flagSpecialListC != null">
+        FLAG_SPECIAL_LIST_C = #{flagSpecialListC,jdbcType=VARCHAR},
+      </if>
+      <if test="alsD15CellNbankOrgnum != null">
+        ALS_D15_CELL_NBANK_ORGNUM = #{alsD15CellNbankOrgnum,jdbcType=VARCHAR},
+      </if>
+      <if test="alsD15IdNbankOrgnum != null">
+        ALS_D15_ID_NBANK_ORGNUM = #{alsD15IdNbankOrgnum,jdbcType=VARCHAR},
+      </if>
+      <if test="alsM3IdNbankOrgnum != null">
+        ALS_M3_ID_NBANK_ORGNUM = #{alsM3IdNbankOrgnum,jdbcType=VARCHAR},
+      </if>
+      <if test="alsM3IdNbankAllnum != null">
+        ALS_M3_ID_NBANK_ALLNUM = #{alsM3IdNbankAllnum,jdbcType=VARCHAR},
+      </if>
+      <if test="alsM3CellNbankOrgnum != null">
+        ALS_M3_CELL_NBANK_ORGNUM = #{alsM3CellNbankOrgnum,jdbcType=VARCHAR},
+      </if>
+      <if test="alsM3CellNbankAllnum != null">
+        ALS_M3_CELL_NBANK_ALLNUM = #{alsM3CellNbankAllnum,jdbcType=VARCHAR},
+      </if>
+      <if test="finalDecision != null">
+        FINAL_DECISION = #{finalDecision,jdbcType=VARCHAR},
+      </if>
+      <if test="isRiskTrade != null">
+        IS_RISK_TRADE = #{isRiskTrade,jdbcType=VARCHAR},
+      </if>
+      <if test="isBanPro != null">
+        IS_BAN_PRO = #{isBanPro,jdbcType=VARCHAR},
+      </if>
+      <if test="authFinLast1mCnt != null">
+        AUTH_FIN_LAST_1M_CNT = #{authFinLast1mCnt,jdbcType=VARCHAR},
+      </if>
+      <if test="authFinLast3mCnt != null">
+        AUTH_FIN_LAST_3M_CNT = #{authFinLast3mCnt,jdbcType=VARCHAR},
+      </if>
+      <if test="authFinLast6mCnt != null">
+        AUTH_FIN_LAST_6M_CNT = #{authFinLast6mCnt,jdbcType=VARCHAR},
+      </if>
+      <if test="ovdOrderCnt6m != null">
+        OVD_ORDER_CNT_6M = #{ovdOrderCnt6m,jdbcType=VARCHAR},
+      </if>
+      <if test="ovdOrderAmt6m != null">
+        OVD_ORDER_AMT_6M = #{ovdOrderAmt6m,jdbcType=VARCHAR},
+      </if>
+      <if test="zmScore != null">
+        ZM_SCORE = #{zmScore,jdbcType=VARCHAR},
+      </if>
+      <if test="creditLine != null">
+        CREDIT_LINE = #{creditLine,jdbcType=VARCHAR},
+      </if>
+      <if test="incomeDebtRat != null">
+        INCOME_DEBT_RAT = #{incomeDebtRat,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE = #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME = #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="cbmCode != null">
+        CBM_CODE = #{cbmCode,jdbcType=VARCHAR},
+      </if>
+      <if test="industryCode != null">
+        INDUSTRY_CODE = #{industryCode,jdbcType=VARCHAR},
+      </if>
+      <if test="flagExecution != null">
+        FLAG_EXECUTION = #{flagExecution,jdbcType=VARCHAR},
+      </if>
+      <if test="assetScore != null">
+        ASSET_SCORE = #{assetScore,jdbcType=VARCHAR},
+      </if>
+      <if test="creditInfoXa01 != null">
+        CREDIT_INFO_XA01 = #{creditInfoXa01,jdbcType=VARCHAR},
+      </if>
+      <if test="creditInfoXa02 != null">
+        CREDIT_INFO_XA02 = #{creditInfoXa02,jdbcType=VARCHAR},
+      </if>
+      <if test="creditInfoXa03 != null">
+        CREDIT_INFO_XA03 = #{creditInfoXa03,jdbcType=VARCHAR},
+      </if>
+      <if test="creditInfoXa04 != null">
+        CREDIT_INFO_XA04 = #{creditInfoXa04,jdbcType=VARCHAR},
+      </if>
+      <if test="creditInfoXa05 != null">
+        CREDIT_INFO_XA05 = #{creditInfoXa05,jdbcType=VARCHAR},
+      </if>
+      <if test="creditInfoXa06 != null">
+        CREDIT_INFO_XA06 = #{creditInfoXa06,jdbcType=VARCHAR},
+      </if>
+      <if test="creditInfoXa07 != null">
+        CREDIT_INFO_XA07 = #{creditInfoXa07,jdbcType=VARCHAR},
+      </if>
+      <if test="creditInfoXa08 != null">
+        CREDIT_INFO_XA08 = #{creditInfoXa08,jdbcType=VARCHAR},
+      </if>
+      <if test="blackSource != null">
+        BLACK_SOURCE = #{blackSource,jdbcType=VARCHAR},
+      </if>
+      <if test="blackScore != null">
+        BLACK_SCORE = #{blackScore,jdbcType=VARCHAR},
+      </if>
+      <if test="isClear != null">
+        IS_CLEAR = #{isClear,jdbcType=VARCHAR},
+      </if>
+      <if test="currBal != null">
+        CURR_BAL = #{currBal,jdbcType=VARCHAR},
+      </if>
+      <if test="overdueD30Num != null">
+        OVERDUE_D30_NUM = #{overdueD30Num,jdbcType=VARCHAR},
+      </if>
+      <if test="whiteScore != null">
+        WHITE_SCORE = #{whiteScore,jdbcType=VARCHAR},
+      </if>
+      <if test="performance != null">
+        PERFORMANCE = #{performance,jdbcType=VARCHAR},
+      </if>
+      <if test="identity != null">
+        IDENTITY = #{identity,jdbcType=VARCHAR},
+      </if>
+      <if test="relationshipNetwork != null">
+        RELATIONSHIP_NETWORK = #{relationshipNetwork,jdbcType=VARCHAR},
+      </if>
+      <if test="purchasingPowerRatingLv != null">
+        PURCHASING_POWER_RATING_LV = #{purchasingPowerRatingLv,jdbcType=VARCHAR},
+      </if>
+      <if test="characteristic != null">
+        CHARACTERISTIC = #{characteristic,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where APP_NO = #{appNo,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.APRO_RULE_INFO">
+    update APRO_RULE_INFO
+    set PRD_CODE = #{prdCode,jdbcType=VARCHAR},
+      PRD_NAME = #{prdName,jdbcType=VARCHAR},
+      APPLY_TYPE = #{applyType,jdbcType=VARCHAR},
+      CHECK_RESULT = #{checkResult,jdbcType=VARCHAR},
+      IS_BEA_RELATE = #{isBeaRelate,jdbcType=VARCHAR},
+      AML_TYPE = #{amlType,jdbcType=VARCHAR},
+      BLACK_NUMS = #{blackNums,jdbcType=VARCHAR},
+      FLAG_SPECIAL_LIST_C = #{flagSpecialListC,jdbcType=VARCHAR},
+      ALS_D15_CELL_NBANK_ORGNUM = #{alsD15CellNbankOrgnum,jdbcType=VARCHAR},
+      ALS_D15_ID_NBANK_ORGNUM = #{alsD15IdNbankOrgnum,jdbcType=VARCHAR},
+      ALS_M3_ID_NBANK_ORGNUM = #{alsM3IdNbankOrgnum,jdbcType=VARCHAR},
+      ALS_M3_ID_NBANK_ALLNUM = #{alsM3IdNbankAllnum,jdbcType=VARCHAR},
+      ALS_M3_CELL_NBANK_ORGNUM = #{alsM3CellNbankOrgnum,jdbcType=VARCHAR},
+      ALS_M3_CELL_NBANK_ALLNUM = #{alsM3CellNbankAllnum,jdbcType=VARCHAR},
+      FINAL_DECISION = #{finalDecision,jdbcType=VARCHAR},
+      IS_RISK_TRADE = #{isRiskTrade,jdbcType=VARCHAR},
+      IS_BAN_PRO = #{isBanPro,jdbcType=VARCHAR},
+      AUTH_FIN_LAST_1M_CNT = #{authFinLast1mCnt,jdbcType=VARCHAR},
+      AUTH_FIN_LAST_3M_CNT = #{authFinLast3mCnt,jdbcType=VARCHAR},
+      AUTH_FIN_LAST_6M_CNT = #{authFinLast6mCnt,jdbcType=VARCHAR},
+      OVD_ORDER_CNT_6M = #{ovdOrderCnt6m,jdbcType=VARCHAR},
+      OVD_ORDER_AMT_6M = #{ovdOrderAmt6m,jdbcType=VARCHAR},
+      ZM_SCORE = #{zmScore,jdbcType=VARCHAR},
+      CREDIT_LINE = #{creditLine,jdbcType=VARCHAR},
+      INCOME_DEBT_RAT = #{incomeDebtRat,jdbcType=VARCHAR},
+      INPUT_DATE = #{inputDate,jdbcType=VARCHAR},
+      INPUT_TIME = #{inputTime,jdbcType=VARCHAR},
+      CBM_CODE = #{cbmCode,jdbcType=VARCHAR},
+      INDUSTRY_CODE = #{industryCode,jdbcType=VARCHAR},
+      FLAG_EXECUTION = #{flagExecution,jdbcType=VARCHAR},
+      ASSET_SCORE = #{assetScore,jdbcType=VARCHAR},
+      CREDIT_INFO_XA01 = #{creditInfoXa01,jdbcType=VARCHAR},
+      CREDIT_INFO_XA02 = #{creditInfoXa02,jdbcType=VARCHAR},
+      CREDIT_INFO_XA03 = #{creditInfoXa03,jdbcType=VARCHAR},
+      CREDIT_INFO_XA04 = #{creditInfoXa04,jdbcType=VARCHAR},
+      CREDIT_INFO_XA05 = #{creditInfoXa05,jdbcType=VARCHAR},
+      CREDIT_INFO_XA06 = #{creditInfoXa06,jdbcType=VARCHAR},
+      CREDIT_INFO_XA07 = #{creditInfoXa07,jdbcType=VARCHAR},
+      CREDIT_INFO_XA08 = #{creditInfoXa08,jdbcType=VARCHAR},
+      BLACK_SOURCE = #{blackSource,jdbcType=VARCHAR},
+      BLACK_SCORE = #{blackScore,jdbcType=VARCHAR},
+      IS_CLEAR = #{isClear,jdbcType=VARCHAR},
+      CURR_BAL = #{currBal,jdbcType=VARCHAR},
+      OVERDUE_D30_NUM = #{overdueD30Num,jdbcType=VARCHAR},
+      WHITE_SCORE = #{whiteScore,jdbcType=VARCHAR},
+      PERFORMANCE = #{performance,jdbcType=VARCHAR},
+      IDENTITY = #{identity,jdbcType=VARCHAR},
+      RELATIONSHIP_NETWORK = #{relationshipNetwork,jdbcType=VARCHAR},
+      PURCHASING_POWER_RATING_LV = #{purchasingPowerRatingLv,jdbcType=VARCHAR},
+      CHARACTERISTIC = #{characteristic,jdbcType=VARCHAR}
+    where APP_NO = #{appNo,jdbcType=VARCHAR}
+  </update>
+</mapper>

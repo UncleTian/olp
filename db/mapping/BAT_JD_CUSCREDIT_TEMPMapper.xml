@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.BAT_JD_CUSCREDIT_TEMPMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.BAT_JD_CUSCREDIT_TEMP">
+    <result column="BUSI_DATE" jdbcType="VARCHAR" property="busiDate" />
+    <result column="CUST_NO" jdbcType="VARCHAR" property="custNo" />
+    <result column="PRO_NO" jdbcType="VARCHAR" property="proNo" />
+    <result column="LIMIT_NO" jdbcType="VARCHAR" property="limitNo" />
+    <result column="CURRENCY" jdbcType="VARCHAR" property="currency" />
+    <result column="CIRCU_SIGN" jdbcType="VARCHAR" property="circuSign" />
+    <result column="START_DATE" jdbcType="VARCHAR" property="startDate" />
+    <result column="END_DATE" jdbcType="VARCHAR" property="endDate" />
+    <result column="CREDIT_LIMIT" jdbcType="DECIMAL" property="creditLimit" />
+    <result column="CREDIT_TIME" jdbcType="DECIMAL" property="creditTime" />
+    <result column="UNMOVED_LIMIT" jdbcType="DECIMAL" property="unmovedLimit" />
+    <result column="IS_TEMPO_LIMIT" jdbcType="VARCHAR" property="isTempoLimit" />
+    <result column="CREDIT_STATUS" jdbcType="VARCHAR" property="creditStatus" />
+    <result column="INPUT_DATE" jdbcType="VARCHAR" property="inputDate" />
+    <result column="INPUT_TIME" jdbcType="VARCHAR" property="inputTime" />
+    <result column="DATA_DATE" jdbcType="VARCHAR" property="dataDate" />
+  </resultMap>
+  <insert id="insert" parameterType="com.bea.olp.BAT_JD_CUSCREDIT_TEMP">
+    insert into BAT_JD_CUSCREDIT_TEMP (BUSI_DATE, CUST_NO, PRO_NO, 
+      LIMIT_NO, CURRENCY, CIRCU_SIGN, 
+      START_DATE, END_DATE, CREDIT_LIMIT, 
+      CREDIT_TIME, UNMOVED_LIMIT, IS_TEMPO_LIMIT, 
+      CREDIT_STATUS, INPUT_DATE, INPUT_TIME, 
+      DATA_DATE)
+    values (#{busiDate,jdbcType=VARCHAR}, #{custNo,jdbcType=VARCHAR}, #{proNo,jdbcType=VARCHAR}, 
+      #{limitNo,jdbcType=VARCHAR}, #{currency,jdbcType=VARCHAR}, #{circuSign,jdbcType=VARCHAR}, 
+      #{startDate,jdbcType=VARCHAR}, #{endDate,jdbcType=VARCHAR}, #{creditLimit,jdbcType=DECIMAL}, 
+      #{creditTime,jdbcType=DECIMAL}, #{unmovedLimit,jdbcType=DECIMAL}, #{isTempoLimit,jdbcType=VARCHAR}, 
+      #{creditStatus,jdbcType=VARCHAR}, #{inputDate,jdbcType=VARCHAR}, #{inputTime,jdbcType=VARCHAR}, 
+      #{dataDate,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.BAT_JD_CUSCREDIT_TEMP">
+    insert into BAT_JD_CUSCREDIT_TEMP
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="busiDate != null">
+        BUSI_DATE,
+      </if>
+      <if test="custNo != null">
+        CUST_NO,
+      </if>
+      <if test="proNo != null">
+        PRO_NO,
+      </if>
+      <if test="limitNo != null">
+        LIMIT_NO,
+      </if>
+      <if test="currency != null">
+        CURRENCY,
+      </if>
+      <if test="circuSign != null">
+        CIRCU_SIGN,
+      </if>
+      <if test="startDate != null">
+        START_DATE,
+      </if>
+      <if test="endDate != null">
+        END_DATE,
+      </if>
+      <if test="creditLimit != null">
+        CREDIT_LIMIT,
+      </if>
+      <if test="creditTime != null">
+        CREDIT_TIME,
+      </if>
+      <if test="unmovedLimit != null">
+        UNMOVED_LIMIT,
+      </if>
+      <if test="isTempoLimit != null">
+        IS_TEMPO_LIMIT,
+      </if>
+      <if test="creditStatus != null">
+        CREDIT_STATUS,
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE,
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME,
+      </if>
+      <if test="dataDate != null">
+        DATA_DATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="busiDate != null">
+        #{busiDate,jdbcType=VARCHAR},
+      </if>
+      <if test="custNo != null">
+        #{custNo,jdbcType=VARCHAR},
+      </if>
+      <if test="proNo != null">
+        #{proNo,jdbcType=VARCHAR},
+      </if>
+      <if test="limitNo != null">
+        #{limitNo,jdbcType=VARCHAR},
+      </if>
+      <if test="currency != null">
+        #{currency,jdbcType=VARCHAR},
+      </if>
+      <if test="circuSign != null">
+        #{circuSign,jdbcType=VARCHAR},
+      </if>
+      <if test="startDate != null">
+        #{startDate,jdbcType=VARCHAR},
+      </if>
+      <if test="endDate != null">
+        #{endDate,jdbcType=VARCHAR},
+      </if>
+      <if test="creditLimit != null">
+        #{creditLimit,jdbcType=DECIMAL},
+      </if>
+      <if test="creditTime != null">
+        #{creditTime,jdbcType=DECIMAL},
+      </if>
+      <if test="unmovedLimit != null">
+        #{unmovedLimit,jdbcType=DECIMAL},
+      </if>
+      <if test="isTempoLimit != null">
+        #{isTempoLimit,jdbcType=VARCHAR},
+      </if>
+      <if test="creditStatus != null">
+        #{creditStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="dataDate != null">
+        #{dataDate,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

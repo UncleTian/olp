@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.WF_NODE_REPORTMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.WF_NODE_REPORT">
+    <id column="INSTANCE_ID" jdbcType="VARCHAR" property="instanceId" />
+    <id column="NODE_ID" jdbcType="VARCHAR" property="nodeId" />
+    <result column="IN_BATCH_NO" jdbcType="VARCHAR" property="inBatchNo" />
+    <result column="IN_BATCH_TIME" jdbcType="CHAR" property="inBatchTime" />
+    <result column="OUT_BATCH_NO" jdbcType="VARCHAR" property="outBatchNo" />
+    <result column="OUT_BATCH_TIME" jdbcType="CHAR" property="outBatchTime" />
+    <result column="WF_NAME" jdbcType="VARCHAR" property="wfName" />
+    <result column="NODE_SIGN" jdbcType="VARCHAR" property="nodeSign" />
+    <result column="NODE_NAME" jdbcType="VARCHAR" property="nodeName" />
+    <result column="NODE_START_TIME" jdbcType="CHAR" property="nodeStartTime" />
+    <result column="NODE_END_TIME" jdbcType="CHAR" property="nodeEndTime" />
+    <result column="NODE_STATUS" jdbcType="CHAR" property="nodeStatus" />
+    <result column="CURRENT_NODE_USER" jdbcType="VARCHAR" property="currentNodeUser" />
+    <result column="CURRENT_NODE_PROCESSORS" jdbcType="VARCHAR" property="currentNodeProcessors" />
+    <result column="BATCH_STATUS" jdbcType="CHAR" property="batchStatus" />
+    <result column="LAST_UPD_OPR_ID" jdbcType="VARCHAR" property="lastUpdOprId" />
+    <result column="LAST_UPD_PGM_ID" jdbcType="VARCHAR" property="lastUpdPgmId" />
+    <result column="LAST_UPD_TIME" jdbcType="CHAR" property="lastUpdTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    INSTANCE_ID, NODE_ID, IN_BATCH_NO, IN_BATCH_TIME, OUT_BATCH_NO, OUT_BATCH_TIME, WF_NAME, 
+    NODE_SIGN, NODE_NAME, NODE_START_TIME, NODE_END_TIME, NODE_STATUS, CURRENT_NODE_USER, 
+    CURRENT_NODE_PROCESSORS, BATCH_STATUS, LAST_UPD_OPR_ID, LAST_UPD_PGM_ID, LAST_UPD_TIME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="com.bea.olp.WF_NODE_REPORTKey" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from WF_NODE_REPORT
+    where INSTANCE_ID = #{instanceId,jdbcType=VARCHAR}
+      and NODE_ID = #{nodeId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.bea.olp.WF_NODE_REPORTKey">
+    delete from WF_NODE_REPORT
+    where INSTANCE_ID = #{instanceId,jdbcType=VARCHAR}
+      and NODE_ID = #{nodeId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.WF_NODE_REPORT">
+    insert into WF_NODE_REPORT (INSTANCE_ID, NODE_ID, IN_BATCH_NO, 
+      IN_BATCH_TIME, OUT_BATCH_NO, OUT_BATCH_TIME, 
+      WF_NAME, NODE_SIGN, NODE_NAME, 
+      NODE_START_TIME, NODE_END_TIME, NODE_STATUS, 
+      CURRENT_NODE_USER, CURRENT_NODE_PROCESSORS, 
+      BATCH_STATUS, LAST_UPD_OPR_ID, LAST_UPD_PGM_ID, 
+      LAST_UPD_TIME)
+    values (#{instanceId,jdbcType=VARCHAR}, #{nodeId,jdbcType=VARCHAR}, #{inBatchNo,jdbcType=VARCHAR}, 
+      #{inBatchTime,jdbcType=CHAR}, #{outBatchNo,jdbcType=VARCHAR}, #{outBatchTime,jdbcType=CHAR}, 
+      #{wfName,jdbcType=VARCHAR}, #{nodeSign,jdbcType=VARCHAR}, #{nodeName,jdbcType=VARCHAR}, 
+      #{nodeStartTime,jdbcType=CHAR}, #{nodeEndTime,jdbcType=CHAR}, #{nodeStatus,jdbcType=CHAR}, 
+      #{currentNodeUser,jdbcType=VARCHAR}, #{currentNodeProcessors,jdbcType=VARCHAR}, 
+      #{batchStatus,jdbcType=CHAR}, #{lastUpdOprId,jdbcType=VARCHAR}, #{lastUpdPgmId,jdbcType=VARCHAR}, 
+      #{lastUpdTime,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.WF_NODE_REPORT">
+    insert into WF_NODE_REPORT
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="instanceId != null">
+        INSTANCE_ID,
+      </if>
+      <if test="nodeId != null">
+        NODE_ID,
+      </if>
+      <if test="inBatchNo != null">
+        IN_BATCH_NO,
+      </if>
+      <if test="inBatchTime != null">
+        IN_BATCH_TIME,
+      </if>
+      <if test="outBatchNo != null">
+        OUT_BATCH_NO,
+      </if>
+      <if test="outBatchTime != null">
+        OUT_BATCH_TIME,
+      </if>
+      <if test="wfName != null">
+        WF_NAME,
+      </if>
+      <if test="nodeSign != null">
+        NODE_SIGN,
+      </if>
+      <if test="nodeName != null">
+        NODE_NAME,
+      </if>
+      <if test="nodeStartTime != null">
+        NODE_START_TIME,
+      </if>
+      <if test="nodeEndTime != null">
+        NODE_END_TIME,
+      </if>
+      <if test="nodeStatus != null">
+        NODE_STATUS,
+      </if>
+      <if test="currentNodeUser != null">
+        CURRENT_NODE_USER,
+      </if>
+      <if test="currentNodeProcessors != null">
+        CURRENT_NODE_PROCESSORS,
+      </if>
+      <if test="batchStatus != null">
+        BATCH_STATUS,
+      </if>
+      <if test="lastUpdOprId != null">
+        LAST_UPD_OPR_ID,
+      </if>
+      <if test="lastUpdPgmId != null">
+        LAST_UPD_PGM_ID,
+      </if>
+      <if test="lastUpdTime != null">
+        LAST_UPD_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="instanceId != null">
+        #{instanceId,jdbcType=VARCHAR},
+      </if>
+      <if test="nodeId != null">
+        #{nodeId,jdbcType=VARCHAR},
+      </if>
+      <if test="inBatchNo != null">
+        #{inBatchNo,jdbcType=VARCHAR},
+      </if>
+      <if test="inBatchTime != null">
+        #{inBatchTime,jdbcType=CHAR},
+      </if>
+      <if test="outBatchNo != null">
+        #{outBatchNo,jdbcType=VARCHAR},
+      </if>
+      <if test="outBatchTime != null">
+        #{outBatchTime,jdbcType=CHAR},
+      </if>
+      <if test="wfName != null">
+        #{wfName,jdbcType=VARCHAR},
+      </if>
+      <if test="nodeSign != null">
+        #{nodeSign,jdbcType=VARCHAR},
+      </if>
+      <if test="nodeName != null">
+        #{nodeName,jdbcType=VARCHAR},
+      </if>
+      <if test="nodeStartTime != null">
+        #{nodeStartTime,jdbcType=CHAR},
+      </if>
+      <if test="nodeEndTime != null">
+        #{nodeEndTime,jdbcType=CHAR},
+      </if>
+      <if test="nodeStatus != null">
+        #{nodeStatus,jdbcType=CHAR},
+      </if>
+      <if test="currentNodeUser != null">
+        #{currentNodeUser,jdbcType=VARCHAR},
+      </if>
+      <if test="currentNodeProcessors != null">
+        #{currentNodeProcessors,jdbcType=VARCHAR},
+      </if>
+      <if test="batchStatus != null">
+        #{batchStatus,jdbcType=CHAR},
+      </if>
+      <if test="lastUpdOprId != null">
+        #{lastUpdOprId,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdPgmId != null">
+        #{lastUpdPgmId,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdTime != null">
+        #{lastUpdTime,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.WF_NODE_REPORT">
+    update WF_NODE_REPORT
+    <set>
+      <if test="inBatchNo != null">
+        IN_BATCH_NO = #{inBatchNo,jdbcType=VARCHAR},
+      </if>
+      <if test="inBatchTime != null">
+        IN_BATCH_TIME = #{inBatchTime,jdbcType=CHAR},
+      </if>
+      <if test="outBatchNo != null">
+        OUT_BATCH_NO = #{outBatchNo,jdbcType=VARCHAR},
+      </if>
+      <if test="outBatchTime != null">
+        OUT_BATCH_TIME = #{outBatchTime,jdbcType=CHAR},
+      </if>
+      <if test="wfName != null">
+        WF_NAME = #{wfName,jdbcType=VARCHAR},
+      </if>
+      <if test="nodeSign != null">
+        NODE_SIGN = #{nodeSign,jdbcType=VARCHAR},
+      </if>
+      <if test="nodeName != null">
+        NODE_NAME = #{nodeName,jdbcType=VARCHAR},
+      </if>
+      <if test="nodeStartTime != null">
+        NODE_START_TIME = #{nodeStartTime,jdbcType=CHAR},
+      </if>
+      <if test="nodeEndTime != null">
+        NODE_END_TIME = #{nodeEndTime,jdbcType=CHAR},
+      </if>
+      <if test="nodeStatus != null">
+        NODE_STATUS = #{nodeStatus,jdbcType=CHAR},
+      </if>
+      <if test="currentNodeUser != null">
+        CURRENT_NODE_USER = #{currentNodeUser,jdbcType=VARCHAR},
+      </if>
+      <if test="currentNodeProcessors != null">
+        CURRENT_NODE_PROCESSORS = #{currentNodeProcessors,jdbcType=VARCHAR},
+      </if>
+      <if test="batchStatus != null">
+        BATCH_STATUS = #{batchStatus,jdbcType=CHAR},
+      </if>
+      <if test="lastUpdOprId != null">
+        LAST_UPD_OPR_ID = #{lastUpdOprId,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdPgmId != null">
+        LAST_UPD_PGM_ID = #{lastUpdPgmId,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdTime != null">
+        LAST_UPD_TIME = #{lastUpdTime,jdbcType=CHAR},
+      </if>
+    </set>
+    where INSTANCE_ID = #{instanceId,jdbcType=VARCHAR}
+      and NODE_ID = #{nodeId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.WF_NODE_REPORT">
+    update WF_NODE_REPORT
+    set IN_BATCH_NO = #{inBatchNo,jdbcType=VARCHAR},
+      IN_BATCH_TIME = #{inBatchTime,jdbcType=CHAR},
+      OUT_BATCH_NO = #{outBatchNo,jdbcType=VARCHAR},
+      OUT_BATCH_TIME = #{outBatchTime,jdbcType=CHAR},
+      WF_NAME = #{wfName,jdbcType=VARCHAR},
+      NODE_SIGN = #{nodeSign,jdbcType=VARCHAR},
+      NODE_NAME = #{nodeName,jdbcType=VARCHAR},
+      NODE_START_TIME = #{nodeStartTime,jdbcType=CHAR},
+      NODE_END_TIME = #{nodeEndTime,jdbcType=CHAR},
+      NODE_STATUS = #{nodeStatus,jdbcType=CHAR},
+      CURRENT_NODE_USER = #{currentNodeUser,jdbcType=VARCHAR},
+      CURRENT_NODE_PROCESSORS = #{currentNodeProcessors,jdbcType=VARCHAR},
+      BATCH_STATUS = #{batchStatus,jdbcType=CHAR},
+      LAST_UPD_OPR_ID = #{lastUpdOprId,jdbcType=VARCHAR},
+      LAST_UPD_PGM_ID = #{lastUpdPgmId,jdbcType=VARCHAR},
+      LAST_UPD_TIME = #{lastUpdTime,jdbcType=CHAR}
+    where INSTANCE_ID = #{instanceId,jdbcType=VARCHAR}
+      and NODE_ID = #{nodeId,jdbcType=VARCHAR}
+  </update>
+</mapper>

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.BAT_XW_REV_TRANS_HISMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.BAT_XW_REV_TRANS_HIS">
+    <result column="LOAN_NO" jdbcType="VARCHAR" property="loanNo" />
+    <result column="REVERSAL_REASON" jdbcType="VARCHAR" property="reversalReason" />
+    <result column="ORIGINAL_TD_DATE" jdbcType="VARCHAR" property="originalTdDate" />
+    <result column="REVERSAL_DATE" jdbcType="VARCHAR" property="reversalDate" />
+    <result column="REVERSAL_AMT" jdbcType="DECIMAL" property="reversalAmt" />
+    <result column="REVERSAL_PRIN" jdbcType="DECIMAL" property="reversalPrin" />
+    <result column="REVERSAL_INT" jdbcType="DECIMAL" property="reversalInt" />
+    <result column="REVERSAL_PNLT" jdbcType="DECIMAL" property="reversalPnlt" />
+    <result column="WRITEOFF_AMT" jdbcType="DECIMAL" property="writeoffAmt" />
+    <result column="INPUT_DATE" jdbcType="VARCHAR" property="inputDate" />
+    <result column="INPUT_TIME" jdbcType="VARCHAR" property="inputTime" />
+    <result column="DATA_DATE" jdbcType="VARCHAR" property="dataDate" />
+  </resultMap>
+  <insert id="insert" parameterType="com.bea.olp.BAT_XW_REV_TRANS_HIS">
+    insert into BAT_XW_REV_TRANS_HIS (LOAN_NO, REVERSAL_REASON, ORIGINAL_TD_DATE, 
+      REVERSAL_DATE, REVERSAL_AMT, REVERSAL_PRIN, 
+      REVERSAL_INT, REVERSAL_PNLT, WRITEOFF_AMT, 
+      INPUT_DATE, INPUT_TIME, DATA_DATE
+      )
+    values (#{loanNo,jdbcType=VARCHAR}, #{reversalReason,jdbcType=VARCHAR}, #{originalTdDate,jdbcType=VARCHAR}, 
+      #{reversalDate,jdbcType=VARCHAR}, #{reversalAmt,jdbcType=DECIMAL}, #{reversalPrin,jdbcType=DECIMAL}, 
+      #{reversalInt,jdbcType=DECIMAL}, #{reversalPnlt,jdbcType=DECIMAL}, #{writeoffAmt,jdbcType=DECIMAL}, 
+      #{inputDate,jdbcType=VARCHAR}, #{inputTime,jdbcType=VARCHAR}, #{dataDate,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.BAT_XW_REV_TRANS_HIS">
+    insert into BAT_XW_REV_TRANS_HIS
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="loanNo != null">
+        LOAN_NO,
+      </if>
+      <if test="reversalReason != null">
+        REVERSAL_REASON,
+      </if>
+      <if test="originalTdDate != null">
+        ORIGINAL_TD_DATE,
+      </if>
+      <if test="reversalDate != null">
+        REVERSAL_DATE,
+      </if>
+      <if test="reversalAmt != null">
+        REVERSAL_AMT,
+      </if>
+      <if test="reversalPrin != null">
+        REVERSAL_PRIN,
+      </if>
+      <if test="reversalInt != null">
+        REVERSAL_INT,
+      </if>
+      <if test="reversalPnlt != null">
+        REVERSAL_PNLT,
+      </if>
+      <if test="writeoffAmt != null">
+        WRITEOFF_AMT,
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE,
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME,
+      </if>
+      <if test="dataDate != null">
+        DATA_DATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="loanNo != null">
+        #{loanNo,jdbcType=VARCHAR},
+      </if>
+      <if test="reversalReason != null">
+        #{reversalReason,jdbcType=VARCHAR},
+      </if>
+      <if test="originalTdDate != null">
+        #{originalTdDate,jdbcType=VARCHAR},
+      </if>
+      <if test="reversalDate != null">
+        #{reversalDate,jdbcType=VARCHAR},
+      </if>
+      <if test="reversalAmt != null">
+        #{reversalAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="reversalPrin != null">
+        #{reversalPrin,jdbcType=DECIMAL},
+      </if>
+      <if test="reversalInt != null">
+        #{reversalInt,jdbcType=DECIMAL},
+      </if>
+      <if test="reversalPnlt != null">
+        #{reversalPnlt,jdbcType=DECIMAL},
+      </if>
+      <if test="writeoffAmt != null">
+        #{writeoffAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="inputDate != null">
+        #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="dataDate != null">
+        #{dataDate,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

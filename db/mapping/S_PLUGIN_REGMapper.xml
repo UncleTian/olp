@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.S_PLUGIN_REGMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.S_PLUGIN_REG">
+    <id column="PLUGIN_MODULE_ID" jdbcType="VARCHAR" property="pluginModuleId" />
+    <result column="PLUGIN_MODULE_NAME" jdbcType="VARCHAR" property="pluginModuleName" />
+    <result column="RESOURCE_PATH" jdbcType="VARCHAR" property="resourcePath" />
+    <result column="DB_PATH" jdbcType="VARCHAR" property="dbPath" />
+    <result column="RES_JAVA_PATH" jdbcType="VARCHAR" property="resJavaPath" />
+    <result column="RES_JSP_PATH" jdbcType="VARCHAR" property="resJspPath" />
+    <result column="RES_TABLE_PATH" jdbcType="VARCHAR" property="resTablePath" />
+    <result column="RES_ACTION_PATH" jdbcType="VARCHAR" property="resActionPath" />
+    <result column="RES_SERVICE_PATH" jdbcType="VARCHAR" property="resServicePath" />
+    <result column="RES_SQL_PATH" jdbcType="VARCHAR" property="resSqlPath" />
+    <result column="RES_JS_PATH" jdbcType="VARCHAR" property="resJsPath" />
+    <result column="RES_IMAG_PATH" jdbcType="VARCHAR" property="resImagPath" />
+    <result column="RES_CSS_PATH" jdbcType="VARCHAR" property="resCssPath" />
+    <result column="DB_UNINSTALL_SQL" jdbcType="VARCHAR" property="dbUninstallSql" />
+    <result column="INSTALL_DATE" jdbcType="VARCHAR" property="installDate" />
+    <result column="PLUGIN_VERSION" jdbcType="VARCHAR" property="pluginVersion" />
+    <result column="PLUGIN_STATUS" jdbcType="CHAR" property="pluginStatus" />
+    <result column="RES_EXT_PATH" jdbcType="VARCHAR" property="resExtPath" />
+    <result column="PLUGIN_MEMO" jdbcType="VARCHAR" property="pluginMemo" />
+    <result column="RES_INITIALIZER_PATH" jdbcType="VARCHAR" property="resInitializerPath" />
+    <result column="RES_WEB_CONTENT" jdbcType="VARCHAR" property="resWebContent" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    PLUGIN_MODULE_ID, PLUGIN_MODULE_NAME, RESOURCE_PATH, DB_PATH, RES_JAVA_PATH, RES_JSP_PATH, 
+    RES_TABLE_PATH, RES_ACTION_PATH, RES_SERVICE_PATH, RES_SQL_PATH, RES_JS_PATH, RES_IMAG_PATH, 
+    RES_CSS_PATH, DB_UNINSTALL_SQL, INSTALL_DATE, PLUGIN_VERSION, PLUGIN_STATUS, RES_EXT_PATH, 
+    PLUGIN_MEMO, RES_INITIALIZER_PATH, RES_WEB_CONTENT
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from S_PLUGIN_REG
+    where PLUGIN_MODULE_ID = #{pluginModuleId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from S_PLUGIN_REG
+    where PLUGIN_MODULE_ID = #{pluginModuleId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.S_PLUGIN_REG">
+    insert into S_PLUGIN_REG (PLUGIN_MODULE_ID, PLUGIN_MODULE_NAME, 
+      RESOURCE_PATH, DB_PATH, RES_JAVA_PATH, 
+      RES_JSP_PATH, RES_TABLE_PATH, RES_ACTION_PATH, 
+      RES_SERVICE_PATH, RES_SQL_PATH, RES_JS_PATH, 
+      RES_IMAG_PATH, RES_CSS_PATH, DB_UNINSTALL_SQL, 
+      INSTALL_DATE, PLUGIN_VERSION, PLUGIN_STATUS, 
+      RES_EXT_PATH, PLUGIN_MEMO, RES_INITIALIZER_PATH, 
+      RES_WEB_CONTENT)
+    values (#{pluginModuleId,jdbcType=VARCHAR}, #{pluginModuleName,jdbcType=VARCHAR}, 
+      #{resourcePath,jdbcType=VARCHAR}, #{dbPath,jdbcType=VARCHAR}, #{resJavaPath,jdbcType=VARCHAR}, 
+      #{resJspPath,jdbcType=VARCHAR}, #{resTablePath,jdbcType=VARCHAR}, #{resActionPath,jdbcType=VARCHAR}, 
+      #{resServicePath,jdbcType=VARCHAR}, #{resSqlPath,jdbcType=VARCHAR}, #{resJsPath,jdbcType=VARCHAR}, 
+      #{resImagPath,jdbcType=VARCHAR}, #{resCssPath,jdbcType=VARCHAR}, #{dbUninstallSql,jdbcType=VARCHAR}, 
+      #{installDate,jdbcType=VARCHAR}, #{pluginVersion,jdbcType=VARCHAR}, #{pluginStatus,jdbcType=CHAR}, 
+      #{resExtPath,jdbcType=VARCHAR}, #{pluginMemo,jdbcType=VARCHAR}, #{resInitializerPath,jdbcType=VARCHAR}, 
+      #{resWebContent,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.S_PLUGIN_REG">
+    insert into S_PLUGIN_REG
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="pluginModuleId != null">
+        PLUGIN_MODULE_ID,
+      </if>
+      <if test="pluginModuleName != null">
+        PLUGIN_MODULE_NAME,
+      </if>
+      <if test="resourcePath != null">
+        RESOURCE_PATH,
+      </if>
+      <if test="dbPath != null">
+        DB_PATH,
+      </if>
+      <if test="resJavaPath != null">
+        RES_JAVA_PATH,
+      </if>
+      <if test="resJspPath != null">
+        RES_JSP_PATH,
+      </if>
+      <if test="resTablePath != null">
+        RES_TABLE_PATH,
+      </if>
+      <if test="resActionPath != null">
+        RES_ACTION_PATH,
+      </if>
+      <if test="resServicePath != null">
+        RES_SERVICE_PATH,
+      </if>
+      <if test="resSqlPath != null">
+        RES_SQL_PATH,
+      </if>
+      <if test="resJsPath != null">
+        RES_JS_PATH,
+      </if>
+      <if test="resImagPath != null">
+        RES_IMAG_PATH,
+      </if>
+      <if test="resCssPath != null">
+        RES_CSS_PATH,
+      </if>
+      <if test="dbUninstallSql != null">
+        DB_UNINSTALL_SQL,
+      </if>
+      <if test="installDate != null">
+        INSTALL_DATE,
+      </if>
+      <if test="pluginVersion != null">
+        PLUGIN_VERSION,
+      </if>
+      <if test="pluginStatus != null">
+        PLUGIN_STATUS,
+      </if>
+      <if test="resExtPath != null">
+        RES_EXT_PATH,
+      </if>
+      <if test="pluginMemo != null">
+        PLUGIN_MEMO,
+      </if>
+      <if test="resInitializerPath != null">
+        RES_INITIALIZER_PATH,
+      </if>
+      <if test="resWebContent != null">
+        RES_WEB_CONTENT,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="pluginModuleId != null">
+        #{pluginModuleId,jdbcType=VARCHAR},
+      </if>
+      <if test="pluginModuleName != null">
+        #{pluginModuleName,jdbcType=VARCHAR},
+      </if>
+      <if test="resourcePath != null">
+        #{resourcePath,jdbcType=VARCHAR},
+      </if>
+      <if test="dbPath != null">
+        #{dbPath,jdbcType=VARCHAR},
+      </if>
+      <if test="resJavaPath != null">
+        #{resJavaPath,jdbcType=VARCHAR},
+      </if>
+      <if test="resJspPath != null">
+        #{resJspPath,jdbcType=VARCHAR},
+      </if>
+      <if test="resTablePath != null">
+        #{resTablePath,jdbcType=VARCHAR},
+      </if>
+      <if test="resActionPath != null">
+        #{resActionPath,jdbcType=VARCHAR},
+      </if>
+      <if test="resServicePath != null">
+        #{resServicePath,jdbcType=VARCHAR},
+      </if>
+      <if test="resSqlPath != null">
+        #{resSqlPath,jdbcType=VARCHAR},
+      </if>
+      <if test="resJsPath != null">
+        #{resJsPath,jdbcType=VARCHAR},
+      </if>
+      <if test="resImagPath != null">
+        #{resImagPath,jdbcType=VARCHAR},
+      </if>
+      <if test="resCssPath != null">
+        #{resCssPath,jdbcType=VARCHAR},
+      </if>
+      <if test="dbUninstallSql != null">
+        #{dbUninstallSql,jdbcType=VARCHAR},
+      </if>
+      <if test="installDate != null">
+        #{installDate,jdbcType=VARCHAR},
+      </if>
+      <if test="pluginVersion != null">
+        #{pluginVersion,jdbcType=VARCHAR},
+      </if>
+      <if test="pluginStatus != null">
+        #{pluginStatus,jdbcType=CHAR},
+      </if>
+      <if test="resExtPath != null">
+        #{resExtPath,jdbcType=VARCHAR},
+      </if>
+      <if test="pluginMemo != null">
+        #{pluginMemo,jdbcType=VARCHAR},
+      </if>
+      <if test="resInitializerPath != null">
+        #{resInitializerPath,jdbcType=VARCHAR},
+      </if>
+      <if test="resWebContent != null">
+        #{resWebContent,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.S_PLUGIN_REG">
+    update S_PLUGIN_REG
+    <set>
+      <if test="pluginModuleName != null">
+        PLUGIN_MODULE_NAME = #{pluginModuleName,jdbcType=VARCHAR},
+      </if>
+      <if test="resourcePath != null">
+        RESOURCE_PATH = #{resourcePath,jdbcType=VARCHAR},
+      </if>
+      <if test="dbPath != null">
+        DB_PATH = #{dbPath,jdbcType=VARCHAR},
+      </if>
+      <if test="resJavaPath != null">
+        RES_JAVA_PATH = #{resJavaPath,jdbcType=VARCHAR},
+      </if>
+      <if test="resJspPath != null">
+        RES_JSP_PATH = #{resJspPath,jdbcType=VARCHAR},
+      </if>
+      <if test="resTablePath != null">
+        RES_TABLE_PATH = #{resTablePath,jdbcType=VARCHAR},
+      </if>
+      <if test="resActionPath != null">
+        RES_ACTION_PATH = #{resActionPath,jdbcType=VARCHAR},
+      </if>
+      <if test="resServicePath != null">
+        RES_SERVICE_PATH = #{resServicePath,jdbcType=VARCHAR},
+      </if>
+      <if test="resSqlPath != null">
+        RES_SQL_PATH = #{resSqlPath,jdbcType=VARCHAR},
+      </if>
+      <if test="resJsPath != null">
+        RES_JS_PATH = #{resJsPath,jdbcType=VARCHAR},
+      </if>
+      <if test="resImagPath != null">
+        RES_IMAG_PATH = #{resImagPath,jdbcType=VARCHAR},
+      </if>
+      <if test="resCssPath != null">
+        RES_CSS_PATH = #{resCssPath,jdbcType=VARCHAR},
+      </if>
+      <if test="dbUninstallSql != null">
+        DB_UNINSTALL_SQL = #{dbUninstallSql,jdbcType=VARCHAR},
+      </if>
+      <if test="installDate != null">
+        INSTALL_DATE = #{installDate,jdbcType=VARCHAR},
+      </if>
+      <if test="pluginVersion != null">
+        PLUGIN_VERSION = #{pluginVersion,jdbcType=VARCHAR},
+      </if>
+      <if test="pluginStatus != null">
+        PLUGIN_STATUS = #{pluginStatus,jdbcType=CHAR},
+      </if>
+      <if test="resExtPath != null">
+        RES_EXT_PATH = #{resExtPath,jdbcType=VARCHAR},
+      </if>
+      <if test="pluginMemo != null">
+        PLUGIN_MEMO = #{pluginMemo,jdbcType=VARCHAR},
+      </if>
+      <if test="resInitializerPath != null">
+        RES_INITIALIZER_PATH = #{resInitializerPath,jdbcType=VARCHAR},
+      </if>
+      <if test="resWebContent != null">
+        RES_WEB_CONTENT = #{resWebContent,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where PLUGIN_MODULE_ID = #{pluginModuleId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.S_PLUGIN_REG">
+    update S_PLUGIN_REG
+    set PLUGIN_MODULE_NAME = #{pluginModuleName,jdbcType=VARCHAR},
+      RESOURCE_PATH = #{resourcePath,jdbcType=VARCHAR},
+      DB_PATH = #{dbPath,jdbcType=VARCHAR},
+      RES_JAVA_PATH = #{resJavaPath,jdbcType=VARCHAR},
+      RES_JSP_PATH = #{resJspPath,jdbcType=VARCHAR},
+      RES_TABLE_PATH = #{resTablePath,jdbcType=VARCHAR},
+      RES_ACTION_PATH = #{resActionPath,jdbcType=VARCHAR},
+      RES_SERVICE_PATH = #{resServicePath,jdbcType=VARCHAR},
+      RES_SQL_PATH = #{resSqlPath,jdbcType=VARCHAR},
+      RES_JS_PATH = #{resJsPath,jdbcType=VARCHAR},
+      RES_IMAG_PATH = #{resImagPath,jdbcType=VARCHAR},
+      RES_CSS_PATH = #{resCssPath,jdbcType=VARCHAR},
+      DB_UNINSTALL_SQL = #{dbUninstallSql,jdbcType=VARCHAR},
+      INSTALL_DATE = #{installDate,jdbcType=VARCHAR},
+      PLUGIN_VERSION = #{pluginVersion,jdbcType=VARCHAR},
+      PLUGIN_STATUS = #{pluginStatus,jdbcType=CHAR},
+      RES_EXT_PATH = #{resExtPath,jdbcType=VARCHAR},
+      PLUGIN_MEMO = #{pluginMemo,jdbcType=VARCHAR},
+      RES_INITIALIZER_PATH = #{resInitializerPath,jdbcType=VARCHAR},
+      RES_WEB_CONTENT = #{resWebContent,jdbcType=VARCHAR}
+    where PLUGIN_MODULE_ID = #{pluginModuleId,jdbcType=VARCHAR}
+  </update>
+</mapper>

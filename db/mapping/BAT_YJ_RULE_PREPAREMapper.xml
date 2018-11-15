@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.BAT_YJ_RULE_PREPAREMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.BAT_YJ_RULE_PREPARE">
+    <result column="TP_OBJ_ID" jdbcType="VARCHAR" property="tpObjId" />
+    <result column="LOAN_OVERDUE_FLAG" jdbcType="VARCHAR" property="loanOverdueFlag" />
+    <result column="BANK_OVERDUE_FLAG" jdbcType="VARCHAR" property="bankOverdueFlag" />
+    <result column="ACCOUNT_STATUS" jdbcType="VARCHAR" property="accountStatus" />
+    <result column="PERSONAGE_STATUS" jdbcType="VARCHAR" property="personageStatus" />
+    <result column="INSURED_NAME_FLAG" jdbcType="VARCHAR" property="insuredNameFlag" />
+    <result column="PAYMENT_UNIT_FLAG" jdbcType="VARCHAR" property="paymentUnitFlag" />
+    <result column="DEPOSITE_STATUS_FLAG" jdbcType="VARCHAR" property="depositeStatusFlag" />
+    <result column="ONE_MONTH_DEPOSITE_FLAG" jdbcType="VARCHAR" property="oneMonthDepositeFlag" />
+    <result column="SOCIAL_SECURITY_FLAG" jdbcType="VARCHAR" property="socialSecurityFlag" />
+    <result column="INPUT_DATE" jdbcType="VARCHAR" property="inputDate" />
+    <result column="INPUT_TIME" jdbcType="VARCHAR" property="inputTime" />
+    <result column="LAST_UPDATE_DATE" jdbcType="VARCHAR" property="lastUpdateDate" />
+    <result column="LAST_UPDATE_TIME" jdbcType="VARCHAR" property="lastUpdateTime" />
+    <result column="FIELD1" jdbcType="VARCHAR" property="field1" />
+    <result column="FIELD2" jdbcType="VARCHAR" property="field2" />
+    <result column="FIELD3" jdbcType="VARCHAR" property="field3" />
+    <result column="FIELD4" jdbcType="VARCHAR" property="field4" />
+    <result column="FIELD5" jdbcType="VARCHAR" property="field5" />
+    <result column="FIELD6" jdbcType="DECIMAL" property="field6" />
+    <result column="FIELD7" jdbcType="DECIMAL" property="field7" />
+    <result column="FIELD8" jdbcType="DECIMAL" property="field8" />
+  </resultMap>
+  <insert id="insert" parameterType="com.bea.olp.BAT_YJ_RULE_PREPARE">
+    insert into BAT_YJ_RULE_PREPARE (TP_OBJ_ID, LOAN_OVERDUE_FLAG, BANK_OVERDUE_FLAG, 
+      ACCOUNT_STATUS, PERSONAGE_STATUS, INSURED_NAME_FLAG, 
+      PAYMENT_UNIT_FLAG, DEPOSITE_STATUS_FLAG, ONE_MONTH_DEPOSITE_FLAG, 
+      SOCIAL_SECURITY_FLAG, INPUT_DATE, INPUT_TIME, 
+      LAST_UPDATE_DATE, LAST_UPDATE_TIME, FIELD1, 
+      FIELD2, FIELD3, FIELD4, 
+      FIELD5, FIELD6, FIELD7, 
+      FIELD8)
+    values (#{tpObjId,jdbcType=VARCHAR}, #{loanOverdueFlag,jdbcType=VARCHAR}, #{bankOverdueFlag,jdbcType=VARCHAR}, 
+      #{accountStatus,jdbcType=VARCHAR}, #{personageStatus,jdbcType=VARCHAR}, #{insuredNameFlag,jdbcType=VARCHAR}, 
+      #{paymentUnitFlag,jdbcType=VARCHAR}, #{depositeStatusFlag,jdbcType=VARCHAR}, #{oneMonthDepositeFlag,jdbcType=VARCHAR}, 
+      #{socialSecurityFlag,jdbcType=VARCHAR}, #{inputDate,jdbcType=VARCHAR}, #{inputTime,jdbcType=VARCHAR}, 
+      #{lastUpdateDate,jdbcType=VARCHAR}, #{lastUpdateTime,jdbcType=VARCHAR}, #{field1,jdbcType=VARCHAR}, 
+      #{field2,jdbcType=VARCHAR}, #{field3,jdbcType=VARCHAR}, #{field4,jdbcType=VARCHAR}, 
+      #{field5,jdbcType=VARCHAR}, #{field6,jdbcType=DECIMAL}, #{field7,jdbcType=DECIMAL}, 
+      #{field8,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.BAT_YJ_RULE_PREPARE">
+    insert into BAT_YJ_RULE_PREPARE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="tpObjId != null">
+        TP_OBJ_ID,
+      </if>
+      <if test="loanOverdueFlag != null">
+        LOAN_OVERDUE_FLAG,
+      </if>
+      <if test="bankOverdueFlag != null">
+        BANK_OVERDUE_FLAG,
+      </if>
+      <if test="accountStatus != null">
+        ACCOUNT_STATUS,
+      </if>
+      <if test="personageStatus != null">
+        PERSONAGE_STATUS,
+      </if>
+      <if test="insuredNameFlag != null">
+        INSURED_NAME_FLAG,
+      </if>
+      <if test="paymentUnitFlag != null">
+        PAYMENT_UNIT_FLAG,
+      </if>
+      <if test="depositeStatusFlag != null">
+        DEPOSITE_STATUS_FLAG,
+      </if>
+      <if test="oneMonthDepositeFlag != null">
+        ONE_MONTH_DEPOSITE_FLAG,
+      </if>
+      <if test="socialSecurityFlag != null">
+        SOCIAL_SECURITY_FLAG,
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE,
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME,
+      </if>
+      <if test="lastUpdateDate != null">
+        LAST_UPDATE_DATE,
+      </if>
+      <if test="lastUpdateTime != null">
+        LAST_UPDATE_TIME,
+      </if>
+      <if test="field1 != null">
+        FIELD1,
+      </if>
+      <if test="field2 != null">
+        FIELD2,
+      </if>
+      <if test="field3 != null">
+        FIELD3,
+      </if>
+      <if test="field4 != null">
+        FIELD4,
+      </if>
+      <if test="field5 != null">
+        FIELD5,
+      </if>
+      <if test="field6 != null">
+        FIELD6,
+      </if>
+      <if test="field7 != null">
+        FIELD7,
+      </if>
+      <if test="field8 != null">
+        FIELD8,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="tpObjId != null">
+        #{tpObjId,jdbcType=VARCHAR},
+      </if>
+      <if test="loanOverdueFlag != null">
+        #{loanOverdueFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="bankOverdueFlag != null">
+        #{bankOverdueFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="accountStatus != null">
+        #{accountStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="personageStatus != null">
+        #{personageStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="insuredNameFlag != null">
+        #{insuredNameFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="paymentUnitFlag != null">
+        #{paymentUnitFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="depositeStatusFlag != null">
+        #{depositeStatusFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="oneMonthDepositeFlag != null">
+        #{oneMonthDepositeFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="socialSecurityFlag != null">
+        #{socialSecurityFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateDate != null">
+        #{lastUpdateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        #{lastUpdateTime,jdbcType=VARCHAR},
+      </if>
+      <if test="field1 != null">
+        #{field1,jdbcType=VARCHAR},
+      </if>
+      <if test="field2 != null">
+        #{field2,jdbcType=VARCHAR},
+      </if>
+      <if test="field3 != null">
+        #{field3,jdbcType=VARCHAR},
+      </if>
+      <if test="field4 != null">
+        #{field4,jdbcType=VARCHAR},
+      </if>
+      <if test="field5 != null">
+        #{field5,jdbcType=VARCHAR},
+      </if>
+      <if test="field6 != null">
+        #{field6,jdbcType=DECIMAL},
+      </if>
+      <if test="field7 != null">
+        #{field7,jdbcType=DECIMAL},
+      </if>
+      <if test="field8 != null">
+        #{field8,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+</mapper>

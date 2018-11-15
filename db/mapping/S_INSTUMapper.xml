@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.S_INSTUMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.S_INSTU">
+    <id column="INSTU_CDE" jdbcType="VARCHAR" property="instuCde" />
+    <result column="INSTU_NAME" jdbcType="VARCHAR" property="instuName" />
+    <result column="JOIN_DT" jdbcType="VARCHAR" property="joinDt" />
+    <result column="SETL_ACCT_NO" jdbcType="VARCHAR" property="setlAcctNo" />
+    <result column="ACTV_ACCT_NO" jdbcType="VARCHAR" property="actvAcctNo" />
+    <result column="ACCT_NAME" jdbcType="VARCHAR" property="acctName" />
+    <result column="ADDR" jdbcType="VARCHAR" property="addr" />
+    <result column="ZIP_CDE" jdbcType="VARCHAR" property="zipCde" />
+    <result column="CONT_TEL" jdbcType="VARCHAR" property="contTel" />
+    <result column="INSTU_STS" jdbcType="VARCHAR" property="instuSts" />
+    <result column="LAST_CHG_USR" jdbcType="VARCHAR" property="lastChgUsr" />
+    <result column="LAST_CHG_DT" jdbcType="VARCHAR" property="lastChgDt" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    INSTU_CDE, INSTU_NAME, JOIN_DT, SETL_ACCT_NO, ACTV_ACCT_NO, ACCT_NAME, ADDR, ZIP_CDE, 
+    CONT_TEL, INSTU_STS, LAST_CHG_USR, LAST_CHG_DT
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from S_INSTU
+    where INSTU_CDE = #{instuCde,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from S_INSTU
+    where INSTU_CDE = #{instuCde,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.S_INSTU">
+    insert into S_INSTU (INSTU_CDE, INSTU_NAME, JOIN_DT, 
+      SETL_ACCT_NO, ACTV_ACCT_NO, ACCT_NAME, 
+      ADDR, ZIP_CDE, CONT_TEL, 
+      INSTU_STS, LAST_CHG_USR, LAST_CHG_DT
+      )
+    values (#{instuCde,jdbcType=VARCHAR}, #{instuName,jdbcType=VARCHAR}, #{joinDt,jdbcType=VARCHAR}, 
+      #{setlAcctNo,jdbcType=VARCHAR}, #{actvAcctNo,jdbcType=VARCHAR}, #{acctName,jdbcType=VARCHAR}, 
+      #{addr,jdbcType=VARCHAR}, #{zipCde,jdbcType=VARCHAR}, #{contTel,jdbcType=VARCHAR}, 
+      #{instuSts,jdbcType=VARCHAR}, #{lastChgUsr,jdbcType=VARCHAR}, #{lastChgDt,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.S_INSTU">
+    insert into S_INSTU
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="instuCde != null">
+        INSTU_CDE,
+      </if>
+      <if test="instuName != null">
+        INSTU_NAME,
+      </if>
+      <if test="joinDt != null">
+        JOIN_DT,
+      </if>
+      <if test="setlAcctNo != null">
+        SETL_ACCT_NO,
+      </if>
+      <if test="actvAcctNo != null">
+        ACTV_ACCT_NO,
+      </if>
+      <if test="acctName != null">
+        ACCT_NAME,
+      </if>
+      <if test="addr != null">
+        ADDR,
+      </if>
+      <if test="zipCde != null">
+        ZIP_CDE,
+      </if>
+      <if test="contTel != null">
+        CONT_TEL,
+      </if>
+      <if test="instuSts != null">
+        INSTU_STS,
+      </if>
+      <if test="lastChgUsr != null">
+        LAST_CHG_USR,
+      </if>
+      <if test="lastChgDt != null">
+        LAST_CHG_DT,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="instuCde != null">
+        #{instuCde,jdbcType=VARCHAR},
+      </if>
+      <if test="instuName != null">
+        #{instuName,jdbcType=VARCHAR},
+      </if>
+      <if test="joinDt != null">
+        #{joinDt,jdbcType=VARCHAR},
+      </if>
+      <if test="setlAcctNo != null">
+        #{setlAcctNo,jdbcType=VARCHAR},
+      </if>
+      <if test="actvAcctNo != null">
+        #{actvAcctNo,jdbcType=VARCHAR},
+      </if>
+      <if test="acctName != null">
+        #{acctName,jdbcType=VARCHAR},
+      </if>
+      <if test="addr != null">
+        #{addr,jdbcType=VARCHAR},
+      </if>
+      <if test="zipCde != null">
+        #{zipCde,jdbcType=VARCHAR},
+      </if>
+      <if test="contTel != null">
+        #{contTel,jdbcType=VARCHAR},
+      </if>
+      <if test="instuSts != null">
+        #{instuSts,jdbcType=VARCHAR},
+      </if>
+      <if test="lastChgUsr != null">
+        #{lastChgUsr,jdbcType=VARCHAR},
+      </if>
+      <if test="lastChgDt != null">
+        #{lastChgDt,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.S_INSTU">
+    update S_INSTU
+    <set>
+      <if test="instuName != null">
+        INSTU_NAME = #{instuName,jdbcType=VARCHAR},
+      </if>
+      <if test="joinDt != null">
+        JOIN_DT = #{joinDt,jdbcType=VARCHAR},
+      </if>
+      <if test="setlAcctNo != null">
+        SETL_ACCT_NO = #{setlAcctNo,jdbcType=VARCHAR},
+      </if>
+      <if test="actvAcctNo != null">
+        ACTV_ACCT_NO = #{actvAcctNo,jdbcType=VARCHAR},
+      </if>
+      <if test="acctName != null">
+        ACCT_NAME = #{acctName,jdbcType=VARCHAR},
+      </if>
+      <if test="addr != null">
+        ADDR = #{addr,jdbcType=VARCHAR},
+      </if>
+      <if test="zipCde != null">
+        ZIP_CDE = #{zipCde,jdbcType=VARCHAR},
+      </if>
+      <if test="contTel != null">
+        CONT_TEL = #{contTel,jdbcType=VARCHAR},
+      </if>
+      <if test="instuSts != null">
+        INSTU_STS = #{instuSts,jdbcType=VARCHAR},
+      </if>
+      <if test="lastChgUsr != null">
+        LAST_CHG_USR = #{lastChgUsr,jdbcType=VARCHAR},
+      </if>
+      <if test="lastChgDt != null">
+        LAST_CHG_DT = #{lastChgDt,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where INSTU_CDE = #{instuCde,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.S_INSTU">
+    update S_INSTU
+    set INSTU_NAME = #{instuName,jdbcType=VARCHAR},
+      JOIN_DT = #{joinDt,jdbcType=VARCHAR},
+      SETL_ACCT_NO = #{setlAcctNo,jdbcType=VARCHAR},
+      ACTV_ACCT_NO = #{actvAcctNo,jdbcType=VARCHAR},
+      ACCT_NAME = #{acctName,jdbcType=VARCHAR},
+      ADDR = #{addr,jdbcType=VARCHAR},
+      ZIP_CDE = #{zipCde,jdbcType=VARCHAR},
+      CONT_TEL = #{contTel,jdbcType=VARCHAR},
+      INSTU_STS = #{instuSts,jdbcType=VARCHAR},
+      LAST_CHG_USR = #{lastChgUsr,jdbcType=VARCHAR},
+      LAST_CHG_DT = #{lastChgDt,jdbcType=VARCHAR}
+    where INSTU_CDE = #{instuCde,jdbcType=VARCHAR}
+  </update>
+</mapper>

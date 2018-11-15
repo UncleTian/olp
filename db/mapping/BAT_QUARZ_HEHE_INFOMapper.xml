@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.BAT_QUARZ_HEHE_INFOMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.BAT_QUARZ_HEHE_INFO">
+    <id column="LOAN_NO" jdbcType="VARCHAR" property="loanNo" />
+    <result column="ID_FRONT_PATH" jdbcType="VARCHAR" property="idFrontPath" />
+    <result column="ID_BACK_PATH" jdbcType="VARCHAR" property="idBackPath" />
+    <result column="STATUS" jdbcType="VARCHAR" property="status" />
+    <result column="DATA_DATE" jdbcType="VARCHAR" property="dataDate" />
+    <result column="LAST_UPDATE_DATE" jdbcType="VARCHAR" property="lastUpdateDate" />
+    <result column="LAST_UPDATE_TIME" jdbcType="VARCHAR" property="lastUpdateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    LOAN_NO, ID_FRONT_PATH, ID_BACK_PATH, STATUS, DATA_DATE, LAST_UPDATE_DATE, LAST_UPDATE_TIME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from BAT_QUARZ_HEHE_INFO
+    where LOAN_NO = #{loanNo,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from BAT_QUARZ_HEHE_INFO
+    where LOAN_NO = #{loanNo,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.BAT_QUARZ_HEHE_INFO">
+    insert into BAT_QUARZ_HEHE_INFO (LOAN_NO, ID_FRONT_PATH, ID_BACK_PATH, 
+      STATUS, DATA_DATE, LAST_UPDATE_DATE, 
+      LAST_UPDATE_TIME)
+    values (#{loanNo,jdbcType=VARCHAR}, #{idFrontPath,jdbcType=VARCHAR}, #{idBackPath,jdbcType=VARCHAR}, 
+      #{status,jdbcType=VARCHAR}, #{dataDate,jdbcType=VARCHAR}, #{lastUpdateDate,jdbcType=VARCHAR}, 
+      #{lastUpdateTime,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.BAT_QUARZ_HEHE_INFO">
+    insert into BAT_QUARZ_HEHE_INFO
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="loanNo != null">
+        LOAN_NO,
+      </if>
+      <if test="idFrontPath != null">
+        ID_FRONT_PATH,
+      </if>
+      <if test="idBackPath != null">
+        ID_BACK_PATH,
+      </if>
+      <if test="status != null">
+        STATUS,
+      </if>
+      <if test="dataDate != null">
+        DATA_DATE,
+      </if>
+      <if test="lastUpdateDate != null">
+        LAST_UPDATE_DATE,
+      </if>
+      <if test="lastUpdateTime != null">
+        LAST_UPDATE_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="loanNo != null">
+        #{loanNo,jdbcType=VARCHAR},
+      </if>
+      <if test="idFrontPath != null">
+        #{idFrontPath,jdbcType=VARCHAR},
+      </if>
+      <if test="idBackPath != null">
+        #{idBackPath,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="dataDate != null">
+        #{dataDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateDate != null">
+        #{lastUpdateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        #{lastUpdateTime,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.BAT_QUARZ_HEHE_INFO">
+    update BAT_QUARZ_HEHE_INFO
+    <set>
+      <if test="idFrontPath != null">
+        ID_FRONT_PATH = #{idFrontPath,jdbcType=VARCHAR},
+      </if>
+      <if test="idBackPath != null">
+        ID_BACK_PATH = #{idBackPath,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        STATUS = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="dataDate != null">
+        DATA_DATE = #{dataDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateDate != null">
+        LAST_UPDATE_DATE = #{lastUpdateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where LOAN_NO = #{loanNo,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.BAT_QUARZ_HEHE_INFO">
+    update BAT_QUARZ_HEHE_INFO
+    set ID_FRONT_PATH = #{idFrontPath,jdbcType=VARCHAR},
+      ID_BACK_PATH = #{idBackPath,jdbcType=VARCHAR},
+      STATUS = #{status,jdbcType=VARCHAR},
+      DATA_DATE = #{dataDate,jdbcType=VARCHAR},
+      LAST_UPDATE_DATE = #{lastUpdateDate,jdbcType=VARCHAR},
+      LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=VARCHAR}
+    where LOAN_NO = #{loanNo,jdbcType=VARCHAR}
+  </update>
+</mapper>

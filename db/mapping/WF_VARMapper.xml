@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.WF_VARMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.WF_VAR">
+    <id column="VARID" jdbcType="VARCHAR" property="varid" />
+    <result column="VARNAME" jdbcType="VARCHAR" property="varname" />
+    <result column="VARDESC" jdbcType="VARCHAR" property="vardesc" />
+    <result column="VARVALUE" jdbcType="VARCHAR" property="varvalue" />
+    <result column="SYSID" jdbcType="VARCHAR" property="sysid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    VARID, VARNAME, VARDESC, VARVALUE, SYSID
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from WF_VAR
+    where VARID = #{varid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from WF_VAR
+    where VARID = #{varid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.WF_VAR">
+    insert into WF_VAR (VARID, VARNAME, VARDESC, 
+      VARVALUE, SYSID)
+    values (#{varid,jdbcType=VARCHAR}, #{varname,jdbcType=VARCHAR}, #{vardesc,jdbcType=VARCHAR}, 
+      #{varvalue,jdbcType=VARCHAR}, #{sysid,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.WF_VAR">
+    insert into WF_VAR
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="varid != null">
+        VARID,
+      </if>
+      <if test="varname != null">
+        VARNAME,
+      </if>
+      <if test="vardesc != null">
+        VARDESC,
+      </if>
+      <if test="varvalue != null">
+        VARVALUE,
+      </if>
+      <if test="sysid != null">
+        SYSID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="varid != null">
+        #{varid,jdbcType=VARCHAR},
+      </if>
+      <if test="varname != null">
+        #{varname,jdbcType=VARCHAR},
+      </if>
+      <if test="vardesc != null">
+        #{vardesc,jdbcType=VARCHAR},
+      </if>
+      <if test="varvalue != null">
+        #{varvalue,jdbcType=VARCHAR},
+      </if>
+      <if test="sysid != null">
+        #{sysid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.WF_VAR">
+    update WF_VAR
+    <set>
+      <if test="varname != null">
+        VARNAME = #{varname,jdbcType=VARCHAR},
+      </if>
+      <if test="vardesc != null">
+        VARDESC = #{vardesc,jdbcType=VARCHAR},
+      </if>
+      <if test="varvalue != null">
+        VARVALUE = #{varvalue,jdbcType=VARCHAR},
+      </if>
+      <if test="sysid != null">
+        SYSID = #{sysid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where VARID = #{varid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.WF_VAR">
+    update WF_VAR
+    set VARNAME = #{varname,jdbcType=VARCHAR},
+      VARDESC = #{vardesc,jdbcType=VARCHAR},
+      VARVALUE = #{varvalue,jdbcType=VARCHAR},
+      SYSID = #{sysid,jdbcType=VARCHAR}
+    where VARID = #{varid,jdbcType=VARCHAR}
+  </update>
+</mapper>

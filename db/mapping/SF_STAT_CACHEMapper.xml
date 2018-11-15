@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.SF_STAT_CACHEMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.SF_STAT_CACHE">
+    <id column="STATID" jdbcType="VARCHAR" property="statid" />
+    <id column="MATCHVALUE" jdbcType="VARCHAR" property="matchvalue" />
+    <id column="TRANSTIME" jdbcType="DECIMAL" property="transtime" />
+    <result column="AMT" jdbcType="DECIMAL" property="amt" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    STATID, MATCHVALUE, TRANSTIME, AMT
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="com.bea.olp.SF_STAT_CACHEKey" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from SF_STAT_CACHE
+    where STATID = #{statid,jdbcType=VARCHAR}
+      and MATCHVALUE = #{matchvalue,jdbcType=VARCHAR}
+      and TRANSTIME = #{transtime,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.bea.olp.SF_STAT_CACHEKey">
+    delete from SF_STAT_CACHE
+    where STATID = #{statid,jdbcType=VARCHAR}
+      and MATCHVALUE = #{matchvalue,jdbcType=VARCHAR}
+      and TRANSTIME = #{transtime,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.SF_STAT_CACHE">
+    insert into SF_STAT_CACHE (STATID, MATCHVALUE, TRANSTIME, 
+      AMT)
+    values (#{statid,jdbcType=VARCHAR}, #{matchvalue,jdbcType=VARCHAR}, #{transtime,jdbcType=DECIMAL}, 
+      #{amt,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.SF_STAT_CACHE">
+    insert into SF_STAT_CACHE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="statid != null">
+        STATID,
+      </if>
+      <if test="matchvalue != null">
+        MATCHVALUE,
+      </if>
+      <if test="transtime != null">
+        TRANSTIME,
+      </if>
+      <if test="amt != null">
+        AMT,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="statid != null">
+        #{statid,jdbcType=VARCHAR},
+      </if>
+      <if test="matchvalue != null">
+        #{matchvalue,jdbcType=VARCHAR},
+      </if>
+      <if test="transtime != null">
+        #{transtime,jdbcType=DECIMAL},
+      </if>
+      <if test="amt != null">
+        #{amt,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.SF_STAT_CACHE">
+    update SF_STAT_CACHE
+    <set>
+      <if test="amt != null">
+        AMT = #{amt,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where STATID = #{statid,jdbcType=VARCHAR}
+      and MATCHVALUE = #{matchvalue,jdbcType=VARCHAR}
+      and TRANSTIME = #{transtime,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.SF_STAT_CACHE">
+    update SF_STAT_CACHE
+    set AMT = #{amt,jdbcType=DECIMAL}
+    where STATID = #{statid,jdbcType=VARCHAR}
+      and MATCHVALUE = #{matchvalue,jdbcType=VARCHAR}
+      and TRANSTIME = #{transtime,jdbcType=DECIMAL}
+  </update>
+</mapper>

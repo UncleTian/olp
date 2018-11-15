@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.SYS_BIZ_LOGMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.SYS_BIZ_LOG">
+    <result column="LOG_NO" jdbcType="VARCHAR" property="logNo" />
+    <result column="TRAN_CODE" jdbcType="VARCHAR" property="tranCode" />
+    <result column="TRAN_DATE" jdbcType="VARCHAR" property="tranDate" />
+    <result column="TP_TRAN_NO" jdbcType="VARCHAR" property="tpTranNo" />
+    <result column="OLS_TRAN_NO" jdbcType="VARCHAR" property="olsTranNo" />
+    <result column="APP_NO" jdbcType="VARCHAR" property="appNo" />
+    <result column="CRD_CONT_NO" jdbcType="VARCHAR" property="crdContNo" />
+    <result column="BILL_NO" jdbcType="VARCHAR" property="billNo" />
+    <result column="CHANNEL_TYPE" jdbcType="VARCHAR" property="channelType" />
+    <result column="CO_PLATFORM" jdbcType="VARCHAR" property="coPlatform" />
+    <result column="TP_OBJ_ID" jdbcType="VARCHAR" property="tpObjId" />
+    <result column="CERT_TYPE" jdbcType="VARCHAR" property="certType" />
+    <result column="CERT_CODE" jdbcType="VARCHAR" property="certCode" />
+    <result column="PRD_CODE" jdbcType="VARCHAR" property="prdCode" />
+    <result column="AMT" jdbcType="DECIMAL" property="amt" />
+    <result column="EXEC_STATUS" jdbcType="VARCHAR" property="execStatus" />
+    <result column="ERROR_CODE" jdbcType="VARCHAR" property="errorCode" />
+    <result column="ERROR_MSG" jdbcType="VARCHAR" property="errorMsg" />
+    <result column="FIELD1" jdbcType="VARCHAR" property="field1" />
+    <result column="SENDER" jdbcType="VARCHAR" property="sender" />
+    <result column="REACHER" jdbcType="VARCHAR" property="reacher" />
+    <result column="HOST_ADDRESS" jdbcType="VARCHAR" property="hostAddress" />
+    <result column="FIELD5" jdbcType="VARCHAR" property="field5" />
+    <result column="INPUT_DATE" jdbcType="VARCHAR" property="inputDate" />
+    <result column="INPUT_TIME" jdbcType="VARCHAR" property="inputTime" />
+  </resultMap>
+  <insert id="insert" parameterType="com.bea.olp.SYS_BIZ_LOG">
+    insert into SYS_BIZ_LOG (LOG_NO, TRAN_CODE, TRAN_DATE, 
+      TP_TRAN_NO, OLS_TRAN_NO, APP_NO, 
+      CRD_CONT_NO, BILL_NO, CHANNEL_TYPE, 
+      CO_PLATFORM, TP_OBJ_ID, CERT_TYPE, 
+      CERT_CODE, PRD_CODE, AMT, 
+      EXEC_STATUS, ERROR_CODE, ERROR_MSG, 
+      FIELD1, SENDER, REACHER, 
+      HOST_ADDRESS, FIELD5, INPUT_DATE, 
+      INPUT_TIME)
+    values (#{logNo,jdbcType=VARCHAR}, #{tranCode,jdbcType=VARCHAR}, #{tranDate,jdbcType=VARCHAR}, 
+      #{tpTranNo,jdbcType=VARCHAR}, #{olsTranNo,jdbcType=VARCHAR}, #{appNo,jdbcType=VARCHAR}, 
+      #{crdContNo,jdbcType=VARCHAR}, #{billNo,jdbcType=VARCHAR}, #{channelType,jdbcType=VARCHAR}, 
+      #{coPlatform,jdbcType=VARCHAR}, #{tpObjId,jdbcType=VARCHAR}, #{certType,jdbcType=VARCHAR}, 
+      #{certCode,jdbcType=VARCHAR}, #{prdCode,jdbcType=VARCHAR}, #{amt,jdbcType=DECIMAL}, 
+      #{execStatus,jdbcType=VARCHAR}, #{errorCode,jdbcType=VARCHAR}, #{errorMsg,jdbcType=VARCHAR}, 
+      #{field1,jdbcType=VARCHAR}, #{sender,jdbcType=VARCHAR}, #{reacher,jdbcType=VARCHAR}, 
+      #{hostAddress,jdbcType=VARCHAR}, #{field5,jdbcType=VARCHAR}, #{inputDate,jdbcType=VARCHAR}, 
+      #{inputTime,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.SYS_BIZ_LOG">
+    insert into SYS_BIZ_LOG
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="logNo != null">
+        LOG_NO,
+      </if>
+      <if test="tranCode != null">
+        TRAN_CODE,
+      </if>
+      <if test="tranDate != null">
+        TRAN_DATE,
+      </if>
+      <if test="tpTranNo != null">
+        TP_TRAN_NO,
+      </if>
+      <if test="olsTranNo != null">
+        OLS_TRAN_NO,
+      </if>
+      <if test="appNo != null">
+        APP_NO,
+      </if>
+      <if test="crdContNo != null">
+        CRD_CONT_NO,
+      </if>
+      <if test="billNo != null">
+        BILL_NO,
+      </if>
+      <if test="channelType != null">
+        CHANNEL_TYPE,
+      </if>
+      <if test="coPlatform != null">
+        CO_PLATFORM,
+      </if>
+      <if test="tpObjId != null">
+        TP_OBJ_ID,
+      </if>
+      <if test="certType != null">
+        CERT_TYPE,
+      </if>
+      <if test="certCode != null">
+        CERT_CODE,
+      </if>
+      <if test="prdCode != null">
+        PRD_CODE,
+      </if>
+      <if test="amt != null">
+        AMT,
+      </if>
+      <if test="execStatus != null">
+        EXEC_STATUS,
+      </if>
+      <if test="errorCode != null">
+        ERROR_CODE,
+      </if>
+      <if test="errorMsg != null">
+        ERROR_MSG,
+      </if>
+      <if test="field1 != null">
+        FIELD1,
+      </if>
+      <if test="sender != null">
+        SENDER,
+      </if>
+      <if test="reacher != null">
+        REACHER,
+      </if>
+      <if test="hostAddress != null">
+        HOST_ADDRESS,
+      </if>
+      <if test="field5 != null">
+        FIELD5,
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE,
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="logNo != null">
+        #{logNo,jdbcType=VARCHAR},
+      </if>
+      <if test="tranCode != null">
+        #{tranCode,jdbcType=VARCHAR},
+      </if>
+      <if test="tranDate != null">
+        #{tranDate,jdbcType=VARCHAR},
+      </if>
+      <if test="tpTranNo != null">
+        #{tpTranNo,jdbcType=VARCHAR},
+      </if>
+      <if test="olsTranNo != null">
+        #{olsTranNo,jdbcType=VARCHAR},
+      </if>
+      <if test="appNo != null">
+        #{appNo,jdbcType=VARCHAR},
+      </if>
+      <if test="crdContNo != null">
+        #{crdContNo,jdbcType=VARCHAR},
+      </if>
+      <if test="billNo != null">
+        #{billNo,jdbcType=VARCHAR},
+      </if>
+      <if test="channelType != null">
+        #{channelType,jdbcType=VARCHAR},
+      </if>
+      <if test="coPlatform != null">
+        #{coPlatform,jdbcType=VARCHAR},
+      </if>
+      <if test="tpObjId != null">
+        #{tpObjId,jdbcType=VARCHAR},
+      </if>
+      <if test="certType != null">
+        #{certType,jdbcType=VARCHAR},
+      </if>
+      <if test="certCode != null">
+        #{certCode,jdbcType=VARCHAR},
+      </if>
+      <if test="prdCode != null">
+        #{prdCode,jdbcType=VARCHAR},
+      </if>
+      <if test="amt != null">
+        #{amt,jdbcType=DECIMAL},
+      </if>
+      <if test="execStatus != null">
+        #{execStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="errorCode != null">
+        #{errorCode,jdbcType=VARCHAR},
+      </if>
+      <if test="errorMsg != null">
+        #{errorMsg,jdbcType=VARCHAR},
+      </if>
+      <if test="field1 != null">
+        #{field1,jdbcType=VARCHAR},
+      </if>
+      <if test="sender != null">
+        #{sender,jdbcType=VARCHAR},
+      </if>
+      <if test="reacher != null">
+        #{reacher,jdbcType=VARCHAR},
+      </if>
+      <if test="hostAddress != null">
+        #{hostAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="field5 != null">
+        #{field5,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        #{inputTime,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

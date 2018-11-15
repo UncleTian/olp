@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.BAT_ANT_INSTMNT_INIT_TEMPMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.BAT_ANT_INSTMNT_INIT_TEMP">
+    <result column="CONTRACT_NO" jdbcType="VARCHAR" property="contractNo" />
+    <result column="SETTLE_DATE" jdbcType="VARCHAR" property="settleDate" />
+    <result column="TERM_NO" jdbcType="DECIMAL" property="termNo" />
+    <result column="START_DATE" jdbcType="VARCHAR" property="startDate" />
+    <result column="END_DATE" jdbcType="VARCHAR" property="endDate" />
+    <result column="STATUS" jdbcType="VARCHAR" property="status" />
+    <result column="CLEAR_DATE" jdbcType="VARCHAR" property="clearDate" />
+    <result column="PRIN_OVD_DATE" jdbcType="VARCHAR" property="prinOvdDate" />
+    <result column="INT_OVD_DATE" jdbcType="VARCHAR" property="intOvdDate" />
+    <result column="PRIN_OVD_DAYS" jdbcType="DECIMAL" property="prinOvdDays" />
+    <result column="INT_OVD_DAYS" jdbcType="DECIMAL" property="intOvdDays" />
+    <result column="PRIN_BAL" jdbcType="DECIMAL" property="prinBal" />
+    <result column="INT_BAL" jdbcType="DECIMAL" property="intBal" />
+    <result column="OVD_PRIN_PNLT_BAL" jdbcType="DECIMAL" property="ovdPrinPnltBal" />
+    <result column="OVD_INT_PNLT_BAL" jdbcType="DECIMAL" property="ovdIntPnltBal" />
+    <result column="INPUT_DATE" jdbcType="VARCHAR" property="inputDate" />
+    <result column="INPUT_TIME" jdbcType="VARCHAR" property="inputTime" />
+    <result column="DATA_DATE" jdbcType="VARCHAR" property="dataDate" />
+  </resultMap>
+  <insert id="insert" parameterType="com.bea.olp.BAT_ANT_INSTMNT_INIT_TEMP">
+    insert into BAT_ANT_INSTMNT_INIT_TEMP (CONTRACT_NO, SETTLE_DATE, TERM_NO, 
+      START_DATE, END_DATE, STATUS, 
+      CLEAR_DATE, PRIN_OVD_DATE, INT_OVD_DATE, 
+      PRIN_OVD_DAYS, INT_OVD_DAYS, PRIN_BAL, 
+      INT_BAL, OVD_PRIN_PNLT_BAL, OVD_INT_PNLT_BAL, 
+      INPUT_DATE, INPUT_TIME, DATA_DATE
+      )
+    values (#{contractNo,jdbcType=VARCHAR}, #{settleDate,jdbcType=VARCHAR}, #{termNo,jdbcType=DECIMAL}, 
+      #{startDate,jdbcType=VARCHAR}, #{endDate,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, 
+      #{clearDate,jdbcType=VARCHAR}, #{prinOvdDate,jdbcType=VARCHAR}, #{intOvdDate,jdbcType=VARCHAR}, 
+      #{prinOvdDays,jdbcType=DECIMAL}, #{intOvdDays,jdbcType=DECIMAL}, #{prinBal,jdbcType=DECIMAL}, 
+      #{intBal,jdbcType=DECIMAL}, #{ovdPrinPnltBal,jdbcType=DECIMAL}, #{ovdIntPnltBal,jdbcType=DECIMAL}, 
+      #{inputDate,jdbcType=VARCHAR}, #{inputTime,jdbcType=VARCHAR}, #{dataDate,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.BAT_ANT_INSTMNT_INIT_TEMP">
+    insert into BAT_ANT_INSTMNT_INIT_TEMP
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="contractNo != null">
+        CONTRACT_NO,
+      </if>
+      <if test="settleDate != null">
+        SETTLE_DATE,
+      </if>
+      <if test="termNo != null">
+        TERM_NO,
+      </if>
+      <if test="startDate != null">
+        START_DATE,
+      </if>
+      <if test="endDate != null">
+        END_DATE,
+      </if>
+      <if test="status != null">
+        STATUS,
+      </if>
+      <if test="clearDate != null">
+        CLEAR_DATE,
+      </if>
+      <if test="prinOvdDate != null">
+        PRIN_OVD_DATE,
+      </if>
+      <if test="intOvdDate != null">
+        INT_OVD_DATE,
+      </if>
+      <if test="prinOvdDays != null">
+        PRIN_OVD_DAYS,
+      </if>
+      <if test="intOvdDays != null">
+        INT_OVD_DAYS,
+      </if>
+      <if test="prinBal != null">
+        PRIN_BAL,
+      </if>
+      <if test="intBal != null">
+        INT_BAL,
+      </if>
+      <if test="ovdPrinPnltBal != null">
+        OVD_PRIN_PNLT_BAL,
+      </if>
+      <if test="ovdIntPnltBal != null">
+        OVD_INT_PNLT_BAL,
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE,
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME,
+      </if>
+      <if test="dataDate != null">
+        DATA_DATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="contractNo != null">
+        #{contractNo,jdbcType=VARCHAR},
+      </if>
+      <if test="settleDate != null">
+        #{settleDate,jdbcType=VARCHAR},
+      </if>
+      <if test="termNo != null">
+        #{termNo,jdbcType=DECIMAL},
+      </if>
+      <if test="startDate != null">
+        #{startDate,jdbcType=VARCHAR},
+      </if>
+      <if test="endDate != null">
+        #{endDate,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="clearDate != null">
+        #{clearDate,jdbcType=VARCHAR},
+      </if>
+      <if test="prinOvdDate != null">
+        #{prinOvdDate,jdbcType=VARCHAR},
+      </if>
+      <if test="intOvdDate != null">
+        #{intOvdDate,jdbcType=VARCHAR},
+      </if>
+      <if test="prinOvdDays != null">
+        #{prinOvdDays,jdbcType=DECIMAL},
+      </if>
+      <if test="intOvdDays != null">
+        #{intOvdDays,jdbcType=DECIMAL},
+      </if>
+      <if test="prinBal != null">
+        #{prinBal,jdbcType=DECIMAL},
+      </if>
+      <if test="intBal != null">
+        #{intBal,jdbcType=DECIMAL},
+      </if>
+      <if test="ovdPrinPnltBal != null">
+        #{ovdPrinPnltBal,jdbcType=DECIMAL},
+      </if>
+      <if test="ovdIntPnltBal != null">
+        #{ovdIntPnltBal,jdbcType=DECIMAL},
+      </if>
+      <if test="inputDate != null">
+        #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="dataDate != null">
+        #{dataDate,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

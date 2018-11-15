@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.WF_TASKPOOLMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.WF_TASKPOOL">
+    <id column="TPID" jdbcType="VARCHAR" property="tpid" />
+    <result column="TPNAME" jdbcType="VARCHAR" property="tpname" />
+    <result column="TPDSC" jdbcType="VARCHAR" property="tpdsc" />
+    <result column="SYSID" jdbcType="VARCHAR" property="sysid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    TPID, TPNAME, TPDSC, SYSID
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from WF_TASKPOOL
+    where TPID = #{tpid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from WF_TASKPOOL
+    where TPID = #{tpid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.WF_TASKPOOL">
+    insert into WF_TASKPOOL (TPID, TPNAME, TPDSC, 
+      SYSID)
+    values (#{tpid,jdbcType=VARCHAR}, #{tpname,jdbcType=VARCHAR}, #{tpdsc,jdbcType=VARCHAR}, 
+      #{sysid,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.WF_TASKPOOL">
+    insert into WF_TASKPOOL
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="tpid != null">
+        TPID,
+      </if>
+      <if test="tpname != null">
+        TPNAME,
+      </if>
+      <if test="tpdsc != null">
+        TPDSC,
+      </if>
+      <if test="sysid != null">
+        SYSID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="tpid != null">
+        #{tpid,jdbcType=VARCHAR},
+      </if>
+      <if test="tpname != null">
+        #{tpname,jdbcType=VARCHAR},
+      </if>
+      <if test="tpdsc != null">
+        #{tpdsc,jdbcType=VARCHAR},
+      </if>
+      <if test="sysid != null">
+        #{sysid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.WF_TASKPOOL">
+    update WF_TASKPOOL
+    <set>
+      <if test="tpname != null">
+        TPNAME = #{tpname,jdbcType=VARCHAR},
+      </if>
+      <if test="tpdsc != null">
+        TPDSC = #{tpdsc,jdbcType=VARCHAR},
+      </if>
+      <if test="sysid != null">
+        SYSID = #{sysid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where TPID = #{tpid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.WF_TASKPOOL">
+    update WF_TASKPOOL
+    set TPNAME = #{tpname,jdbcType=VARCHAR},
+      TPDSC = #{tpdsc,jdbcType=VARCHAR},
+      SYSID = #{sysid,jdbcType=VARCHAR}
+    where TPID = #{tpid,jdbcType=VARCHAR}
+  </update>
+</mapper>

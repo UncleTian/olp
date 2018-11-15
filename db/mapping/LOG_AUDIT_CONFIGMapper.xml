@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.LOG_AUDIT_CONFIGMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.LOG_AUDIT_CONFIG">
+    <id column="PK_ID" jdbcType="VARCHAR" property="pkId" />
+    <result column="INSTU_ID" jdbcType="VARCHAR" property="instuId" />
+    <result column="BCH_ID" jdbcType="VARCHAR" property="bchId" />
+    <result column="RESC_ID" jdbcType="VARCHAR" property="rescId" />
+    <result column="IS_AUDIT" jdbcType="VARCHAR" property="isAudit" />
+    <result column="LAST_CHG_TIME" jdbcType="VARCHAR" property="lastChgTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    PK_ID, INSTU_ID, BCH_ID, RESC_ID, IS_AUDIT, LAST_CHG_TIME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from LOG_AUDIT_CONFIG
+    where PK_ID = #{pkId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from LOG_AUDIT_CONFIG
+    where PK_ID = #{pkId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.LOG_AUDIT_CONFIG">
+    insert into LOG_AUDIT_CONFIG (PK_ID, INSTU_ID, BCH_ID, 
+      RESC_ID, IS_AUDIT, LAST_CHG_TIME
+      )
+    values (#{pkId,jdbcType=VARCHAR}, #{instuId,jdbcType=VARCHAR}, #{bchId,jdbcType=VARCHAR}, 
+      #{rescId,jdbcType=VARCHAR}, #{isAudit,jdbcType=VARCHAR}, #{lastChgTime,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.LOG_AUDIT_CONFIG">
+    insert into LOG_AUDIT_CONFIG
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="pkId != null">
+        PK_ID,
+      </if>
+      <if test="instuId != null">
+        INSTU_ID,
+      </if>
+      <if test="bchId != null">
+        BCH_ID,
+      </if>
+      <if test="rescId != null">
+        RESC_ID,
+      </if>
+      <if test="isAudit != null">
+        IS_AUDIT,
+      </if>
+      <if test="lastChgTime != null">
+        LAST_CHG_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="pkId != null">
+        #{pkId,jdbcType=VARCHAR},
+      </if>
+      <if test="instuId != null">
+        #{instuId,jdbcType=VARCHAR},
+      </if>
+      <if test="bchId != null">
+        #{bchId,jdbcType=VARCHAR},
+      </if>
+      <if test="rescId != null">
+        #{rescId,jdbcType=VARCHAR},
+      </if>
+      <if test="isAudit != null">
+        #{isAudit,jdbcType=VARCHAR},
+      </if>
+      <if test="lastChgTime != null">
+        #{lastChgTime,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.LOG_AUDIT_CONFIG">
+    update LOG_AUDIT_CONFIG
+    <set>
+      <if test="instuId != null">
+        INSTU_ID = #{instuId,jdbcType=VARCHAR},
+      </if>
+      <if test="bchId != null">
+        BCH_ID = #{bchId,jdbcType=VARCHAR},
+      </if>
+      <if test="rescId != null">
+        RESC_ID = #{rescId,jdbcType=VARCHAR},
+      </if>
+      <if test="isAudit != null">
+        IS_AUDIT = #{isAudit,jdbcType=VARCHAR},
+      </if>
+      <if test="lastChgTime != null">
+        LAST_CHG_TIME = #{lastChgTime,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where PK_ID = #{pkId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.LOG_AUDIT_CONFIG">
+    update LOG_AUDIT_CONFIG
+    set INSTU_ID = #{instuId,jdbcType=VARCHAR},
+      BCH_ID = #{bchId,jdbcType=VARCHAR},
+      RESC_ID = #{rescId,jdbcType=VARCHAR},
+      IS_AUDIT = #{isAudit,jdbcType=VARCHAR},
+      LAST_CHG_TIME = #{lastChgTime,jdbcType=VARCHAR}
+    where PK_ID = #{pkId,jdbcType=VARCHAR}
+  </update>
+</mapper>

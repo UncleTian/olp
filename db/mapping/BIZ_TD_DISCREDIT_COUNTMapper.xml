@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.BIZ_TD_DISCREDIT_COUNTMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.BIZ_TD_DISCREDIT_COUNT">
+    <id column="APP_NO" jdbcType="VARCHAR" property="appNo" />
+    <id column="RULE_ID" jdbcType="VARCHAR" property="ruleId" />
+    <id column="TYPE" jdbcType="VARCHAR" property="type" />
+    <result column="DESCRIPTION" jdbcType="VARCHAR" property="description" />
+    <result column="DISCREDIT_TIMES" jdbcType="VARCHAR" property="discreditTimes" />
+    <result column="OVERDUE_DETAILS" jdbcType="VARCHAR" property="overdueDetails" />
+    <result column="INPUT_DATE" jdbcType="VARCHAR" property="inputDate" />
+    <result column="INPUT_TIME" jdbcType="VARCHAR" property="inputTime" />
+    <result column="LAST_UPDATE_DATE" jdbcType="VARCHAR" property="lastUpdateDate" />
+    <result column="LAST_UPDATE_TIME" jdbcType="VARCHAR" property="lastUpdateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    APP_NO, RULE_ID, TYPE, DESCRIPTION, DISCREDIT_TIMES, OVERDUE_DETAILS, INPUT_DATE, 
+    INPUT_TIME, LAST_UPDATE_DATE, LAST_UPDATE_TIME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="com.bea.olp.BIZ_TD_DISCREDIT_COUNTKey" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from BIZ_TD_DISCREDIT_COUNT
+    where APP_NO = #{appNo,jdbcType=VARCHAR}
+      and RULE_ID = #{ruleId,jdbcType=VARCHAR}
+      and TYPE = #{type,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.bea.olp.BIZ_TD_DISCREDIT_COUNTKey">
+    delete from BIZ_TD_DISCREDIT_COUNT
+    where APP_NO = #{appNo,jdbcType=VARCHAR}
+      and RULE_ID = #{ruleId,jdbcType=VARCHAR}
+      and TYPE = #{type,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.BIZ_TD_DISCREDIT_COUNT">
+    insert into BIZ_TD_DISCREDIT_COUNT (APP_NO, RULE_ID, TYPE, 
+      DESCRIPTION, DISCREDIT_TIMES, OVERDUE_DETAILS, 
+      INPUT_DATE, INPUT_TIME, LAST_UPDATE_DATE, 
+      LAST_UPDATE_TIME)
+    values (#{appNo,jdbcType=VARCHAR}, #{ruleId,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, 
+      #{description,jdbcType=VARCHAR}, #{discreditTimes,jdbcType=VARCHAR}, #{overdueDetails,jdbcType=VARCHAR}, 
+      #{inputDate,jdbcType=VARCHAR}, #{inputTime,jdbcType=VARCHAR}, #{lastUpdateDate,jdbcType=VARCHAR}, 
+      #{lastUpdateTime,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.BIZ_TD_DISCREDIT_COUNT">
+    insert into BIZ_TD_DISCREDIT_COUNT
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="appNo != null">
+        APP_NO,
+      </if>
+      <if test="ruleId != null">
+        RULE_ID,
+      </if>
+      <if test="type != null">
+        TYPE,
+      </if>
+      <if test="description != null">
+        DESCRIPTION,
+      </if>
+      <if test="discreditTimes != null">
+        DISCREDIT_TIMES,
+      </if>
+      <if test="overdueDetails != null">
+        OVERDUE_DETAILS,
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE,
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME,
+      </if>
+      <if test="lastUpdateDate != null">
+        LAST_UPDATE_DATE,
+      </if>
+      <if test="lastUpdateTime != null">
+        LAST_UPDATE_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="appNo != null">
+        #{appNo,jdbcType=VARCHAR},
+      </if>
+      <if test="ruleId != null">
+        #{ruleId,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null">
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="discreditTimes != null">
+        #{discreditTimes,jdbcType=VARCHAR},
+      </if>
+      <if test="overdueDetails != null">
+        #{overdueDetails,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateDate != null">
+        #{lastUpdateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        #{lastUpdateTime,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.BIZ_TD_DISCREDIT_COUNT">
+    update BIZ_TD_DISCREDIT_COUNT
+    <set>
+      <if test="description != null">
+        DESCRIPTION = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="discreditTimes != null">
+        DISCREDIT_TIMES = #{discreditTimes,jdbcType=VARCHAR},
+      </if>
+      <if test="overdueDetails != null">
+        OVERDUE_DETAILS = #{overdueDetails,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE = #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME = #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateDate != null">
+        LAST_UPDATE_DATE = #{lastUpdateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where APP_NO = #{appNo,jdbcType=VARCHAR}
+      and RULE_ID = #{ruleId,jdbcType=VARCHAR}
+      and TYPE = #{type,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.BIZ_TD_DISCREDIT_COUNT">
+    update BIZ_TD_DISCREDIT_COUNT
+    set DESCRIPTION = #{description,jdbcType=VARCHAR},
+      DISCREDIT_TIMES = #{discreditTimes,jdbcType=VARCHAR},
+      OVERDUE_DETAILS = #{overdueDetails,jdbcType=VARCHAR},
+      INPUT_DATE = #{inputDate,jdbcType=VARCHAR},
+      INPUT_TIME = #{inputTime,jdbcType=VARCHAR},
+      LAST_UPDATE_DATE = #{lastUpdateDate,jdbcType=VARCHAR},
+      LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=VARCHAR}
+    where APP_NO = #{appNo,jdbcType=VARCHAR}
+      and RULE_ID = #{ruleId,jdbcType=VARCHAR}
+      and TYPE = #{type,jdbcType=VARCHAR}
+  </update>
+</mapper>

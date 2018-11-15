@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.SF_RULESETINFOMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.SF_RULESETINFO">
+    <id column="NAME" jdbcType="VARCHAR" property="name" />
+    <result column="CNNAME" jdbcType="VARCHAR" property="cnname" />
+    <result column="DESCINFO" jdbcType="VARCHAR" property="descinfo" />
+    <result column="FORDER" jdbcType="VARCHAR" property="forder" />
+    <result column="CHECKOUT" jdbcType="VARCHAR" property="checkout" />
+    <result column="LEVELS" jdbcType="VARCHAR" property="levels" />
+    <result column="TYPE" jdbcType="VARCHAR" property="type" />
+    <result column="APPSIGN" jdbcType="VARCHAR" property="appsign" />
+    <result column="PUBLISHEXT" jdbcType="VARCHAR" property="publishext" />
+    <result column="SYSID" jdbcType="VARCHAR" property="sysid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    NAME, CNNAME, DESCINFO, FORDER, CHECKOUT, LEVELS, TYPE, APPSIGN, PUBLISHEXT, SYSID
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from SF_RULESETINFO
+    where NAME = #{name,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from SF_RULESETINFO
+    where NAME = #{name,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.SF_RULESETINFO">
+    insert into SF_RULESETINFO (NAME, CNNAME, DESCINFO, 
+      FORDER, CHECKOUT, LEVELS, 
+      TYPE, APPSIGN, PUBLISHEXT, 
+      SYSID)
+    values (#{name,jdbcType=VARCHAR}, #{cnname,jdbcType=VARCHAR}, #{descinfo,jdbcType=VARCHAR}, 
+      #{forder,jdbcType=VARCHAR}, #{checkout,jdbcType=VARCHAR}, #{levels,jdbcType=VARCHAR}, 
+      #{type,jdbcType=VARCHAR}, #{appsign,jdbcType=VARCHAR}, #{publishext,jdbcType=VARCHAR}, 
+      #{sysid,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.SF_RULESETINFO">
+    insert into SF_RULESETINFO
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="name != null">
+        NAME,
+      </if>
+      <if test="cnname != null">
+        CNNAME,
+      </if>
+      <if test="descinfo != null">
+        DESCINFO,
+      </if>
+      <if test="forder != null">
+        FORDER,
+      </if>
+      <if test="checkout != null">
+        CHECKOUT,
+      </if>
+      <if test="levels != null">
+        LEVELS,
+      </if>
+      <if test="type != null">
+        TYPE,
+      </if>
+      <if test="appsign != null">
+        APPSIGN,
+      </if>
+      <if test="publishext != null">
+        PUBLISHEXT,
+      </if>
+      <if test="sysid != null">
+        SYSID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="cnname != null">
+        #{cnname,jdbcType=VARCHAR},
+      </if>
+      <if test="descinfo != null">
+        #{descinfo,jdbcType=VARCHAR},
+      </if>
+      <if test="forder != null">
+        #{forder,jdbcType=VARCHAR},
+      </if>
+      <if test="checkout != null">
+        #{checkout,jdbcType=VARCHAR},
+      </if>
+      <if test="levels != null">
+        #{levels,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="appsign != null">
+        #{appsign,jdbcType=VARCHAR},
+      </if>
+      <if test="publishext != null">
+        #{publishext,jdbcType=VARCHAR},
+      </if>
+      <if test="sysid != null">
+        #{sysid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.SF_RULESETINFO">
+    update SF_RULESETINFO
+    <set>
+      <if test="cnname != null">
+        CNNAME = #{cnname,jdbcType=VARCHAR},
+      </if>
+      <if test="descinfo != null">
+        DESCINFO = #{descinfo,jdbcType=VARCHAR},
+      </if>
+      <if test="forder != null">
+        FORDER = #{forder,jdbcType=VARCHAR},
+      </if>
+      <if test="checkout != null">
+        CHECKOUT = #{checkout,jdbcType=VARCHAR},
+      </if>
+      <if test="levels != null">
+        LEVELS = #{levels,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        TYPE = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="appsign != null">
+        APPSIGN = #{appsign,jdbcType=VARCHAR},
+      </if>
+      <if test="publishext != null">
+        PUBLISHEXT = #{publishext,jdbcType=VARCHAR},
+      </if>
+      <if test="sysid != null">
+        SYSID = #{sysid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where NAME = #{name,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.SF_RULESETINFO">
+    update SF_RULESETINFO
+    set CNNAME = #{cnname,jdbcType=VARCHAR},
+      DESCINFO = #{descinfo,jdbcType=VARCHAR},
+      FORDER = #{forder,jdbcType=VARCHAR},
+      CHECKOUT = #{checkout,jdbcType=VARCHAR},
+      LEVELS = #{levels,jdbcType=VARCHAR},
+      TYPE = #{type,jdbcType=VARCHAR},
+      APPSIGN = #{appsign,jdbcType=VARCHAR},
+      PUBLISHEXT = #{publishext,jdbcType=VARCHAR},
+      SYSID = #{sysid,jdbcType=VARCHAR}
+    where NAME = #{name,jdbcType=VARCHAR}
+  </update>
+</mapper>

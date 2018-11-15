@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.CFG_AREA_MAPPINGMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.CFG_AREA_MAPPING">
+    <id column="AREA_CODE" jdbcType="VARCHAR" property="areaCode" />
+    <id column="MANAGE_ORG_ID" jdbcType="VARCHAR" property="manageOrgId" />
+    <result column="FNC_ORG_ID" jdbcType="VARCHAR" property="fncOrgId" />
+    <result column="INPUT_TIME" jdbcType="VARCHAR" property="inputTime" />
+    <result column="INPUT_ID" jdbcType="VARCHAR" property="inputId" />
+    <result column="INPUT_BR_ID" jdbcType="VARCHAR" property="inputBrId" />
+    <result column="LAST_UPDATE_TIME" jdbcType="VARCHAR" property="lastUpdateTime" />
+    <result column="LAST_UPDATE_ID" jdbcType="VARCHAR" property="lastUpdateId" />
+    <result column="ORG_CN_NAME" jdbcType="VARCHAR" property="orgCnName" />
+    <result column="ORG_ADDR" jdbcType="VARCHAR" property="orgAddr" />
+    <result column="ORG_TEL" jdbcType="VARCHAR" property="orgTel" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    AREA_CODE, MANAGE_ORG_ID, FNC_ORG_ID, INPUT_TIME, INPUT_ID, INPUT_BR_ID, LAST_UPDATE_TIME, 
+    LAST_UPDATE_ID, ORG_CN_NAME, ORG_ADDR, ORG_TEL
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="com.bea.olp.CFG_AREA_MAPPINGKey" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from CFG_AREA_MAPPING
+    where AREA_CODE = #{areaCode,jdbcType=VARCHAR}
+      and MANAGE_ORG_ID = #{manageOrgId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.bea.olp.CFG_AREA_MAPPINGKey">
+    delete from CFG_AREA_MAPPING
+    where AREA_CODE = #{areaCode,jdbcType=VARCHAR}
+      and MANAGE_ORG_ID = #{manageOrgId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.CFG_AREA_MAPPING">
+    insert into CFG_AREA_MAPPING (AREA_CODE, MANAGE_ORG_ID, FNC_ORG_ID, 
+      INPUT_TIME, INPUT_ID, INPUT_BR_ID, 
+      LAST_UPDATE_TIME, LAST_UPDATE_ID, ORG_CN_NAME, 
+      ORG_ADDR, ORG_TEL)
+    values (#{areaCode,jdbcType=VARCHAR}, #{manageOrgId,jdbcType=VARCHAR}, #{fncOrgId,jdbcType=VARCHAR}, 
+      #{inputTime,jdbcType=VARCHAR}, #{inputId,jdbcType=VARCHAR}, #{inputBrId,jdbcType=VARCHAR}, 
+      #{lastUpdateTime,jdbcType=VARCHAR}, #{lastUpdateId,jdbcType=VARCHAR}, #{orgCnName,jdbcType=VARCHAR}, 
+      #{orgAddr,jdbcType=VARCHAR}, #{orgTel,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.CFG_AREA_MAPPING">
+    insert into CFG_AREA_MAPPING
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="areaCode != null">
+        AREA_CODE,
+      </if>
+      <if test="manageOrgId != null">
+        MANAGE_ORG_ID,
+      </if>
+      <if test="fncOrgId != null">
+        FNC_ORG_ID,
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME,
+      </if>
+      <if test="inputId != null">
+        INPUT_ID,
+      </if>
+      <if test="inputBrId != null">
+        INPUT_BR_ID,
+      </if>
+      <if test="lastUpdateTime != null">
+        LAST_UPDATE_TIME,
+      </if>
+      <if test="lastUpdateId != null">
+        LAST_UPDATE_ID,
+      </if>
+      <if test="orgCnName != null">
+        ORG_CN_NAME,
+      </if>
+      <if test="orgAddr != null">
+        ORG_ADDR,
+      </if>
+      <if test="orgTel != null">
+        ORG_TEL,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="areaCode != null">
+        #{areaCode,jdbcType=VARCHAR},
+      </if>
+      <if test="manageOrgId != null">
+        #{manageOrgId,jdbcType=VARCHAR},
+      </if>
+      <if test="fncOrgId != null">
+        #{fncOrgId,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="inputId != null">
+        #{inputId,jdbcType=VARCHAR},
+      </if>
+      <if test="inputBrId != null">
+        #{inputBrId,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        #{lastUpdateTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateId != null">
+        #{lastUpdateId,jdbcType=VARCHAR},
+      </if>
+      <if test="orgCnName != null">
+        #{orgCnName,jdbcType=VARCHAR},
+      </if>
+      <if test="orgAddr != null">
+        #{orgAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="orgTel != null">
+        #{orgTel,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.CFG_AREA_MAPPING">
+    update CFG_AREA_MAPPING
+    <set>
+      <if test="fncOrgId != null">
+        FNC_ORG_ID = #{fncOrgId,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME = #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="inputId != null">
+        INPUT_ID = #{inputId,jdbcType=VARCHAR},
+      </if>
+      <if test="inputBrId != null">
+        INPUT_BR_ID = #{inputBrId,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateId != null">
+        LAST_UPDATE_ID = #{lastUpdateId,jdbcType=VARCHAR},
+      </if>
+      <if test="orgCnName != null">
+        ORG_CN_NAME = #{orgCnName,jdbcType=VARCHAR},
+      </if>
+      <if test="orgAddr != null">
+        ORG_ADDR = #{orgAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="orgTel != null">
+        ORG_TEL = #{orgTel,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where AREA_CODE = #{areaCode,jdbcType=VARCHAR}
+      and MANAGE_ORG_ID = #{manageOrgId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.CFG_AREA_MAPPING">
+    update CFG_AREA_MAPPING
+    set FNC_ORG_ID = #{fncOrgId,jdbcType=VARCHAR},
+      INPUT_TIME = #{inputTime,jdbcType=VARCHAR},
+      INPUT_ID = #{inputId,jdbcType=VARCHAR},
+      INPUT_BR_ID = #{inputBrId,jdbcType=VARCHAR},
+      LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=VARCHAR},
+      LAST_UPDATE_ID = #{lastUpdateId,jdbcType=VARCHAR},
+      ORG_CN_NAME = #{orgCnName,jdbcType=VARCHAR},
+      ORG_ADDR = #{orgAddr,jdbcType=VARCHAR},
+      ORG_TEL = #{orgTel,jdbcType=VARCHAR}
+    where AREA_CODE = #{areaCode,jdbcType=VARCHAR}
+      and MANAGE_ORG_ID = #{manageOrgId,jdbcType=VARCHAR}
+  </update>
+</mapper>

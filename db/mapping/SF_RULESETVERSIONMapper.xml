@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.SF_RULESETVERSIONMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.SF_RULESETVERSION">
+    <result column="NAME" jdbcType="VARCHAR" property="name" />
+    <result column="VERSION" jdbcType="VARCHAR" property="version" />
+    <result column="VERSIONDESC" jdbcType="VARCHAR" property="versiondesc" />
+    <result column="PUBINFO" jdbcType="VARCHAR" property="pubinfo" />
+  </resultMap>
+  <insert id="insert" parameterType="com.bea.olp.SF_RULESETVERSION">
+    insert into SF_RULESETVERSION (NAME, VERSION, VERSIONDESC, 
+      PUBINFO)
+    values (#{name,jdbcType=VARCHAR}, #{version,jdbcType=VARCHAR}, #{versiondesc,jdbcType=VARCHAR}, 
+      #{pubinfo,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.SF_RULESETVERSION">
+    insert into SF_RULESETVERSION
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="name != null">
+        NAME,
+      </if>
+      <if test="version != null">
+        VERSION,
+      </if>
+      <if test="versiondesc != null">
+        VERSIONDESC,
+      </if>
+      <if test="pubinfo != null">
+        PUBINFO,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="version != null">
+        #{version,jdbcType=VARCHAR},
+      </if>
+      <if test="versiondesc != null">
+        #{versiondesc,jdbcType=VARCHAR},
+      </if>
+      <if test="pubinfo != null">
+        #{pubinfo,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

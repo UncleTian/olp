@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.WFI_SHUFFLEMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.WFI_SHUFFLE">
+    <id column="SHF_ID" jdbcType="VARCHAR" property="shfId" />
+    <result column="BIZ_TYPE" jdbcType="VARCHAR" property="bizType" />
+    <result column="SHF_DESC" jdbcType="VARCHAR" property="shfDesc" />
+    <result column="SHF_CONTEXT" jdbcType="VARCHAR" property="shfContext" />
+    <result column="SHF_STATE" jdbcType="VARCHAR" property="shfState" />
+    <result column="CONFIG_USER" jdbcType="VARCHAR" property="configUser" />
+    <result column="CONFIG_ORG" jdbcType="VARCHAR" property="configOrg" />
+    <result column="BEGIN_DATE" jdbcType="VARCHAR" property="beginDate" />
+    <result column="END_DATE" jdbcType="VARCHAR" property="endDate" />
+    <result column="AUTH_ID" jdbcType="VARCHAR" property="authId" />
+    <result column="PRD_TYPE" jdbcType="VARCHAR" property="prdType" />
+    <result column="APP_STATE" jdbcType="VARCHAR" property="appState" />
+    <result column="OPINION" jdbcType="VARCHAR" property="opinion" />
+    <result column="STATE" jdbcType="VARCHAR" property="state" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    SHF_ID, BIZ_TYPE, SHF_DESC, SHF_CONTEXT, SHF_STATE, CONFIG_USER, CONFIG_ORG, BEGIN_DATE, 
+    END_DATE, AUTH_ID, PRD_TYPE, APP_STATE, OPINION, STATE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from WFI_SHUFFLE
+    where SHF_ID = #{shfId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from WFI_SHUFFLE
+    where SHF_ID = #{shfId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.WFI_SHUFFLE">
+    insert into WFI_SHUFFLE (SHF_ID, BIZ_TYPE, SHF_DESC, 
+      SHF_CONTEXT, SHF_STATE, CONFIG_USER, 
+      CONFIG_ORG, BEGIN_DATE, END_DATE, 
+      AUTH_ID, PRD_TYPE, APP_STATE, 
+      OPINION, STATE)
+    values (#{shfId,jdbcType=VARCHAR}, #{bizType,jdbcType=VARCHAR}, #{shfDesc,jdbcType=VARCHAR}, 
+      #{shfContext,jdbcType=VARCHAR}, #{shfState,jdbcType=VARCHAR}, #{configUser,jdbcType=VARCHAR}, 
+      #{configOrg,jdbcType=VARCHAR}, #{beginDate,jdbcType=VARCHAR}, #{endDate,jdbcType=VARCHAR}, 
+      #{authId,jdbcType=VARCHAR}, #{prdType,jdbcType=VARCHAR}, #{appState,jdbcType=VARCHAR}, 
+      #{opinion,jdbcType=VARCHAR}, #{state,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.WFI_SHUFFLE">
+    insert into WFI_SHUFFLE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="shfId != null">
+        SHF_ID,
+      </if>
+      <if test="bizType != null">
+        BIZ_TYPE,
+      </if>
+      <if test="shfDesc != null">
+        SHF_DESC,
+      </if>
+      <if test="shfContext != null">
+        SHF_CONTEXT,
+      </if>
+      <if test="shfState != null">
+        SHF_STATE,
+      </if>
+      <if test="configUser != null">
+        CONFIG_USER,
+      </if>
+      <if test="configOrg != null">
+        CONFIG_ORG,
+      </if>
+      <if test="beginDate != null">
+        BEGIN_DATE,
+      </if>
+      <if test="endDate != null">
+        END_DATE,
+      </if>
+      <if test="authId != null">
+        AUTH_ID,
+      </if>
+      <if test="prdType != null">
+        PRD_TYPE,
+      </if>
+      <if test="appState != null">
+        APP_STATE,
+      </if>
+      <if test="opinion != null">
+        OPINION,
+      </if>
+      <if test="state != null">
+        STATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="shfId != null">
+        #{shfId,jdbcType=VARCHAR},
+      </if>
+      <if test="bizType != null">
+        #{bizType,jdbcType=VARCHAR},
+      </if>
+      <if test="shfDesc != null">
+        #{shfDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="shfContext != null">
+        #{shfContext,jdbcType=VARCHAR},
+      </if>
+      <if test="shfState != null">
+        #{shfState,jdbcType=VARCHAR},
+      </if>
+      <if test="configUser != null">
+        #{configUser,jdbcType=VARCHAR},
+      </if>
+      <if test="configOrg != null">
+        #{configOrg,jdbcType=VARCHAR},
+      </if>
+      <if test="beginDate != null">
+        #{beginDate,jdbcType=VARCHAR},
+      </if>
+      <if test="endDate != null">
+        #{endDate,jdbcType=VARCHAR},
+      </if>
+      <if test="authId != null">
+        #{authId,jdbcType=VARCHAR},
+      </if>
+      <if test="prdType != null">
+        #{prdType,jdbcType=VARCHAR},
+      </if>
+      <if test="appState != null">
+        #{appState,jdbcType=VARCHAR},
+      </if>
+      <if test="opinion != null">
+        #{opinion,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null">
+        #{state,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.WFI_SHUFFLE">
+    update WFI_SHUFFLE
+    <set>
+      <if test="bizType != null">
+        BIZ_TYPE = #{bizType,jdbcType=VARCHAR},
+      </if>
+      <if test="shfDesc != null">
+        SHF_DESC = #{shfDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="shfContext != null">
+        SHF_CONTEXT = #{shfContext,jdbcType=VARCHAR},
+      </if>
+      <if test="shfState != null">
+        SHF_STATE = #{shfState,jdbcType=VARCHAR},
+      </if>
+      <if test="configUser != null">
+        CONFIG_USER = #{configUser,jdbcType=VARCHAR},
+      </if>
+      <if test="configOrg != null">
+        CONFIG_ORG = #{configOrg,jdbcType=VARCHAR},
+      </if>
+      <if test="beginDate != null">
+        BEGIN_DATE = #{beginDate,jdbcType=VARCHAR},
+      </if>
+      <if test="endDate != null">
+        END_DATE = #{endDate,jdbcType=VARCHAR},
+      </if>
+      <if test="authId != null">
+        AUTH_ID = #{authId,jdbcType=VARCHAR},
+      </if>
+      <if test="prdType != null">
+        PRD_TYPE = #{prdType,jdbcType=VARCHAR},
+      </if>
+      <if test="appState != null">
+        APP_STATE = #{appState,jdbcType=VARCHAR},
+      </if>
+      <if test="opinion != null">
+        OPINION = #{opinion,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null">
+        STATE = #{state,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where SHF_ID = #{shfId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.WFI_SHUFFLE">
+    update WFI_SHUFFLE
+    set BIZ_TYPE = #{bizType,jdbcType=VARCHAR},
+      SHF_DESC = #{shfDesc,jdbcType=VARCHAR},
+      SHF_CONTEXT = #{shfContext,jdbcType=VARCHAR},
+      SHF_STATE = #{shfState,jdbcType=VARCHAR},
+      CONFIG_USER = #{configUser,jdbcType=VARCHAR},
+      CONFIG_ORG = #{configOrg,jdbcType=VARCHAR},
+      BEGIN_DATE = #{beginDate,jdbcType=VARCHAR},
+      END_DATE = #{endDate,jdbcType=VARCHAR},
+      AUTH_ID = #{authId,jdbcType=VARCHAR},
+      PRD_TYPE = #{prdType,jdbcType=VARCHAR},
+      APP_STATE = #{appState,jdbcType=VARCHAR},
+      OPINION = #{opinion,jdbcType=VARCHAR},
+      STATE = #{state,jdbcType=VARCHAR}
+    where SHF_ID = #{shfId,jdbcType=VARCHAR}
+  </update>
+</mapper>

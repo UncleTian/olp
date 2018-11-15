@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.CFG_DECISIONMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.CFG_DECISION">
+    <result column="CO_PLATFORM" jdbcType="VARCHAR" property="coPlatform" />
+    <result column="LOAN_NO" jdbcType="VARCHAR" property="loanNo" />
+    <result column="DECISION_ID" jdbcType="VARCHAR" property="decisionId" />
+    <result column="DECISION_DEF_VALUE" jdbcType="VARCHAR" property="decisionDefValue" />
+    <result column="INPUT_TIME" jdbcType="VARCHAR" property="inputTime" />
+    <result column="INPUT_ID" jdbcType="VARCHAR" property="inputId" />
+    <result column="INPUT_BR_ID" jdbcType="VARCHAR" property="inputBrId" />
+    <result column="LAST_UPDATE_TIME" jdbcType="VARCHAR" property="lastUpdateTime" />
+    <result column="LAST_UPDATE_ID" jdbcType="VARCHAR" property="lastUpdateId" />
+    <result column="DECISION_TYPE" jdbcType="VARCHAR" property="decisionType" />
+    <result column="DECISION_NUM" jdbcType="DECIMAL" property="decisionNum" />
+    <result column="SCENE_ID" jdbcType="VARCHAR" property="sceneId" />
+  </resultMap>
+  <insert id="insert" parameterType="com.bea.olp.CFG_DECISION">
+    insert into CFG_DECISION (CO_PLATFORM, LOAN_NO, DECISION_ID, 
+      DECISION_DEF_VALUE, INPUT_TIME, INPUT_ID, 
+      INPUT_BR_ID, LAST_UPDATE_TIME, LAST_UPDATE_ID, 
+      DECISION_TYPE, DECISION_NUM, SCENE_ID
+      )
+    values (#{coPlatform,jdbcType=VARCHAR}, #{loanNo,jdbcType=VARCHAR}, #{decisionId,jdbcType=VARCHAR}, 
+      #{decisionDefValue,jdbcType=VARCHAR}, #{inputTime,jdbcType=VARCHAR}, #{inputId,jdbcType=VARCHAR}, 
+      #{inputBrId,jdbcType=VARCHAR}, #{lastUpdateTime,jdbcType=VARCHAR}, #{lastUpdateId,jdbcType=VARCHAR}, 
+      #{decisionType,jdbcType=VARCHAR}, #{decisionNum,jdbcType=DECIMAL}, #{sceneId,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.CFG_DECISION">
+    insert into CFG_DECISION
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="coPlatform != null">
+        CO_PLATFORM,
+      </if>
+      <if test="loanNo != null">
+        LOAN_NO,
+      </if>
+      <if test="decisionId != null">
+        DECISION_ID,
+      </if>
+      <if test="decisionDefValue != null">
+        DECISION_DEF_VALUE,
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME,
+      </if>
+      <if test="inputId != null">
+        INPUT_ID,
+      </if>
+      <if test="inputBrId != null">
+        INPUT_BR_ID,
+      </if>
+      <if test="lastUpdateTime != null">
+        LAST_UPDATE_TIME,
+      </if>
+      <if test="lastUpdateId != null">
+        LAST_UPDATE_ID,
+      </if>
+      <if test="decisionType != null">
+        DECISION_TYPE,
+      </if>
+      <if test="decisionNum != null">
+        DECISION_NUM,
+      </if>
+      <if test="sceneId != null">
+        SCENE_ID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="coPlatform != null">
+        #{coPlatform,jdbcType=VARCHAR},
+      </if>
+      <if test="loanNo != null">
+        #{loanNo,jdbcType=VARCHAR},
+      </if>
+      <if test="decisionId != null">
+        #{decisionId,jdbcType=VARCHAR},
+      </if>
+      <if test="decisionDefValue != null">
+        #{decisionDefValue,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="inputId != null">
+        #{inputId,jdbcType=VARCHAR},
+      </if>
+      <if test="inputBrId != null">
+        #{inputBrId,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        #{lastUpdateTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateId != null">
+        #{lastUpdateId,jdbcType=VARCHAR},
+      </if>
+      <if test="decisionType != null">
+        #{decisionType,jdbcType=VARCHAR},
+      </if>
+      <if test="decisionNum != null">
+        #{decisionNum,jdbcType=DECIMAL},
+      </if>
+      <if test="sceneId != null">
+        #{sceneId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

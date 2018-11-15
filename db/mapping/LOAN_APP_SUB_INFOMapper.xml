@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.LOAN_APP_SUB_INFOMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.LOAN_APP_SUB_INFO">
+    <id column="APP_NO" jdbcType="VARCHAR" property="appNo" />
+    <result column="REPORTSN" jdbcType="VARCHAR" property="reportsn" />
+    <result column="BILL_NO" jdbcType="VARCHAR" property="billNo" />
+    <result column="TP_OBJ_ID" jdbcType="VARCHAR" property="tpObjId" />
+    <result column="ORDER_TIME" jdbcType="VARCHAR" property="orderTime" />
+    <result column="ORDER_VALID_TERM" jdbcType="VARCHAR" property="orderValidTerm" />
+    <result column="CORP_CUST_NO" jdbcType="VARCHAR" property="corpCustNo" />
+    <result column="CHANNEL_SHOP_NO" jdbcType="VARCHAR" property="channelShopNo" />
+    <result column="SUB_CHANNAL_NO" jdbcType="VARCHAR" property="subChannalNo" />
+    <result column="ORDER_NO" jdbcType="VARCHAR" property="orderNo" />
+    <result column="ORDER_AMT" jdbcType="DECIMAL" property="orderAmt" />
+    <result column="LOAN_ACC_NAME" jdbcType="VARCHAR" property="loanAccName" />
+    <result column="LOAN_ACC_BANK" jdbcType="VARCHAR" property="loanAccBank" />
+    <result column="LOAN_CARD_NO" jdbcType="VARCHAR" property="loanCardNo" />
+    <result column="FIELD1" jdbcType="VARCHAR" property="field1" />
+    <result column="FIELD2" jdbcType="VARCHAR" property="field2" />
+    <result column="FIELD3" jdbcType="VARCHAR" property="field3" />
+    <result column="FIELD4" jdbcType="VARCHAR" property="field4" />
+    <result column="FIELD5" jdbcType="VARCHAR" property="field5" />
+    <result column="FIELD6" jdbcType="VARCHAR" property="field6" />
+    <result column="FIELD7" jdbcType="DECIMAL" property="field7" />
+    <result column="FIELD8" jdbcType="DECIMAL" property="field8" />
+    <result column="FIELD9" jdbcType="DECIMAL" property="field9" />
+    <result column="FIELD10" jdbcType="DECIMAL" property="field10" />
+    <result column="INPUT_DATE" jdbcType="VARCHAR" property="inputDate" />
+    <result column="INPUT_TIME" jdbcType="VARCHAR" property="inputTime" />
+    <result column="LAST_UPDATE_DATE" jdbcType="VARCHAR" property="lastUpdateDate" />
+    <result column="LAST_UPDATE_TIME" jdbcType="VARCHAR" property="lastUpdateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    APP_NO, REPORTSN, BILL_NO, TP_OBJ_ID, ORDER_TIME, ORDER_VALID_TERM, CORP_CUST_NO, 
+    CHANNEL_SHOP_NO, SUB_CHANNAL_NO, ORDER_NO, ORDER_AMT, LOAN_ACC_NAME, LOAN_ACC_BANK, 
+    LOAN_CARD_NO, FIELD1, FIELD2, FIELD3, FIELD4, FIELD5, FIELD6, FIELD7, FIELD8, FIELD9, 
+    FIELD10, INPUT_DATE, INPUT_TIME, LAST_UPDATE_DATE, LAST_UPDATE_TIME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from LOAN_APP_SUB_INFO
+    where APP_NO = #{appNo,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from LOAN_APP_SUB_INFO
+    where APP_NO = #{appNo,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.LOAN_APP_SUB_INFO">
+    insert into LOAN_APP_SUB_INFO (APP_NO, REPORTSN, BILL_NO, 
+      TP_OBJ_ID, ORDER_TIME, ORDER_VALID_TERM, 
+      CORP_CUST_NO, CHANNEL_SHOP_NO, SUB_CHANNAL_NO, 
+      ORDER_NO, ORDER_AMT, LOAN_ACC_NAME, 
+      LOAN_ACC_BANK, LOAN_CARD_NO, FIELD1, 
+      FIELD2, FIELD3, FIELD4, 
+      FIELD5, FIELD6, FIELD7, 
+      FIELD8, FIELD9, FIELD10, 
+      INPUT_DATE, INPUT_TIME, LAST_UPDATE_DATE, 
+      LAST_UPDATE_TIME)
+    values (#{appNo,jdbcType=VARCHAR}, #{reportsn,jdbcType=VARCHAR}, #{billNo,jdbcType=VARCHAR}, 
+      #{tpObjId,jdbcType=VARCHAR}, #{orderTime,jdbcType=VARCHAR}, #{orderValidTerm,jdbcType=VARCHAR}, 
+      #{corpCustNo,jdbcType=VARCHAR}, #{channelShopNo,jdbcType=VARCHAR}, #{subChannalNo,jdbcType=VARCHAR}, 
+      #{orderNo,jdbcType=VARCHAR}, #{orderAmt,jdbcType=DECIMAL}, #{loanAccName,jdbcType=VARCHAR}, 
+      #{loanAccBank,jdbcType=VARCHAR}, #{loanCardNo,jdbcType=VARCHAR}, #{field1,jdbcType=VARCHAR}, 
+      #{field2,jdbcType=VARCHAR}, #{field3,jdbcType=VARCHAR}, #{field4,jdbcType=VARCHAR}, 
+      #{field5,jdbcType=VARCHAR}, #{field6,jdbcType=VARCHAR}, #{field7,jdbcType=DECIMAL}, 
+      #{field8,jdbcType=DECIMAL}, #{field9,jdbcType=DECIMAL}, #{field10,jdbcType=DECIMAL}, 
+      #{inputDate,jdbcType=VARCHAR}, #{inputTime,jdbcType=VARCHAR}, #{lastUpdateDate,jdbcType=VARCHAR}, 
+      #{lastUpdateTime,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.LOAN_APP_SUB_INFO">
+    insert into LOAN_APP_SUB_INFO
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="appNo != null">
+        APP_NO,
+      </if>
+      <if test="reportsn != null">
+        REPORTSN,
+      </if>
+      <if test="billNo != null">
+        BILL_NO,
+      </if>
+      <if test="tpObjId != null">
+        TP_OBJ_ID,
+      </if>
+      <if test="orderTime != null">
+        ORDER_TIME,
+      </if>
+      <if test="orderValidTerm != null">
+        ORDER_VALID_TERM,
+      </if>
+      <if test="corpCustNo != null">
+        CORP_CUST_NO,
+      </if>
+      <if test="channelShopNo != null">
+        CHANNEL_SHOP_NO,
+      </if>
+      <if test="subChannalNo != null">
+        SUB_CHANNAL_NO,
+      </if>
+      <if test="orderNo != null">
+        ORDER_NO,
+      </if>
+      <if test="orderAmt != null">
+        ORDER_AMT,
+      </if>
+      <if test="loanAccName != null">
+        LOAN_ACC_NAME,
+      </if>
+      <if test="loanAccBank != null">
+        LOAN_ACC_BANK,
+      </if>
+      <if test="loanCardNo != null">
+        LOAN_CARD_NO,
+      </if>
+      <if test="field1 != null">
+        FIELD1,
+      </if>
+      <if test="field2 != null">
+        FIELD2,
+      </if>
+      <if test="field3 != null">
+        FIELD3,
+      </if>
+      <if test="field4 != null">
+        FIELD4,
+      </if>
+      <if test="field5 != null">
+        FIELD5,
+      </if>
+      <if test="field6 != null">
+        FIELD6,
+      </if>
+      <if test="field7 != null">
+        FIELD7,
+      </if>
+      <if test="field8 != null">
+        FIELD8,
+      </if>
+      <if test="field9 != null">
+        FIELD9,
+      </if>
+      <if test="field10 != null">
+        FIELD10,
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE,
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME,
+      </if>
+      <if test="lastUpdateDate != null">
+        LAST_UPDATE_DATE,
+      </if>
+      <if test="lastUpdateTime != null">
+        LAST_UPDATE_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="appNo != null">
+        #{appNo,jdbcType=VARCHAR},
+      </if>
+      <if test="reportsn != null">
+        #{reportsn,jdbcType=VARCHAR},
+      </if>
+      <if test="billNo != null">
+        #{billNo,jdbcType=VARCHAR},
+      </if>
+      <if test="tpObjId != null">
+        #{tpObjId,jdbcType=VARCHAR},
+      </if>
+      <if test="orderTime != null">
+        #{orderTime,jdbcType=VARCHAR},
+      </if>
+      <if test="orderValidTerm != null">
+        #{orderValidTerm,jdbcType=VARCHAR},
+      </if>
+      <if test="corpCustNo != null">
+        #{corpCustNo,jdbcType=VARCHAR},
+      </if>
+      <if test="channelShopNo != null">
+        #{channelShopNo,jdbcType=VARCHAR},
+      </if>
+      <if test="subChannalNo != null">
+        #{subChannalNo,jdbcType=VARCHAR},
+      </if>
+      <if test="orderNo != null">
+        #{orderNo,jdbcType=VARCHAR},
+      </if>
+      <if test="orderAmt != null">
+        #{orderAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="loanAccName != null">
+        #{loanAccName,jdbcType=VARCHAR},
+      </if>
+      <if test="loanAccBank != null">
+        #{loanAccBank,jdbcType=VARCHAR},
+      </if>
+      <if test="loanCardNo != null">
+        #{loanCardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="field1 != null">
+        #{field1,jdbcType=VARCHAR},
+      </if>
+      <if test="field2 != null">
+        #{field2,jdbcType=VARCHAR},
+      </if>
+      <if test="field3 != null">
+        #{field3,jdbcType=VARCHAR},
+      </if>
+      <if test="field4 != null">
+        #{field4,jdbcType=VARCHAR},
+      </if>
+      <if test="field5 != null">
+        #{field5,jdbcType=VARCHAR},
+      </if>
+      <if test="field6 != null">
+        #{field6,jdbcType=VARCHAR},
+      </if>
+      <if test="field7 != null">
+        #{field7,jdbcType=DECIMAL},
+      </if>
+      <if test="field8 != null">
+        #{field8,jdbcType=DECIMAL},
+      </if>
+      <if test="field9 != null">
+        #{field9,jdbcType=DECIMAL},
+      </if>
+      <if test="field10 != null">
+        #{field10,jdbcType=DECIMAL},
+      </if>
+      <if test="inputDate != null">
+        #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateDate != null">
+        #{lastUpdateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        #{lastUpdateTime,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.LOAN_APP_SUB_INFO">
+    update LOAN_APP_SUB_INFO
+    <set>
+      <if test="reportsn != null">
+        REPORTSN = #{reportsn,jdbcType=VARCHAR},
+      </if>
+      <if test="billNo != null">
+        BILL_NO = #{billNo,jdbcType=VARCHAR},
+      </if>
+      <if test="tpObjId != null">
+        TP_OBJ_ID = #{tpObjId,jdbcType=VARCHAR},
+      </if>
+      <if test="orderTime != null">
+        ORDER_TIME = #{orderTime,jdbcType=VARCHAR},
+      </if>
+      <if test="orderValidTerm != null">
+        ORDER_VALID_TERM = #{orderValidTerm,jdbcType=VARCHAR},
+      </if>
+      <if test="corpCustNo != null">
+        CORP_CUST_NO = #{corpCustNo,jdbcType=VARCHAR},
+      </if>
+      <if test="channelShopNo != null">
+        CHANNEL_SHOP_NO = #{channelShopNo,jdbcType=VARCHAR},
+      </if>
+      <if test="subChannalNo != null">
+        SUB_CHANNAL_NO = #{subChannalNo,jdbcType=VARCHAR},
+      </if>
+      <if test="orderNo != null">
+        ORDER_NO = #{orderNo,jdbcType=VARCHAR},
+      </if>
+      <if test="orderAmt != null">
+        ORDER_AMT = #{orderAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="loanAccName != null">
+        LOAN_ACC_NAME = #{loanAccName,jdbcType=VARCHAR},
+      </if>
+      <if test="loanAccBank != null">
+        LOAN_ACC_BANK = #{loanAccBank,jdbcType=VARCHAR},
+      </if>
+      <if test="loanCardNo != null">
+        LOAN_CARD_NO = #{loanCardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="field1 != null">
+        FIELD1 = #{field1,jdbcType=VARCHAR},
+      </if>
+      <if test="field2 != null">
+        FIELD2 = #{field2,jdbcType=VARCHAR},
+      </if>
+      <if test="field3 != null">
+        FIELD3 = #{field3,jdbcType=VARCHAR},
+      </if>
+      <if test="field4 != null">
+        FIELD4 = #{field4,jdbcType=VARCHAR},
+      </if>
+      <if test="field5 != null">
+        FIELD5 = #{field5,jdbcType=VARCHAR},
+      </if>
+      <if test="field6 != null">
+        FIELD6 = #{field6,jdbcType=VARCHAR},
+      </if>
+      <if test="field7 != null">
+        FIELD7 = #{field7,jdbcType=DECIMAL},
+      </if>
+      <if test="field8 != null">
+        FIELD8 = #{field8,jdbcType=DECIMAL},
+      </if>
+      <if test="field9 != null">
+        FIELD9 = #{field9,jdbcType=DECIMAL},
+      </if>
+      <if test="field10 != null">
+        FIELD10 = #{field10,jdbcType=DECIMAL},
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE = #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME = #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateDate != null">
+        LAST_UPDATE_DATE = #{lastUpdateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where APP_NO = #{appNo,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.LOAN_APP_SUB_INFO">
+    update LOAN_APP_SUB_INFO
+    set REPORTSN = #{reportsn,jdbcType=VARCHAR},
+      BILL_NO = #{billNo,jdbcType=VARCHAR},
+      TP_OBJ_ID = #{tpObjId,jdbcType=VARCHAR},
+      ORDER_TIME = #{orderTime,jdbcType=VARCHAR},
+      ORDER_VALID_TERM = #{orderValidTerm,jdbcType=VARCHAR},
+      CORP_CUST_NO = #{corpCustNo,jdbcType=VARCHAR},
+      CHANNEL_SHOP_NO = #{channelShopNo,jdbcType=VARCHAR},
+      SUB_CHANNAL_NO = #{subChannalNo,jdbcType=VARCHAR},
+      ORDER_NO = #{orderNo,jdbcType=VARCHAR},
+      ORDER_AMT = #{orderAmt,jdbcType=DECIMAL},
+      LOAN_ACC_NAME = #{loanAccName,jdbcType=VARCHAR},
+      LOAN_ACC_BANK = #{loanAccBank,jdbcType=VARCHAR},
+      LOAN_CARD_NO = #{loanCardNo,jdbcType=VARCHAR},
+      FIELD1 = #{field1,jdbcType=VARCHAR},
+      FIELD2 = #{field2,jdbcType=VARCHAR},
+      FIELD3 = #{field3,jdbcType=VARCHAR},
+      FIELD4 = #{field4,jdbcType=VARCHAR},
+      FIELD5 = #{field5,jdbcType=VARCHAR},
+      FIELD6 = #{field6,jdbcType=VARCHAR},
+      FIELD7 = #{field7,jdbcType=DECIMAL},
+      FIELD8 = #{field8,jdbcType=DECIMAL},
+      FIELD9 = #{field9,jdbcType=DECIMAL},
+      FIELD10 = #{field10,jdbcType=DECIMAL},
+      INPUT_DATE = #{inputDate,jdbcType=VARCHAR},
+      INPUT_TIME = #{inputTime,jdbcType=VARCHAR},
+      LAST_UPDATE_DATE = #{lastUpdateDate,jdbcType=VARCHAR},
+      LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=VARCHAR}
+    where APP_NO = #{appNo,jdbcType=VARCHAR}
+  </update>
+</mapper>

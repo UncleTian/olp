@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.BAT_TASK_LOGMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.BAT_TASK_LOG">
+    <id column="SERNO" jdbcType="VARCHAR" property="serno" />
+    <result column="TASK_NO" jdbcType="VARCHAR" property="taskNo" />
+    <result column="EVENT_NO" jdbcType="VARCHAR" property="eventNo" />
+    <result column="RECORD_NUM" jdbcType="DECIMAL" property="recordNum" />
+    <result column="LOG_INFO" jdbcType="VARCHAR" property="logInfo" />
+    <result column="INPUT_TIME" jdbcType="VARCHAR" property="inputTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    SERNO, TASK_NO, EVENT_NO, RECORD_NUM, LOG_INFO, INPUT_TIME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from BAT_TASK_LOG
+    where SERNO = #{serno,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from BAT_TASK_LOG
+    where SERNO = #{serno,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.BAT_TASK_LOG">
+    insert into BAT_TASK_LOG (SERNO, TASK_NO, EVENT_NO, 
+      RECORD_NUM, LOG_INFO, INPUT_TIME
+      )
+    values (#{serno,jdbcType=VARCHAR}, #{taskNo,jdbcType=VARCHAR}, #{eventNo,jdbcType=VARCHAR}, 
+      #{recordNum,jdbcType=DECIMAL}, #{logInfo,jdbcType=VARCHAR}, #{inputTime,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.BAT_TASK_LOG">
+    insert into BAT_TASK_LOG
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="serno != null">
+        SERNO,
+      </if>
+      <if test="taskNo != null">
+        TASK_NO,
+      </if>
+      <if test="eventNo != null">
+        EVENT_NO,
+      </if>
+      <if test="recordNum != null">
+        RECORD_NUM,
+      </if>
+      <if test="logInfo != null">
+        LOG_INFO,
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="serno != null">
+        #{serno,jdbcType=VARCHAR},
+      </if>
+      <if test="taskNo != null">
+        #{taskNo,jdbcType=VARCHAR},
+      </if>
+      <if test="eventNo != null">
+        #{eventNo,jdbcType=VARCHAR},
+      </if>
+      <if test="recordNum != null">
+        #{recordNum,jdbcType=DECIMAL},
+      </if>
+      <if test="logInfo != null">
+        #{logInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        #{inputTime,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.BAT_TASK_LOG">
+    update BAT_TASK_LOG
+    <set>
+      <if test="taskNo != null">
+        TASK_NO = #{taskNo,jdbcType=VARCHAR},
+      </if>
+      <if test="eventNo != null">
+        EVENT_NO = #{eventNo,jdbcType=VARCHAR},
+      </if>
+      <if test="recordNum != null">
+        RECORD_NUM = #{recordNum,jdbcType=DECIMAL},
+      </if>
+      <if test="logInfo != null">
+        LOG_INFO = #{logInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME = #{inputTime,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where SERNO = #{serno,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.BAT_TASK_LOG">
+    update BAT_TASK_LOG
+    set TASK_NO = #{taskNo,jdbcType=VARCHAR},
+      EVENT_NO = #{eventNo,jdbcType=VARCHAR},
+      RECORD_NUM = #{recordNum,jdbcType=DECIMAL},
+      LOG_INFO = #{logInfo,jdbcType=VARCHAR},
+      INPUT_TIME = #{inputTime,jdbcType=VARCHAR}
+    where SERNO = #{serno,jdbcType=VARCHAR}
+  </update>
+</mapper>

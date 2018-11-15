@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.CFG_FLOW_WEIGHTMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.CFG_FLOW_WEIGHT">
+    <id column="FLOW_TYPE" jdbcType="VARCHAR" property="flowType" />
+    <result column="FLOW_DESC" jdbcType="VARCHAR" property="flowDesc" />
+    <result column="WEIGHT_SCORE" jdbcType="DECIMAL" property="weightScore" />
+    <result column="PRD_WEIGHT" jdbcType="DECIMAL" property="prdWeight" />
+    <result column="APPR_TYPE_WEIGHT" jdbcType="DECIMAL" property="apprTypeWeight" />
+    <result column="START_TIME" jdbcType="VARCHAR" property="startTime" />
+    <result column="END_TIME" jdbcType="VARCHAR" property="endTime" />
+    <result column="FIELD1" jdbcType="VARCHAR" property="field1" />
+    <result column="FIELD2" jdbcType="VARCHAR" property="field2" />
+    <result column="FIELD3" jdbcType="VARCHAR" property="field3" />
+    <result column="FIELD4" jdbcType="VARCHAR" property="field4" />
+    <result column="FIELD5" jdbcType="VARCHAR" property="field5" />
+    <result column="FIELD6" jdbcType="DECIMAL" property="field6" />
+    <result column="FIELD7" jdbcType="DECIMAL" property="field7" />
+    <result column="FIELD8" jdbcType="DECIMAL" property="field8" />
+    <result column="FIELD9" jdbcType="DECIMAL" property="field9" />
+    <result column="FIELD10" jdbcType="DECIMAL" property="field10" />
+    <result column="BIZ_OP_ID" jdbcType="VARCHAR" property="bizOpId" />
+    <result column="BIZ_ORG_ID" jdbcType="VARCHAR" property="bizOrgId" />
+    <result column="INPUT_DATE" jdbcType="VARCHAR" property="inputDate" />
+    <result column="INPUT_TIME" jdbcType="VARCHAR" property="inputTime" />
+    <result column="LAST_UPDATE_DATE" jdbcType="VARCHAR" property="lastUpdateDate" />
+    <result column="LAST_UPDATE_TIME" jdbcType="VARCHAR" property="lastUpdateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    FLOW_TYPE, FLOW_DESC, WEIGHT_SCORE, PRD_WEIGHT, APPR_TYPE_WEIGHT, START_TIME, END_TIME, 
+    FIELD1, FIELD2, FIELD3, FIELD4, FIELD5, FIELD6, FIELD7, FIELD8, FIELD9, FIELD10, 
+    BIZ_OP_ID, BIZ_ORG_ID, INPUT_DATE, INPUT_TIME, LAST_UPDATE_DATE, LAST_UPDATE_TIME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from CFG_FLOW_WEIGHT
+    where FLOW_TYPE = #{flowType,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from CFG_FLOW_WEIGHT
+    where FLOW_TYPE = #{flowType,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.CFG_FLOW_WEIGHT">
+    insert into CFG_FLOW_WEIGHT (FLOW_TYPE, FLOW_DESC, WEIGHT_SCORE, 
+      PRD_WEIGHT, APPR_TYPE_WEIGHT, START_TIME, 
+      END_TIME, FIELD1, FIELD2, 
+      FIELD3, FIELD4, FIELD5, 
+      FIELD6, FIELD7, FIELD8, 
+      FIELD9, FIELD10, BIZ_OP_ID, 
+      BIZ_ORG_ID, INPUT_DATE, INPUT_TIME, 
+      LAST_UPDATE_DATE, LAST_UPDATE_TIME)
+    values (#{flowType,jdbcType=VARCHAR}, #{flowDesc,jdbcType=VARCHAR}, #{weightScore,jdbcType=DECIMAL}, 
+      #{prdWeight,jdbcType=DECIMAL}, #{apprTypeWeight,jdbcType=DECIMAL}, #{startTime,jdbcType=VARCHAR}, 
+      #{endTime,jdbcType=VARCHAR}, #{field1,jdbcType=VARCHAR}, #{field2,jdbcType=VARCHAR}, 
+      #{field3,jdbcType=VARCHAR}, #{field4,jdbcType=VARCHAR}, #{field5,jdbcType=VARCHAR}, 
+      #{field6,jdbcType=DECIMAL}, #{field7,jdbcType=DECIMAL}, #{field8,jdbcType=DECIMAL}, 
+      #{field9,jdbcType=DECIMAL}, #{field10,jdbcType=DECIMAL}, #{bizOpId,jdbcType=VARCHAR}, 
+      #{bizOrgId,jdbcType=VARCHAR}, #{inputDate,jdbcType=VARCHAR}, #{inputTime,jdbcType=VARCHAR}, 
+      #{lastUpdateDate,jdbcType=VARCHAR}, #{lastUpdateTime,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.CFG_FLOW_WEIGHT">
+    insert into CFG_FLOW_WEIGHT
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="flowType != null">
+        FLOW_TYPE,
+      </if>
+      <if test="flowDesc != null">
+        FLOW_DESC,
+      </if>
+      <if test="weightScore != null">
+        WEIGHT_SCORE,
+      </if>
+      <if test="prdWeight != null">
+        PRD_WEIGHT,
+      </if>
+      <if test="apprTypeWeight != null">
+        APPR_TYPE_WEIGHT,
+      </if>
+      <if test="startTime != null">
+        START_TIME,
+      </if>
+      <if test="endTime != null">
+        END_TIME,
+      </if>
+      <if test="field1 != null">
+        FIELD1,
+      </if>
+      <if test="field2 != null">
+        FIELD2,
+      </if>
+      <if test="field3 != null">
+        FIELD3,
+      </if>
+      <if test="field4 != null">
+        FIELD4,
+      </if>
+      <if test="field5 != null">
+        FIELD5,
+      </if>
+      <if test="field6 != null">
+        FIELD6,
+      </if>
+      <if test="field7 != null">
+        FIELD7,
+      </if>
+      <if test="field8 != null">
+        FIELD8,
+      </if>
+      <if test="field9 != null">
+        FIELD9,
+      </if>
+      <if test="field10 != null">
+        FIELD10,
+      </if>
+      <if test="bizOpId != null">
+        BIZ_OP_ID,
+      </if>
+      <if test="bizOrgId != null">
+        BIZ_ORG_ID,
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE,
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME,
+      </if>
+      <if test="lastUpdateDate != null">
+        LAST_UPDATE_DATE,
+      </if>
+      <if test="lastUpdateTime != null">
+        LAST_UPDATE_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="flowType != null">
+        #{flowType,jdbcType=VARCHAR},
+      </if>
+      <if test="flowDesc != null">
+        #{flowDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="weightScore != null">
+        #{weightScore,jdbcType=DECIMAL},
+      </if>
+      <if test="prdWeight != null">
+        #{prdWeight,jdbcType=DECIMAL},
+      </if>
+      <if test="apprTypeWeight != null">
+        #{apprTypeWeight,jdbcType=DECIMAL},
+      </if>
+      <if test="startTime != null">
+        #{startTime,jdbcType=VARCHAR},
+      </if>
+      <if test="endTime != null">
+        #{endTime,jdbcType=VARCHAR},
+      </if>
+      <if test="field1 != null">
+        #{field1,jdbcType=VARCHAR},
+      </if>
+      <if test="field2 != null">
+        #{field2,jdbcType=VARCHAR},
+      </if>
+      <if test="field3 != null">
+        #{field3,jdbcType=VARCHAR},
+      </if>
+      <if test="field4 != null">
+        #{field4,jdbcType=VARCHAR},
+      </if>
+      <if test="field5 != null">
+        #{field5,jdbcType=VARCHAR},
+      </if>
+      <if test="field6 != null">
+        #{field6,jdbcType=DECIMAL},
+      </if>
+      <if test="field7 != null">
+        #{field7,jdbcType=DECIMAL},
+      </if>
+      <if test="field8 != null">
+        #{field8,jdbcType=DECIMAL},
+      </if>
+      <if test="field9 != null">
+        #{field9,jdbcType=DECIMAL},
+      </if>
+      <if test="field10 != null">
+        #{field10,jdbcType=DECIMAL},
+      </if>
+      <if test="bizOpId != null">
+        #{bizOpId,jdbcType=VARCHAR},
+      </if>
+      <if test="bizOrgId != null">
+        #{bizOrgId,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateDate != null">
+        #{lastUpdateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        #{lastUpdateTime,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.CFG_FLOW_WEIGHT">
+    update CFG_FLOW_WEIGHT
+    <set>
+      <if test="flowDesc != null">
+        FLOW_DESC = #{flowDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="weightScore != null">
+        WEIGHT_SCORE = #{weightScore,jdbcType=DECIMAL},
+      </if>
+      <if test="prdWeight != null">
+        PRD_WEIGHT = #{prdWeight,jdbcType=DECIMAL},
+      </if>
+      <if test="apprTypeWeight != null">
+        APPR_TYPE_WEIGHT = #{apprTypeWeight,jdbcType=DECIMAL},
+      </if>
+      <if test="startTime != null">
+        START_TIME = #{startTime,jdbcType=VARCHAR},
+      </if>
+      <if test="endTime != null">
+        END_TIME = #{endTime,jdbcType=VARCHAR},
+      </if>
+      <if test="field1 != null">
+        FIELD1 = #{field1,jdbcType=VARCHAR},
+      </if>
+      <if test="field2 != null">
+        FIELD2 = #{field2,jdbcType=VARCHAR},
+      </if>
+      <if test="field3 != null">
+        FIELD3 = #{field3,jdbcType=VARCHAR},
+      </if>
+      <if test="field4 != null">
+        FIELD4 = #{field4,jdbcType=VARCHAR},
+      </if>
+      <if test="field5 != null">
+        FIELD5 = #{field5,jdbcType=VARCHAR},
+      </if>
+      <if test="field6 != null">
+        FIELD6 = #{field6,jdbcType=DECIMAL},
+      </if>
+      <if test="field7 != null">
+        FIELD7 = #{field7,jdbcType=DECIMAL},
+      </if>
+      <if test="field8 != null">
+        FIELD8 = #{field8,jdbcType=DECIMAL},
+      </if>
+      <if test="field9 != null">
+        FIELD9 = #{field9,jdbcType=DECIMAL},
+      </if>
+      <if test="field10 != null">
+        FIELD10 = #{field10,jdbcType=DECIMAL},
+      </if>
+      <if test="bizOpId != null">
+        BIZ_OP_ID = #{bizOpId,jdbcType=VARCHAR},
+      </if>
+      <if test="bizOrgId != null">
+        BIZ_ORG_ID = #{bizOrgId,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE = #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME = #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateDate != null">
+        LAST_UPDATE_DATE = #{lastUpdateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where FLOW_TYPE = #{flowType,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.CFG_FLOW_WEIGHT">
+    update CFG_FLOW_WEIGHT
+    set FLOW_DESC = #{flowDesc,jdbcType=VARCHAR},
+      WEIGHT_SCORE = #{weightScore,jdbcType=DECIMAL},
+      PRD_WEIGHT = #{prdWeight,jdbcType=DECIMAL},
+      APPR_TYPE_WEIGHT = #{apprTypeWeight,jdbcType=DECIMAL},
+      START_TIME = #{startTime,jdbcType=VARCHAR},
+      END_TIME = #{endTime,jdbcType=VARCHAR},
+      FIELD1 = #{field1,jdbcType=VARCHAR},
+      FIELD2 = #{field2,jdbcType=VARCHAR},
+      FIELD3 = #{field3,jdbcType=VARCHAR},
+      FIELD4 = #{field4,jdbcType=VARCHAR},
+      FIELD5 = #{field5,jdbcType=VARCHAR},
+      FIELD6 = #{field6,jdbcType=DECIMAL},
+      FIELD7 = #{field7,jdbcType=DECIMAL},
+      FIELD8 = #{field8,jdbcType=DECIMAL},
+      FIELD9 = #{field9,jdbcType=DECIMAL},
+      FIELD10 = #{field10,jdbcType=DECIMAL},
+      BIZ_OP_ID = #{bizOpId,jdbcType=VARCHAR},
+      BIZ_ORG_ID = #{bizOrgId,jdbcType=VARCHAR},
+      INPUT_DATE = #{inputDate,jdbcType=VARCHAR},
+      INPUT_TIME = #{inputTime,jdbcType=VARCHAR},
+      LAST_UPDATE_DATE = #{lastUpdateDate,jdbcType=VARCHAR},
+      LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=VARCHAR}
+    where FLOW_TYPE = #{flowType,jdbcType=VARCHAR}
+  </update>
+</mapper>

@@ -1,0 +1,425 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.RAT_APP_INFO_XWMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.RAT_APP_INFO_XW">
+    <id column="APP_NO" jdbcType="VARCHAR" property="appNo" />
+    <result column="REQ_TIME" jdbcType="VARCHAR" property="reqTime" />
+    <result column="TRAN_DATE" jdbcType="VARCHAR" property="tranDate" />
+    <result column="CHANNEL_TYPE" jdbcType="VARCHAR" property="channelType" />
+    <result column="CO_PLATFORM" jdbcType="VARCHAR" property="coPlatform" />
+    <result column="LOAN_PROP" jdbcType="VARCHAR" property="loanProp" />
+    <result column="PRD_TYPE" jdbcType="VARCHAR" property="prdType" />
+    <result column="PRD_CODE" jdbcType="VARCHAR" property="prdCode" />
+    <result column="APP_NAME" jdbcType="VARCHAR" property="appName" />
+    <result column="CERTIFICATE_TYPE" jdbcType="VARCHAR" property="certificateType" />
+    <result column="APP_ID" jdbcType="VARCHAR" property="appId" />
+    <result column="APP_PN" jdbcType="VARCHAR" property="appPn" />
+    <result column="ACCT_NUM" jdbcType="VARCHAR" property="acctNum" />
+    <result column="SEX" jdbcType="VARCHAR" property="sex" />
+    <result column="NATION" jdbcType="VARCHAR" property="nation" />
+    <result column="ID_CARD_START" jdbcType="VARCHAR" property="idCardStart" />
+    <result column="ID_CARD_END" jdbcType="VARCHAR" property="idCardEnd" />
+    <result column="ID_CARD_ADD" jdbcType="VARCHAR" property="idCardAdd" />
+    <result column="TRADE" jdbcType="VARCHAR" property="trade" />
+    <result column="PROFESSION" jdbcType="VARCHAR" property="profession" />
+    <result column="ADDRESS" jdbcType="VARCHAR" property="address" />
+    <result column="LHD_SX_CPEDU" jdbcType="DECIMAL" property="lhdSxCpedu" />
+    <result column="LOAN_AMOUNT" jdbcType="DECIMAL" property="loanAmount" />
+    <result column="LOAN_LIMIT" jdbcType="DECIMAL" property="loanLimit" />
+    <result column="RATE" jdbcType="DECIMAL" property="rate" />
+    <result column="USERID" jdbcType="VARCHAR" property="userid" />
+    <result column="UL_PRODUCT_CODE" jdbcType="VARCHAR" property="ulProductCode" />
+    <result column="UL_PRODUCT_NAME" jdbcType="VARCHAR" property="ulProductName" />
+    <result column="ORDER_NO" jdbcType="VARCHAR" property="orderNo" />
+    <result column="CREDIT_INFO" jdbcType="VARCHAR" property="creditInfo" />
+    <result column="INPUT_DATE" jdbcType="VARCHAR" property="inputDate" />
+    <result column="INPUT_TIME" jdbcType="VARCHAR" property="inputTime" />
+    <result column="PRODUCT_CODE" jdbcType="VARCHAR" property="productCode" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    APP_NO, REQ_TIME, TRAN_DATE, CHANNEL_TYPE, CO_PLATFORM, LOAN_PROP, PRD_TYPE, PRD_CODE, 
+    APP_NAME, CERTIFICATE_TYPE, APP_ID, APP_PN, ACCT_NUM, SEX, NATION, ID_CARD_START, 
+    ID_CARD_END, ID_CARD_ADD, TRADE, PROFESSION, ADDRESS, LHD_SX_CPEDU, LOAN_AMOUNT, 
+    LOAN_LIMIT, RATE, USERID, UL_PRODUCT_CODE, UL_PRODUCT_NAME, ORDER_NO, CREDIT_INFO, 
+    INPUT_DATE, INPUT_TIME, PRODUCT_CODE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from RAT_APP_INFO_XW
+    where APP_NO = #{appNo,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from RAT_APP_INFO_XW
+    where APP_NO = #{appNo,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.RAT_APP_INFO_XW">
+    insert into RAT_APP_INFO_XW (APP_NO, REQ_TIME, TRAN_DATE, 
+      CHANNEL_TYPE, CO_PLATFORM, LOAN_PROP, 
+      PRD_TYPE, PRD_CODE, APP_NAME, 
+      CERTIFICATE_TYPE, APP_ID, APP_PN, 
+      ACCT_NUM, SEX, NATION, 
+      ID_CARD_START, ID_CARD_END, ID_CARD_ADD, 
+      TRADE, PROFESSION, ADDRESS, 
+      LHD_SX_CPEDU, LOAN_AMOUNT, LOAN_LIMIT, 
+      RATE, USERID, UL_PRODUCT_CODE, 
+      UL_PRODUCT_NAME, ORDER_NO, CREDIT_INFO, 
+      INPUT_DATE, INPUT_TIME, PRODUCT_CODE
+      )
+    values (#{appNo,jdbcType=VARCHAR}, #{reqTime,jdbcType=VARCHAR}, #{tranDate,jdbcType=VARCHAR}, 
+      #{channelType,jdbcType=VARCHAR}, #{coPlatform,jdbcType=VARCHAR}, #{loanProp,jdbcType=VARCHAR}, 
+      #{prdType,jdbcType=VARCHAR}, #{prdCode,jdbcType=VARCHAR}, #{appName,jdbcType=VARCHAR}, 
+      #{certificateType,jdbcType=VARCHAR}, #{appId,jdbcType=VARCHAR}, #{appPn,jdbcType=VARCHAR}, 
+      #{acctNum,jdbcType=VARCHAR}, #{sex,jdbcType=VARCHAR}, #{nation,jdbcType=VARCHAR}, 
+      #{idCardStart,jdbcType=VARCHAR}, #{idCardEnd,jdbcType=VARCHAR}, #{idCardAdd,jdbcType=VARCHAR}, 
+      #{trade,jdbcType=VARCHAR}, #{profession,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, 
+      #{lhdSxCpedu,jdbcType=DECIMAL}, #{loanAmount,jdbcType=DECIMAL}, #{loanLimit,jdbcType=DECIMAL}, 
+      #{rate,jdbcType=DECIMAL}, #{userid,jdbcType=VARCHAR}, #{ulProductCode,jdbcType=VARCHAR}, 
+      #{ulProductName,jdbcType=VARCHAR}, #{orderNo,jdbcType=VARCHAR}, #{creditInfo,jdbcType=VARCHAR}, 
+      #{inputDate,jdbcType=VARCHAR}, #{inputTime,jdbcType=VARCHAR}, #{productCode,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.RAT_APP_INFO_XW">
+    insert into RAT_APP_INFO_XW
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="appNo != null">
+        APP_NO,
+      </if>
+      <if test="reqTime != null">
+        REQ_TIME,
+      </if>
+      <if test="tranDate != null">
+        TRAN_DATE,
+      </if>
+      <if test="channelType != null">
+        CHANNEL_TYPE,
+      </if>
+      <if test="coPlatform != null">
+        CO_PLATFORM,
+      </if>
+      <if test="loanProp != null">
+        LOAN_PROP,
+      </if>
+      <if test="prdType != null">
+        PRD_TYPE,
+      </if>
+      <if test="prdCode != null">
+        PRD_CODE,
+      </if>
+      <if test="appName != null">
+        APP_NAME,
+      </if>
+      <if test="certificateType != null">
+        CERTIFICATE_TYPE,
+      </if>
+      <if test="appId != null">
+        APP_ID,
+      </if>
+      <if test="appPn != null">
+        APP_PN,
+      </if>
+      <if test="acctNum != null">
+        ACCT_NUM,
+      </if>
+      <if test="sex != null">
+        SEX,
+      </if>
+      <if test="nation != null">
+        NATION,
+      </if>
+      <if test="idCardStart != null">
+        ID_CARD_START,
+      </if>
+      <if test="idCardEnd != null">
+        ID_CARD_END,
+      </if>
+      <if test="idCardAdd != null">
+        ID_CARD_ADD,
+      </if>
+      <if test="trade != null">
+        TRADE,
+      </if>
+      <if test="profession != null">
+        PROFESSION,
+      </if>
+      <if test="address != null">
+        ADDRESS,
+      </if>
+      <if test="lhdSxCpedu != null">
+        LHD_SX_CPEDU,
+      </if>
+      <if test="loanAmount != null">
+        LOAN_AMOUNT,
+      </if>
+      <if test="loanLimit != null">
+        LOAN_LIMIT,
+      </if>
+      <if test="rate != null">
+        RATE,
+      </if>
+      <if test="userid != null">
+        USERID,
+      </if>
+      <if test="ulProductCode != null">
+        UL_PRODUCT_CODE,
+      </if>
+      <if test="ulProductName != null">
+        UL_PRODUCT_NAME,
+      </if>
+      <if test="orderNo != null">
+        ORDER_NO,
+      </if>
+      <if test="creditInfo != null">
+        CREDIT_INFO,
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE,
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME,
+      </if>
+      <if test="productCode != null">
+        PRODUCT_CODE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="appNo != null">
+        #{appNo,jdbcType=VARCHAR},
+      </if>
+      <if test="reqTime != null">
+        #{reqTime,jdbcType=VARCHAR},
+      </if>
+      <if test="tranDate != null">
+        #{tranDate,jdbcType=VARCHAR},
+      </if>
+      <if test="channelType != null">
+        #{channelType,jdbcType=VARCHAR},
+      </if>
+      <if test="coPlatform != null">
+        #{coPlatform,jdbcType=VARCHAR},
+      </if>
+      <if test="loanProp != null">
+        #{loanProp,jdbcType=VARCHAR},
+      </if>
+      <if test="prdType != null">
+        #{prdType,jdbcType=VARCHAR},
+      </if>
+      <if test="prdCode != null">
+        #{prdCode,jdbcType=VARCHAR},
+      </if>
+      <if test="appName != null">
+        #{appName,jdbcType=VARCHAR},
+      </if>
+      <if test="certificateType != null">
+        #{certificateType,jdbcType=VARCHAR},
+      </if>
+      <if test="appId != null">
+        #{appId,jdbcType=VARCHAR},
+      </if>
+      <if test="appPn != null">
+        #{appPn,jdbcType=VARCHAR},
+      </if>
+      <if test="acctNum != null">
+        #{acctNum,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="nation != null">
+        #{nation,jdbcType=VARCHAR},
+      </if>
+      <if test="idCardStart != null">
+        #{idCardStart,jdbcType=VARCHAR},
+      </if>
+      <if test="idCardEnd != null">
+        #{idCardEnd,jdbcType=VARCHAR},
+      </if>
+      <if test="idCardAdd != null">
+        #{idCardAdd,jdbcType=VARCHAR},
+      </if>
+      <if test="trade != null">
+        #{trade,jdbcType=VARCHAR},
+      </if>
+      <if test="profession != null">
+        #{profession,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="lhdSxCpedu != null">
+        #{lhdSxCpedu,jdbcType=DECIMAL},
+      </if>
+      <if test="loanAmount != null">
+        #{loanAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="loanLimit != null">
+        #{loanLimit,jdbcType=DECIMAL},
+      </if>
+      <if test="rate != null">
+        #{rate,jdbcType=DECIMAL},
+      </if>
+      <if test="userid != null">
+        #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="ulProductCode != null">
+        #{ulProductCode,jdbcType=VARCHAR},
+      </if>
+      <if test="ulProductName != null">
+        #{ulProductName,jdbcType=VARCHAR},
+      </if>
+      <if test="orderNo != null">
+        #{orderNo,jdbcType=VARCHAR},
+      </if>
+      <if test="creditInfo != null">
+        #{creditInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="productCode != null">
+        #{productCode,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.RAT_APP_INFO_XW">
+    update RAT_APP_INFO_XW
+    <set>
+      <if test="reqTime != null">
+        REQ_TIME = #{reqTime,jdbcType=VARCHAR},
+      </if>
+      <if test="tranDate != null">
+        TRAN_DATE = #{tranDate,jdbcType=VARCHAR},
+      </if>
+      <if test="channelType != null">
+        CHANNEL_TYPE = #{channelType,jdbcType=VARCHAR},
+      </if>
+      <if test="coPlatform != null">
+        CO_PLATFORM = #{coPlatform,jdbcType=VARCHAR},
+      </if>
+      <if test="loanProp != null">
+        LOAN_PROP = #{loanProp,jdbcType=VARCHAR},
+      </if>
+      <if test="prdType != null">
+        PRD_TYPE = #{prdType,jdbcType=VARCHAR},
+      </if>
+      <if test="prdCode != null">
+        PRD_CODE = #{prdCode,jdbcType=VARCHAR},
+      </if>
+      <if test="appName != null">
+        APP_NAME = #{appName,jdbcType=VARCHAR},
+      </if>
+      <if test="certificateType != null">
+        CERTIFICATE_TYPE = #{certificateType,jdbcType=VARCHAR},
+      </if>
+      <if test="appId != null">
+        APP_ID = #{appId,jdbcType=VARCHAR},
+      </if>
+      <if test="appPn != null">
+        APP_PN = #{appPn,jdbcType=VARCHAR},
+      </if>
+      <if test="acctNum != null">
+        ACCT_NUM = #{acctNum,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        SEX = #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="nation != null">
+        NATION = #{nation,jdbcType=VARCHAR},
+      </if>
+      <if test="idCardStart != null">
+        ID_CARD_START = #{idCardStart,jdbcType=VARCHAR},
+      </if>
+      <if test="idCardEnd != null">
+        ID_CARD_END = #{idCardEnd,jdbcType=VARCHAR},
+      </if>
+      <if test="idCardAdd != null">
+        ID_CARD_ADD = #{idCardAdd,jdbcType=VARCHAR},
+      </if>
+      <if test="trade != null">
+        TRADE = #{trade,jdbcType=VARCHAR},
+      </if>
+      <if test="profession != null">
+        PROFESSION = #{profession,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        ADDRESS = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="lhdSxCpedu != null">
+        LHD_SX_CPEDU = #{lhdSxCpedu,jdbcType=DECIMAL},
+      </if>
+      <if test="loanAmount != null">
+        LOAN_AMOUNT = #{loanAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="loanLimit != null">
+        LOAN_LIMIT = #{loanLimit,jdbcType=DECIMAL},
+      </if>
+      <if test="rate != null">
+        RATE = #{rate,jdbcType=DECIMAL},
+      </if>
+      <if test="userid != null">
+        USERID = #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="ulProductCode != null">
+        UL_PRODUCT_CODE = #{ulProductCode,jdbcType=VARCHAR},
+      </if>
+      <if test="ulProductName != null">
+        UL_PRODUCT_NAME = #{ulProductName,jdbcType=VARCHAR},
+      </if>
+      <if test="orderNo != null">
+        ORDER_NO = #{orderNo,jdbcType=VARCHAR},
+      </if>
+      <if test="creditInfo != null">
+        CREDIT_INFO = #{creditInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE = #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME = #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="productCode != null">
+        PRODUCT_CODE = #{productCode,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where APP_NO = #{appNo,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.RAT_APP_INFO_XW">
+    update RAT_APP_INFO_XW
+    set REQ_TIME = #{reqTime,jdbcType=VARCHAR},
+      TRAN_DATE = #{tranDate,jdbcType=VARCHAR},
+      CHANNEL_TYPE = #{channelType,jdbcType=VARCHAR},
+      CO_PLATFORM = #{coPlatform,jdbcType=VARCHAR},
+      LOAN_PROP = #{loanProp,jdbcType=VARCHAR},
+      PRD_TYPE = #{prdType,jdbcType=VARCHAR},
+      PRD_CODE = #{prdCode,jdbcType=VARCHAR},
+      APP_NAME = #{appName,jdbcType=VARCHAR},
+      CERTIFICATE_TYPE = #{certificateType,jdbcType=VARCHAR},
+      APP_ID = #{appId,jdbcType=VARCHAR},
+      APP_PN = #{appPn,jdbcType=VARCHAR},
+      ACCT_NUM = #{acctNum,jdbcType=VARCHAR},
+      SEX = #{sex,jdbcType=VARCHAR},
+      NATION = #{nation,jdbcType=VARCHAR},
+      ID_CARD_START = #{idCardStart,jdbcType=VARCHAR},
+      ID_CARD_END = #{idCardEnd,jdbcType=VARCHAR},
+      ID_CARD_ADD = #{idCardAdd,jdbcType=VARCHAR},
+      TRADE = #{trade,jdbcType=VARCHAR},
+      PROFESSION = #{profession,jdbcType=VARCHAR},
+      ADDRESS = #{address,jdbcType=VARCHAR},
+      LHD_SX_CPEDU = #{lhdSxCpedu,jdbcType=DECIMAL},
+      LOAN_AMOUNT = #{loanAmount,jdbcType=DECIMAL},
+      LOAN_LIMIT = #{loanLimit,jdbcType=DECIMAL},
+      RATE = #{rate,jdbcType=DECIMAL},
+      USERID = #{userid,jdbcType=VARCHAR},
+      UL_PRODUCT_CODE = #{ulProductCode,jdbcType=VARCHAR},
+      UL_PRODUCT_NAME = #{ulProductName,jdbcType=VARCHAR},
+      ORDER_NO = #{orderNo,jdbcType=VARCHAR},
+      CREDIT_INFO = #{creditInfo,jdbcType=VARCHAR},
+      INPUT_DATE = #{inputDate,jdbcType=VARCHAR},
+      INPUT_TIME = #{inputTime,jdbcType=VARCHAR},
+      PRODUCT_CODE = #{productCode,jdbcType=VARCHAR}
+    where APP_NO = #{appNo,jdbcType=VARCHAR}
+  </update>
+</mapper>

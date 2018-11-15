@@ -1,0 +1,448 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.BAT_TASK_RUNMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.BAT_TASK_RUN">
+    <id column="TASK_NO" jdbcType="VARCHAR" property="taskNo" />
+    <id column="TASK_DATE" jdbcType="VARCHAR" property="taskDate" />
+    <result column="TASK_NAME" jdbcType="VARCHAR" property="taskName" />
+    <result column="TASK_TYPE" jdbcType="VARCHAR" property="taskType" />
+    <result column="PRI_FLAG" jdbcType="VARCHAR" property="priFlag" />
+    <result column="RUN_PERIOD" jdbcType="VARCHAR" property="runPeriod" />
+    <result column="PERIOD_RULE" jdbcType="VARCHAR" property="periodRule" />
+    <result column="TASK_CLASS" jdbcType="VARCHAR" property="taskClass" />
+    <result column="COMMIT_NUM" jdbcType="DECIMAL" property="commitNum" />
+    <result column="EVENT_NUM" jdbcType="DECIMAL" property="eventNum" />
+    <result column="RUN_TIME_FLAG" jdbcType="VARCHAR" property="runTimeFlag" />
+    <result column="FIRST_RUN_TIME" jdbcType="VARCHAR" property="firstRunTime" />
+    <result column="LAST_RUN_TIME" jdbcType="VARCHAR" property="lastRunTime" />
+    <result column="RUN_TIME" jdbcType="VARCHAR" property="runTime" />
+    <result column="MUTEX_FLAG" jdbcType="VARCHAR" property="mutexFlag" />
+    <result column="MUTEX_NO_LIST" jdbcType="VARCHAR" property="mutexNoList" />
+    <result column="RELATION_FLAG" jdbcType="VARCHAR" property="relationFlag" />
+    <result column="TASK_NO_LIST" jdbcType="VARCHAR" property="taskNoList" />
+    <result column="FILE_EXCHANGE_TYPE" jdbcType="VARCHAR" property="fileExchangeType" />
+    <result column="FILE_SPLIT" jdbcType="VARCHAR" property="fileSplit" />
+    <result column="FILE_END_TYPE" jdbcType="VARCHAR" property="fileEndType" />
+    <result column="FILE_COMPRESS_FLAG" jdbcType="VARCHAR" property="fileCompressFlag" />
+    <result column="SIGNAL_TYPE" jdbcType="VARCHAR" property="signalType" />
+    <result column="SIGNAL_LIST" jdbcType="VARCHAR" property="signalList" />
+    <result column="FILE_DATE_TYPE" jdbcType="VARCHAR" property="fileDateType" />
+    <result column="DATA_DATE_TYPE" jdbcType="VARCHAR" property="dataDateType" />
+    <result column="SIGN_DATE_TYPE" jdbcType="VARCHAR" property="signDateType" />
+    <result column="IGNORE_SIGNAL_FLAG" jdbcType="VARCHAR" property="ignoreSignalFlag" />
+    <result column="TASK_STATUS" jdbcType="VARCHAR" property="taskStatus" />
+    <result column="ERROR_CODE" jdbcType="VARCHAR" property="errorCode" />
+    <result column="ERROR_INFO" jdbcType="VARCHAR" property="errorInfo" />
+    <result column="INPUT_TIME" jdbcType="VARCHAR" property="inputTime" />
+    <result column="TASK_BEGIN_TIME" jdbcType="VARCHAR" property="taskBeginTime" />
+    <result column="TASK_END_TIME" jdbcType="VARCHAR" property="taskEndTime" />
+    <result column="LAST_UPDATE_TIME" jdbcType="VARCHAR" property="lastUpdateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    TASK_NO, TASK_DATE, TASK_NAME, TASK_TYPE, PRI_FLAG, RUN_PERIOD, PERIOD_RULE, TASK_CLASS, 
+    COMMIT_NUM, EVENT_NUM, RUN_TIME_FLAG, FIRST_RUN_TIME, LAST_RUN_TIME, RUN_TIME, MUTEX_FLAG, 
+    MUTEX_NO_LIST, RELATION_FLAG, TASK_NO_LIST, FILE_EXCHANGE_TYPE, FILE_SPLIT, FILE_END_TYPE, 
+    FILE_COMPRESS_FLAG, SIGNAL_TYPE, SIGNAL_LIST, FILE_DATE_TYPE, DATA_DATE_TYPE, SIGN_DATE_TYPE, 
+    IGNORE_SIGNAL_FLAG, TASK_STATUS, ERROR_CODE, ERROR_INFO, INPUT_TIME, TASK_BEGIN_TIME, 
+    TASK_END_TIME, LAST_UPDATE_TIME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="com.bea.olp.BAT_TASK_RUNKey" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from BAT_TASK_RUN
+    where TASK_NO = #{taskNo,jdbcType=VARCHAR}
+      and TASK_DATE = #{taskDate,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.bea.olp.BAT_TASK_RUNKey">
+    delete from BAT_TASK_RUN
+    where TASK_NO = #{taskNo,jdbcType=VARCHAR}
+      and TASK_DATE = #{taskDate,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.BAT_TASK_RUN">
+    insert into BAT_TASK_RUN (TASK_NO, TASK_DATE, TASK_NAME, 
+      TASK_TYPE, PRI_FLAG, RUN_PERIOD, 
+      PERIOD_RULE, TASK_CLASS, COMMIT_NUM, 
+      EVENT_NUM, RUN_TIME_FLAG, FIRST_RUN_TIME, 
+      LAST_RUN_TIME, RUN_TIME, MUTEX_FLAG, 
+      MUTEX_NO_LIST, RELATION_FLAG, TASK_NO_LIST, 
+      FILE_EXCHANGE_TYPE, FILE_SPLIT, FILE_END_TYPE, 
+      FILE_COMPRESS_FLAG, SIGNAL_TYPE, SIGNAL_LIST, 
+      FILE_DATE_TYPE, DATA_DATE_TYPE, SIGN_DATE_TYPE, 
+      IGNORE_SIGNAL_FLAG, TASK_STATUS, ERROR_CODE, 
+      ERROR_INFO, INPUT_TIME, TASK_BEGIN_TIME, 
+      TASK_END_TIME, LAST_UPDATE_TIME)
+    values (#{taskNo,jdbcType=VARCHAR}, #{taskDate,jdbcType=VARCHAR}, #{taskName,jdbcType=VARCHAR}, 
+      #{taskType,jdbcType=VARCHAR}, #{priFlag,jdbcType=VARCHAR}, #{runPeriod,jdbcType=VARCHAR}, 
+      #{periodRule,jdbcType=VARCHAR}, #{taskClass,jdbcType=VARCHAR}, #{commitNum,jdbcType=DECIMAL}, 
+      #{eventNum,jdbcType=DECIMAL}, #{runTimeFlag,jdbcType=VARCHAR}, #{firstRunTime,jdbcType=VARCHAR}, 
+      #{lastRunTime,jdbcType=VARCHAR}, #{runTime,jdbcType=VARCHAR}, #{mutexFlag,jdbcType=VARCHAR}, 
+      #{mutexNoList,jdbcType=VARCHAR}, #{relationFlag,jdbcType=VARCHAR}, #{taskNoList,jdbcType=VARCHAR}, 
+      #{fileExchangeType,jdbcType=VARCHAR}, #{fileSplit,jdbcType=VARCHAR}, #{fileEndType,jdbcType=VARCHAR}, 
+      #{fileCompressFlag,jdbcType=VARCHAR}, #{signalType,jdbcType=VARCHAR}, #{signalList,jdbcType=VARCHAR}, 
+      #{fileDateType,jdbcType=VARCHAR}, #{dataDateType,jdbcType=VARCHAR}, #{signDateType,jdbcType=VARCHAR}, 
+      #{ignoreSignalFlag,jdbcType=VARCHAR}, #{taskStatus,jdbcType=VARCHAR}, #{errorCode,jdbcType=VARCHAR}, 
+      #{errorInfo,jdbcType=VARCHAR}, #{inputTime,jdbcType=VARCHAR}, #{taskBeginTime,jdbcType=VARCHAR}, 
+      #{taskEndTime,jdbcType=VARCHAR}, #{lastUpdateTime,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.BAT_TASK_RUN">
+    insert into BAT_TASK_RUN
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="taskNo != null">
+        TASK_NO,
+      </if>
+      <if test="taskDate != null">
+        TASK_DATE,
+      </if>
+      <if test="taskName != null">
+        TASK_NAME,
+      </if>
+      <if test="taskType != null">
+        TASK_TYPE,
+      </if>
+      <if test="priFlag != null">
+        PRI_FLAG,
+      </if>
+      <if test="runPeriod != null">
+        RUN_PERIOD,
+      </if>
+      <if test="periodRule != null">
+        PERIOD_RULE,
+      </if>
+      <if test="taskClass != null">
+        TASK_CLASS,
+      </if>
+      <if test="commitNum != null">
+        COMMIT_NUM,
+      </if>
+      <if test="eventNum != null">
+        EVENT_NUM,
+      </if>
+      <if test="runTimeFlag != null">
+        RUN_TIME_FLAG,
+      </if>
+      <if test="firstRunTime != null">
+        FIRST_RUN_TIME,
+      </if>
+      <if test="lastRunTime != null">
+        LAST_RUN_TIME,
+      </if>
+      <if test="runTime != null">
+        RUN_TIME,
+      </if>
+      <if test="mutexFlag != null">
+        MUTEX_FLAG,
+      </if>
+      <if test="mutexNoList != null">
+        MUTEX_NO_LIST,
+      </if>
+      <if test="relationFlag != null">
+        RELATION_FLAG,
+      </if>
+      <if test="taskNoList != null">
+        TASK_NO_LIST,
+      </if>
+      <if test="fileExchangeType != null">
+        FILE_EXCHANGE_TYPE,
+      </if>
+      <if test="fileSplit != null">
+        FILE_SPLIT,
+      </if>
+      <if test="fileEndType != null">
+        FILE_END_TYPE,
+      </if>
+      <if test="fileCompressFlag != null">
+        FILE_COMPRESS_FLAG,
+      </if>
+      <if test="signalType != null">
+        SIGNAL_TYPE,
+      </if>
+      <if test="signalList != null">
+        SIGNAL_LIST,
+      </if>
+      <if test="fileDateType != null">
+        FILE_DATE_TYPE,
+      </if>
+      <if test="dataDateType != null">
+        DATA_DATE_TYPE,
+      </if>
+      <if test="signDateType != null">
+        SIGN_DATE_TYPE,
+      </if>
+      <if test="ignoreSignalFlag != null">
+        IGNORE_SIGNAL_FLAG,
+      </if>
+      <if test="taskStatus != null">
+        TASK_STATUS,
+      </if>
+      <if test="errorCode != null">
+        ERROR_CODE,
+      </if>
+      <if test="errorInfo != null">
+        ERROR_INFO,
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME,
+      </if>
+      <if test="taskBeginTime != null">
+        TASK_BEGIN_TIME,
+      </if>
+      <if test="taskEndTime != null">
+        TASK_END_TIME,
+      </if>
+      <if test="lastUpdateTime != null">
+        LAST_UPDATE_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="taskNo != null">
+        #{taskNo,jdbcType=VARCHAR},
+      </if>
+      <if test="taskDate != null">
+        #{taskDate,jdbcType=VARCHAR},
+      </if>
+      <if test="taskName != null">
+        #{taskName,jdbcType=VARCHAR},
+      </if>
+      <if test="taskType != null">
+        #{taskType,jdbcType=VARCHAR},
+      </if>
+      <if test="priFlag != null">
+        #{priFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="runPeriod != null">
+        #{runPeriod,jdbcType=VARCHAR},
+      </if>
+      <if test="periodRule != null">
+        #{periodRule,jdbcType=VARCHAR},
+      </if>
+      <if test="taskClass != null">
+        #{taskClass,jdbcType=VARCHAR},
+      </if>
+      <if test="commitNum != null">
+        #{commitNum,jdbcType=DECIMAL},
+      </if>
+      <if test="eventNum != null">
+        #{eventNum,jdbcType=DECIMAL},
+      </if>
+      <if test="runTimeFlag != null">
+        #{runTimeFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="firstRunTime != null">
+        #{firstRunTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastRunTime != null">
+        #{lastRunTime,jdbcType=VARCHAR},
+      </if>
+      <if test="runTime != null">
+        #{runTime,jdbcType=VARCHAR},
+      </if>
+      <if test="mutexFlag != null">
+        #{mutexFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="mutexNoList != null">
+        #{mutexNoList,jdbcType=VARCHAR},
+      </if>
+      <if test="relationFlag != null">
+        #{relationFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="taskNoList != null">
+        #{taskNoList,jdbcType=VARCHAR},
+      </if>
+      <if test="fileExchangeType != null">
+        #{fileExchangeType,jdbcType=VARCHAR},
+      </if>
+      <if test="fileSplit != null">
+        #{fileSplit,jdbcType=VARCHAR},
+      </if>
+      <if test="fileEndType != null">
+        #{fileEndType,jdbcType=VARCHAR},
+      </if>
+      <if test="fileCompressFlag != null">
+        #{fileCompressFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="signalType != null">
+        #{signalType,jdbcType=VARCHAR},
+      </if>
+      <if test="signalList != null">
+        #{signalList,jdbcType=VARCHAR},
+      </if>
+      <if test="fileDateType != null">
+        #{fileDateType,jdbcType=VARCHAR},
+      </if>
+      <if test="dataDateType != null">
+        #{dataDateType,jdbcType=VARCHAR},
+      </if>
+      <if test="signDateType != null">
+        #{signDateType,jdbcType=VARCHAR},
+      </if>
+      <if test="ignoreSignalFlag != null">
+        #{ignoreSignalFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="taskStatus != null">
+        #{taskStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="errorCode != null">
+        #{errorCode,jdbcType=VARCHAR},
+      </if>
+      <if test="errorInfo != null">
+        #{errorInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="taskBeginTime != null">
+        #{taskBeginTime,jdbcType=VARCHAR},
+      </if>
+      <if test="taskEndTime != null">
+        #{taskEndTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        #{lastUpdateTime,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.BAT_TASK_RUN">
+    update BAT_TASK_RUN
+    <set>
+      <if test="taskName != null">
+        TASK_NAME = #{taskName,jdbcType=VARCHAR},
+      </if>
+      <if test="taskType != null">
+        TASK_TYPE = #{taskType,jdbcType=VARCHAR},
+      </if>
+      <if test="priFlag != null">
+        PRI_FLAG = #{priFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="runPeriod != null">
+        RUN_PERIOD = #{runPeriod,jdbcType=VARCHAR},
+      </if>
+      <if test="periodRule != null">
+        PERIOD_RULE = #{periodRule,jdbcType=VARCHAR},
+      </if>
+      <if test="taskClass != null">
+        TASK_CLASS = #{taskClass,jdbcType=VARCHAR},
+      </if>
+      <if test="commitNum != null">
+        COMMIT_NUM = #{commitNum,jdbcType=DECIMAL},
+      </if>
+      <if test="eventNum != null">
+        EVENT_NUM = #{eventNum,jdbcType=DECIMAL},
+      </if>
+      <if test="runTimeFlag != null">
+        RUN_TIME_FLAG = #{runTimeFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="firstRunTime != null">
+        FIRST_RUN_TIME = #{firstRunTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastRunTime != null">
+        LAST_RUN_TIME = #{lastRunTime,jdbcType=VARCHAR},
+      </if>
+      <if test="runTime != null">
+        RUN_TIME = #{runTime,jdbcType=VARCHAR},
+      </if>
+      <if test="mutexFlag != null">
+        MUTEX_FLAG = #{mutexFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="mutexNoList != null">
+        MUTEX_NO_LIST = #{mutexNoList,jdbcType=VARCHAR},
+      </if>
+      <if test="relationFlag != null">
+        RELATION_FLAG = #{relationFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="taskNoList != null">
+        TASK_NO_LIST = #{taskNoList,jdbcType=VARCHAR},
+      </if>
+      <if test="fileExchangeType != null">
+        FILE_EXCHANGE_TYPE = #{fileExchangeType,jdbcType=VARCHAR},
+      </if>
+      <if test="fileSplit != null">
+        FILE_SPLIT = #{fileSplit,jdbcType=VARCHAR},
+      </if>
+      <if test="fileEndType != null">
+        FILE_END_TYPE = #{fileEndType,jdbcType=VARCHAR},
+      </if>
+      <if test="fileCompressFlag != null">
+        FILE_COMPRESS_FLAG = #{fileCompressFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="signalType != null">
+        SIGNAL_TYPE = #{signalType,jdbcType=VARCHAR},
+      </if>
+      <if test="signalList != null">
+        SIGNAL_LIST = #{signalList,jdbcType=VARCHAR},
+      </if>
+      <if test="fileDateType != null">
+        FILE_DATE_TYPE = #{fileDateType,jdbcType=VARCHAR},
+      </if>
+      <if test="dataDateType != null">
+        DATA_DATE_TYPE = #{dataDateType,jdbcType=VARCHAR},
+      </if>
+      <if test="signDateType != null">
+        SIGN_DATE_TYPE = #{signDateType,jdbcType=VARCHAR},
+      </if>
+      <if test="ignoreSignalFlag != null">
+        IGNORE_SIGNAL_FLAG = #{ignoreSignalFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="taskStatus != null">
+        TASK_STATUS = #{taskStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="errorCode != null">
+        ERROR_CODE = #{errorCode,jdbcType=VARCHAR},
+      </if>
+      <if test="errorInfo != null">
+        ERROR_INFO = #{errorInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME = #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="taskBeginTime != null">
+        TASK_BEGIN_TIME = #{taskBeginTime,jdbcType=VARCHAR},
+      </if>
+      <if test="taskEndTime != null">
+        TASK_END_TIME = #{taskEndTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where TASK_NO = #{taskNo,jdbcType=VARCHAR}
+      and TASK_DATE = #{taskDate,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.BAT_TASK_RUN">
+    update BAT_TASK_RUN
+    set TASK_NAME = #{taskName,jdbcType=VARCHAR},
+      TASK_TYPE = #{taskType,jdbcType=VARCHAR},
+      PRI_FLAG = #{priFlag,jdbcType=VARCHAR},
+      RUN_PERIOD = #{runPeriod,jdbcType=VARCHAR},
+      PERIOD_RULE = #{periodRule,jdbcType=VARCHAR},
+      TASK_CLASS = #{taskClass,jdbcType=VARCHAR},
+      COMMIT_NUM = #{commitNum,jdbcType=DECIMAL},
+      EVENT_NUM = #{eventNum,jdbcType=DECIMAL},
+      RUN_TIME_FLAG = #{runTimeFlag,jdbcType=VARCHAR},
+      FIRST_RUN_TIME = #{firstRunTime,jdbcType=VARCHAR},
+      LAST_RUN_TIME = #{lastRunTime,jdbcType=VARCHAR},
+      RUN_TIME = #{runTime,jdbcType=VARCHAR},
+      MUTEX_FLAG = #{mutexFlag,jdbcType=VARCHAR},
+      MUTEX_NO_LIST = #{mutexNoList,jdbcType=VARCHAR},
+      RELATION_FLAG = #{relationFlag,jdbcType=VARCHAR},
+      TASK_NO_LIST = #{taskNoList,jdbcType=VARCHAR},
+      FILE_EXCHANGE_TYPE = #{fileExchangeType,jdbcType=VARCHAR},
+      FILE_SPLIT = #{fileSplit,jdbcType=VARCHAR},
+      FILE_END_TYPE = #{fileEndType,jdbcType=VARCHAR},
+      FILE_COMPRESS_FLAG = #{fileCompressFlag,jdbcType=VARCHAR},
+      SIGNAL_TYPE = #{signalType,jdbcType=VARCHAR},
+      SIGNAL_LIST = #{signalList,jdbcType=VARCHAR},
+      FILE_DATE_TYPE = #{fileDateType,jdbcType=VARCHAR},
+      DATA_DATE_TYPE = #{dataDateType,jdbcType=VARCHAR},
+      SIGN_DATE_TYPE = #{signDateType,jdbcType=VARCHAR},
+      IGNORE_SIGNAL_FLAG = #{ignoreSignalFlag,jdbcType=VARCHAR},
+      TASK_STATUS = #{taskStatus,jdbcType=VARCHAR},
+      ERROR_CODE = #{errorCode,jdbcType=VARCHAR},
+      ERROR_INFO = #{errorInfo,jdbcType=VARCHAR},
+      INPUT_TIME = #{inputTime,jdbcType=VARCHAR},
+      TASK_BEGIN_TIME = #{taskBeginTime,jdbcType=VARCHAR},
+      TASK_END_TIME = #{taskEndTime,jdbcType=VARCHAR},
+      LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=VARCHAR}
+    where TASK_NO = #{taskNo,jdbcType=VARCHAR}
+      and TASK_DATE = #{taskDate,jdbcType=VARCHAR}
+  </update>
+</mapper>

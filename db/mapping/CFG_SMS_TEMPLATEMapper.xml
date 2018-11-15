@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.CFG_SMS_TEMPLATEMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.CFG_SMS_TEMPLATE">
+    <id column="SMS_ID" jdbcType="VARCHAR" property="smsId" />
+    <result column="SEND_START_TIME" jdbcType="VARCHAR" property="sendStartTime" />
+    <result column="SEND_END_TIME" jdbcType="VARCHAR" property="sendEndTime" />
+    <result column="SEND_NUM" jdbcType="DECIMAL" property="sendNum" />
+    <result column="SMS_INFO" jdbcType="VARCHAR" property="smsInfo" />
+    <result column="SMS_OBJ" jdbcType="VARCHAR" property="smsObj" />
+    <result column="SMS_CHANNEL" jdbcType="VARCHAR" property="smsChannel" />
+    <result column="SMS_STATUS" jdbcType="VARCHAR" property="smsStatus" />
+    <result column="REMARKS" jdbcType="VARCHAR" property="remarks" />
+    <result column="BIZ_OP_ID" jdbcType="VARCHAR" property="bizOpId" />
+    <result column="BIZ_ORG_ID" jdbcType="VARCHAR" property="bizOrgId" />
+    <result column="INPUT_DATE" jdbcType="VARCHAR" property="inputDate" />
+    <result column="INPUT_TIME" jdbcType="VARCHAR" property="inputTime" />
+    <result column="LAST_UPDATE_DATE" jdbcType="VARCHAR" property="lastUpdateDate" />
+    <result column="LAST_UPDATE_TIME" jdbcType="VARCHAR" property="lastUpdateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    SMS_ID, SEND_START_TIME, SEND_END_TIME, SEND_NUM, SMS_INFO, SMS_OBJ, SMS_CHANNEL, 
+    SMS_STATUS, REMARKS, BIZ_OP_ID, BIZ_ORG_ID, INPUT_DATE, INPUT_TIME, LAST_UPDATE_DATE, 
+    LAST_UPDATE_TIME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from CFG_SMS_TEMPLATE
+    where SMS_ID = #{smsId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from CFG_SMS_TEMPLATE
+    where SMS_ID = #{smsId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.CFG_SMS_TEMPLATE">
+    insert into CFG_SMS_TEMPLATE (SMS_ID, SEND_START_TIME, SEND_END_TIME, 
+      SEND_NUM, SMS_INFO, SMS_OBJ, 
+      SMS_CHANNEL, SMS_STATUS, REMARKS, 
+      BIZ_OP_ID, BIZ_ORG_ID, INPUT_DATE, 
+      INPUT_TIME, LAST_UPDATE_DATE, LAST_UPDATE_TIME
+      )
+    values (#{smsId,jdbcType=VARCHAR}, #{sendStartTime,jdbcType=VARCHAR}, #{sendEndTime,jdbcType=VARCHAR}, 
+      #{sendNum,jdbcType=DECIMAL}, #{smsInfo,jdbcType=VARCHAR}, #{smsObj,jdbcType=VARCHAR}, 
+      #{smsChannel,jdbcType=VARCHAR}, #{smsStatus,jdbcType=VARCHAR}, #{remarks,jdbcType=VARCHAR}, 
+      #{bizOpId,jdbcType=VARCHAR}, #{bizOrgId,jdbcType=VARCHAR}, #{inputDate,jdbcType=VARCHAR}, 
+      #{inputTime,jdbcType=VARCHAR}, #{lastUpdateDate,jdbcType=VARCHAR}, #{lastUpdateTime,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.CFG_SMS_TEMPLATE">
+    insert into CFG_SMS_TEMPLATE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="smsId != null">
+        SMS_ID,
+      </if>
+      <if test="sendStartTime != null">
+        SEND_START_TIME,
+      </if>
+      <if test="sendEndTime != null">
+        SEND_END_TIME,
+      </if>
+      <if test="sendNum != null">
+        SEND_NUM,
+      </if>
+      <if test="smsInfo != null">
+        SMS_INFO,
+      </if>
+      <if test="smsObj != null">
+        SMS_OBJ,
+      </if>
+      <if test="smsChannel != null">
+        SMS_CHANNEL,
+      </if>
+      <if test="smsStatus != null">
+        SMS_STATUS,
+      </if>
+      <if test="remarks != null">
+        REMARKS,
+      </if>
+      <if test="bizOpId != null">
+        BIZ_OP_ID,
+      </if>
+      <if test="bizOrgId != null">
+        BIZ_ORG_ID,
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE,
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME,
+      </if>
+      <if test="lastUpdateDate != null">
+        LAST_UPDATE_DATE,
+      </if>
+      <if test="lastUpdateTime != null">
+        LAST_UPDATE_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="smsId != null">
+        #{smsId,jdbcType=VARCHAR},
+      </if>
+      <if test="sendStartTime != null">
+        #{sendStartTime,jdbcType=VARCHAR},
+      </if>
+      <if test="sendEndTime != null">
+        #{sendEndTime,jdbcType=VARCHAR},
+      </if>
+      <if test="sendNum != null">
+        #{sendNum,jdbcType=DECIMAL},
+      </if>
+      <if test="smsInfo != null">
+        #{smsInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="smsObj != null">
+        #{smsObj,jdbcType=VARCHAR},
+      </if>
+      <if test="smsChannel != null">
+        #{smsChannel,jdbcType=VARCHAR},
+      </if>
+      <if test="smsStatus != null">
+        #{smsStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null">
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="bizOpId != null">
+        #{bizOpId,jdbcType=VARCHAR},
+      </if>
+      <if test="bizOrgId != null">
+        #{bizOrgId,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateDate != null">
+        #{lastUpdateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        #{lastUpdateTime,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.CFG_SMS_TEMPLATE">
+    update CFG_SMS_TEMPLATE
+    <set>
+      <if test="sendStartTime != null">
+        SEND_START_TIME = #{sendStartTime,jdbcType=VARCHAR},
+      </if>
+      <if test="sendEndTime != null">
+        SEND_END_TIME = #{sendEndTime,jdbcType=VARCHAR},
+      </if>
+      <if test="sendNum != null">
+        SEND_NUM = #{sendNum,jdbcType=DECIMAL},
+      </if>
+      <if test="smsInfo != null">
+        SMS_INFO = #{smsInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="smsObj != null">
+        SMS_OBJ = #{smsObj,jdbcType=VARCHAR},
+      </if>
+      <if test="smsChannel != null">
+        SMS_CHANNEL = #{smsChannel,jdbcType=VARCHAR},
+      </if>
+      <if test="smsStatus != null">
+        SMS_STATUS = #{smsStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null">
+        REMARKS = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="bizOpId != null">
+        BIZ_OP_ID = #{bizOpId,jdbcType=VARCHAR},
+      </if>
+      <if test="bizOrgId != null">
+        BIZ_ORG_ID = #{bizOrgId,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE = #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME = #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateDate != null">
+        LAST_UPDATE_DATE = #{lastUpdateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where SMS_ID = #{smsId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.CFG_SMS_TEMPLATE">
+    update CFG_SMS_TEMPLATE
+    set SEND_START_TIME = #{sendStartTime,jdbcType=VARCHAR},
+      SEND_END_TIME = #{sendEndTime,jdbcType=VARCHAR},
+      SEND_NUM = #{sendNum,jdbcType=DECIMAL},
+      SMS_INFO = #{smsInfo,jdbcType=VARCHAR},
+      SMS_OBJ = #{smsObj,jdbcType=VARCHAR},
+      SMS_CHANNEL = #{smsChannel,jdbcType=VARCHAR},
+      SMS_STATUS = #{smsStatus,jdbcType=VARCHAR},
+      REMARKS = #{remarks,jdbcType=VARCHAR},
+      BIZ_OP_ID = #{bizOpId,jdbcType=VARCHAR},
+      BIZ_ORG_ID = #{bizOrgId,jdbcType=VARCHAR},
+      INPUT_DATE = #{inputDate,jdbcType=VARCHAR},
+      INPUT_TIME = #{inputTime,jdbcType=VARCHAR},
+      LAST_UPDATE_DATE = #{lastUpdateDate,jdbcType=VARCHAR},
+      LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=VARCHAR}
+    where SMS_ID = #{smsId,jdbcType=VARCHAR}
+  </update>
+</mapper>

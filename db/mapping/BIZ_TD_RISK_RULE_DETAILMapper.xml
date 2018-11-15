@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.BIZ_TD_RISK_RULE_DETAILMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.BIZ_TD_RISK_RULE_DETAIL">
+    <result column="APP_NO" jdbcType="VARCHAR" property="appNo" />
+    <result column="RULE_ID" jdbcType="VARCHAR" property="ruleId" />
+    <result column="TYPE" jdbcType="VARCHAR" property="type" />
+    <result column="DIM_TYPE" jdbcType="VARCHAR" property="dimType" />
+    <result column="DIM_VALUE" jdbcType="VARCHAR" property="dimValue" />
+    <result column="GROUP_ID" jdbcType="VARCHAR" property="groupId" />
+    <result column="TOTAL_CNT" jdbcType="VARCHAR" property="totalCnt" />
+    <result column="BLACK_CNT" jdbcType="VARCHAR" property="blackCnt" />
+    <result column="GREY_CNT" jdbcType="VARCHAR" property="greyCnt" />
+    <result column="NODE_DIST" jdbcType="VARCHAR" property="nodeDist" />
+    <result column="FRAUD_DIST" jdbcType="VARCHAR" property="fraudDist" />
+    <result column="BLACK_RAT" jdbcType="VARCHAR" property="blackRat" />
+    <result column="GREY_RAT" jdbcType="VARCHAR" property="greyRat" />
+    <result column="DEGREE" jdbcType="VARCHAR" property="degree" />
+    <result column="TOTAL_CNT_TWO" jdbcType="VARCHAR" property="totalCntTwo" />
+    <result column="BLACK_CNT_ONE" jdbcType="VARCHAR" property="blackCntOne" />
+    <result column="FRAUD_DIST_ONE" jdbcType="VARCHAR" property="fraudDistOne" />
+    <result column="BLACK_CNT_TWO" jdbcType="VARCHAR" property="blackCntTwo" />
+    <result column="FRAUD_DIST_TWO" jdbcType="VARCHAR" property="fraudDistTwo" />
+    <result column="BLACK_DST" jdbcType="VARCHAR" property="blackDst" />
+    <result column="CORE_DST" jdbcType="VARCHAR" property="coreDst" />
+    <result column="NODE_SCORE" jdbcType="VARCHAR" property="nodeScore" />
+    <result column="INPUT_DATE" jdbcType="VARCHAR" property="inputDate" />
+    <result column="INPUT_TIME" jdbcType="VARCHAR" property="inputTime" />
+    <result column="LAST_UPDATE_DATE" jdbcType="VARCHAR" property="lastUpdateDate" />
+    <result column="LAST_UPDATE_TIME" jdbcType="VARCHAR" property="lastUpdateTime" />
+  </resultMap>
+  <insert id="insert" parameterType="com.bea.olp.BIZ_TD_RISK_RULE_DETAIL">
+    insert into BIZ_TD_RISK_RULE_DETAIL (APP_NO, RULE_ID, TYPE, 
+      DIM_TYPE, DIM_VALUE, GROUP_ID, 
+      TOTAL_CNT, BLACK_CNT, GREY_CNT, 
+      NODE_DIST, FRAUD_DIST, BLACK_RAT, 
+      GREY_RAT, DEGREE, TOTAL_CNT_TWO, 
+      BLACK_CNT_ONE, FRAUD_DIST_ONE, BLACK_CNT_TWO, 
+      FRAUD_DIST_TWO, BLACK_DST, CORE_DST, 
+      NODE_SCORE, INPUT_DATE, INPUT_TIME, 
+      LAST_UPDATE_DATE, LAST_UPDATE_TIME)
+    values (#{appNo,jdbcType=VARCHAR}, #{ruleId,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, 
+      #{dimType,jdbcType=VARCHAR}, #{dimValue,jdbcType=VARCHAR}, #{groupId,jdbcType=VARCHAR}, 
+      #{totalCnt,jdbcType=VARCHAR}, #{blackCnt,jdbcType=VARCHAR}, #{greyCnt,jdbcType=VARCHAR}, 
+      #{nodeDist,jdbcType=VARCHAR}, #{fraudDist,jdbcType=VARCHAR}, #{blackRat,jdbcType=VARCHAR}, 
+      #{greyRat,jdbcType=VARCHAR}, #{degree,jdbcType=VARCHAR}, #{totalCntTwo,jdbcType=VARCHAR}, 
+      #{blackCntOne,jdbcType=VARCHAR}, #{fraudDistOne,jdbcType=VARCHAR}, #{blackCntTwo,jdbcType=VARCHAR}, 
+      #{fraudDistTwo,jdbcType=VARCHAR}, #{blackDst,jdbcType=VARCHAR}, #{coreDst,jdbcType=VARCHAR}, 
+      #{nodeScore,jdbcType=VARCHAR}, #{inputDate,jdbcType=VARCHAR}, #{inputTime,jdbcType=VARCHAR}, 
+      #{lastUpdateDate,jdbcType=VARCHAR}, #{lastUpdateTime,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.BIZ_TD_RISK_RULE_DETAIL">
+    insert into BIZ_TD_RISK_RULE_DETAIL
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="appNo != null">
+        APP_NO,
+      </if>
+      <if test="ruleId != null">
+        RULE_ID,
+      </if>
+      <if test="type != null">
+        TYPE,
+      </if>
+      <if test="dimType != null">
+        DIM_TYPE,
+      </if>
+      <if test="dimValue != null">
+        DIM_VALUE,
+      </if>
+      <if test="groupId != null">
+        GROUP_ID,
+      </if>
+      <if test="totalCnt != null">
+        TOTAL_CNT,
+      </if>
+      <if test="blackCnt != null">
+        BLACK_CNT,
+      </if>
+      <if test="greyCnt != null">
+        GREY_CNT,
+      </if>
+      <if test="nodeDist != null">
+        NODE_DIST,
+      </if>
+      <if test="fraudDist != null">
+        FRAUD_DIST,
+      </if>
+      <if test="blackRat != null">
+        BLACK_RAT,
+      </if>
+      <if test="greyRat != null">
+        GREY_RAT,
+      </if>
+      <if test="degree != null">
+        DEGREE,
+      </if>
+      <if test="totalCntTwo != null">
+        TOTAL_CNT_TWO,
+      </if>
+      <if test="blackCntOne != null">
+        BLACK_CNT_ONE,
+      </if>
+      <if test="fraudDistOne != null">
+        FRAUD_DIST_ONE,
+      </if>
+      <if test="blackCntTwo != null">
+        BLACK_CNT_TWO,
+      </if>
+      <if test="fraudDistTwo != null">
+        FRAUD_DIST_TWO,
+      </if>
+      <if test="blackDst != null">
+        BLACK_DST,
+      </if>
+      <if test="coreDst != null">
+        CORE_DST,
+      </if>
+      <if test="nodeScore != null">
+        NODE_SCORE,
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE,
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME,
+      </if>
+      <if test="lastUpdateDate != null">
+        LAST_UPDATE_DATE,
+      </if>
+      <if test="lastUpdateTime != null">
+        LAST_UPDATE_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="appNo != null">
+        #{appNo,jdbcType=VARCHAR},
+      </if>
+      <if test="ruleId != null">
+        #{ruleId,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="dimType != null">
+        #{dimType,jdbcType=VARCHAR},
+      </if>
+      <if test="dimValue != null">
+        #{dimValue,jdbcType=VARCHAR},
+      </if>
+      <if test="groupId != null">
+        #{groupId,jdbcType=VARCHAR},
+      </if>
+      <if test="totalCnt != null">
+        #{totalCnt,jdbcType=VARCHAR},
+      </if>
+      <if test="blackCnt != null">
+        #{blackCnt,jdbcType=VARCHAR},
+      </if>
+      <if test="greyCnt != null">
+        #{greyCnt,jdbcType=VARCHAR},
+      </if>
+      <if test="nodeDist != null">
+        #{nodeDist,jdbcType=VARCHAR},
+      </if>
+      <if test="fraudDist != null">
+        #{fraudDist,jdbcType=VARCHAR},
+      </if>
+      <if test="blackRat != null">
+        #{blackRat,jdbcType=VARCHAR},
+      </if>
+      <if test="greyRat != null">
+        #{greyRat,jdbcType=VARCHAR},
+      </if>
+      <if test="degree != null">
+        #{degree,jdbcType=VARCHAR},
+      </if>
+      <if test="totalCntTwo != null">
+        #{totalCntTwo,jdbcType=VARCHAR},
+      </if>
+      <if test="blackCntOne != null">
+        #{blackCntOne,jdbcType=VARCHAR},
+      </if>
+      <if test="fraudDistOne != null">
+        #{fraudDistOne,jdbcType=VARCHAR},
+      </if>
+      <if test="blackCntTwo != null">
+        #{blackCntTwo,jdbcType=VARCHAR},
+      </if>
+      <if test="fraudDistTwo != null">
+        #{fraudDistTwo,jdbcType=VARCHAR},
+      </if>
+      <if test="blackDst != null">
+        #{blackDst,jdbcType=VARCHAR},
+      </if>
+      <if test="coreDst != null">
+        #{coreDst,jdbcType=VARCHAR},
+      </if>
+      <if test="nodeScore != null">
+        #{nodeScore,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateDate != null">
+        #{lastUpdateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        #{lastUpdateTime,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

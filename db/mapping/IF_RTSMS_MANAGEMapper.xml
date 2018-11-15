@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.IF_RTSMS_MANAGEMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.IF_RTSMS_MANAGE">
+    <id column="SMS_NO" jdbcType="VARCHAR" property="smsNo" />
+    <id column="SMS_DATE" jdbcType="VARCHAR" property="smsDate" />
+    <result column="CUST_ID_CORE" jdbcType="VARCHAR" property="custIdCore" />
+    <result column="CUST_NAME" jdbcType="VARCHAR" property="custName" />
+    <result column="CUS_ACC_TYPE" jdbcType="CHAR" property="cusAccType" />
+    <result column="CUS_ACC_NO" jdbcType="VARCHAR" property="cusAccNo" />
+    <result column="SMS_ORG_NO" jdbcType="VARCHAR" property="smsOrgNo" />
+    <result column="SMS_ORG_NAME" jdbcType="VARCHAR" property="smsOrgName" />
+    <result column="SMS_CHANNEL" jdbcType="CHAR" property="smsChannel" />
+    <result column="SMS_OBJ_ADDR" jdbcType="VARCHAR" property="smsObjAddr" />
+    <result column="FROM_SYS" jdbcType="VARCHAR" property="fromSys" />
+    <result column="SAVE_WAY" jdbcType="CHAR" property="saveWay" />
+    <result column="SMS_INFO" jdbcType="VARCHAR" property="smsInfo" />
+    <result column="SEND_NUM" jdbcType="DECIMAL" property="sendNum" />
+    <result column="SEND_STR_TIME" jdbcType="VARCHAR" property="sendStrTime" />
+    <result column="SEND_END_TIME" jdbcType="VARCHAR" property="sendEndTime" />
+    <result column="SMS_RETURN_NO" jdbcType="VARCHAR" property="smsReturnNo" />
+    <result column="STATE" jdbcType="CHAR" property="state" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    SMS_NO, SMS_DATE, CUST_ID_CORE, CUST_NAME, CUS_ACC_TYPE, CUS_ACC_NO, SMS_ORG_NO, 
+    SMS_ORG_NAME, SMS_CHANNEL, SMS_OBJ_ADDR, FROM_SYS, SAVE_WAY, SMS_INFO, SEND_NUM, 
+    SEND_STR_TIME, SEND_END_TIME, SMS_RETURN_NO, STATE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="com.bea.olp.IF_RTSMS_MANAGEKey" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from IF_RTSMS_MANAGE
+    where SMS_NO = #{smsNo,jdbcType=VARCHAR}
+      and SMS_DATE = #{smsDate,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.bea.olp.IF_RTSMS_MANAGEKey">
+    delete from IF_RTSMS_MANAGE
+    where SMS_NO = #{smsNo,jdbcType=VARCHAR}
+      and SMS_DATE = #{smsDate,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.IF_RTSMS_MANAGE">
+    insert into IF_RTSMS_MANAGE (SMS_NO, SMS_DATE, CUST_ID_CORE, 
+      CUST_NAME, CUS_ACC_TYPE, CUS_ACC_NO, 
+      SMS_ORG_NO, SMS_ORG_NAME, SMS_CHANNEL, 
+      SMS_OBJ_ADDR, FROM_SYS, SAVE_WAY, 
+      SMS_INFO, SEND_NUM, SEND_STR_TIME, 
+      SEND_END_TIME, SMS_RETURN_NO, STATE
+      )
+    values (#{smsNo,jdbcType=VARCHAR}, #{smsDate,jdbcType=VARCHAR}, #{custIdCore,jdbcType=VARCHAR}, 
+      #{custName,jdbcType=VARCHAR}, #{cusAccType,jdbcType=CHAR}, #{cusAccNo,jdbcType=VARCHAR}, 
+      #{smsOrgNo,jdbcType=VARCHAR}, #{smsOrgName,jdbcType=VARCHAR}, #{smsChannel,jdbcType=CHAR}, 
+      #{smsObjAddr,jdbcType=VARCHAR}, #{fromSys,jdbcType=VARCHAR}, #{saveWay,jdbcType=CHAR}, 
+      #{smsInfo,jdbcType=VARCHAR}, #{sendNum,jdbcType=DECIMAL}, #{sendStrTime,jdbcType=VARCHAR}, 
+      #{sendEndTime,jdbcType=VARCHAR}, #{smsReturnNo,jdbcType=VARCHAR}, #{state,jdbcType=CHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.IF_RTSMS_MANAGE">
+    insert into IF_RTSMS_MANAGE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="smsNo != null">
+        SMS_NO,
+      </if>
+      <if test="smsDate != null">
+        SMS_DATE,
+      </if>
+      <if test="custIdCore != null">
+        CUST_ID_CORE,
+      </if>
+      <if test="custName != null">
+        CUST_NAME,
+      </if>
+      <if test="cusAccType != null">
+        CUS_ACC_TYPE,
+      </if>
+      <if test="cusAccNo != null">
+        CUS_ACC_NO,
+      </if>
+      <if test="smsOrgNo != null">
+        SMS_ORG_NO,
+      </if>
+      <if test="smsOrgName != null">
+        SMS_ORG_NAME,
+      </if>
+      <if test="smsChannel != null">
+        SMS_CHANNEL,
+      </if>
+      <if test="smsObjAddr != null">
+        SMS_OBJ_ADDR,
+      </if>
+      <if test="fromSys != null">
+        FROM_SYS,
+      </if>
+      <if test="saveWay != null">
+        SAVE_WAY,
+      </if>
+      <if test="smsInfo != null">
+        SMS_INFO,
+      </if>
+      <if test="sendNum != null">
+        SEND_NUM,
+      </if>
+      <if test="sendStrTime != null">
+        SEND_STR_TIME,
+      </if>
+      <if test="sendEndTime != null">
+        SEND_END_TIME,
+      </if>
+      <if test="smsReturnNo != null">
+        SMS_RETURN_NO,
+      </if>
+      <if test="state != null">
+        STATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="smsNo != null">
+        #{smsNo,jdbcType=VARCHAR},
+      </if>
+      <if test="smsDate != null">
+        #{smsDate,jdbcType=VARCHAR},
+      </if>
+      <if test="custIdCore != null">
+        #{custIdCore,jdbcType=VARCHAR},
+      </if>
+      <if test="custName != null">
+        #{custName,jdbcType=VARCHAR},
+      </if>
+      <if test="cusAccType != null">
+        #{cusAccType,jdbcType=CHAR},
+      </if>
+      <if test="cusAccNo != null">
+        #{cusAccNo,jdbcType=VARCHAR},
+      </if>
+      <if test="smsOrgNo != null">
+        #{smsOrgNo,jdbcType=VARCHAR},
+      </if>
+      <if test="smsOrgName != null">
+        #{smsOrgName,jdbcType=VARCHAR},
+      </if>
+      <if test="smsChannel != null">
+        #{smsChannel,jdbcType=CHAR},
+      </if>
+      <if test="smsObjAddr != null">
+        #{smsObjAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="fromSys != null">
+        #{fromSys,jdbcType=VARCHAR},
+      </if>
+      <if test="saveWay != null">
+        #{saveWay,jdbcType=CHAR},
+      </if>
+      <if test="smsInfo != null">
+        #{smsInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="sendNum != null">
+        #{sendNum,jdbcType=DECIMAL},
+      </if>
+      <if test="sendStrTime != null">
+        #{sendStrTime,jdbcType=VARCHAR},
+      </if>
+      <if test="sendEndTime != null">
+        #{sendEndTime,jdbcType=VARCHAR},
+      </if>
+      <if test="smsReturnNo != null">
+        #{smsReturnNo,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null">
+        #{state,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.IF_RTSMS_MANAGE">
+    update IF_RTSMS_MANAGE
+    <set>
+      <if test="custIdCore != null">
+        CUST_ID_CORE = #{custIdCore,jdbcType=VARCHAR},
+      </if>
+      <if test="custName != null">
+        CUST_NAME = #{custName,jdbcType=VARCHAR},
+      </if>
+      <if test="cusAccType != null">
+        CUS_ACC_TYPE = #{cusAccType,jdbcType=CHAR},
+      </if>
+      <if test="cusAccNo != null">
+        CUS_ACC_NO = #{cusAccNo,jdbcType=VARCHAR},
+      </if>
+      <if test="smsOrgNo != null">
+        SMS_ORG_NO = #{smsOrgNo,jdbcType=VARCHAR},
+      </if>
+      <if test="smsOrgName != null">
+        SMS_ORG_NAME = #{smsOrgName,jdbcType=VARCHAR},
+      </if>
+      <if test="smsChannel != null">
+        SMS_CHANNEL = #{smsChannel,jdbcType=CHAR},
+      </if>
+      <if test="smsObjAddr != null">
+        SMS_OBJ_ADDR = #{smsObjAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="fromSys != null">
+        FROM_SYS = #{fromSys,jdbcType=VARCHAR},
+      </if>
+      <if test="saveWay != null">
+        SAVE_WAY = #{saveWay,jdbcType=CHAR},
+      </if>
+      <if test="smsInfo != null">
+        SMS_INFO = #{smsInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="sendNum != null">
+        SEND_NUM = #{sendNum,jdbcType=DECIMAL},
+      </if>
+      <if test="sendStrTime != null">
+        SEND_STR_TIME = #{sendStrTime,jdbcType=VARCHAR},
+      </if>
+      <if test="sendEndTime != null">
+        SEND_END_TIME = #{sendEndTime,jdbcType=VARCHAR},
+      </if>
+      <if test="smsReturnNo != null">
+        SMS_RETURN_NO = #{smsReturnNo,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null">
+        STATE = #{state,jdbcType=CHAR},
+      </if>
+    </set>
+    where SMS_NO = #{smsNo,jdbcType=VARCHAR}
+      and SMS_DATE = #{smsDate,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.IF_RTSMS_MANAGE">
+    update IF_RTSMS_MANAGE
+    set CUST_ID_CORE = #{custIdCore,jdbcType=VARCHAR},
+      CUST_NAME = #{custName,jdbcType=VARCHAR},
+      CUS_ACC_TYPE = #{cusAccType,jdbcType=CHAR},
+      CUS_ACC_NO = #{cusAccNo,jdbcType=VARCHAR},
+      SMS_ORG_NO = #{smsOrgNo,jdbcType=VARCHAR},
+      SMS_ORG_NAME = #{smsOrgName,jdbcType=VARCHAR},
+      SMS_CHANNEL = #{smsChannel,jdbcType=CHAR},
+      SMS_OBJ_ADDR = #{smsObjAddr,jdbcType=VARCHAR},
+      FROM_SYS = #{fromSys,jdbcType=VARCHAR},
+      SAVE_WAY = #{saveWay,jdbcType=CHAR},
+      SMS_INFO = #{smsInfo,jdbcType=VARCHAR},
+      SEND_NUM = #{sendNum,jdbcType=DECIMAL},
+      SEND_STR_TIME = #{sendStrTime,jdbcType=VARCHAR},
+      SEND_END_TIME = #{sendEndTime,jdbcType=VARCHAR},
+      SMS_RETURN_NO = #{smsReturnNo,jdbcType=VARCHAR},
+      STATE = #{state,jdbcType=CHAR}
+    where SMS_NO = #{smsNo,jdbcType=VARCHAR}
+      and SMS_DATE = #{smsDate,jdbcType=VARCHAR}
+  </update>
+</mapper>

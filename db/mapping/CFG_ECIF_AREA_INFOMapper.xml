@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.CFG_ECIF_AREA_INFOMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.CFG_ECIF_AREA_INFO">
+    <result column="CITY_CODE" jdbcType="VARCHAR" property="cityCode" />
+    <result column="CITY_DESC" jdbcType="VARCHAR" property="cityDesc" />
+    <result column="VERSION" jdbcType="VARCHAR" property="version" />
+  </resultMap>
+  <insert id="insert" parameterType="com.bea.olp.CFG_ECIF_AREA_INFO">
+    insert into CFG_ECIF_AREA_INFO (CITY_CODE, CITY_DESC, VERSION
+      )
+    values (#{cityCode,jdbcType=VARCHAR}, #{cityDesc,jdbcType=VARCHAR}, #{version,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.CFG_ECIF_AREA_INFO">
+    insert into CFG_ECIF_AREA_INFO
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="cityCode != null">
+        CITY_CODE,
+      </if>
+      <if test="cityDesc != null">
+        CITY_DESC,
+      </if>
+      <if test="version != null">
+        VERSION,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="cityCode != null">
+        #{cityCode,jdbcType=VARCHAR},
+      </if>
+      <if test="cityDesc != null">
+        #{cityDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="version != null">
+        #{version,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

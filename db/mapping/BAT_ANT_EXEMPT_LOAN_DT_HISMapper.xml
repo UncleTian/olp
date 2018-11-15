@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.BAT_ANT_EXEMPT_LOAN_DT_HISMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.BAT_ANT_EXEMPT_LOAN_DT_HIS">
+    <result column="CONTRACT_NO" jdbcType="VARCHAR" property="contractNo" />
+    <result column="SEQ_NO" jdbcType="VARCHAR" property="seqNo" />
+    <result column="EXEMPT_DATE" jdbcType="VARCHAR" property="exemptDate" />
+    <result column="CURR_INT_BAL" jdbcType="DECIMAL" property="currIntBal" />
+    <result column="CURR_OVD_INT_BAL" jdbcType="DECIMAL" property="currOvdIntBal" />
+    <result column="CURR_OVD_PRIN_PNLT_BAL" jdbcType="DECIMAL" property="currOvdPrinPnltBal" />
+    <result column="CURR_OVD_INT_PNLT_BAL" jdbcType="DECIMAL" property="currOvdIntPnltBal" />
+    <result column="EXEMPT_AMT" jdbcType="DECIMAL" property="exemptAmt" />
+    <result column="EXEMPT_INT_AMT" jdbcType="DECIMAL" property="exemptIntAmt" />
+    <result column="EXEMPT_OVD_INT_AMT" jdbcType="DECIMAL" property="exemptOvdIntAmt" />
+    <result column="EXEMPT_OVD_PRIN_PNLT_AMT" jdbcType="DECIMAL" property="exemptOvdPrinPnltAmt" />
+    <result column="EXEMPT_OVD_INT_PNLT_AMT" jdbcType="DECIMAL" property="exemptOvdIntPnltAmt" />
+    <result column="INPUT_DATE" jdbcType="VARCHAR" property="inputDate" />
+    <result column="INPUT_TIME" jdbcType="VARCHAR" property="inputTime" />
+    <result column="DATA_DATE" jdbcType="VARCHAR" property="dataDate" />
+  </resultMap>
+  <insert id="insert" parameterType="com.bea.olp.BAT_ANT_EXEMPT_LOAN_DT_HIS">
+    insert into BAT_ANT_EXEMPT_LOAN_DT_HIS (CONTRACT_NO, SEQ_NO, EXEMPT_DATE, 
+      CURR_INT_BAL, CURR_OVD_INT_BAL, CURR_OVD_PRIN_PNLT_BAL, 
+      CURR_OVD_INT_PNLT_BAL, EXEMPT_AMT, EXEMPT_INT_AMT, 
+      EXEMPT_OVD_INT_AMT, EXEMPT_OVD_PRIN_PNLT_AMT, 
+      EXEMPT_OVD_INT_PNLT_AMT, INPUT_DATE, INPUT_TIME, 
+      DATA_DATE)
+    values (#{contractNo,jdbcType=VARCHAR}, #{seqNo,jdbcType=VARCHAR}, #{exemptDate,jdbcType=VARCHAR}, 
+      #{currIntBal,jdbcType=DECIMAL}, #{currOvdIntBal,jdbcType=DECIMAL}, #{currOvdPrinPnltBal,jdbcType=DECIMAL}, 
+      #{currOvdIntPnltBal,jdbcType=DECIMAL}, #{exemptAmt,jdbcType=DECIMAL}, #{exemptIntAmt,jdbcType=DECIMAL}, 
+      #{exemptOvdIntAmt,jdbcType=DECIMAL}, #{exemptOvdPrinPnltAmt,jdbcType=DECIMAL}, 
+      #{exemptOvdIntPnltAmt,jdbcType=DECIMAL}, #{inputDate,jdbcType=VARCHAR}, #{inputTime,jdbcType=VARCHAR}, 
+      #{dataDate,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.BAT_ANT_EXEMPT_LOAN_DT_HIS">
+    insert into BAT_ANT_EXEMPT_LOAN_DT_HIS
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="contractNo != null">
+        CONTRACT_NO,
+      </if>
+      <if test="seqNo != null">
+        SEQ_NO,
+      </if>
+      <if test="exemptDate != null">
+        EXEMPT_DATE,
+      </if>
+      <if test="currIntBal != null">
+        CURR_INT_BAL,
+      </if>
+      <if test="currOvdIntBal != null">
+        CURR_OVD_INT_BAL,
+      </if>
+      <if test="currOvdPrinPnltBal != null">
+        CURR_OVD_PRIN_PNLT_BAL,
+      </if>
+      <if test="currOvdIntPnltBal != null">
+        CURR_OVD_INT_PNLT_BAL,
+      </if>
+      <if test="exemptAmt != null">
+        EXEMPT_AMT,
+      </if>
+      <if test="exemptIntAmt != null">
+        EXEMPT_INT_AMT,
+      </if>
+      <if test="exemptOvdIntAmt != null">
+        EXEMPT_OVD_INT_AMT,
+      </if>
+      <if test="exemptOvdPrinPnltAmt != null">
+        EXEMPT_OVD_PRIN_PNLT_AMT,
+      </if>
+      <if test="exemptOvdIntPnltAmt != null">
+        EXEMPT_OVD_INT_PNLT_AMT,
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE,
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME,
+      </if>
+      <if test="dataDate != null">
+        DATA_DATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="contractNo != null">
+        #{contractNo,jdbcType=VARCHAR},
+      </if>
+      <if test="seqNo != null">
+        #{seqNo,jdbcType=VARCHAR},
+      </if>
+      <if test="exemptDate != null">
+        #{exemptDate,jdbcType=VARCHAR},
+      </if>
+      <if test="currIntBal != null">
+        #{currIntBal,jdbcType=DECIMAL},
+      </if>
+      <if test="currOvdIntBal != null">
+        #{currOvdIntBal,jdbcType=DECIMAL},
+      </if>
+      <if test="currOvdPrinPnltBal != null">
+        #{currOvdPrinPnltBal,jdbcType=DECIMAL},
+      </if>
+      <if test="currOvdIntPnltBal != null">
+        #{currOvdIntPnltBal,jdbcType=DECIMAL},
+      </if>
+      <if test="exemptAmt != null">
+        #{exemptAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="exemptIntAmt != null">
+        #{exemptIntAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="exemptOvdIntAmt != null">
+        #{exemptOvdIntAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="exemptOvdPrinPnltAmt != null">
+        #{exemptOvdPrinPnltAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="exemptOvdIntPnltAmt != null">
+        #{exemptOvdIntPnltAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="inputDate != null">
+        #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="dataDate != null">
+        #{dataDate,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

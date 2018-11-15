@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.CFG_FILE_INFOMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.CFG_FILE_INFO">
+    <id column="FILE_ID" jdbcType="VARCHAR" property="fileId" />
+    <result column="FILE_DESC" jdbcType="VARCHAR" property="fileDesc" />
+    <result column="FILE_SIZE" jdbcType="DECIMAL" property="fileSize" />
+    <result column="DATA_MAX_NUM" jdbcType="DECIMAL" property="dataMaxNum" />
+    <result column="FILE_TYPE" jdbcType="VARCHAR" property="fileType" />
+    <result column="FILE_PATH" jdbcType="VARCHAR" property="filePath" />
+    <result column="DATA_MANAGE_TYPE" jdbcType="VARCHAR" property="dataManageType" />
+    <result column="FILE_MANAGE_TYPE" jdbcType="VARCHAR" property="fileManageType" />
+    <result column="USE_FLAG" jdbcType="VARCHAR" property="useFlag" />
+    <result column="BIZ_OP_ID" jdbcType="VARCHAR" property="bizOpId" />
+    <result column="BIZ_ORG_ID" jdbcType="VARCHAR" property="bizOrgId" />
+    <result column="INPUT_TIME" jdbcType="VARCHAR" property="inputTime" />
+    <result column="INPUT_DATE" jdbcType="VARCHAR" property="inputDate" />
+    <result column="LAST_UPDATE_TIME" jdbcType="VARCHAR" property="lastUpdateTime" />
+    <result column="LAST_UPDATE_DATE" jdbcType="VARCHAR" property="lastUpdateDate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    FILE_ID, FILE_DESC, FILE_SIZE, DATA_MAX_NUM, FILE_TYPE, FILE_PATH, DATA_MANAGE_TYPE, 
+    FILE_MANAGE_TYPE, USE_FLAG, BIZ_OP_ID, BIZ_ORG_ID, INPUT_TIME, INPUT_DATE, LAST_UPDATE_TIME, 
+    LAST_UPDATE_DATE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from CFG_FILE_INFO
+    where FILE_ID = #{fileId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from CFG_FILE_INFO
+    where FILE_ID = #{fileId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.CFG_FILE_INFO">
+    insert into CFG_FILE_INFO (FILE_ID, FILE_DESC, FILE_SIZE, 
+      DATA_MAX_NUM, FILE_TYPE, FILE_PATH, 
+      DATA_MANAGE_TYPE, FILE_MANAGE_TYPE, USE_FLAG, 
+      BIZ_OP_ID, BIZ_ORG_ID, INPUT_TIME, 
+      INPUT_DATE, LAST_UPDATE_TIME, LAST_UPDATE_DATE
+      )
+    values (#{fileId,jdbcType=VARCHAR}, #{fileDesc,jdbcType=VARCHAR}, #{fileSize,jdbcType=DECIMAL}, 
+      #{dataMaxNum,jdbcType=DECIMAL}, #{fileType,jdbcType=VARCHAR}, #{filePath,jdbcType=VARCHAR}, 
+      #{dataManageType,jdbcType=VARCHAR}, #{fileManageType,jdbcType=VARCHAR}, #{useFlag,jdbcType=VARCHAR}, 
+      #{bizOpId,jdbcType=VARCHAR}, #{bizOrgId,jdbcType=VARCHAR}, #{inputTime,jdbcType=VARCHAR}, 
+      #{inputDate,jdbcType=VARCHAR}, #{lastUpdateTime,jdbcType=VARCHAR}, #{lastUpdateDate,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.CFG_FILE_INFO">
+    insert into CFG_FILE_INFO
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="fileId != null">
+        FILE_ID,
+      </if>
+      <if test="fileDesc != null">
+        FILE_DESC,
+      </if>
+      <if test="fileSize != null">
+        FILE_SIZE,
+      </if>
+      <if test="dataMaxNum != null">
+        DATA_MAX_NUM,
+      </if>
+      <if test="fileType != null">
+        FILE_TYPE,
+      </if>
+      <if test="filePath != null">
+        FILE_PATH,
+      </if>
+      <if test="dataManageType != null">
+        DATA_MANAGE_TYPE,
+      </if>
+      <if test="fileManageType != null">
+        FILE_MANAGE_TYPE,
+      </if>
+      <if test="useFlag != null">
+        USE_FLAG,
+      </if>
+      <if test="bizOpId != null">
+        BIZ_OP_ID,
+      </if>
+      <if test="bizOrgId != null">
+        BIZ_ORG_ID,
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME,
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE,
+      </if>
+      <if test="lastUpdateTime != null">
+        LAST_UPDATE_TIME,
+      </if>
+      <if test="lastUpdateDate != null">
+        LAST_UPDATE_DATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="fileId != null">
+        #{fileId,jdbcType=VARCHAR},
+      </if>
+      <if test="fileDesc != null">
+        #{fileDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="fileSize != null">
+        #{fileSize,jdbcType=DECIMAL},
+      </if>
+      <if test="dataMaxNum != null">
+        #{dataMaxNum,jdbcType=DECIMAL},
+      </if>
+      <if test="fileType != null">
+        #{fileType,jdbcType=VARCHAR},
+      </if>
+      <if test="filePath != null">
+        #{filePath,jdbcType=VARCHAR},
+      </if>
+      <if test="dataManageType != null">
+        #{dataManageType,jdbcType=VARCHAR},
+      </if>
+      <if test="fileManageType != null">
+        #{fileManageType,jdbcType=VARCHAR},
+      </if>
+      <if test="useFlag != null">
+        #{useFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="bizOpId != null">
+        #{bizOpId,jdbcType=VARCHAR},
+      </if>
+      <if test="bizOrgId != null">
+        #{bizOrgId,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        #{lastUpdateTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateDate != null">
+        #{lastUpdateDate,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.CFG_FILE_INFO">
+    update CFG_FILE_INFO
+    <set>
+      <if test="fileDesc != null">
+        FILE_DESC = #{fileDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="fileSize != null">
+        FILE_SIZE = #{fileSize,jdbcType=DECIMAL},
+      </if>
+      <if test="dataMaxNum != null">
+        DATA_MAX_NUM = #{dataMaxNum,jdbcType=DECIMAL},
+      </if>
+      <if test="fileType != null">
+        FILE_TYPE = #{fileType,jdbcType=VARCHAR},
+      </if>
+      <if test="filePath != null">
+        FILE_PATH = #{filePath,jdbcType=VARCHAR},
+      </if>
+      <if test="dataManageType != null">
+        DATA_MANAGE_TYPE = #{dataManageType,jdbcType=VARCHAR},
+      </if>
+      <if test="fileManageType != null">
+        FILE_MANAGE_TYPE = #{fileManageType,jdbcType=VARCHAR},
+      </if>
+      <if test="useFlag != null">
+        USE_FLAG = #{useFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="bizOpId != null">
+        BIZ_OP_ID = #{bizOpId,jdbcType=VARCHAR},
+      </if>
+      <if test="bizOrgId != null">
+        BIZ_ORG_ID = #{bizOrgId,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME = #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE = #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateDate != null">
+        LAST_UPDATE_DATE = #{lastUpdateDate,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where FILE_ID = #{fileId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.CFG_FILE_INFO">
+    update CFG_FILE_INFO
+    set FILE_DESC = #{fileDesc,jdbcType=VARCHAR},
+      FILE_SIZE = #{fileSize,jdbcType=DECIMAL},
+      DATA_MAX_NUM = #{dataMaxNum,jdbcType=DECIMAL},
+      FILE_TYPE = #{fileType,jdbcType=VARCHAR},
+      FILE_PATH = #{filePath,jdbcType=VARCHAR},
+      DATA_MANAGE_TYPE = #{dataManageType,jdbcType=VARCHAR},
+      FILE_MANAGE_TYPE = #{fileManageType,jdbcType=VARCHAR},
+      USE_FLAG = #{useFlag,jdbcType=VARCHAR},
+      BIZ_OP_ID = #{bizOpId,jdbcType=VARCHAR},
+      BIZ_ORG_ID = #{bizOrgId,jdbcType=VARCHAR},
+      INPUT_TIME = #{inputTime,jdbcType=VARCHAR},
+      INPUT_DATE = #{inputDate,jdbcType=VARCHAR},
+      LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=VARCHAR},
+      LAST_UPDATE_DATE = #{lastUpdateDate,jdbcType=VARCHAR}
+    where FILE_ID = #{fileId,jdbcType=VARCHAR}
+  </update>
+</mapper>

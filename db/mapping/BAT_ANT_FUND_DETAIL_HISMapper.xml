@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.BAT_ANT_FUND_DETAIL_HISMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.BAT_ANT_FUND_DETAIL_HIS">
+    <result column="BIZ_NBR" jdbcType="VARCHAR" property="bizNbr" />
+    <result column="BIZ_TP" jdbcType="VARCHAR" property="bizTp" />
+    <result column="TD_AMT" jdbcType="DECIMAL" property="tdAmt" />
+    <result column="TD_REFUND_AMOUNT" jdbcType="DECIMAL" property="tdRefundAmount" />
+    <result column="TD_GMT_CREATE" jdbcType="VARCHAR" property="tdGmtCreate" />
+    <result column="TD_NM" jdbcType="VARCHAR" property="tdNm" />
+    <result column="OPST_ORG_NM" jdbcType="VARCHAR" property="opstOrgNm" />
+    <result column="TD_SUB_DETAIL" jdbcType="VARCHAR" property="tdSubDetail" />
+    <result column="INPUT_DATE" jdbcType="VARCHAR" property="inputDate" />
+    <result column="INPUT_TIME" jdbcType="VARCHAR" property="inputTime" />
+    <result column="DATA_DATE" jdbcType="VARCHAR" property="dataDate" />
+  </resultMap>
+  <insert id="insert" parameterType="com.bea.olp.BAT_ANT_FUND_DETAIL_HIS">
+    insert into BAT_ANT_FUND_DETAIL_HIS (BIZ_NBR, BIZ_TP, TD_AMT, 
+      TD_REFUND_AMOUNT, TD_GMT_CREATE, TD_NM, 
+      OPST_ORG_NM, TD_SUB_DETAIL, INPUT_DATE, 
+      INPUT_TIME, DATA_DATE)
+    values (#{bizNbr,jdbcType=VARCHAR}, #{bizTp,jdbcType=VARCHAR}, #{tdAmt,jdbcType=DECIMAL}, 
+      #{tdRefundAmount,jdbcType=DECIMAL}, #{tdGmtCreate,jdbcType=VARCHAR}, #{tdNm,jdbcType=VARCHAR}, 
+      #{opstOrgNm,jdbcType=VARCHAR}, #{tdSubDetail,jdbcType=VARCHAR}, #{inputDate,jdbcType=VARCHAR}, 
+      #{inputTime,jdbcType=VARCHAR}, #{dataDate,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.BAT_ANT_FUND_DETAIL_HIS">
+    insert into BAT_ANT_FUND_DETAIL_HIS
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="bizNbr != null">
+        BIZ_NBR,
+      </if>
+      <if test="bizTp != null">
+        BIZ_TP,
+      </if>
+      <if test="tdAmt != null">
+        TD_AMT,
+      </if>
+      <if test="tdRefundAmount != null">
+        TD_REFUND_AMOUNT,
+      </if>
+      <if test="tdGmtCreate != null">
+        TD_GMT_CREATE,
+      </if>
+      <if test="tdNm != null">
+        TD_NM,
+      </if>
+      <if test="opstOrgNm != null">
+        OPST_ORG_NM,
+      </if>
+      <if test="tdSubDetail != null">
+        TD_SUB_DETAIL,
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE,
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME,
+      </if>
+      <if test="dataDate != null">
+        DATA_DATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="bizNbr != null">
+        #{bizNbr,jdbcType=VARCHAR},
+      </if>
+      <if test="bizTp != null">
+        #{bizTp,jdbcType=VARCHAR},
+      </if>
+      <if test="tdAmt != null">
+        #{tdAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="tdRefundAmount != null">
+        #{tdRefundAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="tdGmtCreate != null">
+        #{tdGmtCreate,jdbcType=VARCHAR},
+      </if>
+      <if test="tdNm != null">
+        #{tdNm,jdbcType=VARCHAR},
+      </if>
+      <if test="opstOrgNm != null">
+        #{opstOrgNm,jdbcType=VARCHAR},
+      </if>
+      <if test="tdSubDetail != null">
+        #{tdSubDetail,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="dataDate != null">
+        #{dataDate,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

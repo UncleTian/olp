@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.BAT_CONTROL_HISMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.BAT_CONTROL_HIS">
+    <id column="OPEN_DAY" jdbcType="VARCHAR" property="openDay" />
+    <result column="THREAD_NUM" jdbcType="DECIMAL" property="threadNum" />
+    <result column="WARN_TIME" jdbcType="VARCHAR" property="warnTime" />
+    <result column="EXIT_TIME" jdbcType="VARCHAR" property="exitTime" />
+    <result column="WAIT_TIME" jdbcType="DECIMAL" property="waitTime" />
+    <result column="SMS_FLAG" jdbcType="VARCHAR" property="smsFlag" />
+    <result column="BEGIN_TIME" jdbcType="VARCHAR" property="beginTime" />
+    <result column="END_TIME" jdbcType="VARCHAR" property="endTime" />
+    <result column="CONTROL_STATUS" jdbcType="VARCHAR" property="controlStatus" />
+    <result column="LAST_UPDATE_TIME" jdbcType="VARCHAR" property="lastUpdateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    OPEN_DAY, THREAD_NUM, WARN_TIME, EXIT_TIME, WAIT_TIME, SMS_FLAG, BEGIN_TIME, END_TIME, 
+    CONTROL_STATUS, LAST_UPDATE_TIME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from BAT_CONTROL_HIS
+    where OPEN_DAY = #{openDay,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from BAT_CONTROL_HIS
+    where OPEN_DAY = #{openDay,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.BAT_CONTROL_HIS">
+    insert into BAT_CONTROL_HIS (OPEN_DAY, THREAD_NUM, WARN_TIME, 
+      EXIT_TIME, WAIT_TIME, SMS_FLAG, 
+      BEGIN_TIME, END_TIME, CONTROL_STATUS, 
+      LAST_UPDATE_TIME)
+    values (#{openDay,jdbcType=VARCHAR}, #{threadNum,jdbcType=DECIMAL}, #{warnTime,jdbcType=VARCHAR}, 
+      #{exitTime,jdbcType=VARCHAR}, #{waitTime,jdbcType=DECIMAL}, #{smsFlag,jdbcType=VARCHAR}, 
+      #{beginTime,jdbcType=VARCHAR}, #{endTime,jdbcType=VARCHAR}, #{controlStatus,jdbcType=VARCHAR}, 
+      #{lastUpdateTime,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.BAT_CONTROL_HIS">
+    insert into BAT_CONTROL_HIS
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="openDay != null">
+        OPEN_DAY,
+      </if>
+      <if test="threadNum != null">
+        THREAD_NUM,
+      </if>
+      <if test="warnTime != null">
+        WARN_TIME,
+      </if>
+      <if test="exitTime != null">
+        EXIT_TIME,
+      </if>
+      <if test="waitTime != null">
+        WAIT_TIME,
+      </if>
+      <if test="smsFlag != null">
+        SMS_FLAG,
+      </if>
+      <if test="beginTime != null">
+        BEGIN_TIME,
+      </if>
+      <if test="endTime != null">
+        END_TIME,
+      </if>
+      <if test="controlStatus != null">
+        CONTROL_STATUS,
+      </if>
+      <if test="lastUpdateTime != null">
+        LAST_UPDATE_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="openDay != null">
+        #{openDay,jdbcType=VARCHAR},
+      </if>
+      <if test="threadNum != null">
+        #{threadNum,jdbcType=DECIMAL},
+      </if>
+      <if test="warnTime != null">
+        #{warnTime,jdbcType=VARCHAR},
+      </if>
+      <if test="exitTime != null">
+        #{exitTime,jdbcType=VARCHAR},
+      </if>
+      <if test="waitTime != null">
+        #{waitTime,jdbcType=DECIMAL},
+      </if>
+      <if test="smsFlag != null">
+        #{smsFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="beginTime != null">
+        #{beginTime,jdbcType=VARCHAR},
+      </if>
+      <if test="endTime != null">
+        #{endTime,jdbcType=VARCHAR},
+      </if>
+      <if test="controlStatus != null">
+        #{controlStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        #{lastUpdateTime,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.BAT_CONTROL_HIS">
+    update BAT_CONTROL_HIS
+    <set>
+      <if test="threadNum != null">
+        THREAD_NUM = #{threadNum,jdbcType=DECIMAL},
+      </if>
+      <if test="warnTime != null">
+        WARN_TIME = #{warnTime,jdbcType=VARCHAR},
+      </if>
+      <if test="exitTime != null">
+        EXIT_TIME = #{exitTime,jdbcType=VARCHAR},
+      </if>
+      <if test="waitTime != null">
+        WAIT_TIME = #{waitTime,jdbcType=DECIMAL},
+      </if>
+      <if test="smsFlag != null">
+        SMS_FLAG = #{smsFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="beginTime != null">
+        BEGIN_TIME = #{beginTime,jdbcType=VARCHAR},
+      </if>
+      <if test="endTime != null">
+        END_TIME = #{endTime,jdbcType=VARCHAR},
+      </if>
+      <if test="controlStatus != null">
+        CONTROL_STATUS = #{controlStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where OPEN_DAY = #{openDay,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.BAT_CONTROL_HIS">
+    update BAT_CONTROL_HIS
+    set THREAD_NUM = #{threadNum,jdbcType=DECIMAL},
+      WARN_TIME = #{warnTime,jdbcType=VARCHAR},
+      EXIT_TIME = #{exitTime,jdbcType=VARCHAR},
+      WAIT_TIME = #{waitTime,jdbcType=DECIMAL},
+      SMS_FLAG = #{smsFlag,jdbcType=VARCHAR},
+      BEGIN_TIME = #{beginTime,jdbcType=VARCHAR},
+      END_TIME = #{endTime,jdbcType=VARCHAR},
+      CONTROL_STATUS = #{controlStatus,jdbcType=VARCHAR},
+      LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=VARCHAR}
+    where OPEN_DAY = #{openDay,jdbcType=VARCHAR}
+  </update>
+</mapper>

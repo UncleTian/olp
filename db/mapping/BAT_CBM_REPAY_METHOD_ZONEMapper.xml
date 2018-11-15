@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.BAT_CBM_REPAY_METHOD_ZONEMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.BAT_CBM_REPAY_METHOD_ZONE">
+    <result column="SERIALNO" jdbcType="VARCHAR" property="serialno" />
+    <result column="OBJECTNO" jdbcType="VARCHAR" property="objectno" />
+    <result column="TERMID" jdbcType="VARCHAR" property="termid" />
+    <result column="SEGFROMDATE" jdbcType="VARCHAR" property="segfromdate" />
+    <result column="SEGTODATE" jdbcType="VARCHAR" property="segtodate" />
+    <result column="STATUS" jdbcType="VARCHAR" property="status" />
+    <result column="FIRSTDUEDATE" jdbcType="VARCHAR" property="firstduedate" />
+    <result column="DEFAULTDUEDAY" jdbcType="VARCHAR" property="defaultdueday" />
+    <result column="LASTDUEDATE" jdbcType="VARCHAR" property="lastduedate" />
+    <result column="NEXTDUEDATE" jdbcType="VARCHAR" property="nextduedate" />
+    <result column="PAYFREQUENCYTYPE" jdbcType="VARCHAR" property="payfrequencytype" />
+    <result column="SEGINSTALMENTAMT" jdbcType="DECIMAL" property="seginstalmentamt" />
+    <result column="OBJECTTYPE" jdbcType="VARCHAR" property="objecttype" />
+    <result column="PSTYPE" jdbcType="VARCHAR" property="pstype" />
+    <result column="TOTALPERIOD" jdbcType="DECIMAL" property="totalperiod" />
+    <result column="CURRENTPERIOD" jdbcType="DECIMAL" property="currentperiod" />
+    <result column="INPUT_DATE" jdbcType="VARCHAR" property="inputDate" />
+    <result column="INPUT_TIME" jdbcType="VARCHAR" property="inputTime" />
+    <result column="DATA_DATE" jdbcType="VARCHAR" property="dataDate" />
+    <result column="CHANNEL_TYPE" jdbcType="VARCHAR" property="channelType" />
+  </resultMap>
+  <insert id="insert" parameterType="com.bea.olp.BAT_CBM_REPAY_METHOD_ZONE">
+    insert into BAT_CBM_REPAY_METHOD_ZONE (SERIALNO, OBJECTNO, TERMID, 
+      SEGFROMDATE, SEGTODATE, STATUS, 
+      FIRSTDUEDATE, DEFAULTDUEDAY, LASTDUEDATE, 
+      NEXTDUEDATE, PAYFREQUENCYTYPE, SEGINSTALMENTAMT, 
+      OBJECTTYPE, PSTYPE, TOTALPERIOD, 
+      CURRENTPERIOD, INPUT_DATE, INPUT_TIME, 
+      DATA_DATE, CHANNEL_TYPE)
+    values (#{serialno,jdbcType=VARCHAR}, #{objectno,jdbcType=VARCHAR}, #{termid,jdbcType=VARCHAR}, 
+      #{segfromdate,jdbcType=VARCHAR}, #{segtodate,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, 
+      #{firstduedate,jdbcType=VARCHAR}, #{defaultdueday,jdbcType=VARCHAR}, #{lastduedate,jdbcType=VARCHAR}, 
+      #{nextduedate,jdbcType=VARCHAR}, #{payfrequencytype,jdbcType=VARCHAR}, #{seginstalmentamt,jdbcType=DECIMAL}, 
+      #{objecttype,jdbcType=VARCHAR}, #{pstype,jdbcType=VARCHAR}, #{totalperiod,jdbcType=DECIMAL}, 
+      #{currentperiod,jdbcType=DECIMAL}, #{inputDate,jdbcType=VARCHAR}, #{inputTime,jdbcType=VARCHAR}, 
+      #{dataDate,jdbcType=VARCHAR}, #{channelType,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.BAT_CBM_REPAY_METHOD_ZONE">
+    insert into BAT_CBM_REPAY_METHOD_ZONE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="serialno != null">
+        SERIALNO,
+      </if>
+      <if test="objectno != null">
+        OBJECTNO,
+      </if>
+      <if test="termid != null">
+        TERMID,
+      </if>
+      <if test="segfromdate != null">
+        SEGFROMDATE,
+      </if>
+      <if test="segtodate != null">
+        SEGTODATE,
+      </if>
+      <if test="status != null">
+        STATUS,
+      </if>
+      <if test="firstduedate != null">
+        FIRSTDUEDATE,
+      </if>
+      <if test="defaultdueday != null">
+        DEFAULTDUEDAY,
+      </if>
+      <if test="lastduedate != null">
+        LASTDUEDATE,
+      </if>
+      <if test="nextduedate != null">
+        NEXTDUEDATE,
+      </if>
+      <if test="payfrequencytype != null">
+        PAYFREQUENCYTYPE,
+      </if>
+      <if test="seginstalmentamt != null">
+        SEGINSTALMENTAMT,
+      </if>
+      <if test="objecttype != null">
+        OBJECTTYPE,
+      </if>
+      <if test="pstype != null">
+        PSTYPE,
+      </if>
+      <if test="totalperiod != null">
+        TOTALPERIOD,
+      </if>
+      <if test="currentperiod != null">
+        CURRENTPERIOD,
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE,
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME,
+      </if>
+      <if test="dataDate != null">
+        DATA_DATE,
+      </if>
+      <if test="channelType != null">
+        CHANNEL_TYPE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="serialno != null">
+        #{serialno,jdbcType=VARCHAR},
+      </if>
+      <if test="objectno != null">
+        #{objectno,jdbcType=VARCHAR},
+      </if>
+      <if test="termid != null">
+        #{termid,jdbcType=VARCHAR},
+      </if>
+      <if test="segfromdate != null">
+        #{segfromdate,jdbcType=VARCHAR},
+      </if>
+      <if test="segtodate != null">
+        #{segtodate,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="firstduedate != null">
+        #{firstduedate,jdbcType=VARCHAR},
+      </if>
+      <if test="defaultdueday != null">
+        #{defaultdueday,jdbcType=VARCHAR},
+      </if>
+      <if test="lastduedate != null">
+        #{lastduedate,jdbcType=VARCHAR},
+      </if>
+      <if test="nextduedate != null">
+        #{nextduedate,jdbcType=VARCHAR},
+      </if>
+      <if test="payfrequencytype != null">
+        #{payfrequencytype,jdbcType=VARCHAR},
+      </if>
+      <if test="seginstalmentamt != null">
+        #{seginstalmentamt,jdbcType=DECIMAL},
+      </if>
+      <if test="objecttype != null">
+        #{objecttype,jdbcType=VARCHAR},
+      </if>
+      <if test="pstype != null">
+        #{pstype,jdbcType=VARCHAR},
+      </if>
+      <if test="totalperiod != null">
+        #{totalperiod,jdbcType=DECIMAL},
+      </if>
+      <if test="currentperiod != null">
+        #{currentperiod,jdbcType=DECIMAL},
+      </if>
+      <if test="inputDate != null">
+        #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="dataDate != null">
+        #{dataDate,jdbcType=VARCHAR},
+      </if>
+      <if test="channelType != null">
+        #{channelType,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -1,0 +1,568 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.BIZ_FEEDBACK_RESULTMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.BIZ_FEEDBACK_RESULT">
+    <id column="APP_NO" jdbcType="VARCHAR" property="appNo" />
+    <result column="APPLY_NO" jdbcType="VARCHAR" property="applyNo" />
+    <result column="CERT_CODE" jdbcType="VARCHAR" property="certCode" />
+    <result column="CERT_TYPE" jdbcType="VARCHAR" property="certType" />
+    <result column="STOCK_CUST_FLAG" jdbcType="VARCHAR" property="stockCustFlag" />
+    <result column="CARD_BAL" jdbcType="DECIMAL" property="cardBal" />
+    <result column="LAST3M_DAY_AVG_BAL" jdbcType="DECIMAL" property="last3mDayAvgBal" />
+    <result column="LAST6M_DAY_AVG_BAL" jdbcType="DECIMAL" property="last6mDayAvgBal" />
+    <result column="LAST3M_BANK_IN_AMT" jdbcType="DECIMAL" property="last3mBankInAmt" />
+    <result column="LAST3M_BANK_OUT_AMT" jdbcType="DECIMAL" property="last3mBankOutAmt" />
+    <result column="LAST6M_BANK_IN_AMT" jdbcType="DECIMAL" property="last6mBankInAmt" />
+    <result column="LAST6M_BANK_OUT_AMT" jdbcType="DECIMAL" property="last6mBankOutAmt" />
+    <result column="STOCK_FINANCE_CUST_FLAG" jdbcType="VARCHAR" property="stockFinanceCustFlag" />
+    <result column="STOCK_INSUR_CUST_FLAG" jdbcType="VARCHAR" property="stockInsurCustFlag" />
+    <result column="STOCK_LOAN_CUST_FLAG" jdbcType="VARCHAR" property="stockLoanCustFlag" />
+    <result column="BOND_CUST_FLAG" jdbcType="VARCHAR" property="bondCustFlag" />
+    <result column="TP_CUST_FLAG" jdbcType="VARCHAR" property="tpCustFlag" />
+    <result column="PAYING_WAGES_CUST_FLAG" jdbcType="VARCHAR" property="payingWagesCustFlag" />
+    <result column="COAL_CUST_FLAG" jdbcType="VARCHAR" property="coalCustFlag" />
+    <result column="OPERATOR_FLAG" jdbcType="VARCHAR" property="operatorFlag" />
+    <result column="OPERATOR_FROM" jdbcType="VARCHAR" property="operatorFrom" />
+    <result column="STOCK_CREDIT_CUST_FLAG" jdbcType="VARCHAR" property="stockCreditCustFlag" />
+    <result column="CREDIT_CRD_AMT" jdbcType="DECIMAL" property="creditCrdAmt" />
+    <result column="CREDIT_USED_AMT" jdbcType="DECIMAL" property="creditUsedAmt" />
+    <result column="WORK_UNIT" jdbcType="VARCHAR" property="workUnit" />
+    <result column="WORK_UNIT_FROM" jdbcType="VARCHAR" property="workUnitFrom" />
+    <result column="POSITION" jdbcType="VARCHAR" property="position" />
+    <result column="POSITION_FROM" jdbcType="VARCHAR" property="positionFrom" />
+    <result column="INDUSTRY" jdbcType="VARCHAR" property="industry" />
+    <result column="INDUSTRY_FROM" jdbcType="VARCHAR" property="industryFrom" />
+    <result column="WORK_YEARS" jdbcType="DECIMAL" property="workYears" />
+    <result column="WORK_YEARS_FROM" jdbcType="VARCHAR" property="workYearsFrom" />
+    <result column="MONTH_INCOME" jdbcType="DECIMAL" property="monthIncome" />
+    <result column="MONTH_INCOME_FROM" jdbcType="VARCHAR" property="monthIncomeFrom" />
+    <result column="MARR_STATUS" jdbcType="VARCHAR" property="marrStatus" />
+    <result column="MARR_STATUS_FROM" jdbcType="VARCHAR" property="marrStatusFrom" />
+    <result column="BLACK_LIST" jdbcType="VARCHAR" property="blackList" />
+    <result column="QUERY_EDU_FLAG" jdbcType="VARCHAR" property="queryEduFlag" />
+    <result column="SCHOOL_NAME" jdbcType="VARCHAR" property="schoolName" />
+    <result column="EDU_LEVEL" jdbcType="VARCHAR" property="eduLevel" />
+    <result column="EDU_TYPE" jdbcType="VARCHAR" property="eduType" />
+    <result column="SCHOOL_YEAR" jdbcType="VARCHAR" property="schoolYear" />
+    <result column="HIT_BLACK_LIST_FLAG" jdbcType="VARCHAR" property="hitBlackListFlag" />
+    <result column="INPUT_DATE" jdbcType="VARCHAR" property="inputDate" />
+    <result column="INPUT_TIME" jdbcType="VARCHAR" property="inputTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    APP_NO, APPLY_NO, CERT_CODE, CERT_TYPE, STOCK_CUST_FLAG, CARD_BAL, LAST3M_DAY_AVG_BAL, 
+    LAST6M_DAY_AVG_BAL, LAST3M_BANK_IN_AMT, LAST3M_BANK_OUT_AMT, LAST6M_BANK_IN_AMT, 
+    LAST6M_BANK_OUT_AMT, STOCK_FINANCE_CUST_FLAG, STOCK_INSUR_CUST_FLAG, STOCK_LOAN_CUST_FLAG, 
+    BOND_CUST_FLAG, TP_CUST_FLAG, PAYING_WAGES_CUST_FLAG, COAL_CUST_FLAG, OPERATOR_FLAG, 
+    OPERATOR_FROM, STOCK_CREDIT_CUST_FLAG, CREDIT_CRD_AMT, CREDIT_USED_AMT, WORK_UNIT, 
+    WORK_UNIT_FROM, POSITION, POSITION_FROM, INDUSTRY, INDUSTRY_FROM, WORK_YEARS, WORK_YEARS_FROM, 
+    MONTH_INCOME, MONTH_INCOME_FROM, MARR_STATUS, MARR_STATUS_FROM, BLACK_LIST, QUERY_EDU_FLAG, 
+    SCHOOL_NAME, EDU_LEVEL, EDU_TYPE, SCHOOL_YEAR, HIT_BLACK_LIST_FLAG, INPUT_DATE, INPUT_TIME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from BIZ_FEEDBACK_RESULT
+    where APP_NO = #{appNo,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from BIZ_FEEDBACK_RESULT
+    where APP_NO = #{appNo,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.BIZ_FEEDBACK_RESULT">
+    insert into BIZ_FEEDBACK_RESULT (APP_NO, APPLY_NO, CERT_CODE, 
+      CERT_TYPE, STOCK_CUST_FLAG, CARD_BAL, 
+      LAST3M_DAY_AVG_BAL, LAST6M_DAY_AVG_BAL, LAST3M_BANK_IN_AMT, 
+      LAST3M_BANK_OUT_AMT, LAST6M_BANK_IN_AMT, LAST6M_BANK_OUT_AMT, 
+      STOCK_FINANCE_CUST_FLAG, STOCK_INSUR_CUST_FLAG, 
+      STOCK_LOAN_CUST_FLAG, BOND_CUST_FLAG, TP_CUST_FLAG, 
+      PAYING_WAGES_CUST_FLAG, COAL_CUST_FLAG, OPERATOR_FLAG, 
+      OPERATOR_FROM, STOCK_CREDIT_CUST_FLAG, CREDIT_CRD_AMT, 
+      CREDIT_USED_AMT, WORK_UNIT, WORK_UNIT_FROM, 
+      POSITION, POSITION_FROM, INDUSTRY, 
+      INDUSTRY_FROM, WORK_YEARS, WORK_YEARS_FROM, 
+      MONTH_INCOME, MONTH_INCOME_FROM, MARR_STATUS, 
+      MARR_STATUS_FROM, BLACK_LIST, QUERY_EDU_FLAG, 
+      SCHOOL_NAME, EDU_LEVEL, EDU_TYPE, 
+      SCHOOL_YEAR, HIT_BLACK_LIST_FLAG, INPUT_DATE, 
+      INPUT_TIME)
+    values (#{appNo,jdbcType=VARCHAR}, #{applyNo,jdbcType=VARCHAR}, #{certCode,jdbcType=VARCHAR}, 
+      #{certType,jdbcType=VARCHAR}, #{stockCustFlag,jdbcType=VARCHAR}, #{cardBal,jdbcType=DECIMAL}, 
+      #{last3mDayAvgBal,jdbcType=DECIMAL}, #{last6mDayAvgBal,jdbcType=DECIMAL}, #{last3mBankInAmt,jdbcType=DECIMAL}, 
+      #{last3mBankOutAmt,jdbcType=DECIMAL}, #{last6mBankInAmt,jdbcType=DECIMAL}, #{last6mBankOutAmt,jdbcType=DECIMAL}, 
+      #{stockFinanceCustFlag,jdbcType=VARCHAR}, #{stockInsurCustFlag,jdbcType=VARCHAR}, 
+      #{stockLoanCustFlag,jdbcType=VARCHAR}, #{bondCustFlag,jdbcType=VARCHAR}, #{tpCustFlag,jdbcType=VARCHAR}, 
+      #{payingWagesCustFlag,jdbcType=VARCHAR}, #{coalCustFlag,jdbcType=VARCHAR}, #{operatorFlag,jdbcType=VARCHAR}, 
+      #{operatorFrom,jdbcType=VARCHAR}, #{stockCreditCustFlag,jdbcType=VARCHAR}, #{creditCrdAmt,jdbcType=DECIMAL}, 
+      #{creditUsedAmt,jdbcType=DECIMAL}, #{workUnit,jdbcType=VARCHAR}, #{workUnitFrom,jdbcType=VARCHAR}, 
+      #{position,jdbcType=VARCHAR}, #{positionFrom,jdbcType=VARCHAR}, #{industry,jdbcType=VARCHAR}, 
+      #{industryFrom,jdbcType=VARCHAR}, #{workYears,jdbcType=DECIMAL}, #{workYearsFrom,jdbcType=VARCHAR}, 
+      #{monthIncome,jdbcType=DECIMAL}, #{monthIncomeFrom,jdbcType=VARCHAR}, #{marrStatus,jdbcType=VARCHAR}, 
+      #{marrStatusFrom,jdbcType=VARCHAR}, #{blackList,jdbcType=VARCHAR}, #{queryEduFlag,jdbcType=VARCHAR}, 
+      #{schoolName,jdbcType=VARCHAR}, #{eduLevel,jdbcType=VARCHAR}, #{eduType,jdbcType=VARCHAR}, 
+      #{schoolYear,jdbcType=VARCHAR}, #{hitBlackListFlag,jdbcType=VARCHAR}, #{inputDate,jdbcType=VARCHAR}, 
+      #{inputTime,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.BIZ_FEEDBACK_RESULT">
+    insert into BIZ_FEEDBACK_RESULT
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="appNo != null">
+        APP_NO,
+      </if>
+      <if test="applyNo != null">
+        APPLY_NO,
+      </if>
+      <if test="certCode != null">
+        CERT_CODE,
+      </if>
+      <if test="certType != null">
+        CERT_TYPE,
+      </if>
+      <if test="stockCustFlag != null">
+        STOCK_CUST_FLAG,
+      </if>
+      <if test="cardBal != null">
+        CARD_BAL,
+      </if>
+      <if test="last3mDayAvgBal != null">
+        LAST3M_DAY_AVG_BAL,
+      </if>
+      <if test="last6mDayAvgBal != null">
+        LAST6M_DAY_AVG_BAL,
+      </if>
+      <if test="last3mBankInAmt != null">
+        LAST3M_BANK_IN_AMT,
+      </if>
+      <if test="last3mBankOutAmt != null">
+        LAST3M_BANK_OUT_AMT,
+      </if>
+      <if test="last6mBankInAmt != null">
+        LAST6M_BANK_IN_AMT,
+      </if>
+      <if test="last6mBankOutAmt != null">
+        LAST6M_BANK_OUT_AMT,
+      </if>
+      <if test="stockFinanceCustFlag != null">
+        STOCK_FINANCE_CUST_FLAG,
+      </if>
+      <if test="stockInsurCustFlag != null">
+        STOCK_INSUR_CUST_FLAG,
+      </if>
+      <if test="stockLoanCustFlag != null">
+        STOCK_LOAN_CUST_FLAG,
+      </if>
+      <if test="bondCustFlag != null">
+        BOND_CUST_FLAG,
+      </if>
+      <if test="tpCustFlag != null">
+        TP_CUST_FLAG,
+      </if>
+      <if test="payingWagesCustFlag != null">
+        PAYING_WAGES_CUST_FLAG,
+      </if>
+      <if test="coalCustFlag != null">
+        COAL_CUST_FLAG,
+      </if>
+      <if test="operatorFlag != null">
+        OPERATOR_FLAG,
+      </if>
+      <if test="operatorFrom != null">
+        OPERATOR_FROM,
+      </if>
+      <if test="stockCreditCustFlag != null">
+        STOCK_CREDIT_CUST_FLAG,
+      </if>
+      <if test="creditCrdAmt != null">
+        CREDIT_CRD_AMT,
+      </if>
+      <if test="creditUsedAmt != null">
+        CREDIT_USED_AMT,
+      </if>
+      <if test="workUnit != null">
+        WORK_UNIT,
+      </if>
+      <if test="workUnitFrom != null">
+        WORK_UNIT_FROM,
+      </if>
+      <if test="position != null">
+        POSITION,
+      </if>
+      <if test="positionFrom != null">
+        POSITION_FROM,
+      </if>
+      <if test="industry != null">
+        INDUSTRY,
+      </if>
+      <if test="industryFrom != null">
+        INDUSTRY_FROM,
+      </if>
+      <if test="workYears != null">
+        WORK_YEARS,
+      </if>
+      <if test="workYearsFrom != null">
+        WORK_YEARS_FROM,
+      </if>
+      <if test="monthIncome != null">
+        MONTH_INCOME,
+      </if>
+      <if test="monthIncomeFrom != null">
+        MONTH_INCOME_FROM,
+      </if>
+      <if test="marrStatus != null">
+        MARR_STATUS,
+      </if>
+      <if test="marrStatusFrom != null">
+        MARR_STATUS_FROM,
+      </if>
+      <if test="blackList != null">
+        BLACK_LIST,
+      </if>
+      <if test="queryEduFlag != null">
+        QUERY_EDU_FLAG,
+      </if>
+      <if test="schoolName != null">
+        SCHOOL_NAME,
+      </if>
+      <if test="eduLevel != null">
+        EDU_LEVEL,
+      </if>
+      <if test="eduType != null">
+        EDU_TYPE,
+      </if>
+      <if test="schoolYear != null">
+        SCHOOL_YEAR,
+      </if>
+      <if test="hitBlackListFlag != null">
+        HIT_BLACK_LIST_FLAG,
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE,
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="appNo != null">
+        #{appNo,jdbcType=VARCHAR},
+      </if>
+      <if test="applyNo != null">
+        #{applyNo,jdbcType=VARCHAR},
+      </if>
+      <if test="certCode != null">
+        #{certCode,jdbcType=VARCHAR},
+      </if>
+      <if test="certType != null">
+        #{certType,jdbcType=VARCHAR},
+      </if>
+      <if test="stockCustFlag != null">
+        #{stockCustFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="cardBal != null">
+        #{cardBal,jdbcType=DECIMAL},
+      </if>
+      <if test="last3mDayAvgBal != null">
+        #{last3mDayAvgBal,jdbcType=DECIMAL},
+      </if>
+      <if test="last6mDayAvgBal != null">
+        #{last6mDayAvgBal,jdbcType=DECIMAL},
+      </if>
+      <if test="last3mBankInAmt != null">
+        #{last3mBankInAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="last3mBankOutAmt != null">
+        #{last3mBankOutAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="last6mBankInAmt != null">
+        #{last6mBankInAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="last6mBankOutAmt != null">
+        #{last6mBankOutAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="stockFinanceCustFlag != null">
+        #{stockFinanceCustFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="stockInsurCustFlag != null">
+        #{stockInsurCustFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="stockLoanCustFlag != null">
+        #{stockLoanCustFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="bondCustFlag != null">
+        #{bondCustFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="tpCustFlag != null">
+        #{tpCustFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="payingWagesCustFlag != null">
+        #{payingWagesCustFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="coalCustFlag != null">
+        #{coalCustFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="operatorFlag != null">
+        #{operatorFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="operatorFrom != null">
+        #{operatorFrom,jdbcType=VARCHAR},
+      </if>
+      <if test="stockCreditCustFlag != null">
+        #{stockCreditCustFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="creditCrdAmt != null">
+        #{creditCrdAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="creditUsedAmt != null">
+        #{creditUsedAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="workUnit != null">
+        #{workUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="workUnitFrom != null">
+        #{workUnitFrom,jdbcType=VARCHAR},
+      </if>
+      <if test="position != null">
+        #{position,jdbcType=VARCHAR},
+      </if>
+      <if test="positionFrom != null">
+        #{positionFrom,jdbcType=VARCHAR},
+      </if>
+      <if test="industry != null">
+        #{industry,jdbcType=VARCHAR},
+      </if>
+      <if test="industryFrom != null">
+        #{industryFrom,jdbcType=VARCHAR},
+      </if>
+      <if test="workYears != null">
+        #{workYears,jdbcType=DECIMAL},
+      </if>
+      <if test="workYearsFrom != null">
+        #{workYearsFrom,jdbcType=VARCHAR},
+      </if>
+      <if test="monthIncome != null">
+        #{monthIncome,jdbcType=DECIMAL},
+      </if>
+      <if test="monthIncomeFrom != null">
+        #{monthIncomeFrom,jdbcType=VARCHAR},
+      </if>
+      <if test="marrStatus != null">
+        #{marrStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="marrStatusFrom != null">
+        #{marrStatusFrom,jdbcType=VARCHAR},
+      </if>
+      <if test="blackList != null">
+        #{blackList,jdbcType=VARCHAR},
+      </if>
+      <if test="queryEduFlag != null">
+        #{queryEduFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="schoolName != null">
+        #{schoolName,jdbcType=VARCHAR},
+      </if>
+      <if test="eduLevel != null">
+        #{eduLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="eduType != null">
+        #{eduType,jdbcType=VARCHAR},
+      </if>
+      <if test="schoolYear != null">
+        #{schoolYear,jdbcType=VARCHAR},
+      </if>
+      <if test="hitBlackListFlag != null">
+        #{hitBlackListFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        #{inputTime,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.BIZ_FEEDBACK_RESULT">
+    update BIZ_FEEDBACK_RESULT
+    <set>
+      <if test="applyNo != null">
+        APPLY_NO = #{applyNo,jdbcType=VARCHAR},
+      </if>
+      <if test="certCode != null">
+        CERT_CODE = #{certCode,jdbcType=VARCHAR},
+      </if>
+      <if test="certType != null">
+        CERT_TYPE = #{certType,jdbcType=VARCHAR},
+      </if>
+      <if test="stockCustFlag != null">
+        STOCK_CUST_FLAG = #{stockCustFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="cardBal != null">
+        CARD_BAL = #{cardBal,jdbcType=DECIMAL},
+      </if>
+      <if test="last3mDayAvgBal != null">
+        LAST3M_DAY_AVG_BAL = #{last3mDayAvgBal,jdbcType=DECIMAL},
+      </if>
+      <if test="last6mDayAvgBal != null">
+        LAST6M_DAY_AVG_BAL = #{last6mDayAvgBal,jdbcType=DECIMAL},
+      </if>
+      <if test="last3mBankInAmt != null">
+        LAST3M_BANK_IN_AMT = #{last3mBankInAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="last3mBankOutAmt != null">
+        LAST3M_BANK_OUT_AMT = #{last3mBankOutAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="last6mBankInAmt != null">
+        LAST6M_BANK_IN_AMT = #{last6mBankInAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="last6mBankOutAmt != null">
+        LAST6M_BANK_OUT_AMT = #{last6mBankOutAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="stockFinanceCustFlag != null">
+        STOCK_FINANCE_CUST_FLAG = #{stockFinanceCustFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="stockInsurCustFlag != null">
+        STOCK_INSUR_CUST_FLAG = #{stockInsurCustFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="stockLoanCustFlag != null">
+        STOCK_LOAN_CUST_FLAG = #{stockLoanCustFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="bondCustFlag != null">
+        BOND_CUST_FLAG = #{bondCustFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="tpCustFlag != null">
+        TP_CUST_FLAG = #{tpCustFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="payingWagesCustFlag != null">
+        PAYING_WAGES_CUST_FLAG = #{payingWagesCustFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="coalCustFlag != null">
+        COAL_CUST_FLAG = #{coalCustFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="operatorFlag != null">
+        OPERATOR_FLAG = #{operatorFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="operatorFrom != null">
+        OPERATOR_FROM = #{operatorFrom,jdbcType=VARCHAR},
+      </if>
+      <if test="stockCreditCustFlag != null">
+        STOCK_CREDIT_CUST_FLAG = #{stockCreditCustFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="creditCrdAmt != null">
+        CREDIT_CRD_AMT = #{creditCrdAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="creditUsedAmt != null">
+        CREDIT_USED_AMT = #{creditUsedAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="workUnit != null">
+        WORK_UNIT = #{workUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="workUnitFrom != null">
+        WORK_UNIT_FROM = #{workUnitFrom,jdbcType=VARCHAR},
+      </if>
+      <if test="position != null">
+        POSITION = #{position,jdbcType=VARCHAR},
+      </if>
+      <if test="positionFrom != null">
+        POSITION_FROM = #{positionFrom,jdbcType=VARCHAR},
+      </if>
+      <if test="industry != null">
+        INDUSTRY = #{industry,jdbcType=VARCHAR},
+      </if>
+      <if test="industryFrom != null">
+        INDUSTRY_FROM = #{industryFrom,jdbcType=VARCHAR},
+      </if>
+      <if test="workYears != null">
+        WORK_YEARS = #{workYears,jdbcType=DECIMAL},
+      </if>
+      <if test="workYearsFrom != null">
+        WORK_YEARS_FROM = #{workYearsFrom,jdbcType=VARCHAR},
+      </if>
+      <if test="monthIncome != null">
+        MONTH_INCOME = #{monthIncome,jdbcType=DECIMAL},
+      </if>
+      <if test="monthIncomeFrom != null">
+        MONTH_INCOME_FROM = #{monthIncomeFrom,jdbcType=VARCHAR},
+      </if>
+      <if test="marrStatus != null">
+        MARR_STATUS = #{marrStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="marrStatusFrom != null">
+        MARR_STATUS_FROM = #{marrStatusFrom,jdbcType=VARCHAR},
+      </if>
+      <if test="blackList != null">
+        BLACK_LIST = #{blackList,jdbcType=VARCHAR},
+      </if>
+      <if test="queryEduFlag != null">
+        QUERY_EDU_FLAG = #{queryEduFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="schoolName != null">
+        SCHOOL_NAME = #{schoolName,jdbcType=VARCHAR},
+      </if>
+      <if test="eduLevel != null">
+        EDU_LEVEL = #{eduLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="eduType != null">
+        EDU_TYPE = #{eduType,jdbcType=VARCHAR},
+      </if>
+      <if test="schoolYear != null">
+        SCHOOL_YEAR = #{schoolYear,jdbcType=VARCHAR},
+      </if>
+      <if test="hitBlackListFlag != null">
+        HIT_BLACK_LIST_FLAG = #{hitBlackListFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE = #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME = #{inputTime,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where APP_NO = #{appNo,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.BIZ_FEEDBACK_RESULT">
+    update BIZ_FEEDBACK_RESULT
+    set APPLY_NO = #{applyNo,jdbcType=VARCHAR},
+      CERT_CODE = #{certCode,jdbcType=VARCHAR},
+      CERT_TYPE = #{certType,jdbcType=VARCHAR},
+      STOCK_CUST_FLAG = #{stockCustFlag,jdbcType=VARCHAR},
+      CARD_BAL = #{cardBal,jdbcType=DECIMAL},
+      LAST3M_DAY_AVG_BAL = #{last3mDayAvgBal,jdbcType=DECIMAL},
+      LAST6M_DAY_AVG_BAL = #{last6mDayAvgBal,jdbcType=DECIMAL},
+      LAST3M_BANK_IN_AMT = #{last3mBankInAmt,jdbcType=DECIMAL},
+      LAST3M_BANK_OUT_AMT = #{last3mBankOutAmt,jdbcType=DECIMAL},
+      LAST6M_BANK_IN_AMT = #{last6mBankInAmt,jdbcType=DECIMAL},
+      LAST6M_BANK_OUT_AMT = #{last6mBankOutAmt,jdbcType=DECIMAL},
+      STOCK_FINANCE_CUST_FLAG = #{stockFinanceCustFlag,jdbcType=VARCHAR},
+      STOCK_INSUR_CUST_FLAG = #{stockInsurCustFlag,jdbcType=VARCHAR},
+      STOCK_LOAN_CUST_FLAG = #{stockLoanCustFlag,jdbcType=VARCHAR},
+      BOND_CUST_FLAG = #{bondCustFlag,jdbcType=VARCHAR},
+      TP_CUST_FLAG = #{tpCustFlag,jdbcType=VARCHAR},
+      PAYING_WAGES_CUST_FLAG = #{payingWagesCustFlag,jdbcType=VARCHAR},
+      COAL_CUST_FLAG = #{coalCustFlag,jdbcType=VARCHAR},
+      OPERATOR_FLAG = #{operatorFlag,jdbcType=VARCHAR},
+      OPERATOR_FROM = #{operatorFrom,jdbcType=VARCHAR},
+      STOCK_CREDIT_CUST_FLAG = #{stockCreditCustFlag,jdbcType=VARCHAR},
+      CREDIT_CRD_AMT = #{creditCrdAmt,jdbcType=DECIMAL},
+      CREDIT_USED_AMT = #{creditUsedAmt,jdbcType=DECIMAL},
+      WORK_UNIT = #{workUnit,jdbcType=VARCHAR},
+      WORK_UNIT_FROM = #{workUnitFrom,jdbcType=VARCHAR},
+      POSITION = #{position,jdbcType=VARCHAR},
+      POSITION_FROM = #{positionFrom,jdbcType=VARCHAR},
+      INDUSTRY = #{industry,jdbcType=VARCHAR},
+      INDUSTRY_FROM = #{industryFrom,jdbcType=VARCHAR},
+      WORK_YEARS = #{workYears,jdbcType=DECIMAL},
+      WORK_YEARS_FROM = #{workYearsFrom,jdbcType=VARCHAR},
+      MONTH_INCOME = #{monthIncome,jdbcType=DECIMAL},
+      MONTH_INCOME_FROM = #{monthIncomeFrom,jdbcType=VARCHAR},
+      MARR_STATUS = #{marrStatus,jdbcType=VARCHAR},
+      MARR_STATUS_FROM = #{marrStatusFrom,jdbcType=VARCHAR},
+      BLACK_LIST = #{blackList,jdbcType=VARCHAR},
+      QUERY_EDU_FLAG = #{queryEduFlag,jdbcType=VARCHAR},
+      SCHOOL_NAME = #{schoolName,jdbcType=VARCHAR},
+      EDU_LEVEL = #{eduLevel,jdbcType=VARCHAR},
+      EDU_TYPE = #{eduType,jdbcType=VARCHAR},
+      SCHOOL_YEAR = #{schoolYear,jdbcType=VARCHAR},
+      HIT_BLACK_LIST_FLAG = #{hitBlackListFlag,jdbcType=VARCHAR},
+      INPUT_DATE = #{inputDate,jdbcType=VARCHAR},
+      INPUT_TIME = #{inputTime,jdbcType=VARCHAR}
+    where APP_NO = #{appNo,jdbcType=VARCHAR}
+  </update>
+</mapper>

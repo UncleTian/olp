@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.WF_ORGWFLINKMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.WF_ORGWFLINK">
+    <id column="UNID" jdbcType="VARCHAR" property="unid" />
+    <result column="ORGID" jdbcType="VARCHAR" property="orgid" />
+    <result column="ORGNAME" jdbcType="VARCHAR" property="orgname" />
+    <result column="APPID" jdbcType="VARCHAR" property="appid" />
+    <result column="APPNAME" jdbcType="VARCHAR" property="appname" />
+    <result column="SUBTYPE1" jdbcType="VARCHAR" property="subtype1" />
+    <result column="SUBTYPE2" jdbcType="VARCHAR" property="subtype2" />
+    <result column="SUBTYPE3" jdbcType="VARCHAR" property="subtype3" />
+    <result column="WFSIGN" jdbcType="VARCHAR" property="wfsign" />
+    <result column="WFNAME" jdbcType="VARCHAR" property="wfname" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    UNID, ORGID, ORGNAME, APPID, APPNAME, SUBTYPE1, SUBTYPE2, SUBTYPE3, WFSIGN, WFNAME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from WF_ORGWFLINK
+    where UNID = #{unid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from WF_ORGWFLINK
+    where UNID = #{unid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.WF_ORGWFLINK">
+    insert into WF_ORGWFLINK (UNID, ORGID, ORGNAME, 
+      APPID, APPNAME, SUBTYPE1, 
+      SUBTYPE2, SUBTYPE3, WFSIGN, 
+      WFNAME)
+    values (#{unid,jdbcType=VARCHAR}, #{orgid,jdbcType=VARCHAR}, #{orgname,jdbcType=VARCHAR}, 
+      #{appid,jdbcType=VARCHAR}, #{appname,jdbcType=VARCHAR}, #{subtype1,jdbcType=VARCHAR}, 
+      #{subtype2,jdbcType=VARCHAR}, #{subtype3,jdbcType=VARCHAR}, #{wfsign,jdbcType=VARCHAR}, 
+      #{wfname,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.WF_ORGWFLINK">
+    insert into WF_ORGWFLINK
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="unid != null">
+        UNID,
+      </if>
+      <if test="orgid != null">
+        ORGID,
+      </if>
+      <if test="orgname != null">
+        ORGNAME,
+      </if>
+      <if test="appid != null">
+        APPID,
+      </if>
+      <if test="appname != null">
+        APPNAME,
+      </if>
+      <if test="subtype1 != null">
+        SUBTYPE1,
+      </if>
+      <if test="subtype2 != null">
+        SUBTYPE2,
+      </if>
+      <if test="subtype3 != null">
+        SUBTYPE3,
+      </if>
+      <if test="wfsign != null">
+        WFSIGN,
+      </if>
+      <if test="wfname != null">
+        WFNAME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="unid != null">
+        #{unid,jdbcType=VARCHAR},
+      </if>
+      <if test="orgid != null">
+        #{orgid,jdbcType=VARCHAR},
+      </if>
+      <if test="orgname != null">
+        #{orgname,jdbcType=VARCHAR},
+      </if>
+      <if test="appid != null">
+        #{appid,jdbcType=VARCHAR},
+      </if>
+      <if test="appname != null">
+        #{appname,jdbcType=VARCHAR},
+      </if>
+      <if test="subtype1 != null">
+        #{subtype1,jdbcType=VARCHAR},
+      </if>
+      <if test="subtype2 != null">
+        #{subtype2,jdbcType=VARCHAR},
+      </if>
+      <if test="subtype3 != null">
+        #{subtype3,jdbcType=VARCHAR},
+      </if>
+      <if test="wfsign != null">
+        #{wfsign,jdbcType=VARCHAR},
+      </if>
+      <if test="wfname != null">
+        #{wfname,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.WF_ORGWFLINK">
+    update WF_ORGWFLINK
+    <set>
+      <if test="orgid != null">
+        ORGID = #{orgid,jdbcType=VARCHAR},
+      </if>
+      <if test="orgname != null">
+        ORGNAME = #{orgname,jdbcType=VARCHAR},
+      </if>
+      <if test="appid != null">
+        APPID = #{appid,jdbcType=VARCHAR},
+      </if>
+      <if test="appname != null">
+        APPNAME = #{appname,jdbcType=VARCHAR},
+      </if>
+      <if test="subtype1 != null">
+        SUBTYPE1 = #{subtype1,jdbcType=VARCHAR},
+      </if>
+      <if test="subtype2 != null">
+        SUBTYPE2 = #{subtype2,jdbcType=VARCHAR},
+      </if>
+      <if test="subtype3 != null">
+        SUBTYPE3 = #{subtype3,jdbcType=VARCHAR},
+      </if>
+      <if test="wfsign != null">
+        WFSIGN = #{wfsign,jdbcType=VARCHAR},
+      </if>
+      <if test="wfname != null">
+        WFNAME = #{wfname,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where UNID = #{unid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.WF_ORGWFLINK">
+    update WF_ORGWFLINK
+    set ORGID = #{orgid,jdbcType=VARCHAR},
+      ORGNAME = #{orgname,jdbcType=VARCHAR},
+      APPID = #{appid,jdbcType=VARCHAR},
+      APPNAME = #{appname,jdbcType=VARCHAR},
+      SUBTYPE1 = #{subtype1,jdbcType=VARCHAR},
+      SUBTYPE2 = #{subtype2,jdbcType=VARCHAR},
+      SUBTYPE3 = #{subtype3,jdbcType=VARCHAR},
+      WFSIGN = #{wfsign,jdbcType=VARCHAR},
+      WFNAME = #{wfname,jdbcType=VARCHAR}
+    where UNID = #{unid,jdbcType=VARCHAR}
+  </update>
+</mapper>

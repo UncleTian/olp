@@ -1,0 +1,437 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.CRD_UNION_APP_INFO_JBMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.CRD_UNION_APP_INFO_JB">
+    <id column="APP_NO" jdbcType="VARCHAR" property="appNo" />
+    <result column="APPLY_NO" jdbcType="VARCHAR" property="applyNo" />
+    <result column="CRD_NO" jdbcType="VARCHAR" property="crdNo" />
+    <result column="TP_NO" jdbcType="VARCHAR" property="tpNo" />
+    <result column="CHANNEL_TYPE" jdbcType="VARCHAR" property="channelType" />
+    <result column="CO_PLATFORM" jdbcType="VARCHAR" property="coPlatform" />
+    <result column="LOAN_PROP" jdbcType="VARCHAR" property="loanProp" />
+    <result column="PRD_TYPE" jdbcType="VARCHAR" property="prdType" />
+    <result column="PRD_CODE" jdbcType="VARCHAR" property="prdCode" />
+    <result column="HAS_JB_ADMIT" jdbcType="VARCHAR" property="hasJbAdmit" />
+    <result column="CERT_TYPE" jdbcType="VARCHAR" property="certType" />
+    <result column="CERT_CODE" jdbcType="VARCHAR" property="certCode" />
+    <result column="CUST_NAME" jdbcType="VARCHAR" property="custName" />
+    <result column="PHONE" jdbcType="VARCHAR" property="phone" />
+    <result column="CRD_MAIN_TYPE" jdbcType="VARCHAR" property="crdMainType" />
+    <result column="CRD_SUB_TYPE" jdbcType="VARCHAR" property="crdSubType" />
+    <result column="APPR_AMT" jdbcType="DECIMAL" property="apprAmt" />
+    <result column="EXEC_RATE" jdbcType="DECIMAL" property="execRate" />
+    <result column="FIRST_APP_DATE" jdbcType="VARCHAR" property="firstAppDate" />
+    <result column="SECOND_APP_DATE" jdbcType="VARCHAR" property="secondAppDate" />
+    <result column="FIRST_APP_STATUS" jdbcType="VARCHAR" property="firstAppStatus" />
+    <result column="SECOND_APP_STATUS" jdbcType="VARCHAR" property="secondAppStatus" />
+    <result column="FIRST_APPR_PASS_DATE" jdbcType="VARCHAR" property="firstApprPassDate" />
+    <result column="FIRST_APPR_PASS_TIME" jdbcType="VARCHAR" property="firstApprPassTime" />
+    <result column="SECOND_APPR_PASS_DATE" jdbcType="VARCHAR" property="secondApprPassDate" />
+    <result column="SECOND_APPR_PASS_TIME" jdbcType="VARCHAR" property="secondApprPassTime" />
+    <result column="FIRST_GEN_REASON" jdbcType="VARCHAR" property="firstGenReason" />
+    <result column="FIRST_SUB_REASON" jdbcType="VARCHAR" property="firstSubReason" />
+    <result column="SECOND_GEN_REASON" jdbcType="VARCHAR" property="secondGenReason" />
+    <result column="SECOND_SUB_REASON" jdbcType="VARCHAR" property="secondSubReason" />
+    <result column="INPUT_DATE" jdbcType="VARCHAR" property="inputDate" />
+    <result column="INPUT_TIME" jdbcType="VARCHAR" property="inputTime" />
+    <result column="LAST_UPDATE_DATE" jdbcType="VARCHAR" property="lastUpdateDate" />
+    <result column="LAST_UPDATE_TIME" jdbcType="VARCHAR" property="lastUpdateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    APP_NO, APPLY_NO, CRD_NO, TP_NO, CHANNEL_TYPE, CO_PLATFORM, LOAN_PROP, PRD_TYPE, 
+    PRD_CODE, HAS_JB_ADMIT, CERT_TYPE, CERT_CODE, CUST_NAME, PHONE, CRD_MAIN_TYPE, CRD_SUB_TYPE, 
+    APPR_AMT, EXEC_RATE, FIRST_APP_DATE, SECOND_APP_DATE, FIRST_APP_STATUS, SECOND_APP_STATUS, 
+    FIRST_APPR_PASS_DATE, FIRST_APPR_PASS_TIME, SECOND_APPR_PASS_DATE, SECOND_APPR_PASS_TIME, 
+    FIRST_GEN_REASON, FIRST_SUB_REASON, SECOND_GEN_REASON, SECOND_SUB_REASON, INPUT_DATE, 
+    INPUT_TIME, LAST_UPDATE_DATE, LAST_UPDATE_TIME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from CRD_UNION_APP_INFO_JB
+    where APP_NO = #{appNo,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from CRD_UNION_APP_INFO_JB
+    where APP_NO = #{appNo,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.CRD_UNION_APP_INFO_JB">
+    insert into CRD_UNION_APP_INFO_JB (APP_NO, APPLY_NO, CRD_NO, 
+      TP_NO, CHANNEL_TYPE, CO_PLATFORM, 
+      LOAN_PROP, PRD_TYPE, PRD_CODE, 
+      HAS_JB_ADMIT, CERT_TYPE, CERT_CODE, 
+      CUST_NAME, PHONE, CRD_MAIN_TYPE, 
+      CRD_SUB_TYPE, APPR_AMT, EXEC_RATE, 
+      FIRST_APP_DATE, SECOND_APP_DATE, FIRST_APP_STATUS, 
+      SECOND_APP_STATUS, FIRST_APPR_PASS_DATE, FIRST_APPR_PASS_TIME, 
+      SECOND_APPR_PASS_DATE, SECOND_APPR_PASS_TIME, 
+      FIRST_GEN_REASON, FIRST_SUB_REASON, SECOND_GEN_REASON, 
+      SECOND_SUB_REASON, INPUT_DATE, INPUT_TIME, 
+      LAST_UPDATE_DATE, LAST_UPDATE_TIME)
+    values (#{appNo,jdbcType=VARCHAR}, #{applyNo,jdbcType=VARCHAR}, #{crdNo,jdbcType=VARCHAR}, 
+      #{tpNo,jdbcType=VARCHAR}, #{channelType,jdbcType=VARCHAR}, #{coPlatform,jdbcType=VARCHAR}, 
+      #{loanProp,jdbcType=VARCHAR}, #{prdType,jdbcType=VARCHAR}, #{prdCode,jdbcType=VARCHAR}, 
+      #{hasJbAdmit,jdbcType=VARCHAR}, #{certType,jdbcType=VARCHAR}, #{certCode,jdbcType=VARCHAR}, 
+      #{custName,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{crdMainType,jdbcType=VARCHAR}, 
+      #{crdSubType,jdbcType=VARCHAR}, #{apprAmt,jdbcType=DECIMAL}, #{execRate,jdbcType=DECIMAL}, 
+      #{firstAppDate,jdbcType=VARCHAR}, #{secondAppDate,jdbcType=VARCHAR}, #{firstAppStatus,jdbcType=VARCHAR}, 
+      #{secondAppStatus,jdbcType=VARCHAR}, #{firstApprPassDate,jdbcType=VARCHAR}, #{firstApprPassTime,jdbcType=VARCHAR}, 
+      #{secondApprPassDate,jdbcType=VARCHAR}, #{secondApprPassTime,jdbcType=VARCHAR}, 
+      #{firstGenReason,jdbcType=VARCHAR}, #{firstSubReason,jdbcType=VARCHAR}, #{secondGenReason,jdbcType=VARCHAR}, 
+      #{secondSubReason,jdbcType=VARCHAR}, #{inputDate,jdbcType=VARCHAR}, #{inputTime,jdbcType=VARCHAR}, 
+      #{lastUpdateDate,jdbcType=VARCHAR}, #{lastUpdateTime,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.CRD_UNION_APP_INFO_JB">
+    insert into CRD_UNION_APP_INFO_JB
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="appNo != null">
+        APP_NO,
+      </if>
+      <if test="applyNo != null">
+        APPLY_NO,
+      </if>
+      <if test="crdNo != null">
+        CRD_NO,
+      </if>
+      <if test="tpNo != null">
+        TP_NO,
+      </if>
+      <if test="channelType != null">
+        CHANNEL_TYPE,
+      </if>
+      <if test="coPlatform != null">
+        CO_PLATFORM,
+      </if>
+      <if test="loanProp != null">
+        LOAN_PROP,
+      </if>
+      <if test="prdType != null">
+        PRD_TYPE,
+      </if>
+      <if test="prdCode != null">
+        PRD_CODE,
+      </if>
+      <if test="hasJbAdmit != null">
+        HAS_JB_ADMIT,
+      </if>
+      <if test="certType != null">
+        CERT_TYPE,
+      </if>
+      <if test="certCode != null">
+        CERT_CODE,
+      </if>
+      <if test="custName != null">
+        CUST_NAME,
+      </if>
+      <if test="phone != null">
+        PHONE,
+      </if>
+      <if test="crdMainType != null">
+        CRD_MAIN_TYPE,
+      </if>
+      <if test="crdSubType != null">
+        CRD_SUB_TYPE,
+      </if>
+      <if test="apprAmt != null">
+        APPR_AMT,
+      </if>
+      <if test="execRate != null">
+        EXEC_RATE,
+      </if>
+      <if test="firstAppDate != null">
+        FIRST_APP_DATE,
+      </if>
+      <if test="secondAppDate != null">
+        SECOND_APP_DATE,
+      </if>
+      <if test="firstAppStatus != null">
+        FIRST_APP_STATUS,
+      </if>
+      <if test="secondAppStatus != null">
+        SECOND_APP_STATUS,
+      </if>
+      <if test="firstApprPassDate != null">
+        FIRST_APPR_PASS_DATE,
+      </if>
+      <if test="firstApprPassTime != null">
+        FIRST_APPR_PASS_TIME,
+      </if>
+      <if test="secondApprPassDate != null">
+        SECOND_APPR_PASS_DATE,
+      </if>
+      <if test="secondApprPassTime != null">
+        SECOND_APPR_PASS_TIME,
+      </if>
+      <if test="firstGenReason != null">
+        FIRST_GEN_REASON,
+      </if>
+      <if test="firstSubReason != null">
+        FIRST_SUB_REASON,
+      </if>
+      <if test="secondGenReason != null">
+        SECOND_GEN_REASON,
+      </if>
+      <if test="secondSubReason != null">
+        SECOND_SUB_REASON,
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE,
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME,
+      </if>
+      <if test="lastUpdateDate != null">
+        LAST_UPDATE_DATE,
+      </if>
+      <if test="lastUpdateTime != null">
+        LAST_UPDATE_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="appNo != null">
+        #{appNo,jdbcType=VARCHAR},
+      </if>
+      <if test="applyNo != null">
+        #{applyNo,jdbcType=VARCHAR},
+      </if>
+      <if test="crdNo != null">
+        #{crdNo,jdbcType=VARCHAR},
+      </if>
+      <if test="tpNo != null">
+        #{tpNo,jdbcType=VARCHAR},
+      </if>
+      <if test="channelType != null">
+        #{channelType,jdbcType=VARCHAR},
+      </if>
+      <if test="coPlatform != null">
+        #{coPlatform,jdbcType=VARCHAR},
+      </if>
+      <if test="loanProp != null">
+        #{loanProp,jdbcType=VARCHAR},
+      </if>
+      <if test="prdType != null">
+        #{prdType,jdbcType=VARCHAR},
+      </if>
+      <if test="prdCode != null">
+        #{prdCode,jdbcType=VARCHAR},
+      </if>
+      <if test="hasJbAdmit != null">
+        #{hasJbAdmit,jdbcType=VARCHAR},
+      </if>
+      <if test="certType != null">
+        #{certType,jdbcType=VARCHAR},
+      </if>
+      <if test="certCode != null">
+        #{certCode,jdbcType=VARCHAR},
+      </if>
+      <if test="custName != null">
+        #{custName,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="crdMainType != null">
+        #{crdMainType,jdbcType=VARCHAR},
+      </if>
+      <if test="crdSubType != null">
+        #{crdSubType,jdbcType=VARCHAR},
+      </if>
+      <if test="apprAmt != null">
+        #{apprAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="execRate != null">
+        #{execRate,jdbcType=DECIMAL},
+      </if>
+      <if test="firstAppDate != null">
+        #{firstAppDate,jdbcType=VARCHAR},
+      </if>
+      <if test="secondAppDate != null">
+        #{secondAppDate,jdbcType=VARCHAR},
+      </if>
+      <if test="firstAppStatus != null">
+        #{firstAppStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="secondAppStatus != null">
+        #{secondAppStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="firstApprPassDate != null">
+        #{firstApprPassDate,jdbcType=VARCHAR},
+      </if>
+      <if test="firstApprPassTime != null">
+        #{firstApprPassTime,jdbcType=VARCHAR},
+      </if>
+      <if test="secondApprPassDate != null">
+        #{secondApprPassDate,jdbcType=VARCHAR},
+      </if>
+      <if test="secondApprPassTime != null">
+        #{secondApprPassTime,jdbcType=VARCHAR},
+      </if>
+      <if test="firstGenReason != null">
+        #{firstGenReason,jdbcType=VARCHAR},
+      </if>
+      <if test="firstSubReason != null">
+        #{firstSubReason,jdbcType=VARCHAR},
+      </if>
+      <if test="secondGenReason != null">
+        #{secondGenReason,jdbcType=VARCHAR},
+      </if>
+      <if test="secondSubReason != null">
+        #{secondSubReason,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateDate != null">
+        #{lastUpdateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        #{lastUpdateTime,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.CRD_UNION_APP_INFO_JB">
+    update CRD_UNION_APP_INFO_JB
+    <set>
+      <if test="applyNo != null">
+        APPLY_NO = #{applyNo,jdbcType=VARCHAR},
+      </if>
+      <if test="crdNo != null">
+        CRD_NO = #{crdNo,jdbcType=VARCHAR},
+      </if>
+      <if test="tpNo != null">
+        TP_NO = #{tpNo,jdbcType=VARCHAR},
+      </if>
+      <if test="channelType != null">
+        CHANNEL_TYPE = #{channelType,jdbcType=VARCHAR},
+      </if>
+      <if test="coPlatform != null">
+        CO_PLATFORM = #{coPlatform,jdbcType=VARCHAR},
+      </if>
+      <if test="loanProp != null">
+        LOAN_PROP = #{loanProp,jdbcType=VARCHAR},
+      </if>
+      <if test="prdType != null">
+        PRD_TYPE = #{prdType,jdbcType=VARCHAR},
+      </if>
+      <if test="prdCode != null">
+        PRD_CODE = #{prdCode,jdbcType=VARCHAR},
+      </if>
+      <if test="hasJbAdmit != null">
+        HAS_JB_ADMIT = #{hasJbAdmit,jdbcType=VARCHAR},
+      </if>
+      <if test="certType != null">
+        CERT_TYPE = #{certType,jdbcType=VARCHAR},
+      </if>
+      <if test="certCode != null">
+        CERT_CODE = #{certCode,jdbcType=VARCHAR},
+      </if>
+      <if test="custName != null">
+        CUST_NAME = #{custName,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        PHONE = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="crdMainType != null">
+        CRD_MAIN_TYPE = #{crdMainType,jdbcType=VARCHAR},
+      </if>
+      <if test="crdSubType != null">
+        CRD_SUB_TYPE = #{crdSubType,jdbcType=VARCHAR},
+      </if>
+      <if test="apprAmt != null">
+        APPR_AMT = #{apprAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="execRate != null">
+        EXEC_RATE = #{execRate,jdbcType=DECIMAL},
+      </if>
+      <if test="firstAppDate != null">
+        FIRST_APP_DATE = #{firstAppDate,jdbcType=VARCHAR},
+      </if>
+      <if test="secondAppDate != null">
+        SECOND_APP_DATE = #{secondAppDate,jdbcType=VARCHAR},
+      </if>
+      <if test="firstAppStatus != null">
+        FIRST_APP_STATUS = #{firstAppStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="secondAppStatus != null">
+        SECOND_APP_STATUS = #{secondAppStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="firstApprPassDate != null">
+        FIRST_APPR_PASS_DATE = #{firstApprPassDate,jdbcType=VARCHAR},
+      </if>
+      <if test="firstApprPassTime != null">
+        FIRST_APPR_PASS_TIME = #{firstApprPassTime,jdbcType=VARCHAR},
+      </if>
+      <if test="secondApprPassDate != null">
+        SECOND_APPR_PASS_DATE = #{secondApprPassDate,jdbcType=VARCHAR},
+      </if>
+      <if test="secondApprPassTime != null">
+        SECOND_APPR_PASS_TIME = #{secondApprPassTime,jdbcType=VARCHAR},
+      </if>
+      <if test="firstGenReason != null">
+        FIRST_GEN_REASON = #{firstGenReason,jdbcType=VARCHAR},
+      </if>
+      <if test="firstSubReason != null">
+        FIRST_SUB_REASON = #{firstSubReason,jdbcType=VARCHAR},
+      </if>
+      <if test="secondGenReason != null">
+        SECOND_GEN_REASON = #{secondGenReason,jdbcType=VARCHAR},
+      </if>
+      <if test="secondSubReason != null">
+        SECOND_SUB_REASON = #{secondSubReason,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE = #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME = #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateDate != null">
+        LAST_UPDATE_DATE = #{lastUpdateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where APP_NO = #{appNo,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.CRD_UNION_APP_INFO_JB">
+    update CRD_UNION_APP_INFO_JB
+    set APPLY_NO = #{applyNo,jdbcType=VARCHAR},
+      CRD_NO = #{crdNo,jdbcType=VARCHAR},
+      TP_NO = #{tpNo,jdbcType=VARCHAR},
+      CHANNEL_TYPE = #{channelType,jdbcType=VARCHAR},
+      CO_PLATFORM = #{coPlatform,jdbcType=VARCHAR},
+      LOAN_PROP = #{loanProp,jdbcType=VARCHAR},
+      PRD_TYPE = #{prdType,jdbcType=VARCHAR},
+      PRD_CODE = #{prdCode,jdbcType=VARCHAR},
+      HAS_JB_ADMIT = #{hasJbAdmit,jdbcType=VARCHAR},
+      CERT_TYPE = #{certType,jdbcType=VARCHAR},
+      CERT_CODE = #{certCode,jdbcType=VARCHAR},
+      CUST_NAME = #{custName,jdbcType=VARCHAR},
+      PHONE = #{phone,jdbcType=VARCHAR},
+      CRD_MAIN_TYPE = #{crdMainType,jdbcType=VARCHAR},
+      CRD_SUB_TYPE = #{crdSubType,jdbcType=VARCHAR},
+      APPR_AMT = #{apprAmt,jdbcType=DECIMAL},
+      EXEC_RATE = #{execRate,jdbcType=DECIMAL},
+      FIRST_APP_DATE = #{firstAppDate,jdbcType=VARCHAR},
+      SECOND_APP_DATE = #{secondAppDate,jdbcType=VARCHAR},
+      FIRST_APP_STATUS = #{firstAppStatus,jdbcType=VARCHAR},
+      SECOND_APP_STATUS = #{secondAppStatus,jdbcType=VARCHAR},
+      FIRST_APPR_PASS_DATE = #{firstApprPassDate,jdbcType=VARCHAR},
+      FIRST_APPR_PASS_TIME = #{firstApprPassTime,jdbcType=VARCHAR},
+      SECOND_APPR_PASS_DATE = #{secondApprPassDate,jdbcType=VARCHAR},
+      SECOND_APPR_PASS_TIME = #{secondApprPassTime,jdbcType=VARCHAR},
+      FIRST_GEN_REASON = #{firstGenReason,jdbcType=VARCHAR},
+      FIRST_SUB_REASON = #{firstSubReason,jdbcType=VARCHAR},
+      SECOND_GEN_REASON = #{secondGenReason,jdbcType=VARCHAR},
+      SECOND_SUB_REASON = #{secondSubReason,jdbcType=VARCHAR},
+      INPUT_DATE = #{inputDate,jdbcType=VARCHAR},
+      INPUT_TIME = #{inputTime,jdbcType=VARCHAR},
+      LAST_UPDATE_DATE = #{lastUpdateDate,jdbcType=VARCHAR},
+      LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=VARCHAR}
+    where APP_NO = #{appNo,jdbcType=VARCHAR}
+  </update>
+</mapper>

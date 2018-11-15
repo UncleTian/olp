@@ -1,0 +1,507 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.BIZ_RULE_PREPAREMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.BIZ_RULE_PREPARE">
+    <id column="APP_NO" jdbcType="VARCHAR" property="appNo" />
+    <id column="APP_TYPE" jdbcType="VARCHAR" property="appType" />
+    <result column="TP_OBJ_ID" jdbcType="VARCHAR" property="tpObjId" />
+    <result column="DATE_LOW_LAST3" jdbcType="VARCHAR" property="dateLowLast3" />
+    <result column="DATE_LOW_LAST6" jdbcType="VARCHAR" property="dateLowLast6" />
+    <result column="DATE_LOW_LAST12" jdbcType="VARCHAR" property="dateLowLast12" />
+    <result column="END_YM" jdbcType="VARCHAR" property="endYm" />
+    <result column="TRAN_TOTAL_AMT" jdbcType="DECIMAL" property="tranTotalAmt" />
+    <result column="M3_TOTAL_AMT_TOP" jdbcType="DECIMAL" property="m3TotalAmtTop" />
+    <result column="M3_TOTAL_AMT_LOW" jdbcType="DECIMAL" property="m3TotalAmtLow" />
+    <result column="DATE_TOP" jdbcType="VARCHAR" property="dateTop" />
+    <result column="CERT_TYPE" jdbcType="VARCHAR" property="certType" />
+    <result column="CERT_CODE" jdbcType="VARCHAR" property="certCode" />
+    <result column="BGN_TIME" jdbcType="VARCHAR" property="bgnTime" />
+    <result column="END_TIME" jdbcType="VARCHAR" property="endTime" />
+    <result column="REPORT_NO" jdbcType="VARCHAR" property="reportNo" />
+    <result column="CO_PLATFORM" jdbcType="VARCHAR" property="coPlatform" />
+    <result column="LOAN_PROP" jdbcType="VARCHAR" property="loanProp" />
+    <result column="PRD_CODE" jdbcType="VARCHAR" property="prdCode" />
+    <result column="PRD_TYPE" jdbcType="VARCHAR" property="prdType" />
+    <result column="BIZ_OP_ID" jdbcType="VARCHAR" property="bizOpId" />
+    <result column="BIZ_ORG_ID" jdbcType="VARCHAR" property="bizOrgId" />
+    <result column="INPUT_DATE" jdbcType="VARCHAR" property="inputDate" />
+    <result column="INPUT_TIME" jdbcType="VARCHAR" property="inputTime" />
+    <result column="LAST_UPDATE_DATE" jdbcType="VARCHAR" property="lastUpdateDate" />
+    <result column="LAST_UPDATE_TIME" jdbcType="VARCHAR" property="lastUpdateTime" />
+    <result column="BASIC_ENT_STATUS" jdbcType="VARCHAR" property="basicEntStatus" />
+    <result column="FIELD2" jdbcType="VARCHAR" property="field2" />
+    <result column="FIELD3" jdbcType="VARCHAR" property="field3" />
+    <result column="FIELD4" jdbcType="VARCHAR" property="field4" />
+    <result column="FIELD5" jdbcType="VARCHAR" property="field5" />
+    <result column="FIELD6" jdbcType="DECIMAL" property="field6" />
+    <result column="FIELD7" jdbcType="DECIMAL" property="field7" />
+    <result column="FIELD8" jdbcType="DECIMAL" property="field8" />
+    <result column="FIELD9" jdbcType="DECIMAL" property="field9" />
+    <result column="FIELD10" jdbcType="DECIMAL" property="field10" />
+    <result column="LICENSE_CODE" jdbcType="VARCHAR" property="licenseCode" />
+    <result column="MER_NAME" jdbcType="VARCHAR" property="merName" />
+    <result column="BASIC_REG_NO" jdbcType="VARCHAR" property="basicRegNo" />
+    <result column="BASIC_ORI_REG_NO" jdbcType="VARCHAR" property="basicOriRegNo" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    APP_NO, APP_TYPE, TP_OBJ_ID, DATE_LOW_LAST3, DATE_LOW_LAST6, DATE_LOW_LAST12, END_YM, 
+    TRAN_TOTAL_AMT, M3_TOTAL_AMT_TOP, M3_TOTAL_AMT_LOW, DATE_TOP, CERT_TYPE, CERT_CODE, 
+    BGN_TIME, END_TIME, REPORT_NO, CO_PLATFORM, LOAN_PROP, PRD_CODE, PRD_TYPE, BIZ_OP_ID, 
+    BIZ_ORG_ID, INPUT_DATE, INPUT_TIME, LAST_UPDATE_DATE, LAST_UPDATE_TIME, BASIC_ENT_STATUS, 
+    FIELD2, FIELD3, FIELD4, FIELD5, FIELD6, FIELD7, FIELD8, FIELD9, FIELD10, LICENSE_CODE, 
+    MER_NAME, BASIC_REG_NO, BASIC_ORI_REG_NO
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="com.bea.olp.BIZ_RULE_PREPAREKey" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from BIZ_RULE_PREPARE
+    where APP_NO = #{appNo,jdbcType=VARCHAR}
+      and APP_TYPE = #{appType,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.bea.olp.BIZ_RULE_PREPAREKey">
+    delete from BIZ_RULE_PREPARE
+    where APP_NO = #{appNo,jdbcType=VARCHAR}
+      and APP_TYPE = #{appType,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.BIZ_RULE_PREPARE">
+    insert into BIZ_RULE_PREPARE (APP_NO, APP_TYPE, TP_OBJ_ID, 
+      DATE_LOW_LAST3, DATE_LOW_LAST6, DATE_LOW_LAST12, 
+      END_YM, TRAN_TOTAL_AMT, M3_TOTAL_AMT_TOP, 
+      M3_TOTAL_AMT_LOW, DATE_TOP, CERT_TYPE, 
+      CERT_CODE, BGN_TIME, END_TIME, 
+      REPORT_NO, CO_PLATFORM, LOAN_PROP, 
+      PRD_CODE, PRD_TYPE, BIZ_OP_ID, 
+      BIZ_ORG_ID, INPUT_DATE, INPUT_TIME, 
+      LAST_UPDATE_DATE, LAST_UPDATE_TIME, BASIC_ENT_STATUS, 
+      FIELD2, FIELD3, FIELD4, 
+      FIELD5, FIELD6, FIELD7, 
+      FIELD8, FIELD9, FIELD10, 
+      LICENSE_CODE, MER_NAME, BASIC_REG_NO, 
+      BASIC_ORI_REG_NO)
+    values (#{appNo,jdbcType=VARCHAR}, #{appType,jdbcType=VARCHAR}, #{tpObjId,jdbcType=VARCHAR}, 
+      #{dateLowLast3,jdbcType=VARCHAR}, #{dateLowLast6,jdbcType=VARCHAR}, #{dateLowLast12,jdbcType=VARCHAR}, 
+      #{endYm,jdbcType=VARCHAR}, #{tranTotalAmt,jdbcType=DECIMAL}, #{m3TotalAmtTop,jdbcType=DECIMAL}, 
+      #{m3TotalAmtLow,jdbcType=DECIMAL}, #{dateTop,jdbcType=VARCHAR}, #{certType,jdbcType=VARCHAR}, 
+      #{certCode,jdbcType=VARCHAR}, #{bgnTime,jdbcType=VARCHAR}, #{endTime,jdbcType=VARCHAR}, 
+      #{reportNo,jdbcType=VARCHAR}, #{coPlatform,jdbcType=VARCHAR}, #{loanProp,jdbcType=VARCHAR}, 
+      #{prdCode,jdbcType=VARCHAR}, #{prdType,jdbcType=VARCHAR}, #{bizOpId,jdbcType=VARCHAR}, 
+      #{bizOrgId,jdbcType=VARCHAR}, #{inputDate,jdbcType=VARCHAR}, #{inputTime,jdbcType=VARCHAR}, 
+      #{lastUpdateDate,jdbcType=VARCHAR}, #{lastUpdateTime,jdbcType=VARCHAR}, #{basicEntStatus,jdbcType=VARCHAR}, 
+      #{field2,jdbcType=VARCHAR}, #{field3,jdbcType=VARCHAR}, #{field4,jdbcType=VARCHAR}, 
+      #{field5,jdbcType=VARCHAR}, #{field6,jdbcType=DECIMAL}, #{field7,jdbcType=DECIMAL}, 
+      #{field8,jdbcType=DECIMAL}, #{field9,jdbcType=DECIMAL}, #{field10,jdbcType=DECIMAL}, 
+      #{licenseCode,jdbcType=VARCHAR}, #{merName,jdbcType=VARCHAR}, #{basicRegNo,jdbcType=VARCHAR}, 
+      #{basicOriRegNo,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.BIZ_RULE_PREPARE">
+    insert into BIZ_RULE_PREPARE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="appNo != null">
+        APP_NO,
+      </if>
+      <if test="appType != null">
+        APP_TYPE,
+      </if>
+      <if test="tpObjId != null">
+        TP_OBJ_ID,
+      </if>
+      <if test="dateLowLast3 != null">
+        DATE_LOW_LAST3,
+      </if>
+      <if test="dateLowLast6 != null">
+        DATE_LOW_LAST6,
+      </if>
+      <if test="dateLowLast12 != null">
+        DATE_LOW_LAST12,
+      </if>
+      <if test="endYm != null">
+        END_YM,
+      </if>
+      <if test="tranTotalAmt != null">
+        TRAN_TOTAL_AMT,
+      </if>
+      <if test="m3TotalAmtTop != null">
+        M3_TOTAL_AMT_TOP,
+      </if>
+      <if test="m3TotalAmtLow != null">
+        M3_TOTAL_AMT_LOW,
+      </if>
+      <if test="dateTop != null">
+        DATE_TOP,
+      </if>
+      <if test="certType != null">
+        CERT_TYPE,
+      </if>
+      <if test="certCode != null">
+        CERT_CODE,
+      </if>
+      <if test="bgnTime != null">
+        BGN_TIME,
+      </if>
+      <if test="endTime != null">
+        END_TIME,
+      </if>
+      <if test="reportNo != null">
+        REPORT_NO,
+      </if>
+      <if test="coPlatform != null">
+        CO_PLATFORM,
+      </if>
+      <if test="loanProp != null">
+        LOAN_PROP,
+      </if>
+      <if test="prdCode != null">
+        PRD_CODE,
+      </if>
+      <if test="prdType != null">
+        PRD_TYPE,
+      </if>
+      <if test="bizOpId != null">
+        BIZ_OP_ID,
+      </if>
+      <if test="bizOrgId != null">
+        BIZ_ORG_ID,
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE,
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME,
+      </if>
+      <if test="lastUpdateDate != null">
+        LAST_UPDATE_DATE,
+      </if>
+      <if test="lastUpdateTime != null">
+        LAST_UPDATE_TIME,
+      </if>
+      <if test="basicEntStatus != null">
+        BASIC_ENT_STATUS,
+      </if>
+      <if test="field2 != null">
+        FIELD2,
+      </if>
+      <if test="field3 != null">
+        FIELD3,
+      </if>
+      <if test="field4 != null">
+        FIELD4,
+      </if>
+      <if test="field5 != null">
+        FIELD5,
+      </if>
+      <if test="field6 != null">
+        FIELD6,
+      </if>
+      <if test="field7 != null">
+        FIELD7,
+      </if>
+      <if test="field8 != null">
+        FIELD8,
+      </if>
+      <if test="field9 != null">
+        FIELD9,
+      </if>
+      <if test="field10 != null">
+        FIELD10,
+      </if>
+      <if test="licenseCode != null">
+        LICENSE_CODE,
+      </if>
+      <if test="merName != null">
+        MER_NAME,
+      </if>
+      <if test="basicRegNo != null">
+        BASIC_REG_NO,
+      </if>
+      <if test="basicOriRegNo != null">
+        BASIC_ORI_REG_NO,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="appNo != null">
+        #{appNo,jdbcType=VARCHAR},
+      </if>
+      <if test="appType != null">
+        #{appType,jdbcType=VARCHAR},
+      </if>
+      <if test="tpObjId != null">
+        #{tpObjId,jdbcType=VARCHAR},
+      </if>
+      <if test="dateLowLast3 != null">
+        #{dateLowLast3,jdbcType=VARCHAR},
+      </if>
+      <if test="dateLowLast6 != null">
+        #{dateLowLast6,jdbcType=VARCHAR},
+      </if>
+      <if test="dateLowLast12 != null">
+        #{dateLowLast12,jdbcType=VARCHAR},
+      </if>
+      <if test="endYm != null">
+        #{endYm,jdbcType=VARCHAR},
+      </if>
+      <if test="tranTotalAmt != null">
+        #{tranTotalAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="m3TotalAmtTop != null">
+        #{m3TotalAmtTop,jdbcType=DECIMAL},
+      </if>
+      <if test="m3TotalAmtLow != null">
+        #{m3TotalAmtLow,jdbcType=DECIMAL},
+      </if>
+      <if test="dateTop != null">
+        #{dateTop,jdbcType=VARCHAR},
+      </if>
+      <if test="certType != null">
+        #{certType,jdbcType=VARCHAR},
+      </if>
+      <if test="certCode != null">
+        #{certCode,jdbcType=VARCHAR},
+      </if>
+      <if test="bgnTime != null">
+        #{bgnTime,jdbcType=VARCHAR},
+      </if>
+      <if test="endTime != null">
+        #{endTime,jdbcType=VARCHAR},
+      </if>
+      <if test="reportNo != null">
+        #{reportNo,jdbcType=VARCHAR},
+      </if>
+      <if test="coPlatform != null">
+        #{coPlatform,jdbcType=VARCHAR},
+      </if>
+      <if test="loanProp != null">
+        #{loanProp,jdbcType=VARCHAR},
+      </if>
+      <if test="prdCode != null">
+        #{prdCode,jdbcType=VARCHAR},
+      </if>
+      <if test="prdType != null">
+        #{prdType,jdbcType=VARCHAR},
+      </if>
+      <if test="bizOpId != null">
+        #{bizOpId,jdbcType=VARCHAR},
+      </if>
+      <if test="bizOrgId != null">
+        #{bizOrgId,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateDate != null">
+        #{lastUpdateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        #{lastUpdateTime,jdbcType=VARCHAR},
+      </if>
+      <if test="basicEntStatus != null">
+        #{basicEntStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="field2 != null">
+        #{field2,jdbcType=VARCHAR},
+      </if>
+      <if test="field3 != null">
+        #{field3,jdbcType=VARCHAR},
+      </if>
+      <if test="field4 != null">
+        #{field4,jdbcType=VARCHAR},
+      </if>
+      <if test="field5 != null">
+        #{field5,jdbcType=VARCHAR},
+      </if>
+      <if test="field6 != null">
+        #{field6,jdbcType=DECIMAL},
+      </if>
+      <if test="field7 != null">
+        #{field7,jdbcType=DECIMAL},
+      </if>
+      <if test="field8 != null">
+        #{field8,jdbcType=DECIMAL},
+      </if>
+      <if test="field9 != null">
+        #{field9,jdbcType=DECIMAL},
+      </if>
+      <if test="field10 != null">
+        #{field10,jdbcType=DECIMAL},
+      </if>
+      <if test="licenseCode != null">
+        #{licenseCode,jdbcType=VARCHAR},
+      </if>
+      <if test="merName != null">
+        #{merName,jdbcType=VARCHAR},
+      </if>
+      <if test="basicRegNo != null">
+        #{basicRegNo,jdbcType=VARCHAR},
+      </if>
+      <if test="basicOriRegNo != null">
+        #{basicOriRegNo,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.BIZ_RULE_PREPARE">
+    update BIZ_RULE_PREPARE
+    <set>
+      <if test="tpObjId != null">
+        TP_OBJ_ID = #{tpObjId,jdbcType=VARCHAR},
+      </if>
+      <if test="dateLowLast3 != null">
+        DATE_LOW_LAST3 = #{dateLowLast3,jdbcType=VARCHAR},
+      </if>
+      <if test="dateLowLast6 != null">
+        DATE_LOW_LAST6 = #{dateLowLast6,jdbcType=VARCHAR},
+      </if>
+      <if test="dateLowLast12 != null">
+        DATE_LOW_LAST12 = #{dateLowLast12,jdbcType=VARCHAR},
+      </if>
+      <if test="endYm != null">
+        END_YM = #{endYm,jdbcType=VARCHAR},
+      </if>
+      <if test="tranTotalAmt != null">
+        TRAN_TOTAL_AMT = #{tranTotalAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="m3TotalAmtTop != null">
+        M3_TOTAL_AMT_TOP = #{m3TotalAmtTop,jdbcType=DECIMAL},
+      </if>
+      <if test="m3TotalAmtLow != null">
+        M3_TOTAL_AMT_LOW = #{m3TotalAmtLow,jdbcType=DECIMAL},
+      </if>
+      <if test="dateTop != null">
+        DATE_TOP = #{dateTop,jdbcType=VARCHAR},
+      </if>
+      <if test="certType != null">
+        CERT_TYPE = #{certType,jdbcType=VARCHAR},
+      </if>
+      <if test="certCode != null">
+        CERT_CODE = #{certCode,jdbcType=VARCHAR},
+      </if>
+      <if test="bgnTime != null">
+        BGN_TIME = #{bgnTime,jdbcType=VARCHAR},
+      </if>
+      <if test="endTime != null">
+        END_TIME = #{endTime,jdbcType=VARCHAR},
+      </if>
+      <if test="reportNo != null">
+        REPORT_NO = #{reportNo,jdbcType=VARCHAR},
+      </if>
+      <if test="coPlatform != null">
+        CO_PLATFORM = #{coPlatform,jdbcType=VARCHAR},
+      </if>
+      <if test="loanProp != null">
+        LOAN_PROP = #{loanProp,jdbcType=VARCHAR},
+      </if>
+      <if test="prdCode != null">
+        PRD_CODE = #{prdCode,jdbcType=VARCHAR},
+      </if>
+      <if test="prdType != null">
+        PRD_TYPE = #{prdType,jdbcType=VARCHAR},
+      </if>
+      <if test="bizOpId != null">
+        BIZ_OP_ID = #{bizOpId,jdbcType=VARCHAR},
+      </if>
+      <if test="bizOrgId != null">
+        BIZ_ORG_ID = #{bizOrgId,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE = #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME = #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateDate != null">
+        LAST_UPDATE_DATE = #{lastUpdateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=VARCHAR},
+      </if>
+      <if test="basicEntStatus != null">
+        BASIC_ENT_STATUS = #{basicEntStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="field2 != null">
+        FIELD2 = #{field2,jdbcType=VARCHAR},
+      </if>
+      <if test="field3 != null">
+        FIELD3 = #{field3,jdbcType=VARCHAR},
+      </if>
+      <if test="field4 != null">
+        FIELD4 = #{field4,jdbcType=VARCHAR},
+      </if>
+      <if test="field5 != null">
+        FIELD5 = #{field5,jdbcType=VARCHAR},
+      </if>
+      <if test="field6 != null">
+        FIELD6 = #{field6,jdbcType=DECIMAL},
+      </if>
+      <if test="field7 != null">
+        FIELD7 = #{field7,jdbcType=DECIMAL},
+      </if>
+      <if test="field8 != null">
+        FIELD8 = #{field8,jdbcType=DECIMAL},
+      </if>
+      <if test="field9 != null">
+        FIELD9 = #{field9,jdbcType=DECIMAL},
+      </if>
+      <if test="field10 != null">
+        FIELD10 = #{field10,jdbcType=DECIMAL},
+      </if>
+      <if test="licenseCode != null">
+        LICENSE_CODE = #{licenseCode,jdbcType=VARCHAR},
+      </if>
+      <if test="merName != null">
+        MER_NAME = #{merName,jdbcType=VARCHAR},
+      </if>
+      <if test="basicRegNo != null">
+        BASIC_REG_NO = #{basicRegNo,jdbcType=VARCHAR},
+      </if>
+      <if test="basicOriRegNo != null">
+        BASIC_ORI_REG_NO = #{basicOriRegNo,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where APP_NO = #{appNo,jdbcType=VARCHAR}
+      and APP_TYPE = #{appType,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.BIZ_RULE_PREPARE">
+    update BIZ_RULE_PREPARE
+    set TP_OBJ_ID = #{tpObjId,jdbcType=VARCHAR},
+      DATE_LOW_LAST3 = #{dateLowLast3,jdbcType=VARCHAR},
+      DATE_LOW_LAST6 = #{dateLowLast6,jdbcType=VARCHAR},
+      DATE_LOW_LAST12 = #{dateLowLast12,jdbcType=VARCHAR},
+      END_YM = #{endYm,jdbcType=VARCHAR},
+      TRAN_TOTAL_AMT = #{tranTotalAmt,jdbcType=DECIMAL},
+      M3_TOTAL_AMT_TOP = #{m3TotalAmtTop,jdbcType=DECIMAL},
+      M3_TOTAL_AMT_LOW = #{m3TotalAmtLow,jdbcType=DECIMAL},
+      DATE_TOP = #{dateTop,jdbcType=VARCHAR},
+      CERT_TYPE = #{certType,jdbcType=VARCHAR},
+      CERT_CODE = #{certCode,jdbcType=VARCHAR},
+      BGN_TIME = #{bgnTime,jdbcType=VARCHAR},
+      END_TIME = #{endTime,jdbcType=VARCHAR},
+      REPORT_NO = #{reportNo,jdbcType=VARCHAR},
+      CO_PLATFORM = #{coPlatform,jdbcType=VARCHAR},
+      LOAN_PROP = #{loanProp,jdbcType=VARCHAR},
+      PRD_CODE = #{prdCode,jdbcType=VARCHAR},
+      PRD_TYPE = #{prdType,jdbcType=VARCHAR},
+      BIZ_OP_ID = #{bizOpId,jdbcType=VARCHAR},
+      BIZ_ORG_ID = #{bizOrgId,jdbcType=VARCHAR},
+      INPUT_DATE = #{inputDate,jdbcType=VARCHAR},
+      INPUT_TIME = #{inputTime,jdbcType=VARCHAR},
+      LAST_UPDATE_DATE = #{lastUpdateDate,jdbcType=VARCHAR},
+      LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=VARCHAR},
+      BASIC_ENT_STATUS = #{basicEntStatus,jdbcType=VARCHAR},
+      FIELD2 = #{field2,jdbcType=VARCHAR},
+      FIELD3 = #{field3,jdbcType=VARCHAR},
+      FIELD4 = #{field4,jdbcType=VARCHAR},
+      FIELD5 = #{field5,jdbcType=VARCHAR},
+      FIELD6 = #{field6,jdbcType=DECIMAL},
+      FIELD7 = #{field7,jdbcType=DECIMAL},
+      FIELD8 = #{field8,jdbcType=DECIMAL},
+      FIELD9 = #{field9,jdbcType=DECIMAL},
+      FIELD10 = #{field10,jdbcType=DECIMAL},
+      LICENSE_CODE = #{licenseCode,jdbcType=VARCHAR},
+      MER_NAME = #{merName,jdbcType=VARCHAR},
+      BASIC_REG_NO = #{basicRegNo,jdbcType=VARCHAR},
+      BASIC_ORI_REG_NO = #{basicOriRegNo,jdbcType=VARCHAR}
+    where APP_NO = #{appNo,jdbcType=VARCHAR}
+      and APP_TYPE = #{appType,jdbcType=VARCHAR}
+  </update>
+</mapper>

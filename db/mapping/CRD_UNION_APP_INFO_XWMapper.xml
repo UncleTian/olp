@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.CRD_UNION_APP_INFO_XWMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.CRD_UNION_APP_INFO_XW">
+    <id column="APP_NO" jdbcType="VARCHAR" property="appNo" />
+    <result column="ORDER_NO" jdbcType="VARCHAR" property="orderNo" />
+    <result column="CRD_NO" jdbcType="VARCHAR" property="crdNo" />
+    <result column="TP_NO" jdbcType="VARCHAR" property="tpNo" />
+    <result column="CHANNEL_TYPE" jdbcType="VARCHAR" property="channelType" />
+    <result column="CO_PLATFORM" jdbcType="VARCHAR" property="coPlatform" />
+    <result column="LOAN_PROP" jdbcType="VARCHAR" property="loanProp" />
+    <result column="PRD_TYPE" jdbcType="VARCHAR" property="prdType" />
+    <result column="PRD_CODE" jdbcType="VARCHAR" property="prdCode" />
+    <result column="APP_NAME" jdbcType="VARCHAR" property="appName" />
+    <result column="CERTIFICATE_TYPE" jdbcType="VARCHAR" property="certificateType" />
+    <result column="APP_ID" jdbcType="VARCHAR" property="appId" />
+    <result column="APP_PN" jdbcType="VARCHAR" property="appPn" />
+    <result column="CRD_MAIN_TYPE" jdbcType="VARCHAR" property="crdMainType" />
+    <result column="CRD_SUB_TYPE" jdbcType="VARCHAR" property="crdSubType" />
+    <result column="APPR_AMT" jdbcType="DECIMAL" property="apprAmt" />
+    <result column="RATE" jdbcType="DECIMAL" property="rate" />
+    <result column="APP_DATE" jdbcType="VARCHAR" property="appDate" />
+    <result column="APP_STATUS" jdbcType="VARCHAR" property="appStatus" />
+    <result column="APPR_PASS_DATE" jdbcType="VARCHAR" property="apprPassDate" />
+    <result column="APPR_PASS_TIME" jdbcType="VARCHAR" property="apprPassTime" />
+    <result column="GEN_REASON" jdbcType="VARCHAR" property="genReason" />
+    <result column="SUB_REASON" jdbcType="VARCHAR" property="subReason" />
+    <result column="INPUT_DATE" jdbcType="VARCHAR" property="inputDate" />
+    <result column="INPUT_TIME" jdbcType="VARCHAR" property="inputTime" />
+    <result column="LAST_UPDATE_DATE" jdbcType="VARCHAR" property="lastUpdateDate" />
+    <result column="LAST_UPDATE_TIME" jdbcType="VARCHAR" property="lastUpdateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    APP_NO, ORDER_NO, CRD_NO, TP_NO, CHANNEL_TYPE, CO_PLATFORM, LOAN_PROP, PRD_TYPE, 
+    PRD_CODE, APP_NAME, CERTIFICATE_TYPE, APP_ID, APP_PN, CRD_MAIN_TYPE, CRD_SUB_TYPE, 
+    APPR_AMT, RATE, APP_DATE, APP_STATUS, APPR_PASS_DATE, APPR_PASS_TIME, GEN_REASON, 
+    SUB_REASON, INPUT_DATE, INPUT_TIME, LAST_UPDATE_DATE, LAST_UPDATE_TIME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from CRD_UNION_APP_INFO_XW
+    where APP_NO = #{appNo,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from CRD_UNION_APP_INFO_XW
+    where APP_NO = #{appNo,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.CRD_UNION_APP_INFO_XW">
+    insert into CRD_UNION_APP_INFO_XW (APP_NO, ORDER_NO, CRD_NO, 
+      TP_NO, CHANNEL_TYPE, CO_PLATFORM, 
+      LOAN_PROP, PRD_TYPE, PRD_CODE, 
+      APP_NAME, CERTIFICATE_TYPE, APP_ID, 
+      APP_PN, CRD_MAIN_TYPE, CRD_SUB_TYPE, 
+      APPR_AMT, RATE, APP_DATE, 
+      APP_STATUS, APPR_PASS_DATE, APPR_PASS_TIME, 
+      GEN_REASON, SUB_REASON, INPUT_DATE, 
+      INPUT_TIME, LAST_UPDATE_DATE, LAST_UPDATE_TIME
+      )
+    values (#{appNo,jdbcType=VARCHAR}, #{orderNo,jdbcType=VARCHAR}, #{crdNo,jdbcType=VARCHAR}, 
+      #{tpNo,jdbcType=VARCHAR}, #{channelType,jdbcType=VARCHAR}, #{coPlatform,jdbcType=VARCHAR}, 
+      #{loanProp,jdbcType=VARCHAR}, #{prdType,jdbcType=VARCHAR}, #{prdCode,jdbcType=VARCHAR}, 
+      #{appName,jdbcType=VARCHAR}, #{certificateType,jdbcType=VARCHAR}, #{appId,jdbcType=VARCHAR}, 
+      #{appPn,jdbcType=VARCHAR}, #{crdMainType,jdbcType=VARCHAR}, #{crdSubType,jdbcType=VARCHAR}, 
+      #{apprAmt,jdbcType=DECIMAL}, #{rate,jdbcType=DECIMAL}, #{appDate,jdbcType=VARCHAR}, 
+      #{appStatus,jdbcType=VARCHAR}, #{apprPassDate,jdbcType=VARCHAR}, #{apprPassTime,jdbcType=VARCHAR}, 
+      #{genReason,jdbcType=VARCHAR}, #{subReason,jdbcType=VARCHAR}, #{inputDate,jdbcType=VARCHAR}, 
+      #{inputTime,jdbcType=VARCHAR}, #{lastUpdateDate,jdbcType=VARCHAR}, #{lastUpdateTime,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.CRD_UNION_APP_INFO_XW">
+    insert into CRD_UNION_APP_INFO_XW
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="appNo != null">
+        APP_NO,
+      </if>
+      <if test="orderNo != null">
+        ORDER_NO,
+      </if>
+      <if test="crdNo != null">
+        CRD_NO,
+      </if>
+      <if test="tpNo != null">
+        TP_NO,
+      </if>
+      <if test="channelType != null">
+        CHANNEL_TYPE,
+      </if>
+      <if test="coPlatform != null">
+        CO_PLATFORM,
+      </if>
+      <if test="loanProp != null">
+        LOAN_PROP,
+      </if>
+      <if test="prdType != null">
+        PRD_TYPE,
+      </if>
+      <if test="prdCode != null">
+        PRD_CODE,
+      </if>
+      <if test="appName != null">
+        APP_NAME,
+      </if>
+      <if test="certificateType != null">
+        CERTIFICATE_TYPE,
+      </if>
+      <if test="appId != null">
+        APP_ID,
+      </if>
+      <if test="appPn != null">
+        APP_PN,
+      </if>
+      <if test="crdMainType != null">
+        CRD_MAIN_TYPE,
+      </if>
+      <if test="crdSubType != null">
+        CRD_SUB_TYPE,
+      </if>
+      <if test="apprAmt != null">
+        APPR_AMT,
+      </if>
+      <if test="rate != null">
+        RATE,
+      </if>
+      <if test="appDate != null">
+        APP_DATE,
+      </if>
+      <if test="appStatus != null">
+        APP_STATUS,
+      </if>
+      <if test="apprPassDate != null">
+        APPR_PASS_DATE,
+      </if>
+      <if test="apprPassTime != null">
+        APPR_PASS_TIME,
+      </if>
+      <if test="genReason != null">
+        GEN_REASON,
+      </if>
+      <if test="subReason != null">
+        SUB_REASON,
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE,
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME,
+      </if>
+      <if test="lastUpdateDate != null">
+        LAST_UPDATE_DATE,
+      </if>
+      <if test="lastUpdateTime != null">
+        LAST_UPDATE_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="appNo != null">
+        #{appNo,jdbcType=VARCHAR},
+      </if>
+      <if test="orderNo != null">
+        #{orderNo,jdbcType=VARCHAR},
+      </if>
+      <if test="crdNo != null">
+        #{crdNo,jdbcType=VARCHAR},
+      </if>
+      <if test="tpNo != null">
+        #{tpNo,jdbcType=VARCHAR},
+      </if>
+      <if test="channelType != null">
+        #{channelType,jdbcType=VARCHAR},
+      </if>
+      <if test="coPlatform != null">
+        #{coPlatform,jdbcType=VARCHAR},
+      </if>
+      <if test="loanProp != null">
+        #{loanProp,jdbcType=VARCHAR},
+      </if>
+      <if test="prdType != null">
+        #{prdType,jdbcType=VARCHAR},
+      </if>
+      <if test="prdCode != null">
+        #{prdCode,jdbcType=VARCHAR},
+      </if>
+      <if test="appName != null">
+        #{appName,jdbcType=VARCHAR},
+      </if>
+      <if test="certificateType != null">
+        #{certificateType,jdbcType=VARCHAR},
+      </if>
+      <if test="appId != null">
+        #{appId,jdbcType=VARCHAR},
+      </if>
+      <if test="appPn != null">
+        #{appPn,jdbcType=VARCHAR},
+      </if>
+      <if test="crdMainType != null">
+        #{crdMainType,jdbcType=VARCHAR},
+      </if>
+      <if test="crdSubType != null">
+        #{crdSubType,jdbcType=VARCHAR},
+      </if>
+      <if test="apprAmt != null">
+        #{apprAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="rate != null">
+        #{rate,jdbcType=DECIMAL},
+      </if>
+      <if test="appDate != null">
+        #{appDate,jdbcType=VARCHAR},
+      </if>
+      <if test="appStatus != null">
+        #{appStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="apprPassDate != null">
+        #{apprPassDate,jdbcType=VARCHAR},
+      </if>
+      <if test="apprPassTime != null">
+        #{apprPassTime,jdbcType=VARCHAR},
+      </if>
+      <if test="genReason != null">
+        #{genReason,jdbcType=VARCHAR},
+      </if>
+      <if test="subReason != null">
+        #{subReason,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateDate != null">
+        #{lastUpdateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        #{lastUpdateTime,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.CRD_UNION_APP_INFO_XW">
+    update CRD_UNION_APP_INFO_XW
+    <set>
+      <if test="orderNo != null">
+        ORDER_NO = #{orderNo,jdbcType=VARCHAR},
+      </if>
+      <if test="crdNo != null">
+        CRD_NO = #{crdNo,jdbcType=VARCHAR},
+      </if>
+      <if test="tpNo != null">
+        TP_NO = #{tpNo,jdbcType=VARCHAR},
+      </if>
+      <if test="channelType != null">
+        CHANNEL_TYPE = #{channelType,jdbcType=VARCHAR},
+      </if>
+      <if test="coPlatform != null">
+        CO_PLATFORM = #{coPlatform,jdbcType=VARCHAR},
+      </if>
+      <if test="loanProp != null">
+        LOAN_PROP = #{loanProp,jdbcType=VARCHAR},
+      </if>
+      <if test="prdType != null">
+        PRD_TYPE = #{prdType,jdbcType=VARCHAR},
+      </if>
+      <if test="prdCode != null">
+        PRD_CODE = #{prdCode,jdbcType=VARCHAR},
+      </if>
+      <if test="appName != null">
+        APP_NAME = #{appName,jdbcType=VARCHAR},
+      </if>
+      <if test="certificateType != null">
+        CERTIFICATE_TYPE = #{certificateType,jdbcType=VARCHAR},
+      </if>
+      <if test="appId != null">
+        APP_ID = #{appId,jdbcType=VARCHAR},
+      </if>
+      <if test="appPn != null">
+        APP_PN = #{appPn,jdbcType=VARCHAR},
+      </if>
+      <if test="crdMainType != null">
+        CRD_MAIN_TYPE = #{crdMainType,jdbcType=VARCHAR},
+      </if>
+      <if test="crdSubType != null">
+        CRD_SUB_TYPE = #{crdSubType,jdbcType=VARCHAR},
+      </if>
+      <if test="apprAmt != null">
+        APPR_AMT = #{apprAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="rate != null">
+        RATE = #{rate,jdbcType=DECIMAL},
+      </if>
+      <if test="appDate != null">
+        APP_DATE = #{appDate,jdbcType=VARCHAR},
+      </if>
+      <if test="appStatus != null">
+        APP_STATUS = #{appStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="apprPassDate != null">
+        APPR_PASS_DATE = #{apprPassDate,jdbcType=VARCHAR},
+      </if>
+      <if test="apprPassTime != null">
+        APPR_PASS_TIME = #{apprPassTime,jdbcType=VARCHAR},
+      </if>
+      <if test="genReason != null">
+        GEN_REASON = #{genReason,jdbcType=VARCHAR},
+      </if>
+      <if test="subReason != null">
+        SUB_REASON = #{subReason,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE = #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME = #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateDate != null">
+        LAST_UPDATE_DATE = #{lastUpdateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where APP_NO = #{appNo,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.CRD_UNION_APP_INFO_XW">
+    update CRD_UNION_APP_INFO_XW
+    set ORDER_NO = #{orderNo,jdbcType=VARCHAR},
+      CRD_NO = #{crdNo,jdbcType=VARCHAR},
+      TP_NO = #{tpNo,jdbcType=VARCHAR},
+      CHANNEL_TYPE = #{channelType,jdbcType=VARCHAR},
+      CO_PLATFORM = #{coPlatform,jdbcType=VARCHAR},
+      LOAN_PROP = #{loanProp,jdbcType=VARCHAR},
+      PRD_TYPE = #{prdType,jdbcType=VARCHAR},
+      PRD_CODE = #{prdCode,jdbcType=VARCHAR},
+      APP_NAME = #{appName,jdbcType=VARCHAR},
+      CERTIFICATE_TYPE = #{certificateType,jdbcType=VARCHAR},
+      APP_ID = #{appId,jdbcType=VARCHAR},
+      APP_PN = #{appPn,jdbcType=VARCHAR},
+      CRD_MAIN_TYPE = #{crdMainType,jdbcType=VARCHAR},
+      CRD_SUB_TYPE = #{crdSubType,jdbcType=VARCHAR},
+      APPR_AMT = #{apprAmt,jdbcType=DECIMAL},
+      RATE = #{rate,jdbcType=DECIMAL},
+      APP_DATE = #{appDate,jdbcType=VARCHAR},
+      APP_STATUS = #{appStatus,jdbcType=VARCHAR},
+      APPR_PASS_DATE = #{apprPassDate,jdbcType=VARCHAR},
+      APPR_PASS_TIME = #{apprPassTime,jdbcType=VARCHAR},
+      GEN_REASON = #{genReason,jdbcType=VARCHAR},
+      SUB_REASON = #{subReason,jdbcType=VARCHAR},
+      INPUT_DATE = #{inputDate,jdbcType=VARCHAR},
+      INPUT_TIME = #{inputTime,jdbcType=VARCHAR},
+      LAST_UPDATE_DATE = #{lastUpdateDate,jdbcType=VARCHAR},
+      LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=VARCHAR}
+    where APP_NO = #{appNo,jdbcType=VARCHAR}
+  </update>
+</mapper>

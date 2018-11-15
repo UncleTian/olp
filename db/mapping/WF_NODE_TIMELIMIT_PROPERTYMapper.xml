@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.WF_NODE_TIMELIMIT_PROPERTYMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.WF_NODE_TIMELIMIT_PROPERTY">
+    <id column="NODEID" jdbcType="VARCHAR" property="nodeid" />
+    <result column="WFID" jdbcType="VARCHAR" property="wfid" />
+    <result column="NODETIMELIMITNOTIFICATION" jdbcType="CHAR" property="nodetimelimitnotification" />
+    <result column="NODEDURATIONTIME" jdbcType="VARCHAR" property="nodedurationtime" />
+    <result column="NODETIMELIMITEFFICIENT" jdbcType="VARCHAR" property="nodetimelimitefficient" />
+    <result column="NODETIMELIMITREPEAT" jdbcType="VARCHAR" property="nodetimelimitrepeat" />
+    <result column="NODETIMELIMITREPEATTIMES" jdbcType="VARCHAR" property="nodetimelimitrepeattimes" />
+    <result column="NODEAFTERDURATION" jdbcType="CHAR" property="nodeafterduration" />
+    <result column="AWOKETYPE" jdbcType="CHAR" property="awoketype" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    NODEID, WFID, NODETIMELIMITNOTIFICATION, NODEDURATIONTIME, NODETIMELIMITEFFICIENT, 
+    NODETIMELIMITREPEAT, NODETIMELIMITREPEATTIMES, NODEAFTERDURATION, AWOKETYPE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from WF_NODE_TIMELIMIT_PROPERTY
+    where NODEID = #{nodeid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from WF_NODE_TIMELIMIT_PROPERTY
+    where NODEID = #{nodeid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.WF_NODE_TIMELIMIT_PROPERTY">
+    insert into WF_NODE_TIMELIMIT_PROPERTY (NODEID, WFID, NODETIMELIMITNOTIFICATION, 
+      NODEDURATIONTIME, NODETIMELIMITEFFICIENT, 
+      NODETIMELIMITREPEAT, NODETIMELIMITREPEATTIMES, 
+      NODEAFTERDURATION, AWOKETYPE)
+    values (#{nodeid,jdbcType=VARCHAR}, #{wfid,jdbcType=VARCHAR}, #{nodetimelimitnotification,jdbcType=CHAR}, 
+      #{nodedurationtime,jdbcType=VARCHAR}, #{nodetimelimitefficient,jdbcType=VARCHAR}, 
+      #{nodetimelimitrepeat,jdbcType=VARCHAR}, #{nodetimelimitrepeattimes,jdbcType=VARCHAR}, 
+      #{nodeafterduration,jdbcType=CHAR}, #{awoketype,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.WF_NODE_TIMELIMIT_PROPERTY">
+    insert into WF_NODE_TIMELIMIT_PROPERTY
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="nodeid != null">
+        NODEID,
+      </if>
+      <if test="wfid != null">
+        WFID,
+      </if>
+      <if test="nodetimelimitnotification != null">
+        NODETIMELIMITNOTIFICATION,
+      </if>
+      <if test="nodedurationtime != null">
+        NODEDURATIONTIME,
+      </if>
+      <if test="nodetimelimitefficient != null">
+        NODETIMELIMITEFFICIENT,
+      </if>
+      <if test="nodetimelimitrepeat != null">
+        NODETIMELIMITREPEAT,
+      </if>
+      <if test="nodetimelimitrepeattimes != null">
+        NODETIMELIMITREPEATTIMES,
+      </if>
+      <if test="nodeafterduration != null">
+        NODEAFTERDURATION,
+      </if>
+      <if test="awoketype != null">
+        AWOKETYPE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="nodeid != null">
+        #{nodeid,jdbcType=VARCHAR},
+      </if>
+      <if test="wfid != null">
+        #{wfid,jdbcType=VARCHAR},
+      </if>
+      <if test="nodetimelimitnotification != null">
+        #{nodetimelimitnotification,jdbcType=CHAR},
+      </if>
+      <if test="nodedurationtime != null">
+        #{nodedurationtime,jdbcType=VARCHAR},
+      </if>
+      <if test="nodetimelimitefficient != null">
+        #{nodetimelimitefficient,jdbcType=VARCHAR},
+      </if>
+      <if test="nodetimelimitrepeat != null">
+        #{nodetimelimitrepeat,jdbcType=VARCHAR},
+      </if>
+      <if test="nodetimelimitrepeattimes != null">
+        #{nodetimelimitrepeattimes,jdbcType=VARCHAR},
+      </if>
+      <if test="nodeafterduration != null">
+        #{nodeafterduration,jdbcType=CHAR},
+      </if>
+      <if test="awoketype != null">
+        #{awoketype,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.WF_NODE_TIMELIMIT_PROPERTY">
+    update WF_NODE_TIMELIMIT_PROPERTY
+    <set>
+      <if test="wfid != null">
+        WFID = #{wfid,jdbcType=VARCHAR},
+      </if>
+      <if test="nodetimelimitnotification != null">
+        NODETIMELIMITNOTIFICATION = #{nodetimelimitnotification,jdbcType=CHAR},
+      </if>
+      <if test="nodedurationtime != null">
+        NODEDURATIONTIME = #{nodedurationtime,jdbcType=VARCHAR},
+      </if>
+      <if test="nodetimelimitefficient != null">
+        NODETIMELIMITEFFICIENT = #{nodetimelimitefficient,jdbcType=VARCHAR},
+      </if>
+      <if test="nodetimelimitrepeat != null">
+        NODETIMELIMITREPEAT = #{nodetimelimitrepeat,jdbcType=VARCHAR},
+      </if>
+      <if test="nodetimelimitrepeattimes != null">
+        NODETIMELIMITREPEATTIMES = #{nodetimelimitrepeattimes,jdbcType=VARCHAR},
+      </if>
+      <if test="nodeafterduration != null">
+        NODEAFTERDURATION = #{nodeafterduration,jdbcType=CHAR},
+      </if>
+      <if test="awoketype != null">
+        AWOKETYPE = #{awoketype,jdbcType=CHAR},
+      </if>
+    </set>
+    where NODEID = #{nodeid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.WF_NODE_TIMELIMIT_PROPERTY">
+    update WF_NODE_TIMELIMIT_PROPERTY
+    set WFID = #{wfid,jdbcType=VARCHAR},
+      NODETIMELIMITNOTIFICATION = #{nodetimelimitnotification,jdbcType=CHAR},
+      NODEDURATIONTIME = #{nodedurationtime,jdbcType=VARCHAR},
+      NODETIMELIMITEFFICIENT = #{nodetimelimitefficient,jdbcType=VARCHAR},
+      NODETIMELIMITREPEAT = #{nodetimelimitrepeat,jdbcType=VARCHAR},
+      NODETIMELIMITREPEATTIMES = #{nodetimelimitrepeattimes,jdbcType=VARCHAR},
+      NODEAFTERDURATION = #{nodeafterduration,jdbcType=CHAR},
+      AWOKETYPE = #{awoketype,jdbcType=CHAR}
+    where NODEID = #{nodeid,jdbcType=VARCHAR}
+  </update>
+</mapper>

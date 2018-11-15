@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.SF_VARMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.SF_VAR">
+    <id column="VAR_ID" jdbcType="VARCHAR" property="varId" />
+    <result column="VAR_NAME" jdbcType="VARCHAR" property="varName" />
+    <result column="VAR_TYPE" jdbcType="VARCHAR" property="varType" />
+    <result column="VAR_VALUE" jdbcType="VARCHAR" property="varValue" />
+    <result column="VAR_DESC" jdbcType="VARCHAR" property="varDesc" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    VAR_ID, VAR_NAME, VAR_TYPE, VAR_VALUE, VAR_DESC
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from SF_VAR
+    where VAR_ID = #{varId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from SF_VAR
+    where VAR_ID = #{varId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.SF_VAR">
+    insert into SF_VAR (VAR_ID, VAR_NAME, VAR_TYPE, 
+      VAR_VALUE, VAR_DESC)
+    values (#{varId,jdbcType=VARCHAR}, #{varName,jdbcType=VARCHAR}, #{varType,jdbcType=VARCHAR}, 
+      #{varValue,jdbcType=VARCHAR}, #{varDesc,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.SF_VAR">
+    insert into SF_VAR
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="varId != null">
+        VAR_ID,
+      </if>
+      <if test="varName != null">
+        VAR_NAME,
+      </if>
+      <if test="varType != null">
+        VAR_TYPE,
+      </if>
+      <if test="varValue != null">
+        VAR_VALUE,
+      </if>
+      <if test="varDesc != null">
+        VAR_DESC,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="varId != null">
+        #{varId,jdbcType=VARCHAR},
+      </if>
+      <if test="varName != null">
+        #{varName,jdbcType=VARCHAR},
+      </if>
+      <if test="varType != null">
+        #{varType,jdbcType=VARCHAR},
+      </if>
+      <if test="varValue != null">
+        #{varValue,jdbcType=VARCHAR},
+      </if>
+      <if test="varDesc != null">
+        #{varDesc,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.SF_VAR">
+    update SF_VAR
+    <set>
+      <if test="varName != null">
+        VAR_NAME = #{varName,jdbcType=VARCHAR},
+      </if>
+      <if test="varType != null">
+        VAR_TYPE = #{varType,jdbcType=VARCHAR},
+      </if>
+      <if test="varValue != null">
+        VAR_VALUE = #{varValue,jdbcType=VARCHAR},
+      </if>
+      <if test="varDesc != null">
+        VAR_DESC = #{varDesc,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where VAR_ID = #{varId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.SF_VAR">
+    update SF_VAR
+    set VAR_NAME = #{varName,jdbcType=VARCHAR},
+      VAR_TYPE = #{varType,jdbcType=VARCHAR},
+      VAR_VALUE = #{varValue,jdbcType=VARCHAR},
+      VAR_DESC = #{varDesc,jdbcType=VARCHAR}
+    where VAR_ID = #{varId,jdbcType=VARCHAR}
+  </update>
+</mapper>

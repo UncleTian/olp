@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.S_RESCMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.S_RESC">
+    <id column="RESC_CDE" jdbcType="VARCHAR" property="rescCde" />
+    <result column="RESC_DESC" jdbcType="VARCHAR" property="rescDesc" />
+    <result column="RESC_SYSTEMPK" jdbcType="VARCHAR" property="rescSystempk" />
+    <result column="RESC_URL" jdbcType="VARCHAR" property="rescUrl" />
+    <result column="RESC_PARENTID" jdbcType="VARCHAR" property="rescParentid" />
+    <result column="RESC_TAB_NAM" jdbcType="VARCHAR" property="rescTabNam" />
+    <result column="RESC_PROCID" jdbcType="VARCHAR" property="rescProcid" />
+    <result column="RESC_ORDERID" jdbcType="VARCHAR" property="rescOrderid" />
+    <result column="RESC_ICON" jdbcType="VARCHAR" property="rescIcon" />
+    <result column="RESC_RMK" jdbcType="VARCHAR" property="rescRmk" />
+    <result column="LAST_CHG_DT" jdbcType="VARCHAR" property="lastChgDt" />
+    <result column="LAST_CHG_USR" jdbcType="VARCHAR" property="lastChgUsr" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    RESC_CDE, RESC_DESC, RESC_SYSTEMPK, RESC_URL, RESC_PARENTID, RESC_TAB_NAM, RESC_PROCID, 
+    RESC_ORDERID, RESC_ICON, RESC_RMK, LAST_CHG_DT, LAST_CHG_USR
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from S_RESC
+    where RESC_CDE = #{rescCde,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from S_RESC
+    where RESC_CDE = #{rescCde,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.S_RESC">
+    insert into S_RESC (RESC_CDE, RESC_DESC, RESC_SYSTEMPK, 
+      RESC_URL, RESC_PARENTID, RESC_TAB_NAM, 
+      RESC_PROCID, RESC_ORDERID, RESC_ICON, 
+      RESC_RMK, LAST_CHG_DT, LAST_CHG_USR
+      )
+    values (#{rescCde,jdbcType=VARCHAR}, #{rescDesc,jdbcType=VARCHAR}, #{rescSystempk,jdbcType=VARCHAR}, 
+      #{rescUrl,jdbcType=VARCHAR}, #{rescParentid,jdbcType=VARCHAR}, #{rescTabNam,jdbcType=VARCHAR}, 
+      #{rescProcid,jdbcType=VARCHAR}, #{rescOrderid,jdbcType=VARCHAR}, #{rescIcon,jdbcType=VARCHAR}, 
+      #{rescRmk,jdbcType=VARCHAR}, #{lastChgDt,jdbcType=VARCHAR}, #{lastChgUsr,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.S_RESC">
+    insert into S_RESC
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="rescCde != null">
+        RESC_CDE,
+      </if>
+      <if test="rescDesc != null">
+        RESC_DESC,
+      </if>
+      <if test="rescSystempk != null">
+        RESC_SYSTEMPK,
+      </if>
+      <if test="rescUrl != null">
+        RESC_URL,
+      </if>
+      <if test="rescParentid != null">
+        RESC_PARENTID,
+      </if>
+      <if test="rescTabNam != null">
+        RESC_TAB_NAM,
+      </if>
+      <if test="rescProcid != null">
+        RESC_PROCID,
+      </if>
+      <if test="rescOrderid != null">
+        RESC_ORDERID,
+      </if>
+      <if test="rescIcon != null">
+        RESC_ICON,
+      </if>
+      <if test="rescRmk != null">
+        RESC_RMK,
+      </if>
+      <if test="lastChgDt != null">
+        LAST_CHG_DT,
+      </if>
+      <if test="lastChgUsr != null">
+        LAST_CHG_USR,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="rescCde != null">
+        #{rescCde,jdbcType=VARCHAR},
+      </if>
+      <if test="rescDesc != null">
+        #{rescDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="rescSystempk != null">
+        #{rescSystempk,jdbcType=VARCHAR},
+      </if>
+      <if test="rescUrl != null">
+        #{rescUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="rescParentid != null">
+        #{rescParentid,jdbcType=VARCHAR},
+      </if>
+      <if test="rescTabNam != null">
+        #{rescTabNam,jdbcType=VARCHAR},
+      </if>
+      <if test="rescProcid != null">
+        #{rescProcid,jdbcType=VARCHAR},
+      </if>
+      <if test="rescOrderid != null">
+        #{rescOrderid,jdbcType=VARCHAR},
+      </if>
+      <if test="rescIcon != null">
+        #{rescIcon,jdbcType=VARCHAR},
+      </if>
+      <if test="rescRmk != null">
+        #{rescRmk,jdbcType=VARCHAR},
+      </if>
+      <if test="lastChgDt != null">
+        #{lastChgDt,jdbcType=VARCHAR},
+      </if>
+      <if test="lastChgUsr != null">
+        #{lastChgUsr,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.S_RESC">
+    update S_RESC
+    <set>
+      <if test="rescDesc != null">
+        RESC_DESC = #{rescDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="rescSystempk != null">
+        RESC_SYSTEMPK = #{rescSystempk,jdbcType=VARCHAR},
+      </if>
+      <if test="rescUrl != null">
+        RESC_URL = #{rescUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="rescParentid != null">
+        RESC_PARENTID = #{rescParentid,jdbcType=VARCHAR},
+      </if>
+      <if test="rescTabNam != null">
+        RESC_TAB_NAM = #{rescTabNam,jdbcType=VARCHAR},
+      </if>
+      <if test="rescProcid != null">
+        RESC_PROCID = #{rescProcid,jdbcType=VARCHAR},
+      </if>
+      <if test="rescOrderid != null">
+        RESC_ORDERID = #{rescOrderid,jdbcType=VARCHAR},
+      </if>
+      <if test="rescIcon != null">
+        RESC_ICON = #{rescIcon,jdbcType=VARCHAR},
+      </if>
+      <if test="rescRmk != null">
+        RESC_RMK = #{rescRmk,jdbcType=VARCHAR},
+      </if>
+      <if test="lastChgDt != null">
+        LAST_CHG_DT = #{lastChgDt,jdbcType=VARCHAR},
+      </if>
+      <if test="lastChgUsr != null">
+        LAST_CHG_USR = #{lastChgUsr,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where RESC_CDE = #{rescCde,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.S_RESC">
+    update S_RESC
+    set RESC_DESC = #{rescDesc,jdbcType=VARCHAR},
+      RESC_SYSTEMPK = #{rescSystempk,jdbcType=VARCHAR},
+      RESC_URL = #{rescUrl,jdbcType=VARCHAR},
+      RESC_PARENTID = #{rescParentid,jdbcType=VARCHAR},
+      RESC_TAB_NAM = #{rescTabNam,jdbcType=VARCHAR},
+      RESC_PROCID = #{rescProcid,jdbcType=VARCHAR},
+      RESC_ORDERID = #{rescOrderid,jdbcType=VARCHAR},
+      RESC_ICON = #{rescIcon,jdbcType=VARCHAR},
+      RESC_RMK = #{rescRmk,jdbcType=VARCHAR},
+      LAST_CHG_DT = #{lastChgDt,jdbcType=VARCHAR},
+      LAST_CHG_USR = #{lastChgUsr,jdbcType=VARCHAR}
+    where RESC_CDE = #{rescCde,jdbcType=VARCHAR}
+  </update>
+</mapper>

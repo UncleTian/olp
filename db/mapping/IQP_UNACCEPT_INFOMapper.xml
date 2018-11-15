@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.IQP_UNACCEPT_INFOMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.IQP_UNACCEPT_INFO">
+    <id column="SERNO" jdbcType="VARCHAR" property="serno" />
+    <result column="APPL_DATE" jdbcType="VARCHAR" property="applDate" />
+    <result column="CERT_TYPE" jdbcType="CHAR" property="certType" />
+    <result column="CERT_CODE" jdbcType="VARCHAR" property="certCode" />
+    <result column="CO_PLATFORM" jdbcType="CHAR" property="coPlatform" />
+    <result column="UNACCEPT_NUM" jdbcType="DECIMAL" property="unacceptNum" />
+    <result column="INPUT_TIME" jdbcType="VARCHAR" property="inputTime" />
+    <result column="UPDATE_TIME" jdbcType="VARCHAR" property="updateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    SERNO, APPL_DATE, CERT_TYPE, CERT_CODE, CO_PLATFORM, UNACCEPT_NUM, INPUT_TIME, UPDATE_TIME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from IQP_UNACCEPT_INFO
+    where SERNO = #{serno,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from IQP_UNACCEPT_INFO
+    where SERNO = #{serno,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.IQP_UNACCEPT_INFO">
+    insert into IQP_UNACCEPT_INFO (SERNO, APPL_DATE, CERT_TYPE, 
+      CERT_CODE, CO_PLATFORM, UNACCEPT_NUM, 
+      INPUT_TIME, UPDATE_TIME)
+    values (#{serno,jdbcType=VARCHAR}, #{applDate,jdbcType=VARCHAR}, #{certType,jdbcType=CHAR}, 
+      #{certCode,jdbcType=VARCHAR}, #{coPlatform,jdbcType=CHAR}, #{unacceptNum,jdbcType=DECIMAL}, 
+      #{inputTime,jdbcType=VARCHAR}, #{updateTime,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.IQP_UNACCEPT_INFO">
+    insert into IQP_UNACCEPT_INFO
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="serno != null">
+        SERNO,
+      </if>
+      <if test="applDate != null">
+        APPL_DATE,
+      </if>
+      <if test="certType != null">
+        CERT_TYPE,
+      </if>
+      <if test="certCode != null">
+        CERT_CODE,
+      </if>
+      <if test="coPlatform != null">
+        CO_PLATFORM,
+      </if>
+      <if test="unacceptNum != null">
+        UNACCEPT_NUM,
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME,
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="serno != null">
+        #{serno,jdbcType=VARCHAR},
+      </if>
+      <if test="applDate != null">
+        #{applDate,jdbcType=VARCHAR},
+      </if>
+      <if test="certType != null">
+        #{certType,jdbcType=CHAR},
+      </if>
+      <if test="certCode != null">
+        #{certCode,jdbcType=VARCHAR},
+      </if>
+      <if test="coPlatform != null">
+        #{coPlatform,jdbcType=CHAR},
+      </if>
+      <if test="unacceptNum != null">
+        #{unacceptNum,jdbcType=DECIMAL},
+      </if>
+      <if test="inputTime != null">
+        #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.IQP_UNACCEPT_INFO">
+    update IQP_UNACCEPT_INFO
+    <set>
+      <if test="applDate != null">
+        APPL_DATE = #{applDate,jdbcType=VARCHAR},
+      </if>
+      <if test="certType != null">
+        CERT_TYPE = #{certType,jdbcType=CHAR},
+      </if>
+      <if test="certCode != null">
+        CERT_CODE = #{certCode,jdbcType=VARCHAR},
+      </if>
+      <if test="coPlatform != null">
+        CO_PLATFORM = #{coPlatform,jdbcType=CHAR},
+      </if>
+      <if test="unacceptNum != null">
+        UNACCEPT_NUM = #{unacceptNum,jdbcType=DECIMAL},
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME = #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME = #{updateTime,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where SERNO = #{serno,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.IQP_UNACCEPT_INFO">
+    update IQP_UNACCEPT_INFO
+    set APPL_DATE = #{applDate,jdbcType=VARCHAR},
+      CERT_TYPE = #{certType,jdbcType=CHAR},
+      CERT_CODE = #{certCode,jdbcType=VARCHAR},
+      CO_PLATFORM = #{coPlatform,jdbcType=CHAR},
+      UNACCEPT_NUM = #{unacceptNum,jdbcType=DECIMAL},
+      INPUT_TIME = #{inputTime,jdbcType=VARCHAR},
+      UPDATE_TIME = #{updateTime,jdbcType=VARCHAR}
+    where SERNO = #{serno,jdbcType=VARCHAR}
+  </update>
+</mapper>

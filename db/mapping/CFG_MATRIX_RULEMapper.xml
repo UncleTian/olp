@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.CFG_MATRIX_RULEMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.CFG_MATRIX_RULE">
+    <id column="MATRIX_ID" jdbcType="VARCHAR" property="matrixId" />
+    <result column="COL_KEY" jdbcType="VARCHAR" property="colKey" />
+    <result column="LINE_KEY" jdbcType="VARCHAR" property="lineKey" />
+    <result column="MATRIX_VALUE" jdbcType="VARCHAR" property="matrixValue" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    MATRIX_ID, COL_KEY, LINE_KEY, MATRIX_VALUE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from CFG_MATRIX_RULE
+    where MATRIX_ID = #{matrixId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from CFG_MATRIX_RULE
+    where MATRIX_ID = #{matrixId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.CFG_MATRIX_RULE">
+    insert into CFG_MATRIX_RULE (MATRIX_ID, COL_KEY, LINE_KEY, 
+      MATRIX_VALUE)
+    values (#{matrixId,jdbcType=VARCHAR}, #{colKey,jdbcType=VARCHAR}, #{lineKey,jdbcType=VARCHAR}, 
+      #{matrixValue,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.CFG_MATRIX_RULE">
+    insert into CFG_MATRIX_RULE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="matrixId != null">
+        MATRIX_ID,
+      </if>
+      <if test="colKey != null">
+        COL_KEY,
+      </if>
+      <if test="lineKey != null">
+        LINE_KEY,
+      </if>
+      <if test="matrixValue != null">
+        MATRIX_VALUE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="matrixId != null">
+        #{matrixId,jdbcType=VARCHAR},
+      </if>
+      <if test="colKey != null">
+        #{colKey,jdbcType=VARCHAR},
+      </if>
+      <if test="lineKey != null">
+        #{lineKey,jdbcType=VARCHAR},
+      </if>
+      <if test="matrixValue != null">
+        #{matrixValue,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.CFG_MATRIX_RULE">
+    update CFG_MATRIX_RULE
+    <set>
+      <if test="colKey != null">
+        COL_KEY = #{colKey,jdbcType=VARCHAR},
+      </if>
+      <if test="lineKey != null">
+        LINE_KEY = #{lineKey,jdbcType=VARCHAR},
+      </if>
+      <if test="matrixValue != null">
+        MATRIX_VALUE = #{matrixValue,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where MATRIX_ID = #{matrixId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.CFG_MATRIX_RULE">
+    update CFG_MATRIX_RULE
+    set COL_KEY = #{colKey,jdbcType=VARCHAR},
+      LINE_KEY = #{lineKey,jdbcType=VARCHAR},
+      MATRIX_VALUE = #{matrixValue,jdbcType=VARCHAR}
+    where MATRIX_ID = #{matrixId,jdbcType=VARCHAR}
+  </update>
+</mapper>

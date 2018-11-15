@@ -1,0 +1,932 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.BIZ_CREDIT_SUM_JBMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.BIZ_CREDIT_SUM_JB">
+    <id column="APP_NO" jdbcType="VARCHAR" property="appNo" />
+    <result column="APPLY_NO" jdbcType="VARCHAR" property="applyNo" />
+    <result column="HAVEINFOFLAG" jdbcType="DECIMAL" property="haveinfoflag" />
+    <result column="HAVEGDACTNOFLAG" jdbcType="DECIMAL" property="havegdactnoflag" />
+    <result column="HAVECREDITACTNOFLAG" jdbcType="DECIMAL" property="havecreditactnoflag" />
+    <result column="PRETRMCLASS" jdbcType="DECIMAL" property="pretrmclass" />
+    <result column="LAST12MTOTOVDTIMES" jdbcType="DECIMAL" property="last12mtotovdtimes" />
+    <result column="LAST6MMAXOVDPERI" jdbcType="DECIMAL" property="last6mmaxovdperi" />
+    <result column="LAST12MMAXOVDPERI" jdbcType="DECIMAL" property="last12mmaxovdperi" />
+    <result column="LAST24MWORSTSTAT" jdbcType="DECIMAL" property="last24mworststat" />
+    <result column="TOTOVDTIMES" jdbcType="DECIMAL" property="totovdtimes" />
+    <result column="MAXOVDPERI" jdbcType="DECIMAL" property="maxovdperi" />
+    <result column="TILLNOWMAXOVDPERI" jdbcType="DECIMAL" property="tillnowmaxovdperi" />
+    <result column="MAXLOGINMONTHS" jdbcType="DECIMAL" property="maxloginmonths" />
+    <result column="EXP75PERCNT" jdbcType="DECIMAL" property="exp75percnt" />
+    <result column="EXP30PERCNT" jdbcType="DECIMAL" property="exp30percnt" />
+    <result column="DKHAVELNBALCNT" jdbcType="DECIMAL" property="dkhavelnbalcnt" />
+    <result column="LAST12MCREDITQUERYCNT" jdbcType="DECIMAL" property="last12mcreditquerycnt" />
+    <result column="ELSEDEBTMONTH" jdbcType="DECIMAL" property="elsedebtmonth" />
+    <result column="PRESENTCREDITSTAT" jdbcType="DECIMAL" property="presentcreditstat" />
+    <result column="PRESENTCREDITOVDAMT" jdbcType="DECIMAL" property="presentcreditovdamt" />
+    <result column="LAST12MCREDITLOWESTCNT" jdbcType="DECIMAL" property="last12mcreditlowestcnt" />
+    <result column="LAST24MCREDITWORSTSTAT" jdbcType="DECIMAL" property="last24mcreditworststat" />
+    <result column="FIVE_CATEGORY" jdbcType="DECIMAL" property="fiveCategory" />
+    <result column="PRELOANOVDAMT" jdbcType="DECIMAL" property="preloanovdamt" />
+    <result column="PRELOANOVDTIMES" jdbcType="DECIMAL" property="preloanovdtimes" />
+    <result column="PREALLCREDOVDAMT" jdbcType="DECIMAL" property="preallcredovdamt" />
+    <result column="PREALLCREDOVDTIMES" jdbcType="DECIMAL" property="preallcredovdtimes" />
+    <result column="COUNTTOTOVDTIMES" jdbcType="DECIMAL" property="counttotovdtimes" />
+    <result column="TOTALLCREDOVDTIMES" jdbcType="DECIMAL" property="totallcredovdtimes" />
+    <result column="COUNTLAST24MTOTOVDTIMES" jdbcType="DECIMAL" property="countlast24mtotovdtimes" />
+    <result column="ALLCREDLAST24MTOTOVDTIMES" jdbcType="DECIMAL" property="allcredlast24mtotovdtimes" />
+    <result column="PRESPELOVDTIMES" jdbcType="DECIMAL" property="prespelovdtimes" />
+    <result column="PRENOTDUEBALANCE" jdbcType="DECIMAL" property="prenotduebalance" />
+    <result column="PREMAXHOUSEPRINC" jdbcType="DECIMAL" property="premaxhouseprinc" />
+    <result column="MAXHOUSEREPAYTIMES" jdbcType="DECIMAL" property="maxhouserepaytimes" />
+    <result column="LONGTERNHOUSEPRINC" jdbcType="DECIMAL" property="longternhouseprinc" />
+    <result column="LONGHOUSEREPAYTIMES" jdbcType="DECIMAL" property="longhouserepaytimes" />
+    <result column="PRECREDAVGAMOUNT" jdbcType="DECIMAL" property="precredavgamount" />
+    <result column="LAST6MUSEAMOUNT" jdbcType="DECIMAL" property="last6museamount" />
+    <result column="PRECREDAMOUNT" jdbcType="DECIMAL" property="precredamount" />
+    <result column="PRECREDCARDS" jdbcType="DECIMAL" property="precredcards" />
+    <result column="PRECREDMAXAMOUNT" jdbcType="DECIMAL" property="precredmaxamount" />
+    <result column="PRECREDANDGUALOANBALANCE" jdbcType="DECIMAL" property="precredandgualoanbalance" />
+    <result column="PRECREDSUMAMOUNT" jdbcType="DECIMAL" property="precredsumamount" />
+    <result column="HAVEOPERATLOANFLAG" jdbcType="DECIMAL" property="haveoperatloanflag" />
+    <result column="OVERDUE30DAYSPNP" jdbcType="DECIMAL" property="overdue30dayspnp" />
+    <result column="LAST3MTOTOVDTIMES" jdbcType="DECIMAL" property="last3mtotovdtimes" />
+    <result column="ALLCREDLAST3MTOTOVDTIMES" jdbcType="DECIMAL" property="allcredlast3mtotovdtimes" />
+    <result column="LAST6MTOTOVDTIMES" jdbcType="DECIMAL" property="last6mtotovdtimes" />
+    <result column="ALLCREDLAST6MTOTOVDTIMES" jdbcType="DECIMAL" property="allcredlast6mtotovdtimes" />
+    <result column="PREMAXHOUSENUM" jdbcType="DECIMAL" property="premaxhousenum" />
+    <result column="NOTPREMAXHOUSENUM" jdbcType="DECIMAL" property="notpremaxhousenum" />
+    <result column="PRECREDANDGUALOANNUM" jdbcType="DECIMAL" property="precredandgualoannum" />
+    <result column="LAST1MCREDITQUERYCNT" jdbcType="DECIMAL" property="last1mcreditquerycnt" />
+    <result column="LAST3MCREDITQUERYCNT" jdbcType="DECIMAL" property="last3mcreditquerycnt" />
+    <result column="LAST6MCREDITQUERYCNT" jdbcType="DECIMAL" property="last6mcreditquerycnt" />
+    <result column="LAST24MCREDITQUERYCNT" jdbcType="DECIMAL" property="last24mcreditquerycnt" />
+    <result column="UNCLEAREDLOANNUM" jdbcType="DECIMAL" property="unclearedloannum" />
+    <result column="ACT90PERCREDNUM" jdbcType="DECIMAL" property="act90percrednum" />
+    <result column="GUARANTEEFORMATNUM" jdbcType="DECIMAL" property="guaranteeformatnum" />
+    <result column="GUARANTEEFORMATSTATENUM" jdbcType="DECIMAL" property="guaranteeformatstatenum" />
+    <result column="CREDMAXLMTPER" jdbcType="DECIMAL" property="credmaxlmtper" />
+    <result column="THISMONTHCREDREPAY" jdbcType="DECIMAL" property="thismonthcredrepay" />
+    <result column="THISMONTHCREDODUEAMT" jdbcType="DECIMAL" property="thismonthcredodueamt" />
+    <result column="MOBILEPHONE" jdbcType="VARCHAR" property="mobilephone" />
+    <result column="HOMETELEPHONENO" jdbcType="VARCHAR" property="hometelephoneno" />
+    <result column="OFFICETELEPHONENO" jdbcType="VARCHAR" property="officetelephoneno" />
+    <result column="OTHQUERYREASONNUM1" jdbcType="DECIMAL" property="othqueryreasonnum1" />
+    <result column="OTHQUERYREASONNUM3" jdbcType="DECIMAL" property="othqueryreasonnum3" />
+    <result column="OTHOPENCREDNUM3" jdbcType="DECIMAL" property="othopencrednum3" />
+    <result column="OTHOPENCREDNUM12" jdbcType="DECIMAL" property="othopencrednum12" />
+    <result column="LAST6MCARDMAXODUENUM" jdbcType="DECIMAL" property="last6mcardmaxoduenum" />
+    <result column="INPUT_DATE" jdbcType="VARCHAR" property="inputDate" />
+    <result column="INPUT_TIME" jdbcType="VARCHAR" property="inputTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    APP_NO, APPLY_NO, HAVEINFOFLAG, HAVEGDACTNOFLAG, HAVECREDITACTNOFLAG, PRETRMCLASS, 
+    LAST12MTOTOVDTIMES, LAST6MMAXOVDPERI, LAST12MMAXOVDPERI, LAST24MWORSTSTAT, TOTOVDTIMES, 
+    MAXOVDPERI, TILLNOWMAXOVDPERI, MAXLOGINMONTHS, EXP75PERCNT, EXP30PERCNT, DKHAVELNBALCNT, 
+    LAST12MCREDITQUERYCNT, ELSEDEBTMONTH, PRESENTCREDITSTAT, PRESENTCREDITOVDAMT, LAST12MCREDITLOWESTCNT, 
+    LAST24MCREDITWORSTSTAT, FIVE_CATEGORY, PRELOANOVDAMT, PRELOANOVDTIMES, PREALLCREDOVDAMT, 
+    PREALLCREDOVDTIMES, COUNTTOTOVDTIMES, TOTALLCREDOVDTIMES, COUNTLAST24MTOTOVDTIMES, 
+    ALLCREDLAST24MTOTOVDTIMES, PRESPELOVDTIMES, PRENOTDUEBALANCE, PREMAXHOUSEPRINC, MAXHOUSEREPAYTIMES, 
+    LONGTERNHOUSEPRINC, LONGHOUSEREPAYTIMES, PRECREDAVGAMOUNT, LAST6MUSEAMOUNT, PRECREDAMOUNT, 
+    PRECREDCARDS, PRECREDMAXAMOUNT, PRECREDANDGUALOANBALANCE, PRECREDSUMAMOUNT, HAVEOPERATLOANFLAG, 
+    OVERDUE30DAYSPNP, LAST3MTOTOVDTIMES, ALLCREDLAST3MTOTOVDTIMES, LAST6MTOTOVDTIMES, 
+    ALLCREDLAST6MTOTOVDTIMES, PREMAXHOUSENUM, NOTPREMAXHOUSENUM, PRECREDANDGUALOANNUM, 
+    LAST1MCREDITQUERYCNT, LAST3MCREDITQUERYCNT, LAST6MCREDITQUERYCNT, LAST24MCREDITQUERYCNT, 
+    UNCLEAREDLOANNUM, ACT90PERCREDNUM, GUARANTEEFORMATNUM, GUARANTEEFORMATSTATENUM, CREDMAXLMTPER, 
+    THISMONTHCREDREPAY, THISMONTHCREDODUEAMT, MOBILEPHONE, HOMETELEPHONENO, OFFICETELEPHONENO, 
+    OTHQUERYREASONNUM1, OTHQUERYREASONNUM3, OTHOPENCREDNUM3, OTHOPENCREDNUM12, LAST6MCARDMAXODUENUM, 
+    INPUT_DATE, INPUT_TIME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from BIZ_CREDIT_SUM_JB
+    where APP_NO = #{appNo,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from BIZ_CREDIT_SUM_JB
+    where APP_NO = #{appNo,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.BIZ_CREDIT_SUM_JB">
+    insert into BIZ_CREDIT_SUM_JB (APP_NO, APPLY_NO, HAVEINFOFLAG, 
+      HAVEGDACTNOFLAG, HAVECREDITACTNOFLAG, PRETRMCLASS, 
+      LAST12MTOTOVDTIMES, LAST6MMAXOVDPERI, LAST12MMAXOVDPERI, 
+      LAST24MWORSTSTAT, TOTOVDTIMES, MAXOVDPERI, 
+      TILLNOWMAXOVDPERI, MAXLOGINMONTHS, EXP75PERCNT, 
+      EXP30PERCNT, DKHAVELNBALCNT, LAST12MCREDITQUERYCNT, 
+      ELSEDEBTMONTH, PRESENTCREDITSTAT, PRESENTCREDITOVDAMT, 
+      LAST12MCREDITLOWESTCNT, LAST24MCREDITWORSTSTAT, 
+      FIVE_CATEGORY, PRELOANOVDAMT, PRELOANOVDTIMES, 
+      PREALLCREDOVDAMT, PREALLCREDOVDTIMES, COUNTTOTOVDTIMES, 
+      TOTALLCREDOVDTIMES, COUNTLAST24MTOTOVDTIMES, 
+      ALLCREDLAST24MTOTOVDTIMES, PRESPELOVDTIMES, 
+      PRENOTDUEBALANCE, PREMAXHOUSEPRINC, MAXHOUSEREPAYTIMES, 
+      LONGTERNHOUSEPRINC, LONGHOUSEREPAYTIMES, 
+      PRECREDAVGAMOUNT, LAST6MUSEAMOUNT, PRECREDAMOUNT, 
+      PRECREDCARDS, PRECREDMAXAMOUNT, PRECREDANDGUALOANBALANCE, 
+      PRECREDSUMAMOUNT, HAVEOPERATLOANFLAG, OVERDUE30DAYSPNP, 
+      LAST3MTOTOVDTIMES, ALLCREDLAST3MTOTOVDTIMES, 
+      LAST6MTOTOVDTIMES, ALLCREDLAST6MTOTOVDTIMES, 
+      PREMAXHOUSENUM, NOTPREMAXHOUSENUM, PRECREDANDGUALOANNUM, 
+      LAST1MCREDITQUERYCNT, LAST3MCREDITQUERYCNT, 
+      LAST6MCREDITQUERYCNT, LAST24MCREDITQUERYCNT, 
+      UNCLEAREDLOANNUM, ACT90PERCREDNUM, GUARANTEEFORMATNUM, 
+      GUARANTEEFORMATSTATENUM, CREDMAXLMTPER, 
+      THISMONTHCREDREPAY, THISMONTHCREDODUEAMT, 
+      MOBILEPHONE, HOMETELEPHONENO, OFFICETELEPHONENO, 
+      OTHQUERYREASONNUM1, OTHQUERYREASONNUM3, 
+      OTHOPENCREDNUM3, OTHOPENCREDNUM12, LAST6MCARDMAXODUENUM, 
+      INPUT_DATE, INPUT_TIME)
+    values (#{appNo,jdbcType=VARCHAR}, #{applyNo,jdbcType=VARCHAR}, #{haveinfoflag,jdbcType=DECIMAL}, 
+      #{havegdactnoflag,jdbcType=DECIMAL}, #{havecreditactnoflag,jdbcType=DECIMAL}, #{pretrmclass,jdbcType=DECIMAL}, 
+      #{last12mtotovdtimes,jdbcType=DECIMAL}, #{last6mmaxovdperi,jdbcType=DECIMAL}, #{last12mmaxovdperi,jdbcType=DECIMAL}, 
+      #{last24mworststat,jdbcType=DECIMAL}, #{totovdtimes,jdbcType=DECIMAL}, #{maxovdperi,jdbcType=DECIMAL}, 
+      #{tillnowmaxovdperi,jdbcType=DECIMAL}, #{maxloginmonths,jdbcType=DECIMAL}, #{exp75percnt,jdbcType=DECIMAL}, 
+      #{exp30percnt,jdbcType=DECIMAL}, #{dkhavelnbalcnt,jdbcType=DECIMAL}, #{last12mcreditquerycnt,jdbcType=DECIMAL}, 
+      #{elsedebtmonth,jdbcType=DECIMAL}, #{presentcreditstat,jdbcType=DECIMAL}, #{presentcreditovdamt,jdbcType=DECIMAL}, 
+      #{last12mcreditlowestcnt,jdbcType=DECIMAL}, #{last24mcreditworststat,jdbcType=DECIMAL}, 
+      #{fiveCategory,jdbcType=DECIMAL}, #{preloanovdamt,jdbcType=DECIMAL}, #{preloanovdtimes,jdbcType=DECIMAL}, 
+      #{preallcredovdamt,jdbcType=DECIMAL}, #{preallcredovdtimes,jdbcType=DECIMAL}, #{counttotovdtimes,jdbcType=DECIMAL}, 
+      #{totallcredovdtimes,jdbcType=DECIMAL}, #{countlast24mtotovdtimes,jdbcType=DECIMAL}, 
+      #{allcredlast24mtotovdtimes,jdbcType=DECIMAL}, #{prespelovdtimes,jdbcType=DECIMAL}, 
+      #{prenotduebalance,jdbcType=DECIMAL}, #{premaxhouseprinc,jdbcType=DECIMAL}, #{maxhouserepaytimes,jdbcType=DECIMAL}, 
+      #{longternhouseprinc,jdbcType=DECIMAL}, #{longhouserepaytimes,jdbcType=DECIMAL}, 
+      #{precredavgamount,jdbcType=DECIMAL}, #{last6museamount,jdbcType=DECIMAL}, #{precredamount,jdbcType=DECIMAL}, 
+      #{precredcards,jdbcType=DECIMAL}, #{precredmaxamount,jdbcType=DECIMAL}, #{precredandgualoanbalance,jdbcType=DECIMAL}, 
+      #{precredsumamount,jdbcType=DECIMAL}, #{haveoperatloanflag,jdbcType=DECIMAL}, #{overdue30dayspnp,jdbcType=DECIMAL}, 
+      #{last3mtotovdtimes,jdbcType=DECIMAL}, #{allcredlast3mtotovdtimes,jdbcType=DECIMAL}, 
+      #{last6mtotovdtimes,jdbcType=DECIMAL}, #{allcredlast6mtotovdtimes,jdbcType=DECIMAL}, 
+      #{premaxhousenum,jdbcType=DECIMAL}, #{notpremaxhousenum,jdbcType=DECIMAL}, #{precredandgualoannum,jdbcType=DECIMAL}, 
+      #{last1mcreditquerycnt,jdbcType=DECIMAL}, #{last3mcreditquerycnt,jdbcType=DECIMAL}, 
+      #{last6mcreditquerycnt,jdbcType=DECIMAL}, #{last24mcreditquerycnt,jdbcType=DECIMAL}, 
+      #{unclearedloannum,jdbcType=DECIMAL}, #{act90percrednum,jdbcType=DECIMAL}, #{guaranteeformatnum,jdbcType=DECIMAL}, 
+      #{guaranteeformatstatenum,jdbcType=DECIMAL}, #{credmaxlmtper,jdbcType=DECIMAL}, 
+      #{thismonthcredrepay,jdbcType=DECIMAL}, #{thismonthcredodueamt,jdbcType=DECIMAL}, 
+      #{mobilephone,jdbcType=VARCHAR}, #{hometelephoneno,jdbcType=VARCHAR}, #{officetelephoneno,jdbcType=VARCHAR}, 
+      #{othqueryreasonnum1,jdbcType=DECIMAL}, #{othqueryreasonnum3,jdbcType=DECIMAL}, 
+      #{othopencrednum3,jdbcType=DECIMAL}, #{othopencrednum12,jdbcType=DECIMAL}, #{last6mcardmaxoduenum,jdbcType=DECIMAL}, 
+      #{inputDate,jdbcType=VARCHAR}, #{inputTime,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.BIZ_CREDIT_SUM_JB">
+    insert into BIZ_CREDIT_SUM_JB
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="appNo != null">
+        APP_NO,
+      </if>
+      <if test="applyNo != null">
+        APPLY_NO,
+      </if>
+      <if test="haveinfoflag != null">
+        HAVEINFOFLAG,
+      </if>
+      <if test="havegdactnoflag != null">
+        HAVEGDACTNOFLAG,
+      </if>
+      <if test="havecreditactnoflag != null">
+        HAVECREDITACTNOFLAG,
+      </if>
+      <if test="pretrmclass != null">
+        PRETRMCLASS,
+      </if>
+      <if test="last12mtotovdtimes != null">
+        LAST12MTOTOVDTIMES,
+      </if>
+      <if test="last6mmaxovdperi != null">
+        LAST6MMAXOVDPERI,
+      </if>
+      <if test="last12mmaxovdperi != null">
+        LAST12MMAXOVDPERI,
+      </if>
+      <if test="last24mworststat != null">
+        LAST24MWORSTSTAT,
+      </if>
+      <if test="totovdtimes != null">
+        TOTOVDTIMES,
+      </if>
+      <if test="maxovdperi != null">
+        MAXOVDPERI,
+      </if>
+      <if test="tillnowmaxovdperi != null">
+        TILLNOWMAXOVDPERI,
+      </if>
+      <if test="maxloginmonths != null">
+        MAXLOGINMONTHS,
+      </if>
+      <if test="exp75percnt != null">
+        EXP75PERCNT,
+      </if>
+      <if test="exp30percnt != null">
+        EXP30PERCNT,
+      </if>
+      <if test="dkhavelnbalcnt != null">
+        DKHAVELNBALCNT,
+      </if>
+      <if test="last12mcreditquerycnt != null">
+        LAST12MCREDITQUERYCNT,
+      </if>
+      <if test="elsedebtmonth != null">
+        ELSEDEBTMONTH,
+      </if>
+      <if test="presentcreditstat != null">
+        PRESENTCREDITSTAT,
+      </if>
+      <if test="presentcreditovdamt != null">
+        PRESENTCREDITOVDAMT,
+      </if>
+      <if test="last12mcreditlowestcnt != null">
+        LAST12MCREDITLOWESTCNT,
+      </if>
+      <if test="last24mcreditworststat != null">
+        LAST24MCREDITWORSTSTAT,
+      </if>
+      <if test="fiveCategory != null">
+        FIVE_CATEGORY,
+      </if>
+      <if test="preloanovdamt != null">
+        PRELOANOVDAMT,
+      </if>
+      <if test="preloanovdtimes != null">
+        PRELOANOVDTIMES,
+      </if>
+      <if test="preallcredovdamt != null">
+        PREALLCREDOVDAMT,
+      </if>
+      <if test="preallcredovdtimes != null">
+        PREALLCREDOVDTIMES,
+      </if>
+      <if test="counttotovdtimes != null">
+        COUNTTOTOVDTIMES,
+      </if>
+      <if test="totallcredovdtimes != null">
+        TOTALLCREDOVDTIMES,
+      </if>
+      <if test="countlast24mtotovdtimes != null">
+        COUNTLAST24MTOTOVDTIMES,
+      </if>
+      <if test="allcredlast24mtotovdtimes != null">
+        ALLCREDLAST24MTOTOVDTIMES,
+      </if>
+      <if test="prespelovdtimes != null">
+        PRESPELOVDTIMES,
+      </if>
+      <if test="prenotduebalance != null">
+        PRENOTDUEBALANCE,
+      </if>
+      <if test="premaxhouseprinc != null">
+        PREMAXHOUSEPRINC,
+      </if>
+      <if test="maxhouserepaytimes != null">
+        MAXHOUSEREPAYTIMES,
+      </if>
+      <if test="longternhouseprinc != null">
+        LONGTERNHOUSEPRINC,
+      </if>
+      <if test="longhouserepaytimes != null">
+        LONGHOUSEREPAYTIMES,
+      </if>
+      <if test="precredavgamount != null">
+        PRECREDAVGAMOUNT,
+      </if>
+      <if test="last6museamount != null">
+        LAST6MUSEAMOUNT,
+      </if>
+      <if test="precredamount != null">
+        PRECREDAMOUNT,
+      </if>
+      <if test="precredcards != null">
+        PRECREDCARDS,
+      </if>
+      <if test="precredmaxamount != null">
+        PRECREDMAXAMOUNT,
+      </if>
+      <if test="precredandgualoanbalance != null">
+        PRECREDANDGUALOANBALANCE,
+      </if>
+      <if test="precredsumamount != null">
+        PRECREDSUMAMOUNT,
+      </if>
+      <if test="haveoperatloanflag != null">
+        HAVEOPERATLOANFLAG,
+      </if>
+      <if test="overdue30dayspnp != null">
+        OVERDUE30DAYSPNP,
+      </if>
+      <if test="last3mtotovdtimes != null">
+        LAST3MTOTOVDTIMES,
+      </if>
+      <if test="allcredlast3mtotovdtimes != null">
+        ALLCREDLAST3MTOTOVDTIMES,
+      </if>
+      <if test="last6mtotovdtimes != null">
+        LAST6MTOTOVDTIMES,
+      </if>
+      <if test="allcredlast6mtotovdtimes != null">
+        ALLCREDLAST6MTOTOVDTIMES,
+      </if>
+      <if test="premaxhousenum != null">
+        PREMAXHOUSENUM,
+      </if>
+      <if test="notpremaxhousenum != null">
+        NOTPREMAXHOUSENUM,
+      </if>
+      <if test="precredandgualoannum != null">
+        PRECREDANDGUALOANNUM,
+      </if>
+      <if test="last1mcreditquerycnt != null">
+        LAST1MCREDITQUERYCNT,
+      </if>
+      <if test="last3mcreditquerycnt != null">
+        LAST3MCREDITQUERYCNT,
+      </if>
+      <if test="last6mcreditquerycnt != null">
+        LAST6MCREDITQUERYCNT,
+      </if>
+      <if test="last24mcreditquerycnt != null">
+        LAST24MCREDITQUERYCNT,
+      </if>
+      <if test="unclearedloannum != null">
+        UNCLEAREDLOANNUM,
+      </if>
+      <if test="act90percrednum != null">
+        ACT90PERCREDNUM,
+      </if>
+      <if test="guaranteeformatnum != null">
+        GUARANTEEFORMATNUM,
+      </if>
+      <if test="guaranteeformatstatenum != null">
+        GUARANTEEFORMATSTATENUM,
+      </if>
+      <if test="credmaxlmtper != null">
+        CREDMAXLMTPER,
+      </if>
+      <if test="thismonthcredrepay != null">
+        THISMONTHCREDREPAY,
+      </if>
+      <if test="thismonthcredodueamt != null">
+        THISMONTHCREDODUEAMT,
+      </if>
+      <if test="mobilephone != null">
+        MOBILEPHONE,
+      </if>
+      <if test="hometelephoneno != null">
+        HOMETELEPHONENO,
+      </if>
+      <if test="officetelephoneno != null">
+        OFFICETELEPHONENO,
+      </if>
+      <if test="othqueryreasonnum1 != null">
+        OTHQUERYREASONNUM1,
+      </if>
+      <if test="othqueryreasonnum3 != null">
+        OTHQUERYREASONNUM3,
+      </if>
+      <if test="othopencrednum3 != null">
+        OTHOPENCREDNUM3,
+      </if>
+      <if test="othopencrednum12 != null">
+        OTHOPENCREDNUM12,
+      </if>
+      <if test="last6mcardmaxoduenum != null">
+        LAST6MCARDMAXODUENUM,
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE,
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="appNo != null">
+        #{appNo,jdbcType=VARCHAR},
+      </if>
+      <if test="applyNo != null">
+        #{applyNo,jdbcType=VARCHAR},
+      </if>
+      <if test="haveinfoflag != null">
+        #{haveinfoflag,jdbcType=DECIMAL},
+      </if>
+      <if test="havegdactnoflag != null">
+        #{havegdactnoflag,jdbcType=DECIMAL},
+      </if>
+      <if test="havecreditactnoflag != null">
+        #{havecreditactnoflag,jdbcType=DECIMAL},
+      </if>
+      <if test="pretrmclass != null">
+        #{pretrmclass,jdbcType=DECIMAL},
+      </if>
+      <if test="last12mtotovdtimes != null">
+        #{last12mtotovdtimes,jdbcType=DECIMAL},
+      </if>
+      <if test="last6mmaxovdperi != null">
+        #{last6mmaxovdperi,jdbcType=DECIMAL},
+      </if>
+      <if test="last12mmaxovdperi != null">
+        #{last12mmaxovdperi,jdbcType=DECIMAL},
+      </if>
+      <if test="last24mworststat != null">
+        #{last24mworststat,jdbcType=DECIMAL},
+      </if>
+      <if test="totovdtimes != null">
+        #{totovdtimes,jdbcType=DECIMAL},
+      </if>
+      <if test="maxovdperi != null">
+        #{maxovdperi,jdbcType=DECIMAL},
+      </if>
+      <if test="tillnowmaxovdperi != null">
+        #{tillnowmaxovdperi,jdbcType=DECIMAL},
+      </if>
+      <if test="maxloginmonths != null">
+        #{maxloginmonths,jdbcType=DECIMAL},
+      </if>
+      <if test="exp75percnt != null">
+        #{exp75percnt,jdbcType=DECIMAL},
+      </if>
+      <if test="exp30percnt != null">
+        #{exp30percnt,jdbcType=DECIMAL},
+      </if>
+      <if test="dkhavelnbalcnt != null">
+        #{dkhavelnbalcnt,jdbcType=DECIMAL},
+      </if>
+      <if test="last12mcreditquerycnt != null">
+        #{last12mcreditquerycnt,jdbcType=DECIMAL},
+      </if>
+      <if test="elsedebtmonth != null">
+        #{elsedebtmonth,jdbcType=DECIMAL},
+      </if>
+      <if test="presentcreditstat != null">
+        #{presentcreditstat,jdbcType=DECIMAL},
+      </if>
+      <if test="presentcreditovdamt != null">
+        #{presentcreditovdamt,jdbcType=DECIMAL},
+      </if>
+      <if test="last12mcreditlowestcnt != null">
+        #{last12mcreditlowestcnt,jdbcType=DECIMAL},
+      </if>
+      <if test="last24mcreditworststat != null">
+        #{last24mcreditworststat,jdbcType=DECIMAL},
+      </if>
+      <if test="fiveCategory != null">
+        #{fiveCategory,jdbcType=DECIMAL},
+      </if>
+      <if test="preloanovdamt != null">
+        #{preloanovdamt,jdbcType=DECIMAL},
+      </if>
+      <if test="preloanovdtimes != null">
+        #{preloanovdtimes,jdbcType=DECIMAL},
+      </if>
+      <if test="preallcredovdamt != null">
+        #{preallcredovdamt,jdbcType=DECIMAL},
+      </if>
+      <if test="preallcredovdtimes != null">
+        #{preallcredovdtimes,jdbcType=DECIMAL},
+      </if>
+      <if test="counttotovdtimes != null">
+        #{counttotovdtimes,jdbcType=DECIMAL},
+      </if>
+      <if test="totallcredovdtimes != null">
+        #{totallcredovdtimes,jdbcType=DECIMAL},
+      </if>
+      <if test="countlast24mtotovdtimes != null">
+        #{countlast24mtotovdtimes,jdbcType=DECIMAL},
+      </if>
+      <if test="allcredlast24mtotovdtimes != null">
+        #{allcredlast24mtotovdtimes,jdbcType=DECIMAL},
+      </if>
+      <if test="prespelovdtimes != null">
+        #{prespelovdtimes,jdbcType=DECIMAL},
+      </if>
+      <if test="prenotduebalance != null">
+        #{prenotduebalance,jdbcType=DECIMAL},
+      </if>
+      <if test="premaxhouseprinc != null">
+        #{premaxhouseprinc,jdbcType=DECIMAL},
+      </if>
+      <if test="maxhouserepaytimes != null">
+        #{maxhouserepaytimes,jdbcType=DECIMAL},
+      </if>
+      <if test="longternhouseprinc != null">
+        #{longternhouseprinc,jdbcType=DECIMAL},
+      </if>
+      <if test="longhouserepaytimes != null">
+        #{longhouserepaytimes,jdbcType=DECIMAL},
+      </if>
+      <if test="precredavgamount != null">
+        #{precredavgamount,jdbcType=DECIMAL},
+      </if>
+      <if test="last6museamount != null">
+        #{last6museamount,jdbcType=DECIMAL},
+      </if>
+      <if test="precredamount != null">
+        #{precredamount,jdbcType=DECIMAL},
+      </if>
+      <if test="precredcards != null">
+        #{precredcards,jdbcType=DECIMAL},
+      </if>
+      <if test="precredmaxamount != null">
+        #{precredmaxamount,jdbcType=DECIMAL},
+      </if>
+      <if test="precredandgualoanbalance != null">
+        #{precredandgualoanbalance,jdbcType=DECIMAL},
+      </if>
+      <if test="precredsumamount != null">
+        #{precredsumamount,jdbcType=DECIMAL},
+      </if>
+      <if test="haveoperatloanflag != null">
+        #{haveoperatloanflag,jdbcType=DECIMAL},
+      </if>
+      <if test="overdue30dayspnp != null">
+        #{overdue30dayspnp,jdbcType=DECIMAL},
+      </if>
+      <if test="last3mtotovdtimes != null">
+        #{last3mtotovdtimes,jdbcType=DECIMAL},
+      </if>
+      <if test="allcredlast3mtotovdtimes != null">
+        #{allcredlast3mtotovdtimes,jdbcType=DECIMAL},
+      </if>
+      <if test="last6mtotovdtimes != null">
+        #{last6mtotovdtimes,jdbcType=DECIMAL},
+      </if>
+      <if test="allcredlast6mtotovdtimes != null">
+        #{allcredlast6mtotovdtimes,jdbcType=DECIMAL},
+      </if>
+      <if test="premaxhousenum != null">
+        #{premaxhousenum,jdbcType=DECIMAL},
+      </if>
+      <if test="notpremaxhousenum != null">
+        #{notpremaxhousenum,jdbcType=DECIMAL},
+      </if>
+      <if test="precredandgualoannum != null">
+        #{precredandgualoannum,jdbcType=DECIMAL},
+      </if>
+      <if test="last1mcreditquerycnt != null">
+        #{last1mcreditquerycnt,jdbcType=DECIMAL},
+      </if>
+      <if test="last3mcreditquerycnt != null">
+        #{last3mcreditquerycnt,jdbcType=DECIMAL},
+      </if>
+      <if test="last6mcreditquerycnt != null">
+        #{last6mcreditquerycnt,jdbcType=DECIMAL},
+      </if>
+      <if test="last24mcreditquerycnt != null">
+        #{last24mcreditquerycnt,jdbcType=DECIMAL},
+      </if>
+      <if test="unclearedloannum != null">
+        #{unclearedloannum,jdbcType=DECIMAL},
+      </if>
+      <if test="act90percrednum != null">
+        #{act90percrednum,jdbcType=DECIMAL},
+      </if>
+      <if test="guaranteeformatnum != null">
+        #{guaranteeformatnum,jdbcType=DECIMAL},
+      </if>
+      <if test="guaranteeformatstatenum != null">
+        #{guaranteeformatstatenum,jdbcType=DECIMAL},
+      </if>
+      <if test="credmaxlmtper != null">
+        #{credmaxlmtper,jdbcType=DECIMAL},
+      </if>
+      <if test="thismonthcredrepay != null">
+        #{thismonthcredrepay,jdbcType=DECIMAL},
+      </if>
+      <if test="thismonthcredodueamt != null">
+        #{thismonthcredodueamt,jdbcType=DECIMAL},
+      </if>
+      <if test="mobilephone != null">
+        #{mobilephone,jdbcType=VARCHAR},
+      </if>
+      <if test="hometelephoneno != null">
+        #{hometelephoneno,jdbcType=VARCHAR},
+      </if>
+      <if test="officetelephoneno != null">
+        #{officetelephoneno,jdbcType=VARCHAR},
+      </if>
+      <if test="othqueryreasonnum1 != null">
+        #{othqueryreasonnum1,jdbcType=DECIMAL},
+      </if>
+      <if test="othqueryreasonnum3 != null">
+        #{othqueryreasonnum3,jdbcType=DECIMAL},
+      </if>
+      <if test="othopencrednum3 != null">
+        #{othopencrednum3,jdbcType=DECIMAL},
+      </if>
+      <if test="othopencrednum12 != null">
+        #{othopencrednum12,jdbcType=DECIMAL},
+      </if>
+      <if test="last6mcardmaxoduenum != null">
+        #{last6mcardmaxoduenum,jdbcType=DECIMAL},
+      </if>
+      <if test="inputDate != null">
+        #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        #{inputTime,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.BIZ_CREDIT_SUM_JB">
+    update BIZ_CREDIT_SUM_JB
+    <set>
+      <if test="applyNo != null">
+        APPLY_NO = #{applyNo,jdbcType=VARCHAR},
+      </if>
+      <if test="haveinfoflag != null">
+        HAVEINFOFLAG = #{haveinfoflag,jdbcType=DECIMAL},
+      </if>
+      <if test="havegdactnoflag != null">
+        HAVEGDACTNOFLAG = #{havegdactnoflag,jdbcType=DECIMAL},
+      </if>
+      <if test="havecreditactnoflag != null">
+        HAVECREDITACTNOFLAG = #{havecreditactnoflag,jdbcType=DECIMAL},
+      </if>
+      <if test="pretrmclass != null">
+        PRETRMCLASS = #{pretrmclass,jdbcType=DECIMAL},
+      </if>
+      <if test="last12mtotovdtimes != null">
+        LAST12MTOTOVDTIMES = #{last12mtotovdtimes,jdbcType=DECIMAL},
+      </if>
+      <if test="last6mmaxovdperi != null">
+        LAST6MMAXOVDPERI = #{last6mmaxovdperi,jdbcType=DECIMAL},
+      </if>
+      <if test="last12mmaxovdperi != null">
+        LAST12MMAXOVDPERI = #{last12mmaxovdperi,jdbcType=DECIMAL},
+      </if>
+      <if test="last24mworststat != null">
+        LAST24MWORSTSTAT = #{last24mworststat,jdbcType=DECIMAL},
+      </if>
+      <if test="totovdtimes != null">
+        TOTOVDTIMES = #{totovdtimes,jdbcType=DECIMAL},
+      </if>
+      <if test="maxovdperi != null">
+        MAXOVDPERI = #{maxovdperi,jdbcType=DECIMAL},
+      </if>
+      <if test="tillnowmaxovdperi != null">
+        TILLNOWMAXOVDPERI = #{tillnowmaxovdperi,jdbcType=DECIMAL},
+      </if>
+      <if test="maxloginmonths != null">
+        MAXLOGINMONTHS = #{maxloginmonths,jdbcType=DECIMAL},
+      </if>
+      <if test="exp75percnt != null">
+        EXP75PERCNT = #{exp75percnt,jdbcType=DECIMAL},
+      </if>
+      <if test="exp30percnt != null">
+        EXP30PERCNT = #{exp30percnt,jdbcType=DECIMAL},
+      </if>
+      <if test="dkhavelnbalcnt != null">
+        DKHAVELNBALCNT = #{dkhavelnbalcnt,jdbcType=DECIMAL},
+      </if>
+      <if test="last12mcreditquerycnt != null">
+        LAST12MCREDITQUERYCNT = #{last12mcreditquerycnt,jdbcType=DECIMAL},
+      </if>
+      <if test="elsedebtmonth != null">
+        ELSEDEBTMONTH = #{elsedebtmonth,jdbcType=DECIMAL},
+      </if>
+      <if test="presentcreditstat != null">
+        PRESENTCREDITSTAT = #{presentcreditstat,jdbcType=DECIMAL},
+      </if>
+      <if test="presentcreditovdamt != null">
+        PRESENTCREDITOVDAMT = #{presentcreditovdamt,jdbcType=DECIMAL},
+      </if>
+      <if test="last12mcreditlowestcnt != null">
+        LAST12MCREDITLOWESTCNT = #{last12mcreditlowestcnt,jdbcType=DECIMAL},
+      </if>
+      <if test="last24mcreditworststat != null">
+        LAST24MCREDITWORSTSTAT = #{last24mcreditworststat,jdbcType=DECIMAL},
+      </if>
+      <if test="fiveCategory != null">
+        FIVE_CATEGORY = #{fiveCategory,jdbcType=DECIMAL},
+      </if>
+      <if test="preloanovdamt != null">
+        PRELOANOVDAMT = #{preloanovdamt,jdbcType=DECIMAL},
+      </if>
+      <if test="preloanovdtimes != null">
+        PRELOANOVDTIMES = #{preloanovdtimes,jdbcType=DECIMAL},
+      </if>
+      <if test="preallcredovdamt != null">
+        PREALLCREDOVDAMT = #{preallcredovdamt,jdbcType=DECIMAL},
+      </if>
+      <if test="preallcredovdtimes != null">
+        PREALLCREDOVDTIMES = #{preallcredovdtimes,jdbcType=DECIMAL},
+      </if>
+      <if test="counttotovdtimes != null">
+        COUNTTOTOVDTIMES = #{counttotovdtimes,jdbcType=DECIMAL},
+      </if>
+      <if test="totallcredovdtimes != null">
+        TOTALLCREDOVDTIMES = #{totallcredovdtimes,jdbcType=DECIMAL},
+      </if>
+      <if test="countlast24mtotovdtimes != null">
+        COUNTLAST24MTOTOVDTIMES = #{countlast24mtotovdtimes,jdbcType=DECIMAL},
+      </if>
+      <if test="allcredlast24mtotovdtimes != null">
+        ALLCREDLAST24MTOTOVDTIMES = #{allcredlast24mtotovdtimes,jdbcType=DECIMAL},
+      </if>
+      <if test="prespelovdtimes != null">
+        PRESPELOVDTIMES = #{prespelovdtimes,jdbcType=DECIMAL},
+      </if>
+      <if test="prenotduebalance != null">
+        PRENOTDUEBALANCE = #{prenotduebalance,jdbcType=DECIMAL},
+      </if>
+      <if test="premaxhouseprinc != null">
+        PREMAXHOUSEPRINC = #{premaxhouseprinc,jdbcType=DECIMAL},
+      </if>
+      <if test="maxhouserepaytimes != null">
+        MAXHOUSEREPAYTIMES = #{maxhouserepaytimes,jdbcType=DECIMAL},
+      </if>
+      <if test="longternhouseprinc != null">
+        LONGTERNHOUSEPRINC = #{longternhouseprinc,jdbcType=DECIMAL},
+      </if>
+      <if test="longhouserepaytimes != null">
+        LONGHOUSEREPAYTIMES = #{longhouserepaytimes,jdbcType=DECIMAL},
+      </if>
+      <if test="precredavgamount != null">
+        PRECREDAVGAMOUNT = #{precredavgamount,jdbcType=DECIMAL},
+      </if>
+      <if test="last6museamount != null">
+        LAST6MUSEAMOUNT = #{last6museamount,jdbcType=DECIMAL},
+      </if>
+      <if test="precredamount != null">
+        PRECREDAMOUNT = #{precredamount,jdbcType=DECIMAL},
+      </if>
+      <if test="precredcards != null">
+        PRECREDCARDS = #{precredcards,jdbcType=DECIMAL},
+      </if>
+      <if test="precredmaxamount != null">
+        PRECREDMAXAMOUNT = #{precredmaxamount,jdbcType=DECIMAL},
+      </if>
+      <if test="precredandgualoanbalance != null">
+        PRECREDANDGUALOANBALANCE = #{precredandgualoanbalance,jdbcType=DECIMAL},
+      </if>
+      <if test="precredsumamount != null">
+        PRECREDSUMAMOUNT = #{precredsumamount,jdbcType=DECIMAL},
+      </if>
+      <if test="haveoperatloanflag != null">
+        HAVEOPERATLOANFLAG = #{haveoperatloanflag,jdbcType=DECIMAL},
+      </if>
+      <if test="overdue30dayspnp != null">
+        OVERDUE30DAYSPNP = #{overdue30dayspnp,jdbcType=DECIMAL},
+      </if>
+      <if test="last3mtotovdtimes != null">
+        LAST3MTOTOVDTIMES = #{last3mtotovdtimes,jdbcType=DECIMAL},
+      </if>
+      <if test="allcredlast3mtotovdtimes != null">
+        ALLCREDLAST3MTOTOVDTIMES = #{allcredlast3mtotovdtimes,jdbcType=DECIMAL},
+      </if>
+      <if test="last6mtotovdtimes != null">
+        LAST6MTOTOVDTIMES = #{last6mtotovdtimes,jdbcType=DECIMAL},
+      </if>
+      <if test="allcredlast6mtotovdtimes != null">
+        ALLCREDLAST6MTOTOVDTIMES = #{allcredlast6mtotovdtimes,jdbcType=DECIMAL},
+      </if>
+      <if test="premaxhousenum != null">
+        PREMAXHOUSENUM = #{premaxhousenum,jdbcType=DECIMAL},
+      </if>
+      <if test="notpremaxhousenum != null">
+        NOTPREMAXHOUSENUM = #{notpremaxhousenum,jdbcType=DECIMAL},
+      </if>
+      <if test="precredandgualoannum != null">
+        PRECREDANDGUALOANNUM = #{precredandgualoannum,jdbcType=DECIMAL},
+      </if>
+      <if test="last1mcreditquerycnt != null">
+        LAST1MCREDITQUERYCNT = #{last1mcreditquerycnt,jdbcType=DECIMAL},
+      </if>
+      <if test="last3mcreditquerycnt != null">
+        LAST3MCREDITQUERYCNT = #{last3mcreditquerycnt,jdbcType=DECIMAL},
+      </if>
+      <if test="last6mcreditquerycnt != null">
+        LAST6MCREDITQUERYCNT = #{last6mcreditquerycnt,jdbcType=DECIMAL},
+      </if>
+      <if test="last24mcreditquerycnt != null">
+        LAST24MCREDITQUERYCNT = #{last24mcreditquerycnt,jdbcType=DECIMAL},
+      </if>
+      <if test="unclearedloannum != null">
+        UNCLEAREDLOANNUM = #{unclearedloannum,jdbcType=DECIMAL},
+      </if>
+      <if test="act90percrednum != null">
+        ACT90PERCREDNUM = #{act90percrednum,jdbcType=DECIMAL},
+      </if>
+      <if test="guaranteeformatnum != null">
+        GUARANTEEFORMATNUM = #{guaranteeformatnum,jdbcType=DECIMAL},
+      </if>
+      <if test="guaranteeformatstatenum != null">
+        GUARANTEEFORMATSTATENUM = #{guaranteeformatstatenum,jdbcType=DECIMAL},
+      </if>
+      <if test="credmaxlmtper != null">
+        CREDMAXLMTPER = #{credmaxlmtper,jdbcType=DECIMAL},
+      </if>
+      <if test="thismonthcredrepay != null">
+        THISMONTHCREDREPAY = #{thismonthcredrepay,jdbcType=DECIMAL},
+      </if>
+      <if test="thismonthcredodueamt != null">
+        THISMONTHCREDODUEAMT = #{thismonthcredodueamt,jdbcType=DECIMAL},
+      </if>
+      <if test="mobilephone != null">
+        MOBILEPHONE = #{mobilephone,jdbcType=VARCHAR},
+      </if>
+      <if test="hometelephoneno != null">
+        HOMETELEPHONENO = #{hometelephoneno,jdbcType=VARCHAR},
+      </if>
+      <if test="officetelephoneno != null">
+        OFFICETELEPHONENO = #{officetelephoneno,jdbcType=VARCHAR},
+      </if>
+      <if test="othqueryreasonnum1 != null">
+        OTHQUERYREASONNUM1 = #{othqueryreasonnum1,jdbcType=DECIMAL},
+      </if>
+      <if test="othqueryreasonnum3 != null">
+        OTHQUERYREASONNUM3 = #{othqueryreasonnum3,jdbcType=DECIMAL},
+      </if>
+      <if test="othopencrednum3 != null">
+        OTHOPENCREDNUM3 = #{othopencrednum3,jdbcType=DECIMAL},
+      </if>
+      <if test="othopencrednum12 != null">
+        OTHOPENCREDNUM12 = #{othopencrednum12,jdbcType=DECIMAL},
+      </if>
+      <if test="last6mcardmaxoduenum != null">
+        LAST6MCARDMAXODUENUM = #{last6mcardmaxoduenum,jdbcType=DECIMAL},
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE = #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME = #{inputTime,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where APP_NO = #{appNo,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.BIZ_CREDIT_SUM_JB">
+    update BIZ_CREDIT_SUM_JB
+    set APPLY_NO = #{applyNo,jdbcType=VARCHAR},
+      HAVEINFOFLAG = #{haveinfoflag,jdbcType=DECIMAL},
+      HAVEGDACTNOFLAG = #{havegdactnoflag,jdbcType=DECIMAL},
+      HAVECREDITACTNOFLAG = #{havecreditactnoflag,jdbcType=DECIMAL},
+      PRETRMCLASS = #{pretrmclass,jdbcType=DECIMAL},
+      LAST12MTOTOVDTIMES = #{last12mtotovdtimes,jdbcType=DECIMAL},
+      LAST6MMAXOVDPERI = #{last6mmaxovdperi,jdbcType=DECIMAL},
+      LAST12MMAXOVDPERI = #{last12mmaxovdperi,jdbcType=DECIMAL},
+      LAST24MWORSTSTAT = #{last24mworststat,jdbcType=DECIMAL},
+      TOTOVDTIMES = #{totovdtimes,jdbcType=DECIMAL},
+      MAXOVDPERI = #{maxovdperi,jdbcType=DECIMAL},
+      TILLNOWMAXOVDPERI = #{tillnowmaxovdperi,jdbcType=DECIMAL},
+      MAXLOGINMONTHS = #{maxloginmonths,jdbcType=DECIMAL},
+      EXP75PERCNT = #{exp75percnt,jdbcType=DECIMAL},
+      EXP30PERCNT = #{exp30percnt,jdbcType=DECIMAL},
+      DKHAVELNBALCNT = #{dkhavelnbalcnt,jdbcType=DECIMAL},
+      LAST12MCREDITQUERYCNT = #{last12mcreditquerycnt,jdbcType=DECIMAL},
+      ELSEDEBTMONTH = #{elsedebtmonth,jdbcType=DECIMAL},
+      PRESENTCREDITSTAT = #{presentcreditstat,jdbcType=DECIMAL},
+      PRESENTCREDITOVDAMT = #{presentcreditovdamt,jdbcType=DECIMAL},
+      LAST12MCREDITLOWESTCNT = #{last12mcreditlowestcnt,jdbcType=DECIMAL},
+      LAST24MCREDITWORSTSTAT = #{last24mcreditworststat,jdbcType=DECIMAL},
+      FIVE_CATEGORY = #{fiveCategory,jdbcType=DECIMAL},
+      PRELOANOVDAMT = #{preloanovdamt,jdbcType=DECIMAL},
+      PRELOANOVDTIMES = #{preloanovdtimes,jdbcType=DECIMAL},
+      PREALLCREDOVDAMT = #{preallcredovdamt,jdbcType=DECIMAL},
+      PREALLCREDOVDTIMES = #{preallcredovdtimes,jdbcType=DECIMAL},
+      COUNTTOTOVDTIMES = #{counttotovdtimes,jdbcType=DECIMAL},
+      TOTALLCREDOVDTIMES = #{totallcredovdtimes,jdbcType=DECIMAL},
+      COUNTLAST24MTOTOVDTIMES = #{countlast24mtotovdtimes,jdbcType=DECIMAL},
+      ALLCREDLAST24MTOTOVDTIMES = #{allcredlast24mtotovdtimes,jdbcType=DECIMAL},
+      PRESPELOVDTIMES = #{prespelovdtimes,jdbcType=DECIMAL},
+      PRENOTDUEBALANCE = #{prenotduebalance,jdbcType=DECIMAL},
+      PREMAXHOUSEPRINC = #{premaxhouseprinc,jdbcType=DECIMAL},
+      MAXHOUSEREPAYTIMES = #{maxhouserepaytimes,jdbcType=DECIMAL},
+      LONGTERNHOUSEPRINC = #{longternhouseprinc,jdbcType=DECIMAL},
+      LONGHOUSEREPAYTIMES = #{longhouserepaytimes,jdbcType=DECIMAL},
+      PRECREDAVGAMOUNT = #{precredavgamount,jdbcType=DECIMAL},
+      LAST6MUSEAMOUNT = #{last6museamount,jdbcType=DECIMAL},
+      PRECREDAMOUNT = #{precredamount,jdbcType=DECIMAL},
+      PRECREDCARDS = #{precredcards,jdbcType=DECIMAL},
+      PRECREDMAXAMOUNT = #{precredmaxamount,jdbcType=DECIMAL},
+      PRECREDANDGUALOANBALANCE = #{precredandgualoanbalance,jdbcType=DECIMAL},
+      PRECREDSUMAMOUNT = #{precredsumamount,jdbcType=DECIMAL},
+      HAVEOPERATLOANFLAG = #{haveoperatloanflag,jdbcType=DECIMAL},
+      OVERDUE30DAYSPNP = #{overdue30dayspnp,jdbcType=DECIMAL},
+      LAST3MTOTOVDTIMES = #{last3mtotovdtimes,jdbcType=DECIMAL},
+      ALLCREDLAST3MTOTOVDTIMES = #{allcredlast3mtotovdtimes,jdbcType=DECIMAL},
+      LAST6MTOTOVDTIMES = #{last6mtotovdtimes,jdbcType=DECIMAL},
+      ALLCREDLAST6MTOTOVDTIMES = #{allcredlast6mtotovdtimes,jdbcType=DECIMAL},
+      PREMAXHOUSENUM = #{premaxhousenum,jdbcType=DECIMAL},
+      NOTPREMAXHOUSENUM = #{notpremaxhousenum,jdbcType=DECIMAL},
+      PRECREDANDGUALOANNUM = #{precredandgualoannum,jdbcType=DECIMAL},
+      LAST1MCREDITQUERYCNT = #{last1mcreditquerycnt,jdbcType=DECIMAL},
+      LAST3MCREDITQUERYCNT = #{last3mcreditquerycnt,jdbcType=DECIMAL},
+      LAST6MCREDITQUERYCNT = #{last6mcreditquerycnt,jdbcType=DECIMAL},
+      LAST24MCREDITQUERYCNT = #{last24mcreditquerycnt,jdbcType=DECIMAL},
+      UNCLEAREDLOANNUM = #{unclearedloannum,jdbcType=DECIMAL},
+      ACT90PERCREDNUM = #{act90percrednum,jdbcType=DECIMAL},
+      GUARANTEEFORMATNUM = #{guaranteeformatnum,jdbcType=DECIMAL},
+      GUARANTEEFORMATSTATENUM = #{guaranteeformatstatenum,jdbcType=DECIMAL},
+      CREDMAXLMTPER = #{credmaxlmtper,jdbcType=DECIMAL},
+      THISMONTHCREDREPAY = #{thismonthcredrepay,jdbcType=DECIMAL},
+      THISMONTHCREDODUEAMT = #{thismonthcredodueamt,jdbcType=DECIMAL},
+      MOBILEPHONE = #{mobilephone,jdbcType=VARCHAR},
+      HOMETELEPHONENO = #{hometelephoneno,jdbcType=VARCHAR},
+      OFFICETELEPHONENO = #{officetelephoneno,jdbcType=VARCHAR},
+      OTHQUERYREASONNUM1 = #{othqueryreasonnum1,jdbcType=DECIMAL},
+      OTHQUERYREASONNUM3 = #{othqueryreasonnum3,jdbcType=DECIMAL},
+      OTHOPENCREDNUM3 = #{othopencrednum3,jdbcType=DECIMAL},
+      OTHOPENCREDNUM12 = #{othopencrednum12,jdbcType=DECIMAL},
+      LAST6MCARDMAXODUENUM = #{last6mcardmaxoduenum,jdbcType=DECIMAL},
+      INPUT_DATE = #{inputDate,jdbcType=VARCHAR},
+      INPUT_TIME = #{inputTime,jdbcType=VARCHAR}
+    where APP_NO = #{appNo,jdbcType=VARCHAR}
+  </update>
+</mapper>

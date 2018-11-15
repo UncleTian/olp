@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.WFI_TRANSMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.WFI_TRANS">
+    <id column="TRANS_ID" jdbcType="VARCHAR" property="transId" />
+    <id column="ORG_ID" jdbcType="VARCHAR" property="orgId" />
+    <result column="PRD_TYPE" jdbcType="VARCHAR" property="prdType" />
+    <result column="BIZ_TYPE" jdbcType="VARCHAR" property="bizType" />
+    <result column="APP_STATE" jdbcType="VARCHAR" property="appState" />
+    <result column="OPINION" jdbcType="VARCHAR" property="opinion" />
+    <result column="STATE" jdbcType="VARCHAR" property="state" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    TRANS_ID, ORG_ID, PRD_TYPE, BIZ_TYPE, APP_STATE, OPINION, STATE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="com.bea.olp.WFI_TRANSKey" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from WFI_TRANS
+    where TRANS_ID = #{transId,jdbcType=VARCHAR}
+      and ORG_ID = #{orgId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.bea.olp.WFI_TRANSKey">
+    delete from WFI_TRANS
+    where TRANS_ID = #{transId,jdbcType=VARCHAR}
+      and ORG_ID = #{orgId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.WFI_TRANS">
+    insert into WFI_TRANS (TRANS_ID, ORG_ID, PRD_TYPE, 
+      BIZ_TYPE, APP_STATE, OPINION, 
+      STATE)
+    values (#{transId,jdbcType=VARCHAR}, #{orgId,jdbcType=VARCHAR}, #{prdType,jdbcType=VARCHAR}, 
+      #{bizType,jdbcType=VARCHAR}, #{appState,jdbcType=VARCHAR}, #{opinion,jdbcType=VARCHAR}, 
+      #{state,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.WFI_TRANS">
+    insert into WFI_TRANS
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="transId != null">
+        TRANS_ID,
+      </if>
+      <if test="orgId != null">
+        ORG_ID,
+      </if>
+      <if test="prdType != null">
+        PRD_TYPE,
+      </if>
+      <if test="bizType != null">
+        BIZ_TYPE,
+      </if>
+      <if test="appState != null">
+        APP_STATE,
+      </if>
+      <if test="opinion != null">
+        OPINION,
+      </if>
+      <if test="state != null">
+        STATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="transId != null">
+        #{transId,jdbcType=VARCHAR},
+      </if>
+      <if test="orgId != null">
+        #{orgId,jdbcType=VARCHAR},
+      </if>
+      <if test="prdType != null">
+        #{prdType,jdbcType=VARCHAR},
+      </if>
+      <if test="bizType != null">
+        #{bizType,jdbcType=VARCHAR},
+      </if>
+      <if test="appState != null">
+        #{appState,jdbcType=VARCHAR},
+      </if>
+      <if test="opinion != null">
+        #{opinion,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null">
+        #{state,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.WFI_TRANS">
+    update WFI_TRANS
+    <set>
+      <if test="prdType != null">
+        PRD_TYPE = #{prdType,jdbcType=VARCHAR},
+      </if>
+      <if test="bizType != null">
+        BIZ_TYPE = #{bizType,jdbcType=VARCHAR},
+      </if>
+      <if test="appState != null">
+        APP_STATE = #{appState,jdbcType=VARCHAR},
+      </if>
+      <if test="opinion != null">
+        OPINION = #{opinion,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null">
+        STATE = #{state,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where TRANS_ID = #{transId,jdbcType=VARCHAR}
+      and ORG_ID = #{orgId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.WFI_TRANS">
+    update WFI_TRANS
+    set PRD_TYPE = #{prdType,jdbcType=VARCHAR},
+      BIZ_TYPE = #{bizType,jdbcType=VARCHAR},
+      APP_STATE = #{appState,jdbcType=VARCHAR},
+      OPINION = #{opinion,jdbcType=VARCHAR},
+      STATE = #{state,jdbcType=VARCHAR}
+    where TRANS_ID = #{transId,jdbcType=VARCHAR}
+      and ORG_ID = #{orgId,jdbcType=VARCHAR}
+  </update>
+</mapper>

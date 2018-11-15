@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.QUEUE_CALLBACK_TASKMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.QUEUE_CALLBACK_TASK">
+    <id column="NOTICE_NO" jdbcType="VARCHAR" property="noticeNo" />
+    <result column="APP_NO" jdbcType="VARCHAR" property="appNo" />
+    <result column="APPLY_NO" jdbcType="VARCHAR" property="applyNo" />
+    <result column="INTERFACE_TYPE" jdbcType="VARCHAR" property="interfaceType" />
+    <result column="PRD_CODE" jdbcType="VARCHAR" property="prdCode" />
+    <result column="TASK_STATUS" jdbcType="VARCHAR" property="taskStatus" />
+    <result column="RETURN_CODE" jdbcType="VARCHAR" property="returnCode" />
+    <result column="RETURN_MSG" jdbcType="VARCHAR" property="returnMsg" />
+    <result column="ERROR_CODE" jdbcType="VARCHAR" property="errorCode" />
+    <result column="ERROR_MSG" jdbcType="VARCHAR" property="errorMsg" />
+    <result column="IN_TIME" jdbcType="VARCHAR" property="inTime" />
+    <result column="OUT_TIME" jdbcType="VARCHAR" property="outTime" />
+    <result column="TIMES" jdbcType="DECIMAL" property="times" />
+    <result column="INPUT_DATE" jdbcType="VARCHAR" property="inputDate" />
+    <result column="INPUT_TIME" jdbcType="VARCHAR" property="inputTime" />
+    <result column="LAST_UPDATE_TIME" jdbcType="VARCHAR" property="lastUpdateTime" />
+    <result column="EVAL_TIME" jdbcType="VARCHAR" property="evalTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    NOTICE_NO, APP_NO, APPLY_NO, INTERFACE_TYPE, PRD_CODE, TASK_STATUS, RETURN_CODE, 
+    RETURN_MSG, ERROR_CODE, ERROR_MSG, IN_TIME, OUT_TIME, TIMES, INPUT_DATE, INPUT_TIME, 
+    LAST_UPDATE_TIME, EVAL_TIME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from QUEUE_CALLBACK_TASK
+    where NOTICE_NO = #{noticeNo,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from QUEUE_CALLBACK_TASK
+    where NOTICE_NO = #{noticeNo,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.QUEUE_CALLBACK_TASK">
+    insert into QUEUE_CALLBACK_TASK (NOTICE_NO, APP_NO, APPLY_NO, 
+      INTERFACE_TYPE, PRD_CODE, TASK_STATUS, 
+      RETURN_CODE, RETURN_MSG, ERROR_CODE, 
+      ERROR_MSG, IN_TIME, OUT_TIME, 
+      TIMES, INPUT_DATE, INPUT_TIME, 
+      LAST_UPDATE_TIME, EVAL_TIME)
+    values (#{noticeNo,jdbcType=VARCHAR}, #{appNo,jdbcType=VARCHAR}, #{applyNo,jdbcType=VARCHAR}, 
+      #{interfaceType,jdbcType=VARCHAR}, #{prdCode,jdbcType=VARCHAR}, #{taskStatus,jdbcType=VARCHAR}, 
+      #{returnCode,jdbcType=VARCHAR}, #{returnMsg,jdbcType=VARCHAR}, #{errorCode,jdbcType=VARCHAR}, 
+      #{errorMsg,jdbcType=VARCHAR}, #{inTime,jdbcType=VARCHAR}, #{outTime,jdbcType=VARCHAR}, 
+      #{times,jdbcType=DECIMAL}, #{inputDate,jdbcType=VARCHAR}, #{inputTime,jdbcType=VARCHAR}, 
+      #{lastUpdateTime,jdbcType=VARCHAR}, #{evalTime,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.QUEUE_CALLBACK_TASK">
+    insert into QUEUE_CALLBACK_TASK
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="noticeNo != null">
+        NOTICE_NO,
+      </if>
+      <if test="appNo != null">
+        APP_NO,
+      </if>
+      <if test="applyNo != null">
+        APPLY_NO,
+      </if>
+      <if test="interfaceType != null">
+        INTERFACE_TYPE,
+      </if>
+      <if test="prdCode != null">
+        PRD_CODE,
+      </if>
+      <if test="taskStatus != null">
+        TASK_STATUS,
+      </if>
+      <if test="returnCode != null">
+        RETURN_CODE,
+      </if>
+      <if test="returnMsg != null">
+        RETURN_MSG,
+      </if>
+      <if test="errorCode != null">
+        ERROR_CODE,
+      </if>
+      <if test="errorMsg != null">
+        ERROR_MSG,
+      </if>
+      <if test="inTime != null">
+        IN_TIME,
+      </if>
+      <if test="outTime != null">
+        OUT_TIME,
+      </if>
+      <if test="times != null">
+        TIMES,
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE,
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME,
+      </if>
+      <if test="lastUpdateTime != null">
+        LAST_UPDATE_TIME,
+      </if>
+      <if test="evalTime != null">
+        EVAL_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="noticeNo != null">
+        #{noticeNo,jdbcType=VARCHAR},
+      </if>
+      <if test="appNo != null">
+        #{appNo,jdbcType=VARCHAR},
+      </if>
+      <if test="applyNo != null">
+        #{applyNo,jdbcType=VARCHAR},
+      </if>
+      <if test="interfaceType != null">
+        #{interfaceType,jdbcType=VARCHAR},
+      </if>
+      <if test="prdCode != null">
+        #{prdCode,jdbcType=VARCHAR},
+      </if>
+      <if test="taskStatus != null">
+        #{taskStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="returnCode != null">
+        #{returnCode,jdbcType=VARCHAR},
+      </if>
+      <if test="returnMsg != null">
+        #{returnMsg,jdbcType=VARCHAR},
+      </if>
+      <if test="errorCode != null">
+        #{errorCode,jdbcType=VARCHAR},
+      </if>
+      <if test="errorMsg != null">
+        #{errorMsg,jdbcType=VARCHAR},
+      </if>
+      <if test="inTime != null">
+        #{inTime,jdbcType=VARCHAR},
+      </if>
+      <if test="outTime != null">
+        #{outTime,jdbcType=VARCHAR},
+      </if>
+      <if test="times != null">
+        #{times,jdbcType=DECIMAL},
+      </if>
+      <if test="inputDate != null">
+        #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        #{lastUpdateTime,jdbcType=VARCHAR},
+      </if>
+      <if test="evalTime != null">
+        #{evalTime,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.QUEUE_CALLBACK_TASK">
+    update QUEUE_CALLBACK_TASK
+    <set>
+      <if test="appNo != null">
+        APP_NO = #{appNo,jdbcType=VARCHAR},
+      </if>
+      <if test="applyNo != null">
+        APPLY_NO = #{applyNo,jdbcType=VARCHAR},
+      </if>
+      <if test="interfaceType != null">
+        INTERFACE_TYPE = #{interfaceType,jdbcType=VARCHAR},
+      </if>
+      <if test="prdCode != null">
+        PRD_CODE = #{prdCode,jdbcType=VARCHAR},
+      </if>
+      <if test="taskStatus != null">
+        TASK_STATUS = #{taskStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="returnCode != null">
+        RETURN_CODE = #{returnCode,jdbcType=VARCHAR},
+      </if>
+      <if test="returnMsg != null">
+        RETURN_MSG = #{returnMsg,jdbcType=VARCHAR},
+      </if>
+      <if test="errorCode != null">
+        ERROR_CODE = #{errorCode,jdbcType=VARCHAR},
+      </if>
+      <if test="errorMsg != null">
+        ERROR_MSG = #{errorMsg,jdbcType=VARCHAR},
+      </if>
+      <if test="inTime != null">
+        IN_TIME = #{inTime,jdbcType=VARCHAR},
+      </if>
+      <if test="outTime != null">
+        OUT_TIME = #{outTime,jdbcType=VARCHAR},
+      </if>
+      <if test="times != null">
+        TIMES = #{times,jdbcType=DECIMAL},
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE = #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME = #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=VARCHAR},
+      </if>
+      <if test="evalTime != null">
+        EVAL_TIME = #{evalTime,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where NOTICE_NO = #{noticeNo,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.QUEUE_CALLBACK_TASK">
+    update QUEUE_CALLBACK_TASK
+    set APP_NO = #{appNo,jdbcType=VARCHAR},
+      APPLY_NO = #{applyNo,jdbcType=VARCHAR},
+      INTERFACE_TYPE = #{interfaceType,jdbcType=VARCHAR},
+      PRD_CODE = #{prdCode,jdbcType=VARCHAR},
+      TASK_STATUS = #{taskStatus,jdbcType=VARCHAR},
+      RETURN_CODE = #{returnCode,jdbcType=VARCHAR},
+      RETURN_MSG = #{returnMsg,jdbcType=VARCHAR},
+      ERROR_CODE = #{errorCode,jdbcType=VARCHAR},
+      ERROR_MSG = #{errorMsg,jdbcType=VARCHAR},
+      IN_TIME = #{inTime,jdbcType=VARCHAR},
+      OUT_TIME = #{outTime,jdbcType=VARCHAR},
+      TIMES = #{times,jdbcType=DECIMAL},
+      INPUT_DATE = #{inputDate,jdbcType=VARCHAR},
+      INPUT_TIME = #{inputTime,jdbcType=VARCHAR},
+      LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=VARCHAR},
+      EVAL_TIME = #{evalTime,jdbcType=VARCHAR}
+    where NOTICE_NO = #{noticeNo,jdbcType=VARCHAR}
+  </update>
+</mapper>

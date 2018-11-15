@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.SYS_FILE_INFOMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.SYS_FILE_INFO">
+    <id column="FILE_NO" jdbcType="VARCHAR" property="fileNo" />
+    <result column="FILE_ID" jdbcType="VARCHAR" property="fileId" />
+    <result column="FILE_DESC" jdbcType="VARCHAR" property="fileDesc" />
+    <result column="FILE_NAME" jdbcType="VARCHAR" property="fileName" />
+    <result column="FILE_NAME_MAPPING" jdbcType="VARCHAR" property="fileNameMapping" />
+    <result column="FILE_PATH" jdbcType="VARCHAR" property="filePath" />
+    <result column="FILE_SIZE" jdbcType="DECIMAL" property="fileSize" />
+    <result column="FILE_MANAGE_STATUS" jdbcType="VARCHAR" property="fileManageStatus" />
+    <result column="ERROR_MSG" jdbcType="VARCHAR" property="errorMsg" />
+    <result column="UPLOAD_TIME" jdbcType="VARCHAR" property="uploadTime" />
+    <result column="UPLOAD_OP_ID" jdbcType="VARCHAR" property="uploadOpId" />
+    <result column="UPLOAD_ORG_ID" jdbcType="VARCHAR" property="uploadOrgId" />
+    <result column="IMPORT_TIME" jdbcType="VARCHAR" property="importTime" />
+    <result column="IMPORT_OP_ID" jdbcType="VARCHAR" property="importOpId" />
+    <result column="IMPORT_ORG_ID" jdbcType="VARCHAR" property="importOrgId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    FILE_NO, FILE_ID, FILE_DESC, FILE_NAME, FILE_NAME_MAPPING, FILE_PATH, FILE_SIZE, 
+    FILE_MANAGE_STATUS, ERROR_MSG, UPLOAD_TIME, UPLOAD_OP_ID, UPLOAD_ORG_ID, IMPORT_TIME, 
+    IMPORT_OP_ID, IMPORT_ORG_ID
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from SYS_FILE_INFO
+    where FILE_NO = #{fileNo,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from SYS_FILE_INFO
+    where FILE_NO = #{fileNo,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.SYS_FILE_INFO">
+    insert into SYS_FILE_INFO (FILE_NO, FILE_ID, FILE_DESC, 
+      FILE_NAME, FILE_NAME_MAPPING, FILE_PATH, 
+      FILE_SIZE, FILE_MANAGE_STATUS, ERROR_MSG, 
+      UPLOAD_TIME, UPLOAD_OP_ID, UPLOAD_ORG_ID, 
+      IMPORT_TIME, IMPORT_OP_ID, IMPORT_ORG_ID
+      )
+    values (#{fileNo,jdbcType=VARCHAR}, #{fileId,jdbcType=VARCHAR}, #{fileDesc,jdbcType=VARCHAR}, 
+      #{fileName,jdbcType=VARCHAR}, #{fileNameMapping,jdbcType=VARCHAR}, #{filePath,jdbcType=VARCHAR}, 
+      #{fileSize,jdbcType=DECIMAL}, #{fileManageStatus,jdbcType=VARCHAR}, #{errorMsg,jdbcType=VARCHAR}, 
+      #{uploadTime,jdbcType=VARCHAR}, #{uploadOpId,jdbcType=VARCHAR}, #{uploadOrgId,jdbcType=VARCHAR}, 
+      #{importTime,jdbcType=VARCHAR}, #{importOpId,jdbcType=VARCHAR}, #{importOrgId,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.SYS_FILE_INFO">
+    insert into SYS_FILE_INFO
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="fileNo != null">
+        FILE_NO,
+      </if>
+      <if test="fileId != null">
+        FILE_ID,
+      </if>
+      <if test="fileDesc != null">
+        FILE_DESC,
+      </if>
+      <if test="fileName != null">
+        FILE_NAME,
+      </if>
+      <if test="fileNameMapping != null">
+        FILE_NAME_MAPPING,
+      </if>
+      <if test="filePath != null">
+        FILE_PATH,
+      </if>
+      <if test="fileSize != null">
+        FILE_SIZE,
+      </if>
+      <if test="fileManageStatus != null">
+        FILE_MANAGE_STATUS,
+      </if>
+      <if test="errorMsg != null">
+        ERROR_MSG,
+      </if>
+      <if test="uploadTime != null">
+        UPLOAD_TIME,
+      </if>
+      <if test="uploadOpId != null">
+        UPLOAD_OP_ID,
+      </if>
+      <if test="uploadOrgId != null">
+        UPLOAD_ORG_ID,
+      </if>
+      <if test="importTime != null">
+        IMPORT_TIME,
+      </if>
+      <if test="importOpId != null">
+        IMPORT_OP_ID,
+      </if>
+      <if test="importOrgId != null">
+        IMPORT_ORG_ID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="fileNo != null">
+        #{fileNo,jdbcType=VARCHAR},
+      </if>
+      <if test="fileId != null">
+        #{fileId,jdbcType=VARCHAR},
+      </if>
+      <if test="fileDesc != null">
+        #{fileDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="fileName != null">
+        #{fileName,jdbcType=VARCHAR},
+      </if>
+      <if test="fileNameMapping != null">
+        #{fileNameMapping,jdbcType=VARCHAR},
+      </if>
+      <if test="filePath != null">
+        #{filePath,jdbcType=VARCHAR},
+      </if>
+      <if test="fileSize != null">
+        #{fileSize,jdbcType=DECIMAL},
+      </if>
+      <if test="fileManageStatus != null">
+        #{fileManageStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="errorMsg != null">
+        #{errorMsg,jdbcType=VARCHAR},
+      </if>
+      <if test="uploadTime != null">
+        #{uploadTime,jdbcType=VARCHAR},
+      </if>
+      <if test="uploadOpId != null">
+        #{uploadOpId,jdbcType=VARCHAR},
+      </if>
+      <if test="uploadOrgId != null">
+        #{uploadOrgId,jdbcType=VARCHAR},
+      </if>
+      <if test="importTime != null">
+        #{importTime,jdbcType=VARCHAR},
+      </if>
+      <if test="importOpId != null">
+        #{importOpId,jdbcType=VARCHAR},
+      </if>
+      <if test="importOrgId != null">
+        #{importOrgId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.SYS_FILE_INFO">
+    update SYS_FILE_INFO
+    <set>
+      <if test="fileId != null">
+        FILE_ID = #{fileId,jdbcType=VARCHAR},
+      </if>
+      <if test="fileDesc != null">
+        FILE_DESC = #{fileDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="fileName != null">
+        FILE_NAME = #{fileName,jdbcType=VARCHAR},
+      </if>
+      <if test="fileNameMapping != null">
+        FILE_NAME_MAPPING = #{fileNameMapping,jdbcType=VARCHAR},
+      </if>
+      <if test="filePath != null">
+        FILE_PATH = #{filePath,jdbcType=VARCHAR},
+      </if>
+      <if test="fileSize != null">
+        FILE_SIZE = #{fileSize,jdbcType=DECIMAL},
+      </if>
+      <if test="fileManageStatus != null">
+        FILE_MANAGE_STATUS = #{fileManageStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="errorMsg != null">
+        ERROR_MSG = #{errorMsg,jdbcType=VARCHAR},
+      </if>
+      <if test="uploadTime != null">
+        UPLOAD_TIME = #{uploadTime,jdbcType=VARCHAR},
+      </if>
+      <if test="uploadOpId != null">
+        UPLOAD_OP_ID = #{uploadOpId,jdbcType=VARCHAR},
+      </if>
+      <if test="uploadOrgId != null">
+        UPLOAD_ORG_ID = #{uploadOrgId,jdbcType=VARCHAR},
+      </if>
+      <if test="importTime != null">
+        IMPORT_TIME = #{importTime,jdbcType=VARCHAR},
+      </if>
+      <if test="importOpId != null">
+        IMPORT_OP_ID = #{importOpId,jdbcType=VARCHAR},
+      </if>
+      <if test="importOrgId != null">
+        IMPORT_ORG_ID = #{importOrgId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where FILE_NO = #{fileNo,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.SYS_FILE_INFO">
+    update SYS_FILE_INFO
+    set FILE_ID = #{fileId,jdbcType=VARCHAR},
+      FILE_DESC = #{fileDesc,jdbcType=VARCHAR},
+      FILE_NAME = #{fileName,jdbcType=VARCHAR},
+      FILE_NAME_MAPPING = #{fileNameMapping,jdbcType=VARCHAR},
+      FILE_PATH = #{filePath,jdbcType=VARCHAR},
+      FILE_SIZE = #{fileSize,jdbcType=DECIMAL},
+      FILE_MANAGE_STATUS = #{fileManageStatus,jdbcType=VARCHAR},
+      ERROR_MSG = #{errorMsg,jdbcType=VARCHAR},
+      UPLOAD_TIME = #{uploadTime,jdbcType=VARCHAR},
+      UPLOAD_OP_ID = #{uploadOpId,jdbcType=VARCHAR},
+      UPLOAD_ORG_ID = #{uploadOrgId,jdbcType=VARCHAR},
+      IMPORT_TIME = #{importTime,jdbcType=VARCHAR},
+      IMPORT_OP_ID = #{importOpId,jdbcType=VARCHAR},
+      IMPORT_ORG_ID = #{importOrgId,jdbcType=VARCHAR}
+    where FILE_NO = #{fileNo,jdbcType=VARCHAR}
+  </update>
+</mapper>

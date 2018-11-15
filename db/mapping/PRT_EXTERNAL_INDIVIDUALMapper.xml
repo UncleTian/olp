@@ -1,0 +1,468 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.PRT_EXTERNAL_INDIVIDUALMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.PRT_EXTERNAL_INDIVIDUAL">
+    <result column="EXT_SYSTEM_ID" jdbcType="VARCHAR" property="extSystemId" />
+    <result column="EXT_CLIENT_NO" jdbcType="VARCHAR" property="extClientNo" />
+    <result column="UPDATED_USER" jdbcType="VARCHAR" property="updatedUser" />
+    <result column="UPDATED_AUTH_USER" jdbcType="VARCHAR" property="updatedAuthUser" />
+    <result column="UPDATED_UNIT" jdbcType="VARCHAR" property="updatedUnit" />
+    <result column="SRC_UPDATED_TS" jdbcType="VARCHAR" property="srcUpdatedTs" />
+    <result column="UPDATED_SYSTEM_ID" jdbcType="VARCHAR" property="updatedSystemId" />
+    <result column="PARTY_CLAS_CODE" jdbcType="VARCHAR" property="partyClasCode" />
+    <result column="PARTY_STATUS_CODE" jdbcType="VARCHAR" property="partyStatusCode" />
+    <result column="PARTY_TYPE_CODE" jdbcType="VARCHAR" property="partyTypeCode" />
+    <result column="CUST_INST_NO" jdbcType="VARCHAR" property="custInstNo" />
+    <result column="CUST_MGR" jdbcType="VARCHAR" property="custMgr" />
+    <result column="PARTY_ROLE_TYPE_CODE" jdbcType="VARCHAR" property="partyRoleTypeCode" />
+    <result column="EN_SUR_NAME" jdbcType="VARCHAR" property="enSurName" />
+    <result column="EN_GIVEN_NAME" jdbcType="VARCHAR" property="enGivenName" />
+    <result column="CN_SUR_NAME" jdbcType="VARCHAR" property="cnSurName" />
+    <result column="CN_GIVEN_NAME" jdbcType="VARCHAR" property="cnGivenName" />
+    <result column="SHORT_NAME" jdbcType="VARCHAR" property="shortName" />
+    <result column="BIRTHDATE" jdbcType="VARCHAR" property="birthdate" />
+    <result column="GENDER" jdbcType="VARCHAR" property="gender" />
+    <result column="MARITAL_STATUS" jdbcType="VARCHAR" property="maritalStatus" />
+    <result column="RACE" jdbcType="VARCHAR" property="race" />
+    <result column="EDUCATION_CODE" jdbcType="VARCHAR" property="educationCode" />
+    <result column="NATIONALITY" jdbcType="VARCHAR" property="nationality" />
+    <result column="COUNTRY_CITIZEN" jdbcType="VARCHAR" property="countryCitizen" />
+    <result column="COUNTRY_BIRTH" jdbcType="VARCHAR" property="countryBirth" />
+    <result column="RESIDENCE_TYPE" jdbcType="VARCHAR" property="residenceType" />
+    <result column="EMPLOYER_NAME" jdbcType="VARCHAR" property="employerName" />
+    <result column="EMPLOYMENT_DATE" jdbcType="VARCHAR" property="employmentDate" />
+    <result column="EMPLOYMENT_TYPE" jdbcType="VARCHAR" property="employmentType" />
+    <result column="NON_RESIDENT_CTRL" jdbcType="VARCHAR" property="nonResidentCtrl" />
+    <result column="OCCUPATION" jdbcType="VARCHAR" property="occupation" />
+    <result column="ID_CHECK_FLAG" jdbcType="VARCHAR" property="idCheckFlag" />
+    <result column="COUNTRY_LOC" jdbcType="VARCHAR" property="countryLoc" />
+    <result column="IN_OUT_FLAG" jdbcType="VARCHAR" property="inOutFlag" />
+    <result column="CHANNEL" jdbcType="VARCHAR" property="channel" />
+    <result column="MARKET_FLAG" jdbcType="VARCHAR" property="marketFlag" />
+    <result column="CTRL_UNIT" jdbcType="VARCHAR" property="ctrlUnit" />
+    <result column="DEPARTMENT" jdbcType="VARCHAR" property="department" />
+    <result column="CH_NAME" jdbcType="VARCHAR" property="chName" />
+    <result column="EN_NAME" jdbcType="VARCHAR" property="enName" />
+    <result column="IS_PEP" jdbcType="VARCHAR" property="isPep" />
+    <result column="IS_BANK_STAFF" jdbcType="VARCHAR" property="isBankStaff" />
+    <result column="COUNTRY_ECON_DEP" jdbcType="VARCHAR" property="countryEconDep" />
+    <result column="CLASS_1" jdbcType="VARCHAR" property="class1" />
+    <result column="CLASS_3" jdbcType="VARCHAR" property="class3" />
+    <result column="ADMIN_DIVISION" jdbcType="VARCHAR" property="adminDivision" />
+    <result column="IS_BEA_RELATE" jdbcType="VARCHAR" property="isBeaRelate" />
+    <result column="BEA_HOLD_DEGREE" jdbcType="DECIMAL" property="beaHoldDegree" />
+    <result column="INDUSTRY_CODE" jdbcType="VARCHAR" property="industryCode" />
+    <result column="INDUSTRY_CODE_HK" jdbcType="VARCHAR" property="industryCodeHk" />
+    <result column="PBOC_CUST_TYPE" jdbcType="VARCHAR" property="pbocCustType" />
+    <result column="FREE_TRADE_AREA" jdbcType="VARCHAR" property="freeTradeArea" />
+    <result column="IS_FREE_TRADE" jdbcType="VARCHAR" property="isFreeTrade" />
+    <result column="IS_FARMER" jdbcType="VARCHAR" property="isFarmer" />
+    <result column="INPUT_DATE" jdbcType="VARCHAR" property="inputDate" />
+    <result column="INPUT_TIME" jdbcType="VARCHAR" property="inputTime" />
+    <result column="DATA_DATE" jdbcType="VARCHAR" property="dataDate" />
+    <result column="CHANNEL_TYPE" jdbcType="VARCHAR" property="channelType" />
+  </resultMap>
+  <insert id="insert" parameterType="com.bea.olp.PRT_EXTERNAL_INDIVIDUAL">
+    insert into PRT_EXTERNAL_INDIVIDUAL (EXT_SYSTEM_ID, EXT_CLIENT_NO, UPDATED_USER, 
+      UPDATED_AUTH_USER, UPDATED_UNIT, SRC_UPDATED_TS, 
+      UPDATED_SYSTEM_ID, PARTY_CLAS_CODE, PARTY_STATUS_CODE, 
+      PARTY_TYPE_CODE, CUST_INST_NO, CUST_MGR, 
+      PARTY_ROLE_TYPE_CODE, EN_SUR_NAME, EN_GIVEN_NAME, 
+      CN_SUR_NAME, CN_GIVEN_NAME, SHORT_NAME, 
+      BIRTHDATE, GENDER, MARITAL_STATUS, 
+      RACE, EDUCATION_CODE, NATIONALITY, 
+      COUNTRY_CITIZEN, COUNTRY_BIRTH, RESIDENCE_TYPE, 
+      EMPLOYER_NAME, EMPLOYMENT_DATE, EMPLOYMENT_TYPE, 
+      NON_RESIDENT_CTRL, OCCUPATION, ID_CHECK_FLAG, 
+      COUNTRY_LOC, IN_OUT_FLAG, CHANNEL, 
+      MARKET_FLAG, CTRL_UNIT, DEPARTMENT, 
+      CH_NAME, EN_NAME, IS_PEP, 
+      IS_BANK_STAFF, COUNTRY_ECON_DEP, CLASS_1, 
+      CLASS_3, ADMIN_DIVISION, IS_BEA_RELATE, 
+      BEA_HOLD_DEGREE, INDUSTRY_CODE, INDUSTRY_CODE_HK, 
+      PBOC_CUST_TYPE, FREE_TRADE_AREA, IS_FREE_TRADE, 
+      IS_FARMER, INPUT_DATE, INPUT_TIME, 
+      DATA_DATE, CHANNEL_TYPE)
+    values (#{extSystemId,jdbcType=VARCHAR}, #{extClientNo,jdbcType=VARCHAR}, #{updatedUser,jdbcType=VARCHAR}, 
+      #{updatedAuthUser,jdbcType=VARCHAR}, #{updatedUnit,jdbcType=VARCHAR}, #{srcUpdatedTs,jdbcType=VARCHAR}, 
+      #{updatedSystemId,jdbcType=VARCHAR}, #{partyClasCode,jdbcType=VARCHAR}, #{partyStatusCode,jdbcType=VARCHAR}, 
+      #{partyTypeCode,jdbcType=VARCHAR}, #{custInstNo,jdbcType=VARCHAR}, #{custMgr,jdbcType=VARCHAR}, 
+      #{partyRoleTypeCode,jdbcType=VARCHAR}, #{enSurName,jdbcType=VARCHAR}, #{enGivenName,jdbcType=VARCHAR}, 
+      #{cnSurName,jdbcType=VARCHAR}, #{cnGivenName,jdbcType=VARCHAR}, #{shortName,jdbcType=VARCHAR}, 
+      #{birthdate,jdbcType=VARCHAR}, #{gender,jdbcType=VARCHAR}, #{maritalStatus,jdbcType=VARCHAR}, 
+      #{race,jdbcType=VARCHAR}, #{educationCode,jdbcType=VARCHAR}, #{nationality,jdbcType=VARCHAR}, 
+      #{countryCitizen,jdbcType=VARCHAR}, #{countryBirth,jdbcType=VARCHAR}, #{residenceType,jdbcType=VARCHAR}, 
+      #{employerName,jdbcType=VARCHAR}, #{employmentDate,jdbcType=VARCHAR}, #{employmentType,jdbcType=VARCHAR}, 
+      #{nonResidentCtrl,jdbcType=VARCHAR}, #{occupation,jdbcType=VARCHAR}, #{idCheckFlag,jdbcType=VARCHAR}, 
+      #{countryLoc,jdbcType=VARCHAR}, #{inOutFlag,jdbcType=VARCHAR}, #{channel,jdbcType=VARCHAR}, 
+      #{marketFlag,jdbcType=VARCHAR}, #{ctrlUnit,jdbcType=VARCHAR}, #{department,jdbcType=VARCHAR}, 
+      #{chName,jdbcType=VARCHAR}, #{enName,jdbcType=VARCHAR}, #{isPep,jdbcType=VARCHAR}, 
+      #{isBankStaff,jdbcType=VARCHAR}, #{countryEconDep,jdbcType=VARCHAR}, #{class1,jdbcType=VARCHAR}, 
+      #{class3,jdbcType=VARCHAR}, #{adminDivision,jdbcType=VARCHAR}, #{isBeaRelate,jdbcType=VARCHAR}, 
+      #{beaHoldDegree,jdbcType=DECIMAL}, #{industryCode,jdbcType=VARCHAR}, #{industryCodeHk,jdbcType=VARCHAR}, 
+      #{pbocCustType,jdbcType=VARCHAR}, #{freeTradeArea,jdbcType=VARCHAR}, #{isFreeTrade,jdbcType=VARCHAR}, 
+      #{isFarmer,jdbcType=VARCHAR}, #{inputDate,jdbcType=VARCHAR}, #{inputTime,jdbcType=VARCHAR}, 
+      #{dataDate,jdbcType=VARCHAR}, #{channelType,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.PRT_EXTERNAL_INDIVIDUAL">
+    insert into PRT_EXTERNAL_INDIVIDUAL
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="extSystemId != null">
+        EXT_SYSTEM_ID,
+      </if>
+      <if test="extClientNo != null">
+        EXT_CLIENT_NO,
+      </if>
+      <if test="updatedUser != null">
+        UPDATED_USER,
+      </if>
+      <if test="updatedAuthUser != null">
+        UPDATED_AUTH_USER,
+      </if>
+      <if test="updatedUnit != null">
+        UPDATED_UNIT,
+      </if>
+      <if test="srcUpdatedTs != null">
+        SRC_UPDATED_TS,
+      </if>
+      <if test="updatedSystemId != null">
+        UPDATED_SYSTEM_ID,
+      </if>
+      <if test="partyClasCode != null">
+        PARTY_CLAS_CODE,
+      </if>
+      <if test="partyStatusCode != null">
+        PARTY_STATUS_CODE,
+      </if>
+      <if test="partyTypeCode != null">
+        PARTY_TYPE_CODE,
+      </if>
+      <if test="custInstNo != null">
+        CUST_INST_NO,
+      </if>
+      <if test="custMgr != null">
+        CUST_MGR,
+      </if>
+      <if test="partyRoleTypeCode != null">
+        PARTY_ROLE_TYPE_CODE,
+      </if>
+      <if test="enSurName != null">
+        EN_SUR_NAME,
+      </if>
+      <if test="enGivenName != null">
+        EN_GIVEN_NAME,
+      </if>
+      <if test="cnSurName != null">
+        CN_SUR_NAME,
+      </if>
+      <if test="cnGivenName != null">
+        CN_GIVEN_NAME,
+      </if>
+      <if test="shortName != null">
+        SHORT_NAME,
+      </if>
+      <if test="birthdate != null">
+        BIRTHDATE,
+      </if>
+      <if test="gender != null">
+        GENDER,
+      </if>
+      <if test="maritalStatus != null">
+        MARITAL_STATUS,
+      </if>
+      <if test="race != null">
+        RACE,
+      </if>
+      <if test="educationCode != null">
+        EDUCATION_CODE,
+      </if>
+      <if test="nationality != null">
+        NATIONALITY,
+      </if>
+      <if test="countryCitizen != null">
+        COUNTRY_CITIZEN,
+      </if>
+      <if test="countryBirth != null">
+        COUNTRY_BIRTH,
+      </if>
+      <if test="residenceType != null">
+        RESIDENCE_TYPE,
+      </if>
+      <if test="employerName != null">
+        EMPLOYER_NAME,
+      </if>
+      <if test="employmentDate != null">
+        EMPLOYMENT_DATE,
+      </if>
+      <if test="employmentType != null">
+        EMPLOYMENT_TYPE,
+      </if>
+      <if test="nonResidentCtrl != null">
+        NON_RESIDENT_CTRL,
+      </if>
+      <if test="occupation != null">
+        OCCUPATION,
+      </if>
+      <if test="idCheckFlag != null">
+        ID_CHECK_FLAG,
+      </if>
+      <if test="countryLoc != null">
+        COUNTRY_LOC,
+      </if>
+      <if test="inOutFlag != null">
+        IN_OUT_FLAG,
+      </if>
+      <if test="channel != null">
+        CHANNEL,
+      </if>
+      <if test="marketFlag != null">
+        MARKET_FLAG,
+      </if>
+      <if test="ctrlUnit != null">
+        CTRL_UNIT,
+      </if>
+      <if test="department != null">
+        DEPARTMENT,
+      </if>
+      <if test="chName != null">
+        CH_NAME,
+      </if>
+      <if test="enName != null">
+        EN_NAME,
+      </if>
+      <if test="isPep != null">
+        IS_PEP,
+      </if>
+      <if test="isBankStaff != null">
+        IS_BANK_STAFF,
+      </if>
+      <if test="countryEconDep != null">
+        COUNTRY_ECON_DEP,
+      </if>
+      <if test="class1 != null">
+        CLASS_1,
+      </if>
+      <if test="class3 != null">
+        CLASS_3,
+      </if>
+      <if test="adminDivision != null">
+        ADMIN_DIVISION,
+      </if>
+      <if test="isBeaRelate != null">
+        IS_BEA_RELATE,
+      </if>
+      <if test="beaHoldDegree != null">
+        BEA_HOLD_DEGREE,
+      </if>
+      <if test="industryCode != null">
+        INDUSTRY_CODE,
+      </if>
+      <if test="industryCodeHk != null">
+        INDUSTRY_CODE_HK,
+      </if>
+      <if test="pbocCustType != null">
+        PBOC_CUST_TYPE,
+      </if>
+      <if test="freeTradeArea != null">
+        FREE_TRADE_AREA,
+      </if>
+      <if test="isFreeTrade != null">
+        IS_FREE_TRADE,
+      </if>
+      <if test="isFarmer != null">
+        IS_FARMER,
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE,
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME,
+      </if>
+      <if test="dataDate != null">
+        DATA_DATE,
+      </if>
+      <if test="channelType != null">
+        CHANNEL_TYPE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="extSystemId != null">
+        #{extSystemId,jdbcType=VARCHAR},
+      </if>
+      <if test="extClientNo != null">
+        #{extClientNo,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedUser != null">
+        #{updatedUser,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedAuthUser != null">
+        #{updatedAuthUser,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedUnit != null">
+        #{updatedUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="srcUpdatedTs != null">
+        #{srcUpdatedTs,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedSystemId != null">
+        #{updatedSystemId,jdbcType=VARCHAR},
+      </if>
+      <if test="partyClasCode != null">
+        #{partyClasCode,jdbcType=VARCHAR},
+      </if>
+      <if test="partyStatusCode != null">
+        #{partyStatusCode,jdbcType=VARCHAR},
+      </if>
+      <if test="partyTypeCode != null">
+        #{partyTypeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="custInstNo != null">
+        #{custInstNo,jdbcType=VARCHAR},
+      </if>
+      <if test="custMgr != null">
+        #{custMgr,jdbcType=VARCHAR},
+      </if>
+      <if test="partyRoleTypeCode != null">
+        #{partyRoleTypeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="enSurName != null">
+        #{enSurName,jdbcType=VARCHAR},
+      </if>
+      <if test="enGivenName != null">
+        #{enGivenName,jdbcType=VARCHAR},
+      </if>
+      <if test="cnSurName != null">
+        #{cnSurName,jdbcType=VARCHAR},
+      </if>
+      <if test="cnGivenName != null">
+        #{cnGivenName,jdbcType=VARCHAR},
+      </if>
+      <if test="shortName != null">
+        #{shortName,jdbcType=VARCHAR},
+      </if>
+      <if test="birthdate != null">
+        #{birthdate,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null">
+        #{gender,jdbcType=VARCHAR},
+      </if>
+      <if test="maritalStatus != null">
+        #{maritalStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="race != null">
+        #{race,jdbcType=VARCHAR},
+      </if>
+      <if test="educationCode != null">
+        #{educationCode,jdbcType=VARCHAR},
+      </if>
+      <if test="nationality != null">
+        #{nationality,jdbcType=VARCHAR},
+      </if>
+      <if test="countryCitizen != null">
+        #{countryCitizen,jdbcType=VARCHAR},
+      </if>
+      <if test="countryBirth != null">
+        #{countryBirth,jdbcType=VARCHAR},
+      </if>
+      <if test="residenceType != null">
+        #{residenceType,jdbcType=VARCHAR},
+      </if>
+      <if test="employerName != null">
+        #{employerName,jdbcType=VARCHAR},
+      </if>
+      <if test="employmentDate != null">
+        #{employmentDate,jdbcType=VARCHAR},
+      </if>
+      <if test="employmentType != null">
+        #{employmentType,jdbcType=VARCHAR},
+      </if>
+      <if test="nonResidentCtrl != null">
+        #{nonResidentCtrl,jdbcType=VARCHAR},
+      </if>
+      <if test="occupation != null">
+        #{occupation,jdbcType=VARCHAR},
+      </if>
+      <if test="idCheckFlag != null">
+        #{idCheckFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="countryLoc != null">
+        #{countryLoc,jdbcType=VARCHAR},
+      </if>
+      <if test="inOutFlag != null">
+        #{inOutFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="channel != null">
+        #{channel,jdbcType=VARCHAR},
+      </if>
+      <if test="marketFlag != null">
+        #{marketFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="ctrlUnit != null">
+        #{ctrlUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="department != null">
+        #{department,jdbcType=VARCHAR},
+      </if>
+      <if test="chName != null">
+        #{chName,jdbcType=VARCHAR},
+      </if>
+      <if test="enName != null">
+        #{enName,jdbcType=VARCHAR},
+      </if>
+      <if test="isPep != null">
+        #{isPep,jdbcType=VARCHAR},
+      </if>
+      <if test="isBankStaff != null">
+        #{isBankStaff,jdbcType=VARCHAR},
+      </if>
+      <if test="countryEconDep != null">
+        #{countryEconDep,jdbcType=VARCHAR},
+      </if>
+      <if test="class1 != null">
+        #{class1,jdbcType=VARCHAR},
+      </if>
+      <if test="class3 != null">
+        #{class3,jdbcType=VARCHAR},
+      </if>
+      <if test="adminDivision != null">
+        #{adminDivision,jdbcType=VARCHAR},
+      </if>
+      <if test="isBeaRelate != null">
+        #{isBeaRelate,jdbcType=VARCHAR},
+      </if>
+      <if test="beaHoldDegree != null">
+        #{beaHoldDegree,jdbcType=DECIMAL},
+      </if>
+      <if test="industryCode != null">
+        #{industryCode,jdbcType=VARCHAR},
+      </if>
+      <if test="industryCodeHk != null">
+        #{industryCodeHk,jdbcType=VARCHAR},
+      </if>
+      <if test="pbocCustType != null">
+        #{pbocCustType,jdbcType=VARCHAR},
+      </if>
+      <if test="freeTradeArea != null">
+        #{freeTradeArea,jdbcType=VARCHAR},
+      </if>
+      <if test="isFreeTrade != null">
+        #{isFreeTrade,jdbcType=VARCHAR},
+      </if>
+      <if test="isFarmer != null">
+        #{isFarmer,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="dataDate != null">
+        #{dataDate,jdbcType=VARCHAR},
+      </if>
+      <if test="channelType != null">
+        #{channelType,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

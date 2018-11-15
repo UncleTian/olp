@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.RPT_FIVE_CLASSIFYMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.RPT_FIVE_CLASSIFY">
+    <id column="SERAL_NO" jdbcType="VARCHAR" property="seralNo" />
+    <result column="WF_APPR_STS" jdbcType="VARCHAR" property="wfApprSts" />
+    <result column="CLASSIFY_LEVEL_NEW" jdbcType="VARCHAR" property="classifyLevelNew" />
+    <result column="BILL_NO" jdbcType="VARCHAR" property="billNo" />
+    <result column="CUST_NAME" jdbcType="VARCHAR" property="custName" />
+    <result column="CERT_TYPE" jdbcType="VARCHAR" property="certType" />
+    <result column="CERT_CODE" jdbcType="VARCHAR" property="certCode" />
+    <result column="CLASSIFY_LEVEL" jdbcType="VARCHAR" property="classifyLevel" />
+    <result column="OVERDUE_DAY" jdbcType="DECIMAL" property="overdueDay" />
+    <result column="LOAN_BAL" jdbcType="DECIMAL" property="loanBal" />
+    <result column="LOAN_AMT" jdbcType="DECIMAL" property="loanAmt" />
+    <result column="CONT_STATUS" jdbcType="VARCHAR" property="contStatus" />
+    <result column="DATA_DATE" jdbcType="VARCHAR" property="dataDate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    SERAL_NO, WF_APPR_STS, CLASSIFY_LEVEL_NEW, BILL_NO, CUST_NAME, CERT_TYPE, CERT_CODE, 
+    CLASSIFY_LEVEL, OVERDUE_DAY, LOAN_BAL, LOAN_AMT, CONT_STATUS, DATA_DATE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from RPT_FIVE_CLASSIFY
+    where SERAL_NO = #{seralNo,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from RPT_FIVE_CLASSIFY
+    where SERAL_NO = #{seralNo,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.RPT_FIVE_CLASSIFY">
+    insert into RPT_FIVE_CLASSIFY (SERAL_NO, WF_APPR_STS, CLASSIFY_LEVEL_NEW, 
+      BILL_NO, CUST_NAME, CERT_TYPE, 
+      CERT_CODE, CLASSIFY_LEVEL, OVERDUE_DAY, 
+      LOAN_BAL, LOAN_AMT, CONT_STATUS, 
+      DATA_DATE)
+    values (#{seralNo,jdbcType=VARCHAR}, #{wfApprSts,jdbcType=VARCHAR}, #{classifyLevelNew,jdbcType=VARCHAR}, 
+      #{billNo,jdbcType=VARCHAR}, #{custName,jdbcType=VARCHAR}, #{certType,jdbcType=VARCHAR}, 
+      #{certCode,jdbcType=VARCHAR}, #{classifyLevel,jdbcType=VARCHAR}, #{overdueDay,jdbcType=DECIMAL}, 
+      #{loanBal,jdbcType=DECIMAL}, #{loanAmt,jdbcType=DECIMAL}, #{contStatus,jdbcType=VARCHAR}, 
+      #{dataDate,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.RPT_FIVE_CLASSIFY">
+    insert into RPT_FIVE_CLASSIFY
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="seralNo != null">
+        SERAL_NO,
+      </if>
+      <if test="wfApprSts != null">
+        WF_APPR_STS,
+      </if>
+      <if test="classifyLevelNew != null">
+        CLASSIFY_LEVEL_NEW,
+      </if>
+      <if test="billNo != null">
+        BILL_NO,
+      </if>
+      <if test="custName != null">
+        CUST_NAME,
+      </if>
+      <if test="certType != null">
+        CERT_TYPE,
+      </if>
+      <if test="certCode != null">
+        CERT_CODE,
+      </if>
+      <if test="classifyLevel != null">
+        CLASSIFY_LEVEL,
+      </if>
+      <if test="overdueDay != null">
+        OVERDUE_DAY,
+      </if>
+      <if test="loanBal != null">
+        LOAN_BAL,
+      </if>
+      <if test="loanAmt != null">
+        LOAN_AMT,
+      </if>
+      <if test="contStatus != null">
+        CONT_STATUS,
+      </if>
+      <if test="dataDate != null">
+        DATA_DATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="seralNo != null">
+        #{seralNo,jdbcType=VARCHAR},
+      </if>
+      <if test="wfApprSts != null">
+        #{wfApprSts,jdbcType=VARCHAR},
+      </if>
+      <if test="classifyLevelNew != null">
+        #{classifyLevelNew,jdbcType=VARCHAR},
+      </if>
+      <if test="billNo != null">
+        #{billNo,jdbcType=VARCHAR},
+      </if>
+      <if test="custName != null">
+        #{custName,jdbcType=VARCHAR},
+      </if>
+      <if test="certType != null">
+        #{certType,jdbcType=VARCHAR},
+      </if>
+      <if test="certCode != null">
+        #{certCode,jdbcType=VARCHAR},
+      </if>
+      <if test="classifyLevel != null">
+        #{classifyLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="overdueDay != null">
+        #{overdueDay,jdbcType=DECIMAL},
+      </if>
+      <if test="loanBal != null">
+        #{loanBal,jdbcType=DECIMAL},
+      </if>
+      <if test="loanAmt != null">
+        #{loanAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="contStatus != null">
+        #{contStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="dataDate != null">
+        #{dataDate,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.RPT_FIVE_CLASSIFY">
+    update RPT_FIVE_CLASSIFY
+    <set>
+      <if test="wfApprSts != null">
+        WF_APPR_STS = #{wfApprSts,jdbcType=VARCHAR},
+      </if>
+      <if test="classifyLevelNew != null">
+        CLASSIFY_LEVEL_NEW = #{classifyLevelNew,jdbcType=VARCHAR},
+      </if>
+      <if test="billNo != null">
+        BILL_NO = #{billNo,jdbcType=VARCHAR},
+      </if>
+      <if test="custName != null">
+        CUST_NAME = #{custName,jdbcType=VARCHAR},
+      </if>
+      <if test="certType != null">
+        CERT_TYPE = #{certType,jdbcType=VARCHAR},
+      </if>
+      <if test="certCode != null">
+        CERT_CODE = #{certCode,jdbcType=VARCHAR},
+      </if>
+      <if test="classifyLevel != null">
+        CLASSIFY_LEVEL = #{classifyLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="overdueDay != null">
+        OVERDUE_DAY = #{overdueDay,jdbcType=DECIMAL},
+      </if>
+      <if test="loanBal != null">
+        LOAN_BAL = #{loanBal,jdbcType=DECIMAL},
+      </if>
+      <if test="loanAmt != null">
+        LOAN_AMT = #{loanAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="contStatus != null">
+        CONT_STATUS = #{contStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="dataDate != null">
+        DATA_DATE = #{dataDate,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where SERAL_NO = #{seralNo,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.RPT_FIVE_CLASSIFY">
+    update RPT_FIVE_CLASSIFY
+    set WF_APPR_STS = #{wfApprSts,jdbcType=VARCHAR},
+      CLASSIFY_LEVEL_NEW = #{classifyLevelNew,jdbcType=VARCHAR},
+      BILL_NO = #{billNo,jdbcType=VARCHAR},
+      CUST_NAME = #{custName,jdbcType=VARCHAR},
+      CERT_TYPE = #{certType,jdbcType=VARCHAR},
+      CERT_CODE = #{certCode,jdbcType=VARCHAR},
+      CLASSIFY_LEVEL = #{classifyLevel,jdbcType=VARCHAR},
+      OVERDUE_DAY = #{overdueDay,jdbcType=DECIMAL},
+      LOAN_BAL = #{loanBal,jdbcType=DECIMAL},
+      LOAN_AMT = #{loanAmt,jdbcType=DECIMAL},
+      CONT_STATUS = #{contStatus,jdbcType=VARCHAR},
+      DATA_DATE = #{dataDate,jdbcType=VARCHAR}
+    where SERAL_NO = #{seralNo,jdbcType=VARCHAR}
+  </update>
+</mapper>

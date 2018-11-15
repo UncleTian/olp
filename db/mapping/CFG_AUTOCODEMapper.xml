@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.CFG_AUTOCODEMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.CFG_AUTOCODE">
+    <id column="ATYPE" jdbcType="VARCHAR" property="atype" />
+    <id column="OWNER" jdbcType="VARCHAR" property="owner" />
+    <result column="INITCYCLE" jdbcType="CHAR" property="initcycle" />
+    <result column="CUR_SERNUM" jdbcType="VARCHAR" property="curSernum" />
+    <result column="SEQ_STYLE" jdbcType="VARCHAR" property="seqStyle" />
+    <result column="SEQ_LENGTH" jdbcType="DECIMAL" property="seqLength" />
+    <result column="SEQ_STRATEGY" jdbcType="CHAR" property="seqStrategy" />
+    <result column="ZERO_FLAG" jdbcType="CHAR" property="zeroFlag" />
+    <result column="MEMO" jdbcType="VARCHAR" property="memo" />
+    <result column="INPUT_TIME" jdbcType="VARCHAR" property="inputTime" />
+    <result column="INPUT_ID" jdbcType="VARCHAR" property="inputId" />
+    <result column="INPUT_BR_ID" jdbcType="VARCHAR" property="inputBrId" />
+    <result column="LAST_UPDATE_TIME" jdbcType="VARCHAR" property="lastUpdateTime" />
+    <result column="LAST_UPDATE_ID" jdbcType="VARCHAR" property="lastUpdateId" />
+    <result column="SEQ_SCENE" jdbcType="VARCHAR" property="seqScene" />
+    <result column="RULE_SOURCE" jdbcType="VARCHAR" property="ruleSource" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ATYPE, OWNER, INITCYCLE, CUR_SERNUM, SEQ_STYLE, SEQ_LENGTH, SEQ_STRATEGY, ZERO_FLAG, 
+    MEMO, INPUT_TIME, INPUT_ID, INPUT_BR_ID, LAST_UPDATE_TIME, LAST_UPDATE_ID, SEQ_SCENE, 
+    RULE_SOURCE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="com.bea.olp.CFG_AUTOCODEKey" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from CFG_AUTOCODE
+    where ATYPE = #{atype,jdbcType=VARCHAR}
+      and OWNER = #{owner,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.bea.olp.CFG_AUTOCODEKey">
+    delete from CFG_AUTOCODE
+    where ATYPE = #{atype,jdbcType=VARCHAR}
+      and OWNER = #{owner,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.CFG_AUTOCODE">
+    insert into CFG_AUTOCODE (ATYPE, OWNER, INITCYCLE, 
+      CUR_SERNUM, SEQ_STYLE, SEQ_LENGTH, 
+      SEQ_STRATEGY, ZERO_FLAG, MEMO, 
+      INPUT_TIME, INPUT_ID, INPUT_BR_ID, 
+      LAST_UPDATE_TIME, LAST_UPDATE_ID, SEQ_SCENE, 
+      RULE_SOURCE)
+    values (#{atype,jdbcType=VARCHAR}, #{owner,jdbcType=VARCHAR}, #{initcycle,jdbcType=CHAR}, 
+      #{curSernum,jdbcType=VARCHAR}, #{seqStyle,jdbcType=VARCHAR}, #{seqLength,jdbcType=DECIMAL}, 
+      #{seqStrategy,jdbcType=CHAR}, #{zeroFlag,jdbcType=CHAR}, #{memo,jdbcType=VARCHAR}, 
+      #{inputTime,jdbcType=VARCHAR}, #{inputId,jdbcType=VARCHAR}, #{inputBrId,jdbcType=VARCHAR}, 
+      #{lastUpdateTime,jdbcType=VARCHAR}, #{lastUpdateId,jdbcType=VARCHAR}, #{seqScene,jdbcType=VARCHAR}, 
+      #{ruleSource,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.CFG_AUTOCODE">
+    insert into CFG_AUTOCODE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="atype != null">
+        ATYPE,
+      </if>
+      <if test="owner != null">
+        OWNER,
+      </if>
+      <if test="initcycle != null">
+        INITCYCLE,
+      </if>
+      <if test="curSernum != null">
+        CUR_SERNUM,
+      </if>
+      <if test="seqStyle != null">
+        SEQ_STYLE,
+      </if>
+      <if test="seqLength != null">
+        SEQ_LENGTH,
+      </if>
+      <if test="seqStrategy != null">
+        SEQ_STRATEGY,
+      </if>
+      <if test="zeroFlag != null">
+        ZERO_FLAG,
+      </if>
+      <if test="memo != null">
+        MEMO,
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME,
+      </if>
+      <if test="inputId != null">
+        INPUT_ID,
+      </if>
+      <if test="inputBrId != null">
+        INPUT_BR_ID,
+      </if>
+      <if test="lastUpdateTime != null">
+        LAST_UPDATE_TIME,
+      </if>
+      <if test="lastUpdateId != null">
+        LAST_UPDATE_ID,
+      </if>
+      <if test="seqScene != null">
+        SEQ_SCENE,
+      </if>
+      <if test="ruleSource != null">
+        RULE_SOURCE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="atype != null">
+        #{atype,jdbcType=VARCHAR},
+      </if>
+      <if test="owner != null">
+        #{owner,jdbcType=VARCHAR},
+      </if>
+      <if test="initcycle != null">
+        #{initcycle,jdbcType=CHAR},
+      </if>
+      <if test="curSernum != null">
+        #{curSernum,jdbcType=VARCHAR},
+      </if>
+      <if test="seqStyle != null">
+        #{seqStyle,jdbcType=VARCHAR},
+      </if>
+      <if test="seqLength != null">
+        #{seqLength,jdbcType=DECIMAL},
+      </if>
+      <if test="seqStrategy != null">
+        #{seqStrategy,jdbcType=CHAR},
+      </if>
+      <if test="zeroFlag != null">
+        #{zeroFlag,jdbcType=CHAR},
+      </if>
+      <if test="memo != null">
+        #{memo,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="inputId != null">
+        #{inputId,jdbcType=VARCHAR},
+      </if>
+      <if test="inputBrId != null">
+        #{inputBrId,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        #{lastUpdateTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateId != null">
+        #{lastUpdateId,jdbcType=VARCHAR},
+      </if>
+      <if test="seqScene != null">
+        #{seqScene,jdbcType=VARCHAR},
+      </if>
+      <if test="ruleSource != null">
+        #{ruleSource,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.CFG_AUTOCODE">
+    update CFG_AUTOCODE
+    <set>
+      <if test="initcycle != null">
+        INITCYCLE = #{initcycle,jdbcType=CHAR},
+      </if>
+      <if test="curSernum != null">
+        CUR_SERNUM = #{curSernum,jdbcType=VARCHAR},
+      </if>
+      <if test="seqStyle != null">
+        SEQ_STYLE = #{seqStyle,jdbcType=VARCHAR},
+      </if>
+      <if test="seqLength != null">
+        SEQ_LENGTH = #{seqLength,jdbcType=DECIMAL},
+      </if>
+      <if test="seqStrategy != null">
+        SEQ_STRATEGY = #{seqStrategy,jdbcType=CHAR},
+      </if>
+      <if test="zeroFlag != null">
+        ZERO_FLAG = #{zeroFlag,jdbcType=CHAR},
+      </if>
+      <if test="memo != null">
+        MEMO = #{memo,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME = #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="inputId != null">
+        INPUT_ID = #{inputId,jdbcType=VARCHAR},
+      </if>
+      <if test="inputBrId != null">
+        INPUT_BR_ID = #{inputBrId,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateId != null">
+        LAST_UPDATE_ID = #{lastUpdateId,jdbcType=VARCHAR},
+      </if>
+      <if test="seqScene != null">
+        SEQ_SCENE = #{seqScene,jdbcType=VARCHAR},
+      </if>
+      <if test="ruleSource != null">
+        RULE_SOURCE = #{ruleSource,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ATYPE = #{atype,jdbcType=VARCHAR}
+      and OWNER = #{owner,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.CFG_AUTOCODE">
+    update CFG_AUTOCODE
+    set INITCYCLE = #{initcycle,jdbcType=CHAR},
+      CUR_SERNUM = #{curSernum,jdbcType=VARCHAR},
+      SEQ_STYLE = #{seqStyle,jdbcType=VARCHAR},
+      SEQ_LENGTH = #{seqLength,jdbcType=DECIMAL},
+      SEQ_STRATEGY = #{seqStrategy,jdbcType=CHAR},
+      ZERO_FLAG = #{zeroFlag,jdbcType=CHAR},
+      MEMO = #{memo,jdbcType=VARCHAR},
+      INPUT_TIME = #{inputTime,jdbcType=VARCHAR},
+      INPUT_ID = #{inputId,jdbcType=VARCHAR},
+      INPUT_BR_ID = #{inputBrId,jdbcType=VARCHAR},
+      LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=VARCHAR},
+      LAST_UPDATE_ID = #{lastUpdateId,jdbcType=VARCHAR},
+      SEQ_SCENE = #{seqScene,jdbcType=VARCHAR},
+      RULE_SOURCE = #{ruleSource,jdbcType=VARCHAR}
+    where ATYPE = #{atype,jdbcType=VARCHAR}
+      and OWNER = #{owner,jdbcType=VARCHAR}
+  </update>
+</mapper>

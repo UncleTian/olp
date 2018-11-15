@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.BAT_CBM_CONTRACT_INFOMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.BAT_CBM_CONTRACT_INFO">
+    <result column="CONTRACTNO" jdbcType="VARCHAR" property="contractno" />
+    <result column="CUSTOMERID" jdbcType="VARCHAR" property="customerid" />
+    <result column="CCY" jdbcType="VARCHAR" property="ccy" />
+    <result column="AMT" jdbcType="DECIMAL" property="amt" />
+    <result column="PRODUCTID" jdbcType="VARCHAR" property="productid" />
+    <result column="TERM" jdbcType="VARCHAR" property="term" />
+    <result column="RATE" jdbcType="DECIMAL" property="rate" />
+    <result column="STARTSUBBRANCH" jdbcType="VARCHAR" property="startsubbranch" />
+    <result column="STARTUSERID" jdbcType="VARCHAR" property="startuserid" />
+    <result column="SIGNDATE" jdbcType="VARCHAR" property="signdate" />
+    <result column="STARTDATE" jdbcType="VARCHAR" property="startdate" />
+    <result column="ENDDATE" jdbcType="VARCHAR" property="enddate" />
+    <result column="CBRCLOANUSE" jdbcType="VARCHAR" property="cbrcloanuse" />
+    <result column="PBOCLOANUSE" jdbcType="VARCHAR" property="pbocloanuse" />
+    <result column="HKASLOANUSE" jdbcType="VARCHAR" property="hkasloanuse" />
+    <result column="TERMTYPE" jdbcType="VARCHAR" property="termtype" />
+    <result column="INPUT_DATE" jdbcType="VARCHAR" property="inputDate" />
+    <result column="INPUT_TIME" jdbcType="VARCHAR" property="inputTime" />
+    <result column="DATA_DATE" jdbcType="VARCHAR" property="dataDate" />
+    <result column="CHANNEL_TYPE" jdbcType="VARCHAR" property="channelType" />
+  </resultMap>
+  <insert id="insert" parameterType="com.bea.olp.BAT_CBM_CONTRACT_INFO">
+    insert into BAT_CBM_CONTRACT_INFO (CONTRACTNO, CUSTOMERID, CCY, 
+      AMT, PRODUCTID, TERM, 
+      RATE, STARTSUBBRANCH, STARTUSERID, 
+      SIGNDATE, STARTDATE, ENDDATE, 
+      CBRCLOANUSE, PBOCLOANUSE, HKASLOANUSE, 
+      TERMTYPE, INPUT_DATE, INPUT_TIME, 
+      DATA_DATE, CHANNEL_TYPE)
+    values (#{contractno,jdbcType=VARCHAR}, #{customerid,jdbcType=VARCHAR}, #{ccy,jdbcType=VARCHAR}, 
+      #{amt,jdbcType=DECIMAL}, #{productid,jdbcType=VARCHAR}, #{term,jdbcType=VARCHAR}, 
+      #{rate,jdbcType=DECIMAL}, #{startsubbranch,jdbcType=VARCHAR}, #{startuserid,jdbcType=VARCHAR}, 
+      #{signdate,jdbcType=VARCHAR}, #{startdate,jdbcType=VARCHAR}, #{enddate,jdbcType=VARCHAR}, 
+      #{cbrcloanuse,jdbcType=VARCHAR}, #{pbocloanuse,jdbcType=VARCHAR}, #{hkasloanuse,jdbcType=VARCHAR}, 
+      #{termtype,jdbcType=VARCHAR}, #{inputDate,jdbcType=VARCHAR}, #{inputTime,jdbcType=VARCHAR}, 
+      #{dataDate,jdbcType=VARCHAR}, #{channelType,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.BAT_CBM_CONTRACT_INFO">
+    insert into BAT_CBM_CONTRACT_INFO
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="contractno != null">
+        CONTRACTNO,
+      </if>
+      <if test="customerid != null">
+        CUSTOMERID,
+      </if>
+      <if test="ccy != null">
+        CCY,
+      </if>
+      <if test="amt != null">
+        AMT,
+      </if>
+      <if test="productid != null">
+        PRODUCTID,
+      </if>
+      <if test="term != null">
+        TERM,
+      </if>
+      <if test="rate != null">
+        RATE,
+      </if>
+      <if test="startsubbranch != null">
+        STARTSUBBRANCH,
+      </if>
+      <if test="startuserid != null">
+        STARTUSERID,
+      </if>
+      <if test="signdate != null">
+        SIGNDATE,
+      </if>
+      <if test="startdate != null">
+        STARTDATE,
+      </if>
+      <if test="enddate != null">
+        ENDDATE,
+      </if>
+      <if test="cbrcloanuse != null">
+        CBRCLOANUSE,
+      </if>
+      <if test="pbocloanuse != null">
+        PBOCLOANUSE,
+      </if>
+      <if test="hkasloanuse != null">
+        HKASLOANUSE,
+      </if>
+      <if test="termtype != null">
+        TERMTYPE,
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE,
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME,
+      </if>
+      <if test="dataDate != null">
+        DATA_DATE,
+      </if>
+      <if test="channelType != null">
+        CHANNEL_TYPE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="contractno != null">
+        #{contractno,jdbcType=VARCHAR},
+      </if>
+      <if test="customerid != null">
+        #{customerid,jdbcType=VARCHAR},
+      </if>
+      <if test="ccy != null">
+        #{ccy,jdbcType=VARCHAR},
+      </if>
+      <if test="amt != null">
+        #{amt,jdbcType=DECIMAL},
+      </if>
+      <if test="productid != null">
+        #{productid,jdbcType=VARCHAR},
+      </if>
+      <if test="term != null">
+        #{term,jdbcType=VARCHAR},
+      </if>
+      <if test="rate != null">
+        #{rate,jdbcType=DECIMAL},
+      </if>
+      <if test="startsubbranch != null">
+        #{startsubbranch,jdbcType=VARCHAR},
+      </if>
+      <if test="startuserid != null">
+        #{startuserid,jdbcType=VARCHAR},
+      </if>
+      <if test="signdate != null">
+        #{signdate,jdbcType=VARCHAR},
+      </if>
+      <if test="startdate != null">
+        #{startdate,jdbcType=VARCHAR},
+      </if>
+      <if test="enddate != null">
+        #{enddate,jdbcType=VARCHAR},
+      </if>
+      <if test="cbrcloanuse != null">
+        #{cbrcloanuse,jdbcType=VARCHAR},
+      </if>
+      <if test="pbocloanuse != null">
+        #{pbocloanuse,jdbcType=VARCHAR},
+      </if>
+      <if test="hkasloanuse != null">
+        #{hkasloanuse,jdbcType=VARCHAR},
+      </if>
+      <if test="termtype != null">
+        #{termtype,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="dataDate != null">
+        #{dataDate,jdbcType=VARCHAR},
+      </if>
+      <if test="channelType != null">
+        #{channelType,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.S_USRMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.S_USR">
+    <id column="INSTU_CDE" jdbcType="VARCHAR" property="instuCde" />
+    <id column="USR_CDE" jdbcType="VARCHAR" property="usrCde" />
+    <result column="EXT_IND" jdbcType="VARCHAR" property="extInd" />
+    <result column="USR_NAME" jdbcType="VARCHAR" property="usrName" />
+    <result column="USR_ID_TYP" jdbcType="VARCHAR" property="usrIdTyp" />
+    <result column="USR_ID_NO" jdbcType="VARCHAR" property="usrIdNo" />
+    <result column="USR_PASSWORD" jdbcType="VARCHAR" property="usrPassword" />
+    <result column="USR_TEL" jdbcType="VARCHAR" property="usrTel" />
+    <result column="USR_EMAIL" jdbcType="VARCHAR" property="usrEmail" />
+    <result column="USR_BCH" jdbcType="VARCHAR" property="usrBch" />
+    <result column="USR_STS" jdbcType="VARCHAR" property="usrSts" />
+    <result column="REST_IND" jdbcType="VARCHAR" property="restInd" />
+    <result column="USR_REPASS_IND" jdbcType="VARCHAR" property="usrRepassInd" />
+    <result column="PASS_MODI_DT" jdbcType="VARCHAR" property="passModiDt" />
+    <result column="USR_RMK" jdbcType="VARCHAR" property="usrRmk" />
+    <result column="LAST_CHG_DT" jdbcType="VARCHAR" property="lastChgDt" />
+    <result column="LAST_CHG_USR" jdbcType="VARCHAR" property="lastChgUsr" />
+    <result column="AREA" jdbcType="VARCHAR" property="area" />
+    <result column="TIMES" jdbcType="VARCHAR" property="times" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    INSTU_CDE, USR_CDE, EXT_IND, USR_NAME, USR_ID_TYP, USR_ID_NO, USR_PASSWORD, USR_TEL, 
+    USR_EMAIL, USR_BCH, USR_STS, REST_IND, USR_REPASS_IND, PASS_MODI_DT, USR_RMK, LAST_CHG_DT, 
+    LAST_CHG_USR, AREA, TIMES
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="com.bea.olp.S_USRKey" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from S_USR
+    where INSTU_CDE = #{instuCde,jdbcType=VARCHAR}
+      and USR_CDE = #{usrCde,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.bea.olp.S_USRKey">
+    delete from S_USR
+    where INSTU_CDE = #{instuCde,jdbcType=VARCHAR}
+      and USR_CDE = #{usrCde,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.S_USR">
+    insert into S_USR (INSTU_CDE, USR_CDE, EXT_IND, 
+      USR_NAME, USR_ID_TYP, USR_ID_NO, 
+      USR_PASSWORD, USR_TEL, USR_EMAIL, 
+      USR_BCH, USR_STS, REST_IND, 
+      USR_REPASS_IND, PASS_MODI_DT, USR_RMK, 
+      LAST_CHG_DT, LAST_CHG_USR, AREA, 
+      TIMES)
+    values (#{instuCde,jdbcType=VARCHAR}, #{usrCde,jdbcType=VARCHAR}, #{extInd,jdbcType=VARCHAR}, 
+      #{usrName,jdbcType=VARCHAR}, #{usrIdTyp,jdbcType=VARCHAR}, #{usrIdNo,jdbcType=VARCHAR}, 
+      #{usrPassword,jdbcType=VARCHAR}, #{usrTel,jdbcType=VARCHAR}, #{usrEmail,jdbcType=VARCHAR}, 
+      #{usrBch,jdbcType=VARCHAR}, #{usrSts,jdbcType=VARCHAR}, #{restInd,jdbcType=VARCHAR}, 
+      #{usrRepassInd,jdbcType=VARCHAR}, #{passModiDt,jdbcType=VARCHAR}, #{usrRmk,jdbcType=VARCHAR}, 
+      #{lastChgDt,jdbcType=VARCHAR}, #{lastChgUsr,jdbcType=VARCHAR}, #{area,jdbcType=VARCHAR}, 
+      #{times,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.S_USR">
+    insert into S_USR
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="instuCde != null">
+        INSTU_CDE,
+      </if>
+      <if test="usrCde != null">
+        USR_CDE,
+      </if>
+      <if test="extInd != null">
+        EXT_IND,
+      </if>
+      <if test="usrName != null">
+        USR_NAME,
+      </if>
+      <if test="usrIdTyp != null">
+        USR_ID_TYP,
+      </if>
+      <if test="usrIdNo != null">
+        USR_ID_NO,
+      </if>
+      <if test="usrPassword != null">
+        USR_PASSWORD,
+      </if>
+      <if test="usrTel != null">
+        USR_TEL,
+      </if>
+      <if test="usrEmail != null">
+        USR_EMAIL,
+      </if>
+      <if test="usrBch != null">
+        USR_BCH,
+      </if>
+      <if test="usrSts != null">
+        USR_STS,
+      </if>
+      <if test="restInd != null">
+        REST_IND,
+      </if>
+      <if test="usrRepassInd != null">
+        USR_REPASS_IND,
+      </if>
+      <if test="passModiDt != null">
+        PASS_MODI_DT,
+      </if>
+      <if test="usrRmk != null">
+        USR_RMK,
+      </if>
+      <if test="lastChgDt != null">
+        LAST_CHG_DT,
+      </if>
+      <if test="lastChgUsr != null">
+        LAST_CHG_USR,
+      </if>
+      <if test="area != null">
+        AREA,
+      </if>
+      <if test="times != null">
+        TIMES,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="instuCde != null">
+        #{instuCde,jdbcType=VARCHAR},
+      </if>
+      <if test="usrCde != null">
+        #{usrCde,jdbcType=VARCHAR},
+      </if>
+      <if test="extInd != null">
+        #{extInd,jdbcType=VARCHAR},
+      </if>
+      <if test="usrName != null">
+        #{usrName,jdbcType=VARCHAR},
+      </if>
+      <if test="usrIdTyp != null">
+        #{usrIdTyp,jdbcType=VARCHAR},
+      </if>
+      <if test="usrIdNo != null">
+        #{usrIdNo,jdbcType=VARCHAR},
+      </if>
+      <if test="usrPassword != null">
+        #{usrPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="usrTel != null">
+        #{usrTel,jdbcType=VARCHAR},
+      </if>
+      <if test="usrEmail != null">
+        #{usrEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="usrBch != null">
+        #{usrBch,jdbcType=VARCHAR},
+      </if>
+      <if test="usrSts != null">
+        #{usrSts,jdbcType=VARCHAR},
+      </if>
+      <if test="restInd != null">
+        #{restInd,jdbcType=VARCHAR},
+      </if>
+      <if test="usrRepassInd != null">
+        #{usrRepassInd,jdbcType=VARCHAR},
+      </if>
+      <if test="passModiDt != null">
+        #{passModiDt,jdbcType=VARCHAR},
+      </if>
+      <if test="usrRmk != null">
+        #{usrRmk,jdbcType=VARCHAR},
+      </if>
+      <if test="lastChgDt != null">
+        #{lastChgDt,jdbcType=VARCHAR},
+      </if>
+      <if test="lastChgUsr != null">
+        #{lastChgUsr,jdbcType=VARCHAR},
+      </if>
+      <if test="area != null">
+        #{area,jdbcType=VARCHAR},
+      </if>
+      <if test="times != null">
+        #{times,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.S_USR">
+    update S_USR
+    <set>
+      <if test="extInd != null">
+        EXT_IND = #{extInd,jdbcType=VARCHAR},
+      </if>
+      <if test="usrName != null">
+        USR_NAME = #{usrName,jdbcType=VARCHAR},
+      </if>
+      <if test="usrIdTyp != null">
+        USR_ID_TYP = #{usrIdTyp,jdbcType=VARCHAR},
+      </if>
+      <if test="usrIdNo != null">
+        USR_ID_NO = #{usrIdNo,jdbcType=VARCHAR},
+      </if>
+      <if test="usrPassword != null">
+        USR_PASSWORD = #{usrPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="usrTel != null">
+        USR_TEL = #{usrTel,jdbcType=VARCHAR},
+      </if>
+      <if test="usrEmail != null">
+        USR_EMAIL = #{usrEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="usrBch != null">
+        USR_BCH = #{usrBch,jdbcType=VARCHAR},
+      </if>
+      <if test="usrSts != null">
+        USR_STS = #{usrSts,jdbcType=VARCHAR},
+      </if>
+      <if test="restInd != null">
+        REST_IND = #{restInd,jdbcType=VARCHAR},
+      </if>
+      <if test="usrRepassInd != null">
+        USR_REPASS_IND = #{usrRepassInd,jdbcType=VARCHAR},
+      </if>
+      <if test="passModiDt != null">
+        PASS_MODI_DT = #{passModiDt,jdbcType=VARCHAR},
+      </if>
+      <if test="usrRmk != null">
+        USR_RMK = #{usrRmk,jdbcType=VARCHAR},
+      </if>
+      <if test="lastChgDt != null">
+        LAST_CHG_DT = #{lastChgDt,jdbcType=VARCHAR},
+      </if>
+      <if test="lastChgUsr != null">
+        LAST_CHG_USR = #{lastChgUsr,jdbcType=VARCHAR},
+      </if>
+      <if test="area != null">
+        AREA = #{area,jdbcType=VARCHAR},
+      </if>
+      <if test="times != null">
+        TIMES = #{times,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where INSTU_CDE = #{instuCde,jdbcType=VARCHAR}
+      and USR_CDE = #{usrCde,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.S_USR">
+    update S_USR
+    set EXT_IND = #{extInd,jdbcType=VARCHAR},
+      USR_NAME = #{usrName,jdbcType=VARCHAR},
+      USR_ID_TYP = #{usrIdTyp,jdbcType=VARCHAR},
+      USR_ID_NO = #{usrIdNo,jdbcType=VARCHAR},
+      USR_PASSWORD = #{usrPassword,jdbcType=VARCHAR},
+      USR_TEL = #{usrTel,jdbcType=VARCHAR},
+      USR_EMAIL = #{usrEmail,jdbcType=VARCHAR},
+      USR_BCH = #{usrBch,jdbcType=VARCHAR},
+      USR_STS = #{usrSts,jdbcType=VARCHAR},
+      REST_IND = #{restInd,jdbcType=VARCHAR},
+      USR_REPASS_IND = #{usrRepassInd,jdbcType=VARCHAR},
+      PASS_MODI_DT = #{passModiDt,jdbcType=VARCHAR},
+      USR_RMK = #{usrRmk,jdbcType=VARCHAR},
+      LAST_CHG_DT = #{lastChgDt,jdbcType=VARCHAR},
+      LAST_CHG_USR = #{lastChgUsr,jdbcType=VARCHAR},
+      AREA = #{area,jdbcType=VARCHAR},
+      TIMES = #{times,jdbcType=VARCHAR}
+    where INSTU_CDE = #{instuCde,jdbcType=VARCHAR}
+      and USR_CDE = #{usrCde,jdbcType=VARCHAR}
+  </update>
+</mapper>

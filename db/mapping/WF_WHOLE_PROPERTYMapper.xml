@@ -1,0 +1,553 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.WF_WHOLE_PROPERTYMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.WF_WHOLE_PROPERTY">
+    <id column="WFID" jdbcType="VARCHAR" property="wfid" />
+    <result column="WFNAME" jdbcType="VARCHAR" property="wfname" />
+    <result column="WFSIGN" jdbcType="VARCHAR" property="wfsign" />
+    <result column="WFTYPE" jdbcType="CHAR" property="wftype" />
+    <result column="WFSORT" jdbcType="VARCHAR" property="wfsort" />
+    <result column="WFDESCRIPTION" jdbcType="VARCHAR" property="wfdescription" />
+    <result column="WFSTATUS" jdbcType="CHAR" property="wfstatus" />
+    <result column="WFVER" jdbcType="VARCHAR" property="wfver" />
+    <result column="WFAPPID" jdbcType="VARCHAR" property="wfappid" />
+    <result column="WFAPPNAME" jdbcType="VARCHAR" property="wfappname" />
+    <result column="WFMAINFORMID" jdbcType="VARCHAR" property="wfmainformid" />
+    <result column="WFMAINFORMNAME" jdbcType="VARCHAR" property="wfmainformname" />
+    <result column="WFMAINFORMFILEDS" jdbcType="VARCHAR" property="wfmainformfileds" />
+    <result column="WFADMIN" jdbcType="VARCHAR" property="wfadmin" />
+    <result column="WFREADERS" jdbcType="VARCHAR" property="wfreaders" />
+    <result column="WFINITIATORS" jdbcType="CHAR" property="wfinitiators" />
+    <result column="WFCONDITION" jdbcType="VARCHAR" property="wfcondition" />
+    <result column="WFTIMELIMITNOTIFICATION" jdbcType="CHAR" property="wftimelimitnotification" />
+    <result column="WFDURATIONTIME" jdbcType="VARCHAR" property="wfdurationtime" />
+    <result column="WFTIMELIMITEFFICIENT" jdbcType="VARCHAR" property="wftimelimitefficient" />
+    <result column="WFTIMELIMITREPEAT" jdbcType="VARCHAR" property="wftimelimitrepeat" />
+    <result column="WFTIMELIMITREPEATTIMES" jdbcType="VARCHAR" property="wftimelimitrepeattimes" />
+    <result column="OVERDUETREAT" jdbcType="CHAR" property="overduetreat" />
+    <result column="WFARCHIVESIGN" jdbcType="CHAR" property="wfarchivesign" />
+    <result column="WFARCHIVEADMIN" jdbcType="VARCHAR" property="wfarchiveadmin" />
+    <result column="WFAGENT" jdbcType="CHAR" property="wfagent" />
+    <result column="WFCHANGE" jdbcType="CHAR" property="wfchange" />
+    <result column="WFAGAIN" jdbcType="CHAR" property="wfagain" />
+    <result column="WFRECALL" jdbcType="CHAR" property="wfrecall" />
+    <result column="WFRETURNBACK" jdbcType="CHAR" property="wfreturnback" />
+    <result column="WFHANGUP" jdbcType="CHAR" property="wfhangup" />
+    <result column="WFWAKE" jdbcType="CHAR" property="wfwake" />
+    <result column="WFJUMP" jdbcType="CHAR" property="wfjump" />
+    <result column="WFURGE" jdbcType="CHAR" property="wfurge" />
+    <result column="DELAFTEREND" jdbcType="CHAR" property="delafterend" />
+    <result column="READERSAFTEREND" jdbcType="CHAR" property="readersafterend" />
+    <result column="WFCREATETIME" jdbcType="CHAR" property="wfcreatetime" />
+    <result column="WFEDITTIME" jdbcType="CHAR" property="wfedittime" />
+    <result column="WFIN" jdbcType="VARCHAR" property="wfin" />
+    <result column="WFOUT" jdbcType="VARCHAR" property="wfout" />
+    <result column="AUTHOR" jdbcType="VARCHAR" property="author" />
+    <result column="DEPID" jdbcType="VARCHAR" property="depid" />
+    <result column="ORGID" jdbcType="VARCHAR" property="orgid" />
+    <result column="VER" jdbcType="VARCHAR" property="ver" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    WFID, WFNAME, WFSIGN, WFTYPE, WFSORT, WFDESCRIPTION, WFSTATUS, WFVER, WFAPPID, WFAPPNAME, 
+    WFMAINFORMID, WFMAINFORMNAME, WFMAINFORMFILEDS, WFADMIN, WFREADERS, WFINITIATORS, 
+    WFCONDITION, WFTIMELIMITNOTIFICATION, WFDURATIONTIME, WFTIMELIMITEFFICIENT, WFTIMELIMITREPEAT, 
+    WFTIMELIMITREPEATTIMES, OVERDUETREAT, WFARCHIVESIGN, WFARCHIVEADMIN, WFAGENT, WFCHANGE, 
+    WFAGAIN, WFRECALL, WFRETURNBACK, WFHANGUP, WFWAKE, WFJUMP, WFURGE, DELAFTEREND, READERSAFTEREND, 
+    WFCREATETIME, WFEDITTIME, WFIN, WFOUT, AUTHOR, DEPID, ORGID, VER
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from WF_WHOLE_PROPERTY
+    where WFID = #{wfid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from WF_WHOLE_PROPERTY
+    where WFID = #{wfid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.WF_WHOLE_PROPERTY">
+    insert into WF_WHOLE_PROPERTY (WFID, WFNAME, WFSIGN, 
+      WFTYPE, WFSORT, WFDESCRIPTION, 
+      WFSTATUS, WFVER, WFAPPID, 
+      WFAPPNAME, WFMAINFORMID, WFMAINFORMNAME, 
+      WFMAINFORMFILEDS, WFADMIN, WFREADERS, 
+      WFINITIATORS, WFCONDITION, WFTIMELIMITNOTIFICATION, 
+      WFDURATIONTIME, WFTIMELIMITEFFICIENT, WFTIMELIMITREPEAT, 
+      WFTIMELIMITREPEATTIMES, OVERDUETREAT, WFARCHIVESIGN, 
+      WFARCHIVEADMIN, WFAGENT, WFCHANGE, 
+      WFAGAIN, WFRECALL, WFRETURNBACK, 
+      WFHANGUP, WFWAKE, WFJUMP, WFURGE, 
+      DELAFTEREND, READERSAFTEREND, WFCREATETIME, 
+      WFEDITTIME, WFIN, WFOUT, 
+      AUTHOR, DEPID, ORGID, 
+      VER)
+    values (#{wfid,jdbcType=VARCHAR}, #{wfname,jdbcType=VARCHAR}, #{wfsign,jdbcType=VARCHAR}, 
+      #{wftype,jdbcType=CHAR}, #{wfsort,jdbcType=VARCHAR}, #{wfdescription,jdbcType=VARCHAR}, 
+      #{wfstatus,jdbcType=CHAR}, #{wfver,jdbcType=VARCHAR}, #{wfappid,jdbcType=VARCHAR}, 
+      #{wfappname,jdbcType=VARCHAR}, #{wfmainformid,jdbcType=VARCHAR}, #{wfmainformname,jdbcType=VARCHAR}, 
+      #{wfmainformfileds,jdbcType=VARCHAR}, #{wfadmin,jdbcType=VARCHAR}, #{wfreaders,jdbcType=VARCHAR}, 
+      #{wfinitiators,jdbcType=CHAR}, #{wfcondition,jdbcType=VARCHAR}, #{wftimelimitnotification,jdbcType=CHAR}, 
+      #{wfdurationtime,jdbcType=VARCHAR}, #{wftimelimitefficient,jdbcType=VARCHAR}, #{wftimelimitrepeat,jdbcType=VARCHAR}, 
+      #{wftimelimitrepeattimes,jdbcType=VARCHAR}, #{overduetreat,jdbcType=CHAR}, #{wfarchivesign,jdbcType=CHAR}, 
+      #{wfarchiveadmin,jdbcType=VARCHAR}, #{wfagent,jdbcType=CHAR}, #{wfchange,jdbcType=CHAR}, 
+      #{wfagain,jdbcType=CHAR}, #{wfrecall,jdbcType=CHAR}, #{wfreturnback,jdbcType=CHAR}, 
+      #{wfhangup,jdbcType=CHAR}, #{wfwake,jdbcType=CHAR}, #{wfjump,jdbcType=CHAR}, #{wfurge,jdbcType=CHAR}, 
+      #{delafterend,jdbcType=CHAR}, #{readersafterend,jdbcType=CHAR}, #{wfcreatetime,jdbcType=CHAR}, 
+      #{wfedittime,jdbcType=CHAR}, #{wfin,jdbcType=VARCHAR}, #{wfout,jdbcType=VARCHAR}, 
+      #{author,jdbcType=VARCHAR}, #{depid,jdbcType=VARCHAR}, #{orgid,jdbcType=VARCHAR}, 
+      #{ver,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.WF_WHOLE_PROPERTY">
+    insert into WF_WHOLE_PROPERTY
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="wfid != null">
+        WFID,
+      </if>
+      <if test="wfname != null">
+        WFNAME,
+      </if>
+      <if test="wfsign != null">
+        WFSIGN,
+      </if>
+      <if test="wftype != null">
+        WFTYPE,
+      </if>
+      <if test="wfsort != null">
+        WFSORT,
+      </if>
+      <if test="wfdescription != null">
+        WFDESCRIPTION,
+      </if>
+      <if test="wfstatus != null">
+        WFSTATUS,
+      </if>
+      <if test="wfver != null">
+        WFVER,
+      </if>
+      <if test="wfappid != null">
+        WFAPPID,
+      </if>
+      <if test="wfappname != null">
+        WFAPPNAME,
+      </if>
+      <if test="wfmainformid != null">
+        WFMAINFORMID,
+      </if>
+      <if test="wfmainformname != null">
+        WFMAINFORMNAME,
+      </if>
+      <if test="wfmainformfileds != null">
+        WFMAINFORMFILEDS,
+      </if>
+      <if test="wfadmin != null">
+        WFADMIN,
+      </if>
+      <if test="wfreaders != null">
+        WFREADERS,
+      </if>
+      <if test="wfinitiators != null">
+        WFINITIATORS,
+      </if>
+      <if test="wfcondition != null">
+        WFCONDITION,
+      </if>
+      <if test="wftimelimitnotification != null">
+        WFTIMELIMITNOTIFICATION,
+      </if>
+      <if test="wfdurationtime != null">
+        WFDURATIONTIME,
+      </if>
+      <if test="wftimelimitefficient != null">
+        WFTIMELIMITEFFICIENT,
+      </if>
+      <if test="wftimelimitrepeat != null">
+        WFTIMELIMITREPEAT,
+      </if>
+      <if test="wftimelimitrepeattimes != null">
+        WFTIMELIMITREPEATTIMES,
+      </if>
+      <if test="overduetreat != null">
+        OVERDUETREAT,
+      </if>
+      <if test="wfarchivesign != null">
+        WFARCHIVESIGN,
+      </if>
+      <if test="wfarchiveadmin != null">
+        WFARCHIVEADMIN,
+      </if>
+      <if test="wfagent != null">
+        WFAGENT,
+      </if>
+      <if test="wfchange != null">
+        WFCHANGE,
+      </if>
+      <if test="wfagain != null">
+        WFAGAIN,
+      </if>
+      <if test="wfrecall != null">
+        WFRECALL,
+      </if>
+      <if test="wfreturnback != null">
+        WFRETURNBACK,
+      </if>
+      <if test="wfhangup != null">
+        WFHANGUP,
+      </if>
+      <if test="wfwake != null">
+        WFWAKE,
+      </if>
+      <if test="wfjump != null">
+        WFJUMP,
+      </if>
+      <if test="wfurge != null">
+        WFURGE,
+      </if>
+      <if test="delafterend != null">
+        DELAFTEREND,
+      </if>
+      <if test="readersafterend != null">
+        READERSAFTEREND,
+      </if>
+      <if test="wfcreatetime != null">
+        WFCREATETIME,
+      </if>
+      <if test="wfedittime != null">
+        WFEDITTIME,
+      </if>
+      <if test="wfin != null">
+        WFIN,
+      </if>
+      <if test="wfout != null">
+        WFOUT,
+      </if>
+      <if test="author != null">
+        AUTHOR,
+      </if>
+      <if test="depid != null">
+        DEPID,
+      </if>
+      <if test="orgid != null">
+        ORGID,
+      </if>
+      <if test="ver != null">
+        VER,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="wfid != null">
+        #{wfid,jdbcType=VARCHAR},
+      </if>
+      <if test="wfname != null">
+        #{wfname,jdbcType=VARCHAR},
+      </if>
+      <if test="wfsign != null">
+        #{wfsign,jdbcType=VARCHAR},
+      </if>
+      <if test="wftype != null">
+        #{wftype,jdbcType=CHAR},
+      </if>
+      <if test="wfsort != null">
+        #{wfsort,jdbcType=VARCHAR},
+      </if>
+      <if test="wfdescription != null">
+        #{wfdescription,jdbcType=VARCHAR},
+      </if>
+      <if test="wfstatus != null">
+        #{wfstatus,jdbcType=CHAR},
+      </if>
+      <if test="wfver != null">
+        #{wfver,jdbcType=VARCHAR},
+      </if>
+      <if test="wfappid != null">
+        #{wfappid,jdbcType=VARCHAR},
+      </if>
+      <if test="wfappname != null">
+        #{wfappname,jdbcType=VARCHAR},
+      </if>
+      <if test="wfmainformid != null">
+        #{wfmainformid,jdbcType=VARCHAR},
+      </if>
+      <if test="wfmainformname != null">
+        #{wfmainformname,jdbcType=VARCHAR},
+      </if>
+      <if test="wfmainformfileds != null">
+        #{wfmainformfileds,jdbcType=VARCHAR},
+      </if>
+      <if test="wfadmin != null">
+        #{wfadmin,jdbcType=VARCHAR},
+      </if>
+      <if test="wfreaders != null">
+        #{wfreaders,jdbcType=VARCHAR},
+      </if>
+      <if test="wfinitiators != null">
+        #{wfinitiators,jdbcType=CHAR},
+      </if>
+      <if test="wfcondition != null">
+        #{wfcondition,jdbcType=VARCHAR},
+      </if>
+      <if test="wftimelimitnotification != null">
+        #{wftimelimitnotification,jdbcType=CHAR},
+      </if>
+      <if test="wfdurationtime != null">
+        #{wfdurationtime,jdbcType=VARCHAR},
+      </if>
+      <if test="wftimelimitefficient != null">
+        #{wftimelimitefficient,jdbcType=VARCHAR},
+      </if>
+      <if test="wftimelimitrepeat != null">
+        #{wftimelimitrepeat,jdbcType=VARCHAR},
+      </if>
+      <if test="wftimelimitrepeattimes != null">
+        #{wftimelimitrepeattimes,jdbcType=VARCHAR},
+      </if>
+      <if test="overduetreat != null">
+        #{overduetreat,jdbcType=CHAR},
+      </if>
+      <if test="wfarchivesign != null">
+        #{wfarchivesign,jdbcType=CHAR},
+      </if>
+      <if test="wfarchiveadmin != null">
+        #{wfarchiveadmin,jdbcType=VARCHAR},
+      </if>
+      <if test="wfagent != null">
+        #{wfagent,jdbcType=CHAR},
+      </if>
+      <if test="wfchange != null">
+        #{wfchange,jdbcType=CHAR},
+      </if>
+      <if test="wfagain != null">
+        #{wfagain,jdbcType=CHAR},
+      </if>
+      <if test="wfrecall != null">
+        #{wfrecall,jdbcType=CHAR},
+      </if>
+      <if test="wfreturnback != null">
+        #{wfreturnback,jdbcType=CHAR},
+      </if>
+      <if test="wfhangup != null">
+        #{wfhangup,jdbcType=CHAR},
+      </if>
+      <if test="wfwake != null">
+        #{wfwake,jdbcType=CHAR},
+      </if>
+      <if test="wfjump != null">
+        #{wfjump,jdbcType=CHAR},
+      </if>
+      <if test="wfurge != null">
+        #{wfurge,jdbcType=CHAR},
+      </if>
+      <if test="delafterend != null">
+        #{delafterend,jdbcType=CHAR},
+      </if>
+      <if test="readersafterend != null">
+        #{readersafterend,jdbcType=CHAR},
+      </if>
+      <if test="wfcreatetime != null">
+        #{wfcreatetime,jdbcType=CHAR},
+      </if>
+      <if test="wfedittime != null">
+        #{wfedittime,jdbcType=CHAR},
+      </if>
+      <if test="wfin != null">
+        #{wfin,jdbcType=VARCHAR},
+      </if>
+      <if test="wfout != null">
+        #{wfout,jdbcType=VARCHAR},
+      </if>
+      <if test="author != null">
+        #{author,jdbcType=VARCHAR},
+      </if>
+      <if test="depid != null">
+        #{depid,jdbcType=VARCHAR},
+      </if>
+      <if test="orgid != null">
+        #{orgid,jdbcType=VARCHAR},
+      </if>
+      <if test="ver != null">
+        #{ver,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.WF_WHOLE_PROPERTY">
+    update WF_WHOLE_PROPERTY
+    <set>
+      <if test="wfname != null">
+        WFNAME = #{wfname,jdbcType=VARCHAR},
+      </if>
+      <if test="wfsign != null">
+        WFSIGN = #{wfsign,jdbcType=VARCHAR},
+      </if>
+      <if test="wftype != null">
+        WFTYPE = #{wftype,jdbcType=CHAR},
+      </if>
+      <if test="wfsort != null">
+        WFSORT = #{wfsort,jdbcType=VARCHAR},
+      </if>
+      <if test="wfdescription != null">
+        WFDESCRIPTION = #{wfdescription,jdbcType=VARCHAR},
+      </if>
+      <if test="wfstatus != null">
+        WFSTATUS = #{wfstatus,jdbcType=CHAR},
+      </if>
+      <if test="wfver != null">
+        WFVER = #{wfver,jdbcType=VARCHAR},
+      </if>
+      <if test="wfappid != null">
+        WFAPPID = #{wfappid,jdbcType=VARCHAR},
+      </if>
+      <if test="wfappname != null">
+        WFAPPNAME = #{wfappname,jdbcType=VARCHAR},
+      </if>
+      <if test="wfmainformid != null">
+        WFMAINFORMID = #{wfmainformid,jdbcType=VARCHAR},
+      </if>
+      <if test="wfmainformname != null">
+        WFMAINFORMNAME = #{wfmainformname,jdbcType=VARCHAR},
+      </if>
+      <if test="wfmainformfileds != null">
+        WFMAINFORMFILEDS = #{wfmainformfileds,jdbcType=VARCHAR},
+      </if>
+      <if test="wfadmin != null">
+        WFADMIN = #{wfadmin,jdbcType=VARCHAR},
+      </if>
+      <if test="wfreaders != null">
+        WFREADERS = #{wfreaders,jdbcType=VARCHAR},
+      </if>
+      <if test="wfinitiators != null">
+        WFINITIATORS = #{wfinitiators,jdbcType=CHAR},
+      </if>
+      <if test="wfcondition != null">
+        WFCONDITION = #{wfcondition,jdbcType=VARCHAR},
+      </if>
+      <if test="wftimelimitnotification != null">
+        WFTIMELIMITNOTIFICATION = #{wftimelimitnotification,jdbcType=CHAR},
+      </if>
+      <if test="wfdurationtime != null">
+        WFDURATIONTIME = #{wfdurationtime,jdbcType=VARCHAR},
+      </if>
+      <if test="wftimelimitefficient != null">
+        WFTIMELIMITEFFICIENT = #{wftimelimitefficient,jdbcType=VARCHAR},
+      </if>
+      <if test="wftimelimitrepeat != null">
+        WFTIMELIMITREPEAT = #{wftimelimitrepeat,jdbcType=VARCHAR},
+      </if>
+      <if test="wftimelimitrepeattimes != null">
+        WFTIMELIMITREPEATTIMES = #{wftimelimitrepeattimes,jdbcType=VARCHAR},
+      </if>
+      <if test="overduetreat != null">
+        OVERDUETREAT = #{overduetreat,jdbcType=CHAR},
+      </if>
+      <if test="wfarchivesign != null">
+        WFARCHIVESIGN = #{wfarchivesign,jdbcType=CHAR},
+      </if>
+      <if test="wfarchiveadmin != null">
+        WFARCHIVEADMIN = #{wfarchiveadmin,jdbcType=VARCHAR},
+      </if>
+      <if test="wfagent != null">
+        WFAGENT = #{wfagent,jdbcType=CHAR},
+      </if>
+      <if test="wfchange != null">
+        WFCHANGE = #{wfchange,jdbcType=CHAR},
+      </if>
+      <if test="wfagain != null">
+        WFAGAIN = #{wfagain,jdbcType=CHAR},
+      </if>
+      <if test="wfrecall != null">
+        WFRECALL = #{wfrecall,jdbcType=CHAR},
+      </if>
+      <if test="wfreturnback != null">
+        WFRETURNBACK = #{wfreturnback,jdbcType=CHAR},
+      </if>
+      <if test="wfhangup != null">
+        WFHANGUP = #{wfhangup,jdbcType=CHAR},
+      </if>
+      <if test="wfwake != null">
+        WFWAKE = #{wfwake,jdbcType=CHAR},
+      </if>
+      <if test="wfjump != null">
+        WFJUMP = #{wfjump,jdbcType=CHAR},
+      </if>
+      <if test="wfurge != null">
+        WFURGE = #{wfurge,jdbcType=CHAR},
+      </if>
+      <if test="delafterend != null">
+        DELAFTEREND = #{delafterend,jdbcType=CHAR},
+      </if>
+      <if test="readersafterend != null">
+        READERSAFTEREND = #{readersafterend,jdbcType=CHAR},
+      </if>
+      <if test="wfcreatetime != null">
+        WFCREATETIME = #{wfcreatetime,jdbcType=CHAR},
+      </if>
+      <if test="wfedittime != null">
+        WFEDITTIME = #{wfedittime,jdbcType=CHAR},
+      </if>
+      <if test="wfin != null">
+        WFIN = #{wfin,jdbcType=VARCHAR},
+      </if>
+      <if test="wfout != null">
+        WFOUT = #{wfout,jdbcType=VARCHAR},
+      </if>
+      <if test="author != null">
+        AUTHOR = #{author,jdbcType=VARCHAR},
+      </if>
+      <if test="depid != null">
+        DEPID = #{depid,jdbcType=VARCHAR},
+      </if>
+      <if test="orgid != null">
+        ORGID = #{orgid,jdbcType=VARCHAR},
+      </if>
+      <if test="ver != null">
+        VER = #{ver,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where WFID = #{wfid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.WF_WHOLE_PROPERTY">
+    update WF_WHOLE_PROPERTY
+    set WFNAME = #{wfname,jdbcType=VARCHAR},
+      WFSIGN = #{wfsign,jdbcType=VARCHAR},
+      WFTYPE = #{wftype,jdbcType=CHAR},
+      WFSORT = #{wfsort,jdbcType=VARCHAR},
+      WFDESCRIPTION = #{wfdescription,jdbcType=VARCHAR},
+      WFSTATUS = #{wfstatus,jdbcType=CHAR},
+      WFVER = #{wfver,jdbcType=VARCHAR},
+      WFAPPID = #{wfappid,jdbcType=VARCHAR},
+      WFAPPNAME = #{wfappname,jdbcType=VARCHAR},
+      WFMAINFORMID = #{wfmainformid,jdbcType=VARCHAR},
+      WFMAINFORMNAME = #{wfmainformname,jdbcType=VARCHAR},
+      WFMAINFORMFILEDS = #{wfmainformfileds,jdbcType=VARCHAR},
+      WFADMIN = #{wfadmin,jdbcType=VARCHAR},
+      WFREADERS = #{wfreaders,jdbcType=VARCHAR},
+      WFINITIATORS = #{wfinitiators,jdbcType=CHAR},
+      WFCONDITION = #{wfcondition,jdbcType=VARCHAR},
+      WFTIMELIMITNOTIFICATION = #{wftimelimitnotification,jdbcType=CHAR},
+      WFDURATIONTIME = #{wfdurationtime,jdbcType=VARCHAR},
+      WFTIMELIMITEFFICIENT = #{wftimelimitefficient,jdbcType=VARCHAR},
+      WFTIMELIMITREPEAT = #{wftimelimitrepeat,jdbcType=VARCHAR},
+      WFTIMELIMITREPEATTIMES = #{wftimelimitrepeattimes,jdbcType=VARCHAR},
+      OVERDUETREAT = #{overduetreat,jdbcType=CHAR},
+      WFARCHIVESIGN = #{wfarchivesign,jdbcType=CHAR},
+      WFARCHIVEADMIN = #{wfarchiveadmin,jdbcType=VARCHAR},
+      WFAGENT = #{wfagent,jdbcType=CHAR},
+      WFCHANGE = #{wfchange,jdbcType=CHAR},
+      WFAGAIN = #{wfagain,jdbcType=CHAR},
+      WFRECALL = #{wfrecall,jdbcType=CHAR},
+      WFRETURNBACK = #{wfreturnback,jdbcType=CHAR},
+      WFHANGUP = #{wfhangup,jdbcType=CHAR},
+      WFWAKE = #{wfwake,jdbcType=CHAR},
+      WFJUMP = #{wfjump,jdbcType=CHAR},
+      WFURGE = #{wfurge,jdbcType=CHAR},
+      DELAFTEREND = #{delafterend,jdbcType=CHAR},
+      READERSAFTEREND = #{readersafterend,jdbcType=CHAR},
+      WFCREATETIME = #{wfcreatetime,jdbcType=CHAR},
+      WFEDITTIME = #{wfedittime,jdbcType=CHAR},
+      WFIN = #{wfin,jdbcType=VARCHAR},
+      WFOUT = #{wfout,jdbcType=VARCHAR},
+      AUTHOR = #{author,jdbcType=VARCHAR},
+      DEPID = #{depid,jdbcType=VARCHAR},
+      ORGID = #{orgid,jdbcType=VARCHAR},
+      VER = #{ver,jdbcType=VARCHAR}
+    where WFID = #{wfid,jdbcType=VARCHAR}
+  </update>
+</mapper>

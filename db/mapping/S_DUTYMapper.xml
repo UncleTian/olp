@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.S_DUTYMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.S_DUTY">
+    <id column="INSTU_CDE" jdbcType="VARCHAR" property="instuCde" />
+    <id column="DUTY_CDE" jdbcType="VARCHAR" property="dutyCde" />
+    <result column="DUTY_DESC" jdbcType="VARCHAR" property="dutyDesc" />
+    <result column="DUTY_STS" jdbcType="VARCHAR" property="dutySts" />
+    <result column="DUTY_RMK" jdbcType="VARCHAR" property="dutyRmk" />
+    <result column="LAST_CHG_DT" jdbcType="VARCHAR" property="lastChgDt" />
+    <result column="LAST_CHG_USR" jdbcType="VARCHAR" property="lastChgUsr" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    INSTU_CDE, DUTY_CDE, DUTY_DESC, DUTY_STS, DUTY_RMK, LAST_CHG_DT, LAST_CHG_USR
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="com.bea.olp.S_DUTYKey" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from S_DUTY
+    where INSTU_CDE = #{instuCde,jdbcType=VARCHAR}
+      and DUTY_CDE = #{dutyCde,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.bea.olp.S_DUTYKey">
+    delete from S_DUTY
+    where INSTU_CDE = #{instuCde,jdbcType=VARCHAR}
+      and DUTY_CDE = #{dutyCde,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bea.olp.S_DUTY">
+    insert into S_DUTY (INSTU_CDE, DUTY_CDE, DUTY_DESC, 
+      DUTY_STS, DUTY_RMK, LAST_CHG_DT, 
+      LAST_CHG_USR)
+    values (#{instuCde,jdbcType=VARCHAR}, #{dutyCde,jdbcType=VARCHAR}, #{dutyDesc,jdbcType=VARCHAR}, 
+      #{dutySts,jdbcType=VARCHAR}, #{dutyRmk,jdbcType=VARCHAR}, #{lastChgDt,jdbcType=VARCHAR}, 
+      #{lastChgUsr,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.S_DUTY">
+    insert into S_DUTY
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="instuCde != null">
+        INSTU_CDE,
+      </if>
+      <if test="dutyCde != null">
+        DUTY_CDE,
+      </if>
+      <if test="dutyDesc != null">
+        DUTY_DESC,
+      </if>
+      <if test="dutySts != null">
+        DUTY_STS,
+      </if>
+      <if test="dutyRmk != null">
+        DUTY_RMK,
+      </if>
+      <if test="lastChgDt != null">
+        LAST_CHG_DT,
+      </if>
+      <if test="lastChgUsr != null">
+        LAST_CHG_USR,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="instuCde != null">
+        #{instuCde,jdbcType=VARCHAR},
+      </if>
+      <if test="dutyCde != null">
+        #{dutyCde,jdbcType=VARCHAR},
+      </if>
+      <if test="dutyDesc != null">
+        #{dutyDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="dutySts != null">
+        #{dutySts,jdbcType=VARCHAR},
+      </if>
+      <if test="dutyRmk != null">
+        #{dutyRmk,jdbcType=VARCHAR},
+      </if>
+      <if test="lastChgDt != null">
+        #{lastChgDt,jdbcType=VARCHAR},
+      </if>
+      <if test="lastChgUsr != null">
+        #{lastChgUsr,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bea.olp.S_DUTY">
+    update S_DUTY
+    <set>
+      <if test="dutyDesc != null">
+        DUTY_DESC = #{dutyDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="dutySts != null">
+        DUTY_STS = #{dutySts,jdbcType=VARCHAR},
+      </if>
+      <if test="dutyRmk != null">
+        DUTY_RMK = #{dutyRmk,jdbcType=VARCHAR},
+      </if>
+      <if test="lastChgDt != null">
+        LAST_CHG_DT = #{lastChgDt,jdbcType=VARCHAR},
+      </if>
+      <if test="lastChgUsr != null">
+        LAST_CHG_USR = #{lastChgUsr,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where INSTU_CDE = #{instuCde,jdbcType=VARCHAR}
+      and DUTY_CDE = #{dutyCde,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bea.olp.S_DUTY">
+    update S_DUTY
+    set DUTY_DESC = #{dutyDesc,jdbcType=VARCHAR},
+      DUTY_STS = #{dutySts,jdbcType=VARCHAR},
+      DUTY_RMK = #{dutyRmk,jdbcType=VARCHAR},
+      LAST_CHG_DT = #{lastChgDt,jdbcType=VARCHAR},
+      LAST_CHG_USR = #{lastChgUsr,jdbcType=VARCHAR}
+    where INSTU_CDE = #{instuCde,jdbcType=VARCHAR}
+      and DUTY_CDE = #{dutyCde,jdbcType=VARCHAR}
+  </update>
+</mapper>

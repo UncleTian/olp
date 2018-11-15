@@ -1,0 +1,438 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.dao.BAT_CBM_CUS_BASEMapper">
+  <resultMap id="BaseResultMap" type="com.bea.olp.BAT_CBM_CUS_BASE">
+    <result column="CUS_ID" jdbcType="VARCHAR" property="cusId" />
+    <result column="ECIF_CUST_ID" jdbcType="VARCHAR" property="ecifCustId" />
+    <result column="NDS_CUS_ID" jdbcType="VARCHAR" property="ndsCusId" />
+    <result column="CERT_COUNTRY" jdbcType="VARCHAR" property="certCountry" />
+    <result column="CERT_TYPE" jdbcType="VARCHAR" property="certType" />
+    <result column="CERT_CODE" jdbcType="VARCHAR" property="certCode" />
+    <result column="CUS_TYPE" jdbcType="VARCHAR" property="cusType" />
+    <result column="CUS_SORT" jdbcType="VARCHAR" property="cusSort" />
+    <result column="CUS_NAME" jdbcType="VARCHAR" property="cusName" />
+    <result column="CUS_ENAME" jdbcType="VARCHAR" property="cusEname" />
+    <result column="CUS_STATUS" jdbcType="VARCHAR" property="cusStatus" />
+    <result column="MAIN_BR_ID" jdbcType="VARCHAR" property="mainBrId" />
+    <result column="CUS_MANAGER" jdbcType="VARCHAR" property="cusManager" />
+    <result column="INPUT_ID" jdbcType="VARCHAR" property="inputId" />
+    <result column="INPUT_DATE" jdbcType="VARCHAR" property="inputDate" />
+    <result column="INPUT_BR_ID" jdbcType="VARCHAR" property="inputBrId" />
+    <result column="LAST_UPD_ID" jdbcType="VARCHAR" property="lastUpdId" />
+    <result column="LAST_UPD_DATE" jdbcType="VARCHAR" property="lastUpdDate" />
+    <result column="IS_SEAL" jdbcType="VARCHAR" property="isSeal" />
+    <result column="OPEN_CUS_STATUS" jdbcType="VARCHAR" property="openCusStatus" />
+    <result column="CERT_VALID_DATE" jdbcType="VARCHAR" property="certValidDate" />
+    <result column="CERT_PROVINCE" jdbcType="VARCHAR" property="certProvince" />
+    <result column="IS_SEAL_REMARK" jdbcType="VARCHAR" property="isSealRemark" />
+    <result column="NEXTREVIEW_DATE" jdbcType="VARCHAR" property="nextreviewDate" />
+    <result column="APP_STATUS" jdbcType="VARCHAR" property="appStatus" />
+    <result column="IB_TYPE" jdbcType="VARCHAR" property="ibType" />
+    <result column="ORG_TYPE" jdbcType="VARCHAR" property="orgType" />
+    <result column="BANK_CODE" jdbcType="VARCHAR" property="bankCode" />
+    <result column="LAST_UPD_BR_ID" jdbcType="VARCHAR" property="lastUpdBrId" />
+    <result column="WARE_MANAGER_ID" jdbcType="VARCHAR" property="wareManagerId" />
+    <result column="WARE_LAST_MANAGER_ID" jdbcType="VARCHAR" property="wareLastManagerId" />
+    <result column="WARE_BR_ID" jdbcType="VARCHAR" property="wareBrId" />
+    <result column="WARE_LAST_BR_ID" jdbcType="VARCHAR" property="wareLastBrId" />
+    <result column="IS_WAREHOUSE_REG" jdbcType="VARCHAR" property="isWarehouseReg" />
+    <result column="COOPERATE_TYPE" jdbcType="VARCHAR" property="cooperateType" />
+    <result column="IS_TOTAL" jdbcType="VARCHAR" property="isTotal" />
+    <result column="VALID_STATUS" jdbcType="VARCHAR" property="validStatus" />
+    <result column="BANK_CUS_SORT" jdbcType="VARCHAR" property="bankCusSort" />
+    <result column="ECIFMERGE" jdbcType="VARCHAR" property="ecifmerge" />
+    <result column="MERGEDATE" jdbcType="VARCHAR" property="mergedate" />
+    <result column="BATCH_REVIEW_DATE" jdbcType="VARCHAR" property="batchReviewDate" />
+    <result column="BATCH_REVIEW_FLAG" jdbcType="VARCHAR" property="batchReviewFlag" />
+    <result column="ADDRESS_TYPE" jdbcType="VARCHAR" property="addressType" />
+    <result column="ADDRESS_COUNTRY" jdbcType="VARCHAR" property="addressCountry" />
+    <result column="ADDRESS_PROVINCE" jdbcType="VARCHAR" property="addressProvince" />
+    <result column="ADDRESS_CITY" jdbcType="VARCHAR" property="addressCity" />
+    <result column="ADDRESS" jdbcType="VARCHAR" property="address" />
+    <result column="POST_NO" jdbcType="VARCHAR" property="postNo" />
+    <result column="PHONE_TYPE" jdbcType="VARCHAR" property="phoneType" />
+    <result column="PHONE_NO" jdbcType="VARCHAR" property="phoneNo" />
+    <result column="BARCODE" jdbcType="VARCHAR" property="barcode" />
+    <result column="CLIENT_SOURCE" jdbcType="VARCHAR" property="clientSource" />
+    <result column="INPUT_TIME" jdbcType="VARCHAR" property="inputTime" />
+    <result column="DATA_DATE" jdbcType="VARCHAR" property="dataDate" />
+    <result column="BLACK_LIST" jdbcType="VARCHAR" property="blackList" />
+  </resultMap>
+  <insert id="insert" parameterType="com.bea.olp.BAT_CBM_CUS_BASE">
+    insert into BAT_CBM_CUS_BASE (CUS_ID, ECIF_CUST_ID, NDS_CUS_ID, 
+      CERT_COUNTRY, CERT_TYPE, CERT_CODE, 
+      CUS_TYPE, CUS_SORT, CUS_NAME, 
+      CUS_ENAME, CUS_STATUS, MAIN_BR_ID, 
+      CUS_MANAGER, INPUT_ID, INPUT_DATE, 
+      INPUT_BR_ID, LAST_UPD_ID, LAST_UPD_DATE, 
+      IS_SEAL, OPEN_CUS_STATUS, CERT_VALID_DATE, 
+      CERT_PROVINCE, IS_SEAL_REMARK, NEXTREVIEW_DATE, 
+      APP_STATUS, IB_TYPE, ORG_TYPE, 
+      BANK_CODE, LAST_UPD_BR_ID, WARE_MANAGER_ID, 
+      WARE_LAST_MANAGER_ID, WARE_BR_ID, WARE_LAST_BR_ID, 
+      IS_WAREHOUSE_REG, COOPERATE_TYPE, IS_TOTAL, 
+      VALID_STATUS, BANK_CUS_SORT, ECIFMERGE, 
+      MERGEDATE, BATCH_REVIEW_DATE, BATCH_REVIEW_FLAG, 
+      ADDRESS_TYPE, ADDRESS_COUNTRY, ADDRESS_PROVINCE, 
+      ADDRESS_CITY, ADDRESS, POST_NO, 
+      PHONE_TYPE, PHONE_NO, BARCODE, 
+      CLIENT_SOURCE, INPUT_TIME, DATA_DATE, 
+      BLACK_LIST)
+    values (#{cusId,jdbcType=VARCHAR}, #{ecifCustId,jdbcType=VARCHAR}, #{ndsCusId,jdbcType=VARCHAR}, 
+      #{certCountry,jdbcType=VARCHAR}, #{certType,jdbcType=VARCHAR}, #{certCode,jdbcType=VARCHAR}, 
+      #{cusType,jdbcType=VARCHAR}, #{cusSort,jdbcType=VARCHAR}, #{cusName,jdbcType=VARCHAR}, 
+      #{cusEname,jdbcType=VARCHAR}, #{cusStatus,jdbcType=VARCHAR}, #{mainBrId,jdbcType=VARCHAR}, 
+      #{cusManager,jdbcType=VARCHAR}, #{inputId,jdbcType=VARCHAR}, #{inputDate,jdbcType=VARCHAR}, 
+      #{inputBrId,jdbcType=VARCHAR}, #{lastUpdId,jdbcType=VARCHAR}, #{lastUpdDate,jdbcType=VARCHAR}, 
+      #{isSeal,jdbcType=VARCHAR}, #{openCusStatus,jdbcType=VARCHAR}, #{certValidDate,jdbcType=VARCHAR}, 
+      #{certProvince,jdbcType=VARCHAR}, #{isSealRemark,jdbcType=VARCHAR}, #{nextreviewDate,jdbcType=VARCHAR}, 
+      #{appStatus,jdbcType=VARCHAR}, #{ibType,jdbcType=VARCHAR}, #{orgType,jdbcType=VARCHAR}, 
+      #{bankCode,jdbcType=VARCHAR}, #{lastUpdBrId,jdbcType=VARCHAR}, #{wareManagerId,jdbcType=VARCHAR}, 
+      #{wareLastManagerId,jdbcType=VARCHAR}, #{wareBrId,jdbcType=VARCHAR}, #{wareLastBrId,jdbcType=VARCHAR}, 
+      #{isWarehouseReg,jdbcType=VARCHAR}, #{cooperateType,jdbcType=VARCHAR}, #{isTotal,jdbcType=VARCHAR}, 
+      #{validStatus,jdbcType=VARCHAR}, #{bankCusSort,jdbcType=VARCHAR}, #{ecifmerge,jdbcType=VARCHAR}, 
+      #{mergedate,jdbcType=VARCHAR}, #{batchReviewDate,jdbcType=VARCHAR}, #{batchReviewFlag,jdbcType=VARCHAR}, 
+      #{addressType,jdbcType=VARCHAR}, #{addressCountry,jdbcType=VARCHAR}, #{addressProvince,jdbcType=VARCHAR}, 
+      #{addressCity,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{postNo,jdbcType=VARCHAR}, 
+      #{phoneType,jdbcType=VARCHAR}, #{phoneNo,jdbcType=VARCHAR}, #{barcode,jdbcType=VARCHAR}, 
+      #{clientSource,jdbcType=VARCHAR}, #{inputTime,jdbcType=VARCHAR}, #{dataDate,jdbcType=VARCHAR}, 
+      #{blackList,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bea.olp.BAT_CBM_CUS_BASE">
+    insert into BAT_CBM_CUS_BASE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="cusId != null">
+        CUS_ID,
+      </if>
+      <if test="ecifCustId != null">
+        ECIF_CUST_ID,
+      </if>
+      <if test="ndsCusId != null">
+        NDS_CUS_ID,
+      </if>
+      <if test="certCountry != null">
+        CERT_COUNTRY,
+      </if>
+      <if test="certType != null">
+        CERT_TYPE,
+      </if>
+      <if test="certCode != null">
+        CERT_CODE,
+      </if>
+      <if test="cusType != null">
+        CUS_TYPE,
+      </if>
+      <if test="cusSort != null">
+        CUS_SORT,
+      </if>
+      <if test="cusName != null">
+        CUS_NAME,
+      </if>
+      <if test="cusEname != null">
+        CUS_ENAME,
+      </if>
+      <if test="cusStatus != null">
+        CUS_STATUS,
+      </if>
+      <if test="mainBrId != null">
+        MAIN_BR_ID,
+      </if>
+      <if test="cusManager != null">
+        CUS_MANAGER,
+      </if>
+      <if test="inputId != null">
+        INPUT_ID,
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE,
+      </if>
+      <if test="inputBrId != null">
+        INPUT_BR_ID,
+      </if>
+      <if test="lastUpdId != null">
+        LAST_UPD_ID,
+      </if>
+      <if test="lastUpdDate != null">
+        LAST_UPD_DATE,
+      </if>
+      <if test="isSeal != null">
+        IS_SEAL,
+      </if>
+      <if test="openCusStatus != null">
+        OPEN_CUS_STATUS,
+      </if>
+      <if test="certValidDate != null">
+        CERT_VALID_DATE,
+      </if>
+      <if test="certProvince != null">
+        CERT_PROVINCE,
+      </if>
+      <if test="isSealRemark != null">
+        IS_SEAL_REMARK,
+      </if>
+      <if test="nextreviewDate != null">
+        NEXTREVIEW_DATE,
+      </if>
+      <if test="appStatus != null">
+        APP_STATUS,
+      </if>
+      <if test="ibType != null">
+        IB_TYPE,
+      </if>
+      <if test="orgType != null">
+        ORG_TYPE,
+      </if>
+      <if test="bankCode != null">
+        BANK_CODE,
+      </if>
+      <if test="lastUpdBrId != null">
+        LAST_UPD_BR_ID,
+      </if>
+      <if test="wareManagerId != null">
+        WARE_MANAGER_ID,
+      </if>
+      <if test="wareLastManagerId != null">
+        WARE_LAST_MANAGER_ID,
+      </if>
+      <if test="wareBrId != null">
+        WARE_BR_ID,
+      </if>
+      <if test="wareLastBrId != null">
+        WARE_LAST_BR_ID,
+      </if>
+      <if test="isWarehouseReg != null">
+        IS_WAREHOUSE_REG,
+      </if>
+      <if test="cooperateType != null">
+        COOPERATE_TYPE,
+      </if>
+      <if test="isTotal != null">
+        IS_TOTAL,
+      </if>
+      <if test="validStatus != null">
+        VALID_STATUS,
+      </if>
+      <if test="bankCusSort != null">
+        BANK_CUS_SORT,
+      </if>
+      <if test="ecifmerge != null">
+        ECIFMERGE,
+      </if>
+      <if test="mergedate != null">
+        MERGEDATE,
+      </if>
+      <if test="batchReviewDate != null">
+        BATCH_REVIEW_DATE,
+      </if>
+      <if test="batchReviewFlag != null">
+        BATCH_REVIEW_FLAG,
+      </if>
+      <if test="addressType != null">
+        ADDRESS_TYPE,
+      </if>
+      <if test="addressCountry != null">
+        ADDRESS_COUNTRY,
+      </if>
+      <if test="addressProvince != null">
+        ADDRESS_PROVINCE,
+      </if>
+      <if test="addressCity != null">
+        ADDRESS_CITY,
+      </if>
+      <if test="address != null">
+        ADDRESS,
+      </if>
+      <if test="postNo != null">
+        POST_NO,
+      </if>
+      <if test="phoneType != null">
+        PHONE_TYPE,
+      </if>
+      <if test="phoneNo != null">
+        PHONE_NO,
+      </if>
+      <if test="barcode != null">
+        BARCODE,
+      </if>
+      <if test="clientSource != null">
+        CLIENT_SOURCE,
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME,
+      </if>
+      <if test="dataDate != null">
+        DATA_DATE,
+      </if>
+      <if test="blackList != null">
+        BLACK_LIST,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="cusId != null">
+        #{cusId,jdbcType=VARCHAR},
+      </if>
+      <if test="ecifCustId != null">
+        #{ecifCustId,jdbcType=VARCHAR},
+      </if>
+      <if test="ndsCusId != null">
+        #{ndsCusId,jdbcType=VARCHAR},
+      </if>
+      <if test="certCountry != null">
+        #{certCountry,jdbcType=VARCHAR},
+      </if>
+      <if test="certType != null">
+        #{certType,jdbcType=VARCHAR},
+      </if>
+      <if test="certCode != null">
+        #{certCode,jdbcType=VARCHAR},
+      </if>
+      <if test="cusType != null">
+        #{cusType,jdbcType=VARCHAR},
+      </if>
+      <if test="cusSort != null">
+        #{cusSort,jdbcType=VARCHAR},
+      </if>
+      <if test="cusName != null">
+        #{cusName,jdbcType=VARCHAR},
+      </if>
+      <if test="cusEname != null">
+        #{cusEname,jdbcType=VARCHAR},
+      </if>
+      <if test="cusStatus != null">
+        #{cusStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="mainBrId != null">
+        #{mainBrId,jdbcType=VARCHAR},
+      </if>
+      <if test="cusManager != null">
+        #{cusManager,jdbcType=VARCHAR},
+      </if>
+      <if test="inputId != null">
+        #{inputId,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputBrId != null">
+        #{inputBrId,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdId != null">
+        #{lastUpdId,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdDate != null">
+        #{lastUpdDate,jdbcType=VARCHAR},
+      </if>
+      <if test="isSeal != null">
+        #{isSeal,jdbcType=VARCHAR},
+      </if>
+      <if test="openCusStatus != null">
+        #{openCusStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="certValidDate != null">
+        #{certValidDate,jdbcType=VARCHAR},
+      </if>
+      <if test="certProvince != null">
+        #{certProvince,jdbcType=VARCHAR},
+      </if>
+      <if test="isSealRemark != null">
+        #{isSealRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="nextreviewDate != null">
+        #{nextreviewDate,jdbcType=VARCHAR},
+      </if>
+      <if test="appStatus != null">
+        #{appStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="ibType != null">
+        #{ibType,jdbcType=VARCHAR},
+      </if>
+      <if test="orgType != null">
+        #{orgType,jdbcType=VARCHAR},
+      </if>
+      <if test="bankCode != null">
+        #{bankCode,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdBrId != null">
+        #{lastUpdBrId,jdbcType=VARCHAR},
+      </if>
+      <if test="wareManagerId != null">
+        #{wareManagerId,jdbcType=VARCHAR},
+      </if>
+      <if test="wareLastManagerId != null">
+        #{wareLastManagerId,jdbcType=VARCHAR},
+      </if>
+      <if test="wareBrId != null">
+        #{wareBrId,jdbcType=VARCHAR},
+      </if>
+      <if test="wareLastBrId != null">
+        #{wareLastBrId,jdbcType=VARCHAR},
+      </if>
+      <if test="isWarehouseReg != null">
+        #{isWarehouseReg,jdbcType=VARCHAR},
+      </if>
+      <if test="cooperateType != null">
+        #{cooperateType,jdbcType=VARCHAR},
+      </if>
+      <if test="isTotal != null">
+        #{isTotal,jdbcType=VARCHAR},
+      </if>
+      <if test="validStatus != null">
+        #{validStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="bankCusSort != null">
+        #{bankCusSort,jdbcType=VARCHAR},
+      </if>
+      <if test="ecifmerge != null">
+        #{ecifmerge,jdbcType=VARCHAR},
+      </if>
+      <if test="mergedate != null">
+        #{mergedate,jdbcType=VARCHAR},
+      </if>
+      <if test="batchReviewDate != null">
+        #{batchReviewDate,jdbcType=VARCHAR},
+      </if>
+      <if test="batchReviewFlag != null">
+        #{batchReviewFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="addressType != null">
+        #{addressType,jdbcType=VARCHAR},
+      </if>
+      <if test="addressCountry != null">
+        #{addressCountry,jdbcType=VARCHAR},
+      </if>
+      <if test="addressProvince != null">
+        #{addressProvince,jdbcType=VARCHAR},
+      </if>
+      <if test="addressCity != null">
+        #{addressCity,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="postNo != null">
+        #{postNo,jdbcType=VARCHAR},
+      </if>
+      <if test="phoneType != null">
+        #{phoneType,jdbcType=VARCHAR},
+      </if>
+      <if test="phoneNo != null">
+        #{phoneNo,jdbcType=VARCHAR},
+      </if>
+      <if test="barcode != null">
+        #{barcode,jdbcType=VARCHAR},
+      </if>
+      <if test="clientSource != null">
+        #{clientSource,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="dataDate != null">
+        #{dataDate,jdbcType=VARCHAR},
+      </if>
+      <if test="blackList != null">
+        #{blackList,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

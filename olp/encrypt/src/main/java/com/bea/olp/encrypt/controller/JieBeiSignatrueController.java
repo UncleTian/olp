@@ -3,14 +3,10 @@ package com.bea.olp.encrypt.controller;
 import static org.junit.Assert.assertNotNull;
 
 import java.io.UnsupportedEncodingException;
-import java.security.InvalidKeyException;
 import java.security.KeyFactory;
-import java.security.NoSuchAlgorithmException;
 import java.security.PrivateKey;
 import java.security.PublicKey;
 import java.security.Signature;
-import java.security.SignatureException;
-import java.security.spec.InvalidKeySpecException;
 import java.security.spec.PKCS8EncodedKeySpec;
 import java.security.spec.X509EncodedKeySpec;
 import java.util.Base64;
@@ -57,9 +53,8 @@ public class JieBeiSignatrueController {
 
 		} catch (UnsupportedEncodingException e) {
 			logger.error(String.format("Error when verifying signature. %s", e.getMessage()));
-			e.printStackTrace();
+			return false;
 		}
-		return false;
 
 	}
 
@@ -68,19 +63,19 @@ public class JieBeiSignatrueController {
 		try {
 			return CryptUtils.signRequest(data, privateKey);
 		} catch (UnsupportedEncodingException e) {
-			e.printStackTrace();
+			logger.error(String.format("Error when generate signature. %s", e.getMessage()));
+			return null;
 		}
-		return null;
 	}
 
 	@RequestMapping("/signAndVerifySign")
-	private boolean signAndVerifySign() throws InvalidKeySpecException, NoSuchAlgorithmException, InvalidKeyException,
-			SignatureException, UnsupportedEncodingException {
+	private boolean signAndVerifySign() {
 		logger.info("start generating signatrue.");
-		KeyFactory keyFactory = KeyFactory.getInstance("RSA");
+		KeyFactory keyFactory = null;
 		String data = "what the hell!";
 		String data64 = null;
 		try {
+			keyFactory = KeyFactory.getInstance("RSA");
 			byte[] bytesPrivate = Base64.getDecoder().decode(privateKey.getBytes());
 			PKCS8EncodedKeySpec keySpecprivate = new PKCS8EncodedKeySpec(bytesPrivate);
 			PrivateKey generatedPrivateKey = keyFactory.generatePrivate(keySpecprivate);

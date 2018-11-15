@@ -2,7 +2,6 @@ package com.bea.olp.encrypt.controller;
 
 import static org.junit.Assert.assertNotNull;
 
-import java.io.UnsupportedEncodingException;
 import java.security.KeyFactory;
 import java.security.PrivateKey;
 import java.security.PublicKey;
@@ -17,13 +16,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.bea.olp.encrypt.common.Base64Util;
-import com.bea.olp.encrypt.utils.CryptUtils;
-import com.bea.olp.encrypt.utils.XmlUtil;
+import com.bea.olp.encrypt.utils.SignatureUtils;
 
 import bea.com.olp.domain.AntRequest;
 
@@ -31,10 +29,10 @@ import bea.com.olp.domain.AntRequest;
  * Controller used for JeiBei signature signing and verifying
  */
 @RestController
-@PropertySource(value = { "classpath:key.properties" })
+@PropertySource(value = { "classpath:keys.properties" })
 @RequestMapping("/")
-public class JieBeiSignatrueController {
-	private static final Logger logger = LoggerFactory.getLogger(JieBeiSignatrueController.class.getName());
+public class SignatrueController {
+	private static final Logger logger = LoggerFactory.getLogger(SignatrueController.class.getName());
 
 	@Value("${ant.publicKey}")
 	private String publicKey;
@@ -43,33 +41,29 @@ public class JieBeiSignatrueController {
 
 	private static final String ALGORITHM = "Sha256WithRSA";
 
-	@RequestMapping("/verifySign")
-	public boolean VerifySign(@RequestBody AntRequest antRequest) {
-		try {
-			logger.info("Start verifying signature.");
-			String requestData = XmlUtil.convertObjectToXml(antRequest, "UTF-8");
-			String verifyRequest = CryptUtils.verifyRequest(requestData, publicKey);
-			return "true".equalsIgnoreCase(verifyRequest) ? true : false;
-
-		} catch (UnsupportedEncodingException e) {
-			logger.error(String.format("Error when verifying signature. %s", e.getMessage()));
-			return false;
+	@RequestMapping("/verifySignForAnt")
+	public boolean VerifySignForAnt(@RequestBody AntRequest antRequest) {
+		logger.info("Start verifying signature.");
+		if (StringUtils.isEmpty(antRequest.getRequest())) {
+			logger.error("request data can not be empty.");
 		}
+
+		return SignatureUtils.verifySiginature(publicKey, antRequest.getSignature(), antRequest.getRequest());
 
 	}
 
-	@RequestMapping("/sign")
-	public String Sign(String data) {
-		try {
-			return CryptUtils.signRequest(data, privateKey);
-		} catch (UnsupportedEncodingException e) {
-			logger.error(String.format("Error when generate signature. %s", e.getMessage()));
-			return null;
-		}
+	@RequestMapping("/signForAnt")
+	public String SignForAnt(String data) {
+		return SignatureUtils.generateSignature(privateKey, data);
 	}
 
-	@RequestMapping("/signAndVerifySign")
-	private boolean signAndVerifySign() {
+	/**
+	 * This method is used only for private key and public key test
+	 * 
+	 * @return
+	 */
+	@RequestMapping("/signAndVerifySignForAnt")
+	private boolean signAndVerifySignForAnt() {
 		logger.info("start generating signatrue.");
 		KeyFactory keyFactory = null;
 		String data = "what the hell!";
@@ -84,7 +78,7 @@ public class JieBeiSignatrueController {
 			signature.initSign(generatedPrivateKey);
 			signature.update(data.getBytes("UTF-8"));
 			byte[] signed = signature.sign();
-			data64 = Base64Util.encodeBase64(signed);
+			data64 = Base64.getEncoder().encodeToString(signed);
 		} catch (Exception e) {
 			e.printStackTrace();
 			logger.error(String.format("Error when generating signatrue. %s", e.getMessage()));
@@ -92,7 +86,7 @@ public class JieBeiSignatrueController {
 
 		logger.info("start verifying signature.");
 		try {
-			byte[] newSigned = Base64Util.decodeBase64(data64);
+			byte[] newSigned = Base64.getDecoder().decode(data64);
 			byte[] bytesPublic = Base64.getDecoder().decode(publicKey.getBytes());
 			X509EncodedKeySpec keySpecPublic = new X509EncodedKeySpec(bytesPublic);
 			PublicKey generatedPublicKey = keyFactory.generatePublic(keySpecPublic);

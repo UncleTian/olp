@@ -1,4 +1,4 @@
-package com.bea.olp.encrypt.service.alipay;
+package com.bea.olp.encrypt.utils;
 
 import java.security.KeyFactory;
 import java.security.KeyPair;

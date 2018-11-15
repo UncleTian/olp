@@ -1,4 +1,4 @@
-package com.bea.olp.encrypt.service.alipay;
+package com.bea.olp.encrypt.utils;
 
 import java.io.UnsupportedEncodingException;
 import java.util.ResourceBundle;
@@ -10,11 +10,11 @@ public class CryptUtils {
 
 	private static String	privateKey;
 	private static String	publicKey;
-	static {
-		ResourceBundle res = ResourceBundle.getBundle("cmis");
-		privateKey = res.getString("privateKey");
-		publicKey = res.getString("publicKey");
-	}
+//	static {
+//		ResourceBundle res = ResourceBundle.getBundle("cmis");
+//		privateKey = res.getString("privateKey");
+//		publicKey = res.getString("publicKey");
+//	}
 
 	/**
 	 * 签名返回报文
@@ -55,21 +55,21 @@ public class CryptUtils {
 	 * @return String 签名后报文
 	 * @throws UnsupportedEncodingException
 	 * */
-	public static String signRequest(String xmlDate) throws UnsupportedEncodingException {
+	public static String signRequest(String xmlDate, String privateKey) throws UnsupportedEncodingException {
 		String data64 = Base64Util.encodeBase64FromStr(xmlDate);
 		// ResourceBundle res = ResourceBundle.getBundle("cmis");
 		// String privateKey = res.getString("privateKey");
-		if (privateKey == null || privateKey.equals("")) {
-			ResourceBundle res = ResourceBundle.getBundle("cmis");
-			privateKey = res.getString("privateKey");
-		}
+//		if (privateKey == null || privateKey.equals("")) {
+//			ResourceBundle res = ResourceBundle.getBundle("cmis");
+//			privateKey = res.getString("privateKey");
+//		}
 		// 对data进行base64编码
-//		data64 = Base64Util.encodeBase64(RSAUtil.sign(privateKey, data64));
+		data64 = Base64Util.encodeBase64(RSAUtil.sign(privateKey, data64));
 
 		/********************* 测试环境时调用 **************************/
 		 //data64 = RSAUtil.bytesToString(RSAUtil.sign(privateKey, data64));
 		 // 对data进行base64编码
-		 data64 = Base64Util.encodeBase64FromStr(data64);
+//		 data64 = Base64Util.encodeBase64FromStr(data64);
 		/********************************************************/
 
 		// 拼装最终报文
@@ -85,7 +85,7 @@ public class CryptUtils {
 	 * @return String 结果，true通过，false不通过
 	 * @throws UnsupportedEncodingException
 	 * */
-	public static String verifyRequest(String reqData) throws UnsupportedEncodingException {
+	public static String verifyRequest(String reqData, String publicKey) throws UnsupportedEncodingException {
 		org.apache.log4j.Logger logger = LogUtils.getLogger();
 		// 获取request包裹的报文头
 		String requestData = getFieldValue("<request>", reqData);

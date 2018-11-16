@@ -53,8 +53,6 @@ spring:
 
 server:
   port: 12345
-  servlet:
-    context-path: /ant
 
 eureka:
   client:

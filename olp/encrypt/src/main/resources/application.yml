@@ -1,7 +1,5 @@
 server: 
   port: 12375
-  servlet:
-    context-path: /encrypt
 
 eureka:
   client:

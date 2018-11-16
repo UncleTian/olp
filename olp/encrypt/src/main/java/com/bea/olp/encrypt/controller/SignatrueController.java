@@ -29,7 +29,6 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @PropertySource(value = { "classpath:keys.properties" })
-@RequestMapping("/")
 public class SignatrueController {
 	private static final Logger logger = LoggerFactory.getLogger(SignatrueController.class.getName());
 
@@ -41,13 +40,14 @@ public class SignatrueController {
 	private static final String ALGORITHM = "Sha256WithRSA";
 
 	@RequestMapping("/verifySignForAnt")
-	public boolean VerifySignForAnt(@RequestParam AntRequest antRequest) {
+	public boolean VerifySignForAnt(@RequestParam(name="antRequest") String antRequest) {
 		logger.info("Start verifying signature.");
-		if (StringUtils.isEmpty(antRequest.getRequest())) {
-			logger.error("request data can not be empty.");
-		}
-
-		return SignatureUtils.verifySiginature(publicKey, antRequest.getSignature(), antRequest.getRequest());
+//		if (StringUtils.isEmpty(antRequest.getRequest())) {
+//			logger.error("request data can not be empty.");
+//		}
+		System.out.println("gogogog");
+//		return SignatureUtils.verifySiginature(publicKey, antRequest.getSignature(), antRequest.getRequest());
+		return true;
 
 	}
 

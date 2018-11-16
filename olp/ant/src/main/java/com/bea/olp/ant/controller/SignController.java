@@ -8,11 +8,11 @@ import com.bea.olp.ant.internalservice.SignService;
 
 @RestController
 public class SignController {
-	@Autowired
-	private SignService signService;
-
-	@RequestMapping("/sign")
-	public String sign(String data) {
-		return signService.sign(data);
-	}
+//	@Autowired
+//	private SignService signService;
+//
+//	@RequestMapping("/sign")
+//	public String sign(String data) {
+//		return signService.sign(data);
+//	}
 }

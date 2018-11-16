@@ -5,6 +5,7 @@ import java.util.Date;
 import com.bea.olp.ant.common.ObjectFieldsOperation;
 import com.bea.olp.ant.entity.AntRatFirstAppInfo;
 import com.bea.olp.ant.feign.JibeiEncrypt;
+import com.bea.olp.ant.model.AntRequest;
 import com.bea.olp.ant.model.JibeiDocument;
 import com.bea.olp.ant.repository.AntRatFirstAppInfoRepo;
 
@@ -12,7 +13,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
-import bea.com.olp.domain.AntRequest;
 
 /**
  * JibeiService

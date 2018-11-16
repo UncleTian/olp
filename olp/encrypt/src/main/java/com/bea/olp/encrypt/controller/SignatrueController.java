@@ -12,18 +12,17 @@ import java.util.Base64;
 
 import javax.annotation.PostConstruct;
 
+import com.bea.olp.encrypt.domain.AntRequest;
+import com.bea.olp.encrypt.utils.SignatureUtils;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.util.StringUtils;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.bea.olp.encrypt.utils.SignatureUtils;
-
-import bea.com.olp.domain.AntRequest;
 
 /**
  * Controller used for JeiBei signature signing and verifying
@@ -42,7 +41,7 @@ public class SignatrueController {
 	private static final String ALGORITHM = "Sha256WithRSA";
 
 	@RequestMapping("/verifySignForAnt")
-	public boolean VerifySignForAnt(@RequestBody AntRequest antRequest) {
+	public boolean VerifySignForAnt(@RequestParam AntRequest antRequest) {
 		logger.info("Start verifying signature.");
 		if (StringUtils.isEmpty(antRequest.getRequest())) {
 			logger.error("request data can not be empty.");

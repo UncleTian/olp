@@ -9,5 +9,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
  */
 public interface AntRatFirstAppInfoRepo extends JpaRepository<AntRatFirstAppInfo,Long>{
 
-    AntRatFirstAppInfo Save(AntRatFirstAppInfo antRatFirstAppInfo);
+    AntRatFirstAppInfo save(AntRatFirstAppInfo antRatFirstAppInfo);
 }

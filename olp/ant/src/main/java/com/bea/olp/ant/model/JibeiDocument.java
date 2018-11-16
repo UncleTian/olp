@@ -2,6 +2,7 @@ package com.bea.olp.ant.model;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 
@@ -12,6 +13,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class JibeiDocument {
 
+	@XmlElement(name="request")
     private JibeiRequest jibeiRequest;
 
     private String signature;

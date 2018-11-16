@@ -35,7 +35,7 @@ public class JibeiService {
             AntRequest antRequest = new AntRequest();
             antRequest.setRequest(document.getJibeiRequest().toString());
             antRequest.setSignature(document.getSignature());
-            if(jibeiEncrypt.VerifySignForAnt(antRequest)){
+            if(jibeiEncrypt.VerifySignForAnt("hahahah")){
                 AntRatFirstAppInfo antRatFirstAppInfo = new AntRatFirstAppInfo();
                 antRatFirstAppInfo.setApplyNo(document.getJibeiRequest().getJibeiBody().getApplyNo());
                 antRatFirstAppInfo.setCertCode(document.getJibeiRequest().getJibeiBody().getCertNo());

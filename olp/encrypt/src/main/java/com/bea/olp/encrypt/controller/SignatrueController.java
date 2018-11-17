@@ -40,14 +40,13 @@ public class SignatrueController {
 	private static final String ALGORITHM = "Sha256WithRSA";
 
 	@RequestMapping("/verifySignForAnt")
-	public boolean VerifySignForAnt(@RequestParam(name="antRequest") String antRequest) {
+	public boolean VerifySignForAnt(@RequestParam(name="antRequest") AntRequest antRequest) {
 		logger.info("Start verifying signature.");
-//		if (StringUtils.isEmpty(antRequest.getRequest())) {
-//			logger.error("request data can not be empty.");
-//		}
-		System.out.println("gogogog");
-//		return SignatureUtils.verifySiginature(publicKey, antRequest.getSignature(), antRequest.getRequest());
-		return true;
+		if (StringUtils.isEmpty(antRequest.getRequest())) {
+			logger.error("request data can not be empty.");
+		}
+		return SignatureUtils.verifySiginature(publicKey, antRequest.getSignature(), antRequest.getRequest());
+		
 
 	}
 

@@ -21,7 +21,7 @@ public class JiebeiController {
     JibeiService JibeiService;
 
     @RequestMapping("/jiebeiFirstApply")
-    public String JieBeiFirstApply(@RequestBody String param){
+    public String JieBeiFirstApply(@RequestBody String param,String signStr){
 
         return JibeiService.parseParam(param);
     }

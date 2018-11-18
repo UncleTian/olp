@@ -6,7 +6,7 @@ import javax.xml.bind.annotation.XmlAccessType;
 /**
  * JibeiHead
  */
-@XmlRootElement(name="head")
+@XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
 public class JibeiHead {
     private String version;

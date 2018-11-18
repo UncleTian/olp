@@ -6,7 +6,7 @@ import javax.xml.bind.annotation.XmlAccessType;
 /**
  * JibeiBody
  */
-@XmlRootElement(name="body")
+@XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
 public class JibeiBody {
     private String applyNo;

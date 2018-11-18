@@ -7,7 +7,7 @@ import javax.xml.bind.annotation.XmlAccessType;
 /**
  * JibeiRequest
  */
-@XmlRootElement(name="request")
+@XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
 public class JibeiRequest {
 	

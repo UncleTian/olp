@@ -20,6 +20,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.util.StringUtils;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -40,13 +41,13 @@ public class SignatrueController {
 	private static final String ALGORITHM = "Sha256WithRSA";
 
 	@RequestMapping("/verifySignForAnt")
-	public boolean VerifySignForAnt(@RequestParam(name="antRequest") AntRequest antRequest) {
+	public boolean VerifySignForAnt(@RequestBody AntRequest antRequest) {
 		logger.info("Start verifying signature.");
 		if (StringUtils.isEmpty(antRequest.getRequest())) {
 			logger.error("request data can not be empty.");
 		}
-		return SignatureUtils.verifySiginature(publicKey, antRequest.getSignature(), antRequest.getRequest());
-		
+		boolean res =  SignatureUtils.verifySiginature(publicKey, antRequest.getSignature(), antRequest.getRequest());
+		return res;
 
 	}
 

@@ -16,7 +16,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 public interface JibeiEncrypt {
 
 	@RequestMapping(value= "/encrypt/verifySignForAnt")
-	public boolean VerifySignForAnt(@RequestBody AntRequest antRequest) ;
+	public boolean verifySignForAnt(@RequestBody AntRequest antRequest) ;
 
+	
+	@RequestMapping(value="/encrypt/signForAnt")
+	public String signForAnt(String data);
 
 }

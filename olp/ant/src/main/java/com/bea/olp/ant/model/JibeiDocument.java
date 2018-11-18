@@ -5,35 +5,32 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
-
 /**
  * JibeiDocument
  */
-@XmlRootElement(name="document")
+@XmlRootElement(name = "document")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class JibeiDocument {
 
-	@XmlElement(name="request")
-    private JibeiRequest jibeiRequest;
+	@XmlElement(name = "request")
+	private JibeiRequest jibeiRequest;
 
-    private String signature;
+	private String signature;
 
-    public String getSignature() {
-        return this.signature;
-    }
+	public String getSignature() {
+		return this.signature;
+	}
 
-    public void setSignature(String signature) {
-        this.signature = signature;
-    }
+	public void setSignature(String signature) {
+		this.signature = signature;
+	}
 
-    public JibeiRequest getJibeiRequest() {
-        return this.jibeiRequest;
-    }
+	public JibeiRequest getJibeiRequest() {
+		return this.jibeiRequest;
+	}
 
-    public void setJibeiRequest(JibeiRequest jibeiRequest) {
-        this.jibeiRequest = jibeiRequest;
-    }
+	public void setJibeiRequest(JibeiRequest jibeiRequest) {
+		this.jibeiRequest = jibeiRequest;
+	}
 
-
-    
 }

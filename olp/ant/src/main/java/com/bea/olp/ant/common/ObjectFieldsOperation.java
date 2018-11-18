@@ -296,7 +296,7 @@ public class ObjectFieldsOperation {
 	}
 
 	@SuppressWarnings("unchecked")
-	public static <T> Object StringToObject(String value, Class<T> c) {
+	public static <T> T StringToObject(String value, Class<T> c) {
 		JAXBContext jc;
 		try {
 			jc = JAXBContext.newInstance(c);

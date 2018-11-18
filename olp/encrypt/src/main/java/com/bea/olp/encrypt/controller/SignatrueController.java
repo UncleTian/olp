@@ -52,7 +52,7 @@ public class SignatrueController {
 	}
 
 	@RequestMapping("/signForAnt")
-	public String SignForAnt(String data) {
+	public String SignForAnt(@RequestBody String data) {
 		return SignatureUtils.generateSignature(privateKey, data);
 	}
 

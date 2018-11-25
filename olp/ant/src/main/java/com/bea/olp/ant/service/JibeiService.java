@@ -59,8 +59,8 @@ public class JibeiService {
 				antRatFirstAppInfo.setTranDate("tranDate");
 				antRatFirstAppInfo.setZmAuthFlag("zmAuthFlag");
 
-				//repo.save(antRatFirstAppInfo);
-				//kafkaTemplate.send("ant", "antRatFirstAppInfo", antRatFirstAppInfo);
+				repo.save(antRatFirstAppInfo);
+				// kafkaTemplate.send("ant", "antRatFirstAppInfo", antRatFirstAppInfo);
 				return "success";
 			} else {
 				return "fail";

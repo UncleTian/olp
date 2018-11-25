@@ -13,50 +13,50 @@ public class AntRatFirstAppInfo {
     @Id
     @GeneratedValue
     private Integer id;
-    @Column
+    @Column(nullable = true)
     private String tpNo;
-    @Column
+    @Column(nullable = true)
     private String applyNo;
-    @Column
+    @Column(nullable = true)
     private String functionId;
-    @Column
+    @Column(nullable = true)
     private String reqTime;
-    @Column
+    @Column(nullable = true)
     private String tranDate;
-    @Column
+    @Column(nullable = true)
     private String channelType;
-    @Column
+    @Column(nullable = true)
     private String coPlatform;
-    @Column
+    @Column(nullable = true)
     private String loanProp;
-    @Column
+    @Column(nullable = true)
     private String prdType;
-    @Column
+    @Column(nullable = true)
     private String prdCode;
-    @Column
+    @Column(nullable = true)
     private String certType;
-    @Column
+    @Column(nullable = true)
     private String certCode;
-    @Column
+    @Column(nullable = true)
     private String certValidDate;
-    @Column
+    @Column(nullable = true)
     private String custName;
-    @Column
+    @Column(nullable = true)
     private String phone;
-    @Column
+    @Column(nullable = true)
     private String zmAuthFlag;
-    @Column
+    @Column(nullable = true)
     private String hasJbAdmit;
-    @Column
+    @Column(nullable = true)
     private String field1;
-    @Column
+    @Column(nullable = true)
     private String field2;
-    @Column
+    @Column(nullable = true)
     private String field3;
  
-    @Column
+    @Column(nullable = true)
     private String inputDate;
-    @Column
+    @Column(nullable = true)
     private String inputTime;
 
     public String getTpNo() {
